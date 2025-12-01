@@ -499,12 +499,12 @@ public class FComplexFactory2D extends cern.colt.PersistentObject {
         System.out.println("\n\n");
         FComplexMatrix2D matrix;
         FComplexMatrix2D A, B, C, D;
-        FComplexMatrix2D _ = null;
+        FComplexMatrix2D tmp = null;
         A = make(2, 2, new float[] { 1, 2 });
         B = make(4, 4, new float[] { 3, 4 });
         C = make(4, 3, new float[] { 5, 6 });
         D = make(2, 2, new float[] { 7, 8 });
-        FComplexMatrix2D[][] parts1 = { { _, A, _ }, { B, _, C }, { _, D, _ } };
+        FComplexMatrix2D[][] parts1 = { { tmp, A, tmp }, { B, tmp, C }, { tmp, D, tmp } };
         matrix = compose(parts1);
         System.out.println("\n" + matrix);
 

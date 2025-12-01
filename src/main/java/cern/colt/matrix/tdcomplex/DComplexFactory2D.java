@@ -500,12 +500,12 @@ public class DComplexFactory2D extends cern.colt.PersistentObject {
         System.out.println("\n\n");
         DComplexMatrix2D matrix;
         DComplexMatrix2D A, B, C, D;
-        DComplexMatrix2D _ = null;
+        DComplexMatrix2D tmp = null;
         A = make(2, 2, new double[] { 1, 2 });
         B = make(4, 4, new double[] { 3, 4 });
         C = make(4, 3, new double[] { 5, 6 });
         D = make(2, 2, new double[] { 7, 8 });
-        DComplexMatrix2D[][] parts1 = { { _, A, _ }, { B, _, C }, { _, D, _ } };
+        DComplexMatrix2D[][] parts1 = { { tmp, A, tmp }, { B, tmp, C }, { tmp, D, tmp } };
         matrix = compose(parts1);
         System.out.println("\n" + matrix);
 

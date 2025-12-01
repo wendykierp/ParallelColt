@@ -688,9 +688,9 @@ public class LongFactory2D extends cern.colt.PersistentObject {
 
         LongMatrix2D A = ascending(2, 2);
         LongMatrix2D B = descending(2, 2);
-        LongMatrix2D _ = null;
+        LongMatrix2D tmp = null;
 
-        LongMatrix2D[][] parts4 = { { A, _, A, _ }, { _, A, _, B } };
+        LongMatrix2D[][] parts4 = { { A, tmp, A, tmp }, { tmp, A, tmp, B } };
         System.out.println("\n" + compose(parts4));
         // System.out.println("\n"+cern.colt.matrixpattern.Converting.toHTML(make(parts4).toString()));
 
@@ -703,12 +703,12 @@ public class LongFactory2D extends cern.colt.PersistentObject {
         System.out.println("\n\n");
         LongMatrix2D matrix;
         LongMatrix2D A, B, C, D, E, F, G;
-        LongMatrix2D _ = null;
+        LongMatrix2D tmp = null;
         A = make(2, 2, 1);
         B = make(4, 4, 2);
         C = make(4, 3, 3);
         D = make(2, 2, 4);
-        LongMatrix2D[][] parts1 = { { _, A, _ }, { B, _, C }, { _, D, _ } };
+        LongMatrix2D[][] parts1 = { { tmp, A, tmp }, { B, tmp, C }, { tmp, D, tmp } };
         matrix = compose(parts1);
         System.out.println("\n" + matrix);
 

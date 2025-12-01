@@ -686,9 +686,9 @@ public class IntFactory2D extends cern.colt.PersistentObject {
 
         IntMatrix2D A = ascending(2, 2);
         IntMatrix2D B = descending(2, 2);
-        IntMatrix2D _ = null;
+        IntMatrix2D tmp = null;
 
-        IntMatrix2D[][] parts4 = { { A, _, A, _ }, { _, A, _, B } };
+        IntMatrix2D[][] parts4 = { { A, tmp, A, tmp }, { tmp, A, tmp, B } };
         System.out.println("\n" + compose(parts4));
         // System.out.println("\n"+cern.colt.matrixpattern.Converting.toHTML(make(parts4).toString()));
 
@@ -701,12 +701,12 @@ public class IntFactory2D extends cern.colt.PersistentObject {
         System.out.println("\n\n");
         IntMatrix2D matrix;
         IntMatrix2D A, B, C, D, E, F, G;
-        IntMatrix2D _ = null;
+        IntMatrix2D tmp = null;
         A = make(2, 2, 1);
         B = make(4, 4, 2);
         C = make(4, 3, 3);
         D = make(2, 2, 4);
-        IntMatrix2D[][] parts1 = { { _, A, _ }, { B, _, C }, { _, D, _ } };
+        IntMatrix2D[][] parts1 = { { tmp, A, tmp }, { B, tmp, C }, { tmp, D, tmp } };
         matrix = compose(parts1);
         System.out.println("\n" + matrix);
 

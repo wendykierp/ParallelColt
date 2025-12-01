@@ -713,9 +713,9 @@ public class FloatFactory2D extends cern.colt.PersistentObject {
 
         FloatMatrix2D A = ascending(2, 2);
         FloatMatrix2D B = descending(2, 2);
-        FloatMatrix2D _ = null;
+        FloatMatrix2D tmp = null;
 
-        FloatMatrix2D[][] parts4 = { { A, _, A, _ }, { _, A, _, B } };
+        FloatMatrix2D[][] parts4 = { { A, tmp, A, tmp }, { tmp, A, tmp, B } };
         System.out.println("\n" + compose(parts4));
         // System.out.println("\n"+cern.colt.matrixpattern.Converting.toHTML(make(parts4).toString()));
 
@@ -728,12 +728,12 @@ public class FloatFactory2D extends cern.colt.PersistentObject {
         System.out.println("\n\n");
         FloatMatrix2D matrix;
         FloatMatrix2D A, B, C, D;
-        FloatMatrix2D _ = null;
+        FloatMatrix2D tmp = null;
         A = make(2, 2, 1);
         B = make(4, 4, 2);
         C = make(4, 3, 3);
         D = make(2, 2, 4);
-        FloatMatrix2D[][] parts1 = { { _, A, _ }, { B, _, C }, { _, D, _ } };
+        FloatMatrix2D[][] parts1 = { { tmp, A, tmp }, { B, tmp, C }, { tmp, D, tmp } };
         matrix = compose(parts1);
         System.out.println("\n" + matrix);
 
