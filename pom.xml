@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.wendykierp</groupId>
-    <artifactId>parallelcolt</artifactId>
-    <version>0.11.5-SNAPSHOT</version>
+    <artifactId>ParallelColt</artifactId>
+    <version>0.12-SNAPSHOT</version>
     <name>ParallelColt</name>
     <description>Parallel Colt is a multithreaded version of Colt - a library for high performance scientific computing in Java. It contains efficient algorithms for data analysis, linear algebra, multi-dimensional arrays, Fourier transforms, statistics and histogramming.</description>
     <url>https://github.com/wendykierp/ParallelColt</url>
@@ -74,7 +74,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.11.2</version>
+                <version>3.12.0</version>
                 <configuration>
                     <doctitle>&lt;h2&gt;&lt;a target=_top href=${project.url} &gt;Parallel Colt&lt;/a&gt; &lt;/h2&gt;&lt;h4&gt;Open Source Libraries for High Performance Scientific and Technical Computing in Java&lt;/h4&gt;&lt;hr&gt;</doctitle>
                     <show>public</show>
