@@ -319,7 +319,7 @@ class FloatQuantileCalc extends Object {
         if (args == null)
             known_N = false;
         else
-            known_N = new Boolean(args[0]).booleanValue();
+            known_N = Boolean.parseBoolean(args[0]);
 
         int[] quantiles = { 1, 1000 };
 

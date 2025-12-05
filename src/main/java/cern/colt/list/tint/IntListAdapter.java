@@ -77,7 +77,7 @@ public class IntListAdapter extends java.util.AbstractList implements java.util.
      * Transforms an element of a primitive data type to an object.
      */
     protected static Object object(int element) {
-        return new Integer(element);
+        return element;
     }
 
     /**

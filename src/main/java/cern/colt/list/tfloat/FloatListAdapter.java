@@ -77,7 +77,7 @@ public class FloatListAdapter extends java.util.AbstractList implements java.uti
      * Transforms an element of a primitive data type to an object.
      */
     protected static Object object(float element) {
-        return new Float(element);
+        return element;
     }
 
     /**

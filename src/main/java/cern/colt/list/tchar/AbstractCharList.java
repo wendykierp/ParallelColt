@@ -1016,7 +1016,7 @@ public abstract class AbstractCharList extends AbstractList {
         int mySize = size();
         java.util.ArrayList list = new java.util.ArrayList(mySize);
         for (int i = 0; i < mySize; i++)
-            list.add(new Character(get(i)));
+            list.add(get(i));
         return list;
     }
 
