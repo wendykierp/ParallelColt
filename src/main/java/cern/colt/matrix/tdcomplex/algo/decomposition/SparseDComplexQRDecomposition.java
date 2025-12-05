@@ -5,17 +5,17 @@ import cern.colt.matrix.tdcomplex.DComplexMatrix2D;
 import cern.colt.matrix.tdcomplex.algo.DComplexProperty;
 import cern.colt.matrix.tdcomplex.impl.SparseCCDComplexMatrix2D;
 import cern.colt.matrix.tdcomplex.impl.SparseRCDComplexMatrix2D;
-import edu.emory.mathcs.csparsej.tdcomplex.DZcs_common.DZcsa;
-import edu.emory.mathcs.csparsej.tdcomplex.DZcs_happly;
-import edu.emory.mathcs.csparsej.tdcomplex.DZcs_ipvec;
-import edu.emory.mathcs.csparsej.tdcomplex.DZcs_pvec;
-import edu.emory.mathcs.csparsej.tdcomplex.DZcs_qr;
-import edu.emory.mathcs.csparsej.tdcomplex.DZcs_sqr;
-import edu.emory.mathcs.csparsej.tdcomplex.DZcs_usolve;
-import edu.emory.mathcs.csparsej.tdcomplex.DZcs_utsolve;
-import edu.emory.mathcs.csparsej.tdcomplex.DZcs_common.DZcs;
-import edu.emory.mathcs.csparsej.tdcomplex.DZcs_common.DZcsn;
-import edu.emory.mathcs.csparsej.tdcomplex.DZcs_common.DZcss;
+import com.github.wendykierp.csparsej.tdcomplex.DZcs_common.DZcsa;
+import com.github.wendykierp.csparsej.tdcomplex.DZcs_happly;
+import com.github.wendykierp.csparsej.tdcomplex.DZcs_ipvec;
+import com.github.wendykierp.csparsej.tdcomplex.DZcs_pvec;
+import com.github.wendykierp.csparsej.tdcomplex.DZcs_qr;
+import com.github.wendykierp.csparsej.tdcomplex.DZcs_sqr;
+import com.github.wendykierp.csparsej.tdcomplex.DZcs_usolve;
+import com.github.wendykierp.csparsej.tdcomplex.DZcs_utsolve;
+import com.github.wendykierp.csparsej.tdcomplex.DZcs_common.DZcs;
+import com.github.wendykierp.csparsej.tdcomplex.DZcs_common.DZcsn;
+import com.github.wendykierp.csparsej.tdcomplex.DZcs_common.DZcss;
 
 /**
  * For an <tt>m x n</tt> matrix <tt>A</tt> with <tt>m >= n</tt>, the QR

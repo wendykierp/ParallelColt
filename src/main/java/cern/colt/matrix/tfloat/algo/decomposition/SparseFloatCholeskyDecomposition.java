@@ -13,15 +13,15 @@ import cern.colt.matrix.tfloat.FloatMatrix2D;
 import cern.colt.matrix.tfloat.algo.FloatProperty;
 import cern.colt.matrix.tfloat.impl.SparseCCFloatMatrix2D;
 import cern.colt.matrix.tfloat.impl.SparseRCFloatMatrix2D;
-import edu.emory.mathcs.csparsej.tfloat.Scs_chol;
-import edu.emory.mathcs.csparsej.tfloat.Scs_ipvec;
-import edu.emory.mathcs.csparsej.tfloat.Scs_lsolve;
-import edu.emory.mathcs.csparsej.tfloat.Scs_ltsolve;
-import edu.emory.mathcs.csparsej.tfloat.Scs_pvec;
-import edu.emory.mathcs.csparsej.tfloat.Scs_schol;
-import edu.emory.mathcs.csparsej.tfloat.Scs_common.Scs;
-import edu.emory.mathcs.csparsej.tfloat.Scs_common.Scsn;
-import edu.emory.mathcs.csparsej.tfloat.Scs_common.Scss;
+import com.github.wendykierp.csparsej.tfloat.Scs_chol;
+import com.github.wendykierp.csparsej.tfloat.Scs_ipvec;
+import com.github.wendykierp.csparsej.tfloat.Scs_lsolve;
+import com.github.wendykierp.csparsej.tfloat.Scs_ltsolve;
+import com.github.wendykierp.csparsej.tfloat.Scs_pvec;
+import com.github.wendykierp.csparsej.tfloat.Scs_schol;
+import com.github.wendykierp.csparsej.tfloat.Scs_common.Scs;
+import com.github.wendykierp.csparsej.tfloat.Scs_common.Scsn;
+import com.github.wendykierp.csparsej.tfloat.Scs_common.Scss;
 
 /**
  * For a symmetric, positive definite matrix <tt>A</tt>, the Cholesky

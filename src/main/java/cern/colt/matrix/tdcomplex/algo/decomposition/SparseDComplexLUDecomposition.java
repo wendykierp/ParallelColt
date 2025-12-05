@@ -6,17 +6,17 @@ import cern.colt.matrix.tdcomplex.algo.DComplexProperty;
 import cern.colt.matrix.tdcomplex.impl.SparseCCDComplexMatrix2D;
 import cern.colt.matrix.tdcomplex.impl.SparseRCDComplexMatrix2D;
 import cern.jet.math.tdcomplex.DComplexFunctions;
-import edu.emory.mathcs.csparsej.tdcomplex.DZcs_common.DZcsa;
-import edu.emory.mathcs.csparsej.tdcomplex.DZcs_dmperm;
-import edu.emory.mathcs.csparsej.tdcomplex.DZcs_ipvec;
-import edu.emory.mathcs.csparsej.tdcomplex.DZcs_lsolve;
-import edu.emory.mathcs.csparsej.tdcomplex.DZcs_lu;
-import edu.emory.mathcs.csparsej.tdcomplex.DZcs_sqr;
-import edu.emory.mathcs.csparsej.tdcomplex.DZcs_usolve;
-import edu.emory.mathcs.csparsej.tdcomplex.DZcs_common.DZcs;
-import edu.emory.mathcs.csparsej.tdcomplex.DZcs_common.DZcsd;
-import edu.emory.mathcs.csparsej.tdcomplex.DZcs_common.DZcsn;
-import edu.emory.mathcs.csparsej.tdcomplex.DZcs_common.DZcss;
+import com.github.wendykierp.csparsej.tdcomplex.DZcs_common.DZcsa;
+import com.github.wendykierp.csparsej.tdcomplex.DZcs_dmperm;
+import com.github.wendykierp.csparsej.tdcomplex.DZcs_ipvec;
+import com.github.wendykierp.csparsej.tdcomplex.DZcs_lsolve;
+import com.github.wendykierp.csparsej.tdcomplex.DZcs_lu;
+import com.github.wendykierp.csparsej.tdcomplex.DZcs_sqr;
+import com.github.wendykierp.csparsej.tdcomplex.DZcs_usolve;
+import com.github.wendykierp.csparsej.tdcomplex.DZcs_common.DZcs;
+import com.github.wendykierp.csparsej.tdcomplex.DZcs_common.DZcsd;
+import com.github.wendykierp.csparsej.tdcomplex.DZcs_common.DZcsn;
+import com.github.wendykierp.csparsej.tdcomplex.DZcs_common.DZcss;
 
 /**
  * For a square matrix <tt>A</tt>, the LU decomposition is an unit lower

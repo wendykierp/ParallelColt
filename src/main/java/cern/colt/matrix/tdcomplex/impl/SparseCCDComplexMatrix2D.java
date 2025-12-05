@@ -16,8 +16,8 @@ import cern.colt.list.tint.IntArrayList;
 import cern.colt.matrix.tdcomplex.DComplexMatrix1D;
 import cern.colt.matrix.tdcomplex.DComplexMatrix2D;
 import cern.jet.math.tdcomplex.DComplex;
-import edu.emory.mathcs.csparsej.tdcomplex.DZcs_common.DZcs;
-import edu.emory.mathcs.csparsej.tdcomplex.DZcs_transpose;
+import com.github.wendykierp.csparsej.tdcomplex.DZcs_common.DZcs;
+import com.github.wendykierp.csparsej.tdcomplex.DZcs_transpose;
 import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
 
 /**

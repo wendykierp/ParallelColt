@@ -6,7 +6,7 @@ import cern.colt.matrix.tdouble.algo.DoubleProperty;
 import cern.colt.matrix.tdouble.impl.SparseCCDoubleMatrix2D;
 import cern.colt.matrix.tdouble.impl.SparseRCDoubleMatrix2D;
 
-import edu.emory.mathcs.csparsej.tdouble.Dcs_common.Dcs;
+import com.github.wendykierp.csparsej.tdouble.Dcs_common.Dcs;
 import edu.ufl.cise.klu.common.KLU_common;
 import edu.ufl.cise.klu.common.KLU_numeric;
 import edu.ufl.cise.klu.common.KLU_symbolic;

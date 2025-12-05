@@ -16,8 +16,8 @@ import cern.colt.matrix.tfloat.algo.decomposition.SparseFloatQRDecomposition;
 import cern.colt.matrix.tfloat.impl.DenseFloatMatrix1D;
 import cern.colt.matrix.tfloat.impl.SparseCCFloatMatrix2D;
 import cern.colt.matrix.tfloat.impl.SparseRCFloatMatrix2D;
-import edu.emory.mathcs.csparsej.tfloat.Scs_norm;
-import edu.emory.mathcs.csparsej.tfloat.Scs_common.Scs;
+import com.github.wendykierp.csparsej.tfloat.Scs_norm;
+import com.github.wendykierp.csparsej.tfloat.Scs_common.Scs;
 
 /**
  * Linear algebraic matrix operations operating on sparse matrices.

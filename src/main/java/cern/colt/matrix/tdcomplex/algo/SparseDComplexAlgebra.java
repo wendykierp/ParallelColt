@@ -16,8 +16,8 @@ import cern.colt.matrix.tdcomplex.algo.decomposition.SparseDComplexQRDecompositi
 import cern.colt.matrix.tdcomplex.impl.DenseDComplexMatrix1D;
 import cern.colt.matrix.tdcomplex.impl.SparseCCDComplexMatrix2D;
 import cern.colt.matrix.tdcomplex.impl.SparseRCDComplexMatrix2D;
-import edu.emory.mathcs.csparsej.tdcomplex.DZcs_norm;
-import edu.emory.mathcs.csparsej.tdcomplex.DZcs_common.DZcs;
+import com.github.wendykierp.csparsej.tdcomplex.DZcs_norm;
+import com.github.wendykierp.csparsej.tdcomplex.DZcs_common.DZcs;
 
 /**
  * Linear algebraic matrix operations operating on sparse matrices.

@@ -5,16 +5,16 @@ import cern.colt.matrix.tdouble.DoubleMatrix2D;
 import cern.colt.matrix.tdouble.algo.DoubleProperty;
 import cern.colt.matrix.tdouble.impl.SparseCCDoubleMatrix2D;
 import cern.colt.matrix.tdouble.impl.SparseRCDoubleMatrix2D;
-import edu.emory.mathcs.csparsej.tdouble.Dcs_happly;
-import edu.emory.mathcs.csparsej.tdouble.Dcs_ipvec;
-import edu.emory.mathcs.csparsej.tdouble.Dcs_pvec;
-import edu.emory.mathcs.csparsej.tdouble.Dcs_qr;
-import edu.emory.mathcs.csparsej.tdouble.Dcs_sqr;
-import edu.emory.mathcs.csparsej.tdouble.Dcs_usolve;
-import edu.emory.mathcs.csparsej.tdouble.Dcs_utsolve;
-import edu.emory.mathcs.csparsej.tdouble.Dcs_common.Dcs;
-import edu.emory.mathcs.csparsej.tdouble.Dcs_common.Dcsn;
-import edu.emory.mathcs.csparsej.tdouble.Dcs_common.Dcss;
+import com.github.wendykierp.csparsej.tdouble.Dcs_happly;
+import com.github.wendykierp.csparsej.tdouble.Dcs_ipvec;
+import com.github.wendykierp.csparsej.tdouble.Dcs_pvec;
+import com.github.wendykierp.csparsej.tdouble.Dcs_qr;
+import com.github.wendykierp.csparsej.tdouble.Dcs_sqr;
+import com.github.wendykierp.csparsej.tdouble.Dcs_usolve;
+import com.github.wendykierp.csparsej.tdouble.Dcs_utsolve;
+import com.github.wendykierp.csparsej.tdouble.Dcs_common.Dcs;
+import com.github.wendykierp.csparsej.tdouble.Dcs_common.Dcsn;
+import com.github.wendykierp.csparsej.tdouble.Dcs_common.Dcss;
 
 /**
  * For an <tt>m x n</tt> matrix <tt>A</tt> with <tt>m >= n</tt>, the QR

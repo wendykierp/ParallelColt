@@ -15,14 +15,14 @@ import cern.colt.list.tdouble.DoubleArrayList;
 import cern.colt.list.tint.IntArrayList;
 import cern.colt.matrix.tdouble.DoubleMatrix1D;
 import cern.colt.matrix.tdouble.DoubleMatrix2D;
-import edu.emory.mathcs.csparsej.tdouble.Dcs_add;
-import edu.emory.mathcs.csparsej.tdouble.Dcs_cumsum;
-import edu.emory.mathcs.csparsej.tdouble.Dcs_dropzeros;
-import edu.emory.mathcs.csparsej.tdouble.Dcs_dupl;
-import edu.emory.mathcs.csparsej.tdouble.Dcs_multiply;
-import edu.emory.mathcs.csparsej.tdouble.Dcs_transpose;
-import edu.emory.mathcs.csparsej.tdouble.Dcs_util;
-import edu.emory.mathcs.csparsej.tdouble.Dcs_common.Dcs;
+import com.github.wendykierp.csparsej.tdouble.Dcs_add;
+import com.github.wendykierp.csparsej.tdouble.Dcs_cumsum;
+import com.github.wendykierp.csparsej.tdouble.Dcs_dropzeros;
+import com.github.wendykierp.csparsej.tdouble.Dcs_dupl;
+import com.github.wendykierp.csparsej.tdouble.Dcs_multiply;
+import com.github.wendykierp.csparsej.tdouble.Dcs_transpose;
+import com.github.wendykierp.csparsej.tdouble.Dcs_util;
+import com.github.wendykierp.csparsej.tdouble.Dcs_common.Dcs;
 import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
 
 /**

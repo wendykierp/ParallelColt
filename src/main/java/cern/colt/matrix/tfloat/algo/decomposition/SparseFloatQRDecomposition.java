@@ -5,16 +5,16 @@ import cern.colt.matrix.tfloat.FloatMatrix2D;
 import cern.colt.matrix.tfloat.algo.FloatProperty;
 import cern.colt.matrix.tfloat.impl.SparseCCFloatMatrix2D;
 import cern.colt.matrix.tfloat.impl.SparseRCFloatMatrix2D;
-import edu.emory.mathcs.csparsej.tfloat.Scs_happly;
-import edu.emory.mathcs.csparsej.tfloat.Scs_ipvec;
-import edu.emory.mathcs.csparsej.tfloat.Scs_pvec;
-import edu.emory.mathcs.csparsej.tfloat.Scs_qr;
-import edu.emory.mathcs.csparsej.tfloat.Scs_sqr;
-import edu.emory.mathcs.csparsej.tfloat.Scs_usolve;
-import edu.emory.mathcs.csparsej.tfloat.Scs_utsolve;
-import edu.emory.mathcs.csparsej.tfloat.Scs_common.Scs;
-import edu.emory.mathcs.csparsej.tfloat.Scs_common.Scsn;
-import edu.emory.mathcs.csparsej.tfloat.Scs_common.Scss;
+import com.github.wendykierp.csparsej.tfloat.Scs_happly;
+import com.github.wendykierp.csparsej.tfloat.Scs_ipvec;
+import com.github.wendykierp.csparsej.tfloat.Scs_pvec;
+import com.github.wendykierp.csparsej.tfloat.Scs_qr;
+import com.github.wendykierp.csparsej.tfloat.Scs_sqr;
+import com.github.wendykierp.csparsej.tfloat.Scs_usolve;
+import com.github.wendykierp.csparsej.tfloat.Scs_utsolve;
+import com.github.wendykierp.csparsej.tfloat.Scs_common.Scs;
+import com.github.wendykierp.csparsej.tfloat.Scs_common.Scsn;
+import com.github.wendykierp.csparsej.tfloat.Scs_common.Scss;
 
 /**
  * For an <tt>m x n</tt> matrix <tt>A</tt> with <tt>m >= n</tt>, the QR

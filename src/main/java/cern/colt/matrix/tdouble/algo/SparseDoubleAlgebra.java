@@ -17,8 +17,8 @@ import cern.colt.matrix.tdouble.algo.decomposition.SparseDoubleQRDecomposition;
 import cern.colt.matrix.tdouble.impl.DenseDoubleMatrix1D;
 import cern.colt.matrix.tdouble.impl.SparseCCDoubleMatrix2D;
 import cern.colt.matrix.tdouble.impl.SparseRCDoubleMatrix2D;
-import edu.emory.mathcs.csparsej.tdouble.Dcs_norm;
-import edu.emory.mathcs.csparsej.tdouble.Dcs_common.Dcs;
+import com.github.wendykierp.csparsej.tdouble.Dcs_norm;
+import com.github.wendykierp.csparsej.tdouble.Dcs_common.Dcs;
 
 /**
  * Linear algebraic matrix operations operating on sparse matrices.

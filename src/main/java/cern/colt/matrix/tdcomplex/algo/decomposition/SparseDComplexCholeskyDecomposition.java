@@ -13,16 +13,16 @@ import cern.colt.matrix.tdcomplex.DComplexMatrix2D;
 import cern.colt.matrix.tdcomplex.algo.DComplexProperty;
 import cern.colt.matrix.tdcomplex.impl.SparseCCDComplexMatrix2D;
 import cern.colt.matrix.tdcomplex.impl.SparseRCDComplexMatrix2D;
-import edu.emory.mathcs.csparsej.tdcomplex.DZcs_chol;
-import edu.emory.mathcs.csparsej.tdcomplex.DZcs_common.DZcsa;
-import edu.emory.mathcs.csparsej.tdcomplex.DZcs_ipvec;
-import edu.emory.mathcs.csparsej.tdcomplex.DZcs_lsolve;
-import edu.emory.mathcs.csparsej.tdcomplex.DZcs_ltsolve;
-import edu.emory.mathcs.csparsej.tdcomplex.DZcs_pvec;
-import edu.emory.mathcs.csparsej.tdcomplex.DZcs_schol;
-import edu.emory.mathcs.csparsej.tdcomplex.DZcs_common.DZcs;
-import edu.emory.mathcs.csparsej.tdcomplex.DZcs_common.DZcsn;
-import edu.emory.mathcs.csparsej.tdcomplex.DZcs_common.DZcss;
+import com.github.wendykierp.csparsej.tdcomplex.DZcs_chol;
+import com.github.wendykierp.csparsej.tdcomplex.DZcs_common.DZcsa;
+import com.github.wendykierp.csparsej.tdcomplex.DZcs_ipvec;
+import com.github.wendykierp.csparsej.tdcomplex.DZcs_lsolve;
+import com.github.wendykierp.csparsej.tdcomplex.DZcs_ltsolve;
+import com.github.wendykierp.csparsej.tdcomplex.DZcs_pvec;
+import com.github.wendykierp.csparsej.tdcomplex.DZcs_schol;
+import com.github.wendykierp.csparsej.tdcomplex.DZcs_common.DZcs;
+import com.github.wendykierp.csparsej.tdcomplex.DZcs_common.DZcsn;
+import com.github.wendykierp.csparsej.tdcomplex.DZcs_common.DZcss;
 
 /**
  * For a symmetric, positive definite matrix <tt>A</tt>, the Cholesky

@@ -2,7 +2,7 @@ package cern.colt.matrix.tdouble.algo.decomposition;
 
 import cern.colt.matrix.tdouble.DoubleMatrix1D;
 import cern.colt.matrix.tdouble.DoubleMatrix2D;
-import edu.emory.mathcs.csparsej.tdouble.Dcs_common.Dcss;
+import com.github.wendykierp.csparsej.tdouble.Dcs_common.Dcss;
 
 /**
  * For a square matrix <tt>A</tt>, the LU decomposition is an unit lower

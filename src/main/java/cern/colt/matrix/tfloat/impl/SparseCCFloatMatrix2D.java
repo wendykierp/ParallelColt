@@ -15,14 +15,14 @@ import cern.colt.list.tfloat.FloatArrayList;
 import cern.colt.list.tint.IntArrayList;
 import cern.colt.matrix.tfloat.FloatMatrix1D;
 import cern.colt.matrix.tfloat.FloatMatrix2D;
-import edu.emory.mathcs.csparsej.tfloat.Scs_add;
-import edu.emory.mathcs.csparsej.tfloat.Scs_cumsum;
-import edu.emory.mathcs.csparsej.tfloat.Scs_dropzeros;
-import edu.emory.mathcs.csparsej.tfloat.Scs_dupl;
-import edu.emory.mathcs.csparsej.tfloat.Scs_multiply;
-import edu.emory.mathcs.csparsej.tfloat.Scs_transpose;
-import edu.emory.mathcs.csparsej.tfloat.Scs_util;
-import edu.emory.mathcs.csparsej.tfloat.Scs_common.Scs;
+import com.github.wendykierp.csparsej.tfloat.Scs_add;
+import com.github.wendykierp.csparsej.tfloat.Scs_cumsum;
+import com.github.wendykierp.csparsej.tfloat.Scs_dropzeros;
+import com.github.wendykierp.csparsej.tfloat.Scs_dupl;
+import com.github.wendykierp.csparsej.tfloat.Scs_multiply;
+import com.github.wendykierp.csparsej.tfloat.Scs_transpose;
+import com.github.wendykierp.csparsej.tfloat.Scs_util;
+import com.github.wendykierp.csparsej.tfloat.Scs_common.Scs;
 import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
 
 /**
