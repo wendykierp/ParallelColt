@@ -212,8 +212,8 @@
 
         <dependency>
             <groupId>com.github.wendykierp</groupId>
-            <artifactId>csparsej</artifactId>
-            <version>1.1.2-SNAPSHOT</version>
+            <artifactId>CSparseJ</artifactId>
+            <version>1.2</version>
         </dependency>
 
         <dependency>
