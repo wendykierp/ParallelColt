@@ -17,7 +17,7 @@ import org.jtransforms.dct.DoubleDCT_2D;
 import org.jtransforms.dht.DoubleDHT_2D;
 import org.jtransforms.dst.DoubleDST_2D;
 import org.jtransforms.fft.DoubleFFT_2D;
-import org.netlib.blas.BLAS;
+import dev.ludovic.netlib.blas.BLAS;
 
 import cern.colt.function.tdouble.DoubleDoubleFunction;
 import cern.colt.function.tdouble.DoubleFunction;

@@ -223,21 +223,28 @@
         </dependency>
 
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.2</version>
-            <scope>test</scope>
+            <groupId>dev.ludovic.netlib</groupId>
+            <artifactId>lapack</artifactId>
+            <version>3.0.5</version>
         </dependency>
-
+        
         <dependency>
-            <groupId>com.googlecode.netlib-java</groupId>
-            <artifactId>netlib-java</artifactId>
-            <version>0.9.3</version>
+            <groupId>dev.ludovic.netlib</groupId>
+            <artifactId>blas</artifactId>
+            <version>3.0.5</version>
         </dependency>
+        
         <dependency>
             <groupId>com.github.rwl</groupId>
             <artifactId>JKLU</artifactId>
             <version>1.0.0</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

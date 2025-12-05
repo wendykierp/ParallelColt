@@ -7,6 +7,8 @@ import cern.colt.matrix.tdouble.algo.DoubleProperty;
 import cern.colt.matrix.tdouble.impl.DenseColumnDoubleMatrix2D;
 import cern.colt.matrix.tdouble.impl.DenseDoubleMatrix2D;
 import com.github.wendykierp.jplasma.tdouble.Dplasma;
+import dev.ludovic.netlib.lapack.LAPACK;
+import dev.ludovic.netlib.blas.BLAS;
 
 public class TestDenseDoubleCholeskyDecomposition {
 
@@ -157,20 +159,20 @@ public class TestDenseDoubleCholeskyDecomposition {
 
         alpha = 1.0;
 
-        org.netlib.lapack.Dlacpy.dlacpy("ALL", N, N, A1elems, 0, LDA, Residual, 0, N);
+        LAPACK.getInstance().dlacpy("ALL", N, N, A1elems, 0, LDA, Residual, 0, N);
 
         /* Dealing with L'L or U'U  */
-        org.netlib.lapack.Dlacpy.dlacpy(Dplasma.lapack_const(Dplasma.PlasmaUpper), N, N, A2elems, 0, LDA, L1, 0, N);
-        org.netlib.lapack.Dlacpy.dlacpy(Dplasma.lapack_const(Dplasma.PlasmaUpper), N, N, A2elems, 0, LDA, L2, 0, N);
-        org.netlib.blas.Dtrmm.dtrmm("L", "U", "T", "N", N, N, alpha, L1, 0, N, L2, 0, N);
+        LAPACK.getInstance().dlacpy(Dplasma.lapack_const(Dplasma.PlasmaUpper), N, N, A2elems, 0, LDA, L1, 0, N);
+        LAPACK.getInstance().dlacpy(Dplasma.lapack_const(Dplasma.PlasmaUpper), N, N, A2elems, 0, LDA, L2, 0, N);
+        BLAS.getInstance().dtrmm("L", "U", "T", "N", N, N, alpha, L1, 0, N, L2, 0, N);
 
         /* Compute the Residual || A -L'L|| */
         for (i = 0; i < N; i++)
             for (j = 0; j < N; j++)
                 Residual[j * N + i] = L2[j * N + i] - Residual[j * N + i];
 
-        Rnorm = org.netlib.lapack.Dlange.dlange(norm, N, N, Residual, 0, N, work, 0);
-        Anorm = org.netlib.lapack.Dlange.dlange(norm, N, N, A1elems, 0, LDA, work, 0);
+        Rnorm = LAPACK.getInstance().dlange(norm, N, N, Residual, 0, N, work, 0);
+        Anorm = LAPACK.getInstance().dlange(norm, N, N, A1elems, 0, LDA, work, 0);
 
         System.out.print("============\n");
         System.out.print("Checking the Cholesky Factorization \n");
@@ -228,13 +230,13 @@ public class TestDenseDoubleCholeskyDecomposition {
         alpha = 1.0;
         beta = -1.0;
 
-        Xnorm = org.netlib.lapack.Dlange.dlange(norm, N, NRHS, B2elems, 0, LDB, work, 0);
-        Anorm = org.netlib.lapack.Dlange.dlange(norm, N, N, A1elems, 0, LDA, work, 0);
-        Bnorm = org.netlib.lapack.Dlange.dlange(norm, N, NRHS, B1elems, 0, LDB, work, 0);
+        Xnorm = LAPACK.getInstance().dlange(norm, N, NRHS, B2elems, 0, LDB, work, 0);
+        Anorm = LAPACK.getInstance().dlange(norm, N, N, A1elems, 0, LDA, work, 0);
+        Bnorm = LAPACK.getInstance().dlange(norm, N, NRHS, B1elems, 0, LDB, work, 0);
 
-        org.netlib.blas.Dgemm.dgemm("N", "N", N, NRHS, N, alpha, A1elems, 0, LDA, B2elems, 0, LDB, beta, B1elems, 0,
+        BLAS.getInstance().dgemm("N", "N", N, NRHS, N, alpha, A1elems, 0, LDA, B2elems, 0, LDB, beta, B1elems, 0,
                 LDB);
-        Rnorm = org.netlib.lapack.Dlange.dlange(norm, N, NRHS, B1elems, 0, LDB, work, 0);
+        Rnorm = LAPACK.getInstance().dlange(norm, N, NRHS, B1elems, 0, LDB, work, 0);
 
         System.out.print("============\n");
         System.out.print("Checking the Residual of the solution \n");

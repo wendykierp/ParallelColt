@@ -13,7 +13,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
-import org.netlib.blas.BLAS;
+import dev.ludovic.netlib.blas.BLAS;
 
 import cern.colt.function.tfloat.FloatFloatFunction;
 import cern.colt.function.tfloat.FloatFunction;
