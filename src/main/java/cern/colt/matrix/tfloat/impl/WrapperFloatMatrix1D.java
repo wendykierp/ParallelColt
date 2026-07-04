@@ -13,7 +13,7 @@ import cern.colt.matrix.tfloat.FloatMatrix2D;
 import cern.colt.matrix.tfloat.FloatMatrix3D;
 
 /**
- * 1-d matrix holding <tt>float</tt> elements; either a view wrapping another
+ * 1-d matrix holding <code>float</code> elements; either a view wrapping another
  * matrix or a matrix whose views are wrappers.
  * 
  * @author wolfgang.hoschek@cern.ch

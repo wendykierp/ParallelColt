@@ -63,12 +63,14 @@ public abstract class AbstractCollection extends cern.colt.PersistentObject {
     /**
      * Returns a <code>java.util.ArrayList</code> containing all the elements in
      * the receiver.
+     * @return 
      */
     public abstract java.util.ArrayList toList();
 
     /**
      * Returns a string representation of the receiver, containing the String
      * representation of each element.
+     * @return 
      */
 
     public String toString() {

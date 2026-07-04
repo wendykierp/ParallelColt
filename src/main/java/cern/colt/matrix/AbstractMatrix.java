@@ -49,6 +49,7 @@ public abstract class AbstractMatrix extends cern.colt.PersistentObject {
 
     /**
      * Returns whether the receiver is a view or not.
+     * @return 
      */
     public boolean isView() {
         return !this.isNoView;
@@ -56,6 +57,7 @@ public abstract class AbstractMatrix extends cern.colt.PersistentObject {
 
     /**
      * Returns the number of cells.
+     * @return 
      */
     public abstract long size();
 

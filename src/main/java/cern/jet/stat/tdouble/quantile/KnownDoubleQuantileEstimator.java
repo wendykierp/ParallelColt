@@ -14,17 +14,17 @@ import cern.jet.random.tdouble.engine.DoubleRandomEngine;
 import cern.jet.random.tdouble.sampling.DoubleRandomSamplingAssistant;
 
 /**
- * Approximate quantile finding algorithm for known <tt>N</tt> requiring only
+ * Approximate quantile finding algorithm for known <code>N</code> requiring only
  * one pass and little main memory; computes quantiles over a sequence of
- * <tt>double</tt> elements.
+ * <code>double</code> elements.
  * 
  * <p>
  * Needs as input the following parameters:
  * <p>
- * <dt>1. <tt>N</tt> - the number of values of the data sequence over which
+ * <dt>1. <code>N</code> - the number of values of the data sequence over which
  * quantiles are to be determined.
- * <dt>2. <tt>quantiles</tt> - the number of quantiles to be computed.
- * <dt>3. <tt>epsilon</tt> - the allowed approximation error on quantiles. The
+ * <dt>2. <code>quantiles</code> - the number of quantiles to be computed.
+ * <dt>3. <code>epsilon</code> - the allowed approximation error on quantiles. The
  * approximation guarantee of this algorithm is explicit.
  * 
  * <p>
@@ -33,12 +33,12 @@ import cern.jet.random.tdouble.sampling.DoubleRandomSamplingAssistant;
  * approximation guarantees are explicit but probabilistic, i.e. they apply with
  * respect to a (user controlled) confidence parameter "delta".
  * 
- * <dt>4. <tt>delta</tt> - the probability allowed that the approximation error
- * fails to be smaller than epsilon. Set <tt>delta</tt> to zero for explicit non
+ * <dt>4. <code>delta</code> - the probability allowed that the approximation error
+ * fails to be smaller than epsilon. Set <code>delta</code> to zero for explicit non
  * probabilistic guarantees.
  * 
  * You usually don't instantiate quantile finders by using the constructor.
- * Instead use the factory <tt>QuantileFinderFactor</tt> to do so. It will set
+ * Instead use the factory <code>QuantileFinderFactor</code> to do so. It will set
  * up the right parametrization for you.
  * 
  * <p>
@@ -227,7 +227,7 @@ class KnownDoubleQuantileEstimator extends DoubleQuantileEstimator {
      * 
      * @param phis
      *            the quantiles for which elements are to be computed. Each phi
-     *            must be in the interval [0.0,1.0]. <tt>phis</tt> must be
+     *            must be in the interval [0.0,1.0]. <code>phis</code> must be
      *            sorted ascending.
      * @return the approximate quantile elements.
      */

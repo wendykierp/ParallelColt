@@ -33,7 +33,7 @@ import cern.jet.stat.tdouble.Probability;
  *  -inf.
  * </pre>
  * 
- * where <tt>v = variance = standardDeviation^2</tt>.
+ * where <code>v = variance = standardDeviation^2</code>.
  * <p>
  * Instance methods operate on a user supplied uniform random number generator;
  * they are unsynchronized.
@@ -72,6 +72,9 @@ public class Normal extends AbstractContinousDoubleDistribution {
     /**
      * Constructs a normal (gauss) distribution. Example: mean=0.0,
      * standardDeviation=1.0.
+     * @param mean
+     * @param randomGenerator
+     * @param standardDeviation
      */
     public Normal(double mean, double standardDeviation, DoubleRandomEngine randomGenerator) {
         setRandomGenerator(randomGenerator);
@@ -80,6 +83,8 @@ public class Normal extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns the cumulative distribution function.
+     * @param x
+     * @return 
      */
     public double cdf(double x) {
         return Probability.normal(mean, variance, x);
@@ -87,6 +92,7 @@ public class Normal extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a random number from the distribution.
+     * @return 
      */
 
     public double nextDouble() {
@@ -96,6 +102,9 @@ public class Normal extends AbstractContinousDoubleDistribution {
     /**
      * Returns a random number from the distribution; bypasses the internal
      * state.
+     * @param mean
+     * @param standardDeviation
+     * @return 
      */
     public double nextDouble(double mean, double standardDeviation) {
         // Uses polar Box-Muller transformation.
@@ -122,6 +131,8 @@ public class Normal extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns the probability distribution function.
+     * @param x
+     * @return 
      */
     public double pdf(double x) {
         double diff = x - mean;
@@ -130,6 +141,7 @@ public class Normal extends AbstractContinousDoubleDistribution {
 
     /**
      * Sets the uniform random generator internally used.
+     * @param randomGenerator
      */
 
     protected void setRandomGenerator(DoubleRandomEngine randomGenerator) {
@@ -139,6 +151,8 @@ public class Normal extends AbstractContinousDoubleDistribution {
 
     /**
      * Sets the mean and variance.
+     * @param mean
+     * @param standardDeviation
      */
     public void setState(double mean, double standardDeviation) {
         if (mean != this.mean || standardDeviation != this.standardDeviation) {
@@ -154,6 +168,9 @@ public class Normal extends AbstractContinousDoubleDistribution {
     /**
      * Returns a random number from the distribution with the given mean and
      * standard deviation.
+     * @param mean
+     * @param standardDeviation
+     * @return 
      */
     public static double staticNextDouble(double mean, double standardDeviation) {
         synchronized (shared) {
@@ -163,6 +180,7 @@ public class Normal extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a String representation of the receiver.
+     * @return 
      */
 
     public String toString() {

@@ -1,26 +1,26 @@
 <HTML>
 <BODY>
-Resizable lists holding objects or primitive data types such as <tt>int</tt>, 
-  <tt>double</tt>, etc. For non-resizable lists (1-dimensional matrices) see 
+Resizable lists holding objects or primitive data types such as <code>int</code>, 
+  <code>double</code>, etc. For non-resizable lists (1-dimensional matrices) see 
   package {@link cern.colt.matrix}.<p></p>
 <h1><a name="Overview"></a>Getting Started</h1>
 <h2>1. Overview</h2>
 <p>The list package offers flexible object oriented abstractions modelling dynamically 
-  resizing lists holding objects or primitive data types such as <tt>int</tt>, 
-  <tt>double</tt>, etc. It is designed to be scalable in terms of performance 
+  resizing lists holding objects or primitive data types such as <code>int</code>, 
+  <code>double</code>, etc. It is designed to be scalable in terms of performance 
   and memory requirements.</p>
 <p>Features include: </p>
 <p></p>
 <ul>
-  <li>Lists operating on objects as well as all primitive data types such as <tt>int</tt>, 
-    <tt>double</tt>, etc.</li>
+  <li>Lists operating on objects as well as all primitive data types such as <code>int</code>, 
+    <code>double</code>, etc.</li>
   <li>Compact representations</li>
   <li>A number of general purpose list operations including: adding, inserting, 
     removing, iterating, searching, sorting, extracting ranges and copying. All 
     operations are designed to perform well on mass data.</li>
   <li>Support for quick access to list elements. This is achieved by bounds-checking 
     and non-bounds-checking accessor methods as well as zero-copy transformations 
-    to primitive arrays such as <tt>int[]</tt>, <tt>double[]</tt>, etc. 
+    to primitive arrays such as <code>int[]</code>, <code>double[]</code>, etc. 
   </li>
   <li>Allows to use high level algorithms on primitive data types without any 
     space and time overhead. Operations on primitive arrays, Colt lists and JAL 
@@ -41,11 +41,11 @@ Resizable lists holding objects or primitive data types such as <tt>int</tt>,
   indexes. Lists may be implemented in different ways (most commonly with arrays). 
   A resizable list automatically grows as elements are added. The lists of this 
   package do not automatically shrink. Shrinking needs to be triggered by explicitly 
-  calling <tt>trimToSize()</tt> methods.</p>
+  calling <code>trimToSize()</code> methods.</p>
 <p><i>Growing policy</i>: A list implemented with arrays initially has a certain 
-  <tt>initialCapacity</tt> - per default 10 elements, but customizable upon instance 
+  <code>initialCapacity</code> - per default 10 elements, but customizable upon instance 
   construction. As elements are added, this capacity may nomore be sufficient. 
-  When a list is automatically grown, its capacity is expanded to <tt>1.5*currentCapacity</tt>. 
+  When a list is automatically grown, its capacity is expanded to <code>1.5*currentCapacity</code>. 
   Thus, excessive resizing (involving copying) is avoided.</p>
 <h4>Copying</h4>
 <p> 
@@ -53,13 +53,13 @@ Resizable lists holding objects or primitive data types such as <tt>int</tt>,
   independent of the original. So changes in the copy are not reflected in the 
   original, and vice-versa. 
 <h2>3. Organization of this package</h2>
-<p>Class naming follows the schema <tt>&lt;ElementType&gt;&lt;ImplementationTechnique&gt;List</tt>. 
+<p>Class naming follows the schema <code>&lt;ElementType&gt;&lt;ImplementationTechnique&gt;List</code>. 
   For example, we have a {@link cern.colt.list.tdouble.DoubleArrayList}, which is a list 
-  holding <tt>double</tt> elements implemented with <tt>double</tt>[] arrays. 
+  holding <code>double</code> elements implemented with <code>double</code>[] arrays. 
 </p>
 <p>The classes for lists of a given value type are derived from a common abstract 
-  base class tagged <tt>Abstract&lt;ElementType&gt;</tt><tt>List</tt>. For example, 
-  all lists operating on <tt>double</tt> elements are derived from {@link cern.colt.list.tdouble.AbstractDoubleList}, 
+  base class tagged <code>Abstract&lt;ElementType&gt;</code><code>List</code>. For example, 
+  all lists operating on <code>double</code> elements are derived from {@link cern.colt.list.tdouble.AbstractDoubleList}, 
   which in turn is derived from an abstract base class tying together all lists 
   regardless of value type, {@link cern.colt.list.AbstractList}, which finally 
   is rooted in grandmother {@link cern.colt.list.AbstractCollection}. The abstract 
@@ -86,11 +86,11 @@ System.out.println(sum);
 </table>
 <p> For efficiency, all classes provide back doors to enable getting/setting the 
   backing array directly. In this way, the high level operations of these classes 
-  can be used where appropriate, and one can switch to <tt>[]</tt>-array index 
-  notations where necessary. The key methods for this are <tt>public &lt;ElementType&gt;[] 
-  elements()</tt> and <tt>public void elements(&lt;ElementType&gt;[])</tt>. The 
+  can be used where appropriate, and one can switch to <code>[]</code>-array index 
+  notations where necessary. The key methods for this are <code>public &lt;ElementType&gt;[] 
+  elements()</code> and <code>public void elements(&lt;ElementType&gt;[])</code>. The 
   former trustingly returns the array it internally keeps to store the elements. 
-  Holding this array in hand, we can use the <tt>[]</tt>-array operator to 
+  Holding this array in hand, we can use the <code>[]</code>-array operator to 
   perform iteration over large lists without needing to copy the array or paying 
   the performance penalty introduced by accessor methods. Alternatively any JAL 
   algorithm (or other algorithm) can operate on the returned primitive array. 

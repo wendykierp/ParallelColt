@@ -36,6 +36,7 @@ public interface DoubleIterationMonitor {
 
     /**
      * Returns true for the first iteration
+     * @return 
      */
     boolean isFirst();
 
@@ -46,11 +47,13 @@ public interface DoubleIterationMonitor {
 
     /**
      * Number of iterations performed
+     * @return 
      */
     int iterations();
 
     /**
      * Returns current residual
+     * @return 
      */
     double residual();
 
@@ -62,6 +65,7 @@ public interface DoubleIterationMonitor {
      * @param x
      *            State-vector
      * @return True if converged
+     * @throws cern.colt.matrix.tdouble.algo.solver.IterativeSolverDoubleNotConvergedException
      */
     boolean converged(DoubleMatrix1D r, DoubleMatrix1D x) throws IterativeSolverDoubleNotConvergedException;
 
@@ -73,6 +77,7 @@ public interface DoubleIterationMonitor {
      * @param x
      *            State-vector
      * @return True if converged
+     * @throws cern.colt.matrix.tdouble.algo.solver.IterativeSolverDoubleNotConvergedException
      */
     boolean converged(double r, DoubleMatrix1D x) throws IterativeSolverDoubleNotConvergedException;
 
@@ -82,6 +87,7 @@ public interface DoubleIterationMonitor {
      * @param r
      *            Residual-norm
      * @return True if converged
+     * @throws cern.colt.matrix.tdouble.algo.solver.IterativeSolverDoubleNotConvergedException
      */
     boolean converged(double r) throws IterativeSolverDoubleNotConvergedException;
 
@@ -91,26 +97,31 @@ public interface DoubleIterationMonitor {
      * @param r
      *            Residual-vector
      * @return True if converged
+     * @throws cern.colt.matrix.tdouble.algo.solver.IterativeSolverDoubleNotConvergedException
      */
     boolean converged(DoubleMatrix1D r) throws IterativeSolverDoubleNotConvergedException;
 
     /**
      * Sets new iteration reporter
+     * @param monitor
      */
     void setIterationReporter(DoubleIterationReporter monitor);
 
     /**
      * Returns current iteration reporter
+     * @return 
      */
     DoubleIterationReporter getIterationReporter();
 
     /**
      * Sets the vector-norm to calculate with
+     * @param normType
      */
     void setNormType(Norm normType);
 
     /**
      * Returns the vector-norm in use
+     * @return 
      */
     Norm getNormType();
 
@@ -124,6 +135,7 @@ public interface DoubleIterationMonitor {
 
     /**
      * Returns the maximum number of iterations
+     * @return 
      */
     public int getMaxIterations();
 }

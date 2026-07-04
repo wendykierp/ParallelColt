@@ -18,13 +18,13 @@ import cern.colt.matrix.tdouble.impl.DiagonalDoubleMatrix2D;
 
 /**
  * 
- * For an <tt>m x n</tt> matrix <tt>A</tt>, the singular value decomposition is
- * an <tt>m x m</tt> orthogonal matrix <tt>U</tt>, an <tt>m x n</tt> diagonal
- * matrix <tt>S</tt>, and an <tt>n x n</tt> orthogonal matrix <tt>V</tt> so that
- * <tt>A = U*S*V'</tt>.
+ * For an <code>m x n</code> matrix <code>A</code>, the singular value decomposition is
+ * an <code>m x m</code> orthogonal matrix <code>U</code>, an <code>m x n</code> diagonal
+ * matrix <code>S</code>, and an <code>n x n</code> orthogonal matrix <code>V</code> so that
+ * <code>A = U*S*V'</code>.
  * <P>
- * The singular values, <tt>sigma[k] = S[k][k]</tt>, are ordered so that
- * <tt>sigma[0] >= sigma[1] >= ... >= sigma[min(m-1,n-1)]</tt>.
+ * The singular values, <code>sigma[k] = S[k][k]</code>, are ordered so that
+ * <code>sigma[0] >= sigma[1] >= ... >= sigma[min(m-1,n-1)]</code>.
  * <P>
  * 
  * This implementation uses the divide-and-conquer algorithm (dgesdd) from
@@ -124,7 +124,8 @@ public class DenseDoubleSingularValueDecomposition {
     }
 
     /**
-     * Returns the two norm condition number, which is <tt>max(S) / min(S)</tt>.
+     * Returns the two norm condition number, which is <code>max(S) / min(S)</code>.
+     * @return 
      */
     public double cond() {
         return elementsS[0] / elementsS[mn - 1];
@@ -150,19 +151,19 @@ public class DenseDoubleSingularValueDecomposition {
     }
 
     /**
-     * Returns the diagonal of <tt>S</tt>, which is a one-dimensional array of
+     * Returns the diagonal of <code>S</code>, which is a one-dimensional array of
      * singular values
      * 
-     * @return diagonal of <tt>S</tt>.
+     * @return diagonal of <code>S</code>.
      */
     public double[] getSingularValues() {
         return elementsS;
     }
 
     /**
-     * Returns the left singular vectors <tt>U</tt>.
+     * Returns the left singular vectors <code>U</code>.
      * 
-     * @return <tt>U</tt>
+     * @return <code>U</code>
      */
     public DoubleMatrix2D getU() {
         if (wantUV == false) {
@@ -188,9 +189,9 @@ public class DenseDoubleSingularValueDecomposition {
     }
 
     /**
-     * Returns the right singular vectors <tt>V</tt>.
+     * Returns the right singular vectors <code>V</code>.
      * 
-     * @return <tt>V</tt>
+     * @return <code>V</code>
      */
     public DoubleMatrix2D getV() {
         if (wantUV == false) {
@@ -219,7 +220,7 @@ public class DenseDoubleSingularValueDecomposition {
      * Returns the output flag
      * 
      * @return 0: successful exit<br>
-     *         < 0: if INFO = -i, the i-th argument had an illegal value<br>
+     *         &lt; 0: if INFO = -i, the i-th argument had an illegal value<br>
      *         > 0: process did not converge.
      */
     public org.netlib.util.intW getInfo() {
@@ -227,7 +228,8 @@ public class DenseDoubleSingularValueDecomposition {
     }
 
     /**
-     * Returns the two norm, which is <tt>max(S)</tt>.
+     * Returns the two norm, which is <code>max(S)</code>.
+     * @return 
      */
     public double norm2() {
         return elementsS[0];
@@ -236,6 +238,7 @@ public class DenseDoubleSingularValueDecomposition {
     /**
      * Returns the effective numerical matrix rank, which is the number of
      * nonnegligible singular values.
+     * @return 
      */
     public int rank() {
         double eps = Math.pow(2.0, -52.0);
@@ -258,6 +261,7 @@ public class DenseDoubleSingularValueDecomposition {
      * 	 trace         : 0
      * 
      * </pre>
+     * @return 
      */
 
     public String toString() {

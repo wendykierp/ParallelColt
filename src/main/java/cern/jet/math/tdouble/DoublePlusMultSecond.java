@@ -12,14 +12,14 @@ package cern.jet.math.tdouble;
  * Only for performance tuning of compute intensive linear algebraic
  * computations. Constructs functions that return one of
  * <ul>
- * <li><tt>a + b*constant</tt>
- * <li><tt>a - b*constant</tt>
- * <li><tt>a + b/constant</tt>
- * <li><tt>a - b/constant</tt>
+ * <li><code>a + b*constant</code>
+ * <li><code>a - b*constant</code>
+ * <li><code>a + b/constant</code>
+ * <li><code>a - b/constant</code>
  * </ul>
- * <tt>a</tt> and <tt>b</tt> are variables, <tt>constant</tt> is fixed, but for
+ * <code>a</code> and <code>b</code> are variables, <code>constant</code> is fixed, but for
  * performance reasons publicly accessible. Intended to be passed to
- * <tt>matrix.assign(otherMatrix,function)</tt> methods.
+ * <code>matrix.assign(otherMatrix,function)</code> methods.
  */
 public final class DoublePlusMultSecond implements cern.colt.function.tdouble.DoubleDoubleFunction {
     /**
@@ -29,6 +29,7 @@ public final class DoublePlusMultSecond implements cern.colt.function.tdouble.Do
 
     /**
      * Insert the method's description here. Creation date: (8/10/99 19:12:09)
+     * @param multiplicator
      */
     protected DoublePlusMultSecond(final double multiplicator) {
         this.multiplicator = multiplicator;
@@ -36,34 +37,44 @@ public final class DoublePlusMultSecond implements cern.colt.function.tdouble.Do
 
     /**
      * Returns the result of the function evaluation.
+     * @param a
+     * @param b
      */
     public final double apply(double a, double b) {
         return a + b * multiplicator;
     }
 
     /**
-     * <tt>a - b/constant</tt>.
+     * <code>a - b/constant</code>.
+     * @param constant
+     * @return 
      */
     public static DoublePlusMultSecond minusDiv(final double constant) {
         return new DoublePlusMultSecond(-1 / constant);
     }
 
     /**
-     * <tt>a - b*constant</tt>.
+     * <code>a - b*constant</code>.
+     * @param constant
+     * @return 
      */
     public static DoublePlusMultSecond minusMult(final double constant) {
         return new DoublePlusMultSecond(-constant);
     }
 
     /**
-     * <tt>a + b/constant</tt>.
+     * <code>a + b/constant</code>.
+     * @param constant
+     * @return 
      */
     public static DoublePlusMultSecond plusDiv(final double constant) {
         return new DoublePlusMultSecond(1 / constant);
     }
 
     /**
-     * <tt>a + b*constant</tt>.
+     * <code>a + b*constant</code>.
+     * @param constant
+     * @return 
      */
     public static DoublePlusMultSecond plusMult(final double constant) {
         return new DoublePlusMultSecond(constant);

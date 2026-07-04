@@ -35,7 +35,7 @@ public abstract class AbstractMap extends cern.colt.PersistentObject {
 
     /**
      * The table capacity c=table.length always satisfies the invariant
-     * <tt>c * minLoadFactor <= s <= c * maxLoadFactor</tt>, where s=size() is
+     * <code>c * minLoadFactor <= s <= c * maxLoadFactor</code>, where s=size() is
      * the number of associations currently contained. The term "c *
      * minLoadFactor" is called the "lowWaterMark", "c * maxLoadFactor" is
      * called the "highWaterMark". In other words, the table capacity (and
@@ -73,8 +73,12 @@ public abstract class AbstractMap extends cern.colt.PersistentObject {
     /**
      * Chooses a new prime table capacity optimized for growing that
      * (approximately) satisfies the invariant
-     * <tt>c * minLoadFactor <= size <= c * maxLoadFactor</tt> and has at least
+     * <code>c * minLoadFactor <= size <= c * maxLoadFactor</code> and has at least
      * one FREE slot for the given size.
+     * @param size
+     * @param maxLoad
+     * @param minLoad
+     * @return 
      */
     protected int chooseGrowCapacity(int size, double minLoad, double maxLoad) {
         return nextPrime(Math.max(size + 1, (int) ((4 * size / (3 * minLoad + maxLoad)))));
@@ -84,6 +88,8 @@ public abstract class AbstractMap extends cern.colt.PersistentObject {
      * Returns new high water mark threshold based on current capacity and
      * maxLoadFactor.
      * 
+     * @param capacity
+     * @param maxLoad
      * @return int the new threshold.
      */
     protected int chooseHighWaterMark(int capacity, double maxLoad) {
@@ -99,6 +105,8 @@ public abstract class AbstractMap extends cern.colt.PersistentObject {
      * Returns new low water mark threshold based on current capacity and
      * minLoadFactor.
      * 
+     * @param capacity
+     * @param minLoad
      * @return int the new threshold.
      */
     protected int chooseLowWaterMark(int capacity, double minLoad) {
@@ -108,8 +116,12 @@ public abstract class AbstractMap extends cern.colt.PersistentObject {
     /**
      * Chooses a new prime table capacity neither favoring shrinking nor
      * growing, that (approximately) satisfies the invariant
-     * <tt>c * minLoadFactor <= size <= c * maxLoadFactor</tt> and has at least
+     * <code>c * minLoadFactor <= size <= c * maxLoadFactor</code> and has at least
      * one FREE slot for the given size.
+     * @param size
+     * @param maxLoad
+     * @param minLoad
+     * @return 
      */
     protected int chooseMeanCapacity(int size, double minLoad, double maxLoad) {
         return nextPrime(Math.max(size + 1, (int) ((2 * size / (minLoad + maxLoad)))));
@@ -118,8 +130,12 @@ public abstract class AbstractMap extends cern.colt.PersistentObject {
     /**
      * Chooses a new prime table capacity optimized for shrinking that
      * (approximately) satisfies the invariant
-     * <tt>c * minLoadFactor <= size <= c * maxLoadFactor</tt> and has at least
+     * <code>c * minLoadFactor <= size <= c * maxLoadFactor</code> and has at least
      * one FREE slot for the given size.
+     * @param size
+     * @param maxLoad
+     * @param minLoad
+     * @return 
      */
     protected int chooseShrinkCapacity(int size, double minLoad, double maxLoad) {
         return nextPrime(Math.max(size + 1, (int) ((4 * size / (minLoad + 3 * maxLoad)))));
@@ -136,7 +152,7 @@ public abstract class AbstractMap extends cern.colt.PersistentObject {
      * allocates new internal memory and increases the capacity of the receiver.
      * <p>
      * This method never need be called; it is for performance tuning only.
-     * Calling this method before <tt>put()</tt>ing a large number of
+     * Calling this method before <code>put()</code>ing a large number of
      * associations boosts performance, because the receiver will grow only once
      * instead of potentially many times.
      * <p>
@@ -150,10 +166,10 @@ public abstract class AbstractMap extends cern.colt.PersistentObject {
     }
 
     /**
-     * Returns <tt>true</tt> if the receiver contains no (key,value)
+     * Returns <code>true</code> if the receiver contains no (key,value)
      * associations.
      * 
-     * @return <tt>true</tt> if the receiver contains no (key,value)
+     * @return <code>true</code> if the receiver contains no (key,value)
      *         associations.
      */
     public boolean isEmpty() {
@@ -186,7 +202,7 @@ public abstract class AbstractMap extends cern.colt.PersistentObject {
      * @throws IllegalArgumentException
      *             if
      * 
-     *             <tt>initialCapacity < 0 || (minLoadFactor < 0.0 || minLoadFactor >= 1.0) || (maxLoadFactor <= 0.0 || maxLoadFactor >= 1.0) || (minLoadFactor >= maxLoadFactor)</tt>
+     *             <code>initialCapacity < 0 || (minLoadFactor < 0.0 || minLoadFactor >= 1.0) || (maxLoadFactor <= 0.0 || maxLoadFactor >= 1.0) || (minLoadFactor >= maxLoadFactor)</code>
      *             .
      */
     protected void setUp(int initialCapacity, double minLoadFactor, double maxLoadFactor) {

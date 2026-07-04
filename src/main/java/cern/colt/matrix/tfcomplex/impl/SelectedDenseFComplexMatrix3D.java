@@ -15,11 +15,11 @@ import cern.colt.matrix.tfcomplex.FComplexMatrix3D;
 import cern.colt.matrix.tfloat.FloatMatrix3D;
 
 /**
- * Selection view on dense 3-d matrices holding <tt>complex</tt> elements.
+ * Selection view on dense 3-d matrices holding <code>complex</code> elements.
  * <p>
  * <b>Implementation:</b>
  * <p>
- * Objects of this class are typically constructed via <tt>viewIndexes</tt>
+ * Objects of this class are typically constructed via <code>viewIndexes</code>
  * methods on some source matrix. The interface introduced in abstract super
  * classes defines everything a user can do. From a user point of view there is
  * nothing special about this class; it presents the same functionality with the
@@ -114,19 +114,19 @@ class SelectedDenseFComplexMatrix3D extends FComplexMatrix3D {
     }
 
     /**
-     * Returns <tt>true</tt> if both matrices share common cells. More formally,
-     * returns <tt>true</tt> if <tt>other != null</tt> and at least one of the
+     * Returns <code>true</code> if both matrices share common cells. More formally,
+     * returns <code>true</code> if <code>other != null</code> and at least one of the
      * following conditions is met
      * <ul>
      * <li>the receiver is a view of the other matrix
      * <li>the other matrix is a view of the receiver
-     * <li><tt>this == other</tt>
+     * <li><code>this == other</code>
      * </ul>
      * *
      * 
      * @param other
      *            matrix
-     * @return <tt>true</tt> if both matrices share common cells.
+     * @return <code>true</code> if both matrices share common cells.
      */
 
     protected boolean haveSharedCellsRaw(FComplexMatrix3D other) {

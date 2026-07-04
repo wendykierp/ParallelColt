@@ -12,7 +12,7 @@ import cern.colt.matrix.tlong.LongMatrix1D;
 import cern.colt.matrix.tlong.LongMatrix2D;
 
 /**
- * 1-d matrix holding <tt>int</tt> elements; either a view wrapping another 2-d
+ * 1-d matrix holding <code>int</code> elements; either a view wrapping another 2-d
  * matrix and therefore delegating calls to it.
  * 
  * @author wolfgang.hoschek@cern.ch
@@ -44,13 +44,13 @@ class DelegateLongMatrix1D extends WrapperLongMatrix1D {
     }
 
     /**
-     * Returns the matrix cell value at coordinate <tt>index</tt>.
+     * Returns the matrix cell value at coordinate <code>index</code>.
      * 
      * <p>
      * Provided with invalid parameters this method may return invalid objects
      * without throwing any exception. <b>You should only use this method when
      * you are absolutely sure that the coordinate is within bounds.</b>
-     * Precondition (unchecked): <tt>index&lt;0 || index&gt;=size()</tt>.
+     * Precondition (unchecked): <code>index&lt;0 || index&gt;=size()</code>.
      * 
      * @param index
      *            the index of the cell.
@@ -64,10 +64,10 @@ class DelegateLongMatrix1D extends WrapperLongMatrix1D {
     /**
      * Construct and returns a new empty matrix <i>of the same dynamic type</i>
      * as the receiver, having the specified size. For example, if the receiver
-     * is an instance of type <tt>DenseLongMatrix1D</tt> the new matrix must
-     * also be of type <tt>DenseLongMatrix1D</tt>, if the receiver is an
-     * instance of type <tt>SparseLongMatrix1D</tt> the new matrix must also be
-     * of type <tt>SparseLongMatrix1D</tt>, etc. In general, the new matrix
+     * is an instance of type <code>DenseLongMatrix1D</code> the new matrix must
+     * also be of type <code>DenseLongMatrix1D</code>, if the receiver is an
+     * instance of type <code>SparseLongMatrix1D</code> the new matrix must also be
+     * of type <code>SparseLongMatrix1D</code>, etc. In general, the new matrix
      * should have internal parametrization as similar as possible.
      * 
      * @param size
@@ -82,10 +82,10 @@ class DelegateLongMatrix1D extends WrapperLongMatrix1D {
     /**
      * Construct and returns a new 2-d matrix <i>of the corresponding dynamic
      * type</i>, entirelly independent of the receiver. For example, if the
-     * receiver is an instance of type <tt>DenseLongMatrix1D</tt> the new matrix
-     * must be of type <tt>DenseLongMatrix2D</tt>, if the receiver is an
-     * instance of type <tt>SparseLongMatrix1D</tt> the new matrix must be of
-     * type <tt>SparseLongMatrix2D</tt>, etc.
+     * receiver is an instance of type <code>DenseLongMatrix1D</code> the new matrix
+     * must be of type <code>DenseLongMatrix2D</code>, if the receiver is an
+     * instance of type <code>SparseLongMatrix1D</code> the new matrix must be of
+     * type <code>SparseLongMatrix2D</code>, etc.
      * 
      * @param rows
      *            the number of rows the matrix shall have.
@@ -99,13 +99,13 @@ class DelegateLongMatrix1D extends WrapperLongMatrix1D {
     }
 
     /**
-     * Sets the matrix cell at coordinate <tt>index</tt> to the specified value.
+     * Sets the matrix cell at coordinate <code>index</code> to the specified value.
      * 
      * <p>
      * Provided with invalid parameters this method may access illegal indexes
      * without throwing any exception. <b>You should only use this method when
      * you are absolutely sure that the coordinate is within bounds.</b>
-     * Precondition (unchecked): <tt>index&lt;0 || index&gt;=size()</tt>.
+     * Precondition (unchecked): <code>index&lt;0 || index&gt;=size()</code>.
      * 
      * @param index
      *            the index of the cell.

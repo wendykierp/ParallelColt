@@ -23,7 +23,7 @@ public interface ObjectMatrix3DProcedure {
      * Example: forEach() methods often use procedure objects. To signal to a
      * forEach() method whether iteration should continue normally or terminate
      * (because for example a matching element has been found), a procedure can
-     * return <tt>false</tt> to indicate termination and <tt>true</tt> to
+     * return <code>false</code> to indicate termination and <code>true</code> to
      * indicate continuation.
      * 
      * @param element
@@ -40,7 +40,7 @@ public interface ObjectMatrix3DProcedure {
      * Example: forEach() methods often use procedure objects. To signal to a
      * forEach() method whether iteration should continue normally or terminate
      * (because for example a matching element has been found), a procedure can
-     * return <tt>false</tt> to indicate termination and <tt>true</tt> to
+     * return <code>false</code> to indicate termination and <code>true</code> to
      * indicate continuation.
      * 
      * @param element

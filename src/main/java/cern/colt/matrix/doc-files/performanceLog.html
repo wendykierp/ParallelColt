@@ -38,7 +38,7 @@
   threads</a>.</p>
 <p>Each operation is timed varying the following parameters </p>
 <ul>
-  <li><i>Implementation type</i> - <tt>DenseDoubleMatrix2D, SparseDoubleMatrix2D</tt></li>
+  <li><i>Implementation type</i> - <code>DenseDoubleMatrix2D, SparseDoubleMatrix2D</code></li>
   <li><i>Density</i> - the fraction of cells in non-zero state (randomly assigned)</li>
   <li><i>Size</i> - all matrices are square with the given number of rows and 
     columns</li>
@@ -47,8 +47,8 @@
 <p>Methodology</p>
 <ul>
   <li>Measurements given in <i>Mops/sec</i> (10^6 ops/sec) and <i>Mflops/sec</i> 
-    (10^6 flops/sec). <tt>A[i,j]=B[k,l]</tt> counts as <tt>1</tt> op whereas <tt>sum 
-    += A[i,j]*B[k,l]</tt> counts as <tt>2</tt> flops. For sparse implementations 
+    (10^6 flops/sec). <code>A[i,j]=B[k,l]</code> counts as <code>1</code> op whereas <code>sum 
+    += A[i,j]*B[k,l]</code> counts as <code>2</code> flops. For sparse implementations 
     Mops and Mflops are expressed in relation to the dense base line implementation: 
     If an operation on a dense matrix executes at 10 Mflops/sec but takes 2 times 
     longer to complete on a sparse matrix, the sparse matrix is said to have a 
@@ -65,13 +65,13 @@
   <li>Some parameter combinations that do not occur in practice (but would take 
     lots of memory and time) are not benchmarked; they appear in the tables as 
     NaN's (this is <i>not</i> an error). For example, it is possible to multiply 
-    two matrices of type <tt>SparseDoubleMatrix2D</tt> which are in fact very 
-    dense. However, it doesn't make a lot of sense; one would take <tt>DenseDoubleMatrix2D</tt> 
+    two matrices of type <code>SparseDoubleMatrix2D</code> which are in fact very 
+    dense. However, it doesn't make a lot of sense; one would take <code>DenseDoubleMatrix2D</code> 
     for such purposes. <br>
   </li>
 </ul>
-<p>Command line: <tt>java -Xmx400m cern.colt.matrix.bench.BenchmarkMatrix -file 
-  all </tt></p>
+<p>Command line: <code>java -Xmx400m cern.colt.matrix.bench.BenchmarkMatrix -file 
+  all </code></p>
 <p>Below some results from an old version 1.0Beta4-1. Of historic interest only.</p>
 <table border="1" cellspacing="0">
   <tr align="left" valign="top"> 

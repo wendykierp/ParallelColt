@@ -64,6 +64,7 @@ public class FormerFactory {
      *            <dd> character
      *            </dl>
      *            </ul>
+     * @return 
      * @exception IllegalArgumentException
      *                if bad format
      */

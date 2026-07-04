@@ -90,7 +90,7 @@ public class IntArrayList extends AbstractIntList {
      *            element to be inserted.
      * @exception IndexOutOfBoundsException
      *                index is out of range (
-     *                <tt>index &lt; 0 || index &gt; size()</tt>).
+     *                <code>index &lt; 0 || index &gt; size()</code>).
      */
 
     public void beforeInsert(int index, int element) {
@@ -122,10 +122,10 @@ public class IntArrayList extends AbstractIntList {
      * @param to
      *            the rightmost search position, inclusive.
      * @return index of the search key, if it is contained in the receiver;
-     *         otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The
+     *         otherwise, <code>(-(<i>insertion point</i>) - 1)</code>. The
      *         <i>insertion point</i> is defined as the the point at which the
      *         value would be inserted into the receiver: the index of the first
-     *         element greater than the key, or <tt>receiver.size()</tt>, if all
+     *         element greater than the key, or <code>receiver.size()</code>, if all
      *         elements in the receiver are less than the specified key. Note
      *         that this guarantees that the return value will be &gt;= 0 if and
      *         only if the key is found.
@@ -296,9 +296,9 @@ public class IntArrayList extends AbstractIntList {
      * 
      * @param procedure
      *            the procedure to be applied. Stops iteration if the procedure
-     *            returns <tt>false</tt>, otherwise continues.
-     * @return <tt>false</tt> if the procedure stopped before all elements where
-     *         iterated over, <tt>true</tt> otherwise.
+     *            returns <code>false</code>, otherwise continues.
+     * @return <code>false</code> if the procedure stopped before all elements where
+     *         iterated over, <code>true</code> otherwise.
      */
 
     public boolean forEach(IntProcedure procedure) {
@@ -317,6 +317,7 @@ public class IntArrayList extends AbstractIntList {
      * 
      * @param index
      *            index of element to return.
+     * @return 
      * @exception IndexOutOfBoundsException
      *                index is out of range (index &lt; 0 || index &gt;=
      *                size()).
@@ -335,10 +336,11 @@ public class IntArrayList extends AbstractIntList {
      * parameters this method may return invalid elements without throwing any
      * exception! <b>You should only use this method when you are absolutely
      * sure that the index is within bounds.</b> Precondition (unchecked):
-     * <tt>index &gt;= 0 && index &lt; size()</tt>.
+     * <code>index &gt;= 0 &amp;&amp; index &lt; size()</code>.
      * 
      * @param index
      *            index of element to return.
+     * @return 
      */
 
     public int getQuick(int index) {
@@ -361,7 +363,7 @@ public class IntArrayList extends AbstractIntList {
      *         returns <code>-1</code> if the element is not found.
      * @exception IndexOutOfBoundsException
      *                index is out of range (
-     *                <tt>size()&gt;0 && (from&lt;0 || from&gt;to || to&gt;=size())</tt>
+     *                <code>size()&gt;0 &amp;&amp; (from&lt;0 || from&gt;to || to&gt;=size())</code>
      *                ).
      */
 
@@ -396,7 +398,7 @@ public class IntArrayList extends AbstractIntList {
      *         returns <code>-1</code> if the element is not found.
      * @exception IndexOutOfBoundsException
      *                index is out of range (
-     *                <tt>size()&gt;0 && (from&lt;0 || from&gt;to || to&gt;=size())</tt>
+     *                <code>size()&gt;0 &amp;&amp; (from&lt;0 || from&gt;to || to&gt;=size())</code>
      *                ).
      */
 
@@ -426,7 +428,7 @@ public class IntArrayList extends AbstractIntList {
      * @return a new list
      * @exception IndexOutOfBoundsException
      *                index is out of range (
-     *                <tt>size()&gt;0 && (from&lt;0 || from&gt;to || to&gt;=size())</tt>
+     *                <code>size()&gt;0 &amp;&amp; (from&lt;0 || from&gt;to || to&gt;=size())</code>
      *                ).
      */
 
@@ -632,7 +634,7 @@ public class IntArrayList extends AbstractIntList {
      * with invalid parameters this method may access invalid indexes without
      * throwing any exception! <b>You should only use this method when you are
      * absolutely sure that the index is within bounds.</b> Precondition
-     * (unchecked): <tt>index &gt;= 0 && index &lt; size()</tt>.
+     * (unchecked): <code>index &gt;= 0 &amp;&amp; index &lt; size()</code>.
      * 
      * @param index
      *            index of element to replace.
@@ -658,7 +660,7 @@ public class IntArrayList extends AbstractIntList {
      *            the index of the last element (inclusive) to be permuted.
      * @exception IndexOutOfBoundsException
      *                index is out of range (
-     *                <tt>size()&gt;0 && (from&lt;0 || from&gt;to || to&gt;=size())</tt>
+     *                <code>size()&gt;0 &amp;&amp; (from&lt;0 || from&gt;to || to&gt;=size())</code>
      *                ).
      */
 
@@ -703,8 +705,8 @@ public class IntArrayList extends AbstractIntList {
      * @param to
      *            the index of the last element (inclusive) to be sorted.
      * @exception IndexOutOfBoundsException
-     *                index is out of range (<tt>size()&gt;0 && (from&lt;0 ||
-     *                from&gt;to || to&gt;=size())</tt>).
+     *                index is out of range (<code>size()&gt;0 &amp;&amp; (from&lt;0 ||
+     *                from&gt;to || to&gt;=size())</code>).
      */
 
     public void sortFromTo(int from, int to) {

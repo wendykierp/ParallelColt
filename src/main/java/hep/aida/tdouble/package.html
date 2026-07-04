@@ -129,7 +129,7 @@ Y 5   |  30  53  51  52  57  39  65  61  55  49  22 |  534
 <h3>3.1 Axes</h3>
 <p>An <i>axis</i> ({@link hep.aida.tdouble.DoubleIAxis}) describes how one dimension of the problem 
   space is divided into intervals. Consider the case of a 10 bin histogram in 
-  the range <tt>[0,100]</tt>. An axis object containing the number of bins 
+  the range <code>[0,100]</code>. An axis object containing the number of bins 
   and the interval limits will describe completely how we divide such an interval: 
   a set of 10 sub-intervals of equal width. This is termed a {@link hep.aida.tdouble.ref.DoubleFixedAxis} 
   and can be constructed as follows </p>
@@ -142,7 +142,7 @@ IAxis axis = new FixedAxis(10, 0.0, 100.0);
 </table>
 It may be required to work with an histogram over the same range as the example 
 above, but with bins of variable widths. In this case, an axis containing the 
-bin edges will describe completely how the interval <tt>[0,100]</tt> is divided. 
+bin edges will describe completely how the interval <code>[0,100]</code> is divided. 
 Such an axis is termed a {@link hep.aida.tdouble.ref.DoubleVariableAxis} and can be constructed 
 as follows 
 <table>
@@ -153,7 +153,7 @@ IAxis axis = new VariableAxis(edges);
 </pre>
   </td>
 </table>
-An <tt>n</tt>-dimensional histogram thus contains <tt>n</tt> axes, one for each 
+An <code>n</code>-dimensional histogram thus contains <code>n</code> axes, one for each 
 dimension. The only concern of an axis is to associate any ordered 1D space with 
 a discrete numbered space. Thus it associates an interval to an integer. Hence, 
 an axis knows about the width of the intervals and their lower point/bound or 
@@ -191,7 +191,7 @@ histo.xAxis().binUpperEdge(i)  // and its upper edge
   </tr>
 </table>
 <p>An axis always sucessfully maps any arbitrary point drawn from the universe 
-  <tt>[-infinity,+infinity]</tt> to a bin index, because it implicitly defines 
+  <code>[-infinity,+infinity]</code> to a bin index, because it implicitly defines 
   an additional <i>underflow</i> and <i>overflow</i> bin, both together called 
   <i>extra bins</i>. </p>
 <table>
@@ -215,19 +215,19 @@ histo.xAxis().binUpperEdge(i)  // and its upper edge
 </pre>
   </td>
 </table>
-<p>For example if an axis is defined to be <tt>new FixedAxis(2, 0.0, 20.0)</tt>, 
-  it has 2 in-range bins plus one for underflow and one for overflow. <tt>axis.bins()==2</tt>. 
-  Its boundaries are <tt>[Double.NEGATIVE_INFINITY,0.0), [0.0, 10.0), [10.0, 20.0), 
-  [20.0, Double.POSITIVE_INFINITY]</tt>. As a consequence point -5.0 maps to bin 
-  index <tt>IHistogram.UNDERFLOW</tt>, point 5.0 maps to bin index 0, 15.0 maps 
-  to bin index 1 and 25.0 maps to bin index <tt>IHistogram.OVERFLOW</tt>. </p>
-<p> As a further example, consider the following case: <tt>new VariableAxis(new 
-  double[] { 10.0, 20.0 })</tt>. The axis has 1 in-range bin: <tt>axis.bins()==1</tt>. 
-  Its boundaries are <tt>[Double.NEGATIVE_INFINITY,10.0), [10.0, 20.0), [20.0, 
-  Double.POSITIVE_INFINITY]</tt>. Point 5.0 maps to bin index <tt>IHistogram.UNDERFLOW</tt>, 
-  point 15.0 maps to bin index 0 and 25.0 maps to bin index <tt>IHistogram.OVERFLOW</tt>.
-<p> As can be seen, underflow bins always have an index of <tt>IHistogram.UNDERFLOW</tt>, 
-  whereas overflow outlier bins always have an index of <tt>IHistogram.OVERFLOW</tt>. 
+<p>For example if an axis is defined to be <code>new FixedAxis(2, 0.0, 20.0)</code>, 
+  it has 2 in-range bins plus one for underflow and one for overflow. <code>axis.bins()==2</code>. 
+  Its boundaries are <code>[Double.NEGATIVE_INFINITY,0.0), [0.0, 10.0), [10.0, 20.0), 
+  [20.0, Double.POSITIVE_INFINITY]</code>. As a consequence point -5.0 maps to bin 
+  index <code>IHistogram.UNDERFLOW</code>, point 5.0 maps to bin index 0, 15.0 maps 
+  to bin index 1 and 25.0 maps to bin index <code>IHistogram.OVERFLOW</code>. </p>
+<p> As a further example, consider the following case: <code>new VariableAxis(new 
+  double[] { 10.0, 20.0 })</code>. The axis has 1 in-range bin: <code>axis.bins()==1</code>. 
+  Its boundaries are <code>[Double.NEGATIVE_INFINITY,10.0), [10.0, 20.0), [20.0, 
+  Double.POSITIVE_INFINITY]</code>. Point 5.0 maps to bin index <code>IHistogram.UNDERFLOW</code>, 
+  point 15.0 maps to bin index 0 and 25.0 maps to bin index <code>IHistogram.OVERFLOW</code>.
+<p> As can be seen, underflow bins always have an index of <code>IHistogram.UNDERFLOW</code>, 
+  whereas overflow outlier bins always have an index of <code>IHistogram.OVERFLOW</code>. 
 <h3>3.2 Bins</h3>
 <p> Bins themselves contain information about the data filled into them. They 
   can be asked for various descriptive statistical measures, such as the minimum, 

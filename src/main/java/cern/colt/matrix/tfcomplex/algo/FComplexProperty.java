@@ -22,18 +22,18 @@ import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
  * Tests matrices for equality.
  * <p>
  * Except where explicitly indicated, all methods involving equality tests (
- * <tt>==</tt>) allow for numerical instability, to a degree specified upon
+ * <code>==</code>) allow for numerical instability, to a degree specified upon
  * instance construction and returned by method {@link #tolerance()}. The public
- * static final variable <tt>DEFAULT</tt> represents a default Property object
- * with a tolerance of <tt>1.0E-5</tt>. The public static final variable
- * <tt>ZERO</tt> represents a Property object with a tolerance of <tt>0.0</tt>.
- * The public static final variable <tt>SEVEN</tt> represents a Property object
- * with a tolerance of <tt>1.0E-7</tt>. As long as you are happy with these
+ * static final variable <code>DEFAULT</code> represents a default Property object
+ * with a tolerance of <code>1.0E-5</code>. The public static final variable
+ * <code>ZERO</code> represents a Property object with a tolerance of <code>0.0</code>.
+ * The public static final variable <code>SEVEN</code> represents a Property object
+ * with a tolerance of <code>1.0E-7</code>. As long as you are happy with these
  * tolerances, there is no need to construct Property objects. Simply use idioms
- * like <tt>Property.DEFAULT.equals(A,B)</tt>,
- * <tt>Property.ZERO.equals(A,B)</tt>, <tt>Property.TWELVE.equals(A,B)</tt>.
+ * like <code>Property.DEFAULT.equals(A,B)</code>,
+ * <code>Property.ZERO.equals(A,B)</code>, <code>Property.TWELVE.equals(A,B)</code>.
  * <p>
- * To work with a different tolerance (e.g. <tt>1.0E-2</tt>) use the constructor
+ * To work with a different tolerance (e.g. <code>1.0E-2</code>) use the constructor
  * and/or method {@link #setTolerance(float)}. Note that the public static final
  * Property objects are immutable: Is is not possible to alter their tolerance.
  * Any attempt to do so will throw an Exception.
@@ -48,17 +48,17 @@ import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
 public class FComplexProperty {
 
     /**
-     * The default Property object; currently has <tt>tolerance()==1.0E-5</tt>.
+     * The default Property object; currently has <code>tolerance()==1.0E-5</code>.
      */
     public static final FComplexProperty DEFAULT = new FComplexProperty(1.0E-5f);
 
     /**
-     * A Property object with <tt>tolerance()==0.0</tt>.
+     * A Property object with <code>tolerance()==0.0</code>.
      */
     public static final FComplexProperty ZERO = new FComplexProperty(0.0f);
 
     /**
-     * A Property object with <tt>tolerance()==1.0E-7</tt>.
+     * A Property object with <code>tolerance()==1.0E-7</code>.
      */
     public static final FComplexProperty SEVEN = new FComplexProperty(1.0E-7f);
 
@@ -73,17 +73,19 @@ public class FComplexProperty {
 
     /**
      * Constructs an instance with a tolerance of
-     * <tt>Math.abs(newTolerance)</tt>.
+     * <code>Math.abs(newTolerance)</code>.
+     * @param newTolerance
      */
     public FComplexProperty(float newTolerance) {
         tolerance = Math.abs(newTolerance);
     }
 
     /**
-     * Sets the tolerance to <tt>Math.abs(newTolerance)</tt>.
+     * Sets the tolerance to <code>Math.abs(newTolerance)</code>.
      * 
+     * @param newTolerance
      * @throws UnsupportedOperationException
-     *             if <tt>this==DEFAULT || this==ZERO || this==TWELVE</tt>.
+     *             if <code>this==DEFAULT || this==ZERO || this==TWELVE</code>.
      */
     public void setTolerance(float newTolerance) {
         if (this == DEFAULT || this == ZERO || this == SEVEN) {
@@ -94,20 +96,21 @@ public class FComplexProperty {
 
     /**
      * Returns the current tolerance.
+     * @return 
      */
     public float tolerance() {
         return tolerance;
     }
 
     /**
-     * Returns whether all cells of the given matrix <tt>A</tt> are equal to the
+     * Returns whether all cells of the given matrix <code>A</code> are equal to the
      * given value.
      * 
      * @param A
      *            the first matrix to compare.
      * @param value
      *            the value to compare against.
-     * @return <tt>true</tt> if the matrix is equal to the value; <tt>false</tt>
+     * @return <code>true</code> if the matrix is equal to the value; <code>false</code>
      *         otherwise.
      */
     public boolean equals(final FComplexMatrix1D A, final float[] value) {
@@ -181,13 +184,13 @@ public class FComplexProperty {
     }
 
     /**
-     * Returns whether both given matrices <tt>A</tt> and <tt>B</tt> are equal.
+     * Returns whether both given matrices <code>A</code> and <code>B</code> are equal.
      * 
      * @param A
      *            the first matrix to compare.
      * @param B
      *            the second matrix to compare.
-     * @return <tt>true</tt> if both matrices are equal; <tt>false</tt>
+     * @return <code>true</code> if both matrices are equal; <code>false</code>
      *         otherwise.
      */
     public boolean equals(final FComplexMatrix1D A, final FComplexMatrix1D B) {
@@ -268,14 +271,14 @@ public class FComplexProperty {
     }
 
     /**
-     * Returns whether all cells of the given matrix <tt>A</tt> are equal to the
+     * Returns whether all cells of the given matrix <code>A</code> are equal to the
      * given value.
      * 
      * @param A
      *            the first matrix to compare.
      * @param value
      *            the value to compare against.
-     * @return <tt>true</tt> if the matrix is equal to the value; <tt>false</tt>
+     * @return <code>true</code> if the matrix is equal to the value; <code>false</code>
      *         otherwise.
      */
     public boolean equals(final FComplexMatrix2D A, final float[] value) {
@@ -354,13 +357,13 @@ public class FComplexProperty {
     }
 
     /**
-     * Returns whether both given matrices <tt>A</tt> and <tt>B</tt> are equal.
+     * Returns whether both given matrices <code>A</code> and <code>B</code> are equal.
      * 
      * @param A
      *            the first matrix to compare.
      * @param B
      *            the second matrix to compare.
-     * @return <tt>true</tt> if both matrices are equal; <tt>false</tt>
+     * @return <code>true</code> if both matrices are equal; <code>false</code>
      *         otherwise.
      */
     public boolean equals(final FComplexMatrix2D A, final FComplexMatrix2D B) {
@@ -446,14 +449,14 @@ public class FComplexProperty {
     }
 
     /**
-     * Returns whether all cells of the given matrix <tt>A</tt> are equal to the
+     * Returns whether all cells of the given matrix <code>A</code> are equal to the
      * given value.
      * 
      * @param A
      *            the first matrix to compare.
      * @param value
      *            the value to compare against.
-     * @return <tt>true</tt> if the matrix is equal to the value; <tt>false</tt>
+     * @return <code>true</code> if the matrix is equal to the value; <code>false</code>
      *         otherwise.
      */
     public boolean equals(final FComplexMatrix3D A, final float[] value) {
@@ -537,13 +540,13 @@ public class FComplexProperty {
     }
 
     /**
-     * Returns whether both given matrices <tt>A</tt> and <tt>B</tt> are equal.
+     * Returns whether both given matrices <code>A</code> and <code>B</code> are equal.
      * 
      * @param A
      *            the first matrix to compare.
      * @param B
      *            the second matrix to compare.
-     * @return <tt>true</tt> if both matrices are equal; <tt>false</tt>
+     * @return <code>true</code> if both matrices are equal; <code>false</code>
      *         otherwise.
      */
     public boolean equals(final FComplexMatrix3D A, final FComplexMatrix3D B) {

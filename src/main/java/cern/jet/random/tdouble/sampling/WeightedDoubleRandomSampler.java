@@ -15,7 +15,7 @@ import cern.jet.random.tdouble.engine.DoubleRandomEngine;
 /**
  * Conveniently computes a stable subsequence of elements from a given input
  * sequence; Picks (samples) exactly one random element from successive blocks
- * of <tt>weight</tt> input elements each. For example, if weight==2 (a block is
+ * of <code>weight</code> input elements each. For example, if weight==2 (a block is
  * 2 elements), and the input is 5*2=10 elements long, then picks 5 random
  * elements from the 10 elements such that one element is randomly picked from
  * the first block, one element from the second block, ..., one element from the
@@ -48,7 +48,7 @@ public class WeightedDoubleRandomSampler extends cern.colt.PersistentObject {
     static final int UNDEFINED = -1;
 
     /**
-     * Calls <tt>BlockedRandomSampler(1,null)</tt>.
+     * Calls <code>BlockedRandomSampler(1,null)</code>.
      */
     public WeightedDoubleRandomSampler() {
         this(1, null);
@@ -56,7 +56,7 @@ public class WeightedDoubleRandomSampler extends cern.colt.PersistentObject {
 
     /**
      * Chooses exactly one random element from successive blocks of
-     * <tt>weight</tt> input elements each. For example, if weight==2, and the
+     * <code>weight</code> input elements each. For example, if weight==2, and the
      * input is 5*2=10 elements long, then chooses 5 random elements from the 10
      * elements such that one is chosen from the first block, one from the
      * second, ..., one from the last block. weight == 1.0 --> all elements are
@@ -66,7 +66,7 @@ public class WeightedDoubleRandomSampler extends cern.colt.PersistentObject {
      * @param weight
      *            the weight.
      * @param randomGenerator
-     *            a random number generator. Set this parameter to <tt>null</tt>
+     *            a random number generator. Set this parameter to <code>null</code>
      *            to use the default random number generator.
      */
     public WeightedDoubleRandomSampler(int weight, DoubleRandomEngine randomGenerator) {
@@ -92,13 +92,13 @@ public class WeightedDoubleRandomSampler extends cern.colt.PersistentObject {
 
     /**
      * Chooses exactly one random element from successive blocks of
-     * <tt>weight</tt> input elements each. For example, if weight==2, and the
+     * <code>weight</code> input elements each. For example, if weight==2, and the
      * input is 5*2=10 elements long, then chooses 5 random elements from the 10
      * elements such that one is chosen from the first block, one from the
      * second, ..., one from the last block.
      * 
-     * @return <tt>true</tt> if the next element shall be sampled (picked),
-     *         <tt>false</tt> otherwise.
+     * @return <code>true</code> if the next element shall be sampled (picked),
+     *         <code>false</code> otherwise.
      */
     public boolean sampleNextElement() {
         if (skip > 0) { // reject
@@ -144,6 +144,8 @@ public class WeightedDoubleRandomSampler extends cern.colt.PersistentObject {
 
     /**
      * Not yet commented.
+     * @param weight
+     * @param size
      */
     public static void test(int weight, int size) {
         WeightedDoubleRandomSampler sampler = new WeightedDoubleRandomSampler();
@@ -160,14 +162,14 @@ public class WeightedDoubleRandomSampler extends cern.colt.PersistentObject {
 
     /**
      * Chooses exactly one random element from successive blocks of
-     * <tt>weight</tt> input elements each. For example, if weight==2, and the
+     * <code>weight</code> input elements each. For example, if weight==2, and the
      * input is 5*2=10 elements long, then chooses 5 random elements from the 10
      * elements such that one is chosen from the first block, one from the
      * second, ..., one from the last block.
      * 
      * @param acceptList
-     *            a bitvector which will be filled with <tt>true</tt> where
-     *            sampling shall occur and <tt>false</tt> where it shall not
+     *            a bitvector which will be filled with <code>true</code> where
+     *            sampling shall occur and <code>false</code> where it shall not
      *            occur.
      */
     private void xsampleNextElements(BooleanArrayList acceptList) {

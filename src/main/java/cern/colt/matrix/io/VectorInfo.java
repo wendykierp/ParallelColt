@@ -87,6 +87,7 @@ public class VectorInfo {
     /**
      * Returns <code>true</code> if the vector is in coordinate format, else
      * <code>false</code>
+     * @return 
      */
     public boolean isSparse() {
         return sparse;
@@ -95,6 +96,7 @@ public class VectorInfo {
     /**
      * Returns <code>true</code> if the vector is in coordinate format, else
      * <code>false</code>
+     * @return 
      */
     public boolean isCoordinate() {
         return sparse;
@@ -103,6 +105,7 @@ public class VectorInfo {
     /**
      * Returns <code>true</code> if the vector is in array format, else
      * <code>false</code>
+     * @return 
      */
     public boolean isDense() {
         return !sparse;
@@ -111,6 +114,7 @@ public class VectorInfo {
     /**
      * Returns <code>true</code> if the vector is in array format, else
      * <code>false</code>
+     * @return 
      */
     public boolean isArray() {
         return !sparse;
@@ -119,6 +123,7 @@ public class VectorInfo {
     /**
      * Returns <code>true</code> if the vector stores real numbers, else
      * <code>false</code>
+     * @return 
      */
     public boolean isReal() {
         return field == VectorField.Real;
@@ -127,6 +132,7 @@ public class VectorInfo {
     /**
      * Returns <code>true</code> if the vector stores integers, else
      * <code>false</code>
+     * @return 
      */
     public boolean isInteger() {
         return field == VectorField.Integer;
@@ -135,6 +141,7 @@ public class VectorInfo {
     /**
      * Returns <code>true</code> if the vector stores complex numbers, else
      * <code>false</code>
+     * @return 
      */
     public boolean isComplex() {
         return field == VectorField.Complex;
@@ -143,6 +150,7 @@ public class VectorInfo {
     /**
      * Returns <code>true</code> if the vector does not store any numbers, else
      * <code>false</code>
+     * @return 
      */
     public boolean isPattern() {
         return field == VectorField.Pattern;
@@ -156,6 +164,7 @@ public class VectorInfo {
      * <pre>
      *      %%MatrixMarket vector coordinate real
      * </pre>
+     * @return 
      */
 
     public String toString() {

@@ -11,10 +11,10 @@ package cern.colt;
 /**
  * Information about the current release. Use this class to distinguish releases
  * and base runtime decisions upon. Versions are of the form
- * <tt>Major.Minor.Micro.Build</tt>, e.g. <tt>1.0.0.52</tt>
+ * <code>Major.Minor.Micro.Build</code>, e.g. <code>1.0.0.52</code>
  * <p>
  * You can most easily display version info by running
- * <tt>java cern.colt.Version</tt>.
+ * <code>java cern.colt.Version</code>.
  */
 public final class Version {
     /**
@@ -25,6 +25,7 @@ public final class Version {
 
     /**
      * Returns all version information as string.
+     * @return 
      */
     public static String asString() {
         if (getPackage() == null)
@@ -39,6 +40,7 @@ public final class Version {
     /**
      * Returns the time this release was build; for example "Tue Apr 11 11:50:39
      * CEST 2000".
+     * @return 
      */
     public static String getBuildTime() {
         // String s = "1.2.3.56 (Tue Apr 11 11:50:39 CEST 2000)";
@@ -53,6 +55,7 @@ public final class Version {
 
     /**
      * Returns the build version of this release.
+     * @return 
      */
     public static int getBuildVersion() {
         return numbers()[3];
@@ -60,6 +63,7 @@ public final class Version {
 
     /**
      * Returns the major version of this release.
+     * @return 
      */
     public static int getMajorVersion() {
         return numbers()[0];
@@ -67,6 +71,7 @@ public final class Version {
 
     /**
      * Returns the micro version of this release.
+     * @return 
      */
     public static int getMicroVersion() {
         return numbers()[2];
@@ -74,6 +79,7 @@ public final class Version {
 
     /**
      * Returns the minor version of this release.
+     * @return 
      */
     public static int getMinorVersion() {
         return numbers()[1];
@@ -87,7 +93,7 @@ public final class Version {
     }
 
     /**
-     * Prints <tt>asString</tt> on <tt>System.out</tt>.
+     * Prints <code>asString</code> on <code>System.out</code>.
      * 
      * @param args
      *            ignored.

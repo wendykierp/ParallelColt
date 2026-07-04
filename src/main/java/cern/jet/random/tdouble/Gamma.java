@@ -20,13 +20,13 @@ import cern.jet.stat.tdouble.Probability;
  * HREF="http://www.statsoft.com/textbook/glosf.html#Gamma Distribution">
  * animated definition</A>.
  * <p>
- * <tt>p(x) = k * x^(alpha-1) * e^(-x/beta)</tt> with
- * <tt>k = 1/(g(alpha) * b^a))</tt> and <tt>g(a)</tt> being the gamma function.
+ * <code>p(x) = k * x^(alpha-1) * e^(-x/beta)</code> with
+ * <code>k = 1/(g(alpha) * b^a))</code> and <code>g(a)</code> being the gamma function.
  * <p>
- * Valid parameter ranges: <tt>alpha &gt; 0</tt>.
+ * Valid parameter ranges: <code>alpha &gt; 0</code>.
  * <p>
- * Note: For a Gamma distribution to have the mean <tt>mean</tt> and variance
- * <tt>variance</tt>, set the parameters as follows:
+ * Note: For a Gamma distribution to have the mean <code>mean</code> and variance
+ * <code>variance</code>, set the parameters as follows:
  * 
  * <pre>
  * alpha = mean * mean / variance;
@@ -44,7 +44,7 @@ import cern.jet.stat.tdouble.Probability;
  * <dt>High performance implementation. This is a port of <A HREF=
  * "http://wwwinfo.cern.ch/asd/lhc++/clhep/manual/RefGuide/Random/RandGamma.html"
  * >RandGamma</A> used in <A HREF="http://wwwinfo.cern.ch/asd/lhc++/clhep">CLHEP
- * 1.4.0</A> (C++). CLHEP's implementation, in turn, is based on <tt>gds.c</tt>
+ * 1.4.0</A> (C++). CLHEP's implementation, in turn, is based on <code>gds.c</code>
  * from the <A HREF="http://www.cis.tu-graz.ac.at/stat/stadl/random.html">C-RAND
  * / WIN-RAND</A> library. C-RAND's implementation, in turn, is based upon
  * <p>
@@ -75,8 +75,11 @@ public class Gamma extends AbstractContinousDoubleDistribution {
     /**
      * Constructs a Gamma distribution. Example: alpha=1.0, lambda=1.0.
      * 
+     * @param alpha
+     * @param randomGenerator
+     * @param lambda
      * @throws IllegalArgumentException
-     *             if <tt>alpha &lt;= 0.0 || lambda &lt;= 0.0</tt>.
+     *             if <code>alpha &lt;= 0.0 || lambda &lt;= 0.0</code>.
      */
     public Gamma(double alpha, double lambda, DoubleRandomEngine randomGenerator) {
         setRandomGenerator(randomGenerator);
@@ -85,6 +88,8 @@ public class Gamma extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns the cumulative distribution function.
+     * @param x
+     * @return 
      */
     public double cdf(double x) {
         return Probability.gamma(alpha, lambda, x);
@@ -92,6 +97,7 @@ public class Gamma extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a random number from the distribution.
+     * @return 
      */
 
     public double nextDouble() {
@@ -101,6 +107,9 @@ public class Gamma extends AbstractContinousDoubleDistribution {
     /**
      * Returns a random number from the distribution; bypasses the internal
      * state.
+     * @param alpha
+     * @param lambda
+     * @return 
      */
     public double nextDouble(double alpha, double lambda) {
         /***********************************************************************
@@ -243,6 +252,8 @@ public class Gamma extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns the probability distribution function.
+     * @param x
+     * @return 
      */
     public double pdf(double x) {
         if (x < 0)
@@ -262,8 +273,10 @@ public class Gamma extends AbstractContinousDoubleDistribution {
     /**
      * Sets the mean and variance.
      * 
+     * @param alpha
+     * @param lambda
      * @throws IllegalArgumentException
-     *             if <tt>alpha &lt;= 0.0 || lambda &lt;= 0.0</tt>.
+     *             if <code>alpha &lt;= 0.0 || lambda &lt;= 0.0</code>.
      */
     public void setState(double alpha, double lambda) {
         if (alpha <= 0.0)
@@ -277,8 +290,11 @@ public class Gamma extends AbstractContinousDoubleDistribution {
     /**
      * Returns a random number from the distribution.
      * 
+     * @param alpha
+     * @param lambda
+     * @return 
      * @throws IllegalArgumentException
-     *             if <tt>alpha &lt;= 0.0 || lambda &lt;= 0.0</tt>.
+     *             if <code>alpha &lt;= 0.0 || lambda &lt;= 0.0</code>.
      */
     public static double staticNextDouble(double alpha, double lambda) {
         synchronized (shared) {
@@ -288,6 +304,7 @@ public class Gamma extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a String representation of the receiver.
+     * @return 
      */
 
     public String toString() {

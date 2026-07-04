@@ -12,7 +12,7 @@ package cern.jet.random.tdouble.engine;
  * (Seemingly gigantic) table of good seeds for pseudo-random number generators.
  * <p>
  * <b>Implementation:</b>
- * <dt>This is a port of <tt>SeedTable.h</tt> used in <A
+ * <dt>This is a port of <code>SeedTable.h</code> used in <A
  * HREF="http://wwwinfo.cern.ch/asd/lhc++/clhep">CLHEP 1.4.0</A> (C++). CLHEP's
  * implementation, in turn, is part of <A
  * HREF="http://wwwinfo.cern.ch/asd/geant/geant4.html">GEANT 4</A>, a C++

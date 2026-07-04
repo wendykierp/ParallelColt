@@ -33,31 +33,31 @@ import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
  * Examples:
  * <table border="1" cellspacing="0" dwcopytype="CopyTableRow">
  * <tr valign="top" align="center">
- * <td><tt>A</tt></td>
- * <td><tt>covariance(A)</tt></td>
- * <td><tt>correlation(covariance(A))</tt></td>
- * <td><tt>distance(A,EUCLID)</tt></td>
+ * <td><code>A</code></td>
+ * <td><code>covariance(A)</code></td>
+ * <td><code>correlation(covariance(A))</code></td>
+ * <td><code>distance(A,EUCLID)</code></td>
  * </tr>
  * <tr valign="top">
- * <td><tt> 4&nbsp;x&nbsp;3&nbsp;matrix<br>
+ * <td><code> 4&nbsp;x&nbsp;3&nbsp;matrix<br>
  1&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;3<br>
  2&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;6<br>
  3&nbsp;&nbsp;6&nbsp;&nbsp;&nbsp;9<br>
- 4&nbsp;-8&nbsp;-10 </tt></td>
- * <td><tt> 3&nbsp;x&nbsp;3&nbsp;matrix<br>
+ 4&nbsp;-8&nbsp;-10 </code></td>
+ * <td><code> 3&nbsp;x&nbsp;3&nbsp;matrix<br>
  &nbsp;1.25&nbsp;-3.5&nbsp;-4.5<br>
  -3.5&nbsp;&nbsp;29&nbsp;&nbsp;&nbsp;39&nbsp;&nbsp;<br>
- -4.5&nbsp;&nbsp;39&nbsp;&nbsp;&nbsp;52.5 </tt></td>
- * <td><tt> 3&nbsp;x&nbsp;3&nbsp;matrix<br>
+ -4.5&nbsp;&nbsp;39&nbsp;&nbsp;&nbsp;52.5 </code></td>
+ * <td><code> 3&nbsp;x&nbsp;3&nbsp;matrix<br>
  &nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-0.581318&nbsp;-0.555492<br>
  -0.581318&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.999507<br>
  -0.555492&nbsp;&nbsp;0.999507&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
- </tt></td>
- * <td><tt> 3&nbsp;x&nbsp;3&nbsp;matrix<br>
+ </code></td>
+ * <td><code> 3&nbsp;x&nbsp;3&nbsp;matrix<br>
  &nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12.569805&nbsp;15.874508<br>
  12.569805&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.242641<br>
  15.874508&nbsp;&nbsp;4.242641&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
- </tt> <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </tt></td>
+ </code> <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code></td>
  * </tr>
  * </table>
  * 
@@ -68,7 +68,7 @@ public class FloatStatistic extends Object {
     private static final cern.jet.math.tfloat.FloatFunctions F = cern.jet.math.tfloat.FloatFunctions.functions;
 
     /**
-     * Euclidean distance function; <tt>Sqrt(Sum( (x[i]-y[i])^2 ))</tt>.
+     * Euclidean distance function; <code>Sqrt(Sum( (x[i]-y[i])^2 ))</code>.
      */
     public static final VectorVectorFunction EUCLID = new VectorVectorFunction() {
         public final float apply(FloatMatrix1D a, FloatMatrix1D b) {
@@ -79,7 +79,7 @@ public class FloatStatistic extends Object {
 
     /**
      * Bray-Curtis distance function;
-     * <tt>Sum( abs(x[i]-y[i]) )  /  Sum( x[i]+y[i] )</tt>.
+     * <code>Sum( abs(x[i]-y[i]) )  /  Sum( x[i]+y[i] )</code>.
      */
     public static final VectorVectorFunction BRAY_CURTIS = new VectorVectorFunction() {
         public final float apply(FloatMatrix1D a, FloatMatrix1D b) {
@@ -90,7 +90,7 @@ public class FloatStatistic extends Object {
 
     /**
      * Canberra distance function;
-     * <tt>Sum( abs(x[i]-y[i]) / abs(x[i]+y[i]) )</tt>.
+     * <code>Sum( abs(x[i]-y[i]) / abs(x[i]+y[i]) )</code>.
      */
     public static final VectorVectorFunction CANBERRA = new VectorVectorFunction() {
         FloatFloatFunction fun = new FloatFloatFunction() {
@@ -105,7 +105,7 @@ public class FloatStatistic extends Object {
     };
 
     /**
-     * Maximum distance function; <tt>Max( abs(x[i]-y[i]) )</tt>.
+     * Maximum distance function; <code>Max( abs(x[i]-y[i]) )</code>.
      */
     public static final VectorVectorFunction MAXIMUM = new VectorVectorFunction() {
         public final float apply(FloatMatrix1D a, FloatMatrix1D b) {
@@ -114,7 +114,7 @@ public class FloatStatistic extends Object {
     };
 
     /**
-     * Manhattan distance function; <tt>Sum( abs(x[i]-y[i]) )</tt>.
+     * Manhattan distance function; <code>Sum( abs(x[i]-y[i]) )</code>.
      */
     public static final VectorVectorFunction MANHATTAN = new VectorVectorFunction() {
         public final float apply(FloatMatrix1D a, FloatMatrix1D b) {
@@ -148,10 +148,10 @@ public class FloatStatistic extends Object {
 
     /**
      * Applies the given aggregation functions to each column and stores the
-     * results in a the result matrix. If matrix has shape <tt>m x n</tt>, then
-     * result must have shape <tt>aggr.length x n</tt>. Tip: To do aggregations
+     * results in a the result matrix. If matrix has shape <code>m x n</code>, then
+     * result must have shape <code>aggr.length x n</code>. Tip: To do aggregations
      * on rows use dice views (transpositions), as in
-     * <tt>aggregate(matrix.viewDice(),aggr,result.viewDice())</tt>.
+     * <code>aggregate(matrix.viewDice(),aggr,result.viewDice())</code>.
      * 
      * @param matrix
      *            any matrix; a column holds the values of a given variable.
@@ -159,7 +159,7 @@ public class FloatStatistic extends Object {
      *            the aggregation functions to be applied to each column.
      * @param result
      *            the matrix to hold the aggregation results.
-     * @return <tt>result</tt> (for convenience only).
+     * @return <code>result</code> (for convenience only).
      * @see FloatFormatter
      * @see hep.aida.tfloat.bin.FloatBinFunction1D
      * @see hep.aida.tfloat.bin.FloatBinFunctions1D
@@ -185,7 +185,7 @@ public class FloatStatistic extends Object {
      * Fills all cell values of the given vector into a bin from which
      * statistics measures can be retrieved efficiently. Cells values are
      * copied. <br>
-     * Tip: Use <tt>System.out.println(bin(vector))</tt> to print most measures
+     * Tip: Use <code>System.out.println(bin(vector))</code> to print most measures
      * computed by the bin. Example:
      * <table>
      * <td class="PRE">
@@ -254,7 +254,7 @@ public class FloatStatistic extends Object {
      * and itself) will equal 1, for the simple reason that the correlation
      * coefficient of a variable with itself equals 1. The correlation of two
      * column vectors x and y is given by
-     * <tt>corr(x,y) = cov(x,y) / (stdDev(x)*stdDev(y))</tt> (Pearson's
+     * <code>corr(x,y) = cov(x,y) / (stdDev(x)*stdDev(y))</code> (Pearson's
      * correlation coefficient). A correlation coefficient varies between -1
      * (for a perfect negative relationship) to +1 (for a perfect positive
      * relationship). See the <A
@@ -294,14 +294,14 @@ public class FloatStatistic extends Object {
      * variables, the cells represent covariance coefficients. The diagonal
      * cells (i.e. the covariance between a variable and itself) will equal the
      * variances. The covariance of two column vectors x and y is given by
-     * <tt>cov(x,y) = (1/n) * Sum((x[i]-mean(x)) * (y[i]-mean(y)))</tt>. See the
+     * <code>cov(x,y) = (1/n) * Sum((x[i]-mean(x)) * (y[i]-mean(y)))</code>. See the
      * <A HREF="http://www.cquest.utoronto.ca/geog/ggr270y/notes/not05efg.html">
      * math definition</A>. Compares two column vectors at a time. Use dice
      * views to compare two row vectors at a time.
      * 
      * @param matrix
      *            any matrix; a column holds the values of a given variable.
-     * @return the covariance matrix (<tt>n x n, n=matrix.columns</tt>).
+     * @return the covariance matrix (<code>n x n, n=matrix.columns</code>).
      */
     public static FloatMatrix2D covariance(FloatMatrix2D matrix) {
         int rows = matrix.rows();
@@ -365,10 +365,13 @@ public class FloatStatistic extends Object {
      * </td>
      * </table>
      * 
+     * @param x
+     * @param weights
+     * @param y
      * @return the histogram containing the cube.
      * @throws IllegalArgumentException
      *             if
-     *             <tt>x.size() != y.size() || y.size() != weights.size()</tt>.
+     *             <code>x.size() != y.size() || y.size() != weights.size()</code>.
      */
     public static hep.aida.tfloat.FloatIHistogram2D cube(FloatMatrix1D x, FloatMatrix1D y, FloatMatrix1D weights) {
         if (x.size() != y.size() || y.size() != weights.size())
@@ -415,10 +418,14 @@ public class FloatStatistic extends Object {
      * Computes the distinct values of x and y and z, yielding histogram axes
      * that capture one distinct value per bin. Then fills the histogram.
      * 
+     * @param x
+     * @param weights
+     * @param y
+     * @param z
      * @return the histogram containing the cube.
      * @throws IllegalArgumentException
      *             if
-     *             <tt>x.size() != y.size() || x.size() != z.size() || x.size() != weights.size()</tt>
+     *             <code>x.size() != y.size() || x.size() != z.size() || x.size() != weights.size()</code>
      *             .
      */
     public static hep.aida.tfloat.FloatIHistogram3D cube(FloatMatrix1D x, FloatMatrix1D y, FloatMatrix1D z,
@@ -488,6 +495,9 @@ public class FloatStatistic extends Object {
 
     /**
      * Demonstrates usage of this class.
+     * @param rows
+     * @param print
+     * @param columns
      */
     public static void demo2(int rows, int columns, boolean print) {
         System.out.println("\n\ninitializing...");
@@ -512,6 +522,7 @@ public class FloatStatistic extends Object {
 
     /**
      * Demonstrates usage of this class.
+     * @param norm
      */
     public static void demo3(VectorVectorFunction norm) {
         float[][] values = { { -0.9611052f, -0.25421095f }, { 0.4308269f, -0.69932648f }, { -1.2071029f, 0.62030596f },
@@ -539,7 +550,7 @@ public class FloatStatistic extends Object {
      * @param distanceFunction
      *            (EUCLID, CANBERRA, ..., or any user defined distance function
      *            operating on two vectors).
-     * @return the distance matrix (<tt>n x n, n=matrix.columns</tt>).
+     * @return the distance matrix (<code>n x n, n=matrix.columns</code>).
      */
     public static FloatMatrix2D distance(FloatMatrix2D matrix, VectorVectorFunction distanceFunction) {
         int columns = matrix.columns();
@@ -565,7 +576,9 @@ public class FloatStatistic extends Object {
     /**
      * Fills all cells of the given vector into the given histogram.
      * 
-     * @return <tt>histo</tt> (for convenience only).
+     * @param histo
+     * @param vector
+     * @return <code>histo</code> (for convenience only).
      */
     public static hep.aida.tfloat.FloatIHistogram1D histogram(hep.aida.tfloat.FloatIHistogram1D histo,
             FloatMatrix1D vector) {
@@ -578,7 +591,9 @@ public class FloatStatistic extends Object {
     /**
      * Fills all cells of the given matrix into the given histogram.
      * 
-     * @return <tt>histo</tt> (for convenience only).
+     * @param histo
+     * @param matrix
+     * @return <code>histo</code> (for convenience only).
      */
     public static hep.aida.tfloat.FloatIHistogram1D histogram(final hep.aida.tfloat.FloatIHistogram1D histo,
             final FloatMatrix2D matrix) {
@@ -591,7 +606,11 @@ public class FloatStatistic extends Object {
      * Splits the given matrix into m x n pieces and computes 1D histogram of
      * each piece.
      * 
-     * @return <tt>histo</tt> (for convenience only).
+     * @param histo
+     * @param n
+     * @param matrix
+     * @param m
+     * @return <code>histo</code> (for convenience only).
      */
     public static hep.aida.tfloat.FloatIHistogram1D[][] histogram(final hep.aida.tfloat.FloatIHistogram1D[][] histo,
             final FloatMatrix2D matrix, final int m, final int n) {
@@ -655,9 +674,12 @@ public class FloatStatistic extends Object {
     /**
      * Fills all cells of the given vectors into the given histogram.
      * 
-     * @return <tt>histo</tt> (for convenience only).
+     * @param histo
+     * @param y
+     * @param x
+     * @return <code>histo</code> (for convenience only).
      * @throws IllegalArgumentException
-     *             if <tt>x.size() != y.size()</tt>.
+     *             if <code>x.size() != y.size()</code>.
      */
     public static hep.aida.tfloat.FloatIHistogram2D histogram(hep.aida.tfloat.FloatIHistogram2D histo, FloatMatrix1D x,
             FloatMatrix1D y) {
@@ -672,10 +694,14 @@ public class FloatStatistic extends Object {
     /**
      * Fills all cells of the given vectors into the given histogram.
      * 
-     * @return <tt>histo</tt> (for convenience only).
+     * @param histo
+     * @param weights
+     * @param x
+     * @param y
+     * @return <code>histo</code> (for convenience only).
      * @throws IllegalArgumentException
      *             if
-     *             <tt>x.size() != y.size() || y.size() != weights.size()</tt>.
+     *             <code>x.size() != y.size() || y.size() != weights.size()</code>.
      */
     public static hep.aida.tfloat.FloatIHistogram2D histogram(hep.aida.tfloat.FloatIHistogram2D histo, FloatMatrix1D x,
             FloatMatrix1D y, FloatMatrix1D weights) {
@@ -690,10 +716,15 @@ public class FloatStatistic extends Object {
     /**
      * Fills all cells of the given vectors into the given histogram.
      * 
-     * @return <tt>histo</tt> (for convenience only).
+     * @param histo
+     * @param weights
+     * @param x
+     * @param z
+     * @param y
+     * @return <code>histo</code> (for convenience only).
      * @throws IllegalArgumentException
      *             if
-     *             <tt>x.size() != y.size() || x.size() != z.size() || x.size() != weights.size()</tt>
+     *             <code>x.size() != y.size() || x.size() != z.size() || x.size() != weights.size()</code>
      *             .
      */
     public static hep.aida.tfloat.FloatIHistogram3D histogram(hep.aida.tfloat.FloatIHistogram3D histo, FloatMatrix1D x,
@@ -708,6 +739,7 @@ public class FloatStatistic extends Object {
 
     /**
      * Benchmarks covariance computation.
+     * @param args
      */
     public static void main(String[] args) {
         int rows = Integer.parseInt(args[0]);
@@ -718,7 +750,7 @@ public class FloatStatistic extends Object {
 
     /**
      * Constructs and returns a sampling view with a size of
-     * <tt>round(matrix.size() * fraction)</tt>. Samples "without replacement"
+     * <code>round(matrix.size() * fraction)</code>. Samples "without replacement"
      * from the uniform distribution.
      * 
      * @param matrix
@@ -727,12 +759,12 @@ public class FloatStatistic extends Object {
      *            the percentage to be included in the view.
      * @param randomGenerator
      *            a uniform random number generator; set this parameter to
-     *            <tt>null</tt> to use a default generator seeded with the
+     *            <code>null</code> to use a default generator seeded with the
      *            current time.
      * @return the sampling view.
      * @throws IllegalArgumentException
      *             if
-     *             <tt>! (0 <= rowFraction <= 1 && 0 <= columnFraction <= 1)</tt>
+     *             <code>! (0 <= rowFraction <= 1 && 0 <= columnFraction <= 1)</code>
      *             .
      * @see cern.jet.random.tfloat.sampling.FloatRandomSampler
      */
@@ -768,22 +800,22 @@ public class FloatStatistic extends Object {
 
     /**
      * Constructs and returns a sampling view with
-     * <tt>round(matrix.rows() * rowFraction)</tt> rows and
-     * <tt>round(matrix.columns() * columnFraction)</tt> columns. Samples
+     * <code>round(matrix.rows() * rowFraction)</code> rows and
+     * <code>round(matrix.columns() * columnFraction)</code> columns. Samples
      * "without replacement". Rows and columns are randomly chosen from the
      * uniform distribution. Examples:
      * <table border="1" cellspacing="0">
      * <tr valign="top" align="center">
-     * <td><div align="left"><tt>matrix</tt></div></td>
-     * <td><div align="left"><tt>rowFraction=0.2<br>
-     columnFraction=0.2</tt></div></td>
-     * <td><div align="left"><tt>rowFraction=0.2<br>
-     columnFraction=1.0 </tt></div></td>
-     * <td><div align="left"><tt>rowFraction=1.0<br>
-     columnFraction=0.2 </tt></div></td>
+     * <td><div align="left"><code>matrix</code></div></td>
+     * <td><div align="left"><code>rowFraction=0.2<br>
+     columnFraction=0.2</code></div></td>
+     * <td><div align="left"><code>rowFraction=0.2<br>
+     columnFraction=1.0 </code></div></td>
+     * <td><div align="left"><code>rowFraction=1.0<br>
+     columnFraction=0.2 </code></div></td>
      * </tr>
      * <tr valign="top">
-     * <td><tt> 10&nbsp;x&nbsp;10&nbsp;matrix<br>
+     * <td><code> 10&nbsp;x&nbsp;10&nbsp;matrix<br>
      &nbsp;1&nbsp;&nbsp;2&nbsp;&nbsp;3&nbsp;&nbsp;4&nbsp;&nbsp;5&nbsp;&nbsp;6&nbsp;&nbsp;7&nbsp;&nbsp;8&nbsp;&nbsp;9&nbsp;&nbsp;10<br>
      11&nbsp;12&nbsp;13&nbsp;14&nbsp;15&nbsp;16&nbsp;17&nbsp;18&nbsp;19&nbsp;&nbsp;20<br>
      21&nbsp;22&nbsp;23&nbsp;24&nbsp;25&nbsp;26&nbsp;27&nbsp;28&nbsp;29&nbsp;&nbsp;30<br>
@@ -794,15 +826,15 @@ public class FloatStatistic extends Object {
      71&nbsp;72&nbsp;73&nbsp;74&nbsp;75&nbsp;76&nbsp;77&nbsp;78&nbsp;79&nbsp;&nbsp;80<br>
      81&nbsp;82&nbsp;83&nbsp;84&nbsp;85&nbsp;86&nbsp;87&nbsp;88&nbsp;89&nbsp;&nbsp;90<br>
      91&nbsp;92&nbsp;93&nbsp;94&nbsp;95&nbsp;96&nbsp;97&nbsp;98&nbsp;99&nbsp;100 
-     </tt></td>
-     * <td><tt> 2&nbsp;x&nbsp;2&nbsp;matrix<br>
+     </code></td>
+     * <td><code> 2&nbsp;x&nbsp;2&nbsp;matrix<br>
      43&nbsp;50<br>
-     53&nbsp;60 </tt></td>
-     * <td><tt> 2&nbsp;x&nbsp;10&nbsp;matrix<br>
+     53&nbsp;60 </code></td>
+     * <td><code> 2&nbsp;x&nbsp;10&nbsp;matrix<br>
      41&nbsp;42&nbsp;43&nbsp;44&nbsp;45&nbsp;46&nbsp;47&nbsp;48&nbsp;49&nbsp;&nbsp;50<br>
      91&nbsp;92&nbsp;93&nbsp;94&nbsp;95&nbsp;96&nbsp;97&nbsp;98&nbsp;99&nbsp;100 
-     </tt></td>
-     * <td><tt> 10&nbsp;x&nbsp;2&nbsp;matrix<br>
+     </code></td>
+     * <td><code> 10&nbsp;x&nbsp;2&nbsp;matrix<br>
      &nbsp;4&nbsp;&nbsp;8<br>
      14&nbsp;18<br>
      24&nbsp;28<br>
@@ -812,7 +844,7 @@ public class FloatStatistic extends Object {
      64&nbsp;68<br>
      74&nbsp;78<br>
      84&nbsp;88<br>
-     94&nbsp;98 </tt></td>
+     94&nbsp;98 </code></td>
      * </tr>
      * </table>
      * 
@@ -824,12 +856,12 @@ public class FloatStatistic extends Object {
      *            the percentage of columns to be included in the view.
      * @param randomGenerator
      *            a uniform random number generator; set this parameter to
-     *            <tt>null</tt> to use a default generator seeded with the
+     *            <code>null</code> to use a default generator seeded with the
      *            current time.
      * @return the sampling view.
      * @throws IllegalArgumentException
      *             if
-     *             <tt>! (0 <= rowFraction <= 1 && 0 <= columnFraction <= 1)</tt>
+     *             <code>! (0 <= rowFraction <= 1 && 0 <= columnFraction <= 1)</code>
      *             .
      * @see cern.jet.random.tfloat.sampling.FloatRandomSampler
      */
@@ -882,9 +914,9 @@ public class FloatStatistic extends Object {
 
     /**
      * Constructs and returns a sampling view with
-     * <tt>round(matrix.slices() * sliceFraction)</tt> slices and
-     * <tt>round(matrix.rows() * rowFraction)</tt> rows and
-     * <tt>round(matrix.columns() * columnFraction)</tt> columns. Samples
+     * <code>round(matrix.slices() * sliceFraction)</code> slices and
+     * <code>round(matrix.rows() * rowFraction)</code> rows and
+     * <code>round(matrix.columns() * columnFraction)</code> columns. Samples
      * "without replacement". Slices, rows and columns are randomly chosen from
      * the uniform distribution.
      * 
@@ -898,12 +930,12 @@ public class FloatStatistic extends Object {
      *            the percentage of columns to be included in the view.
      * @param randomGenerator
      *            a uniform random number generator; set this parameter to
-     *            <tt>null</tt> to use a default generator seeded with the
+     *            <code>null</code> to use a default generator seeded with the
      *            current time.
      * @return the sampling view.
      * @throws IllegalArgumentException
      *             if
-     *             <tt>! (0 <= sliceFraction <= 1 && 0 <= rowFraction <= 1 && 0 <= columnFraction <= 1)</tt>
+     *             <code>! (0 <= sliceFraction <= 1 && 0 <= rowFraction <= 1 && 0 <= columnFraction <= 1)</code>
      *             .
      * @see cern.jet.random.tfloat.sampling.FloatRandomSampler
      */

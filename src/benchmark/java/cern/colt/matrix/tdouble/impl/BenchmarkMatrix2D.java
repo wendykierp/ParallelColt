@@ -32,14 +32,14 @@ import cern.jet.math.tdouble.DoubleFunctions;
  * <td nowrap bgcolor="#FF9966" rowspan="2"><div align="left"> .</div></td>
  * <td bgcolor="#FF9966" columnspan="2">
  * <p>
- * <tt>DenseDoubleMatrix2D</tt><br>
+ * <code>DenseDoubleMatrix2D</code><br>
  * 1000 x 1000
  * </p>
  * </td>
  * <td bgcolor="#FF9966" columnspan="2">&nbsp;</td>
  * <td bgcolor="#FF9966" columnspan="2">
  * <p>
- * <tt>SparseDoubleMatrix2D</tt><br>
+ * <code>SparseDoubleMatrix2D</code><br>
  * 100 x 1000,<br>
  * <font size="-1"> minLoadFactor=0.2, maxLoadFactor=0.5, initialCapacity =
  * 0</font>
@@ -81,8 +81,8 @@ import cern.jet.math.tdouble.DoubleFunctions;
  * <p>
  * Comparing the OO abstractions to zero-abstraction primitive Java arrays may
  * or may not be useful. Still, the table below provides some interesting
- * information. For example, access to <tt>Type_T_Matrix2D</tt> is quicker than
- * naive usage of <tt>Type_T_[]</tt>. Primitive arrays should only be considered
+ * information. For example, access to <code>Type_T_Matrix2D</code> is quicker than
+ * naive usage of <code>Type_T_[]</code>. Primitive arrays should only be considered
  * if the optimized form can be applied. Note again that all benchmarks only
  * measure the time spent in accessing a matrix element; they exclude the loop
  * itself.
@@ -98,7 +98,7 @@ import cern.jet.math.tdouble.DoubleFunctions;
  * <tr valign="middle" bgcolor="#33CC66" nowrap align="center">
  * <td width="78" height="30" nowrap><div align="left"> Element type</div></td>
  * <td height="30" nowrap columnspan="6"><div align="center">Matrix2D type = Java
- * array <tt>double[][]</tt></div></td>
+ * array <code>double[][]</code></div></td>
  * </tr>
  * <tr valign="middle" bgcolor="#66CCFF" nowrap align="center">
  * <td width="78" height="60" nowrap bgcolor="#FF9966" rowspan="2"><div

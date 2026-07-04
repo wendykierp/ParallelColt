@@ -23,9 +23,9 @@ import cern.colt.matrix.tfloat.impl.DenseFloatMatrix2D;
 import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
 
 /**
- * Dense 2-d matrix holding <tt>complex</tt> elements. <b>Implementation:</b>
+ * Dense 2-d matrix holding <code>complex</code> elements. <b>Implementation:</b>
  * <p>
- * Internally holds one single contigous one-dimensional array, addressed in row
+ * Internally holds one single contiguous one-dimensional array, addressed in row
  * major. Complex data is represented by 2 float values in sequence, i.e.
  * elements[idx] constitute the real part and elements[idx+1] constitute the
  * imaginary part, where idx = index(0,0) + row * rowStride + column *
@@ -71,22 +71,22 @@ public class DenseFComplexMatrix2D extends FComplexMatrix2D {
     protected float[] elements;
 
     /**
-     * Constructs a matrix with a copy of the given values. <tt>values</tt> is
+     * Constructs a matrix with a copy of the given values. <code>values</code> is
      * required to have the form
-     * <tt>re = values[row][2*column]; im = values[row][2*column+1]</tt> and
+     * <code>re = values[row][2*column]; im = values[row][2*column+1]</code> and
      * have exactly the same number of rows and columns as the receiver. Due to
      * the fact that complex data is represented by 2 float values in sequence:
      * the real and imaginary parts, the new matrix will be of the size
      * values.length by values[0].length / 2.
      * <p>
-     * The values are copied. So subsequent changes in <tt>values</tt> are not
+     * The values are copied. So subsequent changes in <code>values</code> are not
      * reflected in the matrix, and vice-versa.
      * 
      * @param values
      *            The values to be filled into the new matrix.
      * @throws IllegalArgumentException
      *             if
-     *             <tt>for any 1 &lt;= row &lt; values.length: values[row].length != values[row-1].length</tt>
+     *             <code>for any 1 &lt;= row &lt; values.length: values[row].length != values[row-1].length</code>
      *             .
      */
     public DenseFComplexMatrix2D(float[][] values) {
@@ -95,15 +95,15 @@ public class DenseFComplexMatrix2D extends FComplexMatrix2D {
     }
 
     /**
-     * Constructs a complex matrix with the same size as <tt>realPart</tt>
+     * Constructs a complex matrix with the same size as <code>realPart</code>
      * matrix and fills the real part of this matrix with elements of
-     * <tt>realPart</tt>.
+     * <code>realPart</code>.
      * 
      * @param realPart
      *            a real matrix whose elements become a real part of this matrix
      * @throws IllegalArgumentException
      *             if
-     *             <tt>rows<0 || columns<0 || (double)columns*rows > Integer.MAX_VALUE</tt>
+     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows > Integer.MAX_VALUE</code>
      *             .
      */
     public DenseFComplexMatrix2D(FloatMatrix2D realPart) {
@@ -113,7 +113,7 @@ public class DenseFComplexMatrix2D extends FComplexMatrix2D {
 
     /**
      * Constructs a matrix with a given number of rows and columns. All entries
-     * are initially <tt>0</tt>.
+     * are initially <code>0</code>.
      * 
      * @param rows
      *            the number of rows the matrix shall have.
@@ -121,7 +121,7 @@ public class DenseFComplexMatrix2D extends FComplexMatrix2D {
      *            the number of columns the matrix shall have.
      * @throws IllegalArgumentException
      *             if
-     *             <tt>rows<0 || columns<0 || (double)columns*rows > Integer.MAX_VALUE</tt>
+     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows > Integer.MAX_VALUE</code>
      *             .
      */
     public DenseFComplexMatrix2D(int rows, int columns) {
@@ -144,16 +144,16 @@ public class DenseFComplexMatrix2D extends FComplexMatrix2D {
      *            the position of the first element.
      * @param rowStride
      *            the number of elements between two rows, i.e.
-     *            <tt>index(i+1,j)-index(i,j)</tt>.
+     *            <code>index(i+1,j)-index(i,j)</code>.
      * @param columnStride
      *            the number of elements between two columns, i.e.
-     *            <tt>index(i,j+1)-index(i,j)</tt>.
+     *            <code>index(i,j+1)-index(i,j)</code>.
      * @param isNoView
      *            if false then the view is constructed
      * 
      * @throws IllegalArgumentException
      *             if
-     *             <tt>rows<0 || columns<0 || (double)columns*rows > Integer.MAX_VALUE</tt>
+     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows > Integer.MAX_VALUE</code>
      *             or flip's are illegal.
      */
     public DenseFComplexMatrix2D(int rows, int columns, float[] elements, int rowZero, int columnZero, int rowStride,

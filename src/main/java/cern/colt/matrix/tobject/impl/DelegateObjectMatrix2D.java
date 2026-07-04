@@ -13,7 +13,7 @@ import cern.colt.matrix.tobject.ObjectMatrix2D;
 import cern.colt.matrix.tobject.ObjectMatrix3D;
 
 /**
- * 2-d matrix holding <tt>Object</tt> elements; a view wrapping another 3-d matrix
+ * 2-d matrix holding <code>Object</code> elements; a view wrapping another 3-d matrix
  * and therefore delegating calls to it.
  * 
  * @author Piotr Wendykier (piotr.wendykier@gmail.com)

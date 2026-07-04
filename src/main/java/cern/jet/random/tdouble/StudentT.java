@@ -18,11 +18,11 @@ import cern.jet.stat.tdouble.Probability;
  * HREF="http://www.statsoft.com/textbook/gloss.html#Student's t Distribution">
  * animated definition</A>.
  * <p>
- * <tt>p(x) = k  *  (1+x^2/f) ^ -(f+1)/2</tt> where
- * <tt>k = g((f+1)/2) / (sqrt(pi*f) * g(f/2))</tt> and <tt>g(a)</tt> being the
- * gamma function and <tt>f</tt> being the degrees of freedom.
+ * <code>p(x) = k  *  (1+x^2/f) ^ -(f+1)/2</code> where
+ * <code>k = g((f+1)/2) / (sqrt(pi*f) * g(f/2))</code> and <code>g(a)</code> being the
+ * gamma function and <code>f</code> being the degrees of freedom.
  * <p>
- * Valid parameter ranges: <tt>freedom &gt; 0</tt>.
+ * Valid parameter ranges: <code>freedom &gt; 0</code>.
  * <p>
  * Instance methods operate on a user supplied uniform random number generator;
  * they are unsynchronized.
@@ -34,7 +34,7 @@ import cern.jet.stat.tdouble.Probability;
  * <dt>This is a port of <A HREF="http://wwwinfo.cern.ch/asd/lhc++/clhep/manual/RefGuide/Random/RandStudentT.html"
  * >RandStudentT</A> used in <A
  * HREF="http://wwwinfo.cern.ch/asd/lhc++/clhep">CLHEP 1.4.0</A> (C++). CLHEP's
- * implementation, in turn, is based on <tt>tpol.c</tt> from the <A
+ * implementation, in turn, is based on <code>tpol.c</code> from the <A
  * HREF="http://www.cis.tu-graz.ac.at/stat/stadl/random.html">C-RAND /
  * WIN-RAND</A> library. C-RAND's implementation, in turn, is based upon
  * <p>
@@ -62,8 +62,9 @@ public class StudentT extends AbstractContinousDoubleDistribution {
      * 
      * @param freedom
      *            degrees of freedom.
+     * @param randomGenerator
      * @throws IllegalArgumentException
-     *             if <tt>freedom &lt;= 0.0</tt>.
+     *             if <code>freedom &lt;= 0.0</code>.
      */
     public StudentT(double freedom, DoubleRandomEngine randomGenerator) {
         setRandomGenerator(randomGenerator);
@@ -72,6 +73,8 @@ public class StudentT extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns the cumulative distribution function.
+     * @param x
+     * @return 
      */
     public double cdf(double x) {
         return Probability.studentT(freedom, x);
@@ -79,6 +82,7 @@ public class StudentT extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a random number from the distribution.
+     * @return 
      */
 
     public double nextDouble() {
@@ -91,8 +95,9 @@ public class StudentT extends AbstractContinousDoubleDistribution {
      * 
      * @param degreesOfFreedom
      *            degrees of freedom.
+     * @return 
      * @throws IllegalArgumentException
-     *             if <tt>a &lt;= 0.0</tt>.
+     *             if <code>a &lt;= 0.0</code>.
      */
     public double nextDouble(double degreesOfFreedom) {
         /*
@@ -118,6 +123,8 @@ public class StudentT extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns the probability distribution function.
+     * @param x
+     * @return 
      */
     public double pdf(double x) {
         return this.TERM * Math.pow((1 + x * x / freedom), -(freedom + 1) * 0.5);
@@ -129,7 +136,7 @@ public class StudentT extends AbstractContinousDoubleDistribution {
      * @param freedom
      *            degrees of freedom.
      * @throws IllegalArgumentException
-     *             if <tt>freedom &lt;= 0.0</tt>.
+     *             if <code>freedom &lt;= 0.0</code>.
      */
     public void setState(double freedom) {
         if (freedom <= 0.0)
@@ -145,8 +152,9 @@ public class StudentT extends AbstractContinousDoubleDistribution {
      * 
      * @param freedom
      *            degrees of freedom.
+     * @return 
      * @throws IllegalArgumentException
-     *             if <tt>freedom &lt;= 0.0</tt>.
+     *             if <code>freedom &lt;= 0.0</code>.
      */
     public static double staticNextDouble(double freedom) {
         synchronized (shared) {
@@ -156,6 +164,7 @@ public class StudentT extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a String representation of the receiver.
+     * @return 
      */
 
     public String toString() {

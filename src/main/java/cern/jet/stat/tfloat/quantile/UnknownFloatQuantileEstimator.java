@@ -15,16 +15,16 @@ import cern.jet.random.tfloat.sampling.WeightedFloatRandomSampler;
 import cern.jet.stat.Utils;
 
 /**
- * Approximate quantile finding algorithm for unknown <tt>N</tt> requiring only
+ * Approximate quantile finding algorithm for unknown <code>N</code> requiring only
  * one pass and little main memory; computes quantiles over a sequence of
- * <tt>float</tt> elements. This algorithm requires at most two times the memory
- * of a corresponding approx. quantile finder knowing <tt>N</tt>.
+ * <code>float</code> elements. This algorithm requires at most two times the memory
+ * of a corresponding approx. quantile finder knowing <code>N</code>.
  * 
  * <p>
  * Needs as input the following parameters:
  * <p>
- * <dt>1. <tt>quantiles</tt> - the number of quantiles to be computed.
- * <dt>2. <tt>epsilon</tt> - the allowed approximation error on quantiles. The
+ * <dt>1. <code>quantiles</code> - the number of quantiles to be computed.
+ * <dt>2. <code>epsilon</code> - the allowed approximation error on quantiles. The
  * approximation guarantee of this algorithm is explicit.
  * 
  * <p>
@@ -33,12 +33,12 @@ import cern.jet.stat.Utils;
  * approximation guarantees are explicit but probabilistic, i.e. they apply with
  * respect to a (user controlled) confidence parameter "delta".
  * 
- * <dt>3. <tt>delta</tt> - the probability allowed that the approximation error
- * fails to be smaller than epsilon. Set <tt>delta</tt> to zero for explicit non
+ * <dt>3. <code>delta</code> - the probability allowed that the approximation error
+ * fails to be smaller than epsilon. Set <code>delta</code> to zero for explicit non
  * probabilistic guarantees.
  * 
  * You usually don't instantiate quantile finders by using the constructor.
- * Instead use the factory <tt>QuantileFinderFactor</tt> to do so. It will set
+ * Instead use the factory <code>QuantileFinderFactor</code> to do so. It will set
  * up the right parametrization for you.
  * 
  * <p>
@@ -166,7 +166,7 @@ class UnknownFloatQuantileEstimator extends FloatQuantileEstimator {
      * 
      * @param phis
      *            the quantiles for which elements are to be computed. Each phi
-     *            must be in the interval (0.0,1.0]. <tt>phis</tt> must be
+     *            must be in the interval (0.0,1.0]. <code>phis</code> must be
      *            sorted ascending.
      * @return the approximate quantile elements.
      */

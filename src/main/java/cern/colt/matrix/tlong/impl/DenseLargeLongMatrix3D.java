@@ -11,7 +11,7 @@ package cern.colt.matrix.tlong.impl;
 import cern.colt.matrix.tlong.LongMatrix3D;
 
 /**
- * Dense 3-d matrix holding <tt>long</tt> elements. First see the <a
+ * Dense 3-d matrix holding <code>long</code> elements. First see the <a
  * href="package-summary.html">package summary</a> and javadoc <a
  * href="package-tree.html">tree view</a> to get the broad picture.
  * <p>
@@ -23,8 +23,8 @@ import cern.colt.matrix.tlong.LongMatrix3D;
  * <p>
  * <b>Time complexity:</b>
  * <p>
- * <tt>O(1)</tt> (i.e. constant time) for the basic operations <tt>get</tt>,
- * <tt>getQuick</tt>, <tt>set</tt>, <tt>setQuick</tt> and <tt>size</tt>.
+ * <code>O(1)</code> (i.e. constant time) for the basic operations <code>get</code>,
+ * <code>getQuick</code>, <code>set</code>, <code>setQuick</code> and <code>size</code>.
  * 
  * @author Piotr Wendykier (piotr.wendykier@gmail.com)
  * 

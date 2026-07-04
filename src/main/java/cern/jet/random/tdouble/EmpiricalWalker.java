@@ -24,10 +24,10 @@ import cern.jet.random.tdouble.engine.DoubleRandomEngine;
  * are synchronized.
  * <p>
  * <b>Implementation:</b> Walker's algorithm. Generating a random number takes
- * <tt>O(1)</tt>, i.e. constant time, as opposed to commonly used algorithms
+ * <code>O(1)</code>, i.e. constant time, as opposed to commonly used algorithms
  * with logarithmic time complexity. Preprocessing time (on object construction)
- * is <tt>O(k)</tt> where <tt>k</tt> is the number of elements of the provided
- * empirical pdf. Space complexity is <tt>O(k)</tt>.
+ * is <code>O(k)</code> where <code>k</code> is the number of elements of the provided
+ * empirical pdf. Space complexity is <code>O(k)</code>.
  * <p>
  * This is a port of <A HREF="http://sourceware.cygnus.com/cgi-bin/cvsweb.cgi/gsl/randist/discrete.c?cvsroot=gsl"
  * >discrete.c</A> which was written by James Theiler and is distributed with <A
@@ -159,18 +159,18 @@ public class EmpiricalWalker extends AbstractDiscreteDistribution {
      * Constructs an Empirical distribution. The probability distribution
      * function (pdf) is an array of positive real numbers. It need not be
      * provided in the form of relative probabilities, absolute probabilities
-     * are also accepted. The <tt>pdf</tt> must satisfy both of the following
+     * are also accepted. The <code>pdf</code> must satisfy both of the following
      * conditions
      * <ul>
-     * <li><tt>0.0 &lt;= pdf[i] : 0&lt;=i&lt;=pdf.length-1</tt>
-     * <li><tt>0.0 &lt; Sum(pdf[i]) : 0&lt;=i&lt;=pdf.length-1</tt>
+     * <li><code>0.0 &lt;= pdf[i] : 0&lt;=i&lt;=pdf.length-1</code>
+     * <li><code>0.0 &lt; Sum(pdf[i]) : 0&lt;=i&lt;=pdf.length-1</code>
      * </ul>
      * 
      * @param pdf
      *            the probability distribution function.
      * @param interpolationType
-     *            can be either <tt>Empirical.NO_INTERPOLATION</tt> or
-     *            <tt>Empirical.LINEAR_INTERPOLATION</tt>.
+     *            can be either <code>Empirical.NO_INTERPOLATION</code> or
+     *            <code>Empirical.LINEAR_INTERPOLATION</code>.
      * @param randomGenerator
      *            a uniform random number generator.
      * @throws IllegalArgumentException
@@ -184,6 +184,8 @@ public class EmpiricalWalker extends AbstractDiscreteDistribution {
 
     /**
      * Returns the cumulative distribution function.
+     * @param k
+     * @return 
      */
     public double cdf(int k) {
         if (k < 0)
@@ -213,7 +215,8 @@ public class EmpiricalWalker extends AbstractDiscreteDistribution {
     }
 
     /**
-     * Returns a random integer <tt>k</tt> with probability <tt>pdf(k)</tt>.
+     * Returns a random integer <code>k</code> with probability <code>pdf(k)</code>.
+     * @return 
      */
 
     public int nextInt() {
@@ -240,6 +243,8 @@ public class EmpiricalWalker extends AbstractDiscreteDistribution {
 
     /**
      * Returns the probability distribution function.
+     * @param k
+     * @return 
      */
     public double pdf(int k) {
         if (k < 0 || k >= cdf.length - 1)
@@ -248,16 +253,17 @@ public class EmpiricalWalker extends AbstractDiscreteDistribution {
     }
 
     /**
-     * Sets the distribution parameters. The <tt>pdf</tt> must satisfy all of
+     * Sets the distribution parameters. The <code>pdf</code> must satisfy all of
      * the following conditions
      * <ul>
-     * <li><tt>pdf != null && pdf.length &gt; 0</tt>
-     * <li><tt>0.0 &lt;= pdf[i] : 0 &lt; =i &lt;= pdf.length-1</tt>
-     * <li><tt>0.0 &lt; Sum(pdf[i]) : 0 &lt;=i &lt;= pdf.length-1</tt>
+     * <li><code>pdf != null && pdf.length &gt; 0</code>
+     * <li><code>0.0 &lt;= pdf[i] : 0 &lt; =i &lt;= pdf.length-1</code>
+     * <li><code>0.0 &lt; Sum(pdf[i]) : 0 &lt;=i &lt;= pdf.length-1</code>
      * </ul>
      * 
      * @param pdf
      *            probability distribution function.
+     * @param interpolationType
      * @throws IllegalArgumentException
      *             if at least one of the three conditions above is violated.
      */
@@ -287,11 +293,11 @@ public class EmpiricalWalker extends AbstractDiscreteDistribution {
     }
 
     /**
-     * Sets the distribution parameters. The <tt>pdf</tt> must satisfy both of
+     * Sets the distribution parameters. The <code>pdf</code> must satisfy both of
      * the following conditions
      * <ul>
-     * <li><tt>0.0 &lt;= pdf[i] : 0 &lt; =i &lt;= pdf.length-1</tt>
-     * <li><tt>0.0 &lt; Sum(pdf[i]) : 0 &lt;=i &lt;= pdf.length-1</tt>
+     * <li><code>0.0 &lt;= pdf[i] : 0 &lt; =i &lt;= pdf.length-1</code>
+     * <li><code>0.0 &lt; Sum(pdf[i]) : 0 &lt;=i &lt;= pdf.length-1</code>
      * </ul>
      * 
      * @param pdf
@@ -421,6 +427,7 @@ public class EmpiricalWalker extends AbstractDiscreteDistribution {
 
     /**
      * Returns a String representation of the receiver.
+     * @return 
      */
 
     public String toString() {

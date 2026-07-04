@@ -41,8 +41,11 @@ public class BreitWignerMeanSquare extends BreitWigner {
     /**
      * Constructs a mean-squared BreitWigner distribution.
      * 
+     * @param mean
      * @param cut
-     *            </tt>cut==Double.NEGATIVE_INFINITY</tt> indicates "don't cut".
+     *            </code>cut==Double.NEGATIVE_INFINITY</code> indicates "don't cut".
+     * @param gamma
+     * @param randomGenerator
      */
     public BreitWignerMeanSquare(double mean, double gamma, double cut, DoubleRandomEngine randomGenerator) {
         super(mean, gamma, cut, randomGenerator);
@@ -68,8 +71,11 @@ public class BreitWignerMeanSquare extends BreitWigner {
      * Returns a mean-squared random number from the distribution; bypasses the
      * internal state.
      * 
+     * @param mean
      * @param cut
-     *            </tt>cut==Double.NEGATIVE_INFINITY</tt> indicates "don't cut".
+     *            </code>cut==Double.NEGATIVE_INFINITY</code> indicates "don't cut".
+     * @param gamma
+     * @return 
      */
 
     public double nextDouble(double mean, double gamma, double cut) {
@@ -94,8 +100,11 @@ public class BreitWignerMeanSquare extends BreitWigner {
     /**
      * Returns a random number from the distribution.
      * 
+     * @param mean
      * @param cut
-     *            </tt>cut==Double.NEGATIVE_INFINITY</tt> indicates "don't cut".
+     *            </code>cut==Double.NEGATIVE_INFINITY</code> indicates "don't cut".
+     * @param gamma
+     * @return 
      */
     public static double staticNextDouble(double mean, double gamma, double cut) {
         synchronized (shared) {

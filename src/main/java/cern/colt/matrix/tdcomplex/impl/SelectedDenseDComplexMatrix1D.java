@@ -18,10 +18,10 @@ import cern.colt.matrix.tdouble.impl.DenseDoubleMatrix1D;
 import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
 
 /**
- * Selection view on dense 1-d matrices holding <tt>complex</tt> elements.
+ * Selection view on dense 1-d matrices holding <code>complex</code> elements.
  * <b>Implementation:</b>
  * <p>
- * Objects of this class are typically constructed via <tt>viewIndexes</tt>
+ * Objects of this class are typically constructed via <code>viewIndexes</code>
  * methods on some source matrix. The interface introduced in abstract super
  * classes defines everything a user can do. From a user point of view there is
  * nothing special about this class; it presents the same functionality with the
@@ -78,7 +78,7 @@ class SelectedDenseDComplexMatrix1D extends DComplexMatrix1D {
      *            the index of the first element.
      * @param stride
      *            the number of indexes between any two elements, i.e.
-     *            <tt>index(i+1)-index(i)</tt>.
+     *            <code>index(i+1)-index(i)</code>.
      * @param offsets
      *            the offsets of the cells that shall be visible.
      * @param offset
@@ -171,11 +171,11 @@ class SelectedDenseDComplexMatrix1D extends DComplexMatrix1D {
     }
 
     /**
-     * Returns <tt>true</tt> if both matrices share at least one identical cell.
+     * Returns <code>true</code> if both matrices share at least one identical cell.
      * 
      * @param other
      *            matrix
-     * @return <tt>true</tt> if both matrices share at least one identical cell.
+     * @return <code>true</code> if both matrices share at least one identical cell.
      */
 
     protected boolean haveSharedCellsRaw(DComplexMatrix1D other) {

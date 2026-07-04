@@ -21,10 +21,10 @@ import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
 
 /**
  * Quicksorts, mergesorts and binary searches; complements
- * <tt>java.util.Arrays</tt>. Contains, for example, the quicksort on
+ * <code>java.util.Arrays</code>. Contains, for example, the quicksort on
  * Comparators and Comparables, which are still missing in
- * <tt>java.util.Arrays</tt> of JDK 1.2. Also provides mergesorts for types not
- * supported in <tt>java.util.Arrays</tt>, as well as a couple of other methods
+ * <code>java.util.Arrays</code> of JDK 1.2. Also provides mergesorts for types not
+ * supported in <code>java.util.Arrays</code>, as well as a couple of other methods
  * for primitive arrays. The quicksorts and mergesorts are the JDK 1.2 V1.26
  * algorithms, modified as necessary.
  * 
@@ -68,10 +68,10 @@ public class Sorting extends Object {
      * @param to
      *            the rightmost search position, inclusive.
      * @return index of the search key, if it is contained in the list;
-     *         otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The
+     *         otherwise, <code>(-(<i>insertion point</i>) - 1)</code>. The
      *         <i>insertion point</i> is defined as the the point at which the
      *         value would be inserted into the list: the index of the first
-     *         element greater than the key, or <tt>list.length</tt>, if all
+     *         element greater than the key, or <code>list.length</code>, if all
      *         elements in the list are less than the specified key. Note that
      *         this guarantees that the return value will be &gt;= 0 if and only
      *         if the key is found.
@@ -109,10 +109,10 @@ public class Sorting extends Object {
      * @param to
      *            the rightmost search position, inclusive.
      * @return index of the search key, if it is contained in the list;
-     *         otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The
+     *         otherwise, <code>(-(<i>insertion point</i>) - 1)</code>. The
      *         <i>insertion point</i> is defined as the the point at which the
      *         value would be inserted into the list: the index of the first
-     *         element greater than the key, or <tt>list.length</tt>, if all
+     *         element greater than the key, or <code>list.length</code>, if all
      *         elements in the list are less than the specified key. Note that
      *         this guarantees that the return value will be &gt;= 0 if and only
      *         if the key is found.
@@ -150,10 +150,10 @@ public class Sorting extends Object {
      * @param to
      *            the rightmost search position, inclusive.
      * @return index of the search key, if it is contained in the list;
-     *         otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The
+     *         otherwise, <code>(-(<i>insertion point</i>) - 1)</code>. The
      *         <i>insertion point</i> is defined as the the point at which the
      *         value would be inserted into the list: the index of the first
-     *         element greater than the key, or <tt>list.length</tt>, if all
+     *         element greater than the key, or <code>list.length</code>, if all
      *         elements in the list are less than the specified key. Note that
      *         this guarantees that the return value will be &gt;= 0 if and only
      *         if the key is found.
@@ -191,10 +191,10 @@ public class Sorting extends Object {
      * @param to
      *            the rightmost search position, inclusive.
      * @return index of the search key, if it is contained in the list;
-     *         otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The
+     *         otherwise, <code>(-(<i>insertion point</i>) - 1)</code>. The
      *         <i>insertion point</i> is defined as the the point at which the
      *         value would be inserted into the list: the index of the first
-     *         element greater than the key, or <tt>list.length</tt>, if all
+     *         element greater than the key, or <code>list.length</code>, if all
      *         elements in the list are less than the specified key. Note that
      *         this guarantees that the return value will be &gt;= 0 if and only
      *         if the key is found.
@@ -232,10 +232,10 @@ public class Sorting extends Object {
      * @param to
      *            the rightmost search position, inclusive.
      * @return index of the search key, if it is contained in the list;
-     *         otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The
+     *         otherwise, <code>(-(<i>insertion point</i>) - 1)</code>. The
      *         <i>insertion point</i> is defined as the the point at which the
      *         value would be inserted into the list: the index of the first
-     *         element greater than the key, or <tt>list.length</tt>, if all
+     *         element greater than the key, or <code>list.length</code>, if all
      *         elements in the list are less than the specified key. Note that
      *         this guarantees that the return value will be &gt;= 0 if and only
      *         if the key is found.
@@ -279,10 +279,10 @@ public class Sorting extends Object {
      * @param to
      *            the rightmost search position, inclusive.
      * @return index of the search key, if it is contained in the list;
-     *         otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The
+     *         otherwise, <code>(-(<i>insertion point</i>) - 1)</code>. The
      *         <i>insertion point</i> is defined as the the point at which the
      *         value would be inserted into the list: the index of the first
-     *         element greater than the key, or <tt>list.length</tt>, if all
+     *         element greater than the key, or <code>list.length</code>, if all
      *         elements in the list are less than the specified key. Note that
      *         this guarantees that the return value will be &gt;= 0 if and only
      *         if the key is found.
@@ -308,8 +308,8 @@ public class Sorting extends Object {
      * algorithm. The list must be sorted into ascending order according to the
      * specified comparator. All elements in the range must be <i>mutually
      * comparable</i> by the specified comparator (that is,
-     * <tt>c.compare(e1, e2)</tt> must not throw a <tt>ClassCastException</tt>
-     * for any elements <tt>e1</tt> and <tt>e2</tt> in the range).
+     * <code>c.compare(e1, e2)</code> must not throw a <code>ClassCastException</code>
+     * for any elements <code>e1</code> and <code>e2</code> in the range).
      * <p>
      * 
      * If the list is not sorted, the results are undefined: in particular, the
@@ -332,10 +332,10 @@ public class Sorting extends Object {
      *             if the list contains elements that are not <i>mutually
      *             comparable</i> using the specified comparator.
      * @return index of the search key, if it is contained in the list;
-     *         otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The
+     *         otherwise, <code>(-(<i>insertion point</i>) - 1)</code>. The
      *         <i>insertion point</i> is defined as the the point at which the
      *         value would be inserted into the list: the index of the first
-     *         element greater than the key, or <tt>list.length</tt>, if all
+     *         element greater than the key, or <code>list.length</code>, if all
      *         elements in the list are less than the specified key. Note that
      *         this guarantees that the return value will be &gt;= 0 if and only
      *         if the key is found.
@@ -376,10 +376,10 @@ public class Sorting extends Object {
      * @param to
      *            the rightmost search position, inclusive.
      * @return index of the search key, if it is contained in the list;
-     *         otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The
+     *         otherwise, <code>(-(<i>insertion point</i>) - 1)</code>. The
      *         <i>insertion point</i> is defined as the the point at which the
      *         value would be inserted into the list: the index of the first
-     *         element greater than the key, or <tt>list.length</tt>, if all
+     *         element greater than the key, or <code>list.length</code>, if all
      *         elements in the list are less than the specified key. Note that
      *         this guarantees that the return value will be &gt;= 0 if and only
      *         if the key is found.
@@ -416,10 +416,10 @@ public class Sorting extends Object {
      * @param comp
      *            comparator
      * @return index of the search key, if it is contained in the list;
-     *         otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The
+     *         otherwise, <code>(-(<i>insertion point</i>) - 1)</code>. The
      *         <i>insertion point</i> is defined as the the point at which the
      *         value would be inserted into the list: the index of the first
-     *         element greater than the key, or <tt>list.length</tt>, if all
+     *         element greater than the key, or <code>list.length</code>, if all
      *         elements in the list are less than the specified key. Note that
      *         this guarantees that the return value will be &gt;= 0 if and only
      *         if the key is found.
@@ -639,10 +639,10 @@ public class Sorting extends Object {
      * @param toIndex
      *            the index of the last element (exclusive) to be sorted.
      * @throws IllegalArgumentException
-     *             if <tt>fromIndex &gt; toIndex</tt>
+     *             if <code>fromIndex &gt; toIndex</code>
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>fromIndex &lt; 0</tt> or
-     *             <tt>toIndex &gt; a.length</tt>
+     *             if <code>fromIndex &lt; 0</code> or
+     *             <code>toIndex &gt; a.length</code>
      */
     public static void mergeSort(byte[] a, int fromIndex, int toIndex) {
         rangeCheck(a.length, fromIndex, toIndex);
@@ -654,8 +654,8 @@ public class Sorting extends Object {
      * Sorts the specified range of the specified array of elements according to
      * the order induced by the specified comparator. All elements in the range
      * must be <i>mutually comparable</i> by the specified comparator (that is,
-     * <tt>c.compare(e1, e2)</tt> must not throw a <tt>ClassCastException</tt>
-     * for any elements <tt>e1</tt> and <tt>e2</tt> in the range).
+     * <code>c.compare(e1, e2)</code> must not throw a <code>ClassCastException</code>
+     * for any elements <code>e1</code> and <code>e2</code> in the range).
      * <p>
      * 
      * This sort is guaranteed to be <i>stable</i>: equal elements will not be
@@ -679,10 +679,10 @@ public class Sorting extends Object {
      *             if the array contains elements that are not <i>mutually
      *             comparable</i> using the specified comparator.
      * @throws IllegalArgumentException
-     *             if <tt>fromIndex &gt; toIndex</tt>
+     *             if <code>fromIndex &gt; toIndex</code>
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>fromIndex &lt; 0</tt> or
-     *             <tt>toIndex &gt; a.length</tt>
+     *             if <code>fromIndex &lt; 0</code> or
+     *             <code>toIndex &gt; a.length</code>
      * @see Comparator
      */
     public static void mergeSort(byte[] a, int fromIndex, int toIndex, ByteComparator c) {
@@ -711,10 +711,10 @@ public class Sorting extends Object {
      * @param toIndex
      *            the index of the last element (exclusive) to be sorted.
      * @throws IllegalArgumentException
-     *             if <tt>fromIndex &gt; toIndex</tt>
+     *             if <code>fromIndex &gt; toIndex</code>
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>fromIndex &lt; 0</tt> or
-     *             <tt>toIndex &gt; a.length</tt>
+     *             if <code>fromIndex &lt; 0</code> or
+     *             <code>toIndex &gt; a.length</code>
      */
     public static void mergeSort(char[] a, int fromIndex, int toIndex) {
         rangeCheck(a.length, fromIndex, toIndex);
@@ -726,8 +726,8 @@ public class Sorting extends Object {
      * Sorts the specified range of the specified array of elements according to
      * the order induced by the specified comparator. All elements in the range
      * must be <i>mutually comparable</i> by the specified comparator (that is,
-     * <tt>c.compare(e1, e2)</tt> must not throw a <tt>ClassCastException</tt>
-     * for any elements <tt>e1</tt> and <tt>e2</tt> in the range).
+     * <code>c.compare(e1, e2)</code> must not throw a <code>ClassCastException</code>
+     * for any elements <code>e1</code> and <code>e2</code> in the range).
      * <p>
      * 
      * This sort is guaranteed to be <i>stable</i>: equal elements will not be
@@ -751,10 +751,10 @@ public class Sorting extends Object {
      *             if the array contains elements that are not <i>mutually
      *             comparable</i> using the specified comparator.
      * @throws IllegalArgumentException
-     *             if <tt>fromIndex &gt; toIndex</tt>
+     *             if <code>fromIndex &gt; toIndex</code>
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>fromIndex &lt; 0</tt> or
-     *             <tt>toIndex &gt; a.length</tt>
+     *             if <code>fromIndex &lt; 0</code> or
+     *             <code>toIndex &gt; a.length</code>
      * @see Comparator
      */
     public static void mergeSort(char[] a, int fromIndex, int toIndex, CharComparator c) {
@@ -783,10 +783,10 @@ public class Sorting extends Object {
      * @param toIndex
      *            the index of the last element (exclusive) to be sorted.
      * @throws IllegalArgumentException
-     *             if <tt>fromIndex &gt; toIndex</tt>
+     *             if <code>fromIndex &gt; toIndex</code>
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>fromIndex &lt; 0</tt> or
-     *             <tt>toIndex &gt; a.length</tt>
+     *             if <code>fromIndex &lt; 0</code> or
+     *             <code>toIndex &gt; a.length</code>
      */
     public static void mergeSort(double[] a, int fromIndex, int toIndex) {
         mergeSort2(a, fromIndex, toIndex);
@@ -796,8 +796,8 @@ public class Sorting extends Object {
      * Sorts the specified range of the specified array of elements according to
      * the order induced by the specified comparator. All elements in the range
      * must be <i>mutually comparable</i> by the specified comparator (that is,
-     * <tt>c.compare(e1, e2)</tt> must not throw a <tt>ClassCastException</tt>
-     * for any elements <tt>e1</tt> and <tt>e2</tt> in the range).
+     * <code>c.compare(e1, e2)</code> must not throw a <code>ClassCastException</code>
+     * for any elements <code>e1</code> and <code>e2</code> in the range).
      * <p>
      * 
      * This sort is guaranteed to be <i>stable</i>: equal elements will not be
@@ -821,10 +821,10 @@ public class Sorting extends Object {
      *             if the array contains elements that are not <i>mutually
      *             comparable</i> using the specified comparator.
      * @throws IllegalArgumentException
-     *             if <tt>fromIndex &gt; toIndex</tt>
+     *             if <code>fromIndex &gt; toIndex</code>
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>fromIndex &lt; 0</tt> or
-     *             <tt>toIndex &gt; a.length</tt>
+     *             if <code>fromIndex &lt; 0</code> or
+     *             <code>toIndex &gt; a.length</code>
      * @see Comparator
      */
     public static void mergeSort(double[] a, int fromIndex, int toIndex, DoubleComparator c) {
@@ -853,10 +853,10 @@ public class Sorting extends Object {
      * @param toIndex
      *            the index of the last element (exclusive) to be sorted.
      * @throws IllegalArgumentException
-     *             if <tt>fromIndex &gt; toIndex</tt>
+     *             if <code>fromIndex &gt; toIndex</code>
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>fromIndex &lt; 0</tt> or
-     *             <tt>toIndex &gt; a.length</tt>
+     *             if <code>fromIndex &lt; 0</code> or
+     *             <code>toIndex &gt; a.length</code>
      */
     public static void mergeSort(float[] a, int fromIndex, int toIndex) {
         mergeSort2(a, fromIndex, toIndex);
@@ -866,8 +866,8 @@ public class Sorting extends Object {
      * Sorts the specified range of the specified array of elements according to
      * the order induced by the specified comparator. All elements in the range
      * must be <i>mutually comparable</i> by the specified comparator (that is,
-     * <tt>c.compare(e1, e2)</tt> must not throw a <tt>ClassCastException</tt>
-     * for any elements <tt>e1</tt> and <tt>e2</tt> in the range).
+     * <code>c.compare(e1, e2)</code> must not throw a <code>ClassCastException</code>
+     * for any elements <code>e1</code> and <code>e2</code> in the range).
      * <p>
      * 
      * This sort is guaranteed to be <i>stable</i>: equal elements will not be
@@ -891,10 +891,10 @@ public class Sorting extends Object {
      *             if the array contains elements that are not <i>mutually
      *             comparable</i> using the specified comparator.
      * @throws IllegalArgumentException
-     *             if <tt>fromIndex &gt; toIndex</tt>
+     *             if <code>fromIndex &gt; toIndex</code>
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>fromIndex &lt; 0</tt> or
-     *             <tt>toIndex &gt; a.length</tt>
+     *             if <code>fromIndex &lt; 0</code> or
+     *             <code>toIndex &gt; a.length</code>
      * @see Comparator
      */
     public static void mergeSort(float[] a, int fromIndex, int toIndex, FloatComparator c) {
@@ -923,10 +923,10 @@ public class Sorting extends Object {
      * @param toIndex
      *            the index of the last element (exclusive) to be sorted.
      * @throws IllegalArgumentException
-     *             if <tt>fromIndex &gt; toIndex</tt>
+     *             if <code>fromIndex &gt; toIndex</code>
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>fromIndex &lt; 0</tt> or
-     *             <tt>toIndex &gt; a.length</tt>
+     *             if <code>fromIndex &lt; 0</code> or
+     *             <code>toIndex &gt; a.length</code>
      */
     public static void mergeSort(int[] a, int fromIndex, int toIndex) {
         rangeCheck(a.length, fromIndex, toIndex);
@@ -938,8 +938,8 @@ public class Sorting extends Object {
      * Sorts the specified range of the specified array of elements according to
      * the order induced by the specified comparator. All elements in the range
      * must be <i>mutually comparable</i> by the specified comparator (that is,
-     * <tt>c.compare(e1, e2)</tt> must not throw a <tt>ClassCastException</tt>
-     * for any elements <tt>e1</tt> and <tt>e2</tt> in the range).
+     * <code>c.compare(e1, e2)</code> must not throw a <code>ClassCastException</code>
+     * for any elements <code>e1</code> and <code>e2</code> in the range).
      * <p>
      * 
      * This sort is guaranteed to be <i>stable</i>: equal elements will not be
@@ -963,10 +963,10 @@ public class Sorting extends Object {
      *             if the array contains elements that are not <i>mutually
      *             comparable</i> using the specified comparator.
      * @throws IllegalArgumentException
-     *             if <tt>fromIndex &gt; toIndex</tt>
+     *             if <code>fromIndex &gt; toIndex</code>
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>fromIndex &lt; 0</tt> or
-     *             <tt>toIndex &gt; a.length</tt>
+     *             if <code>fromIndex &lt; 0</code> or
+     *             <code>toIndex &gt; a.length</code>
      * @see Comparator
      */
     public static void mergeSort(int[] a, int fromIndex, int toIndex, IntComparator c) {
@@ -995,10 +995,10 @@ public class Sorting extends Object {
      * @param toIndex
      *            the index of the last element (exclusive) to be sorted.
      * @throws IllegalArgumentException
-     *             if <tt>fromIndex &gt; toIndex</tt>
+     *             if <code>fromIndex &gt; toIndex</code>
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>fromIndex &lt; 0</tt> or
-     *             <tt>toIndex &gt; a.length</tt>
+     *             if <code>fromIndex &lt; 0</code> or
+     *             <code>toIndex &gt; a.length</code>
      */
     public static void mergeSort(long[] a, int fromIndex, int toIndex) {
         rangeCheck(a.length, fromIndex, toIndex);
@@ -1010,8 +1010,8 @@ public class Sorting extends Object {
      * Sorts the specified range of the specified array of elements according to
      * the order induced by the specified comparator. All elements in the range
      * must be <i>mutually comparable</i> by the specified comparator (that is,
-     * <tt>c.compare(e1, e2)</tt> must not throw a <tt>ClassCastException</tt>
-     * for any elements <tt>e1</tt> and <tt>e2</tt> in the range).
+     * <code>c.compare(e1, e2)</code> must not throw a <code>ClassCastException</code>
+     * for any elements <code>e1</code> and <code>e2</code> in the range).
      * <p>
      * 
      * This sort is guaranteed to be <i>stable</i>: equal elements will not be
@@ -1035,10 +1035,10 @@ public class Sorting extends Object {
      *             if the array contains elements that are not <i>mutually
      *             comparable</i> using the specified comparator.
      * @throws IllegalArgumentException
-     *             if <tt>fromIndex &gt; toIndex</tt>
+     *             if <code>fromIndex &gt; toIndex</code>
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>fromIndex &lt; 0</tt> or
-     *             <tt>toIndex &gt; a.length</tt>
+     *             if <code>fromIndex &lt; 0</code> or
+     *             <code>toIndex &gt; a.length</code>
      * @see Comparator
      */
     public static void mergeSort(long[] a, int fromIndex, int toIndex, LongComparator c) {
@@ -1067,10 +1067,10 @@ public class Sorting extends Object {
      * @param toIndex
      *            the index of the last element (exclusive) to be sorted.
      * @throws IllegalArgumentException
-     *             if <tt>fromIndex &gt; toIndex</tt>
+     *             if <code>fromIndex &gt; toIndex</code>
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>fromIndex &lt; 0</tt> or
-     *             <tt>toIndex &gt; a.length</tt>
+     *             if <code>fromIndex &lt; 0</code> or
+     *             <code>toIndex &gt; a.length</code>
      */
     public static void mergeSort(short[] a, int fromIndex, int toIndex) {
         rangeCheck(a.length, fromIndex, toIndex);
@@ -1082,8 +1082,8 @@ public class Sorting extends Object {
      * Sorts the specified range of the specified array of elements according to
      * the order induced by the specified comparator. All elements in the range
      * must be <i>mutually comparable</i> by the specified comparator (that is,
-     * <tt>c.compare(e1, e2)</tt> must not throw a <tt>ClassCastException</tt>
-     * for any elements <tt>e1</tt> and <tt>e2</tt> in the range).
+     * <code>c.compare(e1, e2)</code> must not throw a <code>ClassCastException</code>
+     * for any elements <code>e1</code> and <code>e2</code> in the range).
      * <p>
      * 
      * This sort is guaranteed to be <i>stable</i>: equal elements will not be
@@ -1107,10 +1107,10 @@ public class Sorting extends Object {
      *             if the array contains elements that are not <i>mutually
      *             comparable</i> using the specified comparator.
      * @throws IllegalArgumentException
-     *             if <tt>fromIndex &gt; toIndex</tt>
+     *             if <code>fromIndex &gt; toIndex</code>
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>fromIndex &lt; 0</tt> or
-     *             <tt>toIndex &gt; a.length</tt>
+     *             if <code>fromIndex &lt; 0</code> or
+     *             <code>toIndex &gt; a.length</code>
      * @see Comparator
      */
     public static void mergeSort(short[] a, int fromIndex, int toIndex, ShortComparator c) {
@@ -1681,10 +1681,10 @@ public class Sorting extends Object {
      * @param toIndex
      *            the index of the last element (exclusive) to be sorted.
      * @throws IllegalArgumentException
-     *             if <tt>fromIndex &gt; toIndex</tt>
+     *             if <code>fromIndex &gt; toIndex</code>
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>fromIndex &lt; 0</tt> or
-     *             <tt>toIndex &gt; a.length</tt>
+     *             if <code>fromIndex &lt; 0</code> or
+     *             <code>toIndex &gt; a.length</code>
      */
     public static void mergeSortInPlace(int[] a, int fromIndex, int toIndex) {
         rangeCheck(a.length, fromIndex, toIndex);
@@ -1732,10 +1732,10 @@ public class Sorting extends Object {
      *             if the array contains elements that are not <i>mutually
      *             comparable</i> using the specified comparator.
      * @throws IllegalArgumentException
-     *             if <tt>fromIndex &gt; toIndex</tt>
+     *             if <code>fromIndex &gt; toIndex</code>
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>fromIndex &lt; 0</tt> or
-     *             <tt>toIndex &gt; a.length</tt>
+     *             if <code>fromIndex &lt; 0</code> or
+     *             <code>toIndex &gt; a.length</code>
      * @see Comparator
      */
     public static void parallelQuickSort(byte[] a, int fromIndex, int toIndex, ByteComparator c) {
@@ -1763,10 +1763,10 @@ public class Sorting extends Object {
      *             if the array contains elements that are not <i>mutually
      *             comparable</i> using the specified comparator.
      * @throws IllegalArgumentException
-     *             if <tt>fromIndex &gt; toIndex</tt>
+     *             if <code>fromIndex &gt; toIndex</code>
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>fromIndex &lt; 0</tt> or
-     *             <tt>toIndex &gt; a.length</tt>
+     *             if <code>fromIndex &lt; 0</code> or
+     *             <code>toIndex &gt; a.length</code>
      * @see Comparator
      */
     public static void parallelQuickSort(char[] a, int fromIndex, int toIndex, CharComparator c) {
@@ -1794,10 +1794,10 @@ public class Sorting extends Object {
      *             if the array contains elements that are not <i>mutually
      *             comparable</i> using the specified comparator.
      * @throws IllegalArgumentException
-     *             if <tt>fromIndex &gt; toIndex</tt>
+     *             if <code>fromIndex &gt; toIndex</code>
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>fromIndex &lt; 0</tt> or
-     *             <tt>toIndex &gt; a.length</tt>
+     *             if <code>fromIndex &lt; 0</code> or
+     *             <code>toIndex &gt; a.length</code>
      * @see Comparator
      */
     public static void parallelQuickSort(double[] a, int fromIndex, int toIndex, DoubleComparator c) {
@@ -1825,10 +1825,10 @@ public class Sorting extends Object {
      *             if the array contains elements that are not <i>mutually
      *             comparable</i> using the specified comparator.
      * @throws IllegalArgumentException
-     *             if <tt>fromIndex &gt; toIndex</tt>
+     *             if <code>fromIndex &gt; toIndex</code>
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>fromIndex &lt; 0</tt> or
-     *             <tt>toIndex &gt; a.length</tt>
+     *             if <code>fromIndex &lt; 0</code> or
+     *             <code>toIndex &gt; a.length</code>
      * @see Comparator
      */
     public static void parallelQuickSort(float[] a, int fromIndex, int toIndex, FloatComparator c) {
@@ -1856,10 +1856,10 @@ public class Sorting extends Object {
      *             if the array contains elements that are not <i>mutually
      *             comparable</i> using the specified comparator.
      * @throws IllegalArgumentException
-     *             if <tt>fromIndex &gt; toIndex</tt>
+     *             if <code>fromIndex &gt; toIndex</code>
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>fromIndex &lt; 0</tt> or
-     *             <tt>toIndex &gt; a.length</tt>
+     *             if <code>fromIndex &lt; 0</code> or
+     *             <code>toIndex &gt; a.length</code>
      * @see Comparator
      */
     public static void parallelQuickSort(int[] a, int fromIndex, int toIndex, IntComparator c) {
@@ -1887,10 +1887,10 @@ public class Sorting extends Object {
      *             if the array contains elements that are not <i>mutually
      *             comparable</i> using the specified comparator.
      * @throws IllegalArgumentException
-     *             if <tt>fromIndex &gt; toIndex</tt>
+     *             if <code>fromIndex &gt; toIndex</code>
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>fromIndex &lt; 0</tt> or
-     *             <tt>toIndex &gt; a.length</tt>
+     *             if <code>fromIndex &lt; 0</code> or
+     *             <code>toIndex &gt; a.length</code>
      * @see Comparator
      */
     public static void parallelQuickSort(long[] a, int fromIndex, int toIndex, LongComparator c) {
@@ -1929,10 +1929,10 @@ public class Sorting extends Object {
      *             if the array contains elements that are not <i>mutually
      *             comparable</i> using the specified comparator.
      * @throws IllegalArgumentException
-     *             if <tt>fromIndex &gt; toIndex</tt>
+     *             if <code>fromIndex &gt; toIndex</code>
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>fromIndex &lt; 0</tt> or
-     *             <tt>toIndex &gt; a.length</tt>
+     *             if <code>fromIndex &lt; 0</code> or
+     *             <code>toIndex &gt; a.length</code>
      * @see Comparator
      */
     public static void parallelQuickSort(Object[] a, Comparator c) {
@@ -1954,10 +1954,10 @@ public class Sorting extends Object {
      * @param toIndex
      *            the index of the last element (exclusive) to be sorted.
      * @throws IllegalArgumentException
-     *             if <tt>fromIndex &gt; toIndex</tt>
+     *             if <code>fromIndex &gt; toIndex</code>
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>fromIndex &lt; 0</tt> or
-     *             <tt>toIndex &gt; a.length</tt>
+     *             if <code>fromIndex &lt; 0</code> or
+     *             <code>toIndex &gt; a.length</code>
      */
     public static void parallelQuickSort(Object[] a, int fromIndex, int toIndex) {
         rangeCheck(a.length, fromIndex, toIndex);
@@ -1984,10 +1984,10 @@ public class Sorting extends Object {
      *             if the array contains elements that are not <i>mutually
      *             comparable</i> using the specified comparator.
      * @throws IllegalArgumentException
-     *             if <tt>fromIndex &gt; toIndex</tt>
+     *             if <code>fromIndex &gt; toIndex</code>
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>fromIndex &lt; 0</tt> or
-     *             <tt>toIndex &gt; a.length</tt>
+     *             if <code>fromIndex &lt; 0</code> or
+     *             <code>toIndex &gt; a.length</code>
      * @see Comparator
      */
     public static void parallelQuickSort(Object[] a, int fromIndex, int toIndex, Comparator c) {
@@ -2015,10 +2015,10 @@ public class Sorting extends Object {
      *             if the array contains elements that are not <i>mutually
      *             comparable</i> using the specified comparator.
      * @throws IllegalArgumentException
-     *             if <tt>fromIndex &gt; toIndex</tt>
+     *             if <code>fromIndex &gt; toIndex</code>
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>fromIndex &lt; 0</tt> or
-     *             <tt>toIndex &gt; a.length</tt>
+     *             if <code>fromIndex &lt; 0</code> or
+     *             <code>toIndex &gt; a.length</code>
      * @see Comparator
      */
     public static void parallelQuickSort(short[] a, int fromIndex, int toIndex, ShortComparator c) {
@@ -2035,8 +2035,8 @@ public class Sorting extends Object {
      * Sorts the specified range of the specified array of elements according to
      * the order induced by the specified comparator. All elements in the range
      * must be <i>mutually comparable</i> by the specified comparator (that is,
-     * <tt>c.compare(e1, e2)</tt> must not throw a <tt>ClassCastException</tt>
-     * for any elements <tt>e1</tt> and <tt>e2</tt> in the range).
+     * <code>c.compare(e1, e2)</code> must not throw a <code>ClassCastException</code>
+     * for any elements <code>e1</code> and <code>e2</code> in the range).
      * <p>
      * 
      * The sorting algorithm is a tuned quicksort, adapted from Jon L. Bentley
@@ -2057,10 +2057,10 @@ public class Sorting extends Object {
      *             if the array contains elements that are not <i>mutually
      *             comparable</i> using the specified comparator.
      * @throws IllegalArgumentException
-     *             if <tt>fromIndex &gt; toIndex</tt>
+     *             if <code>fromIndex &gt; toIndex</code>
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>fromIndex &lt; 0</tt> or
-     *             <tt>toIndex &gt; a.length</tt>
+     *             if <code>fromIndex &lt; 0</code> or
+     *             <code>toIndex &gt; a.length</code>
      * @see Comparator
      */
     public static void quickSort(byte[] a, int fromIndex, int toIndex, ByteComparator c) {
@@ -2072,8 +2072,8 @@ public class Sorting extends Object {
      * Sorts the specified range of the specified array of elements according to
      * the order induced by the specified comparator. All elements in the range
      * must be <i>mutually comparable</i> by the specified comparator (that is,
-     * <tt>c.compare(e1, e2)</tt> must not throw a <tt>ClassCastException</tt>
-     * for any elements <tt>e1</tt> and <tt>e2</tt> in the range).
+     * <code>c.compare(e1, e2)</code> must not throw a <code>ClassCastException</code>
+     * for any elements <code>e1</code> and <code>e2</code> in the range).
      * <p>
      * 
      * The sorting algorithm is a tuned quicksort, adapted from Jon L. Bentley
@@ -2094,10 +2094,10 @@ public class Sorting extends Object {
      *             if the array contains elements that are not <i>mutually
      *             comparable</i> using the specified comparator.
      * @throws IllegalArgumentException
-     *             if <tt>fromIndex &gt; toIndex</tt>
+     *             if <code>fromIndex &gt; toIndex</code>
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>fromIndex &lt; 0</tt> or
-     *             <tt>toIndex &gt; a.length</tt>
+     *             if <code>fromIndex &lt; 0</code> or
+     *             <code>toIndex &gt; a.length</code>
      * @see Comparator
      */
     public static void quickSort(char[] a, int fromIndex, int toIndex, CharComparator c) {
@@ -2109,8 +2109,8 @@ public class Sorting extends Object {
      * Sorts the specified range of the specified array of elements according to
      * the order induced by the specified comparator. All elements in the range
      * must be <i>mutually comparable</i> by the specified comparator (that is,
-     * <tt>c.compare(e1, e2)</tt> must not throw a <tt>ClassCastException</tt>
-     * for any elements <tt>e1</tt> and <tt>e2</tt> in the range).
+     * <code>c.compare(e1, e2)</code> must not throw a <code>ClassCastException</code>
+     * for any elements <code>e1</code> and <code>e2</code> in the range).
      * <p>
      * 
      * The sorting algorithm is a tuned quicksort, adapted from Jon L. Bentley
@@ -2131,10 +2131,10 @@ public class Sorting extends Object {
      *             if the array contains elements that are not <i>mutually
      *             comparable</i> using the specified comparator.
      * @throws IllegalArgumentException
-     *             if <tt>fromIndex &gt; toIndex</tt>
+     *             if <code>fromIndex &gt; toIndex</code>
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>fromIndex &lt; 0</tt> or
-     *             <tt>toIndex &gt; a.length</tt>
+     *             if <code>fromIndex &lt; 0</code> or
+     *             <code>toIndex &gt; a.length</code>
      * @see Comparator
      */
     public static void quickSort(double[] a, int fromIndex, int toIndex, DoubleComparator c) {
@@ -2146,8 +2146,8 @@ public class Sorting extends Object {
      * Sorts the specified range of the specified array of elements according to
      * the order induced by the specified comparator. All elements in the range
      * must be <i>mutually comparable</i> by the specified comparator (that is,
-     * <tt>c.compare(e1, e2)</tt> must not throw a <tt>ClassCastException</tt>
-     * for any elements <tt>e1</tt> and <tt>e2</tt> in the range).
+     * <code>c.compare(e1, e2)</code> must not throw a <code>ClassCastException</code>
+     * for any elements <code>e1</code> and <code>e2</code> in the range).
      * <p>
      * 
      * The sorting algorithm is a tuned quicksort, adapted from Jon L. Bentley
@@ -2168,10 +2168,10 @@ public class Sorting extends Object {
      *             if the array contains elements that are not <i>mutually
      *             comparable</i> using the specified comparator.
      * @throws IllegalArgumentException
-     *             if <tt>fromIndex &gt; toIndex</tt>
+     *             if <code>fromIndex &gt; toIndex</code>
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>fromIndex &lt; 0</tt> or
-     *             <tt>toIndex &gt; a.length</tt>
+     *             if <code>fromIndex &lt; 0</code> or
+     *             <code>toIndex &gt; a.length</code>
      * @see Comparator
      */
     public static void quickSort(float[] a, int fromIndex, int toIndex, FloatComparator c) {
@@ -2183,8 +2183,8 @@ public class Sorting extends Object {
      * Sorts the specified range of the specified array of elements according to
      * the order induced by the specified comparator. All elements in the range
      * must be <i>mutually comparable</i> by the specified comparator (that is,
-     * <tt>c.compare(e1, e2)</tt> must not throw a <tt>ClassCastException</tt>
-     * for any elements <tt>e1</tt> and <tt>e2</tt> in the range).
+     * <code>c.compare(e1, e2)</code> must not throw a <code>ClassCastException</code>
+     * for any elements <code>e1</code> and <code>e2</code> in the range).
      * <p>
      * 
      * The sorting algorithm is a tuned quicksort, adapted from Jon L. Bentley
@@ -2205,10 +2205,10 @@ public class Sorting extends Object {
      *             if the array contains elements that are not <i>mutually
      *             comparable</i> using the specified comparator.
      * @throws IllegalArgumentException
-     *             if <tt>fromIndex &gt; toIndex</tt>
+     *             if <code>fromIndex &gt; toIndex</code>
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>fromIndex &lt; 0</tt> or
-     *             <tt>toIndex &gt; a.length</tt>
+     *             if <code>fromIndex &lt; 0</code> or
+     *             <code>toIndex &gt; a.length</code>
      * @see Comparator
      */
     public static void quickSort(int[] a, int fromIndex, int toIndex, IntComparator c) {
@@ -2220,8 +2220,8 @@ public class Sorting extends Object {
      * Sorts the specified range of the specified array of elements according to
      * the order induced by the specified comparator. All elements in the range
      * must be <i>mutually comparable</i> by the specified comparator (that is,
-     * <tt>c.compare(e1, e2)</tt> must not throw a <tt>ClassCastException</tt>
-     * for any elements <tt>e1</tt> and <tt>e2</tt> in the range).
+     * <code>c.compare(e1, e2)</code> must not throw a <code>ClassCastException</code>
+     * for any elements <code>e1</code> and <code>e2</code> in the range).
      * <p>
      * 
      * The sorting algorithm is a tuned quicksort, adapted from Jon L. Bentley
@@ -2242,10 +2242,10 @@ public class Sorting extends Object {
      *             if the array contains elements that are not <i>mutually
      *             comparable</i> using the specified comparator.
      * @throws IllegalArgumentException
-     *             if <tt>fromIndex &gt; toIndex</tt>
+     *             if <code>fromIndex &gt; toIndex</code>
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>fromIndex &lt; 0</tt> or
-     *             <tt>toIndex &gt; a.length</tt>
+     *             if <code>fromIndex &lt; 0</code> or
+     *             <code>toIndex &gt; a.length</code>
      * @see Comparator
      */
     public static void quickSort(long[] a, int fromIndex, int toIndex, LongComparator c) {
@@ -2256,10 +2256,10 @@ public class Sorting extends Object {
     /**
      * Sorts the specified range of the receiver into ascending order, according
      * to the <i>natural ordering</i> of its elements. All elements in this
-     * range must implement the <tt>Comparable</tt> interface. Furthermore, all
+     * range must implement the <code>Comparable</code> interface. Furthermore, all
      * elements in this range must be <i>mutually comparable</i> (that is,
-     * <tt>e1.compareTo(e2)</tt> must not throw a <tt>ClassCastException</tt>
-     * for any elements <tt>e1</tt> and <tt>e2</tt> in the array).
+     * <code>e1.compareTo(e2)</code> must not throw a <code>ClassCastException</code>
+     * for any elements <code>e1</code> and <code>e2</code> in the array).
      * <p>
      * 
      * The sorting algorithm is a tuned quicksort, adapted from Jon L. Bentley
@@ -2278,10 +2278,10 @@ public class Sorting extends Object {
     /**
      * Sorts the specified range of the receiver into ascending order, according
      * to the <i>natural ordering</i> of its elements. All elements in this
-     * range must implement the <tt>Comparable</tt> interface. Furthermore, all
+     * range must implement the <code>Comparable</code> interface. Furthermore, all
      * elements in this range must be <i>mutually comparable</i> (that is,
-     * <tt>e1.compareTo(e2)</tt> must not throw a <tt>ClassCastException</tt>
-     * for any elements <tt>e1</tt> and <tt>e2</tt> in the array).
+     * <code>e1.compareTo(e2)</code> must not throw a <code>ClassCastException</code>
+     * for any elements <code>e1</code> and <code>e2</code> in the array).
      * <p>
      * 
      * @param a
@@ -2291,10 +2291,10 @@ public class Sorting extends Object {
      * @param toIndex
      *            the index of the last element (exclusive) to be sorted.
      * @throws IllegalArgumentException
-     *             if <tt>fromIndex &gt; toIndex</tt>
+     *             if <code>fromIndex &gt; toIndex</code>
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>fromIndex &lt; 0</tt> or
-     *             <tt>toIndex &gt; a.length</tt>
+     *             if <code>fromIndex &lt; 0</code> or
+     *             <code>toIndex &gt; a.length</code>
      */
     public static void quickSort(Object[] a, int fromIndex, int toIndex) {
         rangeCheck(a.length, fromIndex, toIndex);
@@ -2305,8 +2305,8 @@ public class Sorting extends Object {
      * Sorts the specified range of the specified array according to the order
      * induced by the specified comparator. All elements in the range must be
      * <i>mutually comparable</i> by the specified comparator (that is,
-     * <tt>c.compare(e1, e2)</tt> must not throw a <tt>ClassCastException</tt>
-     * for any elements <tt>e1</tt> and <tt>e2</tt> in the range).
+     * <code>c.compare(e1, e2)</code> must not throw a <code>ClassCastException</code>
+     * for any elements <code>e1</code> and <code>e2</code> in the range).
      * <p>
      * 
      * The sorting algorithm is a tuned quicksort, adapted from Jon L. Bentley
@@ -2327,10 +2327,10 @@ public class Sorting extends Object {
      *             if the array contains elements that are not <i>mutually
      *             comparable</i> using the specified comparator.
      * @throws IllegalArgumentException
-     *             if <tt>fromIndex &gt; toIndex</tt>
+     *             if <code>fromIndex &gt; toIndex</code>
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>fromIndex &lt; 0</tt> or
-     *             <tt>toIndex &gt; a.length</tt>
+     *             if <code>fromIndex &lt; 0</code> or
+     *             <code>toIndex &gt; a.length</code>
      * @see Comparator
      */
     public static void quickSort(Object[] a, int fromIndex, int toIndex, Comparator c) {
@@ -2341,9 +2341,9 @@ public class Sorting extends Object {
     /**
      * Sorts the specified array according to the order induced by the specified
      * comparator. All elements in the range must be <i>mutually comparable</i>
-     * by the specified comparator (that is, <tt>c.compare(e1, e2)</tt> must not
-     * throw a <tt>ClassCastException</tt> for any elements <tt>e1</tt> and
-     * <tt>e2</tt> in the range).
+     * by the specified comparator (that is, <code>c.compare(e1, e2)</code> must not
+     * throw a <code>ClassCastException</code> for any elements <code>e1</code> and
+     * <code>e2</code> in the range).
      * <p>
      * 
      * The sorting algorithm is a tuned quicksort, adapted from Jon L. Bentley
@@ -2360,10 +2360,10 @@ public class Sorting extends Object {
      *             if the array contains elements that are not <i>mutually
      *             comparable</i> using the specified comparator.
      * @throws IllegalArgumentException
-     *             if <tt>fromIndex &gt; toIndex</tt>
+     *             if <code>fromIndex &gt; toIndex</code>
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>fromIndex &lt; 0</tt> or
-     *             <tt>toIndex &gt; a.length</tt>
+     *             if <code>fromIndex &lt; 0</code> or
+     *             <code>toIndex &gt; a.length</code>
      * @see Comparator
      */
     public static void quickSort(Object[] a, Comparator c) {
@@ -2374,8 +2374,8 @@ public class Sorting extends Object {
      * Sorts the specified range of the specified array of elements according to
      * the order induced by the specified comparator. All elements in the range
      * must be <i>mutually comparable</i> by the specified comparator (that is,
-     * <tt>c.compare(e1, e2)</tt> must not throw a <tt>ClassCastException</tt>
-     * for any elements <tt>e1</tt> and <tt>e2</tt> in the range).
+     * <code>c.compare(e1, e2)</code> must not throw a <code>ClassCastException</code>
+     * for any elements <code>e1</code> and <code>e2</code> in the range).
      * <p>
      * 
      * This sort is guaranteed to be <i>stable</i>: equal elements will not be
@@ -2399,10 +2399,10 @@ public class Sorting extends Object {
      *             if the array contains elements that are not <i>mutually
      *             comparable</i> using the specified comparator.
      * @throws IllegalArgumentException
-     *             if <tt>fromIndex &gt; toIndex</tt>
+     *             if <code>fromIndex &gt; toIndex</code>
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>fromIndex &lt; 0</tt> or
-     *             <tt>toIndex &gt; a.length</tt>
+     *             if <code>fromIndex &lt; 0</code> or
+     *             <code>toIndex &gt; a.length</code>
      * @see Comparator
      */
     public static void quickSort(short[] a, int fromIndex, int toIndex, ShortComparator c) {

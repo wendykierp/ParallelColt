@@ -4,7 +4,7 @@ import cern.colt.list.tdouble.DoubleArrayList;
 import cern.jet.stat.tdouble.DoubleDescriptive;
 
 /**
- * Abstract base class for all 1-dimensional bins consumes <tt>double</tt>
+ * Abstract base class for all 1-dimensional bins consumes <code>double</code>
  * elements. First see the <a href="package-summary.html">package summary</a>
  * and javadoc <a href="package-tree.html">tree view</a> to get the broad
  * picture.
@@ -13,7 +13,7 @@ import cern.jet.stat.tdouble.DoubleDescriptive;
  * you can have one or more threads adding to the bin as well as one or more
  * threads reading and viewing the statistics of the bin <i>while it is
  * filled</i>. For high performance, add data in large chunks (buffers) via
- * method <tt>addAllOf</tt> rather than piecewise via method <tt>add</tt>.
+ * method <code>addAllOf</code> rather than piecewise via method <code>add</code>.
  * 
  * @author wolfgang.hoschek@cern.ch
  * @version 0.9, 03-Jul-99
@@ -51,8 +51,8 @@ public abstract class AbstractDoubleBin1D extends AbstractDoubleBin implements
     }
 
     /**
-     * Adds the part of the specified list between indexes <tt>from</tt>
-     * (inclusive) and <tt>to</tt> (inclusive) to the receiver. You may want to
+     * Adds the part of the specified list between indexes <code>from</code>
+     * (inclusive) and <code>to</code> (inclusive) to the receiver. You may want to
      * override this method for performance reasons.
      * 
      * @param list
@@ -63,7 +63,7 @@ public abstract class AbstractDoubleBin1D extends AbstractDoubleBin implements
      *            the index of the last element to be added (inclusive).
      * @throws IndexOutOfBoundsException
      *             if
-     *             <tt>list.size()&gt;0 && (from&lt;0 || from&gt;to || to&gt;=list.size())</tt>
+     *             <code>list.size()&gt;0 &amp;&amp; (from&lt;0 || from&gt;to || to&gt;=list.size())</code>
      *             .
      */
     public synchronized void addAllOfFromTo(DoubleArrayList list, int from, int to) {
@@ -74,7 +74,7 @@ public abstract class AbstractDoubleBin1D extends AbstractDoubleBin implements
     /**
      * Constructs and returns a streaming buffer connected to the receiver.
      * Whenever the buffer is full it's contents are automatically flushed to
-     * <tt>this</tt>. (Addding elements via a buffer to a bin is significantly
+     * <code>this</code>. (Addding elements via a buffer to a bin is significantly
      * faster than adding them directly.)
      * 
      * @param capacity
@@ -115,6 +115,7 @@ public abstract class AbstractDoubleBin1D extends AbstractDoubleBin implements
      * Returns whether two bins are equal; They are equal if the other object is
      * of the same class or a subclass of this class and both have the same
      * size, minimum, maximum, sum and sumOfSquares.
+     * @param object
      */
 
     public boolean equals(Object object) {
@@ -127,11 +128,13 @@ public abstract class AbstractDoubleBin1D extends AbstractDoubleBin implements
 
     /**
      * Returns the maximum.
+     * @return 
      */
     public abstract double max();
 
     /**
-     * Returns the arithmetic mean, which is <tt>Sum( x[i] ) / size()</tt>.
+     * Returns the arithmetic mean, which is <code>Sum( x[i] ) / size()</code>.
+     * @return 
      */
     public synchronized double mean() {
         return sum() / size();
@@ -139,11 +142,15 @@ public abstract class AbstractDoubleBin1D extends AbstractDoubleBin implements
 
     /**
      * Returns the minimum.
+     * @return 
      */
     public abstract double min();
 
     /**
      * Computes the relative error (in percent) from one measure to another.
+     * @param measure1
+     * @param measure2
+     * @return 
      */
     protected double relError(double measure1, double measure2) {
         return 100 * (1 - measure1 / measure2);
@@ -151,7 +158,8 @@ public abstract class AbstractDoubleBin1D extends AbstractDoubleBin implements
 
     /**
      * Returns the rms (Root Mean Square), which is
-     * <tt>Math.sqrt( Sum( x[i]*x[i] ) / size() )</tt>.
+     * <code>Math.sqrt( Sum( x[i]*x[i] ) / size() )</code>.
+     * @return 
      */
     public synchronized double rms() {
         return DoubleDescriptive.rms(size(), sumOfSquares());
@@ -159,7 +167,8 @@ public abstract class AbstractDoubleBin1D extends AbstractDoubleBin implements
 
     /**
      * Returns the sample standard deviation, which is
-     * <tt>Math.sqrt(variance())</tt>.
+     * <code>Math.sqrt(variance())</code>.
+     * @return 
      */
     public synchronized double standardDeviation() {
         return Math.sqrt(variance());
@@ -167,24 +176,28 @@ public abstract class AbstractDoubleBin1D extends AbstractDoubleBin implements
 
     /**
      * Returns the sample standard error, which is
-     * <tt>Math.sqrt(variance() / size())</tt>
+     * <code>Math.sqrt(variance() / size())</code>
+     * @return 
      */
     public synchronized double standardError() {
         return DoubleDescriptive.standardError(size(), variance());
     }
 
     /**
-     * Returns the sum of all elements, which is <tt>Sum( x[i] )</tt>.
+     * Returns the sum of all elements, which is <code>Sum( x[i] )</code>.
+     * @return 
      */
     public abstract double sum();
 
     /**
-     * Returns the sum of squares, which is <tt>Sum( x[i] * x[i] )</tt>.
+     * Returns the sum of squares, which is <code>Sum( x[i] * x[i] )</code>.
+     * @return 
      */
     public abstract double sumOfSquares();
 
     /**
      * Returns a String representation of the receiver.
+     * @return 
      */
 
     public synchronized String toString() {
@@ -220,7 +233,8 @@ public abstract class AbstractDoubleBin1D extends AbstractDoubleBin implements
 
     /**
      * Returns the sample variance, which is
-     * <tt>Sum( (x[i]-mean())<sup>2</sup> )  /  (size()-1)</tt>.
+     * <code>Sum( (x[i]-mean())<sup>2</sup> )  /  (size()-1)</code>.
+     * @return 
      */
     public synchronized double variance() {
         return DoubleDescriptive.sampleVariance(size(), sum(), sumOfSquares());

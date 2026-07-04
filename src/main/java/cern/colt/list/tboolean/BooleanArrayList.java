@@ -90,7 +90,7 @@ public class BooleanArrayList extends AbstractBooleanList {
      *            element to be inserted.
      * @exception IndexOutOfBoundsException
      *                index is out of range (
-     *                <tt>index &lt; 0 || index &gt; size()</tt>).
+     *                <code>index &lt; 0 || index &gt; size()</code>).
      */
 
     public void beforeInsert(int index, boolean element) {
@@ -128,7 +128,7 @@ public class BooleanArrayList extends AbstractBooleanList {
 
     /**
      * Sorts the specified range of the receiver into ascending numerical order
-     * (<tt>false &lt; true</tt>).
+     * (<code>false &lt; true</code>).
      * 
      * The sorting algorithm is a count sort. This algorithm offers guaranteed
      * O(n) performance without auxiliary memory.
@@ -245,9 +245,9 @@ public class BooleanArrayList extends AbstractBooleanList {
      * 
      * @param procedure
      *            the procedure to be applied. Stops iteration if the procedure
-     *            returns <tt>false</tt>, otherwise continues.
-     * @return <tt>false</tt> if the procedure stopped before all elements where
-     *         iterated over, <tt>true</tt> otherwise.
+     *            returns <code>false</code>, otherwise continues.
+     * @return <code>false</code> if the procedure stopped before all elements where
+     *         iterated over, <code>true</code> otherwise.
      */
 
     public boolean forEach(BooleanProcedure procedure) {
@@ -266,6 +266,7 @@ public class BooleanArrayList extends AbstractBooleanList {
      * 
      * @param index
      *            index of element to return.
+     * @return 
      * @exception IndexOutOfBoundsException
      *                index is out of range (index &lt; 0 || index &gt;=
      *                size()).
@@ -284,10 +285,11 @@ public class BooleanArrayList extends AbstractBooleanList {
      * parameters this method may return invalid elements without throwing any
      * exception! <b>You should only use this method when you are absolutely
      * sure that the index is within bounds.</b> Precondition (unchecked):
-     * <tt>index &gt;= 0 && index &lt; size()</tt>.
+     * <code>index &gt;= 0 &amp;&amp; index &lt; size()</code>.
      * 
      * @param index
      *            index of element to return.
+     * @return 
      */
 
     public boolean getQuick(int index) {
@@ -310,7 +312,7 @@ public class BooleanArrayList extends AbstractBooleanList {
      *         returns <code>-1</code> if the element is not found.
      * @exception IndexOutOfBoundsException
      *                index is out of range (
-     *                <tt>size()&gt;0 && (from&lt;0 || from&gt;to || to&gt;=size())</tt>
+     *                <code>size()&gt;0 &amp;&amp; (from&lt;0 || from&gt;to || to&gt;=size())</code>
      *                ).
      */
 
@@ -345,7 +347,7 @@ public class BooleanArrayList extends AbstractBooleanList {
      *         returns <code>-1</code> if the element is not found.
      * @exception IndexOutOfBoundsException
      *                index is out of range (
-     *                <tt>size()&gt;0 && (from&lt;0 || from&gt;to || to&gt;=size())</tt>
+     *                <code>size()&gt;0 &amp;&amp; (from&lt;0 || from&gt;to || to&gt;=size())</code>
      *                ).
      */
 
@@ -366,7 +368,7 @@ public class BooleanArrayList extends AbstractBooleanList {
 
     /**
      * Sorts the specified range of the receiver into ascending order (
-     * <tt>false &lt; true</tt>).
+     * <code>false &lt; true</code>).
      * 
      * The sorting algorithm is <b>not</b> a mergesort, but rather a countsort.
      * This algorithm offers guaranteed O(n) performance.
@@ -377,7 +379,7 @@ public class BooleanArrayList extends AbstractBooleanList {
      *            the index of the last element (inclusive) to be sorted.
      * @exception IndexOutOfBoundsException
      *                index is out of range (
-     *                <tt>size()&gt;0 && (from&lt;0 || from&gt;to || to&gt;=size())</tt>
+     *                <code>size()&gt;0 &amp;&amp; (from&lt;0 || from&gt;to || to&gt;=size())</code>
      *                ).
      */
 
@@ -396,7 +398,7 @@ public class BooleanArrayList extends AbstractBooleanList {
      * @return a new list
      * @exception IndexOutOfBoundsException
      *                index is out of range (
-     *                <tt>size()&gt;0 && (from&lt;0 || from&gt;to || to&gt;=size())</tt>
+     *                <code>size()&gt;0 &amp;&amp; (from&lt;0 || from&gt;to || to&gt;=size())</code>
      *                ).
      */
 
@@ -413,7 +415,7 @@ public class BooleanArrayList extends AbstractBooleanList {
 
     /**
      * Sorts the specified range of the receiver into ascending order (
-     * <tt>false &lt; true</tt>).
+     * <code>false &lt; true</code>).
      * 
      * The sorting algorithm is <b>not</b> a quicksort, but rather a countsort.
      * This algorithm offers guaranteed O(n) performance.
@@ -424,7 +426,7 @@ public class BooleanArrayList extends AbstractBooleanList {
      *            the index of the last element (inclusive) to be sorted.
      * @exception IndexOutOfBoundsException
      *                index is out of range (
-     *                <tt>size()&gt;0 && (from&lt;0 || from&gt;to || to&gt;=size())</tt>
+     *                <code>size()&gt;0 &amp;&amp; (from&lt;0 || from&gt;to || to&gt;=size())</code>
      *                ).
      */
 
@@ -623,7 +625,7 @@ public class BooleanArrayList extends AbstractBooleanList {
      * with invalid parameters this method may access invalid indexes without
      * throwing any exception! <b>You should only use this method when you are
      * absolutely sure that the index is within bounds.</b> Precondition
-     * (unchecked): <tt>index &gt;= 0 && index &lt; size()</tt>.
+     * (unchecked): <code>index &gt;= 0 &amp;&amp; index &lt; size()</code>.
      * 
      * @param index
      *            index of element to replace.
@@ -645,7 +647,7 @@ public class BooleanArrayList extends AbstractBooleanList {
      *            the index of the last element (inclusive) to be permuted.
      * @exception IndexOutOfBoundsException
      *                index is out of range (
-     *                <tt>size()&gt;0 && (from&lt;0 || from&gt;to || to&gt;=size())</tt>
+     *                <code>size()&gt;0 &amp;&amp; (from&lt;0 || from&gt;to || to&gt;=size())</code>
      *                ).
      */
 
@@ -682,7 +684,7 @@ public class BooleanArrayList extends AbstractBooleanList {
      *            the index of the last element (inclusive) to be sorted.
      * @exception IndexOutOfBoundsException
      *                index is out of range (
-     *                <tt>size()&gt;0 && (from&lt;0 || from&gt;to || to&gt;=size())</tt>
+     *                <code>size()&gt;0 &amp;&amp; (from&lt;0 || from&gt;to || to&gt;=size())</code>
      *                ).
      */
 

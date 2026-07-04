@@ -18,7 +18,7 @@ import cern.colt.matrix.tdouble.DoubleMatrix2D;
 import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
 
 /**
- * 2-d matrix holding <tt>double</tt> elements; either a view wrapping another
+ * 2-d matrix holding <code>double</code> elements; either a view wrapping another
  * matrix or a matrix whose views are wrappers.
  * 
  * @author wolfgang.hoschek@cern.ch
@@ -444,6 +444,7 @@ public class WrapperDoubleMatrix2D extends DoubleMatrix2D {
      * Returns new complex matrix which is the 2D inverse of the discrete
      * Fourier transform (IDFT) of this matrix.
      * 
+     * @param scale
      * @return the 2D inverse of the discrete Fourier transform (IDFT) of this
      *         matrix.
      */
@@ -500,6 +501,7 @@ public class WrapperDoubleMatrix2D extends DoubleMatrix2D {
      * Returns new complex matrix which is the inverse of the discrete Fourier
      * transform (IDFT) of each column of this matrix.
      * 
+     * @param scale
      * @return the inverse of the discrete Fourier transform (IDFT) of each
      *         column of this matrix.
      */
@@ -519,6 +521,7 @@ public class WrapperDoubleMatrix2D extends DoubleMatrix2D {
      * Returns new complex matrix which is the inverse of the discrete Fourier
      * transform (IDFT) of each row of this matrix.
      * 
+     * @param scale
      * @return the inverse of the discrete Fourier transform (IDFT) of each row
      *         of this matrix.
      */

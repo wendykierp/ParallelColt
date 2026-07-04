@@ -14,13 +14,13 @@ import cern.colt.matrix.tlong.LongMatrix1D;
 import cern.colt.matrix.tlong.LongMatrix2D;
 
 /**
- * Selection view on sparse 2-d matrices holding <tt>int</tt> elements. First
+ * Selection view on sparse 2-d matrices holding <code>int</code> elements. First
  * see the <a href="package-summary.html">package summary</a> and javadoc <a
  * href="package-tree.html">tree view</a> to get the broad picture.
  * <p>
  * <b>Implementation:</b>
  * <p>
- * Objects of this class are typically constructed via <tt>viewIndexes</tt>
+ * Objects of this class are typically constructed via <code>viewIndexes</code>
  * methods on some source matrix. The interface introduced in abstract super
  * classes defines everything a user can do. From a user point of view there is
  * nothing special about this class; it presents the same functionality with the
@@ -40,7 +40,7 @@ import cern.colt.matrix.tlong.LongMatrix2D;
  * <p>
  * <b>Memory requirements:</b>
  * <p>
- * <tt>memory [bytes] = 4*(rowIndexes.length+columnIndexes.length)</tt>. Thus,
+ * <code>memory [bytes] = 4*(rowIndexes.length+columnIndexes.length)</code>. Thus,
  * an index view with 1000 x 1000 indexes additionally uses 8 KB.
  * <p>
  * <b>Time complexity:</b>
@@ -104,10 +104,10 @@ class SelectedSparseLongMatrix2D extends LongMatrix2D {
      *            the position of the first element.
      * @param rowStride
      *            the number of elements between two rows, i.e.
-     *            <tt>index(i+1,j)-index(i,j)</tt>.
+     *            <code>index(i+1,j)-index(i,j)</code>.
      * @param columnStride
      *            the number of elements between two columns, i.e.
-     *            <tt>index(i,j+1)-index(i,j)</tt>.
+     *            <code>index(i,j+1)-index(i,j)</code>.
      * @param rowOffsets
      *            The row offsets of the cells that shall be visible.
      * @param columnOffsets
@@ -132,14 +132,14 @@ class SelectedSparseLongMatrix2D extends LongMatrix2D {
     }
 
     /**
-     * Returns the matrix cell value at coordinate <tt>[row,column]</tt>.
+     * Returns the matrix cell value at coordinate <code>[row,column]</code>.
      * 
      * <p>
      * Provided with invalid parameters this method may return invalid objects
      * without throwing any exception. <b>You should only use this method when
      * you are absolutely sure that the coordinate is within bounds.</b>
      * Precondition (unchecked):
-     * <tt>0 &lt;= column &lt; columns() && 0 &lt;= row &lt; rows()</tt>.
+     * <code>0 &lt;= column &lt; columns() &amp;&amp; 0 &lt;= row &lt; rows()</code>.
      * 
      * @param row
      *            the index of the row-coordinate.
@@ -178,10 +178,10 @@ class SelectedSparseLongMatrix2D extends LongMatrix2D {
      * Construct and returns a new empty matrix <i>of the same dynamic type</i>
      * as the receiver, having the specified number of rows and columns. For
      * example, if the receiver is an instance of type
-     * <tt>DenseLongMatrix2D</tt> the new matrix must also be of type
-     * <tt>DenseLongMatrix2D</tt>, if the receiver is an instance of type
-     * <tt>SparseLongMatrix2D</tt> the new matrix must also be of type
-     * <tt>SparseLongMatrix2D</tt>, etc. In general, the new matrix should have
+     * <code>DenseLongMatrix2D</code> the new matrix must also be of type
+     * <code>DenseLongMatrix2D</code>, if the receiver is an instance of type
+     * <code>SparseLongMatrix2D</code> the new matrix must also be of type
+     * <code>SparseLongMatrix2D</code>, etc. In general, the new matrix should have
      * internal parametrization as similar as possible.
      * 
      * @param rows
@@ -198,10 +198,10 @@ class SelectedSparseLongMatrix2D extends LongMatrix2D {
     /**
      * Construct and returns a new 1-d matrix <i>of the corresponding dynamic
      * type</i>, entirelly independent of the receiver. For example, if the
-     * receiver is an instance of type <tt>DenseLongMatrix2D</tt> the new matrix
-     * must be of type <tt>DenseLongMatrix1D</tt>, if the receiver is an
-     * instance of type <tt>SparseLongMatrix2D</tt> the new matrix must be of
-     * type <tt>SparseLongMatrix1D</tt>, etc.
+     * receiver is an instance of type <code>DenseLongMatrix2D</code> the new matrix
+     * must be of type <code>DenseLongMatrix1D</code>, if the receiver is an
+     * instance of type <code>SparseLongMatrix2D</code> the new matrix must be of
+     * type <code>SparseLongMatrix1D</code>, etc.
      * 
      * @param size
      *            the number of cells the matrix shall have.
@@ -213,7 +213,7 @@ class SelectedSparseLongMatrix2D extends LongMatrix2D {
     }
 
     /**
-     * Sets the matrix cell at coordinate <tt>[row,column]</tt> to the specified
+     * Sets the matrix cell at coordinate <code>[row,column]</code> to the specified
      * value.
      * 
      * <p>
@@ -221,7 +221,7 @@ class SelectedSparseLongMatrix2D extends LongMatrix2D {
      * without throwing any exception. <b>You should only use this method when
      * you are absolutely sure that the coordinate is within bounds.</b>
      * Precondition (unchecked):
-     * <tt>0 &lt;= column &lt; columns() && 0 &lt;= row &lt; rows()</tt>.
+     * <code>0 &lt;= column &lt; columns() &amp;&amp; 0 &lt;= row &lt; rows()</code>.
      * 
      * @param row
      *            the index of the row-coordinate.
@@ -268,7 +268,7 @@ class SelectedSparseLongMatrix2D extends LongMatrix2D {
      * the given column. The returned view is backed by this matrix, so changes
      * in the returned view are reflected in this matrix, and vice-versa. To
      * obtain a slice view on subranges, construct a sub-ranging view (
-     * <tt>viewPart(...)</tt>), then apply this method to the sub-range view.
+     * <code>viewPart(...)</code>), then apply this method to the sub-range view.
      * <p>
      * <b>Example:</b>
      * <table border="0">
@@ -286,7 +286,7 @@ class SelectedSparseLongMatrix2D extends LongMatrix2D {
      *            column to fix.
      * @return a new slice view.
      * @throws IllegalArgumentException
-     *             if <tt>column < 0 || column >= columns()</tt>.
+     *             if <code>column < 0 || column >= columns()</code>.
      * @see #viewRow(int)
      */
 
@@ -305,7 +305,7 @@ class SelectedSparseLongMatrix2D extends LongMatrix2D {
      * of the given row. The returned view is backed by this matrix, so changes
      * in the returned view are reflected in this matrix, and vice-versa. To
      * obtain a slice view on subranges, construct a sub-ranging view (
-     * <tt>viewPart(...)</tt>), then apply this method to the sub-range view.
+     * <code>viewPart(...)</code>), then apply this method to the sub-range view.
      * <p>
      * <b>Example:</b>
      * <table border="0">
@@ -323,7 +323,7 @@ class SelectedSparseLongMatrix2D extends LongMatrix2D {
      *            row to fix.
      * @return a new slice view.
      * @throws IndexOutOfBoundsException
-     *             if <tt>row < 0 || row >= rows()</tt>.
+     *             if <code>row < 0 || row >= rows()</code>.
      * @see #viewColumn(int)
      */
 
@@ -366,13 +366,13 @@ class SelectedSparseLongMatrix2D extends LongMatrix2D {
     }
 
     /**
-     * Returns <tt>true</tt> if both matrices share common cells. More formally,
-     * returns <tt>true</tt> if <tt>other != null</tt> and at least one of the
+     * Returns <code>true</code> if both matrices share common cells. More formally,
+     * returns <code>true</code> if <code>other != null</code> and at least one of the
      * following conditions is met
      * <ul>
      * <li>the receiver is a view of the other matrix
      * <li>the other matrix is a view of the receiver
-     * <li><tt>this == other</tt>
+     * <li><code>this == other</code>
      * </ul>
      */
 
@@ -390,10 +390,10 @@ class SelectedSparseLongMatrix2D extends LongMatrix2D {
     /**
      * Construct and returns a new 1-d matrix <i>of the corresponding dynamic
      * type</i>, sharing the same cells. For example, if the receiver is an
-     * instance of type <tt>DenseLongMatrix2D</tt> the new matrix must be of
-     * type <tt>DenseLongMatrix1D</tt>, if the receiver is an instance of type
-     * <tt>SparseLongMatrix2D</tt> the new matrix must be of type
-     * <tt>SparseLongMatrix1D</tt>, etc.
+     * instance of type <code>DenseLongMatrix2D</code> the new matrix must be of
+     * type <code>DenseLongMatrix1D</code>, if the receiver is an instance of type
+     * <code>SparseLongMatrix2D</code> the new matrix must be of type
+     * <code>SparseLongMatrix1D</code>, etc.
      * 
      * @param size
      *            the number of cells the matrix shall have.
@@ -401,7 +401,7 @@ class SelectedSparseLongMatrix2D extends LongMatrix2D {
      *            the index of the first element.
      * @param stride
      *            the number of indexes between any two elements, i.e.
-     *            <tt>index(i+1)-index(i)</tt>.
+     *            <code>index(i+1)-index(i)</code>.
      * @return a new matrix of the corresponding dynamic type.
      */
 
@@ -419,7 +419,7 @@ class SelectedSparseLongMatrix2D extends LongMatrix2D {
      * @param columns
      *            the number of columns the matrix shall have.
      * @throws IllegalArgumentException
-     *             if <tt>(int)columns*rows > Long.MAX_VALUE</tt>.
+     *             if <code>(int)columns*rows > Long.MAX_VALUE</code>.
      */
 
     protected void setUp(int rows, int columns) {

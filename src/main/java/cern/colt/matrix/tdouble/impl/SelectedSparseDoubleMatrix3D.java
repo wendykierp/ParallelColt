@@ -15,13 +15,13 @@ import cern.colt.matrix.tdouble.DoubleMatrix2D;
 import cern.colt.matrix.tdouble.DoubleMatrix3D;
 
 /**
- * Selection view on sparse 3-d matrices holding <tt>double</tt> elements. First
+ * Selection view on sparse 3-d matrices holding <code>double</code> elements. First
  * see the <a href="package-summary.html">package summary</a> and javadoc <a
  * href="package-tree.html">tree view</a> to get the broad picture.
  * <p>
  * <b>Implementation:</b>
  * <p>
- * Objects of this class are typically constructed via <tt>viewIndexes</tt>
+ * Objects of this class are typically constructed via <code>viewIndexes</code>
  * methods on some source matrix. The interface introduced in abstract super
  * classes defines everything a user can do. From a user point of view there is
  * nothing special about this class; it presents the same functionality with the
@@ -41,7 +41,7 @@ import cern.colt.matrix.tdouble.DoubleMatrix3D;
  * <p>
  * <b>Memory requirements:</b>
  * <p>
- * <tt>memory [bytes] = 4*(sliceIndexes.length+rowIndexes.length+columnIndexes.length)</tt>
+ * <code>memory [bytes] = 4*(sliceIndexes.length+rowIndexes.length+columnIndexes.length)</code>
  * . Thus, an index view with 100 x 100 x 100 indexes additionally uses 8 KB.
  * <p>
  * <b>Time complexity:</b>
@@ -113,14 +113,14 @@ class SelectedSparseDoubleMatrix3D extends DoubleMatrix3D {
     }
 
     /**
-     * Returns the matrix cell value at coordinate <tt>[slice,row,column]</tt>.
+     * Returns the matrix cell value at coordinate <code>[slice,row,column]</code>.
      * 
      * <p>
      * Provided with invalid parameters this method may return invalid objects
      * without throwing any exception. <b>You should only use this method when
      * you are absolutely sure that the coordinate is within bounds.</b>
      * Precondition (unchecked):
-     * <tt>slice&lt;0 || slice&gt;=slices() || row&lt;0 || row&gt;=rows() || column&lt;0 || column&gt;=column()</tt>.
+     * <code>slice&lt;0 || slice&gt;=slices() || row&lt;0 || row&gt;=rows() || column&lt;0 || column&gt;=column()</code>.
      * 
      * @param slice
      *            the index of the slice-coordinate.
@@ -166,10 +166,10 @@ class SelectedSparseDoubleMatrix3D extends DoubleMatrix3D {
      * Construct and returns a new empty matrix <i>of the same dynamic type</i>
      * as the receiver, having the specified number of slices, rows and columns.
      * For example, if the receiver is an instance of type
-     * <tt>DenseDoubleMatrix3D</tt> the new matrix must also be of type
-     * <tt>DenseDoubleMatrix3D</tt>, if the receiver is an instance of type
-     * <tt>SparseDoubleMatrix3D</tt> the new matrix must also be of type
-     * <tt>SparseDoubleMatrix3D</tt>, etc. In general, the new matrix should
+     * <code>DenseDoubleMatrix3D</code> the new matrix must also be of type
+     * <code>DenseDoubleMatrix3D</code>, if the receiver is an instance of type
+     * <code>SparseDoubleMatrix3D</code> the new matrix must also be of type
+     * <code>SparseDoubleMatrix3D</code>, etc. In general, the new matrix should
      * have internal parametrization as similar as possible.
      * 
      * @param slices
@@ -190,7 +190,7 @@ class SelectedSparseDoubleMatrix3D extends DoubleMatrix3D {
     }
 
     /**
-     * Sets the matrix cell at coordinate <tt>[slice,row,column]</tt> to the
+     * Sets the matrix cell at coordinate <code>[slice,row,column]</code> to the
      * specified value.
      * 
      * <p>
@@ -198,7 +198,7 @@ class SelectedSparseDoubleMatrix3D extends DoubleMatrix3D {
      * without throwing any exception. <b>You should only use this method when
      * you are absolutely sure that the coordinate is within bounds.</b>
      * Precondition (unchecked):
-     * <tt>slice&lt;0 || slice&gt;=slices() || row&lt;0 || row&gt;=rows() || column&lt;0 || column&gt;=column()</tt>.
+     * <code>slice&lt;0 || slice&gt;=slices() || row&lt;0 || row&gt;=rows() || column&lt;0 || column&gt;=column()</code>.
      * 
      * @param slice
      *            the index of the slice-coordinate.
@@ -244,9 +244,9 @@ class SelectedSparseDoubleMatrix3D extends DoubleMatrix3D {
      * matrix, and vice-versa.
      * <p>
      * To obtain a slice view on subranges, construct a sub-ranging view (
-     * <tt>view().part(...)</tt>), then apply this method to the sub-range view.
+     * <code>view().part(...)</code>), then apply this method to the sub-range view.
      * To obtain 1-dimensional views, apply this method, then apply another
-     * slice view (methods <tt>viewColumn</tt>, <tt>viewRow</tt>) on the
+     * slice view (methods <code>viewColumn</code>, <code>viewRow</code>) on the
      * intermediate 2-dimensional view. To obtain 1-dimensional views on
      * subranges, apply both steps.
      * 
@@ -254,7 +254,7 @@ class SelectedSparseDoubleMatrix3D extends DoubleMatrix3D {
      *            the index of the column to fix.
      * @return a new 2-dimensional slice view.
      * @throws IndexOutOfBoundsException
-     *             if <tt>column < 0 || column >= columns()</tt>.
+     *             if <code>column < 0 || column >= columns()</code>.
      * @see #viewSlice(int)
      * @see #viewRow(int)
      */
@@ -286,9 +286,9 @@ class SelectedSparseDoubleMatrix3D extends DoubleMatrix3D {
      * matrix, and vice-versa.
      * <p>
      * To obtain a slice view on subranges, construct a sub-ranging view (
-     * <tt>view().part(...)</tt>), then apply this method to the sub-range view.
+     * <code>view().part(...)</code>), then apply this method to the sub-range view.
      * To obtain 1-dimensional views, apply this method, then apply another
-     * slice view (methods <tt>viewColumn</tt>, <tt>viewRow</tt>) on the
+     * slice view (methods <code>viewColumn</code>, <code>viewRow</code>) on the
      * intermediate 2-dimensional view. To obtain 1-dimensional views on
      * subranges, apply both steps.
      * 
@@ -296,7 +296,7 @@ class SelectedSparseDoubleMatrix3D extends DoubleMatrix3D {
      *            the index of the row to fix.
      * @return a new 2-dimensional slice view.
      * @throws IndexOutOfBoundsException
-     *             if <tt>row < 0 || row >= row()</tt>.
+     *             if <code>row < 0 || row >= row()</code>.
      * @see #viewSlice(int)
      * @see #viewColumn(int)
      */
@@ -328,9 +328,9 @@ class SelectedSparseDoubleMatrix3D extends DoubleMatrix3D {
      * matrix, and vice-versa.
      * <p>
      * To obtain a slice view on subranges, construct a sub-ranging view (
-     * <tt>view().part(...)</tt>), then apply this method to the sub-range view.
+     * <code>view().part(...)</code>), then apply this method to the sub-range view.
      * To obtain 1-dimensional views, apply this method, then apply another
-     * slice view (methods <tt>viewColumn</tt>, <tt>viewRow</tt>) on the
+     * slice view (methods <code>viewColumn</code>, <code>viewRow</code>) on the
      * intermediate 2-dimensional view. To obtain 1-dimensional views on
      * subranges, apply both steps.
      * 
@@ -338,7 +338,7 @@ class SelectedSparseDoubleMatrix3D extends DoubleMatrix3D {
      *            the index of the slice to fix.
      * @return a new 2-dimensional slice view.
      * @throws IndexOutOfBoundsException
-     *             if <tt>slice < 0 || slice >= slices()</tt>.
+     *             if <code>slice < 0 || slice >= slices()</code>.
      * @see #viewRow(int)
      * @see #viewColumn(int)
      */
@@ -406,13 +406,13 @@ class SelectedSparseDoubleMatrix3D extends DoubleMatrix3D {
     }
 
     /**
-     * Returns <tt>true</tt> if both matrices share common cells. More formally,
-     * returns <tt>true</tt> if <tt>other != null</tt> and at least one of the
+     * Returns <code>true</code> if both matrices share common cells. More formally,
+     * returns <code>true</code> if <code>other != null</code> and at least one of the
      * following conditions is met
      * <ul>
      * <li>the receiver is a view of the other matrix
      * <li>the other matrix is a view of the receiver
-     * <li><tt>this == other</tt>
+     * <li><code>this == other</code>
      * </ul>
      */
 
@@ -430,10 +430,10 @@ class SelectedSparseDoubleMatrix3D extends DoubleMatrix3D {
     /**
      * Construct and returns a new 2-d matrix <i>of the corresponding dynamic
      * type</i>, sharing the same cells. For example, if the receiver is an
-     * instance of type <tt>DenseDoubleMatrix3D</tt> the new matrix must also be
-     * of type <tt>DenseDoubleMatrix2D</tt>, if the receiver is an instance of
-     * type <tt>SparseDoubleMatrix3D</tt> the new matrix must also be of type
-     * <tt>SparseDoubleMatrix2D</tt>, etc.
+     * instance of type <code>DenseDoubleMatrix3D</code> the new matrix must also be
+     * of type <code>DenseDoubleMatrix2D</code>, if the receiver is an instance of
+     * type <code>SparseDoubleMatrix3D</code> the new matrix must also be of type
+     * <code>SparseDoubleMatrix2D</code>, etc.
      * 
      * @param rows
      *            the number of rows the matrix shall have.
@@ -445,10 +445,10 @@ class SelectedSparseDoubleMatrix3D extends DoubleMatrix3D {
      *            the position of the first element.
      * @param rowStride
      *            the number of elements between two rows, i.e.
-     *            <tt>index(i+1,j)-index(i,j)</tt>.
+     *            <code>index(i+1,j)-index(i,j)</code>.
      * @param columnStride
      *            the number of elements between two columns, i.e.
-     *            <tt>index(i,j+1)-index(i,j)</tt>.
+     *            <code>index(i,j+1)-index(i,j)</code>.
      * @return a new matrix of the corresponding dynamic type.
      */
 
@@ -468,7 +468,7 @@ class SelectedSparseDoubleMatrix3D extends DoubleMatrix3D {
      * @param columns
      *            the number of columns the matrix shall have.
      * @throws IllegalArgumentException
-     *             if <tt>(double)rows*slices > Integer.MAX_VALUE</tt>.
+     *             if <code>(double)rows*slices > Integer.MAX_VALUE</code>.
      */
 
     protected void setUp(int slices, int rows, int columns) {

@@ -23,15 +23,15 @@ public class FloatVariableAxis implements FloatIAxis {
 
     /**
      * Constructs and returns an axis with the given bin edges. Example:
-     * <tt>edges = (0.2, 1.0, 5.0)</tt> yields an axis with 2 in-range bins
-     * <tt>[0.2,1.0), [1.0,5.0)</tt> and 2 extra bins
-     * <tt>[-inf,0.2), [5.0,inf]</tt>.
+     * <code>edges = (0.2, 1.0, 5.0)</code> yields an axis with 2 in-range bins
+     * <code>[0.2,1.0), [1.0,5.0)</code> and 2 extra bins
+     * <code>[-inf,0.2), [5.0,inf]</code>.
      * 
      * @param edges
      *            the bin boundaries the partition shall have; must be sorted
      *            ascending and must not contain multiple identical elements.
      * @throws IllegalArgumentException
-     *             if <tt>edges.length < 1</tt>.
+     *             if <code>edges.length < 1</code>.
      */
     public FloatVariableAxis(float[] edges) {
         if (edges.length < 1)
@@ -102,9 +102,10 @@ public class FloatVariableAxis implements FloatIAxis {
     /**
      * Returns a string representation of the specified array. The string
      * representation consists of a list of the arrays's elements, enclosed in
-     * square brackets (<tt>"[]"</tt>). Adjacent elements are separated by the
-     * characters <tt>", "</tt> (comma and space).
+     * square brackets (<code>"[]"</code>). Adjacent elements are separated by the
+     * characters <code>", "</code> (comma and space).
      * 
+     * @param array
      * @return a string representation of the specified array.
      */
     protected static String toString(float[] array) {

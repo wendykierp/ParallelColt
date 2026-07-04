@@ -11,7 +11,7 @@ package cern.colt.buffer.tchar;
 import cern.colt.list.tchar.CharArrayList;
 
 /**
- * Target of a streaming <tt>CharBuffer2D</tt> into which data is flushed upon
+ * Target of a streaming <code>CharBuffer2D</code> into which data is flushed upon
  * buffer overflow.
  * 
  * @author wolfgang.hoschek@cern.ch

@@ -13,14 +13,14 @@ import cern.jet.random.tdouble.engine.DoubleRandomEngine;
 
 /**
  * Conveniently computes a stable <i>Simple Random Sample Without Replacement
- * (SRSWOR)</i> subsequence of <tt>n</tt> elements from a given input sequence
- * of <tt>N</tt> elements; Example: Computing a sublist of <tt>n=3</tt> random
- * elements from a list <tt>(1,...,50)</tt> may yield the sublist
- * <tt>(7,13,47)</tt>. The subsequence is guaranteed to be <i>stable</i>, i.e.
+ * (SRSWOR)</i> subsequence of <code>n</code> elements from a given input sequence
+ * of <code>N</code> elements; Example: Computing a sublist of <code>n=3</code> random
+ * elements from a list <code>(1,...,50)</code> may yield the sublist
+ * <code>(7,13,47)</code>. The subsequence is guaranteed to be <i>stable</i>, i.e.
  * elements never change position relative to each other. Each element from the
- * <tt>N</tt> elements has the same probability to be included in the <tt>n</tt>
+ * <code>N</code> elements has the same probability to be included in the <code>n</code>
  * chosen elements. This class is a convenience adapter for
- * <tt>RandomSampler</tt> using blocks.
+ * <code>RandomSampler</code> using blocks.
  * 
  * @see DoubleRandomSampler
  * @author wolfgang.hoschek@cern.ch
@@ -47,15 +47,15 @@ public class DoubleRandomSamplingAssistant extends cern.colt.PersistentObject {
     static final int MAX_BUFFER_SIZE = 200;
 
     /**
-     * Constructs a random sampler that samples <tt>n</tt> random elements from
-     * an input sequence of <tt>N</tt> elements.
+     * Constructs a random sampler that samples <code>n</code> random elements from
+     * an input sequence of <code>N</code> elements.
      * 
      * @param n
      *            the total number of elements to choose (must be &gt;= 0).
      * @param N
      *            number of elements to choose from (must be &gt;= n).
      * @param randomGenerator
-     *            a random number generator. Set this parameter to <tt>null</tt>
+     *            a random number generator. Set this parameter to <code>null</code>
      *            to use the default random number generator.
      */
     public DoubleRandomSamplingAssistant(long n, long N, DoubleRandomEngine randomGenerator) {
@@ -92,6 +92,7 @@ public class DoubleRandomSamplingAssistant extends cern.colt.PersistentObject {
 
     /**
      * Returns the used random generator.
+     * @return 
      */
     public DoubleRandomEngine getRandomGenerator() {
         return this.sampler.my_RandomGenerator;
@@ -99,6 +100,7 @@ public class DoubleRandomSamplingAssistant extends cern.colt.PersistentObject {
 
     /**
      * Tests random sampling.
+     * @param args
      */
     public static void main(String args[]) {
         long n = Long.parseLong(args[0]);
@@ -110,6 +112,9 @@ public class DoubleRandomSamplingAssistant extends cern.colt.PersistentObject {
     /**
      * Just shows how this class can be used; samples n elements from and int[]
      * array.
+     * @param n
+     * @param elements
+     * @return 
      */
     public static int[] sampleArray(int n, int[] elements) {
         DoubleRandomSamplingAssistant assistant = new DoubleRandomSamplingAssistant(n, elements.length, null);
@@ -127,8 +132,8 @@ public class DoubleRandomSamplingAssistant extends cern.colt.PersistentObject {
      * Returns whether the next element of the input sequence shall be sampled
      * (picked) or not.
      * 
-     * @return <tt>true</tt> if the next element shall be sampled (picked),
-     *         <tt>false</tt> otherwise.
+     * @return <code>true</code> if the next element shall be sampled (picked),
+     *         <code>false</code> otherwise.
      */
     public boolean sampleNextElement() {
         if (n == 0)
@@ -151,6 +156,8 @@ public class DoubleRandomSamplingAssistant extends cern.colt.PersistentObject {
     /**
      * Tests the methods of this class. To do benchmarking, comment the lines
      * printing stuff to the console.
+     * @param n
+     * @param N
      */
     public static void test(long n, long N) {
         DoubleRandomSamplingAssistant assistant = new DoubleRandomSamplingAssistant(n, N, null);
@@ -173,6 +180,8 @@ public class DoubleRandomSamplingAssistant extends cern.colt.PersistentObject {
     /**
      * Tests the methods of this class. To do benchmarking, comment the lines
      * printing stuff to the console.
+     * @param n
+     * @param N
      */
     public static void testArraySampling(int n, int N) {
         int[] elements = new int[N];
@@ -205,8 +214,8 @@ public class DoubleRandomSamplingAssistant extends cern.colt.PersistentObject {
      * ..., one from the last block.
      * 
      * @param acceptList
-     *            a bitvector which will be filled with <tt>true</tt> where
-     *            sampling shall occur and <tt>false</tt> where it shall not
+     *            a bitvector which will be filled with <code>true</code> where
+     *            sampling shall occur and <code>false</code> where it shall not
      *            occur.
      */
     private void xsampleNextElements(BooleanArrayList acceptList) {

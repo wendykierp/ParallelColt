@@ -20,8 +20,8 @@ public class Polynomial extends DoubleConstants {
     }
 
     /**
-     * Evaluates the given polynomial of degree <tt>N</tt> at <tt>x</tt>,
-     * assuming coefficient of N is 1.0. Otherwise same as <tt>polevl()</tt>.
+     * Evaluates the given polynomial of degree <code>N</code> at <code>x</code>,
+     * assuming coefficient of N is 1.0. Otherwise same as <code>polevl()</code>.
      * 
      * <pre>
      *                     2          N
@@ -48,6 +48,7 @@ public class Polynomial extends DoubleConstants {
      *            the coefficients of the polynomial.
      * @param N
      *            the degree of the polynomial.
+     * @return 
      */
     public static double p1evl(double x, double coef[], int N) throws ArithmeticException {
         double ans;
@@ -62,7 +63,7 @@ public class Polynomial extends DoubleConstants {
     }
 
     /**
-     * Evaluates the given polynomial of degree <tt>N</tt> at <tt>x</tt>.
+     * Evaluates the given polynomial of degree <code>N</code> at <code>x</code>.
      * 
      * <pre>
      *                     2          N
@@ -84,6 +85,7 @@ public class Polynomial extends DoubleConstants {
      *            the coefficients of the polynomial.
      * @param N
      *            the degree of the polynomial.
+     * @return 
      */
     public static double polevl(double x, double coef[], int N) throws ArithmeticException {
         double ans;

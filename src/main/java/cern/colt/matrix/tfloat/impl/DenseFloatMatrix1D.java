@@ -25,19 +25,19 @@ import org.jtransforms.fft.FloatFFT_1D;
 import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
 
 /**
- * Dense 1-d matrix (aka <i>vector</i>) holding <tt>float</tt> elements. First
+ * Dense 1-d matrix (aka <i>vector</i>) holding <code>float</code> elements. First
  * see the <a href="package-summary.html">package summary</a> and javadoc <a
  * href="package-tree.html">tree view</a> to get the broad picture.
  * <p>
  * <b>Implementation:</b>
  * <p>
- * Internally holds one single contigous one-dimensional array. Note that this
+ * Internally holds one single contiguous one-dimensional array. Note that this
  * implementation is not synchronized.
  * <p>
  * <b>Time complexity:</b>
  * <p>
- * <tt>O(1)</tt> (i.e. constant time) for the basic operations <tt>get</tt>,
- * <tt>getQuick</tt>, <tt>set</tt>, <tt>setQuick</tt> and <tt>size</tt>,
+ * <code>O(1)</code> (i.e. constant time) for the basic operations <code>get</code>,
+ * <code>getQuick</code>, <code>set</code>, <code>setQuick</code> and <code>size</code>,
  * <p>
  * 
  * @author wolfgang.hoschek@cern.ch
@@ -64,7 +64,7 @@ public class DenseFloatMatrix1D extends FloatMatrix1D {
 
     /**
      * Constructs a matrix with a copy of the given values. The values are
-     * copied. So subsequent changes in <tt>values</tt> are not reflected in the
+     * copied. So subsequent changes in <code>values</code> are not reflected in the
      * matrix, and vice-versa.
      * 
      * @param values
@@ -77,12 +77,12 @@ public class DenseFloatMatrix1D extends FloatMatrix1D {
 
     /**
      * Constructs a matrix with a given number of cells. All entries are
-     * initially <tt>0</tt>.
+     * initially <code>0</code>.
      * 
      * @param size
      *            the number of cells the matrix shall have.
      * @throws IllegalArgumentException
-     *             if <tt>size<0</tt>.
+     *             if <code>size &lt; 0</code>.
      */
     public DenseFloatMatrix1D(int size) {
         setUp(size);
@@ -100,11 +100,11 @@ public class DenseFloatMatrix1D extends FloatMatrix1D {
      *            the index of the first element.
      * @param stride
      *            the number of indexes between any two elements, i.e.
-     *            <tt>index(i+1)-index(i)</tt>.
+     *            <code>index(i+1)-index(i)</code>.
      * @param isView
      *            if true then a matrix view is constructed
      * @throws IllegalArgumentException
-     *             if <tt>size<0</tt>.
+     *             if <code>size &lt; 0</code>.
      */
     public DenseFloatMatrix1D(int size, float[] elements, int zero, int stride, boolean isView) {
         setUp(size, zero, stride);
@@ -845,6 +845,7 @@ public class DenseFloatMatrix1D extends FloatMatrix1D {
      * Returns new complex matrix which is the inverse of the discrete Fourier
      * (IDFT) transform of this matrix.
      * 
+     * @param scale
      * @return the inverse of the discrete Fourier transform (IDFT) of this
      *         matrix.
      */
@@ -1212,6 +1213,7 @@ public class DenseFloatMatrix1D extends FloatMatrix1D {
      * other half satisfies the symmetry condition. If you want the full real
      * inverse transform, use <code>getIfft</code>.
      * 
+     * @param scale
      */
     public void ifft(boolean scale) {
         int oldNthreads = ConcurrencyUtils.getNumberOfThreads();

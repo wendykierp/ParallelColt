@@ -54,30 +54,30 @@ class DoubleQuantileCalc extends Object {
      * 
      * Assumes that quantiles are to be computed over N values. The required
      * sampling rate is computed and stored in the first element of the provided
-     * <tt>returnSamplingRate</tt> array, which, therefore must be at least of
+     * <code>returnSamplingRate</code> array, which, therefore must be at least of
      * length 1.
      * 
      * @param N
      *            the number of values over which quantiles shall be computed
-     *            (e.g <tt>10^6</tt>).
+     *            (e.g <code>10^6</code>).
      * @param epsilon
      *            the approximation error which is guaranteed not to be exceeded
-     *            (e.g. <tt>0.001</tt>) (<tt>0 &lt;= epsilon &lt;= 1</tt>). To
-     *            get exact result, set <tt>epsilon=0.0</tt>;
+     *            (e.g. <code>0.001</code>) (<code>0 &lt;= epsilon &lt;= 1</code>). To
+     *            get exact result, set <code>epsilon=0.0</code>;
      * @param delta
      *            the probability that the approximation error is more than than
-     *            epsilon (e.g. <tt>0.0001</tt>) (<tt>0 &lt;= delta &lt;= 1</tt>
-     *            ). To avoid probabilistic answers, set <tt>delta=0.0</tt>.
+     *            epsilon (e.g. <code>0.0001</code>) (<code>0 &lt;= delta &lt;= 1</code>
+     *            ). To avoid probabilistic answers, set <code>delta=0.0</code>.
      * @param quantiles
-     *            the number of quantiles to be computed (e.g. <tt>100</tt>) (
-     *            <tt>quantiles &gt;= 1</tt>). If unknown in advance, set this
-     *            number large, e.g. <tt>quantiles &gt;= 10000</tt>.
+     *            the number of quantiles to be computed (e.g. <code>100</code>) (
+     *            <code>quantiles &gt;= 1</code>). If unknown in advance, set this
+     *            number large, e.g. <code>quantiles &gt;= 10000</code>.
      * @param samplingRate
-     *            a <tt>double[1]</tt> where the sampling rate is to be filled
+     *            a <code>double[1]</code> where the sampling rate is to be filled
      *            in.
-     * @return <tt>long[2]</tt> - <tt>long[0]</tt>=the number of buffers,
-     *         <tt>long[1]</tt>=the number of elements per buffer,
-     *         <tt>returnSamplingRate[0]</tt>=the required sampling rate.
+     * @return <code>long[2]</code> - <code>long[0]</code>=the number of buffers,
+     *         <code>long[1]</code>=the number of elements per buffer,
+     *         <code>returnSamplingRate[0]</code>=the required sampling rate.
      */
     public static long[] known_N_compute_B_and_K(long N, double epsilon, double delta, int quantiles,
             double[] returnSamplingRate) {
@@ -94,15 +94,15 @@ class DoubleQuantileCalc extends Object {
      * no more than epsilon. Assumes that quantiles are to be computed over N
      * values.
      * 
-     * @return <tt>long[2]</tt> - <tt>long[0]</tt>=the number of buffers,
-     *         <tt>long[1]</tt>=the number of elements per buffer.
+     * @return <code>long[2]</code> - <code>long[0]</code>=the number of buffers,
+     *         <code>long[1]</code>=the number of elements per buffer.
      * @param N
      *            the anticipated number of values over which quantiles shall be
      *            determined.
      * @param epsilon
      *            the approximation error which is guaranteed not to be exceeded
-     *            (e.g. <tt>0.001</tt>) (<tt>0 &lt;= epsilon &lt;= 1</tt>). To
-     *            get exact result, set <tt>epsilon=0.0</tt>;
+     *            (e.g. <code>0.001</code>) (<code>0 &lt;= epsilon &lt;= 1</code>). To
+     *            get exact result, set <code>epsilon=0.0</code>;
      */
     protected static long[] known_N_compute_B_and_K_quick(long N, double epsilon) {
         if (epsilon <= 0.0) {
@@ -201,7 +201,7 @@ class DoubleQuantileCalc extends Object {
      * quantiles can be determined with an approximation error no more than
      * epsilon with a certain probability. Assumes that quantiles are to be
      * computed over N values. The required sampling rate is computed and stored
-     * in the first element of the provided <tt>returnSamplingRate</tt> array,
+     * in the first element of the provided <code>returnSamplingRate</code> array,
      * which, therefore must be at least of length 1.
      * 
      * @param N
@@ -209,22 +209,22 @@ class DoubleQuantileCalc extends Object {
      *            computed (e.g 10^6).
      * @param epsilon
      *            the approximation error which is guaranteed not to be exceeded
-     *            (e.g. <tt>0.001</tt>) (<tt>0 &lt;= epsilon &lt;= 1</tt>). To
-     *            get exact result, set <tt>epsilon=0.0</tt>;
+     *            (e.g. <code>0.001</code>) (<code>0 &lt;= epsilon &lt;= 1</code>). To
+     *            get exact result, set <code>epsilon=0.0</code>;
      * @param delta
      *            the probability that the approximation error is more than than
-     *            epsilon (e.g. <tt>0.0001</tt>) (<tt>0 &lt;= delta &lt;= 1</tt>
-     *            ). To avoid probabilistic answers, set <tt>delta=0.0</tt>.
+     *            epsilon (e.g. <code>0.0001</code>) (<code>0 &lt;= delta &lt;= 1</code>
+     *            ). To avoid probabilistic answers, set <code>delta=0.0</code>.
      * @param quantiles
-     *            the number of quantiles to be computed (e.g. <tt>100</tt>) (
-     *            <tt>quantiles &gt;= 1</tt>). If unknown in advance, set this
-     *            number large, e.g. <tt>quantiles &gt;= 10000</tt>.
+     *            the number of quantiles to be computed (e.g. <code>100</code>) (
+     *            <code>quantiles &gt;= 1</code>). If unknown in advance, set this
+     *            number large, e.g. <code>quantiles &gt;= 10000</code>.
      * @param samplingRate
-     *            a <tt>double[1]</tt> where the sampling rate is to be filled
+     *            a <code>double[1]</code> where the sampling rate is to be filled
      *            in.
-     * @return <tt>long[2]</tt> - <tt>long[0]</tt>=the number of buffers,
-     *         <tt>long[1]</tt>=the number of elements per buffer,
-     *         <tt>returnSamplingRate[0]</tt>=the required sampling rate.
+     * @return <code>long[2]</code> - <code>long[0]</code>=the number of buffers,
+     *         <code>long[1]</code>=the number of elements per buffer,
+     *         <code>returnSamplingRate[0]</code>=the required sampling rate.
      */
     protected static long[] known_N_compute_B_and_K_slow(long N, double epsilon, double delta, int quantiles,
             double[] returnSamplingRate) {
@@ -386,19 +386,19 @@ class DoubleQuantileCalc extends Object {
      * 
      * @param epsilon
      *            the approximation error which is guaranteed not to be exceeded
-     *            (e.g. <tt>0.001</tt>) (<tt>0 &lt;= epsilon &lt;= 1</tt>). To
-     *            get exact results, set <tt>epsilon=0.0</tt>;
+     *            (e.g. <code>0.001</code>) (<code>0 &lt;= epsilon &lt;= 1</code>). To
+     *            get exact results, set <code>epsilon=0.0</code>;
      * @param delta
      *            the probability that the approximation error is more than than
-     *            epsilon (e.g. <tt>0.0001</tt>) (<tt>0 &lt;= delta &lt;= 1</tt>
-     *            ). To get exact results, set <tt>delta=0.0</tt>.
+     *            epsilon (e.g. <code>0.0001</code>) (<code>0 &lt;= delta &lt;= 1</code>
+     *            ). To get exact results, set <code>delta=0.0</code>.
      * @param quantiles
-     *            the number of quantiles to be computed (e.g. <tt>100</tt>) (
-     *            <tt>quantiles &gt;= 1</tt>). If unknown in advance, set this
-     *            number large, e.g. <tt>quantiles &gt;= 10000</tt>.
-     * @return <tt>long[3]</tt> - <tt>long[0]</tt>=the number of buffers,
-     *         <tt>long[1]</tt>=the number of elements per buffer,
-     *         <tt>long[2]</tt>=the tree height where sampling shall start.
+     *            the number of quantiles to be computed (e.g. <code>100</code>) (
+     *            <code>quantiles &gt;= 1</code>). If unknown in advance, set this
+     *            number large, e.g. <code>quantiles &gt;= 10000</code>.
+     * @return <code>long[3]</code> - <code>long[0]</code>=the number of buffers,
+     *         <code>long[1]</code>=the number of elements per buffer,
+     *         <code>long[2]</code>=the tree height where sampling shall start.
      */
     public static long[] unknown_N_compute_B_and_K(double epsilon, double delta, int quantiles) {
         // delta can be set to zero, i.e., all quantiles should be approximate

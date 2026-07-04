@@ -166,6 +166,7 @@ public abstract class FloatIterativeSolverTest extends TestCase {
 
     /**
      * Constructor for IterativeSolverTest
+     * @param arg0
      */
     public FloatIterativeSolverTest(String arg0) {
         super(arg0);

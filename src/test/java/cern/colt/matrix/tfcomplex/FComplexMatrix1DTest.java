@@ -30,6 +30,7 @@ public abstract class FComplexMatrix1DTest extends TestCase {
 
     /**
      * Constructor for FloatMatrix1DTest
+     * @param arg0
      */
     public FComplexMatrix1DTest(String arg0) {
         super(arg0);

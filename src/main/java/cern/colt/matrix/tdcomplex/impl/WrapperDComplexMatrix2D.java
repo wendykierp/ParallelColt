@@ -18,7 +18,7 @@ import cern.jet.math.tdcomplex.DComplex;
 import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
 
 /**
- * 2-d matrix holding <tt>complex</tt> elements; either a view wrapping another
+ * 2-d matrix holding <code>complex</code> elements; either a view wrapping another
  * matrix or a matrix whose views are wrappers.
  * 
  * @author Piotr Wendykier (piotr.wendykier@gmail.com)
@@ -257,6 +257,7 @@ public class WrapperDComplexMatrix2D extends DComplexMatrix2D {
      * Computes the inverse of the discrete Fourier transform (DFT) of each
      * column of this matrix.
      * 
+     * @param scale
      */
     public void ifftColumns(boolean scale) {
         if (content instanceof DenseLargeDComplexMatrix2D) {
@@ -276,6 +277,7 @@ public class WrapperDComplexMatrix2D extends DComplexMatrix2D {
      * Computes the inverse of the discrete Fourier transform (DFT) of each row
      * of this matrix.
      * 
+     * @param scale
      */
     public void ifftRows(boolean scale) {
         if (content instanceof DenseLargeDComplexMatrix2D) {

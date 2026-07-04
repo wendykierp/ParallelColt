@@ -16,7 +16,7 @@ import cern.colt.map.AbstractMap;
 
 /**
  * Abstract base class for hash maps holding (key,value) associations of type
- * <tt>(double-->int)</tt>. First see the <a href="package-summary.html">package
+ * <code>(double-->int)</code>. First see the <a href="package-summary.html">package
  * summary</a> and javadoc <a href="package-tree.html">tree view</a> to get the
  * broad picture.
  * <p>
@@ -45,9 +45,10 @@ public abstract class AbstractDoubleIntMap extends AbstractMap {
     }
 
     /**
-     * Returns <tt>true</tt> if the receiver contains the specified key.
+     * Returns <code>true</code> if the receiver contains the specified key.
      * 
-     * @return <tt>true</tt> if the receiver contains the specified key.
+     * @param key
+     * @return <code>true</code> if the receiver contains the specified key.
      */
     public boolean containsKey(final double key) {
         return !forEachKey(new DoubleProcedure() {
@@ -58,9 +59,10 @@ public abstract class AbstractDoubleIntMap extends AbstractMap {
     }
 
     /**
-     * Returns <tt>true</tt> if the receiver contains the specified value.
+     * Returns <code>true</code> if the receiver contains the specified value.
      * 
-     * @return <tt>true</tt> if the receiver contains the specified value.
+     * @param value
+     * @return <code>true</code> if the receiver contains the specified value.
      */
     public boolean containsValue(final int value) {
         return !forEachPair(new DoubleIntProcedure() {
@@ -82,9 +84,9 @@ public abstract class AbstractDoubleIntMap extends AbstractMap {
 
     /**
      * Compares the specified object with this map for equality. Returns
-     * <tt>true</tt> if the given object is also a map and the two maps
-     * represent the same mappings. More formally, two maps <tt>m1</tt> and
-     * <tt>m2</tt> represent the same mappings iff
+     * <code>true</code> if the given object is also a map and the two maps
+     * represent the same mappings. More formally, two maps <code>m1</code> and
+     * <code>m2</code> represent the same mappings iff
      * 
      * <pre>
      * m1.forEachPair(
@@ -105,14 +107,14 @@ public abstract class AbstractDoubleIntMap extends AbstractMap {
      * </pre>
      * 
      * This implementation first checks if the specified object is this map; if
-     * so it returns <tt>true</tt>. Then, it checks if the specified object is a
+     * so it returns <code>true</code>. Then, it checks if the specified object is a
      * map whose size is identical to the size of this set; if not, it it
-     * returns <tt>false</tt>. If so, it applies the iteration as described
+     * returns <code>false</code>. If so, it applies the iteration as described
      * above.
      * 
      * @param obj
      *            object to be compared for equality with this map.
-     * @return <tt>true</tt> if the specified object is equal to this map.
+     * @return <code>true</code> if the specified object is equal to this map.
      */
 
     public boolean equals(Object obj) {
@@ -143,14 +145,14 @@ public abstract class AbstractDoubleIntMap extends AbstractMap {
      * expressed in terms of this method (most methods can) <i>must
      * guarantee</i> to use the <i>same</i> order defined by this method, even
      * if it is no particular order. This is necessary so that, for example,
-     * methods <tt>keys</tt> and <tt>values</tt> will yield association pairs,
+     * methods <code>keys</code> and <code>values</code> will yield association pairs,
      * not two uncorrelated lists.
      * 
      * @param procedure
      *            the procedure to be applied. Stops iteration if the procedure
-     *            returns <tt>false</tt>, otherwise continues.
-     * @return <tt>false</tt> if the procedure stopped before all keys where
-     *         iterated over, <tt>true</tt> otherwise.
+     *            returns <code>false</code>, otherwise continues.
+     * @return <code>false</code> if the procedure stopped before all keys where
+     *         iterated over, <code>true</code> otherwise.
      */
     public abstract boolean forEachKey(DoubleProcedure procedure);
 
@@ -161,9 +163,9 @@ public abstract class AbstractDoubleIntMap extends AbstractMap {
      * 
      * @param procedure
      *            the procedure to be applied. Stops iteration if the procedure
-     *            returns <tt>false</tt>, otherwise continues.
-     * @return <tt>false</tt> if the procedure stopped before all keys where
-     *         iterated over, <tt>true</tt> otherwise.
+     *            returns <code>false</code>, otherwise continues.
+     * @return <code>false</code> if the procedure stopped before all keys where
+     *         iterated over, <code>true</code> otherwise.
      */
     public boolean forEachPair(final DoubleIntProcedure procedure) {
         return forEachKey(new DoubleProcedure() {
@@ -181,7 +183,7 @@ public abstract class AbstractDoubleIntMap extends AbstractMap {
      * 
      * @param key
      *            the key to be searched for.
-     * @return the value associated with the specified key; <tt>0</tt> if no
+     * @return the value associated with the specified key; <code>0</code> if no
      *         such key is present.
      */
     public abstract int get(double key);
@@ -195,8 +197,8 @@ public abstract class AbstractDoubleIntMap extends AbstractMap {
      * 
      * @param value
      *            the value to search for.
-     * @return the first key for which holds <tt>get(key) == value</tt>; returns
-     *         <tt>Double.NaN</tt> if no such key exists.
+     * @return the first key for which holds <code>get(key) == value</code>; returns
+     *         <code>Double.NaN</code> if no such key exists.
      */
     public double keyOf(final int value) {
         final double[] foundKey = new double[1];
@@ -215,7 +217,7 @@ public abstract class AbstractDoubleIntMap extends AbstractMap {
 
     /**
      * Returns a list filled with all keys contained in the receiver. The
-     * returned list has a size that equals <tt>this.size()</tt>. Note: Keys are
+     * returned list has a size that equals <code>this.size()</code>. Note: Keys are
      * filled into the list in no particular order. However, the order is
      * <i>identical</i> to the order used by method
      * {@link #forEachKey(DoubleProcedure)}.
@@ -233,7 +235,7 @@ public abstract class AbstractDoubleIntMap extends AbstractMap {
     /**
      * Fills all keys contained in the receiver into the specified list. Fills
      * the list, starting at index 0. After this call returns the specified list
-     * has a new size that equals <tt>this.size()</tt>. Iteration order is
+     * has a new size that equals <code>this.size()</code>. Iteration order is
      * guaranteed to be <i>identical</i> to the order used by method
      * {@link #forEachKey(DoubleProcedure)}.
      * <p>
@@ -256,12 +258,12 @@ public abstract class AbstractDoubleIntMap extends AbstractMap {
      * Fills all keys <i>sorted ascending by their associated value</i> into the
      * specified list. Fills into the list, starting at index 0. After this call
      * returns the specified list has a new size that equals
-     * <tt>this.size()</tt>. Primary sort criterium is "value", secondary sort
+     * <code>this.size()</code>. Primary sort criterium is "value", secondary sort
      * criterium is "key". This means that if any two values are equal, the
      * smaller key comes first.
      * <p>
      * <b>Example:</b> <br>
-     * <tt>keys = (8,7,6), values = (1,2,2) --> keyList = (8,6,7)</tt>
+     * <code>keys = (8,7,6), values = (1,2,2) --> keyList = (8,6,7)</code>
      * 
      * @param keyList
      *            the list to be filled, can have any size.
@@ -315,10 +317,10 @@ public abstract class AbstractDoubleIntMap extends AbstractMap {
      * Fills all keys and values <i>sorted ascending by key</i> into the
      * specified lists. Fills into the lists, starting at index 0. After this
      * call returns the specified lists both have a new size that equals
-     * <tt>this.size()</tt>.
+     * <code>this.size()</code>.
      * <p>
      * <b>Example:</b> <br>
-     * <tt>keys = (8,7,6), values = (1,2,2) --> keyList = (6,7,8), valueList = (2,2,1)</tt>
+     * <code>keys = (8,7,6), values = (1,2,2) --> keyList = (6,7,8), valueList = (2,2,1)</code>
      * 
      * @param keyList
      *            the list to be filled with keys, can have any size.
@@ -358,12 +360,12 @@ public abstract class AbstractDoubleIntMap extends AbstractMap {
      * Fills all keys and values <i>sorted ascending by value</i> into the
      * specified lists. Fills into the lists, starting at index 0. After this
      * call returns the specified lists both have a new size that equals
-     * <tt>this.size()</tt>. Primary sort criterium is "value", secondary sort
+     * <code>this.size()</code>. Primary sort criterium is "value", secondary sort
      * criterium is "key". This means that if any two values are equal, the
      * smaller key comes first.
      * <p>
      * <b>Example:</b> <br>
-     * <tt>keys = (8,7,6), values = (1,2,2) --> keyList = (8,6,7), valueList = (1,2,2)</tt>
+     * <code>keys = (8,7,6), values = (1,2,2) --> keyList = (8,6,7), valueList = (1,2,2)</code>
      * 
      * @param keyList
      *            the list to be filled with keys, can have any size.
@@ -402,14 +404,14 @@ public abstract class AbstractDoubleIntMap extends AbstractMap {
 
     /**
      * Associates the given key with the given value. Replaces any old
-     * <tt>(key,someOtherValue)</tt> association, if existing.
+     * <code>(key,someOtherValue)</code> association, if existing.
      * 
      * @param key
      *            the key the value shall be associated with.
      * @param value
      *            the value to be associated.
-     * @return <tt>true</tt> if the receiver did not already contain such a key;
-     *         <tt>false</tt> if the receiver did already contain such a key -
+     * @return <code>true</code> if the receiver did not already contain such a key;
+     *         <code>false</code> if the receiver did already contain such a key -
      *         the new value has now replaced the formerly associated value.
      */
     public abstract boolean put(double key, int value);
@@ -420,14 +422,15 @@ public abstract class AbstractDoubleIntMap extends AbstractMap {
      * 
      * @param key
      *            the key to be removed from the receiver.
-     * @return <tt>true</tt> if the receiver contained the specified key,
-     *         <tt>false</tt> otherwise.
+     * @return <code>true</code> if the receiver contained the specified key,
+     *         <code>false</code> otherwise.
      */
     public abstract boolean removeKey(double key);
 
     /**
      * Returns a string representation of the receiver, containing the String
      * representation of each key-value pair, sorted ascending by key.
+     * @return 
      */
 
     public String toString() {
@@ -452,6 +455,7 @@ public abstract class AbstractDoubleIntMap extends AbstractMap {
     /**
      * Returns a string representation of the receiver, containing the String
      * representation of each key-value pair, sorted ascending by value.
+     * @return 
      */
     public String toStringByValue() {
         DoubleArrayList theKeys = new DoubleArrayList();
@@ -474,7 +478,7 @@ public abstract class AbstractDoubleIntMap extends AbstractMap {
 
     /**
      * Returns a list filled with all values contained in the receiver. The
-     * returned list has a size that equals <tt>this.size()</tt>. Iteration
+     * returned list has a size that equals <code>this.size()</code>. Iteration
      * order is guaranteed to be <i>identical</i> to the order used by method
      * {@link #forEachKey(DoubleProcedure)}.
      * <p>
@@ -491,7 +495,7 @@ public abstract class AbstractDoubleIntMap extends AbstractMap {
     /**
      * Fills all values contained in the receiver into the specified list. Fills
      * the list, starting at index 0. After this call returns the specified list
-     * has a new size that equals <tt>this.size()</tt>. Iteration order is
+     * has a new size that equals <code>this.size()</code>. Iteration order is
      * guaranteed to be <i>identical</i> to the order used by method
      * {@link #forEachKey(DoubleProcedure)}.
      * <p>

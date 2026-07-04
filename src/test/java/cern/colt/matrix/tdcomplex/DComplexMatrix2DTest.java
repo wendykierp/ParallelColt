@@ -37,6 +37,7 @@ public abstract class DComplexMatrix2DTest extends TestCase {
 
     /**
      * Constructor for DoubleMatrix2DTest
+     * @param arg0
      */
     public DComplexMatrix2DTest(String arg0) {
         super(arg0);

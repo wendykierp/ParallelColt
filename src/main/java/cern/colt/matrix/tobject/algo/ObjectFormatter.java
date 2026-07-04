@@ -32,7 +32,7 @@ public class ObjectFormatter extends AbstractFormatter {
     private static final long serialVersionUID = 1L;
 
     /**
-     * Constructs and returns a matrix formatter with alignment <tt>LEFT</tt>.
+     * Constructs and returns a matrix formatter with alignment <code>LEFT</code>.
      */
     public ObjectFormatter() {
         this(LEFT);
@@ -50,6 +50,10 @@ public class ObjectFormatter extends AbstractFormatter {
 
     /**
      * Converts a given cell to a String; no alignment considered.
+     * @param matrix
+     * @param formatter
+     * @param index
+     * @return 
      */
 
     protected String form(AbstractMatrix1D matrix, int index, Former formatter) {
@@ -58,6 +62,10 @@ public class ObjectFormatter extends AbstractFormatter {
 
     /**
      * Converts a given cell to a String; no alignment considered.
+     * @param matrix
+     * @param formatter
+     * @param index
+     * @return 
      */
     protected String form(ObjectMatrix1D matrix, int index, Former formatter) {
         Object value = matrix.get(index);
@@ -68,6 +76,8 @@ public class ObjectFormatter extends AbstractFormatter {
 
     /**
      * Returns a string representations of all cells; no alignment considered.
+     * @param matrix
+     * @return 
      */
 
     protected String[][] format(AbstractMatrix2D matrix) {
@@ -76,6 +86,8 @@ public class ObjectFormatter extends AbstractFormatter {
 
     /**
      * Returns a string representations of all cells; no alignment considered.
+     * @param matrix
+     * @return 
      */
     protected String[][] format(ObjectMatrix2D matrix) {
         String[][] strings = new String[matrix.rows()][matrix.columns()];
@@ -85,11 +97,12 @@ public class ObjectFormatter extends AbstractFormatter {
     }
 
     /**
-     * Returns a string <tt>s</tt> such that <tt>Object[] m = s</tt> is a legal
+     * Returns a string <code>s</code> such that <code>Object[] m = s</code> is a legal
      * Java statement.
      * 
      * @param matrix
      *            the matrix to format.
+     * @return 
      */
     public String toSourceCode(ObjectMatrix1D matrix) {
         ObjectFormatter copy = (ObjectFormatter) this.clone();
@@ -101,11 +114,12 @@ public class ObjectFormatter extends AbstractFormatter {
     }
 
     /**
-     * Returns a string <tt>s</tt> such that <tt>Object[] m = s</tt> is a legal
+     * Returns a string <code>s</code> such that <code>Object[] m = s</code> is a legal
      * Java statement.
      * 
      * @param matrix
      *            the matrix to format.
+     * @return 
      */
     public String toSourceCode(ObjectMatrix2D matrix) {
         ObjectFormatter copy = (ObjectFormatter) this.clone();
@@ -119,11 +133,12 @@ public class ObjectFormatter extends AbstractFormatter {
     }
 
     /**
-     * Returns a string <tt>s</tt> such that <tt>Object[] m = s</tt> is a legal
+     * Returns a string <code>s</code> such that <code>Object[] m = s</code> is a legal
      * Java statement.
      * 
      * @param matrix
      *            the matrix to format.
+     * @return 
      */
     public String toSourceCode(ObjectMatrix3D matrix) {
         ObjectFormatter copy = (ObjectFormatter) this.clone();
@@ -143,6 +158,7 @@ public class ObjectFormatter extends AbstractFormatter {
      * 
      * @param matrix
      *            the matrix to convert.
+     * @return 
      */
 
     protected String toString(AbstractMatrix2D matrix) {
@@ -154,6 +170,7 @@ public class ObjectFormatter extends AbstractFormatter {
      * 
      * @param matrix
      *            the matrix to convert.
+     * @return 
      */
     public String toString(ObjectMatrix1D matrix) {
         ObjectMatrix2D easy = matrix.like2D(1, (int) matrix.size());
@@ -166,6 +183,7 @@ public class ObjectFormatter extends AbstractFormatter {
      * 
      * @param matrix
      *            the matrix to convert.
+     * @return 
      */
     public String toString(ObjectMatrix2D matrix) {
         return super.toString(matrix);
@@ -176,6 +194,7 @@ public class ObjectFormatter extends AbstractFormatter {
      * 
      * @param matrix
      *            the matrix to convert.
+     * @return 
      */
     public String toString(ObjectMatrix3D matrix) {
         StringBuffer buf = new StringBuffer();
@@ -194,7 +213,7 @@ public class ObjectFormatter extends AbstractFormatter {
 
     /**
      * Returns a string representation of the given matrix with axis as well as
-     * rows and columns labeled. Pass <tt>null</tt> to one or more parameters to
+     * rows and columns labeled. Pass <code>null</code> to one or more parameters to
      * indicate that the corresponding decoration element shall not appear in
      * the string converted matrix.
      * 
@@ -297,7 +316,7 @@ public class ObjectFormatter extends AbstractFormatter {
 
     /**
      * Returns a string representation of the given matrix with axis as well as
-     * rows and columns labeled. Pass <tt>null</tt> to one or more parameters to
+     * rows and columns labeled. Pass <code>null</code> to one or more parameters to
      * indicate that the corresponding decoration element shall not appear in
      * the string converted matrix.
      * 

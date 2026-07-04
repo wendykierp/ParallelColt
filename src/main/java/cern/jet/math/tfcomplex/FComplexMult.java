@@ -12,12 +12,12 @@ package cern.jet.math.tfcomplex;
  * Only for performance tuning of compute intensive linear algebraic
  * computations. Constructs functions that return one of
  * <ul>
- * <li><tt>a * constant</tt>
- * <li><tt>a / constant</tt>
+ * <li><code>a * constant</code>
+ * <li><code>a / constant</code>
  * </ul>
- * <tt>a</tt> is variable, <tt>constant</tt> is fixed, but for performance
+ * <code>a</code> is variable, <code>constant</code> is fixed, but for performance
  * reasons publicly accessible. Intended to be passed to
- * <tt>matrix.assign(function)</tt> methods.
+ * <code>matrix.assign(function)</code> methods.
  */
 public final class FComplexMult implements cern.colt.function.tfcomplex.FComplexFComplexFunction {
     /**
@@ -31,6 +31,7 @@ public final class FComplexMult implements cern.colt.function.tfcomplex.FComplex
 
     /**
      * Returns the result of the function evaluation.
+     * @param a
      */
     public final float[] apply(float[] a) {
         float[] z = new float[2];
@@ -50,14 +51,18 @@ public final class FComplexMult implements cern.colt.function.tfcomplex.FComplex
     }
 
     /**
-     * <tt>a / constant</tt>.
+     * <code>a / constant</code>.
+     * @param constant
+     * @return 
      */
     public static FComplexMult div(final float[] constant) {
         return mult(FComplex.inv(constant));
     }
 
     /**
-     * <tt>a * constant</tt>.
+     * <code>a * constant</code>.
+     * @param constant
+     * @return 
      */
     public static FComplexMult mult(final float[] constant) {
         return new FComplexMult(constant);

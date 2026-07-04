@@ -25,7 +25,7 @@ import cern.colt.matrix.tdouble.DoubleMatrix2D;
 import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
 
 /**
- * Dense 2-d matrix holding <tt>double</tt> elements. First see the <a
+ * Dense 2-d matrix holding <code>double</code> elements. First see the <a
  * href="package-summary.html">package summary</a> and javadoc <a
  * href="package-tree.html">tree view</a> to get the broad picture.
  * <p>
@@ -37,8 +37,8 @@ import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
  * <p>
  * <b>Time complexity:</b>
  * <p>
- * <tt>O(1)</tt> (i.e. constant time) for the basic operations <tt>get</tt>,
- * <tt>getQuick</tt>, <tt>set</tt>, <tt>setQuick</tt> and <tt>size</tt>.
+ * <code>O(1)</code> (i.e. constant time) for the basic operations <code>get</code>,
+ * <code>getQuick</code>, <code>set</code>, <code>setQuick</code> and <code>size</code>.
  * 
  * @author Piotr Wendykier (piotr.wendykier@gmail.com)
  * 
@@ -583,6 +583,7 @@ public class DenseLargeDoubleMatrix2D extends WrapperDoubleMatrix2D {
      * Returns new complex matrix which is the 2D inverse of the discrete
      * Fourier transform (IDFT) of this matrix.
      * 
+     * @param scale
      * @return the 2D inverse of the discrete Fourier transform (IDFT) of this
      *         matrix.
      */
@@ -626,6 +627,7 @@ public class DenseLargeDoubleMatrix2D extends WrapperDoubleMatrix2D {
      * Returns new complex matrix which is the inverse of the discrete Fourier
      * transform (IDFT) of each column of this matrix.
      * 
+     * @param scale
      * @return the inverse of the discrete Fourier transform (IDFT) of each
      *         column of this matrix.
      */
@@ -677,6 +679,7 @@ public class DenseLargeDoubleMatrix2D extends WrapperDoubleMatrix2D {
      * Returns new complex matrix which is the inverse of the discrete Fourier
      * transform (IDFT) of each row of this matrix.
      * 
+     * @param scale
      * @return the inverse of the discrete Fourier transform (IDFT) of each row
      *         of this matrix.
      */

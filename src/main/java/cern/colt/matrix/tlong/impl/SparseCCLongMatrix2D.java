@@ -18,7 +18,7 @@ import cern.colt.matrix.tlong.LongMatrix2D;
 import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
 
 /**
- * Sparse column-compressed 2-d matrix holding <tt>long</tt> elements. First see
+ * Sparse column-compressed 2-d matrix holding <code>long</code> elements. First see
  * the <a href="package-summary.html">package summary</a> and javadoc <a
  * href="package-tree.html">tree view</a> to get the broad picture.
  * <p>
@@ -38,11 +38,11 @@ import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
  * <p>
  * <b>Time complexity:</b>
  * <p>
- * Getting a cell value takes time<tt> O(log nzr)</tt> where <tt>nzr</tt> is the
+ * Getting a cell value takes time<code> O(log nzr)</code> where <code>nzr</code> is the
  * number of non-zeros of the touched row. This is usually quick, because
  * typically there are only few nonzeros per row. So, in practice, get has
  * <i>expected</i> constant time. Setting a cell value takes <i> </i>worst-case
- * time <tt>O(nz)</tt> where <tt>nzr</tt> is the total number of non-zeros in
+ * time <code>O(nz)</code> where <code>nzr</code> is the total number of non-zeros in
  * the matrix. This can be extremely slow, but if you traverse coordinates
  * properly (i.e. upwards), each write is done much quicker:
  * <table>
@@ -72,7 +72,7 @@ import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
  * </table>
  * If for whatever reasons you can't iterate properly, consider to create an
  * empty dense matrix, store your non-zeros in it, then call
- * <tt>sparse.assign(dense)</tt>. Under the circumstances, this is still rather
+ * <code>sparse.assign(dense)</code>. Under the circumstances, this is still rather
  * quick.
  * <p>
  * Fast iteration over non-zeros can be done via {@link #forEachNonZero}, which
@@ -135,18 +135,18 @@ public class SparseCCLongMatrix2D extends WrapperLongMatrix2D {
     protected boolean rowIndexesSorted = false;
 
     /**
-     * Constructs a matrix with a copy of the given values. <tt>values</tt> is
-     * required to have the form <tt>values[row][column]</tt> and have exactly
+     * Constructs a matrix with a copy of the given values. <code>values</code> is
+     * required to have the form <code>values[row][column]</code> and have exactly
      * the same number of columns in every row.
      * <p>
-     * The values are copied. So subsequent changes in <tt>values</tt> are not
+     * The values are copied. So subsequent changes in <code>values</code> are not
      * reflected in the matrix, and vice-versa.
      * 
      * @param values
      *            The values to be filled into the new matrix.
      * @throws IllegalArgumentException
      *             if
-     *             <tt>for any 1 &lt;= row &lt; values.length: values[row].length != values[row-1].length</tt>
+     *             <code>for any 1 &lt;= row &lt; values.length: values[row].length != values[row-1].length</code>
      *             .
      */
     public SparseCCLongMatrix2D(long[][] values) {
@@ -156,14 +156,14 @@ public class SparseCCLongMatrix2D extends WrapperLongMatrix2D {
 
     /**
      * Constructs a matrix with a given number of rows and columns. All entries
-     * are initially <tt>0</tt>.
+     * are initially <code>0</code>.
      * 
      * @param rows
      *            the number of rows the matrix shall have.
      * @param columns
      *            the number of columns the matrix shall have.
      * @throws IllegalArgumentException
-     *             if <tt>rows<0 || columns<0</tt> .
+     *             if <code>rows<0 || columns<0</code> .
      */
     public SparseCCLongMatrix2D(int rows, int columns) {
         this(rows, columns, (int) Math.min(10l * rows, Integer.MAX_VALUE));
@@ -171,7 +171,7 @@ public class SparseCCLongMatrix2D extends WrapperLongMatrix2D {
 
     /**
      * Constructs a matrix with a given number of rows and columns. All entries
-     * are initially <tt>0</tt>.
+     * are initially <code>0</code>.
      * 
      * @param rows
      *            the number of rows the matrix shall have.
@@ -180,7 +180,7 @@ public class SparseCCLongMatrix2D extends WrapperLongMatrix2D {
      * @param nzmax
      *            maximum number of nonzero elements
      * @throws IllegalArgumentException
-     *             if <tt>rows<0 || columns<0</tt> .
+     *             if <code>rows<0 || columns<0</code> .
      */
     public SparseCCLongMatrix2D(int rows, int columns, int nzmax) {
         super(null);

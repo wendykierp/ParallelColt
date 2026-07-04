@@ -14,7 +14,7 @@ import cern.colt.matrix.tfloat.FloatMatrix2D;
 import cern.colt.matrix.tfloat.FloatMatrix3D;
 
 /**
- * 3-d matrix holding <tt>float</tt> elements; either a view wrapping another
+ * 3-d matrix holding <code>float</code> elements; either a view wrapping another
  * matrix or a matrix whose views are wrappers.
  * 
  * 
@@ -257,6 +257,7 @@ public class WrapperFloatMatrix3D extends FloatMatrix3D {
      * Returns new complex matrix which is the 3D inverse of the discrete
      * Fourier transform (IDFT) of this matrix.
      * 
+     * @param scale
      * @return the 3D inverse of the discrete Fourier transform (IDFT) of this
      *         matrix.
      */
@@ -295,6 +296,7 @@ public class WrapperFloatMatrix3D extends FloatMatrix3D {
      * Returns new complex matrix which is the 2D inverse of the discrete
      * Fourier transform (IDFT) of each slice of this matrix.
      * 
+     * @param scale
      * @return the 2D inverse of the discrete Fourier transform (IDFT) of each
      *         slice of this matrix.
      */

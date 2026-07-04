@@ -48,14 +48,16 @@ public class FloatArithmetic extends FloatConstants {
     /**
      * Efficiently returns the binomial coefficient, often also referred to as
      * "n over k" or "n choose k". The binomial coefficient is defined as
-     * <tt>(n * n-1 * ... * n-k+1 ) / ( 1 * 2 * ... * k )</tt>.
+     * <code>(n * n-1 * ... * n-k+1 ) / ( 1 * 2 * ... * k )</code>.
      * <ul>
-     * <li>k<0<tt>: <tt>0</tt>.
-     * <li>k==0<tt>: <tt>1</tt>.
-     * <li>k==1<tt>: <tt>n</tt>.
-     * <li>else: <tt>(n * n-1 * ... * n-k+1 ) / ( 1 * 2 * ... * k )</tt>.
+     * <li>k<0<code>: <code>0</code>.
+     * <li>k==0<code>: <code>1</code>.
+     * <li>k==1<code>: <code>n</code>.
+     * <li>else: <code>(n * n-1 * ... * n-k+1 ) / ( 1 * 2 * ... * k )</code>.
      * </ul>
      * 
+     * @param n
+     * @param k
      * @return the binomial coefficient.
      */
     public static float binomial(float n, long k) {
@@ -80,12 +82,14 @@ public class FloatArithmetic extends FloatConstants {
      * Efficiently returns the binomial coefficient, often also referred to as
      * "n over k" or "n choose k". The binomial coefficient is defined as
      * <ul>
-     * <li>k<0<tt>: <tt>0</tt>.
-     * <li>k==0 || k==n<tt>: <tt>1</tt>.
-     * <li>k==1 || k==n-1<tt>: <tt>n</tt>.
-     * <li>else: <tt>(n * n-1 * ... * n-k+1 ) / ( 1 * 2 * ... * k )</tt>.
+     * <li>k<0<code>: <code>0</code>.
+     * <li>k==0 || k==n<code>: <code>1</code>.
+     * <li>k==1 || k==n-1<code>: <code>n</code>.
+     * <li>else: <code>(n * n-1 * ... * n-k+1 ) / ( 1 * 2 * ... * k )</code>.
      * </ul>
      * 
+     * @param n
+     * @param k
      * @return the binomial coefficient.
      */
     public static float binomial(long n, long k) {
@@ -128,6 +132,8 @@ public class FloatArithmetic extends FloatConstants {
      * Returns the smallest <code>long &gt;= value</code>. <dt>Examples:
      * <code>1.0 -> 1, 1.2 -> 2, 1.9 -> 2</code>. This method is safer than
      * using (long) Math.ceil(value), because of possible rounding error.
+     * @param value
+     * @return 
      */
     public static long ceil(float value) {
         return Math.round(Math.ceil(value));
@@ -168,6 +174,7 @@ public class FloatArithmetic extends FloatConstants {
      *            the coefficients of the polynomial.
      * @param N
      *            the number of coefficients.
+     * @return 
      */
     public static float chbevl(float x, float coef[], int N) throws ArithmeticException {
         float b0, b1, b2;
@@ -227,10 +234,11 @@ public class FloatArithmetic extends FloatConstants {
     }
 
     /**
-     * Instantly returns the factorial <tt>k!</tt>.
+     * Instantly returns the factorial <code>k!</code>.
      * 
      * @param k
-     *            must hold <tt>k &gt;= 0</tt>.
+     *            must hold <code>k &gt;= 0</code>.
+     * @return 
      */
     static public float factorial(int k) {
         if (k < 0)
@@ -252,20 +260,27 @@ public class FloatArithmetic extends FloatConstants {
      * 1.0 -> 1, 1.2 -> 1, 1.9 -> 1 <dt>
      * 2.0 -> 2, 2.2 -> 2, 2.9 -> 2 </code> <dt>This method is safer than using
      * (long) Math.floor(value), because of possible rounding error.
+     * @param value
+     * @return 
      */
     public static long floor(float value) {
         return Math.round(Math.floor(value));
     }
 
     /**
-     * Returns <tt>log<sub>base</sub>value</tt>.
+     * Returns <code>log<sub>base</sub>value</code>.
+     * @param base
+     * @param value
+     * @return 
      */
     public static float log(float base, float value) {
         return (float) (Math.log(value) / Math.log(base));
     }
 
     /**
-     * Returns <tt>log<sub>10</sub>value</tt>.
+     * Returns <code>log<sub>10</sub>value</code>.
+     * @param value
+     * @return 
      */
     static public float log10(float value) {
         // 1.0 / Math.log(10) == 0.43429448190325176
@@ -273,7 +288,9 @@ public class FloatArithmetic extends FloatConstants {
     }
 
     /**
-     * Returns <tt>log<sub>2</sub>value</tt>.
+     * Returns <code>log<sub>2</sub>value</code>.
+     * @param value
+     * @return 
      */
     static public float log2(float value) {
         // 1.0 / Math.log(2) == 1.4426950408889634
@@ -281,12 +298,13 @@ public class FloatArithmetic extends FloatConstants {
     }
 
     /**
-     * Returns <tt>log(k!)</tt>. Tries to avoid overflows. For <tt>k<30</tt>
-     * simply looks up a table in O(1). For <tt>k>=30</tt> uses stirlings
+     * Returns <code>log(k!)</code>. Tries to avoid overflows. For <code>k<30</code>
+     * simply looks up a table in O(1). For <code>k>=30</code> uses stirlings
      * approximation.
      * 
      * @param k
-     *            must hold <tt>k &gt;= 0</tt>.
+     *            must hold <code>k &gt;= 0</code>.
+     * @return 
      */
     public static float logFactorial(int k) {
         if (k >= 30) {
@@ -305,10 +323,11 @@ public class FloatArithmetic extends FloatConstants {
     }
 
     /**
-     * Instantly returns the factorial <tt>k!</tt>.
+     * Instantly returns the factorial <code>k!</code>.
      * 
      * @param k
-     *            must hold <tt>k &gt;= 0 && k &lt; 21</tt>.
+     *            must hold <code>k &gt;= 0 && k &lt; 21</code>.
+     * @return 
      */
     static public long longFactorial(int k) throws IllegalArgumentException {
         if (k < 0)
@@ -322,16 +341,18 @@ public class FloatArithmetic extends FloatConstants {
     /**
      * Returns the StirlingCorrection.
      * <p>
-     * Correction term of the Stirling approximation for <tt>log(k!)</tt>
+     * Correction term of the Stirling approximation for <code>log(k!)</code>
      * (series in 1/k, or table values for small k) with int parameter k.
      * <p>
-     * <tt>
+     * <code>
      * log k! = (k + 1/2)log(k + 1) - (k + 1) + (1/2)log(2Pi) +
      *          stirlingCorrection(k + 1)                                    
      * <p>                                                                      
      * log k! = (k + 1/2)log(k)     -  k      + (1/2)log(2Pi) +              
      *          stirlingCorrection(k)
-     * </tt>
+     * </code>
+     * @param k
+     * @return 
      */
     public static float stirlingCorrection(int k) {
         final float C1 = 8.3333333e-02f; // +1/12
@@ -350,7 +371,7 @@ public class FloatArithmetic extends FloatConstants {
     }
 
     /**
-     * Equivalent to <tt>Math.round(binomial(n,k))</tt>.
+     * Equivalent to <code>Math.round(binomial(n,k))</code>.
      */
     private static long xlongBinomial(long n, long k) {
         return Math.round(binomial(n, k));

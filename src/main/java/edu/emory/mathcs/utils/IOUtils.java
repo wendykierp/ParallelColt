@@ -253,6 +253,7 @@ public class IOUtils {
      * array. Complex data is represented by 2 double values in sequence: the
      * real and imaginary parts.
      * 
+     * @param format
      * @param x
      * @param title
      */
@@ -282,6 +283,7 @@ public class IOUtils {
      * array. Complex data is represented by 2 double values in sequence: the
      * real and imaginary parts.
      * 
+     * @param format
      * @param rows
      * @param columns
      * @param x
@@ -318,6 +320,7 @@ public class IOUtils {
      * array. Complex data is represented by 2 double values in sequence: the
      * real and imaginary parts.
      * 
+     * @param format
      * @param n1
      * @param n2
      * @param n3
@@ -360,6 +363,7 @@ public class IOUtils {
     /**
      * Displays elements of <code>x</code>, assuming that it is 1D real array.
      * 
+     * @param format
      * @param x
      * @param title
      */
@@ -375,6 +379,7 @@ public class IOUtils {
     /**
      * Displays elements of <code>x</code>, assuming that it is 2D real array.
      * 
+     * @param format
      * @param n1
      * @param n2
      * @param x
@@ -399,6 +404,7 @@ public class IOUtils {
     /**
      * Displays elements of <code>x</code>, assuming that it is 3D real array.
      * 
+     * @param format
      * @param n1
      * @param n2
      * @param n3
@@ -434,6 +440,7 @@ public class IOUtils {
      * assuming that it is 1D complex array. Complex data is represented by 2
      * double values in sequence: the real and imaginary parts.
      * 
+     * @param format
      * @param x
      * @param filename
      */
@@ -471,6 +478,7 @@ public class IOUtils {
      * assuming that it is 2D complex array. Complex data is represented by 2
      * double values in sequence: the real and imaginary parts.
      * 
+     * @param format
      * @param n1
      * @param n2
      * @param x
@@ -529,6 +537,7 @@ public class IOUtils {
      * data is represented by 2 double values in sequence: the real and
      * imaginary parts.
      * 
+     * @param format
      * @param n1
      * @param n2
      * @param x
@@ -585,6 +594,7 @@ public class IOUtils {
      * assuming that it is 3D complex array. Complex data is represented by 2
      * double values in sequence: the real and imaginary parts.
      * 
+     * @param format
      * @param n1
      * @param n2
      * @param n3
@@ -634,6 +644,7 @@ public class IOUtils {
      * data is represented by 2 double values in sequence: the real and
      * imaginary parts.
      * 
+     * @param format
      * @param n1
      * @param n2
      * @param n3
@@ -680,6 +691,7 @@ public class IOUtils {
      * Saves elements of <code>x</code> in a file <code>filename</code>,
      * assuming that it is 2D real array.
      * 
+     * @param format
      * @param x
      * @param filename
      */
@@ -720,6 +732,7 @@ public class IOUtils {
      * Saves elements of <code>x</code> in a file <code>filename</code>,
      * assuming that it is 2D real array.
      * 
+     * @param format
      * @param n1
      * @param n2
      * @param x
@@ -743,6 +756,7 @@ public class IOUtils {
     /**
      * Saves elements of <code>x</code> in a file <code>filename</code>,
      * 
+     * @param format
      * @param x
      * @param filename
      */
@@ -764,6 +778,7 @@ public class IOUtils {
     /**
      * Saves elements of <code>x</code> in a file <code>filename</code>,
      * 
+     * @param format
      * @param x
      * @param filename
      */
@@ -786,6 +801,7 @@ public class IOUtils {
      * Saves elements of <code>x</code> in a file <code>filename</code>,
      * assuming that it is 3D real array.
      * 
+     * @param format
      * @param slices
      * @param rows
      * @param columns
@@ -821,6 +837,7 @@ public class IOUtils {
      * Saves elements of <code>x</code> in a file <code>filename</code>,
      * assuming that it is 2D real array.
      * 
+     * @param format
      * @param x
      * @param filename
      */
@@ -841,6 +858,7 @@ public class IOUtils {
      * Saves elements of <code>x</code> in a file <code>filename</code>,
      * assuming that it is 2D real array.
      * 
+     * @param format
      * @param n1
      * @param n2
      * @param x
@@ -869,6 +887,7 @@ public class IOUtils {
      * Saves elements of <code>x</code> in a file <code>filename</code>,
      * assuming that it is 3D real array.
      * 
+     * @param format
      * @param n1
      * @param n2
      * @param n3

@@ -13,17 +13,18 @@ package cern.colt.list.tfloat;
  * viewed and treated as a JDK 1.2 {@link java.util.AbstractList}. Makes the
  * contained list compatible with the JDK 1.2 Collections Framework.
  * <p>
- * Any attempt to pass elements other than <tt>java.lang.Number</tt> to setter
- * methods will throw a <tt>java.lang.ClassCastException</tt>.
- * <tt>java.lang.Number.floatValue()</tt> is used to convert objects into
+ * Any attempt to pass elements other than <code>java.lang.Number</code> to setter
+ * methods will throw a <code>java.lang.ClassCastException</code>.
+ * <code>java.lang.Number.floatValue()</code> is used to convert objects into
  * primitive values which are then stored in the backing templated list. Getter
- * methods return <tt>java.lang.Float</tt> objects.
+ * methods return <code>java.lang.Float</code> objects.
  */
 public class FloatListAdapter extends java.util.AbstractList implements java.util.List {
     protected AbstractFloatList content;
 
     /**
      * Constructs a list backed by the specified content list.
+     * @param content
      */
     public FloatListAdapter(AbstractFloatList content) {
         this.content = content;
@@ -48,8 +49,8 @@ public class FloatListAdapter extends java.util.AbstractList implements java.uti
      *             if some aspect of the specified element prevents it from
      *             being added to this list.
      * @throws IndexOutOfBoundsException
-     *             index is out of range (<tt>index &lt;
-     * 		  0 || index &gt; size()</tt>).
+     *             index is out of range (<code>index &lt;
+     * 		  0 || index &gt; size()</code>).
      */
 
     public void add(int index, Object element) {
@@ -66,7 +67,7 @@ public class FloatListAdapter extends java.util.AbstractList implements java.uti
      * @return the element at the specified position in this list.
      * @throws IndexOutOfBoundsException
      *             if the given index is out of range (
-     *             <tt>index &lt; 0 || index &gt;= size()</tt>).
+     *             <code>index &lt; 0 || index &gt;= size()</code>).
      */
 
     public Object get(int index) {
@@ -75,6 +76,8 @@ public class FloatListAdapter extends java.util.AbstractList implements java.uti
 
     /**
      * Transforms an element of a primitive data type to an object.
+     * @param element
+     * @return 
      */
     protected static Object object(float element) {
         return element;
@@ -92,7 +95,7 @@ public class FloatListAdapter extends java.util.AbstractList implements java.uti
      * 
      * @throws IndexOutOfBoundsException
      *             if the specified index is out of range (
-     *             <tt>index &lt; 0 || index &gt;= size()</tt>).
+     *             <code>index &lt; 0 || index &gt;= size()</code>).
      */
 
     public Object remove(int index) {
@@ -122,7 +125,7 @@ public class FloatListAdapter extends java.util.AbstractList implements java.uti
      * 
      * @throws IndexOutOfBoundsException
      *             if the specified index is out of range (
-     *             <tt>index &lt; 0 || index &gt;= size()</tt>).
+     *             <code>index &lt; 0 || index &gt;= size()</code>).
      */
 
     public Object set(int index, Object element) {
@@ -143,6 +146,8 @@ public class FloatListAdapter extends java.util.AbstractList implements java.uti
 
     /**
      * Transforms an object element to a primitive data type.
+     * @param element
+     * @return 
      */
     protected static float value(Object element) {
         return ((Number) element).floatValue();

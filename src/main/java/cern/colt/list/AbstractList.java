@@ -38,6 +38,7 @@ public abstract class AbstractList extends AbstractCollection {
     /**
      * Appends all of the elements of the specified Collection to the receiver.
      * 
+     * @param collection
      * @exception ClassCastException
      *                if an element in the collection is not of the same
      *                parameter type of the receiver.
@@ -61,7 +62,7 @@ public abstract class AbstractList extends AbstractCollection {
      *                if an element in the collection is not of the same
      *                parameter type of the receiver.
      * @throws IndexOutOfBoundsException
-     *             if <tt>index &lt; 0 || index &gt; size()</tt>.
+     *             if <code>index &lt; 0 || index &gt; size()</code>.
      */
     public void beforeInsertAllOf(int index, java.util.Collection collection) {
         this.beforeInsertDummies(index, collection.size());
@@ -69,10 +70,10 @@ public abstract class AbstractList extends AbstractCollection {
     }
 
     /**
-     * Inserts <tt>length</tt> dummy elements before the specified position into
+     * Inserts <code>length</code> dummy elements before the specified position into
      * the receiver. Shifts the element currently at that position (if any) and
      * any subsequent elements to the right. <b>This method must set the new
-     * size to be <tt>size()+length</tt>.
+     * size to be <code>size()+length</code>.
      * 
      * @param index
      *            index before which to insert dummy elements (must be in
@@ -80,12 +81,14 @@ public abstract class AbstractList extends AbstractCollection {
      * @param length
      *            number of dummy elements to be inserted.
      * @throws IndexOutOfBoundsException
-     *             if <tt>index &lt; 0 || index &gt; size()</tt>.
+     *             if <code>index &lt; 0 || index &gt; size()</code>.
      */
     protected abstract void beforeInsertDummies(int index, int length);
 
     /**
      * Checks if the given index is in range.
+     * @param index
+     * @param theSize
      */
     protected static void checkRange(int index, int theSize) {
         if (index >= theSize || index < 0)
@@ -95,9 +98,12 @@ public abstract class AbstractList extends AbstractCollection {
     /**
      * Checks if the given range is within the contained array's bounds.
      * 
+     * @param from
+     * @param theSize
+     * @param to
      * @throws IndexOutOfBoundsException
      *             if
-     *             <tt>to!=from-1 || from&lt;0 || from&gt;to || to&gt;=size()</tt>
+     *             <code>to!=from-1 || from&lt;0 || from&gt;to || to&gt;=size()</code>
      *             .
      */
     protected static void checkRangeFromTo(int from, int to, int theSize) {
@@ -130,7 +136,7 @@ public abstract class AbstractList extends AbstractCollection {
      * <p>
      * <b>You should never call this method unless you are sure that this
      * particular sorting algorithm is the right one for your data set.</b> It
-     * is generally better to call <tt>sort()</tt> or <tt>sortFromTo(...)</tt>
+     * is generally better to call <code>sort()</code> or <code>sortFromTo(...)</code>
      * instead, because those methods automatically choose the best sorting
      * algorithm.
      */
@@ -152,7 +158,7 @@ public abstract class AbstractList extends AbstractCollection {
      * <p>
      * <b>You should never call this method unless you are sure that this
      * particular sorting algorithm is the right one for your data set.</b> It
-     * is generally better to call <tt>sort()</tt> or <tt>sortFromTo(...)</tt>
+     * is generally better to call <code>sort()</code> or <code>sortFromTo(...)</code>
      * instead, because those methods automatically choose the best sorting
      * algorithm.
      * 
@@ -162,7 +168,7 @@ public abstract class AbstractList extends AbstractCollection {
      *            the index of the last element (inclusive) to be sorted.
      * @throws IndexOutOfBoundsException
      *             if
-     *             <tt>(from&lt;0 || from&gt;to || to&gt;=size()) && to!=from-1</tt>
+     *             <code>(from&lt;0 || from&gt;to || to&gt;=size()) &amp;&amp; to!=from-1</code>
      *             .
      */
     public abstract void mergeSortFromTo(int from, int to);
@@ -178,7 +184,7 @@ public abstract class AbstractList extends AbstractCollection {
      * <p>
      * <b>You should never call this method unless you are sure that this
      * particular sorting algorithm is the right one for your data set.</b> It
-     * is generally better to call <tt>sort()</tt> or <tt>sortFromTo(...)</tt>
+     * is generally better to call <code>sort()</code> or <code>sortFromTo(...)</code>
      * instead, because those methods automatically choose the best sorting
      * algorithm.
      */
@@ -197,7 +203,7 @@ public abstract class AbstractList extends AbstractCollection {
      * <p>
      * <b>You should never call this method unless you are sure that this
      * particular sorting algorithm is the right one for your data set.</b> It
-     * is generally better to call <tt>sort()</tt> or <tt>sortFromTo(...)</tt>
+     * is generally better to call <code>sort()</code> or <code>sortFromTo(...)</code>
      * instead, because those methods automatically choose the best sorting
      * algorithm.
      * 
@@ -207,7 +213,7 @@ public abstract class AbstractList extends AbstractCollection {
      *            the index of the last element (inclusive) to be sorted.
      * @throws IndexOutOfBoundsException
      *             if
-     *             <tt>(from&lt;0 || from&gt;to || to&gt;=size()) && to!=from-1</tt>
+     *             <code>(from&lt;0 || from&gt;to || to&gt;=size()) &amp;&amp; to!=from-1</code>
      *             .
      */
     public abstract void quickSortFromTo(int from, int to);
@@ -219,7 +225,7 @@ public abstract class AbstractList extends AbstractCollection {
      * @param index
      *            the index of the element to removed.
      * @throws IndexOutOfBoundsException
-     *             if <tt>index &lt; 0 || index &gt;= size()</tt>.
+     *             if <code>index &lt; 0 || index &gt;= size()</code>.
      */
     public void remove(int index) {
         removeFromTo(index, index);
@@ -229,7 +235,7 @@ public abstract class AbstractList extends AbstractCollection {
      * Removes from the receiver all elements whose index is between
      * <code>from</code>, inclusive and <code>to</code>, inclusive. Shifts any
      * succeeding elements to the left (reduces their index). This call shortens
-     * the list by <tt>(to - from + 1)</tt> elements.
+     * the list by <code>(to - from + 1)</code> elements.
      * 
      * @param fromIndex
      *            index of first element to be removed.
@@ -237,7 +243,7 @@ public abstract class AbstractList extends AbstractCollection {
      *            index of last element to be removed.
      * @throws IndexOutOfBoundsException
      *             if
-     *             <tt>(from&lt;0 || from&gt;to || to&gt;=size()) && to!=from-1</tt>
+     *             <code>(from&lt;0 || from&gt;to || to&gt;=size()) &amp;&amp; to!=from-1</code>
      *             .
      */
     public abstract void removeFromTo(int fromIndex, int toIndex);
@@ -246,7 +252,7 @@ public abstract class AbstractList extends AbstractCollection {
      * Replaces the part of the receiver starting at <code>from</code>
      * (inclusive) with all the elements of the specified collection. Does not
      * alter the size of the receiver. Replaces exactly
-     * <tt>Math.max(0,Math.min(size()-from, other.size()))</tt> elements.
+     * <code>Math.max(0,Math.min(size()-from, other.size()))</code> elements.
      * 
      * @param from
      *            the index at which to copy the first element from the
@@ -254,7 +260,7 @@ public abstract class AbstractList extends AbstractCollection {
      * @param other
      *            Collection to replace part of the receiver
      * @throws IndexOutOfBoundsException
-     *             if <tt>index &lt; 0 || index &gt;= size()</tt>.
+     *             if <code>index &lt; 0 || index &gt;= size()</code>.
      */
     public abstract void replaceFromWith(int from, java.util.Collection other);
 
@@ -269,13 +275,13 @@ public abstract class AbstractList extends AbstractCollection {
      * current size, new null or zero items are added to the end of the
      * receiver. If the new size is less than the current size, all components
      * at index newSize and greater are discarded. This method does not release
-     * any superfluos internal memory. Use method <tt>trimToSize</tt> to release
+     * any superfluos internal memory. Use method <code>trimToSize</code> to release
      * superfluos internal memory.
      * 
      * @param newSize
      *            the new size of the receiver.
      * @throws IndexOutOfBoundsException
-     *             if <tt>newSize &lt; 0</tt>.
+     *             if <code>newSize &lt; 0</code>.
      */
     public void setSize(int newSize) {
         if (newSize < 0)
@@ -308,7 +314,7 @@ public abstract class AbstractList extends AbstractCollection {
      *            the end position (inclusive)
      * @throws IndexOutOfBoundsException
      *             if
-     *             <tt>(from&lt;0 || from&gt;to || to&gt;=size()) && to!=from-1</tt>
+     *             <code>(from&lt;0 || from&gt;to || to&gt;=size()) &amp;&amp; to!=from-1</code>
      *             .
      */
     public abstract void shuffleFromTo(int from, int to);
@@ -319,8 +325,8 @@ public abstract class AbstractList extends AbstractCollection {
      * The sorting algorithm is dynamically chosen according to the
      * characteristics of the data set.
      * 
-     * This implementation simply calls <tt>sortFromTo(...)</tt>. Override
-     * <tt>sortFromTo(...)</tt> if you can determine which sort is most
+     * This implementation simply calls <code>sortFromTo(...)</code>. Override
+     * <code>sortFromTo(...)</code> if you can determine which sort is most
      * appropriate for the given data set.
      */
     public final void sort() {
@@ -341,7 +347,7 @@ public abstract class AbstractList extends AbstractCollection {
      *            the index of the last element (inclusive) to be sorted.
      * @throws IndexOutOfBoundsException
      *             if
-     *             <tt>(from&lt;0 || from&gt;to || to&gt;=size()) && to!=from-1</tt>
+     *             <code>(from&lt;0 || from&gt;to || to&gt;=size()) &amp;&amp; to!=from-1</code>
      *             .
      */
     public void sortFromTo(int from, int to) {

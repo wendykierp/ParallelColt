@@ -18,8 +18,8 @@ import cern.jet.random.tdouble.engine.DoubleRandomEngine;
  * HREF="http://www.statsoft.com/textbook/glose.html#Exponential Distribution">
  * animated definition</A>.
  * <p>
- * <tt>p(x) = lambda*exp(-x*lambda)</tt> for <tt>x &gt;= 0</tt>,
- * <tt>lambda &gt; 0</tt>.
+ * <code>p(x) = lambda*exp(-x*lambda)</code> for <code>x &gt;= 0</code>,
+ * <code>lambda &gt; 0</code>.
  * <p>
  * Instance methods operate on a user supplied uniform random number generator;
  * they are unsynchronized.
@@ -43,6 +43,8 @@ public class Exponential extends AbstractContinousDoubleDistribution {
 
     /**
      * Constructs a Negative Exponential distribution.
+     * @param lambda
+     * @param randomGenerator
      */
     public Exponential(double lambda, DoubleRandomEngine randomGenerator) {
         setRandomGenerator(randomGenerator);
@@ -51,6 +53,8 @@ public class Exponential extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns the cumulative distribution function.
+     * @param x
+     * @return 
      */
     public double cdf(double x) {
         if (x <= 0.0)
@@ -60,6 +64,7 @@ public class Exponential extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a random number from the distribution.
+     * @return 
      */
 
     public double nextDouble() {
@@ -69,6 +74,8 @@ public class Exponential extends AbstractContinousDoubleDistribution {
     /**
      * Returns a random number from the distribution; bypasses the internal
      * state.
+     * @param lambda
+     * @return 
      */
     public double nextDouble(double lambda) {
         return -Math.log(randomGenerator.raw()) / lambda;
@@ -76,6 +83,8 @@ public class Exponential extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns the probability distribution function.
+     * @param x
+     * @return 
      */
     public double pdf(double x) {
         if (x < 0.0)
@@ -85,6 +94,7 @@ public class Exponential extends AbstractContinousDoubleDistribution {
 
     /**
      * Sets the mean.
+     * @param lambda
      */
     public void setState(double lambda) {
         this.lambda = lambda;
@@ -92,6 +102,8 @@ public class Exponential extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a random number from the distribution with the given lambda.
+     * @param lambda
+     * @return 
      */
     public static double staticNextDouble(double lambda) {
         synchronized (shared) {
@@ -101,6 +113,7 @@ public class Exponential extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a String representation of the receiver.
+     * @return 
      */
 
     public String toString() {

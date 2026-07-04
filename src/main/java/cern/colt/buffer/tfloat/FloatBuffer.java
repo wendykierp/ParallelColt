@@ -12,7 +12,7 @@ import cern.colt.list.tfloat.FloatArrayList;
 
 /**
  * Fixed sized (non resizable) streaming buffer connected to a target
- * <tt>FloatBufferConsumer</tt> to which data is automatically flushed upon
+ * <code>FloatBufferConsumer</code> to which data is automatically flushed upon
  * buffer overflow.
  * 
  * @author wolfgang.hoschek@cern.ch

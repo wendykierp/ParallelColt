@@ -17,9 +17,9 @@ import cern.jet.random.tdouble.engine.DoubleRandomEngine;
  * an array of positive real numbers. The pdf does not need to be provided in
  * the form of relative probabilities, absolute probabilities are also accepted.
  * <p>
- * If <tt>interpolationType == LINEAR_INTERPOLATION</tt> a linear interpolation
+ * If <code>interpolationType == LINEAR_INTERPOLATION</code> a linear interpolation
  * within the bin is computed, resulting in a constant density within each bin.
- * <dt>If <tt>interpolationType == NO_INTERPOLATION</tt> no interpolation is
+ * <dt>If <code>interpolationType == NO_INTERPOLATION</code> no interpolation is
  * performed and the result is a discrete distribution.
  * <p>
  * Instance methods operate on a user supplied uniform random number generator;
@@ -59,18 +59,18 @@ public class Empirical extends AbstractContinousDoubleDistribution {
      * Constructs an Empirical distribution. The probability distribution
      * function (pdf) is an array of positive real numbers. It need not be
      * provided in the form of relative probabilities, absolute probabilities
-     * are also accepted. The <tt>pdf</tt> must satisfy both of the following
+     * are also accepted. The <code>pdf</code> must satisfy both of the following
      * conditions
      * <ul>
-     * <li><tt>0.0 &lt;= pdf[i] : 0&lt;=i&lt;=pdf.length-1</tt>
-     * <li><tt>0.0 &lt; Sum(pdf[i]) : 0&lt;=i&lt;=pdf.length-1</tt>
+     * <li><code>0.0 &lt;= pdf[i] : 0&lt;=i&lt;=pdf.length-1</code>
+     * <li><code>0.0 &lt; Sum(pdf[i]) : 0&lt;=i&lt;=pdf.length-1</code>
      * </ul>
      * 
      * @param pdf
      *            the probability distribution function.
      * @param interpolationType
-     *            can be either <tt>Empirical.NO_INTERPOLATION</tt> or
-     *            <tt>Empirical.LINEAR_INTERPOLATION</tt>.
+     *            can be either <code>Empirical.NO_INTERPOLATION</code> or
+     *            <code>Empirical.LINEAR_INTERPOLATION</code>.
      * @param randomGenerator
      *            a uniform random number generator.
      * @throws IllegalArgumentException
@@ -83,6 +83,8 @@ public class Empirical extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns the cumulative distribution function.
+     * @param k
+     * @return 
      */
     public double cdf(int k) {
         if (k < 0)
@@ -109,6 +111,7 @@ public class Empirical extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a random number from the distribution.
+     * @return 
      */
 
     public double nextDouble() {
@@ -155,6 +158,8 @@ public class Empirical extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns the probability distribution function.
+     * @param x
+     * @return 
      */
     public double pdf(double x) {
         throw new RuntimeException("not implemented");
@@ -165,6 +170,8 @@ public class Empirical extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns the probability distribution function.
+     * @param k
+     * @return 
      */
     public double pdf(int k) {
         if (k < 0 || k >= cdf.length - 1)
@@ -173,18 +180,18 @@ public class Empirical extends AbstractContinousDoubleDistribution {
     }
 
     /**
-     * Sets the distribution parameters. The <tt>pdf</tt> must satisfy both of
+     * Sets the distribution parameters. The <code>pdf</code> must satisfy both of
      * the following conditions
      * <ul>
-     * <li><tt>0.0 &lt;= pdf[i] : 0 &lt; =i &lt;= pdf.length-1</tt>
-     * <li><tt>0.0 &lt; Sum(pdf[i]) : 0 &lt;=i &lt;= pdf.length-1</tt>
+     * <li><code>0.0 &lt;= pdf[i] : 0 &lt; =i &lt;= pdf.length-1</code>
+     * <li><code>0.0 &lt; Sum(pdf[i]) : 0 &lt;=i &lt;= pdf.length-1</code>
      * </ul>
      * 
      * @param pdf
      *            probability distribution function.
      * @param interpolationType
-     *            can be either <tt>Empirical.NO_INTERPOLATION</tt> or
-     *            <tt>Empirical.LINEAR_INTERPOLATION</tt>.
+     *            can be either <code>Empirical.NO_INTERPOLATION</code> or
+     *            <code>Empirical.LINEAR_INTERPOLATION</code>.
      * @throws IllegalArgumentException
      *             if at least one of the three conditions above is violated.
      */
@@ -222,6 +229,7 @@ public class Empirical extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a String representation of the receiver.
+     * @return 
      */
 
     public String toString() {

@@ -19,7 +19,7 @@ import cern.colt.matrix.tdouble.impl.SparseDoubleMatrix1D;
 import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
 
 /**
- * Sparse hashed 1-d matrix (aka <i>vector</i>) holding <tt>complex</tt>
+ * Sparse hashed 1-d matrix (aka <i>vector</i>) holding <code>complex</code>
  * elements. This implementation uses ConcurrentHashMap
  * 
  * @author Piotr Wendykier (piotr.wendykier@gmail.com)
@@ -34,7 +34,7 @@ public class SparseDComplexMatrix1D extends DComplexMatrix1D {
 
     /**
      * Constructs a matrix with a copy of the given values. The values are
-     * copied. So subsequent changes in <tt>values</tt> are not reflected in the
+     * copied. So subsequent changes in <code>values</code> are not reflected in the
      * matrix, and vice-versa.
      * 
      * @param values
@@ -51,7 +51,7 @@ public class SparseDComplexMatrix1D extends DComplexMatrix1D {
      * @param size
      *            the number of cells the matrix shall have.
      * @throws IllegalArgumentException
-     *             if <tt>size<0</tt>.
+     *             if <code>size &lt; 0</code>.
      */
     public SparseDComplexMatrix1D(int size) {
         setUp(size);
@@ -69,9 +69,9 @@ public class SparseDComplexMatrix1D extends DComplexMatrix1D {
      *            the index of the first element.
      * @param stride
      *            the number of indexes between any two elements, i.e.
-     *            <tt>index(i+1)-index(i)</tt>.
+     *            <code>index(i+1)-index(i)</code>.
      * @throws IllegalArgumentException
-     *             if <tt>size<0</tt>.
+     *             if <code>size &lt; 0</code>.
      */
     protected SparseDComplexMatrix1D(int size, ConcurrentHashMap<Long, double[]> elements, int offset, int stride) {
         setUp(size, offset, stride);
@@ -109,7 +109,7 @@ public class SparseDComplexMatrix1D extends DComplexMatrix1D {
     }
 
     /**
-     * Returns <tt>true</tt> if both matrices share at least one identical cell.
+     * Returns <code>true</code> if both matrices share at least one identical cell.
      */
 
     protected boolean haveSharedCellsRaw(DComplexMatrix1D other) {

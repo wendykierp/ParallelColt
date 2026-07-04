@@ -24,8 +24,8 @@ import com.github.wendykierp.csparsej.tfloat.Scs_common.Scsn;
 import com.github.wendykierp.csparsej.tfloat.Scs_common.Scss;
 
 /**
- * For a symmetric, positive definite matrix <tt>A</tt>, the Cholesky
- * decomposition is a lower triangular matrix <tt>L</tt> so that <tt>A = L*L'</tt>; If
+ * For a symmetric, positive definite matrix <code>A</code>, the Cholesky
+ * decomposition is a lower triangular matrix <code>L</code> so that <code>A = L*L'</code>; If
  * the matrix is not symmetric positive definite, the IllegalArgumentException
  * is thrown.
  * 
@@ -52,10 +52,10 @@ public class SparseFloatCholeskyDecomposition {
      * @param order
      *            ordering option (0 or 1); 0: natural ordering, 1: amd(A+A')
      * @throws IllegalArgumentException
-     *             if <tt>A</tt> is not square or is not sparse or is not a
+     *             if <code>A</code> is not square or is not sparse or is not a
      *             symmetric positive definite.
      * @throws IllegalArgumentException
-     *             if <tt>order != 0 || order != 1</tt>
+     *             if <code>order != 0 || order != 1</code>
      */
     public SparseFloatCholeskyDecomposition(FloatMatrix2D A, int order) {
         FloatProperty.DEFAULT.checkSquare(A);
@@ -82,9 +82,9 @@ public class SparseFloatCholeskyDecomposition {
     }
 
     /**
-     * Returns the triangular factor, <tt>L</tt>.
+     * Returns the triangular factor, <code>L</code>.
      * 
-     * @return <tt>L</tt>
+     * @return <code>L</code>
      */
     public FloatMatrix2D getL() {
         if (L == null) {
@@ -98,9 +98,9 @@ public class SparseFloatCholeskyDecomposition {
 
     /**
      * 
-     * Returns the triangular factor, <tt>L'</tt>.
+     * Returns the triangular factor, <code>L'</code>.
      * 
-     * @return <tt>L'</tt>
+     * @return <code>L'</code>
      */
     public FloatMatrix2D getLtranspose() {
         if (L == null) {
@@ -135,13 +135,13 @@ public class SparseFloatCholeskyDecomposition {
     }
 
     /**
-     * Solves <tt>A*x = b</tt>(in-place). Upon return <tt>b</tt> is overridden
-     * with the result <tt>x</tt>.
+     * Solves <code>A*x = b</code>(in-place). Upon return <code>b</code> is overridden
+     * with the result <code>x</code>.
      * 
      * @param b
      *            A vector with of size A.rows();
      * @exception IllegalArgumentException
-     *                if <tt>b.size() != A.rows()</tt>.
+     *                if <code>b.size() != A.rows()</code>.
      */
     public void solve(FloatMatrix1D b) {
         if (b.size() != n) {

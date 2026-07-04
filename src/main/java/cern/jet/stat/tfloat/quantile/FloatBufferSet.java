@@ -11,7 +11,7 @@ package cern.jet.stat.tfloat.quantile;
 import cern.jet.stat.BufferSet;
 
 /**
- * A set of buffers holding <tt>float</tt> elements; internally used for
+ * A set of buffers holding <code>float</code> elements; internally used for
  * computing approximate quantiles.
  */
 class FloatBufferSet extends BufferSet {
@@ -243,7 +243,7 @@ class FloatBufferSet extends BufferSet {
      * 
      * @param procedure
      *            the procedure to be applied. Stops iteration if the procedure
-     *            returns <tt>false</tt>, otherwise continues.
+     *            returns <code>false</code>, otherwise continues.
      */
     public boolean forEach(cern.colt.function.tfloat.FloatProcedure procedure) {
         for (int i = buffers.length; --i >= 0;) {
@@ -419,13 +419,13 @@ class FloatBufferSet extends BufferSet {
 
     /**
      * Returns how many percent of the elements contained in the receiver are
-     * <tt>&lt;= element</tt>. Does linear interpolation if the element is not
+     * <code>&lt;= element</code>. Does linear interpolation if the element is not
      * contained but lies in between two contained elements.
      * 
      * @param the
      *            element to search for.
-     * @return the percentage <tt>p</tt> of elements <tt>&lt;= element</tt> (
-     *         <tt>0.0 &lt;= p &lt;=1.0)</tt>.
+     * @return the percentage <code>p</code> of elements <code>&lt;= element</code> (
+     *         <code>0.0 &lt;= p &lt;=1.0)</code>.
      */
     public float phi(float element) {
         float elementsLessThanOrEqualToElement = 0.0f;

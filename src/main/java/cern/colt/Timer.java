@@ -32,7 +32,7 @@ public class Timer {
     /**
      * Prints the elapsed time on System.out
      * 
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      */
     public Timer display() {
         System.out.println(this);
@@ -40,7 +40,8 @@ public class Timer {
     }
 
     /**
-     * Same as <tt>seconds()</tt>.
+     * Same as <code>seconds()</code>.
+     * @return 
      */
     public double elapsedTime() {
         return seconds();
@@ -49,6 +50,7 @@ public class Timer {
     /**
      * Returns the elapsed time in milli seconds; does not stop the timer, if
      * started.
+     * @return 
      */
     public double millis() {
         long elapsed = elapsedTime;
@@ -61,6 +63,7 @@ public class Timer {
     /**
      * Returns the elapsed time in nano seconds; does not stop the timer, if
      * started.
+     * @return 
      */
     public long nanos() {
         long elapsed = elapsedTime;
@@ -71,7 +74,7 @@ public class Timer {
     }
 
     /**
-     * <tt>T = this - other</tt>; Constructs and returns a new timer which is
+     * <code>T = this - other</code>; Constructs and returns a new timer which is
      * the difference of the receiver and the other timer. The new timer is not
      * started.
      * 
@@ -87,13 +90,14 @@ public class Timer {
 
     /**
      * Returns the elapsed time in minutes; does not stop the timer, if started.
+     * @return 
      */
     public double minutes() {
         return seconds() / 60.0;
     }
 
     /**
-     * <tt>T = this + other</tt>; Constructs and returns a new timer which is
+     * <code>T = this + other</code>; Constructs and returns a new timer which is
      * the sum of the receiver and the other timer. The new timer is not
      * started.
      * 
@@ -110,7 +114,7 @@ public class Timer {
     /**
      * Resets the timer.
      * 
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      */
     public Timer reset() {
         elapsedTime = 0;
@@ -120,6 +124,7 @@ public class Timer {
 
     /**
      * Returns the elapsed time in seconds; does not stop the timer, if started.
+     * @return 
      */
     public double seconds() {
         return (nanos()) / 1000000000.0;
@@ -128,7 +133,7 @@ public class Timer {
     /**
      * Starts the timer.
      * 
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      */
     public Timer start() {
         baseTime = System.nanoTime();
@@ -138,7 +143,7 @@ public class Timer {
     /**
      * Stops the timer. You can start it again later, if necessary.
      * 
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      */
     public Timer stop() {
         if (baseTime != 0) {
@@ -150,6 +155,7 @@ public class Timer {
 
     /**
      * Shows how to use a timer in convenient ways.
+     * @param size
      */
     public static void test(int size) {
         // benchmark this piece
@@ -188,6 +194,7 @@ public class Timer {
 
     /**
      * Returns a String representation of the receiver.
+     * @return 
      */
 
     public String toString() {

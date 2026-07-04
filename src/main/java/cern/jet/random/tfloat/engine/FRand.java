@@ -13,22 +13,22 @@ import java.util.Date;
 /**
  * Quick medium quality uniform pseudo-random number generator.
  * 
- * Produces uniformly distributed <tt>int</tt>'s and <tt>long</tt>'s in the
- * closed intervals <tt>[Integer.MIN_VALUE,Integer.MAX_VALUE]</tt> and
- * <tt>[Long.MIN_VALUE,Long.MAX_VALUE]</tt>, respectively, as well as
- * <tt>float</tt>'s and <tt>float</tt>'s in the open unit intervals
- * <tt>(0.0f,1.0f)</tt> and <tt>(0.0,1.0)</tt>, respectively.
+ * Produces uniformly distributed <code>int</code>'s and <code>long</code>'s in the
+ * closed intervals <code>[Integer.MIN_VALUE,Integer.MAX_VALUE]</code> and
+ * <code>[Long.MIN_VALUE,Long.MAX_VALUE]</code>, respectively, as well as
+ * <code>float</code>'s and <code>float</code>'s in the open unit intervals
+ * <code>(0.0f,1.0f)</code> and <code>(0.0,1.0)</code>, respectively.
  * <p>
  * The seed can be any integer satisfying
- * <tt>0 &lt; 4*seed+1 &lt; 2<sup>32</sup></tt>. In other words, there must hold
- * <tt>seed &gt;= 0 && seed &lt; 1073741823</tt>.
+ * <code>0 &lt; 4*seed+1 &lt; 2<sup>32</sup></code>. In other words, there must hold
+ * <code>seed &gt;= 0 &amp;&amp; seed &lt; 1073741823</code>.
  * <p>
  * <b>Quality:</b> This generator follows the multiplicative congruential method
  * of the form
- * <dt> <tt>z(i+1) = a * z(i) (mod m)</tt> with
- * <tt>a=663608941 (=0X278DDE6DL), m=2<sup>32</sup></tt>.
- * <dt> <tt>z(i)</tt> assumes all different values
- * <tt>0 &lt; 4*seed+1 &lt; m</tt> during a full period of 2<sup>30</sup>.
+ * <dt> <code>z(i+1) = a * z(i) (mod m)</code> with
+ * <code>a=663608941 (=0X278DDE6DL), m=2<sup>32</sup></code>.
+ * <dt> <code>z(i)</code> assumes all different values
+ * <code>0 &lt; 4*seed+1 &lt; m</code> during a full period of 2<sup>30</sup>.
  * 
  * <p>
  * <b>Performance:</b> TO_DO
@@ -65,7 +65,7 @@ public class FRand extends FloatRandomEngine {
      * Constructs and returns a random number generator with the given seed.
      * 
      * @param seed
-     *            should not be 0, in such a case <tt>DRand.DEFAULT_SEED</tt> is
+     *            should not be 0, in such a case <code>DRand.DEFAULT_SEED</code> is
      *            substituted.
      */
     public FRand(int seed) {
@@ -77,7 +77,7 @@ public class FRand extends FloatRandomEngine {
      * date.
      * 
      * @param d
-     *            typically <tt>new java.util.Date()</tt>
+     *            typically <code>new java.util.Date()</code>
      */
     public FRand(Date d) {
         this((int) d.getTime());
@@ -85,8 +85,9 @@ public class FRand extends FloatRandomEngine {
 
     /**
      * Returns a 32 bit uniformly distributed random number in the closed
-     * interval <tt>[Integer.MIN_VALUE,Integer.MAX_VALUE]</tt> (including
-     * <tt>Integer.MIN_VALUE</tt> and <tt>Integer.MAX_VALUE</tt>).
+     * interval <code>[Integer.MIN_VALUE,Integer.MAX_VALUE]</code> (including
+     * <code>Integer.MIN_VALUE</code> and <code>Integer.MAX_VALUE</code>).
+     * @return 
      */
 
     public int nextInt() {
@@ -99,7 +100,7 @@ public class FRand extends FloatRandomEngine {
     /**
      * Sets the receiver's seed. This method resets the receiver's entire
      * internal state. The following condition must hold:
-     * <tt>seed &gt;= 0 && seed &lt; (2<sup>32</sup>-1) / 4</tt>.
+     * <code>seed &gt;= 0 &amp;&amp; seed &lt; (2<sup>32</sup>-1) / 4</code>.
      * 
      * @param seed
      *            if the above condition does not hold, a modified seed that

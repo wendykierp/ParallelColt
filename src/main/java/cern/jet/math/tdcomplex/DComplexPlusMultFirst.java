@@ -4,14 +4,14 @@ package cern.jet.math.tdcomplex;
  * Only for performance tuning of compute intensive linear algebraic
  * computations. Constructs functions that return one of
  * <ul>
- * <li><tt>a*constant + b</tt>
- * <li><tt>a*constant - b</tt>
- * <li><tt>a/constant + b</tt>
- * <li><tt>a/constant - b</tt>
+ * <li><code>a*constant + b</code>
+ * <li><code>a*constant - b</code>
+ * <li><code>a/constant + b</code>
+ * <li><code>a/constant - b</code>
  * </ul>
- * <tt>a</tt> and <tt>b</tt> are variables, <tt>constant</tt> is fixed, but for
+ * <code>a</code> and <code>b</code> are variables, <code>constant</code> is fixed, but for
  * performance reasons publicly accessible. Intended to be passed to
- * <tt>matrix.assign(otherMatrix,function)</tt> methods.
+ * <code>matrix.assign(otherMatrix,function)</code> methods.
  */
 
 public class DComplexPlusMultFirst implements cern.colt.function.tdcomplex.DComplexDComplexDComplexFunction {
@@ -22,6 +22,7 @@ public class DComplexPlusMultFirst implements cern.colt.function.tdcomplex.DComp
 
     /**
      * Insert the method's description here. Creation date: (8/10/99 19:12:09)
+     * @param multiplicator
      */
     protected DComplexPlusMultFirst(final double[] multiplicator) {
         this.multiplicator = multiplicator;
@@ -29,6 +30,8 @@ public class DComplexPlusMultFirst implements cern.colt.function.tdcomplex.DComp
 
     /**
      * Returns the result of the function evaluation.
+     * @param a
+     * @param b
      */
     public final double[] apply(double[] a, double[] b) {
         double[] z = new double[2];
@@ -40,28 +43,36 @@ public class DComplexPlusMultFirst implements cern.colt.function.tdcomplex.DComp
     }
 
     /**
-     * <tt>a - b/constant</tt>.
+     * <code>a - b/constant</code>.
+     * @param constant
+     * @return 
      */
     public static DComplexPlusMultFirst minusDiv(final double[] constant) {
         return new DComplexPlusMultFirst(DComplex.neg(DComplex.inv(constant)));
     }
 
     /**
-     * <tt>a - b*constant</tt>.
+     * <code>a - b*constant</code>.
+     * @param constant
+     * @return 
      */
     public static DComplexPlusMultFirst minusMult(final double[] constant) {
         return new DComplexPlusMultFirst(DComplex.neg(constant));
     }
 
     /**
-     * <tt>a + b/constant</tt>.
+     * <code>a + b/constant</code>.
+     * @param constant
+     * @return 
      */
     public static DComplexPlusMultFirst plusDiv(final double[] constant) {
         return new DComplexPlusMultFirst(DComplex.inv(constant));
     }
 
     /**
-     * <tt>a + b*constant</tt>.
+     * <code>a + b*constant</code>.
+     * @param constant
+     * @return 
      */
     public static DComplexPlusMultFirst plusMult(final double[] constant) {
         return new DComplexPlusMultFirst(constant);

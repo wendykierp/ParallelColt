@@ -45,8 +45,11 @@ public class BreitWigner extends AbstractContinousDoubleDistribution {
     /**
      * Constructs a BreitWigner distribution.
      * 
+     * @param mean
      * @param cut
-     *            </tt>cut==Double.NEGATIVE_INFINITY</tt> indicates "don't cut".
+     *            </code>cut==Double.NEGATIVE_INFINITY</code> indicates "don't cut".
+     * @param gamma
+     * @param randomGenerator
      */
     public BreitWigner(double mean, double gamma, double cut, DoubleRandomEngine randomGenerator) {
         setRandomGenerator(randomGenerator);
@@ -55,6 +58,7 @@ public class BreitWigner extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a random number from the distribution.
+     * @return 
      */
 
     public double nextDouble() {
@@ -65,8 +69,11 @@ public class BreitWigner extends AbstractContinousDoubleDistribution {
      * Returns a random number from the distribution; bypasses the internal
      * state.
      * 
+     * @param mean
      * @param cut
-     *            </tt>cut==Double.NEGATIVE_INFINITY</tt> indicates "don't cut".
+     *            </code>cut==Double.NEGATIVE_INFINITY</code> indicates "don't cut".
+     * @param gamma
+     * @return 
      */
     public double nextDouble(double mean, double gamma, double cut) {
         double val, rval, displ;
@@ -89,8 +96,10 @@ public class BreitWigner extends AbstractContinousDoubleDistribution {
     /**
      * Sets the mean, gamma and cut parameters.
      * 
+     * @param mean
      * @param cut
-     *            </tt>cut==Double.NEGATIVE_INFINITY</tt> indicates "don't cut".
+     *            </code>cut==Double.NEGATIVE_INFINITY</code> indicates "don't cut".
+     * @param gamma
      */
     public void setState(double mean, double gamma, double cut) {
         this.mean = mean;
@@ -101,8 +110,11 @@ public class BreitWigner extends AbstractContinousDoubleDistribution {
     /**
      * Returns a random number from the distribution.
      * 
+     * @param mean
      * @param cut
-     *            </tt>cut==Double.NEGATIVE_INFINITY</tt> indicates "don't cut".
+     *            </code>cut==Double.NEGATIVE_INFINITY</code> indicates "don't cut".
+     * @param gamma
+     * @return 
      */
     public static double staticNextDouble(double mean, double gamma, double cut) {
         synchronized (shared) {
@@ -112,6 +124,7 @@ public class BreitWigner extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a String representation of the receiver.
+     * @return 
      */
 
     public String toString() {

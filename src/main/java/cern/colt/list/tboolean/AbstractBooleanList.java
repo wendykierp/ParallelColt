@@ -60,7 +60,7 @@ public abstract class AbstractBooleanList extends AbstractList {
      *            the index of the last element to be appended (inclusive).
      * @exception IndexOutOfBoundsException
      *                index is out of range (
-     *                <tt>other.size()&gt;0 && (from&lt;0 || from&gt;to || to&gt;=other.size())</tt>
+     *                <code>other.size()&gt;0 &amp;&amp; (from&lt;0 || from&gt;to || to&gt;=other.size())</code>
      *                ).
      */
     public void addAllOfFromTo(AbstractBooleanList other, int from, int to) {
@@ -79,7 +79,7 @@ public abstract class AbstractBooleanList extends AbstractList {
      *            element to be inserted.
      * @exception IndexOutOfBoundsException
      *                index is out of range (
-     *                <tt>index &lt; 0 || index &gt; size()</tt>).
+     *                <code>index &lt; 0 || index &gt; size()</code>).
      */
     public void beforeInsert(int index, boolean element) {
         beforeInsertDummies(index, 1);
@@ -103,11 +103,11 @@ public abstract class AbstractBooleanList extends AbstractList {
      *            the index of the last element to be inserted (inclusive).
      * @exception IndexOutOfBoundsException
      *                index is out of range (
-     *                <tt>other.size()&gt;0 && (from&lt;0 || from&gt;to || to&gt;=other.size())</tt>
+     *                <code>other.size()&gt;0 &amp;&amp; (from&lt;0 || from&gt;to || to&gt;=other.size())</code>
      *                ).
      * @exception IndexOutOfBoundsException
      *                index is out of range (
-     *                <tt>index &lt; 0 || index &gt; size()</tt>).
+     *                <code>index &lt; 0 || index &gt; size()</code>).
      */
     public void beforeInsertAllOfFromTo(int index, AbstractBooleanList other, int from, int to) {
         int length = to - from + 1;
@@ -116,10 +116,10 @@ public abstract class AbstractBooleanList extends AbstractList {
     }
 
     /**
-     * Inserts <tt>length</tt> dummy elements before the specified position into
+     * Inserts <code>length</code> dummy elements before the specified position into
      * the receiver. Shifts the element currently at that position (if any) and
      * any subsequent elements to the right. <b>This method must set the new
-     * size to be <tt>size()+length</tt>.
+     * size to be <code>size()+length</code>.
      * 
      * @param index
      *            index before which to insert dummy elements (must be in
@@ -127,7 +127,7 @@ public abstract class AbstractBooleanList extends AbstractList {
      * @param length
      *            number of dummy elements to be inserted.
      * @throws IndexOutOfBoundsException
-     *             if <tt>index &lt; 0 || index &gt; size()</tt>.
+     *             if <code>index &lt; 0 || index &gt; size()</code>.
      */
 
     protected void beforeInsertDummies(int index, int length) {
@@ -151,10 +151,10 @@ public abstract class AbstractBooleanList extends AbstractList {
      * @param key
      *            the value to be searched for.
      * @return index of the search key, if it is contained in the receiver;
-     *         otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The
+     *         otherwise, <code>(-(<i>insertion point</i>) - 1)</code>. The
      *         <i>insertion point</i> is defined as the the point at which the
      *         value would be inserted into the receiver: the index of the first
-     *         element greater than the key, or <tt>receiver.size()</tt>, if all
+     *         element greater than the key, or <code>receiver.size()</code>, if all
      *         elements in the receiver are less than the specified key. Note
      *         that this guarantees that the return value will be &gt;= 0 if and
      *         only if the key is found.
@@ -179,10 +179,10 @@ public abstract class AbstractBooleanList extends AbstractList {
      * @param to
      *            the rightmost search position, inclusive.
      * @return index of the search key, if it is contained in the receiver;
-     *         otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The
+     *         otherwise, <code>(-(<i>insertion point</i>) - 1)</code>. The
      *         <i>insertion point</i> is defined as the the point at which the
      *         value would be inserted into the receiver: the index of the first
-     *         element greater than the key, or <tt>receiver.size()</tt>, if all
+     *         element greater than the key, or <code>receiver.size()</code>, if all
      *         elements in the receiver are less than the specified key. Note
      *         that this guarantees that the return value will be &gt;= 0 if and
      *         only if the key is found.
@@ -221,6 +221,7 @@ public abstract class AbstractBooleanList extends AbstractList {
      * 
      * @param elem
      *            element whose presence in the receiver is to be tested.
+     * @return 
      */
     public boolean contains(boolean elem) {
         return indexOfFromTo(elem, 0, size - 1) >= 0;
@@ -342,9 +343,9 @@ public abstract class AbstractBooleanList extends AbstractList {
      * 
      * @param procedure
      *            the procedure to be applied. Stops iteration if the procedure
-     *            returns <tt>false</tt>, otherwise continues.
-     * @return <tt>false</tt> if the procedure stopped before all elements where
-     *         iterated over, <tt>true</tt> otherwise.
+     *            returns <code>false</code>, otherwise continues.
+     * @return <code>false</code> if the procedure stopped before all elements where
+     *         iterated over, <code>true</code> otherwise.
      */
     public boolean forEach(BooleanProcedure procedure) {
         for (int i = 0; i < size;)
@@ -358,6 +359,7 @@ public abstract class AbstractBooleanList extends AbstractList {
      * 
      * @param index
      *            index of element to return.
+     * @return 
      * @exception IndexOutOfBoundsException
      *                index is out of range (index &lt; 0 || index &gt;=
      *                size()).
@@ -374,15 +376,16 @@ public abstract class AbstractBooleanList extends AbstractList {
      * parameters this method may return invalid elements without throwing any
      * exception! <b>You should only use this method when you are absolutely
      * sure that the index is within bounds.</b> Precondition (unchecked):
-     * <tt>index &gt;= 0 && index &lt; size()</tt>.
+     * <code>index &gt;= 0 &amp;&amp; index &lt; size()</code>.
      * 
      * This method is normally only used internally in large loops where bounds
      * are explicitly checked before the loop and need no be rechecked within
      * the loop. However, when desperately, you can give this method
-     * <tt>public</tt> visibility in subclasses.
+     * <code>public</code> visibility in subclasses.
      * 
      * @param index
      *            index of element to return.
+     * @return 
      */
     protected abstract boolean getQuick(int index);
 
@@ -415,7 +418,7 @@ public abstract class AbstractBooleanList extends AbstractList {
      *         returns <code>-1</code> if the element is not found.
      * @exception IndexOutOfBoundsException
      *                index is out of range (
-     *                <tt>size()&gt;0 && (from&lt;0 || from&gt;to || to&gt;=size())</tt>
+     *                <code>size()&gt;0 &amp;&amp; (from&lt;0 || from&gt;to || to&gt;=size())</code>
      *                ).
      */
     public int indexOfFromTo(boolean element, int from, int to) {
@@ -457,7 +460,7 @@ public abstract class AbstractBooleanList extends AbstractList {
      *         returns <code>-1</code> if the element is not found.
      * @exception IndexOutOfBoundsException
      *                index is out of range (
-     *                <tt>size()&gt;0 && (from&lt;0 || from&gt;to || to&gt;=size())</tt>
+     *                <code>size()&gt;0 &amp;&amp; (from&lt;0 || from&gt;to || to&gt;=size())</code>
      *                ).
      */
     public int lastIndexOfFromTo(boolean element, int from, int to) {
@@ -481,7 +484,7 @@ public abstract class AbstractBooleanList extends AbstractList {
      * @return a new list
      * @exception IndexOutOfBoundsException
      *                index is out of range (
-     *                <tt>size()&gt;0 && (from&lt;0 || from&gt;to || to&gt;=size())</tt>
+     *                <code>size()&gt;0 &amp;&amp; (from&lt;0 || from&gt;to || to&gt;=size())</code>
      *                ).
      */
     public AbstractBooleanList partFromTo(int from, int to) {
@@ -522,7 +525,7 @@ public abstract class AbstractBooleanList extends AbstractList {
      * Removes from the receiver all elements whose index is between
      * <code>from</code>, inclusive and <code>to</code>, inclusive. Shifts any
      * succeeding elements to the left (reduces their index). This call
-     * booleanens the list by <tt>(to - from + 1)</tt> elements.
+     * booleanens the list by <code>(to - from + 1)</code> elements.
      * 
      * @param from
      *            index of first element to be removed.
@@ -530,7 +533,7 @@ public abstract class AbstractBooleanList extends AbstractList {
      *            index of last element to be removed.
      * @exception IndexOutOfBoundsException
      *                index is out of range (
-     *                <tt>size()&gt;0 && (from&lt;0 || from&gt;to || to&gt;=size())</tt>
+     *                <code>size()&gt;0 &amp;&amp; (from&lt;0 || from&gt;to || to&gt;=size())</code>
      *                ).
      */
 
@@ -673,7 +676,7 @@ public abstract class AbstractBooleanList extends AbstractList {
      * Replaces the part of the receiver starting at <code>from</code>
      * (inclusive) with all the elements of the specified collection. Does not
      * alter the size of the receiver. Replaces exactly
-     * <tt>Math.max(0,Math.min(size()-from, other.size()))</tt> elements.
+     * <code>Math.max(0,Math.min(size()-from, other.size()))</code> elements.
      * 
      * @param from
      *            the index at which to copy the first element from the
@@ -750,7 +753,7 @@ public abstract class AbstractBooleanList extends AbstractList {
      * @param element
      *            element to be stored at the specified position.
      * @throws IndexOutOfBoundsException
-     *             if <tt>index &lt; 0 || index &gt;= size()</tt>.
+     *             if <code>index &lt; 0 || index &gt;= size()</code>.
      */
     public void set(int index, boolean element) {
         if (index >= size || index < 0)
@@ -764,12 +767,12 @@ public abstract class AbstractBooleanList extends AbstractList {
      * with invalid parameters this method may access invalid indexes without
      * throwing any exception! <b>You should only use this method when you are
      * absolutely sure that the index is within bounds.</b> Precondition
-     * (unchecked): <tt>index &gt;= 0 && index &lt; size()</tt>.
+     * (unchecked): <code>index &gt;= 0 &amp;&amp; index &lt; size()</code>.
      * 
      * This method is normally only used internally in large loops where bounds
      * are explicitly checked before the loop and need no be rechecked within
      * the loop. However, when desperately, you can give this method
-     * <tt>public</tt> visibility in subclasses.
+     * <code>public</code> visibility in subclasses.
      * 
      * @param index
      *            index of element to replace.
@@ -781,7 +784,7 @@ public abstract class AbstractBooleanList extends AbstractList {
     /**
      * Sets the size of the receiver without modifying it otherwise. This method
      * should not release or allocate new memory but simply set some instance
-     * variable like <tt>size</tt>.
+     * variable like <code>size</code>.
      * 
      * If your subclass overrides and delegates size changing methods to some
      * other object, you must make sure that those overriding methods not only
@@ -789,6 +792,7 @@ public abstract class AbstractBooleanList extends AbstractList {
      * public DatabaseList extends AbstractBooleanList { ... public void
      * removeFromTo(int from,int to) { myDatabase.removeFromTo(from,to);
      * this.setSizeRaw(size-(to-from+1)); } }
+     * @param newSize
      */
     protected void setSizeRaw(int newSize) {
         size = newSize;
@@ -804,7 +808,7 @@ public abstract class AbstractBooleanList extends AbstractList {
      *            the index of the last element (inclusive) to be permuted.
      * @exception IndexOutOfBoundsException
      *                index is out of range (
-     *                <tt>size()&gt;0 && (from&lt;0 || from&gt;to || to&gt;=size())</tt>
+     *                <code>size()&gt;0 &amp;&amp; (from&lt;0 || from&gt;to || to&gt;=size())</code>
      *                ).
      */
 
@@ -839,6 +843,7 @@ public abstract class AbstractBooleanList extends AbstractList {
      * 
      * @param times
      *            the number of times the receiver shall be copied.
+     * @return 
      */
     public AbstractBooleanList times(int times) {
         AbstractBooleanList newList = new BooleanArrayList(times * size());
@@ -850,6 +855,8 @@ public abstract class AbstractBooleanList extends AbstractList {
 
     /**
      * Transforms a boolean value to an integer (false --> 0, true --> 1)
+     * @param value
+     * @return 
      */
     protected static int toInt(boolean value) {
         return value ? 1 : 0;
@@ -858,6 +865,7 @@ public abstract class AbstractBooleanList extends AbstractList {
     /**
      * Returns a <code>java.util.ArrayList</code> containing all the elements in
      * the receiver.
+     * @return 
      */
 
     public java.util.ArrayList toList() {
@@ -871,6 +879,7 @@ public abstract class AbstractBooleanList extends AbstractList {
     /**
      * Returns a string representation of the receiver, containing the String
      * representation of each element.
+     * @return 
      */
 
     public String toString() {

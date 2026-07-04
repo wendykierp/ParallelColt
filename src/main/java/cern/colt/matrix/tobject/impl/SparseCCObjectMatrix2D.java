@@ -16,7 +16,7 @@ import cern.colt.matrix.tobject.ObjectMatrix1D;
 import cern.colt.matrix.tobject.ObjectMatrix2D;
 
 /**
- * Sparse column-compressed 2-d matrix holding <tt>Object</tt> elements. First
+ * Sparse column-compressed 2-d matrix holding <code>Object</code> elements. First
  * see the <a href="package-summary.html">package summary</a> and javadoc <a
  * href="package-tree.html">tree view</a> to get the broad picture.
  * <p>
@@ -52,18 +52,18 @@ public class SparseCCObjectMatrix2D extends WrapperObjectMatrix2D {
     protected boolean rowIndexesSorted = false;
 
     /**
-     * Constructs a matrix with a copy of the given values. <tt>values</tt> is
-     * required to have the form <tt>values[row][column]</tt> and have exactly
+     * Constructs a matrix with a copy of the given values. <code>values</code> is
+     * required to have the form <code>values[row][column]</code> and have exactly
      * the same number of columns in every row.
      * <p>
-     * The values are copied. So subsequent changes in <tt>values</tt> are not
+     * The values are copied. So subsequent changes in <code>values</code> are not
      * reflected in the matrix, and vice-versa.
      * 
      * @param values
      *            The values to be filled into the new matrix.
      * @throws IllegalArgumentException
      *             if
-     *             <tt>for any 1 &lt;= row &lt; values.length: values[row].length != values[row-1].length</tt>
+     *             <code>for any 1 &lt;= row &lt; values.length: values[row].length != values[row-1].length</code>
      *             .
      */
     public SparseCCObjectMatrix2D(Object[][] values) {
@@ -73,14 +73,14 @@ public class SparseCCObjectMatrix2D extends WrapperObjectMatrix2D {
 
     /**
      * Constructs a matrix with a given number of rows and columns. All entries
-     * are initially <tt>0</tt>.
+     * are initially <code>0</code>.
      * 
      * @param rows
      *            the number of rows the matrix shall have.
      * @param columns
      *            the number of columns the matrix shall have.
      * @throws IllegalArgumentException
-     *             if <tt>rows<0 || columns<0</tt> .
+     *             if <code>rows<0 || columns<0</code> .
      */
     public SparseCCObjectMatrix2D(int rows, int columns) {
         this(rows, columns, (int) Math.min(10l * rows, Integer.MAX_VALUE));
@@ -88,7 +88,7 @@ public class SparseCCObjectMatrix2D extends WrapperObjectMatrix2D {
 
     /**
      * Constructs a matrix with a given number of rows and columns. All entries
-     * are initially <tt>0</tt>.
+     * are initially <code>0</code>.
      * 
      * @param rows
      *            the number of rows the matrix shall have.
@@ -97,7 +97,7 @@ public class SparseCCObjectMatrix2D extends WrapperObjectMatrix2D {
      * @param nzmax
      *            maximum number of nonzero elements
      * @throws IllegalArgumentException
-     *             if <tt>rows<0 || columns<0</tt> .
+     *             if <code>rows<0 || columns<0</code> .
      */
     public SparseCCObjectMatrix2D(int rows, int columns, int nzmax) {
         super(null);

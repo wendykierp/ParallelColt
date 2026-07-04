@@ -19,7 +19,7 @@ package cern.colt.matrix.tbit;
  * performance is critical and you are absolutely sure that indexes are within
  * bounds.</b>
  * <p>
- * A bitvector is modelled as a long array, i.e. <tt>long[] bits</tt> holds bits
+ * A bitvector is modelled as a long array, i.e. <code>long[] bits</code> holds bits
  * of a bitvector. Each long value holds 64 bits. The i-th bit is stored in
  * bits[i/64] at bit position i % 64 (where bit position 0 refers to the least
  * significant bit and 63 refers to the most significant bit).
@@ -50,16 +50,16 @@ public class QuickBitVector extends Object {
     /**
      * Returns a bit mask with bits in the specified range set to 1, all the
      * rest set to 0. In other words, returns a bit mask having 0,1,2,3,...,64
-     * bits set. If <tt>to-from+1==0</tt> then returns zero (<tt>0L</tt>).
+     * bits set. If <code>to-from+1==0</code> then returns zero (<code>0L</code>).
      * Precondition (not checked):
-     * <tt>to-from+1 &gt;= 0 && to-from+1 &lt;= 64</tt>.
+     * <code>to-from+1 &gt;= 0 && to-from+1 &lt;= 64</code>.
      * 
      * @param from
      *            index of start bit (inclusive)
      * @param to
      *            index of end bit (inclusive).
-     * @return the bit mask having all bits between <tt>from</tt> and
-     *         <tt>to</tt> set to 1.
+     * @return the bit mask having all bits between <code>from</code> and
+     *         <code>to</code> set to 1.
      */
     public static final long bitMaskWithBitsSetFromTo(int from, int to) {
         return pows[to - from + 1] << from;
@@ -72,8 +72,8 @@ public class QuickBitVector extends Object {
     }
 
     /**
-     * Changes the bit with index <tt>bitIndex</tt> in the bitvector
-     * <tt>bits</tt> to the "clear" (<tt>false</tt>) state.
+     * Changes the bit with index <code>bitIndex</code> in the bitvector
+     * <code>bits</code> to the "clear" (<code>false</code>) state.
      * 
      * @param bits
      *            the bitvector.
@@ -86,8 +86,8 @@ public class QuickBitVector extends Object {
 
     /**
      * Returns from the bitvector the value of the bit with the specified index.
-     * The value is <tt>true</tt> if the bit with the index <tt>bitIndex</tt> is
-     * currently set; otherwise, returns <tt>false</tt>.
+     * The value is <code>true</code> if the bit with the index <code>bitIndex</code> is
+     * currently set; otherwise, returns <code>false</code>.
      * 
      * @param bits
      *            the bitvector.
@@ -101,11 +101,11 @@ public class QuickBitVector extends Object {
 
     /**
      * Returns a long value representing bits of a bitvector from index
-     * <tt>from</tt> to index <tt>to</tt>. Bits are returned as a long value
+     * <code>from</code> to index <code>to</code>. Bits are returned as a long value
      * with the return value having bit 0 set to bit <code>from</code>, ..., bit
      * <code>to-from</code> set to bit <code>to</code>. All other bits of return
-     * value are set to 0. If <tt>from &gt; to</tt> then returns zero (
-     * <tt>0L</tt>). Precondition (not checked): <tt>to-from+1 &lt;= 64</tt>.
+     * value are set to 0. If <code>from &gt; to</code> then returns zero (
+     * <code>0L</code>). Precondition (not checked): <code>to-from+1 &lt;= 64</code>.
      * 
      * @param bits
      *            the bitvector.
@@ -164,6 +164,8 @@ public class QuickBitVector extends Object {
      * 	 0x00000000 --&gt; 32
      * 
      * </pre>
+     * @param value
+     * @return 
      */
     static public int leastSignificantBit(int value) {
         int i = -1;
@@ -173,8 +175,8 @@ public class QuickBitVector extends Object {
     }
 
     /**
-     * Constructs a low level bitvector that holds <tt>size</tt> elements, with
-     * each element taking <tt>bitsPerElement</tt> bits.
+     * Constructs a low level bitvector that holds <code>size</code> elements, with
+     * each element taking <code>bitsPerElement</code> bits.
      * 
      * @param size
      *            the number of elements to be stored in the bitvector (must be
@@ -201,6 +203,8 @@ public class QuickBitVector extends Object {
      * 	 0x00000000 --&gt; -1
      * 
      * </pre>
+     * @param value
+     * @return 
      */
     static public int mostSignificantBit(int value) {
         int i = 32;
@@ -211,6 +215,8 @@ public class QuickBitVector extends Object {
 
     /**
      * Returns the index within the unit that contains the given bitIndex.
+     * @param bitIndex
+     * @return 
      */
     protected static int offset(int bitIndex) {
         return bitIndex & BIT_INDEX_MASK;
@@ -249,8 +255,8 @@ public class QuickBitVector extends Object {
     }
 
     /**
-     * Sets the bit with index <tt>bitIndex</tt> in the bitvector <tt>bits</tt>
-     * to the state specified by <tt>value</tt>.
+     * Sets the bit with index <code>bitIndex</code> in the bitvector <code>bits</code>
+     * to the state specified by <code>value</code>.
      * 
      * @param bits
      *            the bitvector.
@@ -271,8 +277,8 @@ public class QuickBitVector extends Object {
      * <code>to</code> to the bits of <code>value</code>. Bit <code>from</code>
      * is set to bit 0 of <code>value</code>, ..., bit <code>to</code> is set to
      * bit <code>to-from</code> of <code>value</code>. All other bits stay
-     * unaffected. If <tt>from &gt; to</tt> then does nothing. Precondition (not
-     * checked): <tt>to-from+1 &lt;= 64</tt>.
+     * unaffected. If <code>from &gt; to</code> then does nothing. Precondition (not
+     * checked): <code>to-from+1 &lt;= 64</code>.
      * 
      * @param bits
      *            the bitvector.
@@ -327,8 +333,8 @@ public class QuickBitVector extends Object {
     }
 
     /**
-     * Changes the bit with index <tt>bitIndex</tt> in the bitvector
-     * <tt>bits</tt> to the "set" (<tt>true</tt>) state.
+     * Changes the bit with index <code>bitIndex</code> in the bitvector
+     * <code>bits</code> to the "set" (<code>true</code>) state.
      * 
      * @param bits
      *            the bitvector.
@@ -341,6 +347,8 @@ public class QuickBitVector extends Object {
 
     /**
      * Returns the index of the unit that contains the given bitIndex.
+     * @param bitIndex
+     * @return 
      */
     protected static int unit(int bitIndex) {
         return bitIndex >> ADDRESS_BITS_PER_UNIT;

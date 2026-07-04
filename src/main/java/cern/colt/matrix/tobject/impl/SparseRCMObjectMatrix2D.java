@@ -11,7 +11,7 @@ package cern.colt.matrix.tobject.impl;
 import cern.colt.matrix.tobject.ObjectMatrix2D;
 
 /**
- * Sparse row-compressed-modified 2-d matrix holding <tt>Object</tt> elements.
+ * Sparse row-compressed-modified 2-d matrix holding <code>Object</code> elements.
  * Each row is stored as SparseObjectMatrix1D.
  * 
  * @author Piotr Wendykier (piotr.wendykier@gmail.com)
@@ -24,7 +24,7 @@ public class SparseRCMObjectMatrix2D extends WrapperObjectMatrix2D {
 
     /**
      * Constructs a matrix with a given number of rows and columns. All entries
-     * are initially <tt>0</tt>.
+     * are initially <code>0</code>.
      * 
      * @param rows
      *            the number of rows the matrix shall have.
@@ -32,7 +32,7 @@ public class SparseRCMObjectMatrix2D extends WrapperObjectMatrix2D {
      *            the number of columns the matrix shall have.
      * @throws IllegalArgumentException
      *             if
-     *             <tt>rows<0 || columns<0 || (double)columns*rows > Integer.MAX_VALUE</tt>
+     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows > Integer.MAX_VALUE</code>
      *             .
      */
     public SparseRCMObjectMatrix2D(int rows, int columns) {

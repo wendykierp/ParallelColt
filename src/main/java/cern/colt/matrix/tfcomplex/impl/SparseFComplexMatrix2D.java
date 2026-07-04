@@ -19,7 +19,7 @@ import cern.jet.math.tfcomplex.FComplex;
 import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
 
 /**
- * Sparse hashed 2-d matrix holding <tt>complex</tt> elements.
+ * Sparse hashed 2-d matrix holding <code>complex</code> elements.
  * 
  * This implementation uses ConcurrentHashMap
  * 
@@ -35,18 +35,18 @@ public class SparseFComplexMatrix2D extends FComplexMatrix2D {
     protected ConcurrentHashMap<Long, float[]> elements;
 
     /**
-     * Constructs a matrix with a copy of the given values. <tt>values</tt> is
-     * required to have the form <tt>values[row][column]</tt> and have exactly
+     * Constructs a matrix with a copy of the given values. <code>values</code> is
+     * required to have the form <code>values[row][column]</code> and have exactly
      * the same number of columns in every row.
      * <p>
-     * The values are copied. So subsequent changes in <tt>values</tt> are not
+     * The values are copied. So subsequent changes in <code>values</code> are not
      * reflected in the matrix, and vice-versa.
      * 
      * @param values
      *            The values to be filled into the new matrix.
      * @throws IllegalArgumentException
      *             if
-     *             <tt>for any 1 &lt;= row &lt; values.length: values[row].length != values[row-1].length</tt>
+     *             <code>for any 1 &lt;= row &lt; values.length: values[row].length != values[row-1].length</code>
      *             .
      */
     public SparseFComplexMatrix2D(float[][] values) {
@@ -64,7 +64,7 @@ public class SparseFComplexMatrix2D extends FComplexMatrix2D {
      *            the number of columns the matrix shall have.
      * @throws IllegalArgumentException
      *             if
-     *             <tt>rows<0 || columns<0 || (double)columns*rows > Integer.MAX_VALUE</tt>
+     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows > Integer.MAX_VALUE</code>
      *             .
      */
     public SparseFComplexMatrix2D(int rows, int columns) {
@@ -87,13 +87,13 @@ public class SparseFComplexMatrix2D extends FComplexMatrix2D {
      *            the position of the first element.
      * @param rowStride
      *            the number of elements between two rows, i.e.
-     *            <tt>index(i+1,j)-index(i,j)</tt>.
+     *            <code>index(i+1,j)-index(i,j)</code>.
      * @param columnStride
      *            the number of elements between two columns, i.e.
-     *            <tt>index(i,j+1)-index(i,j)</tt>.
+     *            <code>index(i,j+1)-index(i,j)</code>.
      * @throws IllegalArgumentException
      *             if
-     *             <tt>rows<0 || columns<0 || (double)columns*rows > Integer.MAX_VALUE</tt>
+     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows > Integer.MAX_VALUE</code>
      *             or flip's are illegal.
      */
     protected SparseFComplexMatrix2D(int rows, int columns, ConcurrentHashMap<Long, float[]> elements, int rowZero,
@@ -175,12 +175,12 @@ public class SparseFComplexMatrix2D extends FComplexMatrix2D {
     }
 
     /**
-     * Returns <tt>true</tt> if both matrices share common cells. More formally,
-     * returns <tt>true</tt> if at least one of the following conditions is met
+     * Returns <code>true</code> if both matrices share common cells. More formally,
+     * returns <code>true</code> if at least one of the following conditions is met
      * <ul>
      * <li>the receiver is a view of the other matrix
      * <li>the other matrix is a view of the receiver
-     * <li><tt>this == other</tt>
+     * <li><code>this == other</code>
      * </ul>
      */
 

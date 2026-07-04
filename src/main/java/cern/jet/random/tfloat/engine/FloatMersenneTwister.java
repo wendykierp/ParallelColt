@@ -13,12 +13,12 @@ import java.util.Date;
 /**
  * MersenneTwister (MT19937) is one of the strongest uniform pseudo-random
  * number generators known so far; at the same time it is quick. Produces
- * uniformly distributed <tt>int</tt>'s and <tt>long</tt>'s in the closed
- * intervals <tt>[Integer.MIN_VALUE,Integer.MAX_VALUE]</tt> and
- * <tt>[Long.MIN_VALUE,Long.MAX_VALUE]</tt>, respectively, as well as
- * <tt>float</tt>'s and <tt>float</tt>'s in the open unit intervals
- * <tt>(0.0f,1.0f)</tt> and <tt>(0.0,1.0)</tt>, respectively. The seed can be
- * any 32-bit integer except <tt>0</tt>. Shawn J. Cokus commented that perhaps
+ * uniformly distributed <code>int</code>'s and <code>long</code>'s in the closed
+ * intervals <code>[Integer.MIN_VALUE,Integer.MAX_VALUE]</code> and
+ * <code>[Long.MIN_VALUE,Long.MAX_VALUE]</code>, respectively, as well as
+ * <code>float</code>'s and <code>float</code>'s in the open unit intervals
+ * <code>(0.0f,1.0f)</code> and <code>(0.0,1.0)</code>, respectively. The seed can be
+ * any 32-bit integer except <code>0</code>. Shawn J. Cokus commented that perhaps
  * the seed should preferably be odd.
  * <p>
  * <b>Quality:</b> MersenneTwister is designed to pass the k-distribution test.
@@ -29,8 +29,8 @@ import java.util.Date;
  * and the load test of P. Hellekalek and S. Wegenkittl.
  * <p>
  * <b>Performance:</b> Its speed is comparable to other modern generators (in
- * particular, as fast as <tt>java.util.Random.nextFloat()</tt>). 2.5 million
- * calls to <tt>raw()</tt> per second (Pentium Pro 200 Mhz, JDK 1.2, NT). Be
+ * particular, as fast as <code>java.util.Random.nextFloat()</code>). 2.5 million
+ * calls to <code>raw()</code> per second (Pentium Pro 200 Mhz, JDK 1.2, NT). Be
  * aware, however, that there is a non-negligible amount of overhead required to
  * initialize the data structures used by a MersenneTwister. Code like
  * 
@@ -71,7 +71,7 @@ import java.util.Date;
  * href="http://www.math.keio.ac.jp/~nisimura/random/real2/mt19937-2.out"
  * >mt19937-2.out</a> of the C-implementation <a
  * href="http://www.math.keio.ac.jp/~nisimura/random/real2/mt19937-2.c"
- * >mt19937-2.c</a>. (Call <tt>test(1000)</tt> to print the sequence).
+ * >mt19937-2.c</a>. (Call <code>test(1000)</code> to print the sequence).
  * <dt>Note that this implementation is <b>not synchronized</b>.
  * <p>
  * <b>Details:</b> MersenneTwister is designed with consideration of the flaws
@@ -79,11 +79,11 @@ import java.util.Date;
  * very successful generator. MersenneTwister is based on linear recurrences
  * modulo 2. Such generators are very fast, have extremely long periods, and
  * appear quite robust. MersenneTwister produces 32-bit numbers, and every
- * <tt>k</tt>-dimensional vector of such numbers appears the same number of
- * times as <tt>k</tt> successive values over the period length, for each
- * <tt>k &lt;= 623</tt> (except for the zero vector, which appears one time
- * less). If one looks at only the first <tt>n &lt;= 16</tt> bits of each
- * number, then the property holds for even larger <tt>k</tt>, as shown in the
+ * <code>k</code>-dimensional vector of such numbers appears the same number of
+ * times as <code>k</code> successive values over the period length, for each
+ * <code>k &lt;= 623</code> (except for the zero vector, which appears one time
+ * less). If one looks at only the first <code>n &lt;= 16</code> bits of each
+ * number, then the property holds for even larger <code>k</code>, as shown in the
  * following table (taken from the publication cited above): <div
  * align="center">
  * <table width="75%" border="1" cellspacing="0" * cellpadding="0">
@@ -127,11 +127,11 @@ import java.util.Date;
  * is implemented to generate the output by using the fastest arithmetic
  * operations only: 32-bit additions and bit operations (no division, no
  * multiplication, no mod). These operations generate sequences of 32 random
- * bits (<tt>int</tt>'s). <tt>long</tt>'s are formed by concatenating two 32 bit
- * <tt>int</tt>'s. <tt>float</tt>'s are formed by dividing the interval
- * <tt>[0.0,1.0]</tt> into 2<sup>32</sup> sub intervals, then randomly choosing
- * one subinterval. <tt>float</tt>'s are formed by dividing the interval
- * <tt>[0.0,1.0]</tt> into 2<sup>64</sup> sub intervals, then randomly choosing
+ * bits (<code>int</code>'s). <code>long</code>'s are formed by concatenating two 32 bit
+ * <code>int</code>'s. <code>float</code>'s are formed by dividing the interval
+ * <code>[0.0,1.0]</code> into 2<sup>32</sup> sub intervals, then randomly choosing
+ * one subinterval. <code>float</code>'s are formed by dividing the interval
+ * <code>[0.0,1.0]</code> into 2<sup>64</sup> sub intervals, then randomly choosing
  * one subinterval.
  * <p>
  * 
@@ -192,6 +192,7 @@ public class FloatMersenneTwister extends FloatRandomEngine {
 
     /**
      * Constructs and returns a random number generator with the given seed.
+     * @param seed
      */
     public FloatMersenneTwister(int seed) {
         setSeed(seed);
@@ -202,7 +203,7 @@ public class FloatMersenneTwister extends FloatRandomEngine {
      * date.
      * 
      * @param d
-     *            typically <tt>new java.util.Date()</tt>
+     *            typically <code>new java.util.Date()</code>
      */
     public FloatMersenneTwister(Date d) {
         this((int) d.getTime());
@@ -265,8 +266,9 @@ public class FloatMersenneTwister extends FloatRandomEngine {
 
     /**
      * Returns a 32 bit uniformly distributed random number in the closed
-     * interval <tt>[Integer.MIN_VALUE,Integer.MAX_VALUE]</tt> (including
-     * <tt>Integer.MIN_VALUE</tt> and <tt>Integer.MAX_VALUE</tt>).
+     * interval <code>[Integer.MIN_VALUE,Integer.MAX_VALUE]</code> (including
+     * <code>Integer.MIN_VALUE</code> and <code>Integer.MAX_VALUE</code>).
+     * @return 
      */
 
     public int nextInt() {
@@ -289,6 +291,7 @@ public class FloatMersenneTwister extends FloatRandomEngine {
     /**
      * Sets the receiver's seed. This method resets the receiver's entire
      * internal state.
+     * @param seed
      */
     protected void setSeed(int seed) {
         mt[0] = seed & 0xffffffff;

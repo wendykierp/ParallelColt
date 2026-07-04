@@ -16,6 +16,15 @@ public interface Float9Function {
     /**
      * Applies a function to nine arguments.
      * 
+     * @param a00
+     * @param a22
+     * @param a01
+     * @param a21
+     * @param a02
+     * @param a20
+     * @param a10
+     * @param a12
+     * @param a11
      * @return the result of the function.
      */
     abstract public float apply(float a00, float a01, float a02, float a10, float a11, float a12, float a20, float a21,

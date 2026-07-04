@@ -14,9 +14,9 @@ package cern.colt.matrix;
  * string. Columns can be aligned left, centered, right and by decimal point.
  * <p>
  * A column can be broader than specified by the parameter
- * <tt>minColumnWidth</tt> (because a cell may not fit into that width) but a
- * column is never smaller than <tt>minColumnWidth</tt>. Normally one does not
- * need to specify <tt>minColumnWidth</tt>. Cells in a row are separated by a
+ * <code>minColumnWidth</code> (because a cell may not fit into that width) but a
+ * column is never smaller than <code>minColumnWidth</code>. Normally one does not
+ * need to specify <code>minColumnWidth</code>. Cells in a row are separated by a
  * separator string, similar separators can be set for rows and slices. For more
  * info, see the concrete subclasses.
  * 
@@ -48,67 +48,67 @@ public abstract class AbstractFormatter extends cern.colt.PersistentObject {
 
     /**
      * The default minimum number of characters a column may have; currently
-     * <tt>1</tt>.
+     * <code>1</code>.
      */
     public static final int DEFAULT_MIN_COLUMN_WIDTH = 1;
 
     /**
      * The default string separating any two columns from another; currently
-     * <tt>" "</tt>.
+     * <code>" "</code>.
      */
     public static final String DEFAULT_COLUMN_SEPARATOR = " ";
 
     /**
      * The default string separating any two rows from another; currently
-     * <tt>"\n"</tt>.
+     * <code>"\n"</code>.
      */
     public static final String DEFAULT_ROW_SEPARATOR = "\n";
 
     /**
      * The default string separating any two slices from another; currently
-     * <tt>"\n\n"</tt>.
+     * <code>"\n\n"</code>.
      */
     public static final String DEFAULT_SLICE_SEPARATOR = "\n\n";
 
     /**
      * The default format string for formatting a single cell value; currently
-     * <tt>"%G"</tt>.
+     * <code>"%G"</code>.
      */
     protected String alignment = LEFT;
 
     /**
      * The default format string for formatting a single cell value; currently
-     * <tt>"%G"</tt>.
+     * <code>"%G"</code>.
      */
     protected String format = "%G";
 
     /**
      * The default minimum number of characters a column may have; currently
-     * <tt>1</tt>.
+     * <code>1</code>.
      */
     protected int minColumnWidth = DEFAULT_MIN_COLUMN_WIDTH;
 
     /**
      * The default string separating any two columns from another; currently
-     * <tt>" "</tt>.
+     * <code>" "</code>.
      */
     protected String columnSeparator = DEFAULT_COLUMN_SEPARATOR;
 
     /**
      * The default string separating any two rows from another; currently
-     * <tt>"\n"</tt>.
+     * <code>"\n"</code>.
      */
     protected String rowSeparator = DEFAULT_ROW_SEPARATOR;
 
     /**
      * The default string separating any two slices from another; currently
-     * <tt>"\n\n"</tt>.
+     * <code>"\n\n"</code>.
      */
     protected String sliceSeparator = DEFAULT_SLICE_SEPARATOR;
 
     /**
      * Tells whether String representations are to be preceded with summary of
-     * the shape; currently <tt>true</tt>.
+     * the shape; currently <code>true</code>.
      */
     protected boolean printShape = true;
 
@@ -130,6 +130,7 @@ public abstract class AbstractFormatter extends cern.colt.PersistentObject {
     /**
      * Modifies the strings in a column of the string matrix to be aligned
      * (left,centered,right,decimal).
+     * @param strings
      */
     protected void align(String[][] strings) {
         int rows = strings.length;
@@ -172,6 +173,8 @@ public abstract class AbstractFormatter extends cern.colt.PersistentObject {
 
     /**
      * Converts a row into a string.
+     * @param alignment
+     * @return 
      */
     protected int alignmentCode(String alignment) {
         // {-1,0,1,2} = {left,centered,right,decimal point}
@@ -190,6 +193,9 @@ public abstract class AbstractFormatter extends cern.colt.PersistentObject {
     /**
      * Modifies the strings the string matrix to be aligned
      * (left,centered,right,decimal).
+     * @param row
+     * @param maxColLead
+     * @param maxColWidth
      */
     protected void alignRow(String[] row, int[] maxColWidth, int[] maxColLead) {
         StringBuffer s = new StringBuffer();
@@ -221,7 +227,9 @@ public abstract class AbstractFormatter extends cern.colt.PersistentObject {
     }
 
     /**
-     * Returns a String with <tt>length</tt> blanks.
+     * Returns a String with <code>length</code> blanks.
+     * @param length
+     * @return 
      */
     protected String blanks(int length) {
         if (length < 0)
@@ -238,16 +246,24 @@ public abstract class AbstractFormatter extends cern.colt.PersistentObject {
 
     /**
      * Converts a given cell to a String; no alignment considered.
+     * @param matrix
+     * @param formatter
+     * @param index
+     * @return 
      */
     protected abstract String form(AbstractMatrix1D matrix, int index, Former formatter);
 
     /**
      * Returns a string representations of all cells; no alignment considered.
+     * @param matrix
+     * @return 
      */
     protected abstract String[][] format(AbstractMatrix2D matrix);
 
     /**
      * Returns a string representations of all cells; no alignment considered.
+     * @param vector
+     * @return 
      */
     protected String[] formatRow(AbstractMatrix1D vector) {
         Former formatter = null;
@@ -263,13 +279,18 @@ public abstract class AbstractFormatter extends cern.colt.PersistentObject {
     /**
      * Returns the number of characters or the number of characters before the
      * decimal point.
+     * @param s
+     * @return 
      */
     protected int lead(String s) {
         return s.length();
     }
 
     /**
-     * Returns a String with the given character repeated <tt>length</tt> times.
+     * Returns a String with the given character repeated <code>length</code> times.
+     * @param character
+     * @param length
+     * @return 
      */
     protected String repeat(char character, int length) {
         if (character == ' ')
@@ -288,7 +309,7 @@ public abstract class AbstractFormatter extends cern.colt.PersistentObject {
      * 
      * @param alignment
      *            the new alignment to be used; must be one of
-     *            <tt>{LEFT,CENTER,RIGHT,DECIMAL}</tt>.
+     *            <code>{LEFT,CENTER,RIGHT,DECIMAL}</code>.
      */
     public void setAlignment(String alignment) {
         this.alignment = alignment;
@@ -331,7 +352,7 @@ public abstract class AbstractFormatter extends cern.colt.PersistentObject {
      * with a summary of its shape.
      * 
      * @param printShape
-     *            <tt>true</tt> shape summary is printed, otherwise not printed.
+     *            <code>true</code> shape summary is printed, otherwise not printed.
      */
     public void setPrintShape(boolean printShape) {
         this.printShape = printShape;
@@ -381,6 +402,8 @@ public abstract class AbstractFormatter extends cern.colt.PersistentObject {
 
     /**
      * Returns a short string representation describing the shape of the matrix.
+     * @param matrix
+     * @return 
      */
     public static String shape(AbstractMatrix1D matrix) {
         // return "Matrix1D of size="+matrix.size();
@@ -391,6 +414,8 @@ public abstract class AbstractFormatter extends cern.colt.PersistentObject {
 
     /**
      * Returns a short string representation describing the shape of the matrix.
+     * @param matrix
+     * @return 
      */
     public static String shape(AbstractMatrix2D matrix) {
         return matrix.rows() + " x " + matrix.columns() + " matrix";
@@ -398,6 +423,8 @@ public abstract class AbstractFormatter extends cern.colt.PersistentObject {
 
     /**
      * Returns a short string representation describing the shape of the matrix.
+     * @param matrix
+     * @return 
      */
     public static String shape(AbstractMatrix3D matrix) {
         return matrix.slices() + " x " + matrix.rows() + " x " + matrix.columns() + " matrix";
@@ -408,6 +435,7 @@ public abstract class AbstractFormatter extends cern.colt.PersistentObject {
      * 
      * @param strings
      *            the matrix to be converted to a single string.
+     * @return 
      */
     protected String toString(String[][] strings) {
         int rows = strings.length;
@@ -435,6 +463,7 @@ public abstract class AbstractFormatter extends cern.colt.PersistentObject {
      * 
      * @param matrix
      *            the matrix to convert.
+     * @return 
      */
     protected String toString(AbstractMatrix2D matrix) {
         String[][] strings = this.format(matrix);

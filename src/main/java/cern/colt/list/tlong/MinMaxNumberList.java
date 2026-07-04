@@ -13,29 +13,29 @@ import cern.colt.matrix.tbit.QuickBitVector;
 
 /**
  * Resizable compressed list holding numbers; based on the fact that a value in
- * a given interval need not take more than <tt>log(max-min+1)</tt> bits;
- * implemented with a <tt>cern.colt.bitvector.BitVector</tt>. First see the <a
+ * a given interval need not take more than <code>log(max-min+1)</code> bits;
+ * implemented with a <code>cern.colt.bitvector.BitVector</code>. First see the <a
  * href="package-summary.html">package summary</a> and javadoc <a
  * href="package-tree.html">tree view</a> to get the broad picture.
  * <p>
  * Numbers can be compressed when minimum and maximum of all values ever to be
  * stored in the list are known. For example, if min=16, max=27, only 4 bits are
- * needed to store a value. No compression is achieved for <tt>float</tt> and
- * <tt>double</tt> values.
+ * needed to store a value. No compression is achieved for <code>float</code> and
+ * <code>double</code> values.
  * <p>
  * You can add, get and set elements quite similar to
- * <tt>java.util.ArrayList</tt>.
+ * <code>java.util.ArrayList</code>.
  * <p>
  * <b>Applicability:</b> Applicable if the data is non floating point, highly
  * skewed without "outliers" and minimum and maximum known in advance.
  * <p>
- * <b>Performance:</b> Basic operations like <tt>add()</tt>, <tt>get()</tt>,
- * <tt>set()</tt>, <tt>size()</tt> and <tt>clear()</tt> are <tt>O(1)</tt>, i.e.
+ * <b>Performance:</b> Basic operations like <code>add()</code>, <code>get()</code>,
+ * <code>set()</code>, <code>size()</code> and <code>clear()</code> are <code>O(1)</code>, i.e.
  * run in constant time.
  * <dt>200Mhz Pentium Pro, JDK 1.2, NT:
- * <dt><tt>10^6</tt> calls to <tt>getQuick()</tt> --> <tt>0.5</tt> seconds. (50
+ * <dt><code>10^6</code> calls to <code>getQuick()</code> --> <code>0.5</code> seconds. (50
  * times slower than reading from a primitive array of the appropriate type.)
- * <dt><tt>10^6</tt> calls to <tt>setQuick()</tt> --> <tt>0.8</tt> seconds. (15
+ * <dt><code>10^6</code> calls to <code>setQuick()</code> --> <code>0.8</code> seconds. (15
  * times slower than writing to a primitive array of the appropriate type.)
  * <p>
  * This class can, for example, be useful when making large lists of numbers
@@ -45,19 +45,19 @@ import cern.colt.matrix.tbit.QuickBitVector;
  * Upon instantiation a contract is signed that defines the interval values may
  * fall into. It is not legal to store values not contained in that interval.
  * WARNING: The contract is not checked. Be sure you do not store illegal
- * values. If you need to store <tt>float</tt> or <tt>double</tt> values, you
+ * values. If you need to store <code>float</code> or <code>double</code> values, you
  * must set the minimum and maximum to
- * <tt>[Integer.MIN_VALUE,Integer.MAX_VALUE]</tt> or
- * <tt>[Long.MIN_VALUE,Long.MAX_VALUE]</tt>, respectively.
+ * <code>[Integer.MIN_VALUE,Integer.MAX_VALUE]</code> or
+ * <code>[Long.MIN_VALUE,Long.MAX_VALUE]</code>, respectively.
  * <p>
- * Although access methods are only defined on <tt>long</tt> values you can also
- * store all other primitive data types: <tt>boolean</tt>, <tt>byte</tt>,
- * <tt>short</tt>, <tt>int</tt>, <tt>long</tt>, <tt>float</tt>, <tt>double</tt>
- * and <tt>char</tt>. You can do this by explicitly representing them as
- * <tt>long</tt> values. Use casts for discrete data types. Use the methods of
- * <tt>java.lang.Float</tt> and <tt>java.lang.Double</tt> for floating point
+ * Although access methods are only defined on <code>long</code> values you can also
+ * store all other primitive data types: <code>boolean</code>, <code>byte</code>,
+ * <code>short</code>, <code>int</code>, <code>long</code>, <code>float</code>, <code>double</code>
+ * and <code>char</code>. You can do this by explicitly representing them as
+ * <code>long</code> values. Use casts for discrete data types. Use the methods of
+ * <code>java.lang.Float</code> and <code>java.lang.Double</code> for floating point
  * data types: Recall that with those methods you can convert any floating point
- * value to a <tt>long</tt> value and back <b>without losing any precision</b>:
+ * value to a <code>long</code> value and back <b>without losing any precision</b>:
  * <p>
  * <b>Example usage:</b>
  * 
@@ -131,8 +131,8 @@ public class MinMaxNumberList extends cern.colt.list.tlong.AbstractLongList {
     }
 
     /**
-     * Appends the elements <tt>elements[from]</tt> (inclusive), ...,
-     * <tt>elements[to]</tt> (inclusive) to the receiver.
+     * Appends the elements <code>elements[from]</code> (inclusive), ...,
+     * <code>elements[to]</code> (inclusive) to the receiver.
      * 
      * @param elements
      *            the elements to be appended to the receiver.
@@ -161,6 +161,7 @@ public class MinMaxNumberList extends cern.colt.list.tlong.AbstractLongList {
 
     /**
      * Returns the number of bits necessary to store a single element.
+     * @return 
      */
     public int bitsPerElement() {
         return this.bitsPerElement;
@@ -168,7 +169,10 @@ public class MinMaxNumberList extends cern.colt.list.tlong.AbstractLongList {
 
     /**
      * Returns the number of bits necessary to store values in the range
-     * <tt>[minimum,maximum]</tt>.
+     * <code>[minimum,maximum]</code>.
+     * @param minimum
+     * @param maximum
+     * @return 
      */
     public static int bitsPerElement(long minimum, long maximum) {
         int bits;
@@ -214,10 +218,11 @@ public class MinMaxNumberList extends cern.colt.list.tlong.AbstractLongList {
      * parameters this method may return invalid elements without throwing any
      * exception! <b>You should only use this method when you are absolutely
      * sure that the index is within bounds.</b> Precondition (unchecked):
-     * <tt>index &gt;= 0 && index &lt; size()</tt>.
+     * <code>index &gt;= 0 &amp;&amp; index &lt; size()</code>.
      * 
      * @param index
      *            index of element to return.
+     * @return 
      */
 
     public long getQuick(int index) {
@@ -226,10 +231,10 @@ public class MinMaxNumberList extends cern.colt.list.tlong.AbstractLongList {
     }
 
     /**
-     * Copies all elements between index <tt>from</tt> (inclusive) and
-     * <tt>to</tt> (inclusive) into <tt>part</tt>, starting at index
-     * <tt>partFrom</tt> within <tt>part</tt>. Elements are only copied if a
-     * corresponding flag within <tt>qualificants</tt> is set. More precisely:
+     * Copies all elements between index <code>from</code> (inclusive) and
+     * <code>to</code> (inclusive) into <code>part</code>, starting at index
+     * <code>partFrom</code> within <code>part</code>. Elements are only copied if a
+     * corresponding flag within <code>qualificants</code> is set. More precisely:
      * 
      * <pre>
      * for (; from &lt;= to; from++, partFrom++, qualificantsFrom++) {
@@ -238,6 +243,12 @@ public class MinMaxNumberList extends cern.colt.list.tlong.AbstractLongList {
      *     }
      * }
      * </pre>
+     * @param from
+     * @param partFrom
+     * @param to
+     * @param part
+     * @param qualificants
+     * @param qualificantsFrom
      */
     public void partFromTo(final int from, final int to, final BitVector qualificants, final int qualificantsFrom,
             long[] part, final int partFrom) {
@@ -275,7 +286,7 @@ public class MinMaxNumberList extends cern.colt.list.tlong.AbstractLongList {
      * with invalid parameters this method may access invalid indexes without
      * throwing any exception! <b>You should only use this method when you are
      * absolutely sure that the index is within bounds.</b> Precondition
-     * (unchecked): <tt>index &gt;= 0 && index &lt; size()</tt>.
+     * (unchecked): <code>index &gt;= 0 &amp;&amp; index &lt; size()</code>.
      * 
      * @param index
      *            index of element to replace.
@@ -291,7 +302,8 @@ public class MinMaxNumberList extends cern.colt.list.tlong.AbstractLongList {
     /**
      * Sets the size of the receiver without modifying it otherwise. This method
      * should not release or allocate new memory but simply set some instance
-     * variable like <tt>size</tt>.
+     * variable like <code>size</code>.
+     * @param newSize
      */
 
     public void setSizeRaw(int newSize) {
@@ -323,12 +335,8 @@ public class MinMaxNumberList extends cern.colt.list.tlong.AbstractLongList {
     /**
      * This method was created in VisualAge.
      * 
-     * @param minValue
-     *            long
-     * @param maxValue
-     *            long
-     * @param initialCapacity
-     *            int
+     * @param minimum
+     * @param maximum
      */
     protected void setUpBitsPerEntry(long minimum, long maximum) {
         this.bitsPerElement = MinMaxNumberList.bitsPerElement(minimum, maximum);
@@ -350,6 +358,7 @@ public class MinMaxNumberList extends cern.colt.list.tlong.AbstractLongList {
      * Returns the receiver seen as bitvector. WARNING: The bitvector and the
      * receiver share the backing bits. Modifying one of them will affect the
      * other.
+     * @return 
      */
     public BitVector toBitVector() {
         return new BitVector(this.bits, this.capacity * bitsPerElement);
@@ -376,6 +385,7 @@ public class MinMaxNumberList extends cern.colt.list.tlong.AbstractLongList {
      * receiver. Remark: This does not mean that such a minimum element is
      * currently contained in the receiver.
      * 
+     * @return 
      * @deprecated
      */
     @Deprecated

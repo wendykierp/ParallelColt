@@ -26,7 +26,7 @@ import cern.jet.math.tfcomplex.FComplexFunctions;
 import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
 
 /**
- * Dense 1-d matrix (aka <i>vector</i>) holding <tt>complex</tt> elements.
+ * Dense 1-d matrix (aka <i>vector</i>) holding <code>complex</code> elements.
  * <p>
  * Internally holds one single contiguous one-dimensional array. Complex data is
  * represented by 2 float values in sequence, i.e. elements[zero + 2 * k *
@@ -52,7 +52,7 @@ public class DenseFComplexMatrix1D extends FComplexMatrix1D {
 
     /**
      * Constructs a matrix with a copy of the given values. The values are
-     * copied. So subsequent changes in <tt>values</tt> are not reflected in the
+     * copied. So subsequent changes in <code>values</code> are not reflected in the
      * matrix, and vice-versa. Due to the fact that complex data is represented
      * by 2 float values in sequence: the real and imaginary parts, the size of
      * new matrix will be equal to values.length / 2.
@@ -66,14 +66,14 @@ public class DenseFComplexMatrix1D extends FComplexMatrix1D {
     }
 
     /**
-     * Constructs a complex matrix with the same size as <tt>realPart</tt>
+     * Constructs a complex matrix with the same size as <code>realPart</code>
      * matrix and fills the real part of this matrix with elements of
-     * <tt>realPart</tt>.
+     * <code>realPart</code>.
      * 
      * @param realPart
      *            a real matrix whose elements become a real part of this matrix
      * @throws IllegalArgumentException
-     *             if <tt>size<0</tt>.
+     *             if <code>size &lt; 0</code>.
      */
     public DenseFComplexMatrix1D(FloatMatrix1D realPart) {
         this((int) realPart.size());
@@ -82,12 +82,12 @@ public class DenseFComplexMatrix1D extends FComplexMatrix1D {
 
     /**
      * Constructs a matrix with a given number of cells. All entries are
-     * initially <tt>0</tt>.
+     * initially <code>0</code>.
      * 
      * @param size
      *            the number of cells the matrix shall have.
      * @throws IllegalArgumentException
-     *             if <tt>size<0</tt>.
+     *             if <code>size &lt; 0</code>.
      */
     public DenseFComplexMatrix1D(int size) {
         setUp(size, 0, 2);
@@ -106,11 +106,11 @@ public class DenseFComplexMatrix1D extends FComplexMatrix1D {
      *            the index of the first element.
      * @param stride
      *            the number of indexes between any two elements, i.e.
-     *            <tt>index(i+1)-index(i)</tt>.
+     *            <code>index(i+1)-index(i)</code>.
      * @param isNoView
      *            if false then the view is constructed
      * @throws IllegalArgumentException
-     *             if <tt>size<0</tt>.
+     *             if <code>size &lt; 0</code>.
      */
     public DenseFComplexMatrix1D(int size, float[] elements, int zero, int stride, boolean isNoView) {
         setUp(size, zero, stride);

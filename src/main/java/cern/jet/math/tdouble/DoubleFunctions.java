@@ -22,29 +22,29 @@ import cern.colt.function.tdouble.DoubleProcedure;
  * Function objects conveniently allow to express arbitrary functions in a
  * generic manner. Essentially, a function object is an object that can perform
  * a function on some arguments. It has a minimal interface: a method
- * <tt>apply</tt> that takes the arguments, computes something and returns some
+ * <code>apply</code> that takes the arguments, computes something and returns some
  * result value. Function objects are comparable to function pointers in C used
  * for call-backs.
  * <p>
  * Unary functions are of type {@link cern.colt.function.tdouble.DoubleFunction}
  * , binary functions of type
  * {@link cern.colt.function.tdouble.DoubleDoubleFunction}. All can be retrieved
- * via <tt>public 
- static final</tt> variables named after the function. Unary predicates are of
+ * via <code>public 
+ static final</code> variables named after the function. Unary predicates are of
  * type {@link cern.colt.function.tdouble.DoubleProcedure}, binary predicates of
  * type {@link cern.colt.function.tdouble.DoubleDoubleProcedure}. All can be
- * retrieved via <tt>public 
- static final</tt> variables named <tt>isXXX</tt>.
+ * retrieved via <code>public 
+ static final</code> variables named <code>isXXX</code>.
  * 
  * <p>
  * Binary functions and predicates also exist as unary functions with the second
  * argument being fixed to a constant. These are generated and retrieved via
  * factory methods (again with the same name as the function). Example:
  * <ul>
- * <li><tt>Functions.pow</tt> gives the function <tt>a<sup>b</sup></tt>.
- * <li><tt>Functions.pow.apply(2,3)==8</tt>.
- * <li><tt>Functions.pow(3)</tt> gives the function <tt>a<sup>3</sup></tt>.
- * <li><tt>Functions.pow(3).apply(2)==8</tt>.
+ * <li><code>Functions.pow</code> gives the function <code>a<sup>b</sup></code>.
+ * <li><code>Functions.pow.apply(2,3)==8</code>.
+ * <li><code>Functions.pow(3)</code> gives the function <code>a<sup>3</sup></code>.
+ * <li><code>Functions.pow(3).apply(2)==8</code>.
  * </ul>
  * More general, any binary function can be made an unary functions by fixing
  * either the first or the second argument. See methods
@@ -53,37 +53,37 @@ import cern.colt.function.tdouble.DoubleProcedure;
  * swapped so that the first argument becomes the second and vice-versa. See
  * method {@link #swapArgs(DoubleDoubleFunction)}. Example:
  * <ul>
- * <li><tt>Functions.pow</tt> gives the function <tt>a<sup>b</sup></tt>.
- * <li><tt>Functions.bindArg2(Functions.pow,3)</tt> gives the function
- * <tt>x<sup>3</sup></tt>.
- * <li><tt>Functions.bindArg1(Functions.pow,3)</tt> gives the function
- * <tt>3<sup>x</sup></tt>.
- * <li><tt>Functions.swapArgs(Functions.pow)</tt> gives the function
- * <tt>b<sup>a</sup></tt>.
+ * <li><code>Functions.pow</code> gives the function <code>a<sup>b</sup></code>.
+ * <li><code>Functions.bindArg2(Functions.pow,3)</code> gives the function
+ * <code>x<sup>3</sup></code>.
+ * <li><code>Functions.bindArg1(Functions.pow,3)</code> gives the function
+ * <code>3<sup>x</sup></code>.
+ * <li><code>Functions.swapArgs(Functions.pow)</code> gives the function
+ * <code>b<sup>a</sup></code>.
  * </ul>
  * <p>
  * Even more general, functions can be chained (composed, assembled). Assume we
- * have two unary functions <tt>g</tt> and <tt>h</tt>. The unary function
- * <tt>g(h(a))</tt> applying both in sequence can be generated via
+ * have two unary functions <code>g</code> and <code>h</code>. The unary function
+ * <code>g(h(a))</code> applying both in sequence can be generated via
  * {@link #chain(DoubleFunction,DoubleFunction)}:
  * <ul>
- * <li><tt>Functions.chain(g,h);</tt>
+ * <li><code>Functions.chain(g,h);</code>
  * </ul>
- * Assume further we have a binary function <tt>f</tt>. The binary function
- * <tt>g(f(a,b))</tt> can be generated via
+ * Assume further we have a binary function <code>f</code>. The binary function
+ * <code>g(f(a,b))</code> can be generated via
  * {@link #chain(DoubleFunction,DoubleDoubleFunction)}:
  * <ul>
- * <li><tt>Functions.chain(g,f);</tt>
+ * <li><code>Functions.chain(g,f);</code>
  * </ul>
- * The binary function <tt>f(g(a),h(b))</tt> can be generated via
+ * The binary function <code>f(g(a),h(b))</code> can be generated via
  * {@link #chain(DoubleDoubleFunction,DoubleFunction,DoubleFunction)}:
  * <ul>
- * <li><tt>Functions.chain(f,g,h);</tt>
+ * <li><code>Functions.chain(f,g,h);</code>
  * </ul>
  * Arbitrarily complex functions can be composed from these building blocks. For
- * example <tt>sin(a) + cos<sup>2</sup>(b)</tt> can be specified as follows:
+ * example <code>sin(a) + cos<sup>2</sup>(b)</code> can be specified as follows:
  * <ul>
- * <li><tt>chain(plus,sin,chain(square,cos));</tt>
+ * <li><code>chain(plus,sin,chain(square,cos));</code>
  * </ul>
  * or, of course, as
  * 
@@ -127,8 +127,8 @@ import cern.colt.function.tdouble.DoubleProcedure;
  * there seems to be no or only moderate performance penalty in using function
  * objects in a loop over traditional code in a loop. For complex nested
  * function objects (e.g.
- * <tt>F.chain(F.abs,F.chain(F.plus,F.sin,F.chain(F.square,F.cos)))</tt>) the
- * penalty is zero, for trivial functions (e.g. <tt>F.plus</tt>) the penalty is
+ * <code>F.chain(F.abs,F.chain(F.plus,F.sin,F.chain(F.square,F.cos)))</code>) the
+ * penalty is zero, for trivial functions (e.g. <code>F.plus</code>) the penalty is
  * often acceptable. <center>
  * <table border cellpadding="3" cellspacing="0" * align="center">
  * <tr valign="middle" bgcolor="#33CC66" nowrap align="center">
@@ -148,12 +148,12 @@ import cern.colt.function.tdouble.DoubleProcedure;
  * <td bgcolor="#FF9966" columnspan="2">&nbsp;</td>
  * </tr>
  * <tr valign="middle" bgcolor="#66CCFF" nowrap align="center">
- * <td bgcolor="#FF9966"> <tt>F.plus</tt></td>
- * <td bgcolor="#FF9966"><tt>a+b</tt></td>
+ * <td bgcolor="#FF9966"> <code>F.plus</code></td>
+ * <td bgcolor="#FF9966"><code>a+b</code></td>
  * <td bgcolor="#FF9966">
- * <tt>F.chain(F.abs,F.chain(F.plus,F.sin,F.chain(F.square,F.cos)))</tt></td>
+ * <code>F.chain(F.abs,F.chain(F.plus,F.sin,F.chain(F.square,F.cos)))</code></td>
  * <td bgcolor="#FF9966">
- * <tt>Math.abs(Math.sin(a) + Math.pow(Math.cos(b),2))</tt></td>
+ * <code>Math.abs(Math.sin(a) + Math.pow(Math.cos(b),2))</code></td>
  * <td bgcolor="#FF9966">&nbsp;</td>
  * <td bgcolor="#FF9966">&nbsp;</td>
  * </tr>
@@ -178,13 +178,13 @@ public class DoubleFunctions extends Object {
      * Little trick to allow for "aliasing", that is, renaming this class.
      * Writing code like
      * <p>
-     * <tt>Functions.chain(Functions.plus,Functions.sin,Functions.chain(Functions.square,Functions.cos));</tt>
+     * <code>Functions.chain(Functions.plus,Functions.sin,Functions.chain(Functions.square,Functions.cos));</code>
      * <p>
      * is a bit awkward, to say the least. Using the aliasing you can instead
      * write
      * <p>
-     * <tt>Functions F = Functions.functions; <br>
-    F.chain(F.plus,F.sin,F.chain(F.square,F.cos));</tt>
+     * <code>Functions F = Functions.functions; <br>
+    F.chain(F.plus,F.sin,F.chain(F.square,F.cos));</code>
      */
     public static final DoubleFunctions functions = new DoubleFunctions();
 
@@ -192,7 +192,7 @@ public class DoubleFunctions extends Object {
      * <H3>Unary functions</H3>
      **************************************************************************/
     /**
-     * Function that returns <tt>Math.abs(a)</tt>.
+     * Function that returns <code>Math.abs(a)</code>.
      */
     public static final DoubleFunction abs = new DoubleFunction() {
         public final double apply(double a) {
@@ -201,7 +201,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>Math.acos(a)</tt>.
+     * Function that returns <code>Math.acos(a)</code>.
      */
     public static final DoubleFunction acos = new DoubleFunction() {
         public final double apply(double a) {
@@ -210,7 +210,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>com.imsl.math.Sfun.acosh(a)</tt>.
+     * Function that returns <code>com.imsl.math.Sfun.acosh(a)</code>.
      */
     /*
      * public static final DoubleFunction acosh = new DoubleFunction() { public
@@ -218,7 +218,7 @@ public class DoubleFunctions extends Object {
      */
 
     /**
-     * Function that returns <tt>Math.asin(a)</tt>.
+     * Function that returns <code>Math.asin(a)</code>.
      */
     public static final DoubleFunction asin = new DoubleFunction() {
         public final double apply(double a) {
@@ -227,7 +227,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>com.imsl.math.Sfun.asinh(a)</tt>.
+     * Function that returns <code>com.imsl.math.Sfun.asinh(a)</code>.
      */
     /*
      * public static final DoubleFunction asinh = new DoubleFunction() { public
@@ -235,7 +235,7 @@ public class DoubleFunctions extends Object {
      */
 
     /**
-     * Function that returns <tt>Math.atan(a)</tt>.
+     * Function that returns <code>Math.atan(a)</code>.
      */
     public static final DoubleFunction atan = new DoubleFunction() {
         public final double apply(double a) {
@@ -244,7 +244,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>com.imsl.math.Sfun.atanh(a)</tt>.
+     * Function that returns <code>com.imsl.math.Sfun.atanh(a)</code>.
      */
     /*
      * public static final DoubleFunction atanh = new DoubleFunction() { public
@@ -252,7 +252,7 @@ public class DoubleFunctions extends Object {
      */
 
     /**
-     * Function that returns <tt>Math.ceil(a)</tt>.
+     * Function that returns <code>Math.ceil(a)</code>.
      */
     public static final DoubleFunction ceil = new DoubleFunction() {
         public final double apply(double a) {
@@ -261,7 +261,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>Math.cos(a)</tt>.
+     * Function that returns <code>Math.cos(a)</code>.
      */
     public static final DoubleFunction cos = new DoubleFunction() {
         public final double apply(double a) {
@@ -270,7 +270,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>com.imsl.math.Sfun.cosh(a)</tt>.
+     * Function that returns <code>com.imsl.math.Sfun.cosh(a)</code>.
      */
     /*
      * public static final DoubleFunction cosh = new DoubleFunction() { public
@@ -278,7 +278,7 @@ public class DoubleFunctions extends Object {
      */
 
     /**
-     * Function that returns <tt>com.imsl.math.Sfun.cot(a)</tt>.
+     * Function that returns <code>com.imsl.math.Sfun.cot(a)</code>.
      */
     /*
      * public static final DoubleFunction cot = new DoubleFunction() { public
@@ -286,7 +286,7 @@ public class DoubleFunctions extends Object {
      */
 
     /**
-     * Function that returns <tt>com.imsl.math.Sfun.erf(a)</tt>.
+     * Function that returns <code>com.imsl.math.Sfun.erf(a)</code>.
      */
     /*
      * public static final DoubleFunction erf = new DoubleFunction() { public
@@ -294,7 +294,7 @@ public class DoubleFunctions extends Object {
      */
 
     /**
-     * Function that returns <tt>com.imsl.math.Sfun.erfc(a)</tt>.
+     * Function that returns <code>com.imsl.math.Sfun.erfc(a)</code>.
      */
     /*
      * public static final DoubleFunction erfc = new DoubleFunction() { public
@@ -302,7 +302,7 @@ public class DoubleFunctions extends Object {
      */
 
     /**
-     * Function that returns <tt>Math.exp(a)</tt>.
+     * Function that returns <code>Math.exp(a)</code>.
      */
     public static final DoubleFunction exp = new DoubleFunction() {
         public final double apply(double a) {
@@ -311,7 +311,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>Math.floor(a)</tt>.
+     * Function that returns <code>Math.floor(a)</code>.
      */
     public static final DoubleFunction floor = new DoubleFunction() {
         public final double apply(double a) {
@@ -320,7 +320,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>com.imsl.math.Sfun.gamma(a)</tt>.
+     * Function that returns <code>com.imsl.math.Sfun.gamma(a)</code>.
      */
     /*
      * public static final DoubleFunction gamma = new DoubleFunction() { public
@@ -337,7 +337,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>1.0 / a</tt>.
+     * Function that returns <code>1.0 / a</code>.
      */
     public static final DoubleFunction inv = new DoubleFunction() {
         public final double apply(double a) {
@@ -346,7 +346,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>Math.log(a)</tt>.
+     * Function that returns <code>Math.log(a)</code>.
      */
     public static final DoubleFunction log = new DoubleFunction() {
         public final double apply(double a) {
@@ -355,7 +355,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>com.imsl.math.Sfun.log10(a)</tt>.
+     * Function that returns <code>com.imsl.math.Sfun.log10(a)</code>.
      */
     /*
      * public static final DoubleFunction log10 = new DoubleFunction() { public
@@ -363,7 +363,7 @@ public class DoubleFunctions extends Object {
      */
 
     /**
-     * Function that returns <tt>Math.log(a) / Math.log(2)</tt>.
+     * Function that returns <code>Math.log(a) / Math.log(2)</code>.
      */
     public static final DoubleFunction log2 = new DoubleFunction() {
         // 1.0 / Math.log(2) == 1.4426950408889634
@@ -373,7 +373,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>com.imsl.math.Sfun.logGamma(a)</tt>.
+     * Function that returns <code>com.imsl.math.Sfun.logGamma(a)</code>.
      */
     /*
      * public static final DoubleFunction logGamma = new DoubleFunction() {
@@ -381,7 +381,7 @@ public class DoubleFunctions extends Object {
      */
 
     /**
-     * Function that returns <tt>-a</tt>.
+     * Function that returns <code>-a</code>.
      */
     public static final DoubleFunction neg = new DoubleFunction() {
         public final double apply(double a) {
@@ -390,7 +390,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>Math.rint(a)</tt>.
+     * Function that returns <code>Math.rint(a)</code>.
      */
     public static final DoubleFunction rint = new DoubleFunction() {
         public final double apply(double a) {
@@ -399,7 +399,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a < 0 ? -1 : a > 0 ? 1 : 0</tt>.
+     * Function that returns <code>a < 0 ? -1 : a > 0 ? 1 : 0</code>.
      */
     public static final DoubleFunction sign = new DoubleFunction() {
         public final double apply(double a) {
@@ -408,7 +408,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>Math.sin(a)</tt>.
+     * Function that returns <code>Math.sin(a)</code>.
      */
     public static final DoubleFunction sin = new DoubleFunction() {
         public final double apply(double a) {
@@ -417,7 +417,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>com.imsl.math.Sfun.sinh(a)</tt>.
+     * Function that returns <code>com.imsl.math.Sfun.sinh(a)</code>.
      */
     /*
      * public static final DoubleFunction sinh = new DoubleFunction() { public
@@ -425,7 +425,7 @@ public class DoubleFunctions extends Object {
      */
 
     /**
-     * Function that returns <tt>Math.sqrt(a)</tt>.
+     * Function that returns <code>Math.sqrt(a)</code>.
      */
     public static final DoubleFunction sqrt = new DoubleFunction() {
         public final double apply(double a) {
@@ -434,7 +434,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a * a</tt>.
+     * Function that returns <code>a * a</code>.
      */
     public static final DoubleFunction square = new DoubleFunction() {
         public final double apply(double a) {
@@ -443,7 +443,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>Math.tan(a)</tt>.
+     * Function that returns <code>Math.tan(a)</code>.
      */
     public static final DoubleFunction tan = new DoubleFunction() {
         public final double apply(double a) {
@@ -452,7 +452,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>com.imsl.math.Sfun.tanh(a)</tt>.
+     * Function that returns <code>com.imsl.math.Sfun.tanh(a)</code>.
      */
     /*
      * public static final DoubleFunction tanh = new DoubleFunction() { public
@@ -460,7 +460,7 @@ public class DoubleFunctions extends Object {
      */
 
     /**
-     * Function that returns <tt>Math.toDegrees(a)</tt>.
+     * Function that returns <code>Math.toDegrees(a)</code>.
      */
     /*
      * public static final DoubleFunction toDegrees = new DoubleFunction() {
@@ -468,7 +468,7 @@ public class DoubleFunctions extends Object {
      */
 
     /**
-     * Function that returns <tt>Math.toRadians(a)</tt>.
+     * Function that returns <code>Math.toRadians(a)</code>.
      */
     /*
      * public static final DoubleFunction toRadians = new DoubleFunction() {
@@ -480,7 +480,7 @@ public class DoubleFunctions extends Object {
      **************************************************************************/
 
     /**
-     * Function that returns <tt>Math.atan2(a,b)</tt>.
+     * Function that returns <code>Math.atan2(a,b)</code>.
      */
     public static final DoubleDoubleFunction atan2 = new DoubleDoubleFunction() {
         public final double apply(double a, double b) {
@@ -489,7 +489,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>com.imsl.math.Sfun.logBeta(a,b)</tt>.
+     * Function that returns <code>com.imsl.math.Sfun.logBeta(a,b)</code>.
      */
     /*
      * public static final DoubleDoubleFunction logBeta = new
@@ -498,7 +498,7 @@ public class DoubleFunctions extends Object {
      */
 
     /**
-     * Function that returns <tt>a < b ? -1 : a > b ? 1 : 0</tt>.
+     * Function that returns <code>a < b ? -1 : a > b ? 1 : 0</code>.
      */
     public static final DoubleDoubleFunction compare = new DoubleDoubleFunction() {
         public final double apply(double a, double b) {
@@ -507,7 +507,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a / b</tt>.
+     * Function that returns <code>a / b</code>.
      */
     public static final DoubleDoubleFunction div = new DoubleDoubleFunction() {
         public final double apply(double a, double b) {
@@ -516,7 +516,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>-(a / b)</tt>.
+     * Function that returns <code>-(a / b)</code>.
      */
     public static final DoubleDoubleFunction divNeg = new DoubleDoubleFunction() {
         public final double apply(double a, double b) {
@@ -525,7 +525,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a == b ? 1 : 0</tt>.
+     * Function that returns <code>a == b ? 1 : 0</code>.
      */
     public static final DoubleDoubleFunction equals = new DoubleDoubleFunction() {
         public final double apply(double a, double b) {
@@ -534,7 +534,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a > b ? 1 : 0</tt>.
+     * Function that returns <code>a > b ? 1 : 0</code>.
      */
     public static final DoubleDoubleFunction greater = new DoubleDoubleFunction() {
         public final double apply(double a, double b) {
@@ -543,7 +543,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>Math.IEEEremainder(a,b)</tt>.
+     * Function that returns <code>Math.IEEEremainder(a,b)</code>.
      */
     public static final DoubleDoubleFunction IEEEremainder = new DoubleDoubleFunction() {
         public final double apply(double a, double b) {
@@ -552,7 +552,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a == b</tt>.
+     * Function that returns <code>a == b</code>.
      */
     public static final DoubleDoubleProcedure isEqual = new DoubleDoubleProcedure() {
         public final boolean apply(double a, double b) {
@@ -561,7 +561,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a < b</tt>.
+     * Function that returns <code>a < b</code>.
      */
     public static final DoubleDoubleProcedure isLess = new DoubleDoubleProcedure() {
         public final boolean apply(double a, double b) {
@@ -570,7 +570,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a > b</tt>.
+     * Function that returns <code>a > b</code>.
      */
     public static final DoubleDoubleProcedure isGreater = new DoubleDoubleProcedure() {
         public final boolean apply(double a, double b) {
@@ -579,7 +579,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a < b ? 1 : 0</tt>.
+     * Function that returns <code>a < b ? 1 : 0</code>.
      */
     public static final DoubleDoubleFunction less = new DoubleDoubleFunction() {
         public final double apply(double a, double b) {
@@ -588,7 +588,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>Math.log(a) / Math.log(b)</tt>.
+     * Function that returns <code>Math.log(a) / Math.log(b)</code>.
      */
     public static final DoubleDoubleFunction lg = new DoubleDoubleFunction() {
         public final double apply(double a, double b) {
@@ -597,7 +597,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>Math.max(a,b)</tt>.
+     * Function that returns <code>Math.max(a,b)</code>.
      */
     public static final DoubleDoubleFunction max = new DoubleDoubleFunction() {
         public final double apply(double a, double b) {
@@ -606,7 +606,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>Math.min(a,b)</tt>.
+     * Function that returns <code>Math.min(a,b)</code>.
      */
     public static final DoubleDoubleFunction min = new DoubleDoubleFunction() {
         public final double apply(double a, double b) {
@@ -615,7 +615,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a - b</tt>.
+     * Function that returns <code>a - b</code>.
      */
     public static final DoubleDoubleFunction minus = plusMultSecond(-1);
 
@@ -625,7 +625,7 @@ public class DoubleFunctions extends Object {
      */
 
     /**
-     * Function that returns <tt>a % b</tt>.
+     * Function that returns <code>a % b</code>.
      */
     public static final DoubleDoubleFunction mod = new DoubleDoubleFunction() {
         public final double apply(double a, double b) {
@@ -634,7 +634,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a * b</tt>.
+     * Function that returns <code>a * b</code>.
      */
     public static final DoubleDoubleFunction mult = new DoubleDoubleFunction() {
         public final double apply(double a, double b) {
@@ -643,7 +643,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>-(a * b)</tt>.
+     * Function that returns <code>-(a * b)</code>.
      */
     public static final DoubleDoubleFunction multNeg = new DoubleDoubleFunction() {
         public final double apply(double a, double b) {
@@ -652,7 +652,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a * b^2</tt>.
+     * Function that returns <code>a * b^2</code>.
      */
     public static final DoubleDoubleFunction multSquare = new DoubleDoubleFunction() {
         public final double apply(double a, double b) {
@@ -661,7 +661,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a + b</tt>.
+     * Function that returns <code>a + b</code>.
      */
     public static final DoubleDoubleFunction plus = plusMultSecond(1);
     //        new DoubleDoubleFunction() {
@@ -671,7 +671,7 @@ public class DoubleFunctions extends Object {
     //        };
 
     /**
-     * Function that returns <tt>Math.abs(a) + Math.abs(b)</tt>.
+     * Function that returns <code>Math.abs(a) + Math.abs(b)</code>.
      */
     public static final DoubleDoubleFunction plusAbs = new DoubleDoubleFunction() {
         public final double apply(double a, double b) {
@@ -680,7 +680,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>Math.pow(a,b)</tt>.
+     * Function that returns <code>Math.pow(a,b)</code>.
      */
     public static final DoubleDoubleFunction pow = new DoubleDoubleFunction() {
         public final double apply(double a, double b) {
@@ -696,8 +696,11 @@ public class DoubleFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>(from<=a && a<=to) ? 1 : 0</tt>.
-     * <tt>a</tt> is a variable, <tt>from</tt> and <tt>to</tt> are fixed.
+     * Constructs a function that returns <code>(from<=a && a<=to) ? 1 : 0</code>.
+     * <code>a</code> is a variable, <code>from</code> and <code>to</code> are fixed.
+     * @param from
+     * @param to
+     * @return 
      */
     public static DoubleFunction between(final double from, final double to) {
         return new DoubleFunction() {
@@ -709,13 +712,14 @@ public class DoubleFunctions extends Object {
 
     /**
      * Constructs a unary function from a binary function with the first operand
-     * (argument) fixed to the given constant <tt>c</tt>. The second operand is
+     * (argument) fixed to the given constant <code>c</code>. The second operand is
      * variable (free).
      * 
      * @param function
      *            a binary function taking operands in the form
-     *            <tt>function.apply(c,var)</tt>.
-     * @return the unary function <tt>function(c,var)</tt>.
+     *            <code>function.apply(c,var)</code>.
+     * @param c
+     * @return the unary function <code>function(c,var)</code>.
      */
     public static DoubleFunction bindArg1(final DoubleDoubleFunction function, final double c) {
         return new DoubleFunction() {
@@ -727,13 +731,14 @@ public class DoubleFunctions extends Object {
 
     /**
      * Constructs a unary function from a binary function with the second
-     * operand (argument) fixed to the given constant <tt>c</tt>. The first
+     * operand (argument) fixed to the given constant <code>c</code>. The first
      * operand is variable (free).
      * 
      * @param function
      *            a binary function taking operands in the form
-     *            <tt>function.apply(var,c)</tt>.
-     * @return the unary function <tt>function(var,c)</tt>.
+     *            <code>function.apply(var,c)</code>.
+     * @param c
+     * @return the unary function <code>function(var,c)</code>.
      */
     public static DoubleFunction bindArg2(final DoubleDoubleFunction function, final double c) {
         return new DoubleFunction() {
@@ -744,7 +749,7 @@ public class DoubleFunctions extends Object {
     }
 
     /**
-     * Constructs the function <tt>f( g(a), h(b) )</tt>.
+     * Constructs the function <code>f( g(a), h(b) )</code>.
      * 
      * @param f
      *            a binary function.
@@ -752,7 +757,7 @@ public class DoubleFunctions extends Object {
      *            a unary function.
      * @param h
      *            a unary function.
-     * @return the binary function <tt>f( g(a), h(b) )</tt>.
+     * @return the binary function <code>f( g(a), h(b) )</code>.
      */
     public static DoubleDoubleFunction chain(final DoubleDoubleFunction f, final DoubleFunction g,
             final DoubleFunction h) {
@@ -764,13 +769,13 @@ public class DoubleFunctions extends Object {
     }
 
     /**
-     * Constructs the function <tt>g( h(a,b) )</tt>.
+     * Constructs the function <code>g( h(a,b) )</code>.
      * 
      * @param g
      *            a unary function.
      * @param h
      *            a binary function.
-     * @return the unary function <tt>g( h(a,b) )</tt>.
+     * @return the unary function <code>g( h(a,b) )</code>.
      */
     public static DoubleDoubleFunction chain(final DoubleFunction g, final DoubleDoubleFunction h) {
         return new DoubleDoubleFunction() {
@@ -781,13 +786,13 @@ public class DoubleFunctions extends Object {
     }
 
     /**
-     * Constructs the function <tt>g( h(a) )</tt>.
+     * Constructs the function <code>g( h(a) )</code>.
      * 
      * @param g
      *            a unary function.
      * @param h
      *            a unary function.
-     * @return the unary function <tt>g( h(a) )</tt>.
+     * @return the unary function <code>g( h(a) )</code>.
      */
     public static DoubleFunction chain(final DoubleFunction g, final DoubleFunction h) {
         return new DoubleFunction() {
@@ -798,8 +803,10 @@ public class DoubleFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a < b ? -1 : a > b ? 1 : 0</tt>.
-     * <tt>a</tt> is a variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a < b ? -1 : a > b ? 1 : 0</code>.
+     * <code>a</code> is a variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static DoubleFunction compare(final double b) {
         return new DoubleFunction() {
@@ -810,7 +817,9 @@ public class DoubleFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns the constant <tt>c</tt>.
+     * Constructs a function that returns the constant <code>c</code>.
+     * @param c
+     * @return 
      */
     public static DoubleFunction constant(final double c) {
         return new DoubleFunction() {
@@ -847,6 +856,7 @@ public class DoubleFunctions extends Object {
 
     /**
      * Benchmarks and demonstrates usage of trivial and complex functions.
+     * @param size
      */
     public static void demo2(int size) {
         cern.jet.math.tdouble.DoubleFunctions F = cern.jet.math.tdouble.DoubleFunctions.functions;
@@ -930,16 +940,20 @@ public class DoubleFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a / b</tt>. <tt>a</tt> is a
-     * variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a / b</code>. <code>a</code> is a
+     * variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static DoubleFunction div(final double b) {
         return mult(1 / b);
     }
 
     /**
-     * Constructs a function that returns <tt>a == b ? 1 : 0</tt>. <tt>a</tt> is
-     * a variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a == b ? 1 : 0</code>. <code>a</code> is
+     * a variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static DoubleFunction equals(final double b) {
         return new DoubleFunction() {
@@ -950,8 +964,10 @@ public class DoubleFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a > b ? 1 : 0</tt>. <tt>a</tt> is
-     * a variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a > b ? 1 : 0</code>. <code>a</code> is
+     * a variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static DoubleFunction greater(final double b) {
         return new DoubleFunction() {
@@ -962,8 +978,10 @@ public class DoubleFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>Math.IEEEremainder(a,b)</tt>.
-     * <tt>a</tt> is a variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>Math.IEEEremainder(a,b)</code>.
+     * <code>a</code> is a variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static DoubleFunction IEEEremainder(final double b) {
         return new DoubleFunction() {
@@ -974,8 +992,11 @@ public class DoubleFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>from<=a && a<=to</tt>. <tt>a</tt>
-     * is a variable, <tt>from</tt> and <tt>to</tt> are fixed.
+     * Constructs a function that returns <code>from<=a && a<=to</code>. <code>a</code>
+     * is a variable, <code>from</code> and <code>to</code> are fixed.
+     * @param from
+     * @param to
+     * @return 
      */
     public static DoubleProcedure isBetween(final double from, final double to) {
         return new DoubleProcedure() {
@@ -986,8 +1007,10 @@ public class DoubleFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a == b</tt>. <tt>a</tt> is a
-     * variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a == b</code>. <code>a</code> is a
+     * variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static DoubleProcedure isEqual(final double b) {
         return new DoubleProcedure() {
@@ -998,8 +1021,10 @@ public class DoubleFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a > b</tt>. <tt>a</tt> is a
-     * variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a > b</code>. <code>a</code> is a
+     * variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static DoubleProcedure isGreater(final double b) {
         return new DoubleProcedure() {
@@ -1010,8 +1035,10 @@ public class DoubleFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a < b</tt>. <tt>a</tt> is a
-     * variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a < b</code>. <code>a</code> is a
+     * variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static DoubleProcedure isLess(final double b) {
         return new DoubleProcedure() {
@@ -1022,8 +1049,10 @@ public class DoubleFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a < b ? 1 : 0</tt>. <tt>a</tt> is
-     * a variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a < b ? 1 : 0</code>. <code>a</code> is
+     * a variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static DoubleFunction less(final double b) {
         return new DoubleFunction() {
@@ -1034,8 +1063,10 @@ public class DoubleFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt><tt>Math.log(a) / Math.log(b)</tt>
-     * </tt>. <tt>a</tt> is a variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code><code>Math.log(a) / Math.log(b)</code>
+     * </code>. <code>a</code> is a variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static DoubleFunction lg(final double b) {
         return new DoubleFunction() {
@@ -1049,6 +1080,7 @@ public class DoubleFunctions extends Object {
 
     /**
      * Tests various methods of this class.
+     * @param args
      */
     protected static void main(String args[]) {
         int size = Integer.parseInt(args[0]);
@@ -1057,8 +1089,10 @@ public class DoubleFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>Math.max(a,b)</tt>. <tt>a</tt> is
-     * a variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>Math.max(a,b)</code>. <code>a</code> is
+     * a variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static DoubleFunction max(final double b) {
         return new DoubleFunction() {
@@ -1069,8 +1103,10 @@ public class DoubleFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>Math.min(a,b)</tt>. <tt>a</tt> is
-     * a variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>Math.min(a,b)</code>. <code>a</code> is
+     * a variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static DoubleFunction min(final double b) {
         return new DoubleFunction() {
@@ -1081,24 +1117,30 @@ public class DoubleFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a - b</tt>. <tt>a</tt> is a
-     * variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a - b</code>. <code>a</code> is a
+     * variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static DoubleFunction minus(final double b) {
         return plus(-b);
     }
 
     /**
-     * Constructs a function that returns <tt>a - b*constant</tt>. <tt>a</tt>
-     * and <tt>b</tt> are variables, <tt>constant</tt> is fixed.
+     * Constructs a function that returns <code>a - b*constant</code>. <code>a</code>
+     * and <code>b</code> are variables, <code>constant</code> is fixed.
+     * @param constant
+     * @return 
      */
     public static DoubleDoubleFunction minusMult(final double constant) {
         return plusMultSecond(-constant);
     }
 
     /**
-     * Constructs a function that returns <tt>a % b</tt>. <tt>a</tt> is a
-     * variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a % b</code>. <code>a</code> is a
+     * variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static DoubleFunction mod(final double b) {
         return new DoubleFunction() {
@@ -1109,8 +1151,10 @@ public class DoubleFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a * b</tt>. <tt>a</tt> is a
-     * variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a * b</code>. <code>a</code> is a
+     * variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static DoubleFunction mult(final double b) {
         return new DoubleMult(b);
@@ -1121,8 +1165,10 @@ public class DoubleFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a + b</tt>. <tt>a</tt> is a
-     * variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a + b</code>. <code>a</code> is a
+     * variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static DoubleFunction plus(final double b) {
         return new DoubleFunction() {
@@ -1133,7 +1179,9 @@ public class DoubleFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>b*constant</tt>.
+     * Constructs a function that returns <code>b*constant</code>.
+     * @param constant
+     * @return 
      */
     public static DoubleDoubleFunction multSecond(final double constant) {
 
@@ -1146,24 +1194,30 @@ public class DoubleFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a + b*constant</tt>. <tt>a</tt>
-     * and <tt>b</tt> are variables, <tt>constant</tt> is fixed.
+     * Constructs a function that returns <code>a + b*constant</code>. <code>a</code>
+     * and <code>b</code> are variables, <code>constant</code> is fixed.
+     * @param constant
+     * @return 
      */
     public static DoubleDoubleFunction plusMultSecond(final double constant) {
         return new DoublePlusMultSecond(constant);
     }
 
     /**
-     * Constructs a function that returns <tt>a * constant + b</tt>. <tt>a</tt>
-     * and <tt>b</tt> are variables, <tt>constant</tt> is fixed.
+     * Constructs a function that returns <code>a * constant + b</code>. <code>a</code>
+     * and <code>b</code> are variables, <code>constant</code> is fixed.
+     * @param constant
+     * @return 
      */
     public static DoubleDoubleFunction plusMultFirst(final double constant) {
         return new DoublePlusMultFirst(constant);
     }
 
     /**
-     * Constructs a function that returns <tt>Math.pow(a,b)</tt>. <tt>a</tt> is
-     * a variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>Math.pow(a,b)</code>. <code>a</code> is
+     * a variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static DoubleFunction pow(final double b) {
         return new DoubleFunction() {
@@ -1187,6 +1241,7 @@ public class DoubleFunctions extends Object {
      * objects, because they implement the proper interfaces. Thus, if you are
      * not happy with the default, just pass your favourite random generator to
      * function evaluating methods.
+     * @return 
      */
     public static DoubleFunction random() {
         return new RandomDoubleFunction();
@@ -1203,12 +1258,14 @@ public class DoubleFunctions extends Object {
 
     /**
      * Constructs a function that returns the number rounded to the given
-     * precision; <tt>Math.rint(a/precision)*precision</tt>. Examples:
+     * precision; <code>Math.rint(a/precision)*precision</code>. Examples:
      * 
      * <pre>
      * precision = 0.01 rounds 0.012 --&gt; 0.01, 0.018 --&gt; 0.02
      * precision = 10   rounds 123   --&gt; 120 , 127   --&gt; 130
      * </pre>
+     * @param precision
+     * @return 
      */
     public static DoubleFunction round(final double precision) {
         return new DoubleFunction() {
@@ -1219,14 +1276,14 @@ public class DoubleFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>function.apply(b,a)</tt>, i.e.
+     * Constructs a function that returns <code>function.apply(b,a)</code>, i.e.
      * applies the function with the first operand as second operand and the
      * second operand as first operand.
      * 
      * @param function
      *            a function taking operands in the form
-     *            <tt>function.apply(a,b)</tt>.
-     * @return the binary function <tt>function(b,a)</tt>.
+     *            <code>function.apply(a,b)</code>.
+     * @return the binary function <code>function(b,a)</code>.
      */
     public static DoubleDoubleFunction swapArgs(final DoubleDoubleFunction function) {
         return new DoubleDoubleFunction() {

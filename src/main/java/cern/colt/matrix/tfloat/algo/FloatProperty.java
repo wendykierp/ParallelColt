@@ -30,25 +30,25 @@ import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
  * symmetry, singularity, etc).
  * <p>
  * Except where explicitly indicated, all methods involving equality tests (
- * <tt>==</tt>) allow for numerical instability, to a degree specified upon
+ * <code>==</code>) allow for numerical instability, to a degree specified upon
  * instance construction and returned by method {@link #tolerance()}. The public
- * static final variable <tt>DEFAULT</tt> represents a default Property object
- * with a tolerance of <tt>1.0E-5</tt>. The public static final variable
- * <tt>ZERO</tt> represents a Property object with a tolerance of <tt>0.0</tt>.
- * The public static final variable <tt>SEVEN</tt> represents a Property object
- * with a tolerance of <tt>1.0E-7</tt>. As long as you are happy with these
+ * static final variable <code>DEFAULT</code> represents a default Property object
+ * with a tolerance of <code>1.0E-5</code>. The public static final variable
+ * <code>ZERO</code> represents a Property object with a tolerance of <code>0.0</code>.
+ * The public static final variable <code>SEVEN</code> represents a Property object
+ * with a tolerance of <code>1.0E-7</code>. As long as you are happy with these
  * tolerances, there is no need to construct Property objects. Simply use idioms
- * like <tt>Property.DEFAULT.equals(A,B)</tt>,
- * <tt>Property.ZERO.equals(A,B)</tt>, <tt>Property.SEVEN.equals(A,B)</tt>.
+ * like <code>Property.DEFAULT.equals(A,B)</code>,
+ * <code>Property.ZERO.equals(A,B)</code>, <code>Property.SEVEN.equals(A,B)</code>.
  * <p>
- * To work with a different tolerance (e.g. <tt>1.0E-2</tt>) use the constructor
+ * To work with a different tolerance (e.g. <code>1.0E-2</code>) use the constructor
  * and/or method {@link #setTolerance(float)}. Note that the public static final
  * Property objects are immutable: Is is not possible to alter their tolerance.
  * Any attempt to do so will throw an Exception.
  * <p>
  * Note that this implementation is not synchronized.
  * <p>
- * Example: <tt>equals(FloatMatrix2D A, FloatMatrix2D B)</tt> is defined as
+ * Example: <code>equals(FloatMatrix2D A, FloatMatrix2D B)</code> is defined as
  * follows
  * <table>
  * <td class="PRE">
@@ -70,83 +70,83 @@ import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
  * Here are some example properties
  * <table border="1" cellspacing="0">
  * <tr align="left" valign="top">
- * <td valign="middle" align="left"><tt>matrix</tt></td>
- * <td> <tt>4&nbsp;x&nbsp;4&nbsp;<br>
+ * <td valign="middle" align="left"><code>matrix</code></td>
+ * <td> <code>4&nbsp;x&nbsp;4&nbsp;<br>
  0&nbsp;0&nbsp;0&nbsp;0<br>
  0&nbsp;0&nbsp;0&nbsp;0<br>
  0&nbsp;0&nbsp;0&nbsp;0<br>
- 0&nbsp;0&nbsp;0&nbsp;0 </tt></td>
- * <td><tt>4&nbsp;x&nbsp;4<br>
+ 0&nbsp;0&nbsp;0&nbsp;0 </code></td>
+ * <td><code>4&nbsp;x&nbsp;4<br>
  1&nbsp;0&nbsp;0&nbsp;0<br>
  0&nbsp;0&nbsp;0&nbsp;0<br>
  0&nbsp;0&nbsp;0&nbsp;0<br>
- 0&nbsp;0&nbsp;0&nbsp;1 </tt></td>
- * <td><tt>4&nbsp;x&nbsp;4<br>
+ 0&nbsp;0&nbsp;0&nbsp;1 </code></td>
+ * <td><code>4&nbsp;x&nbsp;4<br>
  1&nbsp;1&nbsp;0&nbsp;0<br>
  1&nbsp;1&nbsp;1&nbsp;0<br>
  0&nbsp;1&nbsp;1&nbsp;1<br>
- 0&nbsp;0&nbsp;1&nbsp;1 </tt></td>
- * <td><tt> 4&nbsp;x&nbsp;4<br>
+ 0&nbsp;0&nbsp;1&nbsp;1 </code></td>
+ * <td><code> 4&nbsp;x&nbsp;4<br>
  0&nbsp;1&nbsp;1&nbsp;1<br>
  0&nbsp;1&nbsp;1&nbsp;1<br>
  0&nbsp;0&nbsp;0&nbsp;1<br>
- 0&nbsp;0&nbsp;0&nbsp;1 </tt></td>
- * <td><tt> 4&nbsp;x&nbsp;4<br>
+ 0&nbsp;0&nbsp;0&nbsp;1 </code></td>
+ * <td><code> 4&nbsp;x&nbsp;4<br>
  0&nbsp;0&nbsp;0&nbsp;0<br>
  1&nbsp;1&nbsp;0&nbsp;0<br>
  1&nbsp;1&nbsp;0&nbsp;0<br>
- 1&nbsp;1&nbsp;1&nbsp;1 </tt></td>
- * <td><tt>4&nbsp;x&nbsp;4<br>
+ 1&nbsp;1&nbsp;1&nbsp;1 </code></td>
+ * <td><code>4&nbsp;x&nbsp;4<br>
  1&nbsp;1&nbsp;0&nbsp;0<br>
  0&nbsp;1&nbsp;1&nbsp;0<br>
  0&nbsp;1&nbsp;0&nbsp;1<br>
- 1&nbsp;0&nbsp;1&nbsp;1 </tt><tt> </tt></td>
- * <td><tt>4&nbsp;x&nbsp;4<br>
+ 1&nbsp;0&nbsp;1&nbsp;1 </code><code> </code></td>
+ * <td><code>4&nbsp;x&nbsp;4<br>
  1&nbsp;1&nbsp;1&nbsp;0<br>
  0&nbsp;1&nbsp;0&nbsp;0<br>
  1&nbsp;1&nbsp;0&nbsp;1<br>
- 0&nbsp;0&nbsp;1&nbsp;1 </tt></td>
+ 0&nbsp;0&nbsp;1&nbsp;1 </code></td>
  * </tr>
  * <tr align="center" valign="middle">
- * <td><tt>upperBandwidth</tt></td>
- * <td><div align="center"><tt>0</tt></div></td>
- * <td><div align="center"><tt>0</tt></div></td>
- * <td><div align="center"><tt>1</tt></div></td>
- * <td><tt>3</tt></td>
- * <td align="center" valign="middle"><tt>0</tt></td>
- * <td align="center" valign="middle"><div align="center"><tt>1</tt></div></td>
- * <td align="center" valign="middle"><div align="center"><tt>2</tt></div></td>
+ * <td><code>upperBandwidth</code></td>
+ * <td><div align="center"><code>0</code></div></td>
+ * <td><div align="center"><code>0</code></div></td>
+ * <td><div align="center"><code>1</code></div></td>
+ * <td><code>3</code></td>
+ * <td align="center" valign="middle"><code>0</code></td>
+ * <td align="center" valign="middle"><div align="center"><code>1</code></div></td>
+ * <td align="center" valign="middle"><div align="center"><code>2</code></div></td>
  * </tr>
  * <tr align="center" valign="middle">
- * <td><tt>lowerBandwidth</tt></td>
- * <td><div align="center"><tt>0</tt></div></td>
- * <td><div align="center"><tt>0</tt></div></td>
- * <td><div align="center"><tt>1</tt></div></td>
- * <td><tt>0</tt></td>
- * <td align="center" valign="middle"><tt>3</tt></td>
- * <td align="center" valign="middle"><div align="center"><tt>3</tt></div></td>
- * <td align="center" valign="middle"><div align="center"><tt>2</tt></div></td>
+ * <td><code>lowerBandwidth</code></td>
+ * <td><div align="center"><code>0</code></div></td>
+ * <td><div align="center"><code>0</code></div></td>
+ * <td><div align="center"><code>1</code></div></td>
+ * <td><code>0</code></td>
+ * <td align="center" valign="middle"><code>3</code></td>
+ * <td align="center" valign="middle"><div align="center"><code>3</code></div></td>
+ * <td align="center" valign="middle"><div align="center"><code>2</code></div></td>
  * </tr>
  * <tr align="center" valign="middle">
- * <td><tt>semiBandwidth</tt></td>
- * <td><div align="center"><tt>1</tt></div></td>
- * <td><div align="center"><tt>1</tt></div></td>
- * <td><div align="center"><tt>2</tt></div></td>
- * <td><tt>4</tt></td>
- * <td align="center" valign="middle"><tt>4</tt></td>
- * <td align="center" valign="middle"><div align="center"><tt>4</tt></div></td>
- * <td align="center" valign="middle"><div align="center"><tt>3</tt></div></td>
+ * <td><code>semiBandwidth</code></td>
+ * <td><div align="center"><code>1</code></div></td>
+ * <td><div align="center"><code>1</code></div></td>
+ * <td><div align="center"><code>2</code></div></td>
+ * <td><code>4</code></td>
+ * <td align="center" valign="middle"><code>4</code></td>
+ * <td align="center" valign="middle"><div align="center"><code>4</code></div></td>
+ * <td align="center" valign="middle"><div align="center"><code>3</code></div></td>
  * </tr>
  * <tr align="center" valign="middle">
- * <td><tt>description</tt></td>
- * <td><div align="center"><tt>zero</tt></div></td>
- * <td><div align="center"><tt>diagonal</tt></div></td>
- * <td><div align="center"><tt>tridiagonal</tt></div></td>
- * <td><tt>upper triangular</tt></td>
- * <td align="center" valign="middle"><tt>lower triangular</tt></td>
- * <td align="center" valign="middle"><div align="center"><tt>unstructured</tt>
+ * <td><code>description</code></td>
+ * <td><div align="center"><code>zero</code></div></td>
+ * <td><div align="center"><code>diagonal</code></div></td>
+ * <td><div align="center"><code>tridiagonal</code></div></td>
+ * <td><code>upper triangular</code></td>
+ * <td align="center" valign="middle"><code>lower triangular</code></td>
+ * <td align="center" valign="middle"><div align="center"><code>unstructured</code>
  * </div></td>
- * <td align="center" valign="middle"><div align="center"><tt>unstructured</tt>
+ * <td align="center" valign="middle"><div align="center"><code>unstructured</code>
  * </div></td>
  * </tr>
  * </table>
@@ -160,17 +160,17 @@ public class FloatProperty extends cern.colt.PersistentObject {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The default Property object; currently has <tt>tolerance()==1.0E-5</tt>.
+     * The default Property object; currently has <code>tolerance()==1.0E-5</code>.
      */
     public static final FloatProperty DEFAULT = new FloatProperty(1.0E-5f);
 
     /**
-     * A Property object with <tt>tolerance()==0.0</tt>.
+     * A Property object with <code>tolerance()==0.0</code>.
      */
     public static final FloatProperty ZERO = new FloatProperty(0.0f);
 
     /**
-     * A Property object with <tt>tolerance()==1.0E-7</tt>.
+     * A Property object with <code>tolerance()==1.0E-7</code>.
      */
     public static final FloatProperty SEVEN = new FloatProperty(1.0E-7f);
 
@@ -185,14 +185,17 @@ public class FloatProperty extends cern.colt.PersistentObject {
 
     /**
      * Constructs an instance with a tolerance of
-     * <tt>Math.abs(newTolerance)</tt>.
+     * <code>Math.abs(newTolerance)</code>.
+     * @param newTolerance
      */
     public FloatProperty(float newTolerance) {
         tolerance = Math.abs(newTolerance);
     }
 
     /**
-     * Returns a String with <tt>length</tt> blanks.
+     * Returns a String with <code>length</code> blanks.
+     * @param length
+     * @return 
      */
     protected static String blanks(int length) {
         if (length < 0)
@@ -205,10 +208,11 @@ public class FloatProperty extends cern.colt.PersistentObject {
     }
 
     /**
-     * Checks whether the given matrix <tt>A</tt> is <i>rectangular</i>.
+     * Checks whether the given matrix <code>A</code> is <i>rectangular</i>.
      * 
+     * @param A
      * @throws IllegalArgumentException
-     *             if <tt>A.rows() < A.columns()</tt>.
+     *             if <code>A.rows() &lt; A.columns()</code>.
      */
     public void checkRectangular(FloatMatrix2D A) {
         if (A.rows() < A.columns()) {
@@ -217,10 +221,11 @@ public class FloatProperty extends cern.colt.PersistentObject {
     }
 
     /**
-     * Checks whether the given matrix <tt>A</tt> is <i>square</i>.
+     * Checks whether the given matrix <code>A</code> is <i>square</i>.
      * 
+     * @param A
      * @throws IllegalArgumentException
-     *             if <tt>A.rows() != A.columns()</tt>.
+     *             if <code>A.rows() != A.columns()</code>.
      */
     public void checkSquare(FloatMatrix2D A) {
         if (A.rows() != A.columns())
@@ -251,23 +256,25 @@ public class FloatProperty extends cern.colt.PersistentObject {
 
     /**
      * Returns the matrix's fraction of non-zero cells;
-     * <tt>A.cardinality() / A.size()</tt>.
+     * <code>A.cardinality() / A.size()</code>.
+     * @param A
+     * @return 
      */
     public float density(FloatMatrix2D A) {
         return A.cardinality() / (float) A.size();
     }
 
     /**
-     * Returns whether all cells of the given matrix <tt>A</tt> are equal to the
-     * given value. The result is <tt>true</tt> if and only if
-     * <tt>A != null</tt> and <tt>! (Math.abs(value - A[i]) > tolerance())</tt>
+     * Returns whether all cells of the given matrix <code>A</code> are equal to the
+     * given value. The result is <code>true</code> if and only if
+     * <code>A != null</code> and <code>! (Math.abs(value - A[i]) > tolerance())</code>
      * holds for all coordinates.
      * 
      * @param A
      *            the first matrix to compare.
      * @param value
      *            the value to compare against.
-     * @return <tt>true</tt> if the matrix is equal to the value; <tt>false</tt>
+     * @return <code>true</code> if the matrix is equal to the value; <code>false</code>
      *         otherwise.
      */
     public boolean equals(final FloatMatrix1D A, final float value) {
@@ -329,17 +336,17 @@ public class FloatProperty extends cern.colt.PersistentObject {
     }
 
     /**
-     * Returns whether both given matrices <tt>A</tt> and <tt>B</tt> are equal.
-     * The result is <tt>true</tt> if <tt>A==B</tt>. Otherwise, the result is
-     * <tt>true</tt> if and only if both arguments are <tt>!= null</tt>, have
-     * the same size and <tt>! (Math.abs(A[i] - B[i]) > tolerance())</tt> holds
+     * Returns whether both given matrices <code>A</code> and <code>B</code> are equal.
+     * The result is <code>true</code> if <code>A==B</code>. Otherwise, the result is
+     * <code>true</code> if and only if both arguments are <code>!= null</code>, have
+     * the same size and <code>! (Math.abs(A[i] - B[i]) > tolerance())</code> holds
      * for all indexes.
      * 
      * @param A
      *            the first matrix to compare.
      * @param B
      *            the second matrix to compare.
-     * @return <tt>true</tt> if both matrices are equal; <tt>false</tt>
+     * @return <code>true</code> if both matrices are equal; <code>false</code>
      *         otherwise.
      */
     public boolean equals(final FloatMatrix1D A, final FloatMatrix1D B) {
@@ -408,17 +415,17 @@ public class FloatProperty extends cern.colt.PersistentObject {
     }
 
     /**
-     * Returns whether all cells of the given matrix <tt>A</tt> are equal to the
-     * given value. The result is <tt>true</tt> if and only if
-     * <tt>A != null</tt> and
-     * <tt>! (Math.abs(value - A[row,col]) > tolerance())</tt> holds for all
+     * Returns whether all cells of the given matrix <code>A</code> are equal to the
+     * given value. The result is <code>true</code> if and only if
+     * <code>A != null</code> and
+     * <code>! (Math.abs(value - A[row,col]) > tolerance())</code> holds for all
      * coordinates.
      * 
      * @param A
      *            the first matrix to compare.
      * @param value
      *            the value to compare against.
-     * @return <tt>true</tt> if the matrix is equal to the value; <tt>false</tt>
+     * @return <code>true</code> if the matrix is equal to the value; <code>false</code>
      *         otherwise.
      */
     public boolean equals(final FloatMatrix2D A, final float value) {
@@ -485,18 +492,18 @@ public class FloatProperty extends cern.colt.PersistentObject {
     }
 
     /**
-     * Returns whether both given matrices <tt>A</tt> and <tt>B</tt> are equal.
-     * The result is <tt>true</tt> if <tt>A==B</tt>. Otherwise, the result is
-     * <tt>true</tt> if and only if both arguments are <tt>!= null</tt>, have
+     * Returns whether both given matrices <code>A</code> and <code>B</code> are equal.
+     * The result is <code>true</code> if <code>A==B</code>. Otherwise, the result is
+     * <code>true</code> if and only if both arguments are <code>!= null</code>, have
      * the same number of columns and rows and
-     * <tt>! (Math.abs(A[row,col] - B[row,col]) > tolerance())</tt> holds for
+     * <code>! (Math.abs(A[row,col] - B[row,col]) > tolerance())</code> holds for
      * all coordinates.
      * 
      * @param A
      *            the first matrix to compare.
      * @param B
      *            the second matrix to compare.
-     * @return <tt>true</tt> if both matrices are equal; <tt>false</tt>
+     * @return <code>true</code> if both matrices are equal; <code>false</code>
      *         otherwise.
      */
     public boolean equals(final FloatMatrix2D A, final FloatMatrix2D B) {
@@ -569,17 +576,17 @@ public class FloatProperty extends cern.colt.PersistentObject {
     }
 
     /**
-     * Returns whether all cells of the given matrix <tt>A</tt> are equal to the
-     * given value. The result is <tt>true</tt> if and only if
-     * <tt>A != null</tt> and
-     * <tt>! (Math.abs(value - A[slice,row,col]) > tolerance())</tt> holds for
+     * Returns whether all cells of the given matrix <code>A</code> are equal to the
+     * given value. The result is <code>true</code> if and only if
+     * <code>A != null</code> and
+     * <code>! (Math.abs(value - A[slice,row,col]) > tolerance())</code> holds for
      * all coordinates.
      * 
      * @param A
      *            the first matrix to compare.
      * @param value
      *            the value to compare against.
-     * @return <tt>true</tt> if the matrix is equal to the value; <tt>false</tt>
+     * @return <code>true</code> if the matrix is equal to the value; <code>false</code>
      *         otherwise.
      */
     public boolean equals(final FloatMatrix3D A, final float value) {
@@ -651,18 +658,18 @@ public class FloatProperty extends cern.colt.PersistentObject {
     }
 
     /**
-     * Returns whether both given matrices <tt>A</tt> and <tt>B</tt> are equal.
-     * The result is <tt>true</tt> if <tt>A==B</tt>. Otherwise, the result is
-     * <tt>true</tt> if and only if both arguments are <tt>!= null</tt>, have
+     * Returns whether both given matrices <code>A</code> and <code>B</code> are equal.
+     * The result is <code>true</code> if <code>A==B</code>. Otherwise, the result is
+     * <code>true</code> if and only if both arguments are <code>!= null</code>, have
      * the same number of columns, rows and slices, and
-     * <tt>! (Math.abs(A[slice,row,col] - B[slice,row,col]) > tolerance())</tt>
+     * <code>! (Math.abs(A[slice,row,col] - B[slice,row,col]) > tolerance())</code>
      * holds for all coordinates.
      * 
      * @param A
      *            the first matrix to compare.
      * @param B
      *            the second matrix to compare.
-     * @return <tt>true</tt> if both matrices are equal; <tt>false</tt>
+     * @return <code>true</code> if both matrices are equal; <code>false</code>
      *         otherwise.
      */
     public boolean equals(final FloatMatrix3D A, final FloatMatrix3D B) {
@@ -740,14 +747,14 @@ public class FloatProperty extends cern.colt.PersistentObject {
     }
 
     /**
-     * Modifies the given matrix square matrix <tt>A</tt> such that it is
+     * Modifies the given matrix square matrix <code>A</code> such that it is
      * diagonally dominant by row and column, hence non-singular, hence
      * invertible. For testing purposes only.
      * 
      * @param A
      *            the square matrix to modify.
      * @throws IllegalArgumentException
-     *             if <tt>!isSquare(A)</tt>.
+     *             if <code>!isSquare(A)</code>.
      */
     public void generateNonSingular(FloatMatrix2D A) {
         checkSquare(A);
@@ -764,14 +771,19 @@ public class FloatProperty extends cern.colt.PersistentObject {
     }
 
     /**
+     * @param list
+     * @param index
+     * @return 
      */
     protected static String get(cern.colt.list.tobject.ObjectArrayList list, int index) {
         return ((String) list.get(index));
     }
 
     /**
-     * A matrix <tt>A</tt> is <i>diagonal</i> if <tt>A[i,j] == 0</tt> whenever
-     * <tt>i != j</tt>. Matrix may but need not be square.
+     * A matrix <code>A</code> is <i>diagonal</i> if <code>A[i,j] == 0</code> whenever
+     * <code>i != j</code>. Matrix may but need not be square.
+     * @param A
+     * @return 
      */
     public boolean isDiagonal(FloatMatrix2D A) {
         float epsilon = tolerance();
@@ -787,14 +799,16 @@ public class FloatProperty extends cern.colt.PersistentObject {
     }
 
     /**
-     * A matrix <tt>A</tt> is <i>diagonally dominant by column</i> if the
+     * A matrix <code>A</code> is <i>diagonally dominant by column</i> if the
      * absolute value of each diagonal element is larger than the sum of the
      * absolute values of the off-diagonal elements in the corresponding column.
      * 
-     * <tt>returns true if for all i: abs(A[i,i]) &gt; Sum(abs(A[j,i])); j != i.</tt>
+     * <code>returns true if for all i: abs(A[i,i]) &gt; Sum(abs(A[j,i])); j != i.</code>
      * Matrix may but need not be square.
      * <p>
      * Note: Ignores tolerance.
+     * @param A
+     * @return 
      */
     public boolean isDiagonallyDominantByColumn(FloatMatrix2D A) {
         cern.jet.math.tfloat.FloatFunctions F = cern.jet.math.tfloat.FloatFunctions.functions;
@@ -809,13 +823,15 @@ public class FloatProperty extends cern.colt.PersistentObject {
     }
 
     /**
-     * A matrix <tt>A</tt> is <i>diagonally dominant by row</i> if the absolute
+     * A matrix <code>A</code> is <i>diagonally dominant by row</i> if the absolute
      * value of each diagonal element is larger than the sum of the absolute
      * values of the off-diagonal elements in the corresponding row.
-     * <tt>returns true if for all i: abs(A[i,i]) &gt; Sum(abs(A[i,j])); j != i.</tt>
+     * <code>returns true if for all i: abs(A[i,i]) &gt; Sum(abs(A[i,j])); j != i.</code>
      * Matrix may but need not be square.
      * <p>
      * Note: Ignores tolerance.
+     * @param A
+     * @return 
      */
     public boolean isDiagonallyDominantByRow(FloatMatrix2D A) {
         cern.jet.math.tfloat.FloatFunctions F = cern.jet.math.tfloat.FloatFunctions.functions;
@@ -830,8 +846,10 @@ public class FloatProperty extends cern.colt.PersistentObject {
     }
 
     /**
-     * A matrix <tt>A</tt> is an <i>identity</i> matrix if <tt>A[i,i] == 1</tt>
+     * A matrix <code>A</code> is an <i>identity</i> matrix if <code>A[i,i] == 1</code>
      * and all other cells are zero. Matrix may but need not be square.
+     * @param A
+     * @return 
      */
     public boolean isIdentity(FloatMatrix2D A) {
         float epsilon = tolerance();
@@ -851,8 +869,10 @@ public class FloatProperty extends cern.colt.PersistentObject {
     }
 
     /**
-     * A matrix <tt>A</tt> is <i>lower bidiagonal</i> if <tt>A[i,j]==0</tt>
-     * unless <tt>i==j || i==j+1</tt>. Matrix may but need not be square.
+     * A matrix <code>A</code> is <i>lower bidiagonal</i> if <code>A[i,j]==0</code>
+     * unless <code>i==j || i==j+1</code>. Matrix may but need not be square.
+     * @param A
+     * @return 
      */
     public boolean isLowerBidiagonal(FloatMatrix2D A) {
         float epsilon = tolerance();
@@ -870,8 +890,10 @@ public class FloatProperty extends cern.colt.PersistentObject {
     }
 
     /**
-     * A matrix <tt>A</tt> is <i>lower triangular</i> if <tt>A[i,j]==0</tt>
-     * whenever <tt>i &lt; j</tt>. Matrix may but need not be square.
+     * A matrix <code>A</code> is <i>lower triangular</i> if <code>A[i,j]==0</code>
+     * whenever <code>i &lt; j</code>. Matrix may but need not be square.
+     * @param A
+     * @return 
      */
     public boolean isLowerTriangular(FloatMatrix2D A) {
         float epsilon = tolerance();
@@ -887,10 +909,12 @@ public class FloatProperty extends cern.colt.PersistentObject {
     }
 
     /**
-     * A matrix <tt>A</tt> is <i>non-negative</i> if <tt>A[i,j] &gt;= 0</tt>
+     * A matrix <code>A</code> is <i>non-negative</i> if <code>A[i,j] &gt;= 0</code>
      * holds for all cells.
      * <p>
      * Note: Ignores tolerance.
+     * @param A
+     * @return 
      */
     public boolean isNonNegative(FloatMatrix2D A) {
         int rows = A.rows();
@@ -905,11 +929,13 @@ public class FloatProperty extends cern.colt.PersistentObject {
     }
 
     /**
-     * A square matrix <tt>A</tt> is <i>orthogonal</i> if
-     * <tt>A*transpose(A) = I</tt>.
+     * A square matrix <code>A</code> is <i>orthogonal</i> if
+     * <code>A*transpose(A) = I</code>.
      * 
+     * @param A
+     * @return 
      * @throws IllegalArgumentException
-     *             if <tt>!isSquare(A)</tt>.
+     *             if <code>!isSquare(A)</code>.
      */
     public boolean isOrthogonal(FloatMatrix2D A) {
         checkSquare(A);
@@ -918,10 +944,12 @@ public class FloatProperty extends cern.colt.PersistentObject {
     }
 
     /**
-     * A matrix <tt>A</tt> is <i>positive</i> if <tt>A[i,j] &gt; 0</tt> holds
+     * A matrix <code>A</code> is <i>positive</i> if <code>A[i,j] &gt; 0</code> holds
      * for all cells.
      * <p>
      * Note: Ignores tolerance.
+     * @param A
+     * @return 
      */
     public boolean isPositive(FloatMatrix2D A) {
         int rows = A.rows();
@@ -936,19 +964,23 @@ public class FloatProperty extends cern.colt.PersistentObject {
     }
 
     /**
-     * A matrix <tt>A</tt> is <i>singular</i> if it has no inverse, that is, iff
-     * <tt>det(A)==0</tt>.
+     * A matrix <code>A</code> is <i>singular</i> if it has no inverse, that is, iff
+     * <code>det(A)==0</code>.
+     * @param A
+     * @return 
      */
     public boolean isSingular(FloatMatrix2D A) {
         return !(Math.abs(DenseFloatAlgebra.DEFAULT.det(A)) >= tolerance());
     }
 
     /**
-     * A square matrix <tt>A</tt> is <i>skew-symmetric</i> if
-     * <tt>A = -transpose(A)</tt>, that is <tt>A[i,j] == -A[j,i]</tt>.
+     * A square matrix <code>A</code> is <i>skew-symmetric</i> if
+     * <code>A = -transpose(A)</code>, that is <code>A[i,j] == -A[j,i]</code>.
      * 
+     * @param A
+     * @return 
      * @throws IllegalArgumentException
-     *             if <tt>!isSquare(A)</tt>.
+     *             if <code>!isSquare(A)</code>.
      */
     public boolean isSkewSymmetric(FloatMatrix2D A) {
         checkSquare(A);
@@ -964,17 +996,21 @@ public class FloatProperty extends cern.colt.PersistentObject {
     }
 
     /**
-     * A matrix <tt>A</tt> is <i>square</i> if it has the same number of rows
+     * A matrix <code>A</code> is <i>square</i> if it has the same number of rows
      * and columns.
+     * @param A
+     * @return 
      */
     public boolean isSquare(FloatMatrix2D A) {
         return A.rows() == A.columns();
     }
 
     /**
-     * A matrix <tt>A</tt> is <i>strictly lower triangular</i> if
-     * <tt>A[i,j]==0</tt> whenever <tt>i &lt;= j</tt>. Matrix may but need not
+     * A matrix <code>A</code> is <i>strictly lower triangular</i> if
+     * <code>A[i,j]==0</code> whenever <code>i &lt;= j</code>. Matrix may but need not
      * be square.
+     * @param A
+     * @return 
      */
     public boolean isStrictlyLowerTriangular(FloatMatrix2D A) {
         float epsilon = tolerance();
@@ -990,8 +1026,10 @@ public class FloatProperty extends cern.colt.PersistentObject {
     }
 
     /**
-     * A matrix <tt>A</tt> is <i>strictly triangular</i> if it is triangular and
+     * A matrix <code>A</code> is <i>strictly triangular</i> if it is triangular and
      * its diagonal elements all equal 0. Matrix may but need not be square.
+     * @param A
+     * @return 
      */
     public boolean isStrictlyTriangular(FloatMatrix2D A) {
         if (!isTriangular(A))
@@ -1006,9 +1044,11 @@ public class FloatProperty extends cern.colt.PersistentObject {
     }
 
     /**
-     * A matrix <tt>A</tt> is <i>strictly upper triangular</i> if
-     * <tt>A[i,j]==0</tt> whenever <tt>i &gt;= j</tt>. Matrix may but need not
+     * A matrix <code>A</code> is <i>strictly upper triangular</i> if
+     * <code>A[i,j]==0</code> whenever <code>i &gt;= j</code>. Matrix may but need not
      * be square.
+     * @param A
+     * @return 
      */
     public boolean isStrictlyUpperTriangular(FloatMatrix2D A) {
         float epsilon = tolerance();
@@ -1024,11 +1064,13 @@ public class FloatProperty extends cern.colt.PersistentObject {
     }
 
     /**
-     * A matrix <tt>A</tt> is <i>symmetric</i> if <tt>A = tranpose(A)</tt>, that
-     * is <tt>A[i,j] == A[j,i]</tt>.
+     * A matrix <code>A</code> is <i>symmetric</i> if <code>A = tranpose(A)</code>, that
+     * is <code>A[i,j] == A[j,i]</code>.
      * 
+     * @param A
+     * @return 
      * @throws IllegalArgumentException
-     *             if <tt>!isSquare(A)</tt>.
+     *             if <code>!isSquare(A)</code>.
      */
     public boolean isSymmetric(FloatMatrix2D A) {
         checkSquare(A);
@@ -1036,16 +1078,20 @@ public class FloatProperty extends cern.colt.PersistentObject {
     }
 
     /**
-     * A matrix <tt>A</tt> is <i>triangular</i> iff it is either upper or lower
+     * A matrix <code>A</code> is <i>triangular</i> iff it is either upper or lower
      * triangular. Matrix may but need not be square.
+     * @param A
+     * @return 
      */
     public boolean isTriangular(FloatMatrix2D A) {
         return isLowerTriangular(A) || isUpperTriangular(A);
     }
 
     /**
-     * A matrix <tt>A</tt> is <i>tridiagonal</i> if <tt>A[i,j]==0</tt> whenever
-     * <tt>Math.abs(i-j) > 1</tt>. Matrix may but need not be square.
+     * A matrix <code>A</code> is <i>tridiagonal</i> if <code>A[i,j]==0</code> whenever
+     * <code>Math.abs(i-j) > 1</code>. Matrix may but need not be square.
+     * @param A
+     * @return 
      */
     public boolean isTridiagonal(FloatMatrix2D A) {
         float epsilon = tolerance();
@@ -1063,8 +1109,10 @@ public class FloatProperty extends cern.colt.PersistentObject {
     }
 
     /**
-     * A matrix <tt>A</tt> is <i>unit triangular</i> if it is triangular and its
+     * A matrix <code>A</code> is <i>unit triangular</i> if it is triangular and its
      * diagonal elements all equal 1. Matrix may but need not be square.
+     * @param A
+     * @return 
      */
     public boolean isUnitTriangular(FloatMatrix2D A) {
         if (!isTriangular(A))
@@ -1079,8 +1127,10 @@ public class FloatProperty extends cern.colt.PersistentObject {
     }
 
     /**
-     * A matrix <tt>A</tt> is <i>upper bidiagonal</i> if <tt>A[i,j]==0</tt>
-     * unless <tt>i==j || i==j-1</tt>. Matrix may but need not be square.
+     * A matrix <code>A</code> is <i>upper bidiagonal</i> if <code>A[i,j]==0</code>
+     * unless <code>i==j || i==j-1</code>. Matrix may but need not be square.
+     * @param A
+     * @return 
      */
     public boolean isUpperBidiagonal(FloatMatrix2D A) {
         float epsilon = tolerance();
@@ -1098,8 +1148,10 @@ public class FloatProperty extends cern.colt.PersistentObject {
     }
 
     /**
-     * A matrix <tt>A</tt> is <i>upper triangular</i> if <tt>A[i,j]==0</tt>
-     * whenever <tt>i &gt; j</tt>. Matrix may but need not be square.
+     * A matrix <code>A</code> is <i>upper triangular</i> if <code>A[i,j]==0</code>
+     * whenever <code>i &gt; j</code>. Matrix may but need not be square.
+     * @param A
+     * @return 
      */
     public boolean isUpperTriangular(FloatMatrix2D A) {
         float epsilon = tolerance();
@@ -1115,15 +1167,17 @@ public class FloatProperty extends cern.colt.PersistentObject {
     }
 
     /**
-     * A matrix <tt>A</tt> is <i>zero</i> if all its cells are zero.
+     * A matrix <code>A</code> is <i>zero</i> if all its cells are zero.
+     * @param A
+     * @return 
      */
     public boolean isZero(FloatMatrix2D A) {
         return equals(A, 0);
     }
 
     /**
-     * The <i>lower bandwidth</i> of a square matrix <tt>A</tt> is the maximum
-     * <tt>i-j</tt> for which <tt>A[i,j]</tt> is nonzero and <tt>i &gt; j</tt>.
+     * The <i>lower bandwidth</i> of a square matrix <code>A</code> is the maximum
+     * <code>i-j</code> for which <code>A[i,j]</code> is nonzero and <code>i &gt; j</code>.
      * A <i>banded</i> matrix has a "band" about the diagonal. Diagonal,
      * tridiagonal and triangular matrices are special cases.
      * 
@@ -1131,7 +1185,7 @@ public class FloatProperty extends cern.colt.PersistentObject {
      *            the square matrix to analyze.
      * @return the lower bandwith.
      * @throws IllegalArgumentException
-     *             if <tt>!isSquare(A)</tt>.
+     *             if <code>!isSquare(A)</code>.
      * @see #semiBandwidth(FloatMatrix2D)
      * @see #upperBandwidth(FloatMatrix2D)
      */
@@ -1151,111 +1205,111 @@ public class FloatProperty extends cern.colt.PersistentObject {
     }
 
     /**
-     * Returns the <i>semi-bandwidth</i> of the given square matrix <tt>A</tt>.
+     * Returns the <i>semi-bandwidth</i> of the given square matrix <code>A</code>.
      * A <i>banded</i> matrix has a "band" about the diagonal. It is a matrix
      * with all cells equal to zero, with the possible exception of the cells
-     * along the diagonal line, the <tt>k</tt> diagonal lines above the
-     * diagonal, and the <tt>k</tt> diagonal lines below the diagonal. The
-     * <i>semi-bandwith l</i> is the number <tt>k+1</tt>. The <i>bandwidth p</i>
-     * is the number <tt>2*k + 1</tt>. For example, a tridiagonal matrix
-     * corresponds to <tt>k=1, l=2, p=3</tt>, a diagonal or zero matrix
-     * corresponds to <tt>k=0, l=1, p=1</tt>,
+     * along the diagonal line, the <code>k</code> diagonal lines above the
+     * diagonal, and the <code>k</code> diagonal lines below the diagonal. The
+     * <i>semi-bandwith l</i> is the number <code>k+1</code>. The <i>bandwidth p</i>
+     * is the number <code>2*k + 1</code>. For example, a tridiagonal matrix
+     * corresponds to <code>k=1, l=2, p=3</code>, a diagonal or zero matrix
+     * corresponds to <code>k=0, l=1, p=1</code>,
      * <p>
-     * The <i>upper bandwidth</i> is the maximum <tt>j-i</tt> for which
-     * <tt>A[i,j]</tt> is nonzero and <tt>j &gt; i</tt>. The <i>lower
-     * bandwidth</i> is the maximum <tt>i-j</tt> for which <tt>A[i,j]</tt> is
-     * nonzero and <tt>i &gt; j</tt>. Diagonal, tridiagonal and triangular
+     * The <i>upper bandwidth</i> is the maximum <code>j-i</code> for which
+     * <code>A[i,j]</code> is nonzero and <code>j &gt; i</code>. The <i>lower
+     * bandwidth</i> is the maximum <code>i-j</code> for which <code>A[i,j]</code> is
+     * nonzero and <code>i &gt; j</code>. Diagonal, tridiagonal and triangular
      * matrices are special cases.
      * <p>
      * Examples:
      * <table border="1" cellspacing="0">
      * <tr align="left" valign="top">
-     * <td valign="middle" align="left"><tt>matrix</tt></td>
-     * <td> <tt>4&nbsp;x&nbsp;4&nbsp;<br>
+     * <td valign="middle" align="left"><code>matrix</code></td>
+     * <td> <code>4&nbsp;x&nbsp;4&nbsp;<br>
      0&nbsp;0&nbsp;0&nbsp;0<br>
      0&nbsp;0&nbsp;0&nbsp;0<br>
      0&nbsp;0&nbsp;0&nbsp;0<br>
-     0&nbsp;0&nbsp;0&nbsp;0 </tt></td>
-     * <td><tt>4&nbsp;x&nbsp;4<br>
+     0&nbsp;0&nbsp;0&nbsp;0 </code></td>
+     * <td><code>4&nbsp;x&nbsp;4<br>
      1&nbsp;0&nbsp;0&nbsp;0<br>
      0&nbsp;0&nbsp;0&nbsp;0<br>
      0&nbsp;0&nbsp;0&nbsp;0<br>
-     0&nbsp;0&nbsp;0&nbsp;1 </tt></td>
-     * <td><tt>4&nbsp;x&nbsp;4<br>
+     0&nbsp;0&nbsp;0&nbsp;1 </code></td>
+     * <td><code>4&nbsp;x&nbsp;4<br>
      1&nbsp;1&nbsp;0&nbsp;0<br>
      1&nbsp;1&nbsp;1&nbsp;0<br>
      0&nbsp;1&nbsp;1&nbsp;1<br>
-     0&nbsp;0&nbsp;1&nbsp;1 </tt></td>
-     * <td><tt> 4&nbsp;x&nbsp;4<br>
+     0&nbsp;0&nbsp;1&nbsp;1 </code></td>
+     * <td><code> 4&nbsp;x&nbsp;4<br>
      0&nbsp;1&nbsp;1&nbsp;1<br>
      0&nbsp;1&nbsp;1&nbsp;1<br>
      0&nbsp;0&nbsp;0&nbsp;1<br>
-     0&nbsp;0&nbsp;0&nbsp;1 </tt></td>
-     * <td><tt> 4&nbsp;x&nbsp;4<br>
+     0&nbsp;0&nbsp;0&nbsp;1 </code></td>
+     * <td><code> 4&nbsp;x&nbsp;4<br>
      0&nbsp;0&nbsp;0&nbsp;0<br>
      1&nbsp;1&nbsp;0&nbsp;0<br>
      1&nbsp;1&nbsp;0&nbsp;0<br>
-     1&nbsp;1&nbsp;1&nbsp;1 </tt></td>
-     * <td><tt>4&nbsp;x&nbsp;4<br>
+     1&nbsp;1&nbsp;1&nbsp;1 </code></td>
+     * <td><code>4&nbsp;x&nbsp;4<br>
      1&nbsp;1&nbsp;0&nbsp;0<br>
      0&nbsp;1&nbsp;1&nbsp;0<br>
      0&nbsp;1&nbsp;0&nbsp;1<br>
-     1&nbsp;0&nbsp;1&nbsp;1 </tt><tt> </tt></td>
-     * <td><tt>4&nbsp;x&nbsp;4<br>
+     1&nbsp;0&nbsp;1&nbsp;1 </code><code> </code></td>
+     * <td><code>4&nbsp;x&nbsp;4<br>
      1&nbsp;1&nbsp;1&nbsp;0<br>
      0&nbsp;1&nbsp;0&nbsp;0<br>
      1&nbsp;1&nbsp;0&nbsp;1<br>
-     0&nbsp;0&nbsp;1&nbsp;1 </tt></td>
+     0&nbsp;0&nbsp;1&nbsp;1 </code></td>
      * </tr>
      * <tr align="center" valign="middle">
-     * <td><tt>upperBandwidth</tt></td>
-     * <td><div align="center"><tt>0</tt></div></td>
-     * <td><div align="center"><tt>0</tt></div></td>
-     * <td><div align="center"><tt>1</tt></div></td>
-     * <td><tt>3</tt></td>
-     * <td align="center" valign="middle"><tt>0</tt></td>
-     * <td align="center" valign="middle"><div align="center"><tt>1</tt></div></td>
-     * <td align="center" valign="middle"><div align="center"><tt>2</tt></div></td>
+     * <td><code>upperBandwidth</code></td>
+     * <td><div align="center"><code>0</code></div></td>
+     * <td><div align="center"><code>0</code></div></td>
+     * <td><div align="center"><code>1</code></div></td>
+     * <td><code>3</code></td>
+     * <td align="center" valign="middle"><code>0</code></td>
+     * <td align="center" valign="middle"><div align="center"><code>1</code></div></td>
+     * <td align="center" valign="middle"><div align="center"><code>2</code></div></td>
      * </tr>
      * <tr align="center" valign="middle">
-     * <td><tt>lowerBandwidth</tt></td>
-     * <td><div align="center"><tt>0</tt></div></td>
-     * <td><div align="center"><tt>0</tt></div></td>
-     * <td><div align="center"><tt>1</tt></div></td>
-     * <td><tt>0</tt></td>
-     * <td align="center" valign="middle"><tt>3</tt></td>
-     * <td align="center" valign="middle"><div align="center"><tt>3</tt></div></td>
-     * <td align="center" valign="middle"><div align="center"><tt>2</tt></div></td>
+     * <td><code>lowerBandwidth</code></td>
+     * <td><div align="center"><code>0</code></div></td>
+     * <td><div align="center"><code>0</code></div></td>
+     * <td><div align="center"><code>1</code></div></td>
+     * <td><code>0</code></td>
+     * <td align="center" valign="middle"><code>3</code></td>
+     * <td align="center" valign="middle"><div align="center"><code>3</code></div></td>
+     * <td align="center" valign="middle"><div align="center"><code>2</code></div></td>
      * </tr>
      * <tr align="center" valign="middle">
-     * <td><tt>semiBandwidth</tt></td>
-     * <td><div align="center"><tt>1</tt></div></td>
-     * <td><div align="center"><tt>1</tt></div></td>
-     * <td><div align="center"><tt>2</tt></div></td>
-     * <td><tt>4</tt></td>
-     * <td align="center" valign="middle"><tt>4</tt></td>
-     * <td align="center" valign="middle"><div align="center"><tt>4</tt></div></td>
-     * <td align="center" valign="middle"><div align="center"><tt>3</tt></div></td>
+     * <td><code>semiBandwidth</code></td>
+     * <td><div align="center"><code>1</code></div></td>
+     * <td><div align="center"><code>1</code></div></td>
+     * <td><div align="center"><code>2</code></div></td>
+     * <td><code>4</code></td>
+     * <td align="center" valign="middle"><code>4</code></td>
+     * <td align="center" valign="middle"><div align="center"><code>4</code></div></td>
+     * <td align="center" valign="middle"><div align="center"><code>3</code></div></td>
      * </tr>
      * <tr align="center" valign="middle">
-     * <td><tt>description</tt></td>
-     * <td><div align="center"><tt>zero</tt></div></td>
-     * <td><div align="center"><tt>diagonal</tt></div></td>
-     * <td><div align="center"><tt>tridiagonal</tt></div></td>
-     * <td><tt>upper triangular</tt></td>
-     * <td align="center" valign="middle"><tt>lower triangular</tt></td>
+     * <td><code>description</code></td>
+     * <td><div align="center"><code>zero</code></div></td>
+     * <td><div align="center"><code>diagonal</code></div></td>
+     * <td><div align="center"><code>tridiagonal</code></div></td>
+     * <td><code>upper triangular</code></td>
+     * <td align="center" valign="middle"><code>lower triangular</code></td>
      * <td align="center" valign="middle"><div align="center">
-     * <tt>unstructured</tt></div></td>
+     * <code>unstructured</code></div></td>
      * <td align="center" valign="middle"><div align="center">
-     * <tt>unstructured</tt></div></td>
+     * <code>unstructured</code></div></td>
      * </tr>
      * </table>
      * 
      * @param A
      *            the square matrix to analyze.
-     * @return the semi-bandwith <tt>l</tt>.
+     * @return the semi-bandwith <code>l</code>.
      * @throws IllegalArgumentException
-     *             if <tt>!isSquare(A)</tt>.
+     *             if <code>!isSquare(A)</code>.
      * @see #lowerBandwidth(FloatMatrix2D)
      * @see #upperBandwidth(FloatMatrix2D)
      */
@@ -1277,10 +1331,11 @@ public class FloatProperty extends cern.colt.PersistentObject {
     }
 
     /**
-     * Sets the tolerance to <tt>Math.abs(newTolerance)</tt>.
+     * Sets the tolerance to <code>Math.abs(newTolerance)</code>.
      * 
+     * @param newTolerance
      * @throws UnsupportedOperationException
-     *             if <tt>this==DEFAULT || this==ZERO || this==TWELVE</tt>.
+     *             if <code>this==DEFAULT || this==ZERO || this==TWELVE</code>.
      */
     public void setTolerance(float newTolerance) {
         if (this == DEFAULT || this == ZERO || this == SEVEN) {
@@ -1291,13 +1346,14 @@ public class FloatProperty extends cern.colt.PersistentObject {
 
     /**
      * Returns the current tolerance.
+     * @return 
      */
     public float tolerance() {
         return tolerance;
     }
 
     /**
-     * Returns summary information about the given matrix <tt>A</tt>. That is a
+     * Returns summary information about the given matrix <code>A</code>. That is a
      * String with (propertyName, propertyValue) pairs. Useful for debugging or
      * to quickly get the rough picture of a matrix. For example,
      * 
@@ -1330,6 +1386,8 @@ public class FloatProperty extends cern.colt.PersistentObject {
      * 	 upperBandwidth               : Illegal operation or error: Matrix must be square.
      * 
      * </pre>
+     * @param A
+     * @return 
      */
     public String toString(FloatMatrix2D A) {
         final cern.colt.list.tobject.ObjectArrayList names = new cern.colt.list.tobject.ObjectArrayList();
@@ -1564,8 +1622,8 @@ public class FloatProperty extends cern.colt.PersistentObject {
     }
 
     /**
-     * The <i>upper bandwidth</i> of a square matrix <tt>A</tt> is the maximum
-     * <tt>j-i</tt> for which <tt>A[i,j]</tt> is nonzero and <tt>j &gt; i</tt>.
+     * The <i>upper bandwidth</i> of a square matrix <code>A</code> is the maximum
+     * <code>j-i</code> for which <code>A[i,j]</code> is nonzero and <code>j &gt; i</code>.
      * A <i>banded</i> matrix has a "band" about the diagonal. Diagonal,
      * tridiagonal and triangular matrices are special cases.
      * 
@@ -1573,7 +1631,7 @@ public class FloatProperty extends cern.colt.PersistentObject {
      *            the square matrix to analyze.
      * @return the upper bandwith.
      * @throws IllegalArgumentException
-     *             if <tt>!isSquare(A)</tt>.
+     *             if <code>!isSquare(A)</code>.
      * @see #semiBandwidth(FloatMatrix2D)
      * @see #lowerBandwidth(FloatMatrix2D)
      */

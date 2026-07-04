@@ -27,6 +27,7 @@ public abstract class DoubleMatrix1DTest extends TestCase {
 
     /**
      * Constructor for DoubleMatrix1DTest
+     * @param arg0
      */
     public DoubleMatrix1DTest(String arg0) {
         super(arg0);

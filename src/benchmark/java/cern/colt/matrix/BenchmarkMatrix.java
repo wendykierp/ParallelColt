@@ -19,9 +19,9 @@ import cern.colt.matrix.tdouble.algo.SmpDoubleBlas;
  * Configurable matrix benchmark. Runs the operations defined in main(args) or
  * in the file specified by args. To get <a href="doc-files/usage.txt">this
  * overall help</a> on usage type
- * <tt>java cern.colt.matrix.bench.BenchmarkMatrix -help</tt>. To get help on
+ * <code>java cern.colt.matrix.bench.BenchmarkMatrix -help</code>. To get help on
  * usage of a given command, type
- * <tt>java cern.colt.matrix.bench.BenchmarkMatrix -help &lt;command&gt;</tt>.
+ * <code>java cern.colt.matrix.bench.BenchmarkMatrix -help &lt;command&gt;</code>.
  * Here is the <a href="doc-files/usage_dgemm.txt">help ouput for the dgemm</a>
  * command. <a href="../doc-files/dgemmColt1.0.1ibm1.3LxPIII_2.txt">Here</a> is
  * a sample result. For more results see the <a

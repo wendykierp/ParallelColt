@@ -11,7 +11,7 @@ package cern.jet.stat.tdouble.quantile;
 import cern.jet.stat.BufferSet;
 
 /**
- * A set of buffers holding <tt>double</tt> elements; internally used for
+ * A set of buffers holding <code>double</code> elements; internally used for
  * computing approximate quantiles.
  */
 class DoubleBufferSet extends BufferSet {
@@ -243,7 +243,7 @@ class DoubleBufferSet extends BufferSet {
      * 
      * @param procedure
      *            the procedure to be applied. Stops iteration if the procedure
-     *            returns <tt>false</tt>, otherwise continues.
+     *            returns <code>false</code>, otherwise continues.
      */
     public boolean forEach(cern.colt.function.tdouble.DoubleProcedure procedure) {
         for (int i = buffers.length; --i >= 0;) {
@@ -419,13 +419,13 @@ class DoubleBufferSet extends BufferSet {
 
     /**
      * Returns how many percent of the elements contained in the receiver are
-     * <tt>&lt;= element</tt>. Does linear interpolation if the element is not
+     * <code>&lt;= element</code>. Does linear interpolation if the element is not
      * contained but lies in between two contained elements.
      * 
      * @param the
      *            element to search for.
-     * @return the percentage <tt>p</tt> of elements <tt>&lt;= element</tt> (
-     *         <tt>0.0 &lt;= p &lt;=1.0)</tt>.
+     * @return the percentage <code>p</code> of elements <code>&lt;= element</code> (
+     *         <code>0.0 &lt;= p &lt;=1.0)</code>.
      */
     public double phi(double element) {
         double elementsLessThanOrEqualToElement = 0.0;

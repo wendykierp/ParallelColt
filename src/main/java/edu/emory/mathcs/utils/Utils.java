@@ -192,7 +192,7 @@ public class Utils extends Object {
 
 	/**
 	 *
-	 * @param n
+     * @param size
 	 * @return
 	 */
 	public static int[] zeros(int size) {
@@ -322,7 +322,7 @@ public class Utils extends Object {
 
 	/**
 	 *
-	 * @param d
+     * @param ix
 	 * @return
 	 */
 	public static DoubleMatrix1D dbla(final int[] ix) {
@@ -355,7 +355,7 @@ public class Utils extends Object {
 
 	/**
 	 *
-	 * @param d
+     * @param ix
 	 * @return
 	 */
 	public static DoubleMatrix1D dblm(final IntMatrix1D ix) {
@@ -388,7 +388,7 @@ public class Utils extends Object {
 
 	/**
 	 *
-	 * @param d
+     * @param ix
 	 * @return
 	 */
 	public static DComplexMatrix1D cplxm(final IntMatrix1D ix) {

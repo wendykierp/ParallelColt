@@ -11,7 +11,7 @@ package cern.colt.buffer.tdouble;
 import cern.colt.list.tdouble.DoubleArrayList;
 
 /**
- * Target of a streaming <tt>DoubleBuffer2D</tt> into which data is flushed upon
+ * Target of a streaming <code>DoubleBuffer2D</code> into which data is flushed upon
  * buffer overflow.
  * 
  * @author wolfgang.hoschek@cern.ch

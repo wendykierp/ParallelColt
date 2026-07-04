@@ -32,9 +32,9 @@ public class SparseDoubleAlgebra {
      * tolerance. Allows ommiting to construct an Algebra object time and again.
      * 
      * Note that this Algebra object is immutable. Any attempt to assign a new
-     * Property object to it (via method <tt>setProperty</tt>), or to alter the
+     * Property object to it (via method <code>setProperty</code>), or to alter the
      * tolerance of its property object (via
-     * <tt>property().setTolerance(...)</tt>) will throw an exception.
+     * <code>property().setTolerance(...)</code>) will throw an exception.
      */
     public static final SparseDoubleAlgebra DEFAULT;
 
@@ -43,9 +43,9 @@ public class SparseDoubleAlgebra {
      * tolerance. Allows ommiting to construct an Algebra object time and again.
      * 
      * Note that this Algebra object is immutable. Any attempt to assign a new
-     * Property object to it (via method <tt>setProperty</tt>), or to alter the
+     * Property object to it (via method <code>setProperty</code>), or to alter the
      * tolerance of its property object (via
-     * <tt>property().setTolerance(...)</tt>) will throw an exception.
+     * <code>property().setTolerance(...)</code>) will throw an exception.
      */
     public static final SparseDoubleAlgebra ZERO;
 
@@ -80,7 +80,7 @@ public class SparseDoubleAlgebra {
 
     /**
      * Constructs a new instance with an equality tolerance given by
-     * <tt>Property.DEFAULT.tolerance()</tt>.
+     * <code>Property.DEFAULT.tolerance()</code>.
      */
     public SparseDoubleAlgebra() {
         this(DoubleProperty.DEFAULT.tolerance());
@@ -121,11 +121,11 @@ public class SparseDoubleAlgebra {
     }
 
     /**
-     * Returns the determinant of matrix <tt>A</tt>.
+     * Returns the determinant of matrix <code>A</code>.
      * 
      * @param A
      *            sparse matrix
-     * @return the determinant of matrix <tt>A</tt>
+     * @return the determinant of matrix <code>A</code>
      */
     public double det(DoubleMatrix2D A) {
         return lu(A, 0).det();
@@ -146,8 +146,10 @@ public class SparseDoubleAlgebra {
     }
 
     /**
-     * Returns the 1-norm of matrix <tt>A</tt>, which is the maximum absolute
+     * Returns the 1-norm of matrix <code>A</code>, which is the maximum absolute
      * column sum.
+     * @param A
+     * @return 
      */
     public double norm1(DoubleMatrix2D A) {
         DoubleProperty.DEFAULT.checkSparse(A);
@@ -161,8 +163,10 @@ public class SparseDoubleAlgebra {
     }
 
     /**
-     * Returns the infinity norm of matrix <tt>A</tt>, which is the maximum
+     * Returns the infinity norm of matrix <code>A</code>, which is the maximum
      * absolute row sum.
+     * @param A
+     * @return 
      */
     public double normInfinity(DoubleMatrix2D A) {
         DoubleProperty.DEFAULT.checkSparse(A);
@@ -205,10 +209,10 @@ public class SparseDoubleAlgebra {
      * @param property
      *            the Property object to be attached.
      * @throws UnsupportedOperationException
-     *             if <tt>this==DEFAULT && property!=this.property()</tt> - The
+     *             if <code>this==DEFAULT && property!=this.property()</code> - The
      *             DEFAULT Algebra object is immutable.
      * @throws UnsupportedOperationException
-     *             if <tt>this==ZERO && property!=this.property()</tt> - The
+     *             if <code>this==ZERO && property!=this.property()</code> - The
      *             ZERO Algebra object is immutable.
      * @see #property
      */

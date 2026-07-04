@@ -18,10 +18,10 @@ import cern.colt.matrix.tdouble.impl.DenseDoubleMatrix2D;
 import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
 
 /**
- * Selection view on dense 2-d matrices holding <tt>complex</tt> elements.
+ * Selection view on dense 2-d matrices holding <code>complex</code> elements.
  * <b>Implementation:</b>
  * <p>
- * Objects of this class are typically constructed via <tt>viewIndexes</tt>
+ * Objects of this class are typically constructed via <code>viewIndexes</code>
  * methods on some source matrix. The interface introduced in abstract super
  * classes defines everything a user can do. From a user point of view there is
  * nothing special about this class; it presents the same functionality with the
@@ -88,10 +88,10 @@ class SelectedDenseDComplexMatrix2D extends DComplexMatrix2D {
      *            the position of the first element.
      * @param rowStride
      *            the number of elements between two rows, i.e.
-     *            <tt>index(i+1,j)-index(i,j)</tt>.
+     *            <code>index(i+1,j)-index(i,j)</code>.
      * @param columnStride
      *            the number of elements between two columns, i.e.
-     *            <tt>index(i,j+1)-index(i,j)</tt>.
+     *            <code>index(i,j+1)-index(i,j)</code>.
      * @param rowOffsets
      *            The row offsets of the cells that shall be visible.
      * @param columnOffsets
@@ -132,13 +132,13 @@ class SelectedDenseDComplexMatrix2D extends DComplexMatrix2D {
     }
 
     /**
-     * Returns <tt>true</tt> if both matrices share common cells. More formally,
-     * returns <tt>true</tt> if <tt>other != null</tt> and at least one of the
+     * Returns <code>true</code> if both matrices share common cells. More formally,
+     * returns <code>true</code> if <code>other != null</code> and at least one of the
      * following conditions is met
      * <ul>
      * <li>the receiver is a view of the other matrix
      * <li>the other matrix is a view of the receiver
-     * <li><tt>this == other</tt>
+     * <li><code>this == other</code>
      * </ul>
      */
 

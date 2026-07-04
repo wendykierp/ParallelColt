@@ -12,9 +12,9 @@ import cern.colt.matrix.tobject.impl.DenseObjectMatrix1D;
 import cern.colt.matrix.tobject.impl.SparseObjectMatrix1D;
 
 /**
- * Factory for convenient construction of 1-d matrices holding <tt>Object</tt>
- * cells. Use idioms like <tt>ObjectFactory1D.dense.make(1000)</tt> to construct
- * dense matrices, <tt>ObjectFactory1D.sparse.make(1000)</tt> to construct
+ * Factory for convenient construction of 1-d matrices holding <code>Object</code>
+ * cells. Use idioms like <code>ObjectFactory1D.dense.make(1000)</code> to construct
+ * dense matrices, <code>ObjectFactory1D.sparse.make(1000)</code> to construct
  * sparse matrices.
  * 
  * If the factory is used frequently it might be useful to streamline the
@@ -59,7 +59,10 @@ public class ObjectFactory1D extends cern.colt.PersistentObject {
 
     /**
      * C = A||B; Constructs a new matrix which is the concatenation of two other
-     * matrices. Example: <tt>0 1</tt> append <tt>3 4</tt> --> <tt>0 1 3 4</tt>.
+     * matrices. Example: <code>0 1</code> append <code>3 4</code> --> <code>0 1 3 4</code>.
+     * @param A
+     * @param B
+     * @return 
      */
     public ObjectMatrix1D append(ObjectMatrix1D A, ObjectMatrix1D B) {
         // concatenate
@@ -72,6 +75,8 @@ public class ObjectFactory1D extends cern.colt.PersistentObject {
     /**
      * Constructs a matrix which is the concatenation of all given parts. Cells
      * are copied.
+     * @param parts
+     * @return 
      */
     public ObjectMatrix1D make(ObjectMatrix1D[] parts) {
         if (parts.length == 0)
@@ -93,11 +98,12 @@ public class ObjectFactory1D extends cern.colt.PersistentObject {
 
     /**
      * Constructs a matrix with the given cell values. The values are copied. So
-     * subsequent changes in <tt>values</tt> are not reflected in the matrix,
+     * subsequent changes in <code>values</code> are not reflected in the matrix,
      * and vice-versa.
      * 
      * @param values
      *            The values to be filled into the new matrix.
+     * @return 
      */
     public ObjectMatrix1D make(Object[] values) {
         if (this == sparse)
@@ -109,6 +115,8 @@ public class ObjectFactory1D extends cern.colt.PersistentObject {
     /**
      * Constructs a matrix with the given shape, each cell initialized with
      * zero.
+     * @param size
+     * @return 
      */
     public ObjectMatrix1D make(int size) {
         if (this == sparse)
@@ -119,6 +127,9 @@ public class ObjectFactory1D extends cern.colt.PersistentObject {
     /**
      * Constructs a matrix with the given shape, each cell initialized with the
      * given value.
+     * @param size
+     * @param initialValue
+     * @return 
      */
     public ObjectMatrix1D make(int size, Object initialValue) {
         return make(size).assign(initialValue);
@@ -126,7 +137,7 @@ public class ObjectFactory1D extends cern.colt.PersistentObject {
 
     /**
      * Constructs a matrix from the values of the given list. The values are
-     * copied. So subsequent changes in <tt>values</tt> are not reflected in the
+     * copied. So subsequent changes in <code>values</code> are not reflected in the
      * matrix, and vice-versa.
      * 
      * @param values
@@ -143,7 +154,7 @@ public class ObjectFactory1D extends cern.colt.PersistentObject {
 
     /**
      * C = A||A||..||A; Constructs a new matrix which is concatenated
-     * <tt>repeat</tt> times. Example:
+     * <code>repeat</code> times. Example:
      * 
      * <pre>
      * 	 0 1
@@ -151,6 +162,9 @@ public class ObjectFactory1D extends cern.colt.PersistentObject {
      * 	 0 1 0 1 0 1
      * 
      * </pre>
+     * @param A
+     * @param repeat
+     * @return 
      */
     public ObjectMatrix1D repeat(ObjectMatrix1D A, int repeat) {
         int size = (int) A.size();
@@ -163,7 +177,7 @@ public class ObjectFactory1D extends cern.colt.PersistentObject {
 
     /**
      * Constructs a list from the given matrix. The values are copied. So
-     * subsequent changes in <tt>values</tt> are not reflected in the list, and
+     * subsequent changes in <code>values</code> are not reflected in the list, and
      * vice-versa.
      * 
      * @param values

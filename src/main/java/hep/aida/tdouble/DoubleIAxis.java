@@ -17,6 +17,7 @@ public interface DoubleIAxis extends java.io.Serializable {
      * 
      * @param index
      *            Bin number (0...bins()-1) or OVERFLOW or UNDERFLOW.
+     * @return 
      */
     public double binCentre(int index);
 
@@ -26,12 +27,13 @@ public interface DoubleIAxis extends java.io.Serializable {
      * @param index
      *            Bin number (0...bins()-1) or OVERFLOW or UNDERFLOW.
      * @return the lower edge of the bin; for the underflow bin this is
-     *         <tt>Double.NEGATIVE_INFINITY</tt>.
+     *         <code>Double.NEGATIVE_INFINITY</code>.
      */
     public double binLowerEdge(int index);
 
     /**
      * The number of bins (excluding underflow and overflow) on the axis.
+     * @return 
      */
     public int bins();
 
@@ -41,7 +43,7 @@ public interface DoubleIAxis extends java.io.Serializable {
      * @param index
      *            Bin number (0...bins()-1) or OVERFLOW or UNDERFLOW.
      * @return the upper edge of the bin; for the overflow bin this is
-     *         <tt>Double.POSITIVE_INFINITY</tt>.
+     *         <code>Double.POSITIVE_INFINITY</code>.
      */
     public double binUpperEdge(int index);
 
@@ -50,6 +52,7 @@ public interface DoubleIAxis extends java.io.Serializable {
      * 
      * @param index
      *            Bin number (0...bins()-1) or OVERFLOW or UNDERFLOW.
+     * @return 
      */
     public double binWidth(int index);
 
@@ -57,16 +60,20 @@ public interface DoubleIAxis extends java.io.Serializable {
      * Converts a coordinate on the axis to a bin number. If the coordinate is <
      * lowerEdge returns UNDERFLOW, and if the coordinate is >= upperEdge
      * returns OVERFLOW.
+     * @param coord
+     * @return 
      */
     public int coordToIndex(double coord);
 
     /**
      * Lower axis edge.
+     * @return 
      */
     public double lowerEdge();
 
     /**
      * Upper axis edge.
+     * @return 
      */
     public double upperEdge();
 }

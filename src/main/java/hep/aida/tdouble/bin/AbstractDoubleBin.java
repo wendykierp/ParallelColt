@@ -2,7 +2,7 @@ package hep.aida.tdouble.bin;
 
 /**
  * Abstract base class for all arbitrary-dimensional bins consumes
- * <tt>double</tt> elements. First see the <a
+ * <code>double</code> elements. First see the <a
  * href="package-summary.html">package summary</a> and javadoc <a
  * href="package-tree.html">tree view</a> to get the broad picture.
  * <p>
@@ -10,7 +10,7 @@ package hep.aida.tdouble.bin;
  * you can have one or more threads adding to the bin as well as one or more
  * threads reading and viewing the statistics of the bin <i>while it is
  * filled</i>. For high performance, add data in large chunks (buffers) via
- * method <tt>addAllOf</tt> rather than piecewise via method <tt>add</tt>.
+ * method <code>addAllOf</code> rather than piecewise via method <code>add</code>.
  * 
  * @author wolfgang.hoschek@cern.ch
  * @version 0.9, 03-Jul-99
@@ -29,7 +29,8 @@ public abstract class AbstractDoubleBin extends cern.colt.PersistentObject {
     }
 
     /**
-     * Returns <tt>center(0)</tt>.
+     * Returns <code>center(0)</code>.
+     * @return 
      */
     public final double center() {
         return center(0);
@@ -41,14 +42,15 @@ public abstract class AbstractDoubleBin extends cern.colt.PersistentObject {
      * example, the center of gravity.
      * 
      * The <i>real</i> absolute center can be obtained as follow:
-     * <tt>partition(i).min(j) * bin(j).offset() + bin(j).center(i)</tt>, where
-     * <tt>i</tt> is the dimension. and <tt>j</tt> is the index of this bin.
+     * <code>partition(i).min(j) * bin(j).offset() + bin(j).center(i)</code>, where
+     * <code>i</code> is the dimension. and <code>j</code> is the index of this bin.
      * 
      * <p>
      * This default implementation always returns 0.5.
      * 
      * @param dimension
      *            the dimension to be considered (zero based).
+     * @return 
      */
     public synchronized double center(int dimension) {
         return 0.5;
@@ -64,6 +66,7 @@ public abstract class AbstractDoubleBin extends cern.colt.PersistentObject {
      * Returns whether two objects are equal; This default implementation
      * returns true if the other object is a bin and has the same size, value,
      * error and center.
+     * @param otherObj
      */
 
     public boolean equals(Object otherObj) {
@@ -75,7 +78,8 @@ public abstract class AbstractDoubleBin extends cern.colt.PersistentObject {
     }
 
     /**
-     * Returns <tt>error(0)</tt>.
+     * Returns <code>error(0)</code>.
+     * @return 
      */
     public final double error() {
         return error(0);
@@ -83,10 +87,11 @@ public abstract class AbstractDoubleBin extends cern.colt.PersistentObject {
 
     /**
      * Returns a custom definable error measure; override this method if
-     * necessary. This default implementation always returns <tt>0</tt>.
+     * necessary. This default implementation always returns <code>0</code>.
      * 
      * @param dimension
      *            the dimension to be considered.
+     * @return 
      */
     public synchronized double error(int dimension) {
         return 0;
@@ -96,12 +101,14 @@ public abstract class AbstractDoubleBin extends cern.colt.PersistentObject {
      * Returns whether a client can obtain all elements added to the receiver.
      * In other words, tells whether the receiver internally preserves all added
      * elements. If the receiver is rebinnable, the elements can be obtained via
-     * <tt>elements()</tt> methods.
+     * <code>elements()</code> methods.
+     * @return 
      */
     public abstract boolean isRebinnable();
 
     /**
-     * Returns <tt>offset(0)</tt>.
+     * Returns <code>offset(0)</code>.
+     * @return 
      */
     public final double offset() {
         return offset(0);
@@ -118,6 +125,7 @@ public abstract class AbstractDoubleBin extends cern.colt.PersistentObject {
      * 
      * @param dimension
      *            the index of the considered dimension (zero based);
+     * @return 
      */
     public double offset(int dimension) {
         return 1.0;
@@ -132,6 +140,7 @@ public abstract class AbstractDoubleBin extends cern.colt.PersistentObject {
 
     /**
      * Returns a String representation of the receiver.
+     * @return 
      */
 
     public synchronized String toString() {
@@ -157,7 +166,8 @@ public abstract class AbstractDoubleBin extends cern.colt.PersistentObject {
     }
 
     /**
-     * Returns <tt>value(0)</tt>.
+     * Returns <code>value(0)</code>.
+     * @return 
      */
     public final double value() {
         return value(0);
@@ -171,6 +181,7 @@ public abstract class AbstractDoubleBin extends cern.colt.PersistentObject {
      * 
      * @param dimension
      *            the dimension to be considered.
+     * @return 
      */
     public double value(int dimension) {
         return 0;

@@ -12,12 +12,12 @@ package cern.jet.math.tdouble;
  * Only for performance tuning of compute intensive linear algebraic
  * computations. Constructs functions that return one of
  * <ul>
- * <li><tt>a * constant</tt>
- * <li><tt>a / constant</tt>
+ * <li><code>a * constant</code>
+ * <li><code>a / constant</code>
  * </ul>
- * <tt>a</tt> is variable, <tt>constant</tt> is fixed, but for performance
+ * <code>a</code> is variable, <code>constant</code> is fixed, but for performance
  * reasons publicly accessible. Intended to be passed to
- * <tt>matrix.assign(function)</tt> methods.
+ * <code>matrix.assign(function)</code> methods.
  */
 public final class DoubleMult implements cern.colt.function.tdouble.DoubleFunction {
     /**
@@ -27,6 +27,7 @@ public final class DoubleMult implements cern.colt.function.tdouble.DoubleFuncti
 
     /**
      * Insert the method's description here. Creation date: (8/10/99 19:12:09)
+     * @param multiplicator
      */
     protected DoubleMult(final double multiplicator) {
         this.multiplicator = multiplicator;
@@ -34,20 +35,25 @@ public final class DoubleMult implements cern.colt.function.tdouble.DoubleFuncti
 
     /**
      * Returns the result of the function evaluation.
+     * @param a
      */
     public final double apply(double a) {
         return a * multiplicator;
     }
 
     /**
-     * <tt>a / constant</tt>.
+     * <code>a / constant</code>.
+     * @param constant
+     * @return 
      */
     public static DoubleMult div(final double constant) {
         return mult(1 / constant);
     }
 
     /**
-     * <tt>a * constant</tt>.
+     * <code>a * constant</code>.
+     * @param constant
+     * @return 
      */
     public static DoubleMult mult(final double constant) {
         return new DoubleMult(constant);

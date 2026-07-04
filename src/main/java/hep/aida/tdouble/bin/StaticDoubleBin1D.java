@@ -4,12 +4,12 @@ import cern.colt.list.tdouble.DoubleArrayList;
 import cern.jet.stat.tdouble.DoubleDescriptive;
 
 /**
- * 1-dimensional non-rebinnable bin consuming <tt>double</tt> elements;
+ * 1-dimensional non-rebinnable bin consuming <code>double</code> elements;
  * Efficiently computes basic statistics of data sequences. First see the <a
  * href="package-summary.html">package summary</a> and javadoc <a
  * href="package-tree.html">tree view</a> to get the broad picture.
  * <p>
- * The data streamed into a <tt>SimpleBin1D</tt> is not preserved! As a
+ * The data streamed into a <code>SimpleBin1D</code> is not preserved! As a
  * consequence infinitely many elements can be added to this bin. As a further
  * consequence this bin cannot compute more than basic statistics. It is also
  * not rebinnable. If these drawbacks matter, consider to use a
@@ -20,7 +20,7 @@ import cern.jet.stat.tdouble.DoubleDescriptive;
  * you can have one or more threads adding to the bin as well as one or more
  * threads reading and viewing the statistics of the bin <i>while it is
  * filled</i>. For high performance, add data in large chunks (buffers) via
- * method <tt>addAllOf</tt> rather than piecewise via method <tt>add</tt>.
+ * method <code>addAllOf</code> rather than piecewise via method <code>add</code>.
  * <p>
  * <b>Implementation</b>: Incremental maintainance. Performance linear in the
  * number of elements added.
@@ -95,8 +95,8 @@ public class StaticDoubleBin1D extends AbstractDoubleBin1D {
     }
 
     /**
-     * Adds the part of the specified list between indexes <tt>from</tt>
-     * (inclusive) and <tt>to</tt> (inclusive) to the receiver.
+     * Adds the part of the specified list between indexes <code>from</code>
+     * (inclusive) and <code>to</code> (inclusive) to the receiver.
      * 
      * @param list
      *            the list of which elements shall be added.
@@ -106,7 +106,7 @@ public class StaticDoubleBin1D extends AbstractDoubleBin1D {
      *            the index of the last element to be added (inclusive).
      * @throws IndexOutOfBoundsException
      *             if
-     *             <tt>list.size()&gt;0 && (from&lt;0 || from&gt;to || to&gt;=list.size())</tt>
+     *             <code>list.size()&gt;0 &amp;&amp; (from&lt;0 || from&gt;to || to&gt;=list.size())</code>
      *             .
      */
 
@@ -152,11 +152,12 @@ public class StaticDoubleBin1D extends AbstractDoubleBin1D {
     }
 
     /**
-     * Returns <tt>false</tt>. Returns whether a client can obtain all elements
+     * Returns <code>false</code>. Returns whether a client can obtain all elements
      * added to the receiver. In other words, tells whether the receiver
      * internally preserves all added elements. If the receiver is rebinnable,
-     * the elements can be obtained via <tt>elements()</tt> methods.
+     * the elements can be obtained via <code>elements()</code> methods.
      * 
+     * @return 
      */
 
     public synchronized boolean isRebinnable() {
@@ -165,6 +166,7 @@ public class StaticDoubleBin1D extends AbstractDoubleBin1D {
 
     /**
      * Returns the maximum.
+     * @return 
      */
 
     public synchronized double max() {
@@ -173,6 +175,7 @@ public class StaticDoubleBin1D extends AbstractDoubleBin1D {
 
     /**
      * Returns the minimum.
+     * @return 
      */
 
     public synchronized double min() {
@@ -190,7 +193,8 @@ public class StaticDoubleBin1D extends AbstractDoubleBin1D {
     }
 
     /**
-     * Returns the sum of all elements, which is <tt>Sum( x[i] )</tt>.
+     * Returns the sum of all elements, which is <code>Sum( x[i] )</code>.
+     * @return 
      */
 
     public synchronized double sum() {
@@ -198,7 +202,8 @@ public class StaticDoubleBin1D extends AbstractDoubleBin1D {
     }
 
     /**
-     * Returns the sum of squares, which is <tt>Sum( x[i] * x[i] )</tt>.
+     * Returns the sum of squares, which is <code>Sum( x[i] * x[i] )</code>.
+     * @return 
      */
 
     public synchronized double sumOfSquares() {

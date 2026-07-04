@@ -47,9 +47,9 @@ public class CSparseDoubleLUDecomposition implements SparseDoubleLUDecomposition
      *            if true, then the singularity test (based on
      *            Dulmage-Mendelsohn decomposition) is performed.
      * @throws IllegalArgumentException
-     *             if <tt>A</tt> is not square or is not sparse.
+     *             if <code>A</code> is not square or is not sparse.
      * @throws IllegalArgumentException
-     *             if <tt>order</tt> is not in [0,3]
+     *             if <code>order</code> is not in [0,3]
      */
     public CSparseDoubleLUDecomposition(DoubleMatrix2D A, int order, boolean checkIfSingular) {
         DoubleProperty.DEFAULT.checkSquare(A);

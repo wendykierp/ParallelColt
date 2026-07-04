@@ -21,17 +21,17 @@ import cern.jet.math.tdouble.DoubleFunctions;
 import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
 
 /**
- * Abstract base class for 2-d matrices holding <tt>double</tt> elements. First
+ * Abstract base class for 2-d matrices holding <code>double</code> elements. First
  * see the <a href="package-summary.html">package summary</a> and javadoc <a
  * href="package-tree.html">tree view</a> to get the broad picture.
  * <p>
  * A matrix has a number of rows and columns, which are assigned upon instance
- * construction - The matrix's size is then <tt>rows()*columns()</tt>. Elements
- * are accessed via <tt>[row,column]</tt> coordinates. Legal coordinates range
- * from <tt>[0,0]</tt> to <tt>[rows()-1,columns()-1]</tt>. Any attempt to access
+ * construction - The matrix's size is then <code>rows()*columns()</code>. Elements
+ * are accessed via <code>[row,column]</code> coordinates. Legal coordinates range
+ * from <code>[0,0]</code> to <code>[rows()-1,columns()-1]</code>. Any attempt to access
  * an element at a coordinate
- * <tt>column&lt;0 || column&gt;=columns() || row&lt;0 || row&gt;=rows()</tt>
- * will throw an <tt>IndexOutOfBoundsException</tt>.
+ * <code>column&lt;0 || column&gt;=columns() || row&lt;0 || row&gt;=rows()</code>
+ * will throw an <code>IndexOutOfBoundsException</code>.
  * <p>
  * <b>Note</b> that this implementation is not synchronized.
  * 
@@ -53,9 +53,9 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
 
     /**
      * Applies a function to each cell and aggregates the results. Returns a
-     * value <tt>v</tt> such that <tt>v==a(size())</tt> where
-     * <tt>a(i) == aggr( a(i-1), f(get(row,column)) )</tt> and terminators are
-     * <tt>a(1) == f(get(0,0)), a(0)==Double.NaN</tt>.
+     * value <code>v</code> such that <code>v==a(size())</code> where
+     * <code>a(i) == aggr( a(i-1), f(get(row,column)) )</code> and terminators are
+     * <code>a(1) == f(get(0,0)), a(0)==Double.NaN</code>.
      * <p>
      * <b>Example:</b>
      * 
@@ -257,11 +257,11 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
 
     /**
      * Applies a function to each corresponding cell of two matrices and
-     * aggregates the results. Returns a value <tt>v</tt> such that
-     * <tt>v==a(size())</tt> where
-     * <tt>a(i) == aggr( a(i-1), f(get(row,column),other.get(row,column)) )</tt>
+     * aggregates the results. Returns a value <code>v</code> such that
+     * <code>v==a(size())</code> where
+     * <code>a(i) == aggr( a(i-1), f(get(row,column),other.get(row,column)) )</code>
      * and terminators are
-     * <tt>a(1) == f(get(0,0),other.get(0,0)), a(0)==Double.NaN</tt>.
+     * <code>a(1) == f(get(0,0),other.get(0,0)), a(0)==Double.NaN</code>.
      * <p>
      * <b>Example:</b>
      * 
@@ -288,6 +288,7 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
      * For further examples, see the <a
      * href="package-summary.html#FunctionObjects">package doc</a>.
      * 
+     * @param other
      * @param aggr
      *            an aggregation function taking as first argument the current
      *            aggregation and as second argument the transformed current
@@ -297,7 +298,7 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
      * @return the aggregated measure.
      * @throws IllegalArgumentException
      *             if
-     *             <tt>columns() != other.columns() || rows() != other.rows()</tt>
+     *             <code>columns() != other.columns() || rows() != other.rows()</code>
      * @see cern.jet.math.tdouble.DoubleFunctions
      */
     public double aggregate(final DoubleMatrix2D other, final cern.colt.function.tdouble.DoubleDoubleFunction aggr,
@@ -345,7 +346,7 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
 
     /**
      * Assigns the result of a function to each cell;
-     * <tt>x[row,col] = function(x[row,col])</tt>.
+     * <code>x[row,col] = function(x[row,col])</code>.
      * <p>
      * <b>Example:</b>
      * 
@@ -368,7 +369,7 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
      * 
      * @param f
      *            a function object taking as argument the current cell's value.
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      * @see cern.jet.math.tdouble.DoubleFunctions
      */
     public DoubleMatrix2D assign(final cern.colt.function.tdouble.DoubleFunction f) {
@@ -410,7 +411,7 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
      * 
      * @param f
      *            a function object.
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      * @see cern.jet.math.tdouble.DoubleFunctions
      */
     public DoubleMatrix2D assign(final cern.colt.function.tdouble.DoubleProcedure cond,
@@ -460,7 +461,7 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
      * 
      * @param value
      *            a value.
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      * 
      */
     public DoubleMatrix2D assign(final cern.colt.function.tdouble.DoubleProcedure cond, final double value) {
@@ -503,11 +504,11 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
     }
 
     /**
-     * Sets all cells to the state specified by <tt>value</tt>.
+     * Sets all cells to the state specified by <code>value</code>.
      * 
      * @param value
      *            the value to be filled into the cells.
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      */
     public DoubleMatrix2D assign(final double value) {
         int nthreads = ConcurrencyUtils.getNumberOfThreads();
@@ -541,18 +542,18 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
     }
 
     /**
-     * Sets all cells to the state specified by <tt>values</tt>. <tt>values</tt>
-     * is required to have the form <tt>values[row*column]</tt> and elements
+     * Sets all cells to the state specified by <code>values</code>. <code>values</code>
+     * is required to have the form <code>values[row*column]</code> and elements
      * have to be stored in a row-wise order.
      * <p>
-     * The values are copied. So subsequent changes in <tt>values</tt> are not
+     * The values are copied. So subsequent changes in <code>values</code> are not
      * reflected in the matrix, and vice-versa.
      * 
      * @param values
      *            the values to be filled into the cells.
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      * @throws IllegalArgumentException
-     *             if <tt>values.length != rows()*columns()</tt>.
+     *             if <code>values.length != rows()*columns()</code>.
      */
     public DoubleMatrix2D assign(final double[] values) {
         if (values.length != rows * columns)
@@ -593,19 +594,19 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
     }
 
     /**
-     * Sets all cells to the state specified by <tt>values</tt>. <tt>values</tt>
-     * is required to have the form <tt>values[row][column]</tt> and have
+     * Sets all cells to the state specified by <code>values</code>. <code>values</code>
+     * is required to have the form <code>values[row][column]</code> and have
      * exactly the same number of rows and columns as the receiver.
      * <p>
-     * The values are copied. So subsequent changes in <tt>values</tt> are not
+     * The values are copied. So subsequent changes in <code>values</code> are not
      * reflected in the matrix, and vice-versa.
      * 
      * @param values
      *            the values to be filled into the cells.
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      * @throws IllegalArgumentException
      *             if
-     *             <tt>values.length != rows() || for any 0 &lt;= row &lt; rows(): values[row].length != columns()</tt>
+     *             <code>values.length != rows() || for any 0 &lt;= row &lt; rows(): values[row].length != columns()</code>
      *             .
      */
     public DoubleMatrix2D assign(final double[][] values) {
@@ -657,15 +658,15 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
      * both matrices share the same cells (as is the case if they are views
      * derived from the same matrix) and intersect in an ambiguous way, then
      * replaces <i>as if</i> using an intermediate auxiliary deep copy of
-     * <tt>other</tt>.
+     * <code>other</code>.
      * 
      * @param other
      *            the source matrix to copy from (may be identical to the
      *            receiver).
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      * @throws IllegalArgumentException
      *             if
-     *             <tt>columns() != other.columns() || rows() != other.rows()</tt>
+     *             <code>columns() != other.columns() || rows() != other.rows()</code>
      */
     public DoubleMatrix2D assign(DoubleMatrix2D other) {
         if (other == this)
@@ -709,7 +710,7 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
 
     /**
      * Assigns the result of a function to each cell;
-     * <tt>x[row,col] = function(x[row,col],y[row,col])</tt>.
+     * <code>x[row,col] = function(x[row,col],y[row,col])</code>.
      * <p>
      * <b>Example:</b>
      * 
@@ -738,12 +739,12 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
      *            the secondary matrix to operate on.
      * @param function
      *            a function object taking as first argument the current cell's
-     *            value of <tt>this</tt>, and as second argument the current
-     *            cell's value of <tt>y</tt>,
-     * @return <tt>this</tt> (for convenience only).
+     *            value of <code>this</code>, and as second argument the current
+     *            cell's value of <code>y</code>,
+     * @return <code>this</code> (for convenience only).
      * @throws IllegalArgumentException
      *             if
-     *             <tt>columns() != other.columns() || rows() != other.rows()</tt>
+     *             <code>columns() != other.columns() || rows() != other.rows()</code>
      * @see cern.jet.math.tdouble.DoubleFunctions
      */
     public DoubleMatrix2D assign(final DoubleMatrix2D y, final cern.colt.function.tdouble.DoubleDoubleFunction function) {
@@ -786,17 +787,17 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
      *            the secondary matrix to operate on.
      * @param function
      *            a function object taking as first argument the current cell's
-     *            value of <tt>this</tt>, and as second argument the current
-     *            cell's value of <tt>y</tt>,
+     *            value of <code>this</code>, and as second argument the current
+     *            cell's value of <code>y</code>,
      * @param rowList
      *            row indexes.
      * @param columnList
      *            column indexes.
      * 
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      * @throws IllegalArgumentException
      *             if
-     *             <tt>columns() != other.columns() || rows() != other.rows()</tt>
+     *             <code>columns() != other.columns() || rows() != other.rows()</code>
      * @see cern.jet.math.tdouble.DoubleFunctions
      */
     public DoubleMatrix2D assign(final DoubleMatrix2D y,
@@ -836,18 +837,18 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
     }
 
     /**
-     * Sets all cells to the state specified by <tt>values</tt>. <tt>values</tt>
-     * is required to have the form <tt>values[row*column]</tt> and elements
+     * Sets all cells to the state specified by <code>values</code>. <code>values</code>
+     * is required to have the form <code>values[row*column]</code> and elements
      * have to be stored in a row-wise order.
      * <p>
-     * The values are copied. So subsequent changes in <tt>values</tt> are not
+     * The values are copied. So subsequent changes in <code>values</code> are not
      * reflected in the matrix, and vice-versa.
      * 
      * @param values
      *            the values to be filled into the cells.
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      * @throws IllegalArgumentException
-     *             if <tt>values.length != rows()*columns()</tt>.
+     *             if <code>values.length != rows()*columns()</code>.
      */
     public DoubleMatrix2D assign(final float[] values) {
         if (values.length != rows * columns)
@@ -963,8 +964,8 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
      * 
      * @param value
      *            the value to test against.
-     * @return <tt>true</tt> if all cells are equal to the given value,
-     *         <tt>false</tt> otherwise.
+     * @return <code>true</code> if all cells are equal to the given value,
+     *         <code>false</code> otherwise.
      */
     public boolean equals(double value) {
         return cern.colt.matrix.tdouble.algo.DoubleProperty.DEFAULT.equals(this, value);
@@ -996,18 +997,18 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
 
     /**
      * Assigns the result of a function to each <i>non-zero</i> cell;
-     * <tt>x[row,col] = function(x[row,col])</tt>. Use this method for fast
+     * <code>x[row,col] = function(x[row,col])</code>. Use this method for fast
      * special-purpose iteration. If you want to modify another matrix instead
-     * of <tt>this</tt> (i.e. work in read-only mode), simply return the input
+     * of <code>this</code> (i.e. work in read-only mode), simply return the input
      * value unchanged.
      * 
-     * Parameters to function are as follows: <tt>first==row</tt>,
-     * <tt>second==column</tt>, <tt>third==nonZeroValue</tt>.
+     * Parameters to function are as follows: <code>first==row</code>,
+     * <code>second==column</code>, <code>third==nonZeroValue</code>.
      * 
      * @param function
      *            a function object taking as argument the current non-zero
      *            cell's row, column and value.
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      */
     public DoubleMatrix2D forEachNonZero(final cern.colt.function.tdouble.IntIntDoubleFunction function) {
         int nthreads = ConcurrencyUtils.getNumberOfThreads();
@@ -1050,7 +1051,7 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
     }
 
     /**
-     * Returns the matrix cell value at coordinate <tt>[row,column]</tt>.
+     * Returns the matrix cell value at coordinate <code>[row,column]</code>.
      * 
      * @param row
      *            the index of the row-coordinate.
@@ -1059,7 +1060,7 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
      * @return the value of the specified cell.
      * @throws IndexOutOfBoundsException
      *             if
-     *             <tt>column&lt;0 || column&gt;=columns() || row&lt;0 || row&gt;=rows()</tt>
+     *             <code>column&lt;0 || column&gt;=columns() || row&lt;0 || row&gt;=rows()</code>
      */
     public double get(int row, int column) {
         if (column < 0 || column >= columns || row < 0 || row >= rows)
@@ -1261,7 +1262,7 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
      * non-zero values.
      * <p>
      * In general, fill order is <i>unspecified</i>. This implementation fills
-     * like <tt>for (row = 0..rows-1) for (column = 0..columns-1) do ... </tt>.
+     * like <code>for (row = 0..rows-1) for (column = 0..columns-1) do ... </code>.
      * However, subclasses are free to us any other order, even an order that
      * may change over time as cell values are changed. (Of course, result lists
      * indexes are guaranteed to correspond to the same cell).
@@ -1279,7 +1280,7 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
      * 
      * </pre>
      * 
-     * In other words, <tt>get(0,2)==8, get(1,1)==7</tt>.
+     * In other words, <code>get(0,2)==8, get(1,1)==7</code>.
      * 
      * @param rowList
      *            the list to be filled with row indexes, can have any size.
@@ -1335,14 +1336,14 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
     }
 
     /**
-     * Returns the matrix cell value at coordinate <tt>[row,column]</tt>.
+     * Returns the matrix cell value at coordinate <code>[row,column]</code>.
      * 
      * <p>
      * Provided with invalid parameters this method may return invalid objects
      * without throwing any exception. <b>You should only use this method when
      * you are absolutely sure that the coordinate is within bounds.</b>
      * Precondition (unchecked):
-     * <tt>0 &lt;= column &lt; columns() && 0 &lt;= row &lt; rows()</tt>.
+     * <code>0 &lt;= column &lt; columns() &amp;&amp; 0 &lt;= row &lt; rows()</code>.
      * 
      * @param row
      *            the index of the row-coordinate.
@@ -1355,10 +1356,10 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
     /**
      * Construct and returns a new empty matrix <i>of the same dynamic type</i>
      * as the receiver, having the same number of rows and columns. For example,
-     * if the receiver is an instance of type <tt>DenseDoubleMatrix2D</tt> the
-     * new matrix must also be of type <tt>DenseDoubleMatrix2D</tt>, if the
-     * receiver is an instance of type <tt>SparseDoubleMatrix2D</tt> the new
-     * matrix must also be of type <tt>SparseDoubleMatrix2D</tt>, etc. In
+     * if the receiver is an instance of type <code>DenseDoubleMatrix2D</code> the
+     * new matrix must also be of type <code>DenseDoubleMatrix2D</code>, if the
+     * receiver is an instance of type <code>SparseDoubleMatrix2D</code> the new
+     * matrix must also be of type <code>SparseDoubleMatrix2D</code>, etc. In
      * general, the new matrix should have internal parametrization as similar
      * as possible.
      * 
@@ -1372,10 +1373,10 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
      * Construct and returns a new empty matrix <i>of the same dynamic type</i>
      * as the receiver, having the specified number of rows and columns. For
      * example, if the receiver is an instance of type
-     * <tt>DenseDoubleMatrix2D</tt> the new matrix must also be of type
-     * <tt>DenseDoubleMatrix2D</tt>, if the receiver is an instance of type
-     * <tt>SparseDoubleMatrix2D</tt> the new matrix must also be of type
-     * <tt>SparseDoubleMatrix2D</tt>, etc. In general, the new matrix should
+     * <code>DenseDoubleMatrix2D</code> the new matrix must also be of type
+     * <code>DenseDoubleMatrix2D</code>, if the receiver is an instance of type
+     * <code>SparseDoubleMatrix2D</code> the new matrix must also be of type
+     * <code>SparseDoubleMatrix2D</code>, etc. In general, the new matrix should
      * have internal parametrization as similar as possible.
      * 
      * @param rows
@@ -1389,10 +1390,10 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
     /**
      * Construct and returns a new 1-d matrix <i>of the corresponding dynamic
      * type</i>, entirelly independent of the receiver. For example, if the
-     * receiver is an instance of type <tt>DenseDoubleMatrix2D</tt> the new
-     * matrix must be of type <tt>DenseDoubleMatrix1D</tt>, if the receiver is
-     * an instance of type <tt>SparseDoubleMatrix2D</tt> the new matrix must be
-     * of type <tt>SparseDoubleMatrix1D</tt>, etc.
+     * receiver is an instance of type <code>DenseDoubleMatrix2D</code> the new
+     * matrix must be of type <code>DenseDoubleMatrix1D</code>, if the receiver is
+     * an instance of type <code>SparseDoubleMatrix2D</code> the new matrix must be
+     * of type <code>SparseDoubleMatrix1D</code>, etc.
      * 
      * @param size
      *            the number of cells the matrix shall have.
@@ -1420,7 +1421,7 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
     }
 
     /**
-     * Sets the matrix cell at coordinate <tt>[row,column]</tt> to the specified
+     * Sets the matrix cell at coordinate <code>[row,column]</code> to the specified
      * value.
      * 
      * @param row
@@ -1431,7 +1432,7 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
      *            the value to be filled into the specified cell.
      * @throws IndexOutOfBoundsException
      *             if
-     *             <tt>column&lt;0 || column&gt;=columns() || row&lt;0 || row&gt;=rows()</tt>
+     *             <code>column&lt;0 || column&gt;=columns() || row&lt;0 || row&gt;=rows()</code>
      */
     public void set(int row, int column, double value) {
         if (column < 0 || column >= columns || row < 0 || row >= rows)
@@ -1440,7 +1441,7 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
     }
 
     /**
-     * Sets the matrix cell at coordinate <tt>[row,column]</tt> to the specified
+     * Sets the matrix cell at coordinate <code>[row,column]</code> to the specified
      * value.
      * 
      * <p>
@@ -1448,7 +1449,7 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
      * without throwing any exception. <b>You should only use this method when
      * you are absolutely sure that the coordinate is within bounds.</b>
      * Precondition (unchecked):
-     * <tt>0 &lt;= column &lt; columns() && 0 &lt;= row &lt; rows()</tt>.
+     * <code>0 &lt;= column &lt; columns() &amp;&amp; 0 &lt;= row &lt; rows()</code>.
      * 
      * @param row
      *            the index of the row-coordinate.
@@ -1461,11 +1462,11 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
 
     /**
      * Constructs and returns a 2-dimensional array containing the cell values.
-     * The returned array <tt>values</tt> has the form
-     * <tt>values[row][column]</tt> and has the same number of rows and columns
+     * The returned array <code>values</code> has the form
+     * <code>values[row][column]</code> and has the same number of rows and columns
      * as the receiver.
      * <p>
-     * The values are copied. So subsequent changes in <tt>values</tt> are not
+     * The values are copied. So subsequent changes in <code>values</code> are not
      * reflected in the matrix, and vice-versa.
      * 
      * @return an array filled with the values of the cells.
@@ -1506,6 +1507,7 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
     /**
      * Returns a string representation using default formatting.
      * 
+     * @return 
      * @see cern.colt.matrix.tdouble.algo.DoubleFormatter
      */
 
@@ -1526,7 +1528,7 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
      * the given column. The returned view is backed by this matrix, so changes
      * in the returned view are reflected in this matrix, and vice-versa. To
      * obtain a slice view on subranges, construct a sub-ranging view (
-     * <tt>viewPart(...)</tt>), then apply this method to the sub-range view.
+     * <code>viewPart(...)</code>), then apply this method to the sub-range view.
      * <p>
      * <b>Example:</b>
      * <table border="0">
@@ -1544,7 +1546,7 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
      *            the column to fix.
      * @return a new slice view.
      * @throws IndexOutOfBoundsException
-     *             if <tt>column < 0 || column >= columns()</tt>.
+     *             if <code>column < 0 || column >= columns()</code>.
      * @see #viewRow(int)
      */
     public DoubleMatrix1D viewColumn(int column) {
@@ -1557,8 +1559,8 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
 
     /**
      * Constructs and returns a new <i>flip view</i> along the column axis. What
-     * used to be column <tt>0</tt> is now column <tt>columns()-1</tt>, ...,
-     * what used to be column <tt>columns()-1</tt> is now column <tt>0</tt>. The
+     * used to be column <code>0</code> is now column <code>columns()-1</code>, ...,
+     * what used to be column <code>columns()-1</code> is now column <code>0</code>. The
      * returned view is backed by this matrix, so changes in the returned view
      * are reflected in this matrix, and vice-versa.
      * <p>
@@ -1591,11 +1593,11 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
      * axes; example: 3 x 4 matrix --> 4 x 3 matrix. The view has both
      * dimensions exchanged; what used to be columns become rows, what used to
      * be rows become columns. In other words:
-     * <tt>view.get(row,column)==this.get(column,row)</tt>. This is a zero-copy
+     * <code>view.get(row,column)==this.get(column,row)</code>. This is a zero-copy
      * transposition, taking O(1), i.e. constant time. The returned view is
      * backed by this matrix, so changes in the returned view are reflected in
      * this matrix, and vice-versa. Use idioms like
-     * <tt>result = viewDice(A).copy()</tt> to generate an independent
+     * <code>result = viewDice(A).copy()</code> to generate an independent
      * transposed matrix.
      * <p>
      * <b>Example:</b>
@@ -1624,25 +1626,25 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
 
     /**
      * Constructs and returns a new <i>sub-range view</i> that is a
-     * <tt>height x width</tt> sub matrix starting at <tt>[row,column]</tt>.
+     * <code>height x width</code> sub matrix starting at <code>[row,column]</code>.
      * 
      * Operations on the returned view can only be applied to the restricted
      * range. Any attempt to access coordinates not contained in the view will
-     * throw an <tt>IndexOutOfBoundsException</tt>.
+     * throw an <code>IndexOutOfBoundsException</code>.
      * <p>
      * <b>Note that the view is really just a range restriction:</b> The
      * returned matrix is backed by this matrix, so changes in the returned
      * matrix are reflected in this matrix, and vice-versa.
      * <p>
-     * The view contains the cells from <tt>[row,column]</tt> to
-     * <tt>[row+height-1,column+width-1]</tt>, all inclusive. and has
-     * <tt>view.rows() == height; view.columns() == width;</tt>. A view's legal
+     * The view contains the cells from <code>[row,column]</code> to
+     * <code>[row+height-1,column+width-1]</code>, all inclusive. and has
+     * <code>view.rows() == height; view.columns() == width;</code>. A view's legal
      * coordinates are again zero based, as usual. In other words, legal
-     * coordinates of the view range from <tt>[0,0]</tt> to
-     * <tt>[view.rows()-1==height-1,view.columns()-1==width-1]</tt>. As usual,
+     * coordinates of the view range from <code>[0,0]</code> to
+     * <code>[view.rows()-1==height-1,view.columns()-1==width-1]</code>. As usual,
      * any attempt to access a cell at a coordinate
-     * <tt>column&lt;0 || column&gt;=view.columns() || row&lt;0 || row&gt;=view.rows()</tt>
-     * will throw an <tt>IndexOutOfBoundsException</tt>.
+     * <code>column&lt;0 || column&gt;=view.columns() || row&lt;0 || row&gt;=view.rows()</code>
+     * will throw an <code>IndexOutOfBoundsException</code>.
      * 
      * @param row
      *            The index of the row-coordinate.
@@ -1654,7 +1656,7 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
      *            The width of the box.
      * @throws IndexOutOfBoundsException
      *             if
-     *             <tt>column<0 || width<0 || column+width>columns() || row<0 || height<0 || row+height>rows()</tt>
+     *             <code>column<0 || width<0 || column+width>columns() || row<0 || height<0 || row+height>rows()</code>
      * @return the new view.
      * 
      */
@@ -1667,7 +1669,7 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
      * of the given row. The returned view is backed by this matrix, so changes
      * in the returned view are reflected in this matrix, and vice-versa. To
      * obtain a slice view on subranges, construct a sub-ranging view (
-     * <tt>viewPart(...)</tt>), then apply this method to the sub-range view.
+     * <code>viewPart(...)</code>), then apply this method to the sub-range view.
      * <p>
      * <b>Example:</b>
      * <table border="0">
@@ -1685,7 +1687,7 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
      *            the row to fix.
      * @return a new slice view.
      * @throws IndexOutOfBoundsException
-     *             if <tt>row < 0 || row >= rows()</tt>.
+     *             if <code>row < 0 || row >= rows()</code>.
      * @see #viewColumn(int)
      */
     public DoubleMatrix1D viewRow(int row) {
@@ -1698,8 +1700,8 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
 
     /**
      * Constructs and returns a new <i>flip view</i> along the row axis. What
-     * used to be row <tt>0</tt> is now row <tt>rows()-1</tt>, ..., what used to
-     * be row <tt>rows()-1</tt> is now row <tt>0</tt>. The returned view is
+     * used to be row <code>0</code> is now row <code>rows()-1</code>, ..., what used to
+     * be row <code>rows()-1</code> is now row <code>0</code>. The returned view is
      * backed by this matrix, so changes in the returned view are reflected in
      * this matrix, and vice-versa.
      * <p>
@@ -1731,7 +1733,7 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
      * Constructs and returns a new <i>selection view</i> that is a matrix
      * holding all <b>rows</b> matching the given condition. Applies the
      * condition to each row and takes only those row where
-     * <tt>condition.apply(viewRow(i))</tt> yields <tt>true</tt>. To match
+     * <code>condition.apply(viewRow(i))</code> yields <code>true</code>. To match
      * columns, use a dice view.
      * <p>
      * <b>Example:</b> <br>
@@ -1780,8 +1782,8 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
     /**
      * Constructs and returns a new <i>selection view</i> that is a matrix
      * holding the indicated cells. There holds
-     * <tt>view.rows() == rowIndexes.length, view.columns() == columnIndexes.length</tt>
-     * and <tt>view.get(i,j) == this.get(rowIndexes[i],columnIndexes[j])</tt>.
+     * <code>view.rows() == rowIndexes.length, view.columns() == columnIndexes.length</code>
+     * and <code>view.get(i,j) == this.get(rowIndexes[i],columnIndexes[j])</code>.
      * Indexes can occur multiple times and can be in arbitrary order.
      * <p>
      * <b>Example:</b>
@@ -1810,18 +1812,18 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
      * @param rowIndexes
      *            The rows of the cells that shall be visible in the new view.
      *            To indicate that <i>all</i> rows shall be visible, simply set
-     *            this parameter to <tt>null</tt>.
+     *            this parameter to <code>null</code>.
      * @param columnIndexes
      *            The columns of the cells that shall be visible in the new
      *            view. To indicate that <i>all</i> columns shall be visible,
-     *            simply set this parameter to <tt>null</tt>.
+     *            simply set this parameter to <code>null</code>.
      * @return the new view.
      * @throws IndexOutOfBoundsException
-     *             if <tt>!(0 <= rowIndexes[i] < rows())</tt> for any
-     *             <tt>i=0..rowIndexes.length()-1</tt>.
+     *             if <code>!(0 <= rowIndexes[i] < rows())</code> for any
+     *             <code>i=0..rowIndexes.length()-1</code>.
      * @throws IndexOutOfBoundsException
-     *             if <tt>!(0 <= columnIndexes[i] < columns())</tt> for any
-     *             <tt>i=0..columnIndexes.length()-1</tt>.
+     *             if <code>!(0 <= columnIndexes[i] < columns())</code> for any
+     *             <code>i=0..columnIndexes.length()-1</code>.
      */
     public DoubleMatrix2D viewSelection(int[] rowIndexes, int[] columnIndexes) {
         // check for "all"
@@ -1881,9 +1883,10 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
      * . For more advanced sorting functionality, see
      * {@link cern.colt.matrix.tdouble.algo.DoubleSorting}.
      * 
+     * @param column
      * @return a new sorted vector (matrix) view.
      * @throws IndexOutOfBoundsException
-     *             if <tt>column < 0 || column >= columns()</tt>.
+     *             if <code>column < 0 || column >= columns()</code>.
      */
     public DoubleMatrix2D viewSorted(int column) {
         return cern.colt.matrix.tdouble.algo.DoubleSorting.mergeSort.sort(this, column);
@@ -1892,10 +1895,10 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
     /**
      * Constructs and returns a new <i>stride view</i> which is a sub matrix
      * consisting of every i-th cell. More specifically, the view has
-     * <tt>this.rows()/rowStride</tt> rows and
-     * <tt>this.columns()/columnStride</tt> columns holding cells
-     * <tt>this.get(i*rowStride,j*columnStride)</tt> for all
-     * <tt>i = 0..rows()/rowStride - 1, j = 0..columns()/columnStride - 1</tt>.
+     * <code>this.rows()/rowStride</code> rows and
+     * <code>this.columns()/columnStride</code> columns holding cells
+     * <code>this.get(i*rowStride,j*columnStride)</code> for all
+     * <code>i = 0..rows()/rowStride - 1, j = 0..columns()/columnStride - 1</code>.
      * The returned view is backed by this matrix, so changes in the returned
      * view are reflected in this matrix, and vice-versa.
      * 
@@ -1905,7 +1908,7 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
      *            the column step factor.
      * @return a new view.
      * @throws IndexOutOfBoundsException
-     *             if <tt>rowStride<=0 || columnStride<=0</tt>.
+     *             if <code>rowStride<=0 || columnStride<=0</code>.
      */
     public DoubleMatrix2D viewStrides(int rowStride, int columnStride) {
         return (DoubleMatrix2D) (view().vStrides(rowStride, columnStride));
@@ -1913,8 +1916,8 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
 
     /**
      * 8 neighbor stencil transformation. For efficient finite difference
-     * operations. Applies a function to a moving <tt>3 x 3</tt> window. Does
-     * nothing if <tt>rows() < 3 || columns() < 3</tt>.
+     * operations. Applies a function to a moving <code>3 x 3</code> window. Does
+     * nothing if <code>rows() &lt; 3 || columns() &lt; 3</code>.
      * 
      * <pre>
      * 	 B[i,j] = function.apply(
@@ -1931,7 +1934,7 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
      * 
      * </pre>
      * 
-     * Make sure that cells of <tt>this</tt> and <tt>B</tt> do not overlap. In
+     * Make sure that cells of <code>this</code> and <code>B</code> do not overlap. In
      * case of overlapping views, behaviour is unspecified.
      * 
      * </pre>
@@ -1967,9 +1970,9 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
      * @param function
      *            the function to be applied to the 9 cells.
      * @throws NullPointerException
-     *             if <tt>function==null</tt>.
+     *             if <code>function==null</code>.
      * @throws IllegalArgumentException
-     *             if <tt>rows() != B.rows() || columns() != B.columns()</tt>.
+     *             if <code>rows() != B.rows() || columns() != B.columns()</code>.
      */
     public void zAssign8Neighbors(DoubleMatrix2D B, cern.colt.function.tdouble.Double9Function function) {
         if (function == null)
@@ -2013,8 +2016,11 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
     }
 
     /**
-     * Linear algebraic matrix-vector multiplication; <tt>z = A * y</tt>;
-     * Equivalent to <tt>return A.zMult(y,z,1,0);</tt>
+     * Linear algebraic matrix-vector multiplication; <code>z = A * y</code>;
+     * Equivalent to <code>return A.zMult(y,z,1,0);</code>
+     * @param y
+     * @param z
+     * @return 
      */
     public DoubleMatrix1D zMult(DoubleMatrix1D y, DoubleMatrix1D z) {
         return zMult(y, z, 1, 0, false);
@@ -2022,9 +2028,9 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
 
     /**
      * Linear algebraic matrix-vector multiplication;
-     * <tt>z = alpha * A * y + beta*z</tt>.
-     * <tt>z[i] = alpha*Sum(A[i,j] * y[j]) + beta*z[i], i=0..A.rows()-1, j=0..y.size()-1</tt>
-     * . Where <tt>A == this</tt>. <br>
+     * <code>z = alpha * A * y + beta*z</code>.
+     * <code>z[i] = alpha*Sum(A[i,j] * y[j]) + beta*z[i], i=0..A.rows()-1, j=0..y.size()-1</code>
+     * . Where <code>A == this</code>. <br>
      * Note: Matrix shape conformance is checked <i>after</i> potential
      * transpositions.
      * 
@@ -2032,12 +2038,15 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
      *            the source vector.
      * @param z
      *            the vector where results are to be stored. Set this parameter
-     *            to <tt>null</tt> to indicate that a new result vector shall be
+     *            to <code>null</code> to indicate that a new result vector shall be
      *            constructed.
+     * @param alpha
+     * @param transposeA
+     * @param beta
      * @return z (for convenience only).
      * 
      * @throws IllegalArgumentException
-     *             if <tt>A.columns() != y.size() || A.rows() > z.size())</tt>.
+     *             if <code>A.columns() != y.size() || A.rows() > z.size())</code>.
      */
     public DoubleMatrix1D zMult(final DoubleMatrix1D y, DoubleMatrix1D z, final double alpha, final double beta,
             final boolean transposeA) {
@@ -2087,8 +2096,11 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
     }
 
     /**
-     * Linear algebraic matrix-matrix multiplication; <tt>C = A x B</tt>;
-     * Equivalent to <tt>A.zMult(B,C,1,0,false,false)</tt>.
+     * Linear algebraic matrix-matrix multiplication; <code>C = A x B</code>;
+     * Equivalent to <code>A.zMult(B,C,1,0,false,false)</code>.
+     * @param B
+     * @param C
+     * @return 
      */
     public DoubleMatrix2D zMult(DoubleMatrix2D B, DoubleMatrix2D C) {
         return zMult(B, C, 1, 0, false, false);
@@ -2096,9 +2108,9 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
 
     /**
      * Linear algebraic matrix-matrix multiplication;
-     * <tt>C = alpha * A x B + beta*C</tt>.
-     * <tt>C[i,j] = alpha*Sum(A[i,k] * B[k,j]) + beta*C[i,j], k=0..n-1</tt>. <br>
-     * Matrix shapes: <tt>A(m x n), B(n x p), C(m x p)</tt>. <br>
+     * <code>C = alpha * A x B + beta*C</code>.
+     * <code>C[i,j] = alpha*Sum(A[i,k] * B[k,j]) + beta*C[i,j], k=0..n-1</code>. <br>
+     * Matrix shapes: <code>A(m x n), B(n x p), C(m x p)</code>. <br>
      * Note: Matrix shape conformance is checked <i>after</i> potential
      * transpositions.
      * 
@@ -2106,17 +2118,21 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
      *            the second source matrix.
      * @param C
      *            the matrix where results are to be stored. Set this parameter
-     *            to <tt>null</tt> to indicate that a new result matrix shall be
+     *            to <code>null</code> to indicate that a new result matrix shall be
      *            constructed.
+     * @param alpha
+     * @param transposeB
+     * @param beta
+     * @param transposeA
      * @return C (for convenience only).
      * 
      * @throws IllegalArgumentException
-     *             if <tt>B.rows() != A.columns()</tt>.
+     *             if <code>B.rows() != A.columns()</code>.
      * @throws IllegalArgumentException
      *             if
-     *             <tt>C.rows() != A.rows() || C.columns() != B.columns()</tt>.
+     *             <code>C.rows() != A.rows() || C.columns() != B.columns()</code>.
      * @throws IllegalArgumentException
-     *             if <tt>A == C || B == C</tt>.
+     *             if <code>A == C || B == C</code>.
      */
     public DoubleMatrix2D zMult(final DoubleMatrix2D B, DoubleMatrix2D C, final double alpha, final double beta,
             final boolean transposeA, final boolean transposeB) {
@@ -2180,7 +2196,7 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
     }
 
     /**
-     * Returns the sum of all cells; <tt>Sum( x[i,j] )</tt>.
+     * Returns the sum of all cells; <code>Sum( x[i,j] )</code>.
      * 
      * @return the sum.
      */
@@ -2191,15 +2207,18 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
     }
 
     /**
-     * Returns the content of this matrix if it is a wrapper; or <tt>this</tt>
+     * Returns the content of this matrix if it is a wrapper; or <code>this</code>
      * otherwise. Override this method in wrappers.
+     * @return 
      */
     protected DoubleMatrix2D getContent() {
         return this;
     }
 
     /**
-     * Returns <tt>true</tt> if both matrices share at least one identical cell.
+     * Returns <code>true</code> if both matrices share at least one identical cell.
+     * @param other
+     * @return 
      */
     protected boolean haveSharedCells(DoubleMatrix2D other) {
         if (other == null)
@@ -2210,7 +2229,9 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
     }
 
     /**
-     * Returns <tt>true</tt> if both matrices share at least one identical cell.
+     * Returns <code>true</code> if both matrices share at least one identical cell.
+     * @param other
+     * @return 
      */
     protected boolean haveSharedCellsRaw(DoubleMatrix2D other) {
         return false;
@@ -2219,10 +2240,10 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
     /**
      * Construct and returns a new 1-d matrix <i>of the corresponding dynamic
      * type</i>, sharing the same cells. For example, if the receiver is an
-     * instance of type <tt>DenseDoubleMatrix2D</tt> the new matrix must be of
-     * type <tt>DenseDoubleMatrix1D</tt>, if the receiver is an instance of type
-     * <tt>SparseDoubleMatrix2D</tt> the new matrix must be of type
-     * <tt>SparseDoubleMatrix1D</tt>, etc.
+     * instance of type <code>DenseDoubleMatrix2D</code> the new matrix must be of
+     * type <code>DenseDoubleMatrix1D</code>, if the receiver is an instance of type
+     * <code>SparseDoubleMatrix2D</code> the new matrix must be of type
+     * <code>SparseDoubleMatrix1D</code>, etc.
      * 
      * @param size
      *            the number of cells the matrix shall have.
@@ -2230,7 +2251,7 @@ public abstract class DoubleMatrix2D extends AbstractMatrix2D {
      *            the index of the first element.
      * @param stride
      *            the number of indexes between any two elements, i.e.
-     *            <tt>index(i+1)-index(i)</tt>.
+     *            <code>index(i+1)-index(i)</code>.
      * @return a new matrix of the corresponding dynamic type.
      */
     protected abstract DoubleMatrix1D like1D(int size, int zero, int stride);

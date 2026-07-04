@@ -15,13 +15,13 @@ import cern.colt.matrix.tfloat.algo.FloatProperty;
 
 /**
  * A low level version of {@link DenseFloatLUDecomposition}, avoiding
- * unnecessary memory allocation and copying. The input to <tt>decompose</tt>
- * methods is overriden with the result (LU). The input to <tt>solve</tt>
+ * unnecessary memory allocation and copying. The input to <code>decompose</code>
+ * methods is overriden with the result (LU). The input to <code>solve</code>
  * methods is overriden with the result (X). In addition to
- * <tt>LUDecomposition</tt>, this class also includes a faster variant of the
+ * <code>LUDecomposition</code>, this class also includes a faster variant of the
  * decomposition, specialized for tridiagonal (and hence also diagonal)
  * matrices, as well as a solver tuned for vectors. Its disadvantage is that it
- * is a bit more difficult to use than <tt>LUDecomposition</tt>. Thus, you may
+ * is a bit more difficult to use than <code>LUDecomposition</code>. Thus, you may
  * want to disregard this class and come back later, if a need for speed arises.
  * <p>
  * An instance of this class remembers the result of its last decomposition.
@@ -30,25 +30,25 @@ import cern.colt.matrix.tfloat.algo.FloatProperty;
  * as many equation problems as needed. Once another matrix needs to be
  * LU-decomposed, you need not create a new instance of this class. Start again
  * by calling a decompose method, then retrieve the decomposition and/or solve
- * your equations, and so on. In case a <tt>LU</tt> matrix is already available,
- * call method <tt>setLU</tt> instead of <tt>decompose</tt> and proceed with
+ * your equations, and so on. In case a <code>LU</code> matrix is already available,
+ * call method <code>setLU</code> instead of <code>decompose</code> and proceed with
  * solving et al.
  * <p>
- * If a matrix shall not be overriden, use <tt>matrix.copy()</tt> and hand the
+ * If a matrix shall not be overriden, use <code>matrix.copy()</code> and hand the
  * the copy to methods.
  * <p>
- * For an <tt>m x n</tt> matrix <tt>A</tt> with <tt>m >= n</tt>, the LU
- * decomposition is an <tt>m x n</tt> unit lower triangular matrix <tt>L</tt>,
- * an <tt>n x n</tt> upper triangular matrix <tt>U</tt>, and a permutation
- * vector <tt>piv</tt> of length <tt>m</tt> so that <tt>A(piv,:) = L*U</tt>; If
- * <tt>m < n</tt>, then <tt>L</tt> is <tt>m x m</tt> and <tt>U</tt> is
- * <tt>m x n</tt>.
+ * For an <code>m x n</code> matrix <code>A</code> with <code>m >= n</code>, the LU
+ * decomposition is an <code>m x n</code> unit lower triangular matrix <code>L</code>,
+ * an <code>n x n</code> upper triangular matrix <code>U</code>, and a permutation
+ * vector <code>piv</code> of length <code>m</code> so that <code>A(piv,:) = L*U</code>; If
+ * <code>m &lt; n</code>, then <code>L</code> is <code>m x m</code> and <code>U</code> is
+ * <code>m x n</code>.
  * <P>
  * The LU decomposition with pivoting always exists, even if the matrix is
  * singular, so the decompose methods will never fail. The primary use of the LU
  * decomposition is in the solution of square systems of simultaneous linear
  * equations. Attempting to solve such a system will throw an exception if
- * <tt>isNonsingular()</tt> returns false.
+ * <code>isNonsingular()</code> returns false.
  * <p>
  */
 public class DenseFloatLUDecompositionQuick implements java.io.Serializable {
@@ -87,7 +87,7 @@ public class DenseFloatLUDecompositionQuick implements java.io.Serializable {
 
     /**
      * Constructs and returns a new LU Decomposition object with default
-     * tolerance <tt>1.0E-9</tt> for singularity detection.
+     * tolerance <code>1.0E-9</code> for singularity detection.
      */
     public DenseFloatLUDecompositionQuick() {
         this(FloatProperty.DEFAULT.tolerance());
@@ -96,15 +96,16 @@ public class DenseFloatLUDecompositionQuick implements java.io.Serializable {
     /**
      * Constructs and returns a new LU Decomposition object which uses the given
      * tolerance for singularity detection;
+     * @param tolerance
      */
     public DenseFloatLUDecompositionQuick(float tolerance) {
         this.algebra = new DenseFloatAlgebra(tolerance);
     }
 
     /**
-     * Decomposes matrix <tt>A</tt> into <tt>L</tt> and <tt>U</tt> (in-place).
-     * Upon return <tt>A</tt> is overridden with the result <tt>LU</tt>, such
-     * that <tt>L*U = A</tt>. Uses a "left-looking", dot-product,
+     * Decomposes matrix <code>A</code> into <code>L</code> and <code>U</code> (in-place).
+     * Upon return <code>A</code> is overridden with the result <code>LU</code>, such
+     * that <code>L*U = A</code>. Uses a "left-looking", dot-product,
      * Crout/Doolittle algorithm.
      * 
      * @param A
@@ -208,9 +209,9 @@ public class DenseFloatLUDecompositionQuick implements java.io.Serializable {
     }
 
     /**
-     * Decomposes the banded and square matrix <tt>A</tt> into <tt>L</tt> and
-     * <tt>U</tt> (in-place). Upon return <tt>A</tt> is overridden with the
-     * result <tt>LU</tt>, such that <tt>L*U = A</tt>. Currently supports
+     * Decomposes the banded and square matrix <code>A</code> into <code>L</code> and
+     * <code>U</code> (in-place). Upon return <code>A</code> is overridden with the
+     * result <code>LU</code>, such that <code>L*U = A</code>. Currently supports
      * diagonal and tridiagonal matrices, all other cases fall through to
      * {@link #decompose(FloatMatrix2D)}.
      * 
@@ -258,10 +259,11 @@ public class DenseFloatLUDecompositionQuick implements java.io.Serializable {
     }
 
     /**
-     * Returns the determinant, <tt>det(A)</tt>.
+     * Returns the determinant, <code>det(A)</code>.
      * 
+     * @return 
      * @exception IllegalArgumentException
-     *                if <tt>A.rows() != A.columns()</tt> (Matrix must be
+     *                if <code>A.rows() != A.columns()</code> (Matrix must be
      *                square).
      */
     public float det() {
@@ -295,9 +297,9 @@ public class DenseFloatLUDecompositionQuick implements java.io.Serializable {
     }
 
     /**
-     * Returns the lower triangular factor, <tt>L</tt>.
+     * Returns the lower triangular factor, <code>L</code>.
      * 
-     * @return <tt>L</tt>
+     * @return <code>L</code>
      */
     public FloatMatrix2D getL() {
         return lowerTriangular(LU.copy());
@@ -305,9 +307,9 @@ public class DenseFloatLUDecompositionQuick implements java.io.Serializable {
 
     /**
      * Returns a copy of the combined lower and upper triangular factor,
-     * <tt>LU</tt>.
+     * <code>LU</code>.
      * 
-     * @return <tt>LU</tt>
+     * @return <code>LU</code>
      */
     public FloatMatrix2D getLU() {
         return LU.copy();
@@ -323,9 +325,9 @@ public class DenseFloatLUDecompositionQuick implements java.io.Serializable {
     }
 
     /**
-     * Returns the upper triangular factor, <tt>U</tt>.
+     * Returns the upper triangular factor, <code>U</code>.
      * 
-     * @return <tt>U</tt>
+     * @return <code>U</code>
      */
     public FloatMatrix2D getU() {
         return upperTriangular(LU.copy());
@@ -334,7 +336,7 @@ public class DenseFloatLUDecompositionQuick implements java.io.Serializable {
     /**
      * Returns whether the matrix is nonsingular (has an inverse).
      * 
-     * @return true if <tt>U</tt>, and hence <tt>A</tt>, is nonsingular; false
+     * @return true if <code>U</code>, and hence <code>A</code>, is nonsingular; false
      *         otherwise.
      */
     public boolean isNonsingular() {
@@ -344,7 +346,8 @@ public class DenseFloatLUDecompositionQuick implements java.io.Serializable {
     /**
      * Returns whether the matrix is nonsingular.
      * 
-     * @return true if <tt>matrix</tt> is nonsingular; false otherwise.
+     * @param matrix
+     * @return true if <code>matrix</code> is nonsingular; false otherwise.
      */
     protected boolean isNonsingular(FloatMatrix2D matrix) {
         int m = matrix.rows();
@@ -423,7 +426,8 @@ public class DenseFloatLUDecompositionQuick implements java.io.Serializable {
      * </tr>
      * </table>
      * 
-     * @return <tt>A</tt> (for convenience only).
+     * @param A
+     * @return <code>A</code> (for convenience only).
      * @see #triangulateUpper(FloatMatrix2D)
      */
     protected FloatMatrix2D lowerTriangular(FloatMatrix2D A) {
@@ -446,6 +450,7 @@ public class DenseFloatLUDecompositionQuick implements java.io.Serializable {
 
     /**
      * 
+     * @return 
      */
     protected int m() {
         return LU.rows();
@@ -453,15 +458,17 @@ public class DenseFloatLUDecompositionQuick implements java.io.Serializable {
 
     /**
      * 
+     * @return 
      */
     protected int n() {
         return LU.columns();
     }
 
     /**
-     * Sets the combined lower and upper triangular factor, <tt>LU</tt>. The
+     * Sets the combined lower and upper triangular factor, <code>LU</code>. The
      * parameter is not checked; make sure it is indeed a proper LU
      * decomposition.
+     * @param LU
      */
     public void setLU(FloatMatrix2D LU) {
         this.LU = LU;
@@ -469,18 +476,18 @@ public class DenseFloatLUDecompositionQuick implements java.io.Serializable {
     }
 
     /**
-     * Solves the system of equations <tt>A*X = B</tt> (in-place). Upon return
-     * <tt>B</tt> is overridden with the result <tt>X</tt>, such that
-     * <tt>L*U*X = B(piv)</tt>.
+     * Solves the system of equations <code>A*X = B</code> (in-place). Upon return
+     * <code>B</code> is overridden with the result <code>X</code>, such that
+     * <code>L*U*X = B(piv)</code>.
      * 
      * @param B
-     *            A vector with <tt>B.size() == A.rows()</tt>.
+     *            A vector with <code>B.size() == A.rows()</code>.
      * @exception IllegalArgumentException
-     *                if </tt>B.size() != A.rows()</tt>.
+     *                if </code>B.size() != A.rows()</code>.
      * @exception IllegalArgumentException
-     *                if A is singular, that is, if <tt>!isNonsingular()</tt>.
+     *                if A is singular, that is, if <code>!isNonsingular()</code>.
      * @exception IllegalArgumentException
-     *                if <tt>A.rows() < A.columns()</tt>.
+     *                if <code>A.rows() &lt; A.columns()</code>.
      */
     public void solve(FloatMatrix1D B) {
         algebra.property().checkRectangular(LU);
@@ -530,19 +537,19 @@ public class DenseFloatLUDecompositionQuick implements java.io.Serializable {
     }
 
     /**
-     * Solves the system of equations <tt>A*X = B</tt> (in-place). Upon return
-     * <tt>B</tt> is overridden with the result <tt>X</tt>, such that
-     * <tt>L*U*X = B(piv,:)</tt>.
+     * Solves the system of equations <code>A*X = B</code> (in-place). Upon return
+     * <code>B</code> is overridden with the result <code>X</code>, such that
+     * <code>L*U*X = B(piv,:)</code>.
      * 
      * @param B
-     *            A matrix with as many rows as <tt>A</tt> and any number of
+     *            A matrix with as many rows as <code>A</code> and any number of
      *            columns.
      * @exception IllegalArgumentException
-     *                if </tt>B.rows() != A.rows()</tt>.
+     *                if </code>B.rows() != A.rows()</code>.
      * @exception IllegalArgumentException
-     *                if A is singular, that is, if <tt>!isNonsingular()</tt>.
+     *                if A is singular, that is, if <code>!isNonsingular()</code>.
      * @exception IllegalArgumentException
-     *                if <tt>A.rows() < A.columns()</tt>.
+     *                if <code>A.rows() &lt; A.columns()</code>.
      */
     public void solve(FloatMatrix2D B) {
         final int CUT_OFF = 10;
@@ -650,19 +657,19 @@ public class DenseFloatLUDecompositionQuick implements java.io.Serializable {
     }
 
     /**
-     * Solves <tt>A*X = B</tt>.
+     * Solves <code>A*X = B</code>.
      * 
      * @param B
-     *            A matrix with as many rows as <tt>A</tt> and any number of
+     *            A matrix with as many rows as <code>A</code> and any number of
      *            columns.
-     * @return <tt>X</tt> so that <tt>L*U*X = B(piv,:)</tt>.
+     * @return <code>X</code> so that <code>L*U*X = B(piv,:)</code>.
      * @exception IllegalArgumentException
-     *                if </tt>B.rows() != A.rows()</tt>.
+     *                if </code>B.rows() != A.rows()</code>.
      * @exception IllegalArgumentException
      *                if A is singular, that is, if
-     *                <tt>!this.isNonsingular()</tt>.
+     *                <code>!this.isNonsingular()</code>.
      * @exception IllegalArgumentException
-     *                if <tt>A.rows() < A.columns()</tt>.
+     *                if <code>A.rows() &lt; A.columns()</code>.
      */
     private void solveOld(FloatMatrix2D B) {
         algebra.property().checkRectangular(LU);
@@ -724,6 +731,7 @@ public class DenseFloatLUDecompositionQuick implements java.io.Serializable {
      * 	 trace         : 0
      * 
      * </pre>
+     * @return 
      */
 
     public String toString() {
@@ -784,7 +792,8 @@ public class DenseFloatLUDecompositionQuick implements java.io.Serializable {
     /**
      * Modifies the matrix to be an upper triangular matrix.
      * 
-     * @return <tt>A</tt> (for convenience only).
+     * @param A
+     * @return <code>A</code> (for convenience only).
      * @see #triangulateLower(FloatMatrix2D)
      */
     protected FloatMatrix2D upperTriangular(FloatMatrix2D A) {

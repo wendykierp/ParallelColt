@@ -166,6 +166,7 @@ public abstract class DoubleIterativeSolverTest extends TestCase {
 
     /**
      * Constructor for IterativeSolverTest
+     * @param arg0
      */
     public DoubleIterativeSolverTest(String arg0) {
         super(arg0);

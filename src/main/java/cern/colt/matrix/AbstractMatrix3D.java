@@ -33,19 +33,19 @@ public abstract class AbstractMatrix3D extends AbstractMatrix {
 
     /**
      * the number of elements between two slices, i.e.
-     * <tt>index(k+1,i,j) - index(k,i,j)</tt>.
+     * <code>index(k+1,i,j) - index(k,i,j)</code>.
      */
     protected int sliceStride;
 
     /**
      * the number of elements between two rows, i.e.
-     * <tt>index(k,i+1,j) - index(k,i,j)</tt>.
+     * <code>index(k,i+1,j) - index(k,i,j)</code>.
      */
     protected int rowStride;
 
     /**
      * the number of elements between two columns, i.e.
-     * <tt>index(k,i,j+1) - index(k,i,j)</tt>.
+     * <code>index(k,i,j+1) - index(k,i,j)</code>.
      */
     protected int columnStride;
 
@@ -64,8 +64,7 @@ public abstract class AbstractMatrix3D extends AbstractMatrix {
      * non-virtual) internal 1-dimensional array. Default implementation.
      * Override, if necessary.
      * 
-     * @param rank
-     *            the absolute rank of the element.
+     * @param absRank
      * @return the position.
      */
     protected int _columnOffset(int absRank) {
@@ -88,8 +87,7 @@ public abstract class AbstractMatrix3D extends AbstractMatrix {
      * non-virtual) internal 1-dimensional array. Default implementation.
      * Override, if necessary.
      * 
-     * @param rank
-     *            the absolute rank of the element.
+     * @param absRank
      * @return the position.
      */
     protected int _rowOffset(int absRank) {
@@ -112,8 +110,7 @@ public abstract class AbstractMatrix3D extends AbstractMatrix {
      * non-virtual) internal 1-dimensional array. Default implementation.
      * Override, if necessary.
      * 
-     * @param rank
-     *            the absolute rank of the element.
+     * @param absRank
      * @return the position.
      */
     protected int _sliceOffset(int absRank) {
@@ -135,10 +132,16 @@ public abstract class AbstractMatrix3D extends AbstractMatrix {
      * Checks whether the receiver contains the given box and throws an
      * exception, if necessary.
      * 
+     * @param slice
+     * @param width
+     * @param row
+     * @param height
+     * @param column
+     * @param depth
      * @throws IndexOutOfBoundsException
      *             if
      * 
-     *             <tt>row<0 || height<0 || row+height>rows || slice<0 || depth<0 || slice+depth>slices  || column<0 || width<0 || column+width>columns</tt>
+     *             <code>row<0 || height<0 || row+height>rows || slice<0 || depth<0 || slice+depth>slices  || column<0 || width<0 || column+width>columns</code>
      */
     protected void checkBox(int slice, int row, int column, int depth, int height, int width) {
         if (slice < 0 || depth < 0 || slice + depth > slices || row < 0 || height < 0 || row + height > rows
@@ -150,8 +153,9 @@ public abstract class AbstractMatrix3D extends AbstractMatrix {
     /**
      * Sanity check for operations requiring a column index to be within bounds.
      * 
+     * @param column
      * @throws IndexOutOfBoundsException
-     *             if <tt>column < 0 || column >= columns()</tt>.
+     *             if <code>column < 0 || column >= columns()</code>.
      */
     protected void checkColumn(int column) {
         if (column < 0 || column >= columns)
@@ -161,8 +165,9 @@ public abstract class AbstractMatrix3D extends AbstractMatrix {
     /**
      * Checks whether indexes are legal and throws an exception, if necessary.
      * 
+     * @param indexes
      * @throws IndexOutOfBoundsException
-     *             if <tt>! (0 <= indexes[i] < columns())</tt> for any
+     *             if <code>! (0 <= indexes[i] < columns())</code> for any
      *             i=0..indexes.length()-1.
      */
     protected void checkColumnIndexes(int[] indexes) {
@@ -176,8 +181,9 @@ public abstract class AbstractMatrix3D extends AbstractMatrix {
     /**
      * Sanity check for operations requiring a row index to be within bounds.
      * 
+     * @param row
      * @throws IndexOutOfBoundsException
-     *             if <tt>row < 0 || row >= rows()</tt>.
+     *             if <code>row < 0 || row >= rows()</code>.
      */
     protected void checkRow(int row) {
         if (row < 0 || row >= rows)
@@ -187,8 +193,9 @@ public abstract class AbstractMatrix3D extends AbstractMatrix {
     /**
      * Checks whether indexes are legal and throws an exception, if necessary.
      * 
+     * @param indexes
      * @throws IndexOutOfBoundsException
-     *             if <tt>! (0 <= indexes[i] < rows())</tt> for any
+     *             if <code>! (0 <= indexes[i] < rows())</code> for any
      *             i=0..indexes.length()-1.
      */
     protected void checkRowIndexes(int[] indexes) {
@@ -203,9 +210,10 @@ public abstract class AbstractMatrix3D extends AbstractMatrix {
      * Sanity check for operations requiring two matrices with the same number
      * of slices, rows and columns.
      * 
+     * @param B
      * @throws IllegalArgumentException
      *             if
-     *             <tt>slices() != B.slices() || rows() != B.rows() || columns() != B.columns()</tt>
+     *             <code>slices() != B.slices() || rows() != B.rows() || columns() != B.columns()</code>
      *             .
      */
     public void checkShape(AbstractMatrix3D B) {
@@ -218,10 +226,12 @@ public abstract class AbstractMatrix3D extends AbstractMatrix {
      * Sanity check for operations requiring matrices with the same number of
      * slices, rows and columns.
      * 
+     * @param B
+     * @param C
      * @throws IllegalArgumentException
      *             if
      * 
-     *             <tt>slices() != B.slices() || rows() != B.rows() || columns() != B.columns() || slices() != C.slices() || rows() != C.rows() || columns() != C.columns()</tt>
+     *             <code>slices() != B.slices() || rows() != B.rows() || columns() != B.columns() || slices() != C.slices() || rows() != C.rows() || columns() != C.columns()</code>
      *             .
      */
     public void checkShape(AbstractMatrix3D B, AbstractMatrix3D C) {
@@ -234,8 +244,9 @@ public abstract class AbstractMatrix3D extends AbstractMatrix {
     /**
      * Sanity check for operations requiring a slice index to be within bounds.
      * 
+     * @param slice
      * @throws IndexOutOfBoundsException
-     *             if <tt>slice < 0 || slice >= slices()</tt>.
+     *             if <code>slice < 0 || slice >= slices()</code>.
      */
     protected void checkSlice(int slice) {
         if (slice < 0 || slice >= slices)
@@ -245,8 +256,9 @@ public abstract class AbstractMatrix3D extends AbstractMatrix {
     /**
      * Checks whether indexes are legal and throws an exception, if necessary.
      * 
+     * @param indexes
      * @throws IndexOutOfBoundsException
-     *             if <tt>! (0 <= indexes[i] < slices())</tt> for any
+     *             if <code>! (0 <= indexes[i] < slices())</code> for any
      *             i=0..indexes.length()-1.
      */
     protected void checkSliceIndexes(int[] indexes) {
@@ -259,6 +271,7 @@ public abstract class AbstractMatrix3D extends AbstractMatrix {
 
     /**
      * Returns the number of columns.
+     * @return 
      */
     public int columns() {
         return columns;
@@ -266,6 +279,7 @@ public abstract class AbstractMatrix3D extends AbstractMatrix {
 
     /**
      * Returns the column stride.
+     * @return 
      */
     public int columnStride() {
         return columnStride;
@@ -281,6 +295,7 @@ public abstract class AbstractMatrix3D extends AbstractMatrix {
      *            the index of the row-coordinate.
      * @param column
      *            the index of the third-coordinate.
+     * @return 
      */
     public long index(int slice, int row, int column) {
         return _sliceOffset(_sliceRank(slice)) + _rowOffset(_rowRank(row)) + _columnOffset(_columnRank(column));
@@ -288,6 +303,7 @@ public abstract class AbstractMatrix3D extends AbstractMatrix {
 
     /**
      * Returns the number of rows.
+     * @return 
      */
     public int rows() {
         return rows;
@@ -295,6 +311,7 @@ public abstract class AbstractMatrix3D extends AbstractMatrix {
 
     /**
      * Returns the row stride.
+     * @return 
      */
     public int rowStride() {
         return rowStride;
@@ -310,9 +327,9 @@ public abstract class AbstractMatrix3D extends AbstractMatrix {
      * @param columns
      *            the number of columns the matrix shall have.
      * @throws IllegalArgumentException
-     *             if <tt>(double)rows*slices > Integer.MAX_VALUE</tt>.
+     *             if <code>(double)rows*slices > Integer.MAX_VALUE</code>.
      * @throws IllegalArgumentException
-     *             if <tt>slices<0 || rows<0 || columns<0</tt>.
+     *             if <code>slices &lt; 0 || rows &lt; 0 || columns &lt; 0</code>.
      */
     protected void setUp(int slices, int rows, int columns) {
         setUp(slices, rows, columns, 0, 0, 0, rows * columns, columns, 1);
@@ -336,17 +353,15 @@ public abstract class AbstractMatrix3D extends AbstractMatrix {
      *            the position of the first element.
      * @param sliceStride
      *            the number of elements between two slices, i.e.
-     *            <tt>index(k+1,i,j)-index(k,i,j)</tt>.
+     *            <code>index(k+1,i,j)-index(k,i,j)</code>.
      * @param rowStride
      *            the number of elements between two rows, i.e.
-     *            <tt>index(k,i+1,j)-index(k,i,j)</tt>.
-     * @param columnnStride
-     *            the number of elements between two columns, i.e.
-     *            <tt>index(k,i,j+1)-index(k,i,j)</tt>.
+     *            <code>index(k,i+1,j)-index(k,i,j)</code>.
+     * @param columnStride
      * @throws IllegalArgumentException
-     *             if <tt>(double)slices*rows*columns > Integer.MAX_VALUE</tt>.
+     *             if <code>(double)slices*rows*columns > Integer.MAX_VALUE</code>.
      * @throws IllegalArgumentException
-     *             if <tt>slices<0 || rows<0 || columns<0</tt>.
+     *             if <code>slices &lt; 0 || rows &lt; 0 || columns &lt; 0</code>.
      */
     protected void setUp(int slices, int rows, int columns, int sliceZero, int rowZero, int columnZero,
             int sliceStride, int rowStride, int columnStride) {
@@ -379,7 +394,8 @@ public abstract class AbstractMatrix3D extends AbstractMatrix {
     }
 
     /**
-     * Returns the number of cells which is <tt>slices()*rows()*columns()</tt>.
+     * Returns the number of cells which is <code>slices()*rows()*columns()</code>.
+     * @return 
      */
 
     public long size() {
@@ -388,6 +404,7 @@ public abstract class AbstractMatrix3D extends AbstractMatrix {
 
     /**
      * Returns the number of slices.
+     * @return 
      */
     public int slices() {
         return slices;
@@ -395,6 +412,7 @@ public abstract class AbstractMatrix3D extends AbstractMatrix {
 
     /**
      * Returns the slice stride.
+     * @return 
      */
     public int sliceStride() {
         return sliceStride;
@@ -402,6 +420,7 @@ public abstract class AbstractMatrix3D extends AbstractMatrix {
 
     /**
      * Returns a string representation of the receiver's shape.
+     * @return 
      */
     public String toStringShort() {
         return AbstractFormatter.shape(this);
@@ -409,6 +428,7 @@ public abstract class AbstractMatrix3D extends AbstractMatrix {
 
     /**
      * Self modifying version of viewColumnFlip().
+     * @return 
      */
     protected AbstractMatrix3D vColumnFlip() {
         if (columns > 0) {
@@ -422,6 +442,10 @@ public abstract class AbstractMatrix3D extends AbstractMatrix {
     /**
      * Self modifying version of viewDice().
      * 
+     * @param axis0
+     * @param axis2
+     * @param axis1
+     * @return 
      * @throws IllegalArgumentException
      *             if some of the parameters are equal or not in range 0..2.
      */
@@ -456,10 +480,17 @@ public abstract class AbstractMatrix3D extends AbstractMatrix {
     /**
      * Self modifying version of viewPart().
      * 
+     * @param slice
+     * @param width
+     * @param row
+     * @param height
+     * @param column
+     * @param depth
+     * @return 
      * @throws IndexOutOfBoundsException
      *             if
      * 
-     *             <tt>slice<0 || depth<0 || slice+depth>slices() || row<0 || height<0 || row+height>rows() || column<0 || width<0 || column+width>columns()</tt>
+     *             <code>slice<0 || depth<0 || slice+depth>slices() || row<0 || height<0 || row+height>rows() || column<0 || width<0 || column+width>columns()</code>
      */
     protected AbstractMatrix3D vPart(int slice, int row, int column, int depth, int height, int width) {
         checkBox(slice, row, column, depth, height, width);
@@ -478,6 +509,7 @@ public abstract class AbstractMatrix3D extends AbstractMatrix {
 
     /**
      * Self modifying version of viewRowFlip().
+     * @return 
      */
     protected AbstractMatrix3D vRowFlip() {
         if (rows > 0) {
@@ -490,6 +522,7 @@ public abstract class AbstractMatrix3D extends AbstractMatrix {
 
     /**
      * Self modifying version of viewSliceFlip().
+     * @return 
      */
     protected AbstractMatrix3D vSliceFlip() {
         if (slices > 0) {
@@ -503,8 +536,12 @@ public abstract class AbstractMatrix3D extends AbstractMatrix {
     /**
      * Self modifying version of viewStrides().
      * 
+     * @param sliceStride
+     * @param columnStride
+     * @param rowStride
+     * @return 
      * @throws IndexOutOfBoundsException
-     *             if <tt>sliceStride<=0 || rowStride<=0 || columnStride<=0</tt>
+     *             if <code>sliceStride $lt;=0 || rowStride $lt;=0 || columnStride $lt;=0</code>
      *             .
      */
     protected AbstractMatrix3D vStrides(int sliceStride, int rowStride, int columnStride) {

@@ -15,7 +15,7 @@ import cern.colt.matrix.tfloat.FloatMatrix2D;
 import cern.colt.matrix.tfloat.FloatMatrix3D;
 
 /**
- * Sparse hashed 3-d matrix holding <tt>float</tt> elements. First see the <a
+ * Sparse hashed 3-d matrix holding <code>float</code> elements. First see the <a
  * href="package-summary.html">package summary</a> and javadoc <a
  * href="package-tree.html">tree view</a> to get the broad picture.
  * <p>
@@ -36,21 +36,21 @@ import cern.colt.matrix.tfloat.FloatMatrix3D;
  * manually be reclaimed by calling {@link #trimToSize()}.
  * </ul>
  * <p>
- * worst case: <tt>memory [bytes] = (1/minLoadFactor) * nonZeros * 13</tt>. <br>
- * best case: <tt>memory [bytes] = (1/maxLoadFactor) * nonZeros * 13</tt>. <br>
- * Where <tt>nonZeros = cardinality()</tt> is the number of non-zero cells.
+ * worst case: <code>memory [bytes] = (1/minLoadFactor) * nonZeros * 13</code>. <br>
+ * best case: <code>memory [bytes] = (1/maxLoadFactor) * nonZeros * 13</code>. <br>
+ * Where <code>nonZeros = cardinality()</code> is the number of non-zero cells.
  * Thus, a 100 x 100 x 100 matrix with minLoadFactor=0.25 and maxLoadFactor=0.5
  * and 1000000 non-zero cells consumes between 25 MB and 50 MB. The same 100 x
  * 100 x 100 matrix with 1000 non-zero cells consumes between 25 and 50 KB.
  * <p>
  * <b>Time complexity:</b>
  * <p>
- * This class offers <i>expected</i> time complexity <tt>O(1)</tt> (i.e.
- * constant time) for the basic operations <tt>get</tt>, <tt>getQuick</tt>,
- * <tt>set</tt>, <tt>setQuick</tt> and <tt>size</tt> assuming the hash function
+ * This class offers <i>expected</i> time complexity <code>O(1)</code> (i.e.
+ * constant time) for the basic operations <code>get</code>, <code>getQuick</code>,
+ * <code>set</code>, <code>setQuick</code> and <code>size</code> assuming the hash function
  * disperses the elements properly among the buckets. Otherwise, pathological
  * cases, although highly improbable, can occur, degrading performance to
- * <tt>O(N)</tt> in the worst case. As such this sparse class is expected to
+ * <code>O(N)</code> in the worst case. As such this sparse class is expected to
  * have no worse time complexity than its dense counterpart
  * {@link DenseFloatMatrix2D}. However, constant factors are considerably
  * larger.
@@ -101,23 +101,23 @@ public class SparseFloatMatrix3D extends FloatMatrix3D {
     protected AbstractLongFloatMap elements;
 
     /**
-     * Constructs a matrix with a copy of the given values. <tt>values</tt> is
-     * required to have the form <tt>values[slice][row][column]</tt> and have
+     * Constructs a matrix with a copy of the given values. <code>values</code> is
+     * required to have the form <code>values[slice][row][column]</code> and have
      * exactly the same number of rows in in every slice and exactly the same
      * number of columns in in every row.
      * <p>
-     * The values are copied. So subsequent changes in <tt>values</tt> are not
+     * The values are copied. So subsequent changes in <code>values</code> are not
      * reflected in the matrix, and vice-versa.
      * 
      * @param values
      *            The values to be filled into the new matrix.
      * @throws IllegalArgumentException
      *             if
-     *             <tt>for any 1 &lt;= slice &lt; values.length: values[slice].length != values[slice-1].length</tt>
+     *             <code>for any 1 &lt;= slice &lt; values.length: values[slice].length != values[slice-1].length</code>
      *             .
      * @throws IllegalArgumentException
      *             if
-     *             <tt>for any 1 &lt;= row &lt; values[0].length: values[slice][row].length != values[slice][row-1].length</tt>
+     *             <code>for any 1 &lt;= row &lt; values[0].length: values[slice][row].length != values[slice][row-1].length</code>
      *             .
      */
     public SparseFloatMatrix3D(float[][][] values) {
@@ -128,7 +128,7 @@ public class SparseFloatMatrix3D extends FloatMatrix3D {
 
     /**
      * Constructs a matrix with a given number of slices, rows and columns and
-     * default memory usage. All entries are initially <tt>0</tt>.
+     * default memory usage. All entries are initially <code>0</code>.
      * 
      * @param slices
      *            the number of slices the matrix shall have.
@@ -137,9 +137,9 @@ public class SparseFloatMatrix3D extends FloatMatrix3D {
      * @param columns
      *            the number of columns the matrix shall have.
      * @throws IllegalArgumentException
-     *             if <tt>(float)slices*columns*rows > Integer.MAX_VALUE</tt>.
+     *             if <code>(float)slices*columns*rows > Integer.MAX_VALUE</code>.
      * @throws IllegalArgumentException
-     *             if <tt>slices<0 || rows<0 || columns<0</tt>.
+     *             if <code>slices &lt; 0 || rows &lt; 0 || columns &lt; 0</code>.
      */
     public SparseFloatMatrix3D(int slices, int rows, int columns) {
         this(slices, rows, columns, slices * rows * (columns / 1000), 0.2f, 0.5f);
@@ -147,7 +147,7 @@ public class SparseFloatMatrix3D extends FloatMatrix3D {
 
     /**
      * Constructs a matrix with a given number of slices, rows and columns using
-     * memory as specified. All entries are initially <tt>0</tt>. For details
+     * memory as specified. All entries are initially <code>0</code>. For details
      * related to memory usage see
      * {@link cern.colt.map.tfloat.OpenIntFloatHashMap}.
      * 
@@ -159,7 +159,7 @@ public class SparseFloatMatrix3D extends FloatMatrix3D {
      *            the number of columns the matrix shall have.
      * @param initialCapacity
      *            the initial capacity of the hash map. If not known, set
-     *            <tt>initialCapacity=0</tt> or small.
+     *            <code>initialCapacity=0</code> or small.
      * @param minLoadFactor
      *            the minimum load factor of the hash map.
      * @param maxLoadFactor
@@ -167,12 +167,12 @@ public class SparseFloatMatrix3D extends FloatMatrix3D {
      * @throws IllegalArgumentException
      *             if
      * 
-     *             <tt>initialCapacity < 0 || (minLoadFactor < 0.0 || minLoadFactor >= 1.0) || (maxLoadFactor <= 0.0 || maxLoadFactor >= 1.0) || (minLoadFactor >= maxLoadFactor)</tt>
+     *             <code>initialCapacity < 0 || (minLoadFactor < 0.0 || minLoadFactor >= 1.0) || (maxLoadFactor <= 0.0 || maxLoadFactor >= 1.0) || (minLoadFactor >= maxLoadFactor)</code>
      *             .
      * @throws IllegalArgumentException
-     *             if <tt>(double)columns*rows > Integer.MAX_VALUE</tt>.
+     *             if <code>(double)columns*rows > Integer.MAX_VALUE</code>.
      * @throws IllegalArgumentException
-     *             if <tt>slices<0 || rows<0 || columns<0</tt>.
+     *             if <code>slices &lt; 0 || rows &lt; 0 || columns &lt; 0</code>.
      */
     public SparseFloatMatrix3D(int slices, int rows, int columns, int initialCapacity, float minLoadFactor,
             float maxLoadFactor) {
@@ -204,17 +204,15 @@ public class SparseFloatMatrix3D extends FloatMatrix3D {
      *            the position of the first element.
      * @param sliceStride
      *            the number of elements between two slices, i.e.
-     *            <tt>index(k+1,i,j)-index(k,i,j)</tt>.
+     *            <code>index(k+1,i,j)-index(k,i,j)</code>.
      * @param rowStride
      *            the number of elements between two rows, i.e.
-     *            <tt>index(k,i+1,j)-index(k,i,j)</tt>.
-     * @param columnnStride
-     *            the number of elements between two columns, i.e.
-     *            <tt>index(k,i,j+1)-index(k,i,j)</tt>.
+     *            <code>index(k,i+1,j)-index(k,i,j)</code>.
+     * @param columnStride
      * @throws IllegalArgumentException
-     *             if <tt>(float)slices*columns*rows > Integer.MAX_VALUE</tt>.
+     *             if <code>(float)slices*columns*rows > Integer.MAX_VALUE</code>.
      * @throws IllegalArgumentException
-     *             if <tt>slices<0 || rows<0 || columns<0</tt>.
+     *             if <code>slices &lt; 0 || rows &lt; 0 || columns &lt; 0</code>.
      */
     protected SparseFloatMatrix3D(int slices, int rows, int columns, AbstractLongFloatMap elements, int sliceZero,
             int rowZero, int columnZero, int sliceStride, int rowStride, int columnStride) {

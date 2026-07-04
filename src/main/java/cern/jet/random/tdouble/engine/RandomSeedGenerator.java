@@ -47,18 +47,18 @@ public class RandomSeedGenerator extends cern.colt.PersistentObject {
      * Constructs and returns a new seed generator; you normally won't need to
      * use this method.
      * <p>
-     * The position <tt>[row,column]</tt> indicates the iteration starting point
+     * The position <code>[row,column]</code> indicates the iteration starting point
      * within a (virtual) seed matrix. The seed matrix is a n*m matrix with
-     * <tt>1 + Integer.MAX_VALUE</tt> (virtual) rows and
-     * <tt>RandomSeedTable.COLUMNS</tt> columns. Successive calls to method
-     * <tt>nextSeed()</tt> will cycle over the given column, in ascending order:
-     * <tt>nextSeed()</tt> returns the seed
-     * <tt>s[row,column], s[row+1,column], ... s[Integer.MAX_VALUE,column], s[0,column], s[1,column], ...</tt>
+     * <code>1 + Integer.MAX_VALUE</code> (virtual) rows and
+     * <code>RandomSeedTable.COLUMNS</code> columns. Successive calls to method
+     * <code>nextSeed()</code> will cycle over the given column, in ascending order:
+     * <code>nextSeed()</code> returns the seed
+     * <code>s[row,column], s[row+1,column], ... s[Integer.MAX_VALUE,column], s[0,column], s[1,column], ...</code>
      * 
      * @param row
-     *            should be in <tt>[0,Integer.MAX_VALUE]</tt>.
+     *            should be in <code>[0,Integer.MAX_VALUE]</code>.
      * @param column
-     *            should be in <tt>[0,RandomSeedTable.COLUMNS - 1]</tt>.
+     *            should be in <code>[0,RandomSeedTable.COLUMNS - 1]</code>.
      */
     public RandomSeedGenerator(int row, int column) {
         this.row = row;
@@ -67,6 +67,7 @@ public class RandomSeedGenerator extends cern.colt.PersistentObject {
 
     /**
      * Prints the generated seeds for the given input parameters.
+     * @param args
      */
     public static void main(String args[]) {
         int row = Integer.parseInt(args[0]);
@@ -77,13 +78,15 @@ public class RandomSeedGenerator extends cern.colt.PersistentObject {
 
     /**
      * Returns the next seed.
+     * @return 
      */
     public int nextSeed() {
         return RandomSeedTable.getSeedAtRowColumn(row++, column);
     }
 
     /**
-     * Prints the next <tt>size</tt> generated seeds.
+     * Prints the next <code>size</code> generated seeds.
+     * @param size
      */
     public void print(int size) {
         System.out.println("Generating " + size + " random seeds...");

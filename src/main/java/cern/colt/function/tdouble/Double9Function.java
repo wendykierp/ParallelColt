@@ -16,6 +16,15 @@ public interface Double9Function {
     /**
      * Applies a function to nine arguments.
      * 
+     * @param a00
+     * @param a22
+     * @param a01
+     * @param a21
+     * @param a02
+     * @param a20
+     * @param a10
+     * @param a12
+     * @param a11
      * @return the result of the function.
      */
     abstract public double apply(double a00, double a01, double a02, double a10, double a11, double a12, double a20,

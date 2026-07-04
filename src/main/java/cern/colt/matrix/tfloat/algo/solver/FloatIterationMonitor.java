@@ -36,6 +36,7 @@ public interface FloatIterationMonitor {
 
     /**
      * Returns true for the first iteration
+     * @return 
      */
     boolean isFirst();
 
@@ -46,11 +47,13 @@ public interface FloatIterationMonitor {
 
     /**
      * Number of iterations performed
+     * @return 
      */
     int iterations();
 
     /**
      * Returns current residual
+     * @return 
      */
     float residual();
 
@@ -62,6 +65,7 @@ public interface FloatIterationMonitor {
      * @param x
      *            State-vector
      * @return True if converged
+     * @throws cern.colt.matrix.tfloat.algo.solver.IterativeSolverFloatNotConvergedException
      */
     boolean converged(FloatMatrix1D r, FloatMatrix1D x) throws IterativeSolverFloatNotConvergedException;
 
@@ -73,6 +77,7 @@ public interface FloatIterationMonitor {
      * @param x
      *            State-vector
      * @return True if converged
+     * @throws cern.colt.matrix.tfloat.algo.solver.IterativeSolverFloatNotConvergedException
      */
     boolean converged(float r, FloatMatrix1D x) throws IterativeSolverFloatNotConvergedException;
 
@@ -82,6 +87,7 @@ public interface FloatIterationMonitor {
      * @param r
      *            Residual-norm
      * @return True if converged
+     * @throws cern.colt.matrix.tfloat.algo.solver.IterativeSolverFloatNotConvergedException
      */
     boolean converged(float r) throws IterativeSolverFloatNotConvergedException;
 
@@ -91,26 +97,31 @@ public interface FloatIterationMonitor {
      * @param r
      *            Residual-vector
      * @return True if converged
+     * @throws cern.colt.matrix.tfloat.algo.solver.IterativeSolverFloatNotConvergedException
      */
     boolean converged(FloatMatrix1D r) throws IterativeSolverFloatNotConvergedException;
 
     /**
      * Sets new iteration reporter
+     * @param monitor
      */
     void setIterationReporter(FloatIterationReporter monitor);
 
     /**
      * Returns current iteration reporter
+     * @return 
      */
     FloatIterationReporter getIterationReporter();
 
     /**
      * Sets the vector-norm to calculate with
+     * @param normType
      */
     void setNormType(Norm normType);
 
     /**
      * Returns the vector-norm in use
+     * @return 
      */
     Norm getNormType();
 
@@ -124,6 +135,7 @@ public interface FloatIterationMonitor {
 
     /**
      * Returns the maximum number of iterations
+     * @return 
      */
     public int getMaxIterations();
 }

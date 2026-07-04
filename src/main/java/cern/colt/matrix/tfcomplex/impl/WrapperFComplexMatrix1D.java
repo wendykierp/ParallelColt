@@ -14,7 +14,7 @@ import cern.colt.matrix.tfcomplex.FComplexMatrix3D;
 import cern.colt.matrix.tfloat.FloatMatrix1D;
 
 /**
- * 1-d matrix holding <tt>complex</tt> elements; either a view wrapping another
+ * 1-d matrix holding <code>complex</code> elements; either a view wrapping another
  * matrix or a matrix whose views are wrappers.
  * 
  * @author Piotr Wendykier (piotr.wendykier@gmail.com)

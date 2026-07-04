@@ -13,7 +13,7 @@ import cern.jet.random.tdouble.engine.DoubleRandomEngine;
 /**
  * Logarithmic distribution.
  * <p>
- * Valid parameter ranges: <tt>0 &lt; p &lt; 1</tt>.
+ * Valid parameter ranges: <code>0 &lt; p &lt; 1</code>.
  * <p>
  * Instance methods operate on a user supplied uniform random number generator;
  * they are unsynchronized.
@@ -22,7 +22,7 @@ import cern.jet.random.tdouble.engine.DoubleRandomEngine;
  * <p>
  * <b>Implementation:</b>
  * <dt>Method: Inversion/Transformation.
- * <dt>This is a port of <tt>lsk.c</tt> from the <A
+ * <dt>This is a port of <code>lsk.c</code> from the <A
  * HREF="http://www.cis.tu-graz.ac.at/stat/stadl/random.html">C-RAND /
  * WIN-RAND</A> library. C-RAND's implementation, in turn, is based upon
  * <p>
@@ -48,6 +48,8 @@ public class Logarithmic extends AbstractContinousDoubleDistribution {
 
     /**
      * Constructs a Logarithmic distribution.
+     * @param p
+     * @param randomGenerator
      */
     public Logarithmic(double p, DoubleRandomEngine randomGenerator) {
         setRandomGenerator(randomGenerator);
@@ -56,6 +58,7 @@ public class Logarithmic extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a random number from the distribution.
+     * @return 
      */
 
     public double nextDouble() {
@@ -65,6 +68,8 @@ public class Logarithmic extends AbstractContinousDoubleDistribution {
     /**
      * Returns a random number from the distribution; bypasses the internal
      * state.
+     * @param a
+     * @return 
      */
     public double nextDouble(double a) {
         /***********************************************************************
@@ -131,6 +136,7 @@ public class Logarithmic extends AbstractContinousDoubleDistribution {
 
     /**
      * Sets the distribution parameter.
+     * @param p
      */
     public void setState(double p) {
         this.my_p = p;
@@ -138,6 +144,8 @@ public class Logarithmic extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a random number from the distribution.
+     * @param p
+     * @return 
      */
     public static double staticNextDouble(double p) {
         synchronized (shared) {
@@ -147,6 +155,7 @@ public class Logarithmic extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a String representation of the receiver.
+     * @return 
      */
 
     public String toString() {

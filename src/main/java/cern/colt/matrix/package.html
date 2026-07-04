@@ -2,9 +2,9 @@
 <BODY>
 Matrix <i>interfaces and factories</i>; efficient and flexible dense and sparse 
 1, 2, 3-dimensional matrices holding objects or primitive data types such 
-as <tt>int</tt>, <tt>double</tt>, etc; Templated, fixed sized (not dynamically 
+as <code>int</code>, <code>double</code>, etc; Templated, fixed sized (not dynamically 
 resizable); Also known as <i>multi-dimensional arrays</i> or<i> Data Cubes</i>. 
-Note that d-dimensional and <tt>int</tt> based matrices are not yet provided. 
+Note that d-dimensional and <code>int</code> based matrices are not yet provided. 
 <p></p>
 <h1><a name="Overview"></a>Getting Started</h1>
 <ol>
@@ -280,7 +280,7 @@ Note that d-dimensional and <tt>int</tt> based matrices are not yet provided.
   <li><i>Value type</i>: The type of value to be stored in each cell. Can be integer, 
     floating point or an arbitrary object.</li>
 </ul>
-<p>Here is an example of a <tt>8x8x8</tt> matrix and other matrices. 
+<p>Here is an example of a <code>8x8x8</code> matrix and other matrices. 
 <p><img src="doc-files/slice.gif" width="644" height="401"> 
 <p>As broad as the spectrum of applications using multi-dimensional matrices is 
   the number of operations meaningful on them. Only a smallish subset of those 
@@ -313,18 +313,18 @@ Note that d-dimensional and <tt>int</tt> based matrices are not yet provided.
   </tr>
   <tr> 
     <td> 
-      <p><tt>DoubleMatrix2D matrix;<br>
-        matrix </tt><tt>= new DenseDoubleMatrix2D(3,4);<br>
-        </tt><tt>//matrix </tt><tt>= new SparseDoubleMatrix2D(3,4);</tt><tt> </tt><tt>// 
+      <p><code>DoubleMatrix2D matrix;<br>
+        matrix </code><code>= new DenseDoubleMatrix2D(3,4);<br>
+        </code><code>//matrix </code><code>= new SparseDoubleMatrix2D(3,4);</code><code> </code><code>// 
         has same interface<br>
-        </tt><tt>//matrix </tt><tt>= new SparseRCDoubleMatrix2D(3,4);</tt><tt> </tt><tt> 
+        </code><code>//matrix </code><code>= new SparseRCDoubleMatrix2D(3,4);</code><code> </code><code> 
         // has same interface<br>
-        </tt><tt></tt><tt>System.out.println(matrix); </tt></p>
+        </code><code></code><code>System.out.println(matrix); </code></p>
     </td>
-    <td nowrap><tt>3 x 4 matrix: <br>
+    <td nowrap><code>3 x 4 matrix: <br>
       0 0 0 0 <br>
       0 0 0 0 <br>
-      0 0 0 0 </tt></td>
+      0 0 0 0 </code></td>
   </tr>
   <tr> 
     <td> We can get rid of the typed distinction between sparse and dense matrices. 
@@ -333,25 +333,25 @@ Note that d-dimensional and <tt>int</tt> based matrices are not yet provided.
   </tr>
   <tr> 
     <td> 
-      <p><tt>DoubleFactory2D factory;<br>
+      <p><code>DoubleFactory2D factory;<br>
         if (wantDense) factory = DoubleFactory2D.dense;<br>
         else if (wantSparseHashed)&nbsp;factory = DoubleFactory2D.sparse;<br>
         else factory = DoubleFactory2D.rowCompressed;<br>
         <br>
         // From now on all instantiations will go via the factory -<br>
-        // No explicit constructor calls anymore</tt><tt><br>
+        // No explicit constructor calls anymore</code><code><br>
         DoubleMatrix2D matrix = factory.make(3,4);<br>
-        System.out.println(matrix);</tt> </p>
+        System.out.println(matrix);</code> </p>
       </td>
-    <td nowrap><tt>3 x 4 matrix: <br>
+    <td nowrap><code>3 x 4 matrix: <br>
       0 0 0 0 <br>
       0 0 0 0 <br>
-      0 0 0 0 </tt></td>
+      0 0 0 0 </code></td>
   </tr>
   <tr> 
     <td>The shape can be retrieved with <br>
-      <tt>int rows = matrix.rows(); <br>
-      int columns = matrix.columns();</tt> </td>
+      <code>int rows = matrix.rows(); <br>
+      int columns = matrix.columns();</code> </td>
     <td nowrap>&nbsp;</td>
   </tr>
   <tr> 
@@ -360,22 +360,22 @@ Note that d-dimensional and <tt>int</tt> based matrices are not yet provided.
   </tr>
   <tr> 
     <td> 
-      <p><tt>int row = 2, column = 0;<br>
-        </tt><tt>matrix.set(row,column, 7);<br>
+      <p><code>int row = 2, column = 0;<br>
+        </code><code>matrix.set(row,column, 7);<br>
         System.out.println(matrix.get(row,column));<br>
-        // --&gt; 7</tt></p>
+        // --&gt; 7</code></p>
     </td>
-    <td nowrap><tt>3 x 4 matrix <br>
+    <td nowrap><code>3 x 4 matrix <br>
       0 0 0 0 <br>
       0 0 0 0 <br>
-      7 0 0 0 </tt></td>
+      7 0 0 0 </code></td>
   </tr>
   <tr> 
     <td>Looping is done as expected:</td>
     <td nowrap>&nbsp;</td>
   </tr>
   <tr> 
-    <td> <tt> 
+    <td> <code> 
       <pre>
 double sum = 0;
 for (int row=rows; --row &gt;= 0; ) {
@@ -386,24 +386,24 @@ for (int row=rows; --row &gt;= 0; ) {
 }
 System.out.println(sum); 
 </pre>
-      </tt> </td>
+      </code> </td>
     <td nowrap>&nbsp;</td>
   </tr>
   <tr> 
     <td>The following idiom uses a subranging view to set all cells of the box 
       <br>
-      starting at <tt>[1,0]</tt> with width and height of 2 to the value <tt>1</tt>: 
+      starting at <code>[1,0]</code> with width and height of 2 to the value <code>1</code>: 
     </td>
     <td nowrap>&nbsp;</td>
   </tr>
   <tr> 
-    <td><tt>matrix.viewPart(1,0,2,2).assign(1);<br>
+    <td><code>matrix.viewPart(1,0,2,2).assign(1);<br>
       System.out.println(matrix); <br>
-      </tt></td>
-    <td nowrap><tt>3 x 4 matrix <br>
+      </code></td>
+    <td nowrap><code>3 x 4 matrix <br>
       0 0 0 0 <br>
       1 1 0 0 <br>
-      1 1 0 0 </tt></td>
+      1 1 0 0 </code></td>
   </tr>
   <tr> 
     <td> 
@@ -413,12 +413,12 @@ System.out.println(sum);
     <td nowrap>&nbsp;</td>
   </tr>
   <tr> 
-    <td><tt>System.out.println(matrix.viewDice())</tt></td>
-    <td nowrap><tt>4 x 3 matrix <br>
+    <td><code>System.out.println(matrix.viewDice())</code></td>
+    <td nowrap><code>4 x 3 matrix <br>
       0 1 1 <br>
       0 1 1 <br>
       0 0 0 <br>
-      0 0 0 </tt></td>
+      0 0 0 </code></td>
   </tr>
   <tr> 
     <td> 
@@ -427,11 +427,11 @@ System.out.println(sum);
     <td nowrap>&nbsp;</td>
   </tr>
   <tr> 
-    <td><tt>System.out.println(matrix.viewColumnFlip());</tt></td>
-    <td nowrap><tt>3 x 4 matrix <br>
+    <td><code>System.out.println(matrix.viewColumnFlip());</code></td>
+    <td nowrap><code>3 x 4 matrix <br>
       0 0 0 0 <br>
       0 0 1 1 <br>
-      0 0 1 1 </tt></td>
+      0 0 1 1 </code></td>
   </tr>
   <tr> 
     <td> 
@@ -440,9 +440,9 @@ System.out.println(sum);
     <td nowrap>&nbsp;</td>
   </tr>
   <tr> 
-    <td><tt>System.out.println(matrix.viewRow(1)); </tt></td>
-    <td nowrap><tt>4 matrix <br>
-      1 1 0 0 </tt></td>
+    <td><code>System.out.println(matrix.viewRow(1)); </code></td>
+    <td nowrap><code>4 matrix <br>
+      1 1 0 0 </code></td>
   </tr>
   <tr> 
     <td> 
@@ -452,15 +452,15 @@ System.out.println(sum);
         time.</p>
       <p>The slicing view is now fed into some external algorithm expecting a 
         1-dimensional matrix:<br>
-        <tt>someAlgorithm(matrix.viewRow(1));</tt> </p>
+        <code>someAlgorithm(matrix.viewRow(1));</code> </p>
     </td>
     <td nowrap>&nbsp;</td>
   </tr>
   <tr> 
     <td>If the algorithm is designed such that it modifies data of the row, <br>
       but we want to avoid any side-effects, we can feed it a copy of the row: 
-      <tt><br>
-      someAlgorithm(matrix.viewRow(1).copy());</tt> </td>
+      <code><br>
+      someAlgorithm(matrix.viewRow(1).copy());</code> </td>
     <td nowrap>&nbsp;</td>
   </tr>
   <tr> 
@@ -469,51 +469,51 @@ System.out.println(sum);
     <td nowrap>&nbsp;</td>
   </tr>
   <tr> 
-    <td><tt>System.out.println(matrix.viewStrides(1,2)); </tt></td>
-    <td nowrap><tt>3 x 2 matrix <br>
+    <td><code>System.out.println(matrix.viewStrides(1,2)); </code></td>
+    <td nowrap><code>3 x 2 matrix <br>
       0 0<br>
       1 0<br>
-      1 0</tt></td>
+      1 0</code></td>
   </tr>
   <tr> 
     <td>A selection view shows explicitly specified rows and columns. Imagine 
       a 2-d matrix. Columns are attributes <i>energy</i>, <i>tracks</i>, <i>momentum</i>, 
-      the rows hold <tt>N</tt> such measurements, as recorded by some device. 
+      the rows hold <code>N</code> such measurements, as recorded by some device. 
       We want to operate on some subset of the columns and exclude some measurements 
       not of interest for our analysis.</td>
     <td nowrap>&nbsp;</td>
   </tr>
   <tr> 
-    <td><tt>int[] rowIndexes = {0,2};<br>
+    <td><code>int[] rowIndexes = {0,2};<br>
       int[] columnIndexes = {2,3,1,1};<br>
-      System.out.println(matrix.viewSelection(rowIndexes,columnIndexes)); </tt></td>
-    <td nowrap><tt>2 x 4 matrix <br>
+      System.out.println(matrix.viewSelection(rowIndexes,columnIndexes)); </code></td>
+    <td nowrap><code>2 x 4 matrix <br>
       0 0 0 0 <br>
-      0 0 1 1 </tt></td>
+      0 0 1 1 </code></td>
   </tr>
   <tr> 
     <td>A sort view with row flipping shows rows sorted descending by column 1:</td>
     <td nowrap>&nbsp;</td>
   </tr>
   <tr> 
-    <td><tt>System.out.println(matrix.viewSorted(1).viewRowFlip()); </tt></td>
-    <td nowrap><tt>3 x 4 matrix <br>
+    <td><code>System.out.println(matrix.viewSorted(1).viewRowFlip()); </code></td>
+    <td nowrap><code>3 x 4 matrix <br>
       1 1 0 0 <br>
       1 1 0 0 <br>
-      0 0 0 0 </tt></td>
+      0 0 0 0 </code></td>
   </tr>
   <tr> 
     <td>Last, lets combine some of the methods to stimulate imagination:</td>
     <td nowrap>&nbsp;</td>
   </tr>
   <tr> 
-    <td><tt>matrix.viewPart(0,1,2,2).viewRowFlip().viewColumn(0).assign(2);<br>
+    <td><code>matrix.viewPart(0,1,2,2).viewRowFlip().viewColumn(0).assign(2);<br>
       System.out.println(matrix); <br>
-      </tt></td>
-    <td nowrap><tt>3 x 4 matrix <br>
+      </code></td>
+    <td nowrap><code>3 x 4 matrix <br>
       0 2 0 0 <br>
       1 2 0 0 <br>
-      1 1 0 0 </tt></td>
+      1 1 0 0 </code></td>
   </tr>
 </table>
 <p><a href="#Overview">Back</a> to Overview 
@@ -561,7 +561,7 @@ System.out.println(sum);
 <h2><a name="FunctionObjects"></a>5. Function Objects</h2>
 <p>Function objects conveniently allow to express arbitrary functions in a generic 
   manner. Essentially, a function object is an object that can perform a function 
-  on some arguments. It has a minimal interface: a method <tt>apply</tt> that 
+  on some arguments. It has a minimal interface: a method <code>apply</code> that 
   takes the arguments, computes something and returns some result value. Function 
   objects are comparable to function pointers in C used for call-backs. Here are 
   some examples demonstrating how function objects can be used to </p>
@@ -605,12 +605,12 @@ System.out.println(sum);
 <h4>Class Naming / Inheritance</h4>
 <p>Have a look at the javadoc <a href="package-tree.html">tree view</a> to get 
   the broad picture. The classes for matrices of a given rank are derived from 
-  a common abstract base class named <tt>&lt;ValueType&gt;Matrix&lt;Rank&gt;D</tt>, 
+  a common abstract base class named <code>&lt;ValueType&gt;Matrix&lt;Rank&gt;D</code>, 
   which is in many ways equivalent to an &quot;interface&quot;. <b>99% of the 
   time you will operate on these abstract classes only</b>. For example, all 2-dimensional 
-  matrices operating on <tt>double</tt> values are derived from {@link cern.colt.matrix.tdouble.DoubleMatrix2D}. 
+  matrices operating on <code>double</code> values are derived from {@link cern.colt.matrix.tdouble.DoubleMatrix2D}. 
   This is the interface to operate on.</p>
-<p>Class naming for concrete instantiable classes follows the schema <tt>&lt;Property&gt;&lt;ValueType&gt;Matrix&lt;Rank&gt;D</tt>. 
+<p>Class naming for concrete instantiable classes follows the schema <code>&lt;Property&gt;&lt;ValueType&gt;Matrix&lt;Rank&gt;D</code>. 
   For example, we have a {@link cern.colt.matrix.tdouble.impl.DenseDoubleMatrix2D}, a 
   {@link cern.colt.matrix.tdouble.impl.SparseDoubleMatrix2D}, and so on. All concrete instantiable classes are separated into an extra package, 
   {@link cern.colt.matrix.tdouble.impl}, to clearly distinguish between interfaces and 
@@ -622,23 +622,23 @@ System.out.println(sum);
 <p>The abstract base classes provide skeleton implementations for all but few 
   methods. Experimental data layouts can easily be implemented and inherit a rich 
   set of functionality. For example, to implement a fully functional 2-d or 3-d 
-  matrix, only 6 abstract methods need to be overridden: <tt>getQuick, setQuick, 
-  like, like1D, viewSelectionLike</tt>.</p>
+  matrix, only 6 abstract methods need to be overridden: <code>getQuick, setQuick, 
+  like, like1D, viewSelectionLike</code>.</p>
 <h4>Method Naming</h4>
 <p>In order to improve browsing and better keep an overview, the namespace of 
   logically related operations is localized: Methods getting and setting individual 
-  cell values are named <tt>get</tt> and <tt>set</tt>. Methods constructing views 
-  are named <tt>viewXXX</tt> (e.g. <tt>viewPart</tt>). Copying/assignment methods 
-  are named <tt>copy</tt> and <tt>assignXXX</tt>. Mathematical operations are 
-  named <tt>zXXX</tt> (e.g. <tt>zMult</tt>). Generic aggregation operations are 
-  named <tt>aggregateXXX</tt>.</p>
+  cell values are named <code>get</code> and <code>set</code>. Methods constructing views 
+  are named <code>viewXXX</code> (e.g. <code>viewPart</code>). Copying/assignment methods 
+  are named <code>copy</code> and <code>assignXXX</code>. Mathematical operations are 
+  named <code>zXXX</code> (e.g. <code>zMult</code>). Generic aggregation operations are 
+  named <code>aggregateXXX</code>.</p>
 <h4>Convenience Methods</h4>
 <p>To keep interfaces lean and manageable, we tried to avoid littering them with 
   convenience methods obfuscating more fundamental concepts. Convenience operations 
   expressible in one to three lines of code are omitted. For example, all operations 
-  modifying cell values modify the receiver (<tt>this</tt>) itself. There are 
-  no methods to fill results into empty result matrices. Use idioms like <tt>result 
-  = matrix.copy().mult(5)</tt> to achieve the same functionality. Some convenience 
+  modifying cell values modify the receiver (<code>this</code>) itself. There are 
+  no methods to fill results into empty result matrices. Use idioms like <code>result 
+  = matrix.copy().mult(5)</code> to achieve the same functionality. Some convenience 
   methods are provided in the factory classes as well as in external packages 
   like {@link cern.colt.matrix.tdouble.algo}.</p>
 <p><a href="#Overview">Back</a> to Overview 
@@ -646,8 +646,8 @@ System.out.println(sum);
 <p>The following statements apply to all currently implemented features (i.e. 
   dense and sparse matrices including all view kinds), except where indicated.</p>
 <p> Constant factors are kept as small as possible.Views are constructed in guaranteed 
-  <tt>O(1)</tt>, i.e. constant time, except for selection views and sort views: 
-  Selection views take time linear in the number of indexes, sort views take <tt>O(N*logN)</tt> 
+  <code>O(1)</code>, i.e. constant time, except for selection views and sort views: 
+  Selection views take time linear in the number of indexes, sort views take <code>O(N*logN)</code> 
   on average. Getting/setting a cell value takes <i>guaranteed </i>constant time 
   for <font color="#CC0000">dense</font> matrices (and all their views), while 
   it takes <i>expected</i> constant time for sparse hash matrices (and all their 
@@ -656,11 +656,11 @@ System.out.println(sum);
   in the number of non-zero cells. This is because of the nature of hashing: Average 
   case behaviour is extremely good, worst case behaviour is bad. </p>
 <p><font color="#CE0000">Sparse row compressed</font> matrices have the following 
-  characteristics: Getting a cell value takes time<tt> O(log nzr)</tt> where <tt>nzr</tt> 
+  characteristics: Getting a cell value takes time<code> O(log nzr)</code> where <code>nzr</code> 
   is the number of non-zeros of the touched row. This is usually quick, because 
   typically there are only few nonzeros per row. So, in practice, get has <i>expected</i> 
-  constant time. Setting a cell value takes <i> </i>worst-case time <tt>O(nz)</tt> 
-  where <tt>nzr</tt> is the total number of non-zeros in the matrix. This can 
+  constant time. Setting a cell value takes <i> </i>worst-case time <code>O(nz)</code> 
+  where <code>nzr</code> is the total number of non-zeros in the matrix. This can 
   be extremely slow, but if you traverse coordinates properly, each write is done 
   much quicker. For how to do this and other tips, see the <a href="doc-files/performanceNotes.html">performance 
   notes</a>. <img src="../doc-files/new.gif" width="32" height="22" align="middle"> 
@@ -671,8 +671,8 @@ System.out.println(sum);
 <p>All matrices use strided 32-bit integer arithmetic for linear cell addressing, 
   similar to Fortran. The chosen cell addressing implementation is the key feature 
   enabling the easy implementation and good performance of advanced views.</p>
-<p>All methods are bounds checking, except for trusting variants of <tt>get</tt> 
-  and <tt>set</tt> called <tt>getQuick</tt> and <tt>setQuick</tt> which should 
+<p>All methods are bounds checking, except for trusting variants of <code>get</code> 
+  and <code>set</code> called <code>getQuick</code> and <code>setQuick</code> which should 
   and are used in expensive (often cubic) loops where it is dramatically cheaper 
   to check bounds before entering the loop, not in the loop. Fundamentally time 
   critical methods of dense matrices override default implementations such that 
@@ -689,8 +689,8 @@ System.out.println(sum);
 <p>Although view objects occupy only a couple of bytes, generating temporary views 
   at very high frequency can lead to heavy garbage collection. </p>
 <p>To keep the overhead minimal, copying operations are highly optimized. They 
-  sometimes boil down to <tt>System.arraycopy</tt> (which is nothing else than 
-  a byte-aligned C <tt>memmove</tt>). Also note that memory access patterns (cache 
+  sometimes boil down to <code>System.arraycopy</code> (which is nothing else than 
+  a byte-aligned C <code>memmove</code>). Also note that memory access patterns (cache 
   locality) of self-modifying matrix operations are better than for result matrix 
   modifying operations.</p>
 <p><a href="#Overview">Back</a> to Overview 

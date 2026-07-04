@@ -16,6 +16,33 @@ public interface Double27Function {
     /**
      * Applies a function to 27 arguments.
      * 
+     * @param a000
+     * @param a222
+     * @param a001
+     * @param a221
+     * @param a002
+     * @param a220
+     * @param a010
+     * @param a212
+     * @param a011
+     * @param a211
+     * @param a012
+     * @param a210
+     * @param a020
+     * @param a202
+     * @param a021
+     * @param a201
+     * @param a022
+     * @param a200
+     * @param a100
+     * @param a122
+     * @param a101
+     * @param a121
+     * @param a102
+     * @param a120
+     * @param a110
+     * @param a112
+     * @param a111
      * @return the result of the function.
      */
     abstract public double apply(double a000, double a001, double a002, double a010, double a011, double a012,

@@ -51,9 +51,9 @@ public class SparseDoubleKLUDecomposition implements SparseDoubleLUDecomposition
      *            BTFJ) is performed.
      * @param preOrder use BTF pre-ordering, or not
      * @throws IllegalArgumentException
-     *             if <tt>A</tt> is not square or is not sparse.
+     *             if <code>A</code> is not square or is not sparse.
      * @throws IllegalArgumentException
-     *             if <tt>order</tt> is not in [0,1]
+     *             if <code>order</code> is not in [0,1]
      */
     public SparseDoubleKLUDecomposition(DoubleMatrix2D A, int order, boolean checkIfSingular, boolean preOrder) {
         DoubleProperty.DEFAULT.checkSquare(A);

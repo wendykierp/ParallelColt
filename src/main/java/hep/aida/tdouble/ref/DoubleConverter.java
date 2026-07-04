@@ -19,6 +19,8 @@ public class DoubleConverter {
 
     /**
      * Returns all edges of the given axis.
+     * @param axis
+     * @return 
      */
     public double[] edges(DoubleIAxis axis) {
         int b = axis.bins();
@@ -35,6 +37,8 @@ public class DoubleConverter {
 
     /**
      * Returns an array[h.xAxis().bins()]; ignoring extra bins.
+     * @param h
+     * @return 
      */
     protected double[] toArrayErrors(DoubleIHistogram1D h) {
         int xBins = h.xAxis().bins();
@@ -48,6 +52,8 @@ public class DoubleConverter {
     /**
      * Returns an array[h.xAxis().bins()][h.yAxis().bins()]; ignoring extra
      * bins.
+     * @param h
+     * @return 
      */
     protected double[][] toArrayErrors(DoubleIHistogram2D h) {
         int xBins = h.xAxis().bins();
@@ -63,6 +69,8 @@ public class DoubleConverter {
 
     /**
      * Returns an array[h.xAxis().bins()]; ignoring extra bins.
+     * @param h
+     * @return 
      */
     protected double[] toArrayHeights(DoubleIHistogram1D h) {
         int xBins = h.xAxis().bins();
@@ -76,6 +84,8 @@ public class DoubleConverter {
     /**
      * Returns an array[h.xAxis().bins()][h.yAxis().bins()]; ignoring extra
      * bins.
+     * @param h
+     * @return 
      */
     protected double[][] toArrayHeights(DoubleIHistogram2D h) {
         int xBins = h.xAxis().bins();
@@ -92,6 +102,8 @@ public class DoubleConverter {
     /**
      * Returns an array[h.xAxis().bins()][h.yAxis().bins()][h.zAxis().bins()];
      * ignoring extra bins.
+     * @param h
+     * @return 
      */
     protected double[][][] toArrayHeights(DoubleIHistogram3D h) {
         int xBins = h.xAxis().bins();
@@ -111,9 +123,10 @@ public class DoubleConverter {
     /**
      * Returns a string representation of the specified array. The string
      * representation consists of a list of the arrays's elements, enclosed in
-     * square brackets (<tt>"[]"</tt>). Adjacent elements are separated by the
-     * characters <tt>", "</tt> (comma and space).
+     * square brackets (<code>"[]"</code>). Adjacent elements are separated by the
+     * characters <code>", "</code> (comma and space).
      * 
+     * @param array
      * @return a string representation of the specified array.
      */
     protected static String toString(double[] array) {
@@ -131,6 +144,8 @@ public class DoubleConverter {
 
     /**
      * Returns a string representation of the given argument.
+     * @param axis
+     * @return 
      */
     public String toString(DoubleIAxis axis) {
         StringBuffer buf = new StringBuffer();
@@ -142,6 +157,8 @@ public class DoubleConverter {
 
     /**
      * Returns a string representation of the given argument.
+     * @param h
+     * @return 
      */
     public String toString(DoubleIHistogram1D h) {
         String columnAxisName = null; // "X";
@@ -187,6 +204,8 @@ public class DoubleConverter {
 
     /**
      * Returns a string representation of the given argument.
+     * @param h
+     * @return 
      */
     public String toString(DoubleIHistogram2D h) {
         String columnAxisName = "X";
@@ -249,6 +268,8 @@ public class DoubleConverter {
 
     /**
      * Returns a string representation of the given argument.
+     * @param h
+     * @return 
      */
     public String toString(DoubleIHistogram3D h) {
         String columnAxisName = "X";
@@ -325,6 +346,8 @@ public class DoubleConverter {
 
     /**
      * Returns a XML representation of the given argument.
+     * @param h
+     * @return 
      */
     public String toXML(DoubleIHistogram1D h) {
         StringBuffer buf = new StringBuffer();
@@ -386,6 +409,8 @@ public class DoubleConverter {
 
     /**
      * Returns a XML representation of the given argument.
+     * @param h
+     * @return 
      */
     public String toXML(DoubleIHistogram2D h) {
         StringBuffer out = new StringBuffer();

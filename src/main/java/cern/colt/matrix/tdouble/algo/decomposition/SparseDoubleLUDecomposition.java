@@ -5,29 +5,30 @@ import cern.colt.matrix.tdouble.DoubleMatrix2D;
 import com.github.wendykierp.csparsej.tdouble.Dcs_common.Dcss;
 
 /**
- * For a square matrix <tt>A</tt>, the LU decomposition is an unit lower
- * triangular matrix <tt>L</tt>, an upper triangular matrix <tt>U</tt>, and a
- * permutation vector <tt>piv</tt> so that <tt>A(piv,:) = L*U</tt>
+ * For a square matrix <code>A</code>, the LU decomposition is an unit lower
+ * triangular matrix <code>L</code>, an upper triangular matrix <code>U</code>, and a
+ * permutation vector <code>piv</code> so that <code>A(piv,:) = L*U</code>
  * <P>
  * The LU decomposition with pivoting always exists, even if the matrix is
  * singular. The primary use of the LU decomposition is in the solution of
  * square systems of simultaneous linear equations. This will fail if
- * <tt>isNonsingular()</tt> returns false.
+ * <code>isNonsingular()</code> returns false.
  * 
  * @author Piotr Wendykier (piotr.wendykier@gmail.com)
  */
 public interface SparseDoubleLUDecomposition {
 
 	/**
-	 * Returns the determinant, <tt>det(A)</tt>.
+	 * Returns the determinant, <code>det(A)</code>.
 	 * 
+     * @return 
 	 */
 	public abstract double det();
 
 	/**
-	 * Returns the lower triangular factor, <tt>L</tt>.
+	 * Returns the lower triangular factor, <code>L</code>.
 	 * 
-	 * @return <tt>L</tt>
+	 * @return <code>L</code>
 	 */
 	public abstract DoubleMatrix2D getL();
 
@@ -39,9 +40,9 @@ public interface SparseDoubleLUDecomposition {
 	public abstract int[] getPivot();
 
 	/**
-	 * Returns the upper triangular factor, <tt>U</tt>.
+	 * Returns the upper triangular factor, <code>U</code>.
 	 * 
-	 * @return <tt>U</tt>
+	 * @return <code>U</code>
 	 */
 	public abstract DoubleMatrix2D getU();
 
@@ -55,19 +56,19 @@ public interface SparseDoubleLUDecomposition {
 	/**
 	 * Returns whether the matrix is nonsingular (has an inverse).
 	 * 
-	 * @return true if <tt>U</tt>, and hence <tt>A</tt>, is nonsingular; false
+	 * @return true if <code>U</code>, and hence <code>A</code>, is nonsingular; false
 	 *         otherwise.
 	 */
 	public abstract boolean isNonsingular();
 
 	/**
-	 * Solves <tt>A*x = b</tt>(in-place). Upon return <tt>b</tt> is overridden
-	 * with the result <tt>x</tt>.
+	 * Solves <code>A*x = b</code>(in-place). Upon return <code>b</code> is overridden
+	 * with the result <code>x</code>.
 	 * 
 	 * @param b
 	 *            A vector with of size A.rows();
 	 * @exception IllegalArgumentException
-	 *                if <tt>b.size() != A.rows()</tt> or if A is singular.
+	 *                if <code>b.size() != A.rows()</code> or if A is singular.
 	 */
 	public abstract void solve(DoubleMatrix1D b);
 

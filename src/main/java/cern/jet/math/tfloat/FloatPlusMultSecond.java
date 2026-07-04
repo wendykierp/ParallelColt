@@ -12,14 +12,14 @@ package cern.jet.math.tfloat;
  * Only for performance tuning of compute intensive linear algebraic
  * computations. Constructs functions that return one of
  * <ul>
- * <li><tt>a + b*constant</tt>
- * <li><tt>a - b*constant</tt>
- * <li><tt>a + b/constant</tt>
- * <li><tt>a - b/constant</tt>
+ * <li><code>a + b*constant</code>
+ * <li><code>a - b*constant</code>
+ * <li><code>a + b/constant</code>
+ * <li><code>a - b/constant</code>
  * </ul>
- * <tt>a</tt> and <tt>b</tt> are variables, <tt>constant</tt> is fixed, but for
+ * <code>a</code> and <code>b</code> are variables, <code>constant</code> is fixed, but for
  * performance reasons publicly accessible. Intended to be passed to
- * <tt>matrix.assign(otherMatrix,function)</tt> methods.
+ * <code>matrix.assign(otherMatrix,function)</code> methods.
  */
 public final class FloatPlusMultSecond implements cern.colt.function.tfloat.FloatFloatFunction {
     /**
@@ -29,6 +29,7 @@ public final class FloatPlusMultSecond implements cern.colt.function.tfloat.Floa
 
     /**
      * Insert the method's description here. Creation date: (8/10/99 19:12:09)
+     * @param multiplicator
      */
     protected FloatPlusMultSecond(final float multiplicator) {
         this.multiplicator = multiplicator;
@@ -36,34 +37,44 @@ public final class FloatPlusMultSecond implements cern.colt.function.tfloat.Floa
 
     /**
      * Returns the result of the function evaluation.
+     * @param a
+     * @param b
      */
     public final float apply(float a, float b) {
         return a + b * multiplicator;
     }
 
     /**
-     * <tt>a - b/constant</tt>.
+     * <code>a - b/constant</code>.
+     * @param constant
+     * @return 
      */
     public static FloatPlusMultSecond minusDiv(final float constant) {
         return new FloatPlusMultSecond(-1 / constant);
     }
 
     /**
-     * <tt>a - b*constant</tt>.
+     * <code>a - b*constant</code>.
+     * @param constant
+     * @return 
      */
     public static FloatPlusMultSecond minusMult(final float constant) {
         return new FloatPlusMultSecond(-constant);
     }
 
     /**
-     * <tt>a + b/constant</tt>.
+     * <code>a + b/constant</code>.
+     * @param constant
+     * @return 
      */
     public static FloatPlusMultSecond plusDiv(final float constant) {
         return new FloatPlusMultSecond(1 / constant);
     }
 
     /**
-     * <tt>a + b*constant</tt>.
+     * <code>a + b*constant</code>.
+     * @param constant
+     * @return 
      */
     public static FloatPlusMultSecond plusMult(final float constant) {
         return new FloatPlusMultSecond(constant);

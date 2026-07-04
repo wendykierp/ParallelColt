@@ -13,7 +13,7 @@ import cern.colt.matrix.tint.IntMatrix2D;
 import cern.colt.matrix.tint.IntMatrix3D;
 
 /**
- * 1-d matrix holding <tt>int</tt> elements; either a view wrapping another
+ * 1-d matrix holding <code>int</code> elements; either a view wrapping another
  * matrix or a matrix whose views are wrappers.
  * 
  * @author wolfgang.hoschek@cern.ch
@@ -39,8 +39,9 @@ public class WrapperIntMatrix1D extends IntMatrix1D {
     }
 
     /**
-     * Returns the content of this matrix if it is a wrapper; or <tt>this</tt>
+     * Returns the content of this matrix if it is a wrapper; or <code>this</code>
      * otherwise. Override this method in wrappers.
+     * @return 
      */
 
     protected IntMatrix1D getContent() {
@@ -48,13 +49,13 @@ public class WrapperIntMatrix1D extends IntMatrix1D {
     }
 
     /**
-     * Returns the matrix cell value at coordinate <tt>index</tt>.
+     * Returns the matrix cell value at coordinate <code>index</code>.
      * 
      * <p>
      * Provided with invalid parameters this method may return invalid objects
      * without throwing any exception. <b>You should only use this method when
      * you are absolutely sure that the coordinate is within bounds.</b>
-     * Precondition (unchecked): <tt>index&lt;0 || index&gt;=size()</tt>.
+     * Precondition (unchecked): <code>index&lt;0 || index&gt;=size()</code>.
      * 
      * @param index
      *            the index of the cell.
@@ -72,10 +73,10 @@ public class WrapperIntMatrix1D extends IntMatrix1D {
     /**
      * Construct and returns a new empty matrix <i>of the same dynamic type</i>
      * as the receiver, having the specified size. For example, if the receiver
-     * is an instance of type <tt>DenseIntMatrix1D</tt> the new matrix must also
-     * be of type <tt>DenseIntMatrix1D</tt>, if the receiver is an instance of
-     * type <tt>SparseIntMatrix1D</tt> the new matrix must also be of type
-     * <tt>SparseIntMatrix1D</tt>, etc. In general, the new matrix should have
+     * is an instance of type <code>DenseIntMatrix1D</code> the new matrix must also
+     * be of type <code>DenseIntMatrix1D</code>, if the receiver is an instance of
+     * type <code>SparseIntMatrix1D</code> the new matrix must also be of type
+     * <code>SparseIntMatrix1D</code>, etc. In general, the new matrix should have
      * internal parametrization as similar as possible.
      * 
      * @param size
@@ -90,10 +91,10 @@ public class WrapperIntMatrix1D extends IntMatrix1D {
     /**
      * Construct and returns a new 2-d matrix <i>of the corresponding dynamic
      * type</i>, entirelly independent of the receiver. For example, if the
-     * receiver is an instance of type <tt>DenseIntMatrix1D</tt> the new matrix
-     * must be of type <tt>DenseIntMatrix2D</tt>, if the receiver is an instance
-     * of type <tt>SparseIntMatrix1D</tt> the new matrix must be of type
-     * <tt>SparseIntMatrix2D</tt>, etc.
+     * receiver is an instance of type <code>DenseIntMatrix1D</code> the new matrix
+     * must be of type <code>DenseIntMatrix2D</code>, if the receiver is an instance
+     * of type <code>SparseIntMatrix1D</code> the new matrix must be of type
+     * <code>SparseIntMatrix2D</code>, etc.
      * 
      * @param rows
      *            the number of rows the matrix shall have.
@@ -115,13 +116,13 @@ public class WrapperIntMatrix1D extends IntMatrix1D {
     }
 
     /**
-     * Sets the matrix cell at coordinate <tt>index</tt> to the specified value.
+     * Sets the matrix cell at coordinate <code>index</code> to the specified value.
      * 
      * <p>
      * Provided with invalid parameters this method may access illegal indexes
      * without throwing any exception. <b>You should only use this method when
      * you are absolutely sure that the coordinate is within bounds.</b>
-     * Precondition (unchecked): <tt>index&lt;0 || index&gt;=size()</tt>.
+     * Precondition (unchecked): <code>index&lt;0 || index&gt;=size()</code>.
      * 
      * @param index
      *            the index of the cell.
@@ -135,8 +136,8 @@ public class WrapperIntMatrix1D extends IntMatrix1D {
 
     /**
      * Constructs and returns a new <i>flip view</i>. What used to be index
-     * <tt>0</tt> is now index <tt>size()-1</tt>, ..., what used to be index
-     * <tt>size()-1</tt> is now index <tt>0</tt>. The returned view is backed by
+     * <code>0</code> is now index <code>size()-1</code>, ..., what used to be index
+     * <code>size()-1</code> is now index <code>0</code>. The returned view is backed by
      * this matrix, so changes in the returned view are reflected in this
      * matrix, and vice-versa.
      * 
@@ -171,29 +172,29 @@ public class WrapperIntMatrix1D extends IntMatrix1D {
 
     /**
      * Constructs and returns a new <i>sub-range view</i> that is a
-     * <tt>width</tt> sub matrix starting at <tt>index</tt>.
+     * <code>width</code> sub matrix starting at <code>index</code>.
      * 
      * Operations on the returned view can only be applied to the restricted
      * range. Any attempt to access coordinates not contained in the view will
-     * throw an <tt>IndexOutOfBoundsException</tt>.
+     * throw an <code>IndexOutOfBoundsException</code>.
      * <p>
      * <b>Note that the view is really just a range restriction:</b> The
      * returned matrix is backed by this matrix, so changes in the returned
      * matrix are reflected in this matrix, and vice-versa.
      * <p>
-     * The view contains the cells from <tt>index..index+width-1</tt>. and has
-     * <tt>view.size() == width</tt>. A view's legal coordinates are again zero
+     * The view contains the cells from <code>index..index+width-1</code>. and has
+     * <code>view.size() == width</code>. A view's legal coordinates are again zero
      * based, as usual. In other words, legal coordinates of the view are
-     * <tt>0 .. view.size()-1==width-1</tt>. As usual, any attempt to access a
+     * <code>0 .. view.size()-1==width-1</code>. As usual, any attempt to access a
      * cell at other coordinates will throw an
-     * <tt>IndexOutOfBoundsException</tt>.
+     * <code>IndexOutOfBoundsException</code>.
      * 
      * @param index
      *            The index of the first cell.
      * @param width
      *            The width of the range.
      * @throws IndexOutOfBoundsException
-     *             if <tt>index<0 || width<0 || index+width>size()</tt>.
+     *             if <code>index<0 || width<0 || index+width>size()</code>.
      * @return the new view.
      * 
      */
@@ -230,8 +231,8 @@ public class WrapperIntMatrix1D extends IntMatrix1D {
     /**
      * Constructs and returns a new <i>selection view</i> that is a matrix
      * holding the indicated cells. There holds
-     * <tt>view.size() == indexes.length</tt> and
-     * <tt>view.get(i) == this.get(indexes[i])</tt>. Indexes can occur multiple
+     * <code>view.size() == indexes.length</code> and
+     * <code>view.get(i) == this.get(indexes[i])</code>. Indexes can occur multiple
      * times and can be in arbitrary order.
      * <p>
      * <b>Example:</b> <br>
@@ -244,7 +245,7 @@ public class WrapperIntMatrix1D extends IntMatrix1D {
      * 
      * </pre>
      * 
-     * Note that modifying <tt>indexes</tt> after this call has returned has no
+     * Note that modifying <code>indexes</code> after this call has returned has no
      * effect on the view. The returned view is backed by this matrix, so
      * changes in the returned view are reflected in this matrix, and
      * vice-versa.
@@ -252,11 +253,11 @@ public class WrapperIntMatrix1D extends IntMatrix1D {
      * @param indexes
      *            The indexes of the cells that shall be visible in the new
      *            view. To indicate that <i>all</i> cells shall be visible,
-     *            simply set this parameter to <tt>null</tt>.
+     *            simply set this parameter to <code>null</code>.
      * @return the new view.
      * @throws IndexOutOfBoundsException
-     *             if <tt>!(0 <= indexes[i] < size())</tt> for any
-     *             <tt>i=0..indexes.length()-1</tt>.
+     *             if <code>!(0 <= indexes[i] < size())</code> for any
+     *             <code>i=0..indexes.length()-1</code>.
      */
 
     public IntMatrix1D viewSelection(int[] indexes) {
@@ -311,13 +312,13 @@ public class WrapperIntMatrix1D extends IntMatrix1D {
     /**
      * Constructs and returns a new <i>stride view</i> which is a sub matrix
      * consisting of every i-th cell. More specifically, the view has size
-     * <tt>this.size()/stride</tt> holding cells <tt>this.get(i*stride)</tt> for
-     * all <tt>i = 0..size()/stride - 1</tt>.
+     * <code>this.size()/stride</code> holding cells <code>this.get(i*stride)</code> for
+     * all <code>i = 0..size()/stride - 1</code>.
      * 
      * @param _stride
      *            the step factor.
      * @throws IndexOutOfBoundsException
-     *             if <tt>stride <= 0</tt>.
+     *             if <code>stride <= 0</code>.
      * @return the new view.
      * 
      */

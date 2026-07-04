@@ -15,7 +15,7 @@ import cern.colt.matrix.tobject.ObjectMatrix2D;
 import cern.colt.matrix.tobject.ObjectMatrix3D;
 
 /**
- * Sparse hashed 3-d matrix holding <tt>Object</tt> elements. First see the <a
+ * Sparse hashed 3-d matrix holding <code>Object</code> elements. First see the <a
  * href="package-summary.html">package summary</a> and javadoc <a
  * href="package-tree.html">tree view</a> to get the broad picture.
  * <p>
@@ -36,21 +36,21 @@ import cern.colt.matrix.tobject.ObjectMatrix3D;
  * manually be reclaimed by calling {@link #trimToSize()}.
  * </ul>
  * <p>
- * worst case: <tt>memory [bytes] = (1/minLoadFactor) * nonZeros * 13</tt>. <br>
- * best case: <tt>memory [bytes] = (1/maxLoadFactor) * nonZeros * 13</tt>. <br>
- * Where <tt>nonZeros = cardinality()</tt> is the number of non-zero cells.
+ * worst case: <code>memory [bytes] = (1/minLoadFactor) * nonZeros * 13</code>. <br>
+ * best case: <code>memory [bytes] = (1/maxLoadFactor) * nonZeros * 13</code>. <br>
+ * Where <code>nonZeros = cardinality()</code> is the number of non-zero cells.
  * Thus, a 100 x 100 x 100 matrix with minLoadFactor=0.25 and maxLoadFactor=0.5
  * and 1000000 non-zero cells consumes between 25 MB and 50 MB. The same 100 x
  * 100 x 100 matrix with 1000 non-zero cells consumes between 25 and 50 KB.
  * <p>
  * <b>Time complexity:</b>
  * <p>
- * This class offers <i>expected</i> time complexity <tt>O(1)</tt> (i.e.
- * constant time) for the basic operations <tt>get</tt>, <tt>getQuick</tt>,
- * <tt>set</tt>, <tt>setQuick</tt> and <tt>size</tt> assuming the hash function
+ * This class offers <i>expected</i> time complexity <code>O(1)</code> (i.e.
+ * constant time) for the basic operations <code>get</code>, <code>getQuick</code>,
+ * <code>set</code>, <code>setQuick</code> and <code>size</code> assuming the hash function
  * disperses the elements properly among the buckets. Otherwise, pathological
  * cases, although highly improbable, can occur, degrading performance to
- * <tt>O(N)</tt> in the worst case. As such this sparse class is expected to
+ * <code>O(N)</code> in the worst case. As such this sparse class is expected to
  * have no worse time complexity than its dense counterpart
  * {@link DenseObjectMatrix2D}. However, constant factors are considerably
  * larger.
@@ -99,23 +99,23 @@ public class SparseObjectMatrix3D extends ObjectMatrix3D {
     protected AbstractLongObjectMap elements;
 
     /**
-     * Constructs a matrix with a copy of the given values. <tt>values</tt> is
-     * required to have the form <tt>values[slice][row][column]</tt> and have
+     * Constructs a matrix with a copy of the given values. <code>values</code> is
+     * required to have the form <code>values[slice][row][column]</code> and have
      * exactly the same number of rows in in every slice and exactly the same
      * number of columns in in every row.
      * <p>
-     * The values are copied. So subsequent changes in <tt>values</tt> are not
+     * The values are copied. So subsequent changes in <code>values</code> are not
      * reflected in the matrix, and vice-versa.
      * 
      * @param values
      *            The values to be filled into the new matrix.
      * @throws IllegalArgumentException
      *             if
-     *             <tt>for any 1 &lt;= slice &lt; values.length: values[slice].length != values[slice-1].length</tt>
+     *             <code>for any 1 &lt;= slice &lt; values.length: values[slice].length != values[slice-1].length</code>
      *             .
      * @throws IllegalArgumentException
      *             if
-     *             <tt>for any 1 &lt;= row &lt; values[0].length: values[slice][row].length != values[slice][row-1].length</tt>
+     *             <code>for any 1 &lt;= row &lt; values[0].length: values[slice][row].length != values[slice][row-1].length</code>
      *             .
      */
     public SparseObjectMatrix3D(Object[][][] values) {
@@ -126,7 +126,7 @@ public class SparseObjectMatrix3D extends ObjectMatrix3D {
 
     /**
      * Constructs a matrix with a given number of slices, rows and columns and
-     * default memory usage. All entries are initially <tt>null</tt>.
+     * default memory usage. All entries are initially <code>null</code>.
      * 
      * @param slices
      *            the number of slices the matrix shall have.
@@ -135,9 +135,9 @@ public class SparseObjectMatrix3D extends ObjectMatrix3D {
      * @param columns
      *            the number of columns the matrix shall have.
      * @throws IllegalArgumentException
-     *             if <tt>(double)slices*columns*rows > Integer.MAX_VALUE</tt>.
+     *             if <code>(double)slices*columns*rows > Integer.MAX_VALUE</code>.
      * @throws IllegalArgumentException
-     *             if <tt>slices<0 || rows<0 || columns<0</tt>.
+     *             if <code>slices &lt; 0 || rows &lt; 0 || columns &lt; 0</code>.
      */
     public SparseObjectMatrix3D(int slices, int rows, int columns) {
         this(slices, rows, columns, slices * rows * (columns / 1000), 0.2, 0.5);
@@ -145,7 +145,7 @@ public class SparseObjectMatrix3D extends ObjectMatrix3D {
 
     /**
      * Constructs a matrix with a given number of slices, rows and columns using
-     * memory as specified. All entries are initially <tt>null</tt>. For details
+     * memory as specified. All entries are initially <code>null</code>. For details
      * related to memory usage see
      * {@link cern.colt.map.tobject.OpenLongObjectHashMap}.
      * 
@@ -157,7 +157,7 @@ public class SparseObjectMatrix3D extends ObjectMatrix3D {
      *            the number of columns the matrix shall have.
      * @param initialCapacity
      *            the initial capacity of the hash map. If not known, set
-     *            <tt>initialCapacity=0</tt> or small.
+     *            <code>initialCapacity=0</code> or small.
      * @param minLoadFactor
      *            the minimum load factor of the hash map.
      * @param maxLoadFactor
@@ -165,12 +165,12 @@ public class SparseObjectMatrix3D extends ObjectMatrix3D {
      * @throws IllegalArgumentException
      *             if
      * 
-     *             <tt>initialCapacity < 0 || (minLoadFactor < 0.0 || minLoadFactor >= 1.0) || (maxLoadFactor <= 0.0 || maxLoadFactor >= 1.0) || (minLoadFactor >= maxLoadFactor)</tt>
+     *             <code>initialCapacity < 0 || (minLoadFactor < 0.0 || minLoadFactor >= 1.0) || (maxLoadFactor <= 0.0 || maxLoadFactor >= 1.0) || (minLoadFactor >= maxLoadFactor)</code>
      *             .
      * @throws IllegalArgumentException
-     *             if <tt>(double)slices*columns*rows > Integer.MAX_VALUE</tt>.
+     *             if <code>(double)slices*columns*rows > Integer.MAX_VALUE</code>.
      * @throws IllegalArgumentException
-     *             if <tt>slices<0 || rows<0 || columns<0</tt>.
+     *             if <code>slices &lt; 0 || rows &lt; 0 || columns &lt; 0</code>.
      */
     public SparseObjectMatrix3D(int slices, int rows, int columns, int initialCapacity, double minLoadFactor,
             double maxLoadFactor) {
@@ -197,17 +197,15 @@ public class SparseObjectMatrix3D extends ObjectMatrix3D {
      *            the position of the first element.
      * @param sliceStride
      *            the number of elements between two slices, i.e.
-     *            <tt>index(k+1,i,j)-index(k,i,j)</tt>.
+     *            <code>index(k+1,i,j)-index(k,i,j)</code>.
      * @param rowStride
      *            the number of elements between two rows, i.e.
-     *            <tt>index(k,i+1,j)-index(k,i,j)</tt>.
-     * @param columnnStride
-     *            the number of elements between two columns, i.e.
-     *            <tt>index(k,i,j+1)-index(k,i,j)</tt>.
+     *            <code>index(k,i+1,j)-index(k,i,j)</code>.
+     * @param columnStride
      * @throws IllegalArgumentException
-     *             if <tt>(Object)slices*columns*rows > Integer.MAX_VALUE</tt>.
+     *             if <code>(Object)slices*columns*rows > Integer.MAX_VALUE</code>.
      * @throws IllegalArgumentException
-     *             if <tt>slices<0 || rows<0 || columns<0</tt>.
+     *             if <code>slices &lt; 0 || rows &lt; 0 || columns &lt; 0</code>.
      */
     protected SparseObjectMatrix3D(int slices, int rows, int columns, AbstractLongObjectMap elements, int sliceZero,
             int rowZero, int columnZero, int sliceStride, int rowStride, int columnStride) {
@@ -218,6 +216,7 @@ public class SparseObjectMatrix3D extends ObjectMatrix3D {
 
     /**
      * Returns the number of cells having non-zero values.
+     * @return 
      */
 
     public int cardinality() {
@@ -244,7 +243,7 @@ public class SparseObjectMatrix3D extends ObjectMatrix3D {
      * the receiver.
      * <p>
      * This method never need be called; it is for performance tuning only.
-     * Calling this method before tt>set()</tt>ing a large number of non-zero
+     * Calling this method before tt>set()</code>ing a large number of non-zero
      * values boosts performance, because the receiver will grow only once
      * instead of potentially many times and hash collisions get less probable.
      * 
@@ -257,14 +256,14 @@ public class SparseObjectMatrix3D extends ObjectMatrix3D {
     }
 
     /**
-     * Returns the matrix cell value at coordinate <tt>[slice,row,column]</tt>.
+     * Returns the matrix cell value at coordinate <code>[slice,row,column]</code>.
      * 
      * <p>
      * Provided with invalid parameters this method may return invalid objects
      * without throwing any exception. <b>You should only use this method when
      * you are absolutely sure that the coordinate is within bounds.</b>
      * Precondition (unchecked):
-     * <tt>slice&lt;0 || slice&gt;=slices() || row&lt;0 || row&gt;=rows() || column&lt;0 || column&gt;=column()</tt>.
+     * <code>slice&lt;0 || slice&gt;=slices() || row&lt;0 || row&gt;=rows() || column&lt;0 || column&gt;=column()</code>.
      * 
      * @param slice
      *            the index of the slice-coordinate.
@@ -287,7 +286,9 @@ public class SparseObjectMatrix3D extends ObjectMatrix3D {
     }
 
     /**
-     * Returns <tt>true</tt> if both matrices share at least one identical cell.
+     * Returns <code>true</code> if both matrices share at least one identical cell.
+     * @param other
+     * @return 
      */
 
     protected boolean haveSharedCellsRaw(ObjectMatrix3D other) {
@@ -311,6 +312,7 @@ public class SparseObjectMatrix3D extends ObjectMatrix3D {
      *            the index of the row-coordinate.
      * @param column
      *            the index of the third-coordinate.
+     * @return 
      */
 
     public long index(int slice, int row, int column) {
@@ -325,10 +327,10 @@ public class SparseObjectMatrix3D extends ObjectMatrix3D {
      * Construct and returns a new empty matrix <i>of the same dynamic type</i>
      * as the receiver, having the specified number of slices, rows and columns.
      * For example, if the receiver is an instance of type
-     * <tt>DenseObjectMatrix3D</tt> the new matrix must also be of type
-     * <tt>DenseObjectMatrix3D</tt>, if the receiver is an instance of type
-     * <tt>SparseObjectMatrix3D</tt> the new matrix must also be of type
-     * <tt>SparseObjectMatrix3D</tt>, etc. In general, the new matrix should
+     * <code>DenseObjectMatrix3D</code> the new matrix must also be of type
+     * <code>DenseObjectMatrix3D</code>, if the receiver is an instance of type
+     * <code>SparseObjectMatrix3D</code> the new matrix must also be of type
+     * <code>SparseObjectMatrix3D</code>, etc. In general, the new matrix should
      * have internal parametrization as similar as possible.
      * 
      * @param slices
@@ -347,10 +349,10 @@ public class SparseObjectMatrix3D extends ObjectMatrix3D {
     /**
      * Construct and returns a new 2-d matrix <i>of the corresponding dynamic
      * type</i>, sharing the same cells. For example, if the receiver is an
-     * instance of type <tt>DenseObjectMatrix3D</tt> the new matrix must also be
-     * of type <tt>DenseObjectMatrix2D</tt>, if the receiver is an instance of
-     * type <tt>SparseObjectMatrix3D</tt> the new matrix must also be of type
-     * <tt>SparseObjectMatrix2D</tt>, etc.
+     * instance of type <code>DenseObjectMatrix3D</code> the new matrix must also be
+     * of type <code>DenseObjectMatrix2D</code>, if the receiver is an instance of
+     * type <code>SparseObjectMatrix3D</code> the new matrix must also be of type
+     * <code>SparseObjectMatrix2D</code>, etc.
      * 
      * @param rows
      *            the number of rows the matrix shall have.
@@ -362,10 +364,10 @@ public class SparseObjectMatrix3D extends ObjectMatrix3D {
      *            the position of the first element.
      * @param rowStride
      *            the number of elements between two rows, i.e.
-     *            <tt>index(i+1,j)-index(i,j)</tt>.
+     *            <code>index(i+1,j)-index(i,j)</code>.
      * @param columnStride
      *            the number of elements between two columns, i.e.
-     *            <tt>index(i,j+1)-index(i,j)</tt>.
+     *            <code>index(i,j+1)-index(i,j)</code>.
      * @return a new matrix of the corresponding dynamic type.
      */
 
@@ -374,7 +376,7 @@ public class SparseObjectMatrix3D extends ObjectMatrix3D {
     }
 
     /**
-     * Sets the matrix cell at coordinate <tt>[slice,row,column]</tt> to the
+     * Sets the matrix cell at coordinate <code>[slice,row,column]</code> to the
      * specified value.
      * 
      * <p>
@@ -382,7 +384,7 @@ public class SparseObjectMatrix3D extends ObjectMatrix3D {
      * without throwing any exception. <b>You should only use this method when
      * you are absolutely sure that the coordinate is within bounds.</b>
      * Precondition (unchecked):
-     * <tt>slice&lt;0 || slice&gt;=slices() || row&lt;0 || row&gt;=rows() || column&lt;0 || column&gt;=column()</tt>.
+     * <code>slice&lt;0 || slice&gt;=slices() || row&lt;0 || row&gt;=rows() || column&lt;0 || column&gt;=column()</code>.
      * 
      * @param slice
      *            the index of the slice-coordinate.
@@ -421,12 +423,12 @@ public class SparseObjectMatrix3D extends ObjectMatrix3D {
      * <li>are never set to non-zero values do not use any memory.
      * <li>switch from zero to non-zero state do use memory.
      * <li>switch back from non-zero to zero state also do use memory. However,
-     * their memory can be reclaimed by calling <tt>trimToSize()</tt>.
+     * their memory can be reclaimed by calling <code>trimToSize()</code>.
      * </ul>
-     * A sequence like <tt>set(s,r,c,5); set(s,r,c,0);</tt> sets a cell to
+     * A sequence like <code>set(s,r,c,5); set(s,r,c,0);</code> sets a cell to
      * non-zero state and later back to zero state. Such as sequence generates
      * obsolete memory that is automatically reclaimed from time to time or can
-     * manually be reclaimed by calling <tt>trimToSize()</tt>. Putting zeros
+     * manually be reclaimed by calling <code>trimToSize()</code>. Putting zeros
      * into cells already containing zeros does not generate obsolete memory
      * since no memory was allocated to them in the first place.
      */

@@ -17,14 +17,14 @@ import com.github.wendykierp.csparsej.tfloat.Scs_common.Scsn;
 import com.github.wendykierp.csparsej.tfloat.Scs_common.Scss;
 
 /**
- * For an <tt>m x n</tt> matrix <tt>A</tt> with <tt>m >= n</tt>, the QR
- * decomposition is an <tt>m x n</tt> orthogonal matrix <tt>Q</tt> and an
- * <tt>n x n</tt> upper triangular matrix <tt>R</tt> so that <tt>A = Q*R</tt>.
+ * For an <code>m x n</code> matrix <code>A</code> with <code>m >= n</code>, the QR
+ * decomposition is an <code>m x n</code> orthogonal matrix <code>Q</code> and an
+ * <code>n x n</code> upper triangular matrix <code>R</code> so that <code>A = Q*R</code>.
  * <P>
  * The QR decompostion always exists, even if the matrix does not have full
  * rank. The primary use of the QR decomposition is in the least squares
  * solution of nonsquare systems of simultaneous linear equations. This will
- * fail if <tt>isFullRank()</tt> returns <tt>false</tt>.
+ * fail if <code>isFullRank()</code> returns <code>false</code>.
  * 
  * @author Piotr Wendykier (piotr.wendykier@gmail.com)
  */
@@ -48,9 +48,9 @@ public class SparseFloatQRDecomposition {
      *            ordering option (0 to 3); 0: natural ordering, 1: amd(A+A'),
      *            2: amd(S'*S), 3: amd(A'*A)
      * @throws IllegalArgumentException
-     *             if <tt>A</tt> is not sparse
+     *             if <code>A</code> is not sparse
      * @throws IllegalArgumentException
-     *             if <tt>order</tt> is not in [0,3]
+     *             if <code>order</code> is not in [0,3]
      */
     public SparseFloatQRDecomposition(FloatMatrix2D A, int order) {
         FloatProperty.DEFAULT.checkSparse(A);
@@ -116,9 +116,9 @@ public class SparseFloatQRDecomposition {
     }
 
     /**
-     * Returns a copy of the upper triangular factor, <tt>R</tt>.
+     * Returns a copy of the upper triangular factor, <code>R</code>.
      * 
-     * @return <tt>R</tt>
+     * @return <code>R</code>
      */
     public FloatMatrix2D getR() {
         if (R == null) {
@@ -150,9 +150,9 @@ public class SparseFloatQRDecomposition {
     }
 
     /**
-     * Returns whether the matrix <tt>A</tt> has full rank.
+     * Returns whether the matrix <code>A</code> has full rank.
      * 
-     * @return true if <tt>R</tt>, and hence <tt>A</tt>, has full rank.
+     * @return true if <code>R</code>, and hence <code>A</code>, has full rank.
      */
     public boolean hasFullRank() {
         if (R == null) {
@@ -172,14 +172,14 @@ public class SparseFloatQRDecomposition {
     /**
      * Solve a least-squares problem (min ||Ax-b||_2, where A is m-by-n with m
      * >= n) or underdetermined system (Ax=b, where m < n). Upon return
-     * <tt>b</tt> is overridden with the result <tt>x</tt>.
+     * <code>b</code> is overridden with the result <code>x</code>.
      * 
      * @param b
      *            right-hand side.
      * @exception IllegalArgumentException
-     *                if <tt>b.size() != max(A.rows(), A.columns())</tt>.
+     *                if <code>b.size() != max(A.rows(), A.columns())</code>.
      * @exception IllegalArgumentException
-     *                if <tt>!this.hasFullRank()</tt> (<tt>A</tt> is rank
+     *                if <code>!this.hasFullRank()</code> (<code>A</code> is rank
      *                deficient).
      */
     public void solve(FloatMatrix1D b) {

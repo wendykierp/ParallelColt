@@ -129,6 +129,7 @@ public class MatrixInfo {
     /**
      * Returns <code>true</code> if the matrix is in coordinate format, else
      * <code>false</code>
+     * @return 
      */
     public boolean isSparse() {
         return sparse;
@@ -137,6 +138,7 @@ public class MatrixInfo {
     /**
      * Returns <code>true</code> if the matrix is in coordinate format, else
      * <code>false</code>
+     * @return 
      */
     public boolean isCoordinate() {
         return sparse;
@@ -145,6 +147,7 @@ public class MatrixInfo {
     /**
      * Returns <code>true</code> if the matrix is in array format, else
      * <code>false</code>
+     * @return 
      */
     public boolean isDense() {
         return !sparse;
@@ -153,6 +156,7 @@ public class MatrixInfo {
     /**
      * Returns <code>true</code> if the matrix is in array format, else
      * <code>false</code>
+     * @return 
      */
     public boolean isArray() {
         return !sparse;
@@ -161,6 +165,7 @@ public class MatrixInfo {
     /**
      * Returns <code>true</code> if the matrix stores real numbers, else
      * <code>false</code>
+     * @return 
      */
     public boolean isReal() {
         return field == MatrixField.Real;
@@ -169,6 +174,7 @@ public class MatrixInfo {
     /**
      * Returns <code>true</code> if the matrix stores integers, else
      * <code>false</code>
+     * @return 
      */
     public boolean isInteger() {
         return field == MatrixField.Integer;
@@ -177,6 +183,7 @@ public class MatrixInfo {
     /**
      * Returns <code>true</code> if the matrix stores complex numbers, else
      * <code>false</code>
+     * @return 
      */
     public boolean isComplex() {
         return field == MatrixField.Complex;
@@ -185,6 +192,7 @@ public class MatrixInfo {
     /**
      * Returns <code>true</code> if the matrix does not store any numbers, else
      * <code>false</code>
+     * @return 
      */
     public boolean isPattern() {
         return field == MatrixField.Pattern;
@@ -193,6 +201,7 @@ public class MatrixInfo {
     /**
      * Returns <code>true</code> if the matrix form is general, else
      * <code>false</code>
+     * @return 
      */
     public boolean isGeneral() {
         return symmetry == MatrixSymmetry.General;
@@ -201,6 +210,7 @@ public class MatrixInfo {
     /**
      * Returns <code>true</code> if the matrix is symmetrical, else
      * <code>false</code>
+     * @return 
      */
     public boolean isSymmetric() {
         return symmetry == MatrixSymmetry.Symmetric;
@@ -209,6 +219,7 @@ public class MatrixInfo {
     /**
      * Returns <code>true</code> if the matrix is skew-symmetrical, else
      * <code>false</code>
+     * @return 
      */
     public boolean isSkewSymmetric() {
         return symmetry == MatrixSymmetry.SkewSymmetric;
@@ -217,6 +228,7 @@ public class MatrixInfo {
     /**
      * Returns <code>true</code> if the matrix is Hermitian, else
      * <code>false</code>
+     * @return 
      */
     public boolean isHermitian() {
         return symmetry == MatrixSymmetry.Hermitian;
@@ -230,6 +242,7 @@ public class MatrixInfo {
      * <pre>
      *       %%MatrixMarket matrix coordinate real general
      * </pre>
+     * @return 
      */
 
     public String toString() {

@@ -13,10 +13,10 @@ import cern.jet.random.tdouble.engine.DoubleRandomEngine;
 /**
  * Zeta distribution.
  * <p>
- * Valid parameter ranges: <tt>ro &gt; 0</tt> and <tt>pk &gt;= 0</tt>.
- * <dt>If either <tt>ro &gt; 100</tt> or <tt>k &gt; 10000</tt> numerical
+ * Valid parameter ranges: <code>ro &gt; 0</code> and <code>pk &gt;= 0</code>.
+ * <dt>If either <code>ro &gt; 100</code> or <code>k &gt; 10000</code> numerical
  * problems in computing the theoretical moments arise, therefore
- * <tt>ro &lt;= 100</tt> and <tt>k &lt;= 10000</tt> are recommended.
+ * <code>ro &lt;= 100</code> and <code>k &lt;= 10000</code> are recommended.
  * <p>
  * Instance methods operate on a user supplied uniform random number generator;
  * they are unsynchronized.
@@ -25,7 +25,7 @@ import cern.jet.random.tdouble.engine.DoubleRandomEngine;
  * <p>
  * <b>Implementation:</b>
  * <dt>Method: Acceptance/Rejection. High performance implementation.
- * <dt>This is a port and adaption of <tt>Zeta.c</tt> from the <A
+ * <dt>This is a port and adaption of <code>Zeta.c</code> from the <A
  * HREF="http://www.cis.tu-graz.ac.at/stat/stadl/random.html">C-RAND /
  * WIN-RAND</A> library. C-RAND's implementation, in turn, is based upon
  * <p>
@@ -55,6 +55,9 @@ public class Zeta extends AbstractDiscreteDistribution {
 
     /**
      * Constructs a Zeta distribution.
+     * @param ro
+     * @param randomGenerator
+     * @param pk
      */
     public Zeta(double ro, double pk, DoubleRandomEngine randomGenerator) {
         setRandomGenerator(randomGenerator);
@@ -63,6 +66,10 @@ public class Zeta extends AbstractDiscreteDistribution {
 
     /**
      * Returns a zeta distributed random number.
+     * @param ro
+     * @param randomGenerator
+     * @param pk
+     * @return 
      */
     protected long generateZeta(double ro, double pk, DoubleRandomEngine randomGenerator) {
         /***********************************************************************
@@ -120,6 +127,7 @@ public class Zeta extends AbstractDiscreteDistribution {
 
     /**
      * Returns a random number from the distribution.
+     * @return 
      */
 
     public int nextInt() {
@@ -128,6 +136,8 @@ public class Zeta extends AbstractDiscreteDistribution {
 
     /**
      * Sets the parameters.
+     * @param ro
+     * @param pk
      */
     public void setState(double ro, double pk) {
         this.ro = ro;
@@ -136,6 +146,9 @@ public class Zeta extends AbstractDiscreteDistribution {
 
     /**
      * Returns a random number from the distribution.
+     * @param ro
+     * @param pk
+     * @return 
      */
     public static int staticNextInt(double ro, double pk) {
         synchronized (shared) {
@@ -146,6 +159,7 @@ public class Zeta extends AbstractDiscreteDistribution {
 
     /**
      * Returns a String representation of the receiver.
+     * @return 
      */
 
     public String toString() {

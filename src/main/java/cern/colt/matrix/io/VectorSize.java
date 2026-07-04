@@ -70,6 +70,7 @@ public class VectorSize {
 
     /**
      * Returns the size of the vector
+     * @return 
      */
     public int size() {
         return size;
@@ -77,6 +78,7 @@ public class VectorSize {
 
     /**
      * Returns the number of entries in the vector
+     * @return 
      */
     public int numEntries() {
         return numEntries;

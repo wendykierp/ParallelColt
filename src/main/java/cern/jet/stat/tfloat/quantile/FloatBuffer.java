@@ -12,7 +12,7 @@ import cern.colt.list.tfloat.FloatArrayList;
 import cern.jet.stat.Buffer;
 
 /**
- * A buffer holding <tt>float</tt> elements; internally used for computing
+ * A buffer holding <code>float</code> elements; internally used for computing
  * approximate quantiles.
  */
 class FloatBuffer extends Buffer {
@@ -113,7 +113,7 @@ class FloatBuffer extends Buffer {
     /**
      * Returns the number of elements currently needed to store all contained
      * elements. This number usually differs from the results of method
-     * <tt>size()</tt>, according to the underlying algorithm.
+     * <code>size()</code>, according to the underlying algorithm.
      */
     public int memory() {
         return values.elements().length;

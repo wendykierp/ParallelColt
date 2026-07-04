@@ -19,8 +19,8 @@ import cern.colt.matrix.tdouble.DoubleMatrix2D;
  * <p>
  * <b>Performance</b>
  * <p>
- * Partitioning into two intervals is <tt>O( N )</tt>. Partitioning into k
- * intervals is <tt>O( N * log(k))</tt>. Constants factors are minimized.
+ * Partitioning into two intervals is <code>O( N )</code>. Partitioning into k
+ * intervals is <code>O( N * log(k))</code>. Constants factors are minimized.
  * 
  * @see cern.colt.Partitioning "Partitioning arrays (provides more
  *      documentation)"
@@ -58,7 +58,7 @@ public class DoublePartitioning extends Object {
      * <b>Example:</b>
      * <table border="1" cellspacing="0">
      * <tr nowrap>
-     * <td valign="top"><tt>8 x 3 matrix:<br>
+     * <td valign="top"><code>8 x 3 matrix:<br>
      23, 22, 21<br>
      20, 19, 18<br>
      17, 16, 15<br>
@@ -66,10 +66,10 @@ public class DoublePartitioning extends Object {
      11, 10, 9<br>
      8,  7,  6<br>
      5,  4,  3<br>
-     2,  1,  0 </tt></td>
+     2,  1,  0 </code></td>
      * <td align="left" valign="top">
      * <p>
-     * <tt>column = 0;<br>
+     * <code>column = 0;<br>
      rowIndexes = {0,1,2,..,matrix.rows()-1};
      rowFrom = 0;<br>
      rowTo = matrix.rows()-1;<br>
@@ -79,14 +79,14 @@ public class DoublePartitioning extends Object {
      partition(matrix,rowIndexes,rowFrom,rowTo,column,splitters,c,d,splitIndexes);<br>
      ==><br>
      splitIndexes == {0, 2, 3}<br>
-     rowIndexes == {7, 6, 5, 4, 0, 1, 2, 3}</tt>
+     rowIndexes == {7, 6, 5, 4, 0, 1, 2, 3}</code>
      * </p>
      * </td>
      * <td valign="top">The matrix IS NOT REORDERED.<br>
      * Here is how it would look<br>
      * like, if it would be reordered<br>
-     * accoring to <tt>rowIndexes</tt>.<br>
-     * <tt>8 x 3 matrix:<br>
+     * accoring to <code>rowIndexes</code>.<br>
+     * <code>8 x 3 matrix:<br>
      2,  1,  0<br>
      5,  4,  3<br>
      8,  7,  6<br>
@@ -94,7 +94,7 @@ public class DoublePartitioning extends Object {
      23, 22, 21<br>
      20, 19, 18<br>
      17, 16, 15<br>
-     14, 13, 12 </tt></td>
+     14, 13, 12 </code></td>
      * </tr>
      * </table>
      * 
@@ -120,14 +120,14 @@ public class DoublePartitioning extends Object {
      * @param splitTo
      *            the index of the last splitter element to be considered. The
      *            method considers the splitter elements
-     *            <tt>splitters[splitFrom] .. splitters[splitTo]</tt>.
+     *            <code>splitters[splitFrom] .. splitters[splitTo]</code>.
      * 
      * @param splitIndexes
      *            a list into which this method fills the indexes of rows
      *            delimiting intervals. Upon return
-     *            <tt>splitIndexes[splitFrom..splitTo]</tt> will be set
+     *            <code>splitIndexes[splitFrom..splitTo]</code> will be set
      *            accordingly. Therefore, must satisfy
-     *            <tt>splitIndexes.length >= splitters.length</tt>.
+     *            <code>splitIndexes.length >= splitters.length</code>.
      */
     public static void partition(DoubleMatrix2D matrix, int[] rowIndexes, int rowFrom, int rowTo, int column,
             final double[] splitters, int splitFrom, int splitTo, int[] splitIndexes) {
@@ -205,7 +205,7 @@ public class DoublePartitioning extends Object {
      * <b>Example:</b>
      * <table border="1" cellspacing="0">
      * <tr nowrap>
-     * <td valign="top"><tt>8 x 3 matrix:<br>
+     * <td valign="top"><code>8 x 3 matrix:<br>
      23, 22, 21<br>
      20, 19, 18<br>
      17, 16, 15<br>
@@ -213,16 +213,16 @@ public class DoublePartitioning extends Object {
      11, 10, 9<br>
      8,  7,  6<br>
      5,  4,  3<br>
-     2,  1,  0 </tt></td>
-     * <td align="left" valign="top"> <tt>column = 0;<br>
+     2,  1,  0 </code></td>
+     * <td align="left" valign="top"> <code>column = 0;<br>
      splitters = {5,10,12}<br>
      partition(matrix,column,splitters,splitIndexes);<br>
      ==><br>
-     splitIndexes == {0, 2, 3}</tt>
+     splitIndexes == {0, 2, 3}</code>
      * </p>
      * </td> <td valign="top">The matrix IS NOT REORDERED.<br>
      * The new VIEW IS REORDERED:<br>
-     * <tt>8 x 3 matrix:<br>
+     * <code>8 x 3 matrix:<br>
      2,  1,  0<br>
      5,  4,  3<br>
      8,  7,  6<br>
@@ -230,7 +230,7 @@ public class DoublePartitioning extends Object {
      23, 22, 21<br>
      20, 19, 18<br>
      17, 16, 15<br>
-     14, 13, 12 </tt></td> </tr> </table>
+     14, 13, 12 </code></td> </tr> </table>
      * 
      * @param matrix
      *            the matrix to be partitioned.
@@ -245,7 +245,7 @@ public class DoublePartitioning extends Object {
      * @param splitIndexes
      *            a list into which this method fills the indexes of rows
      *            delimiting intervals. Therefore, must satisfy
-     *            <tt>splitIndexes.length >= splitters.length</tt>.
+     *            <code>splitIndexes.length >= splitters.length</code>.
      * 
      * @return a new matrix view having rows partitioned by the given column and
      *         splitters.

@@ -29,6 +29,11 @@ public class FloatDescriptive extends Object {
 
     /**
      * Returns the auto-correlation of a data sequence.
+     * @param data
+     * @param variance
+     * @param lag
+     * @param mean
+     * @return 
      */
     public static float autoCorrelation(FloatArrayList data, int lag, float mean, float variance) {
         int N = data.size();
@@ -46,9 +51,12 @@ public class FloatDescriptive extends Object {
     /**
      * Checks if the given range is within the contained array's bounds.
      * 
+     * @param from
+     * @param theSize
+     * @param to
      * @throws IndexOutOfBoundsException
      *             if
-     *             <tt>to!=from-1 || from&lt;0 || from&gt;to || to&gt;=size()</tt>
+     *             <code>to!=from-1 || from&lt;0 || from&gt;to || to&gt;=size()</code>
      *             .
      */
     protected static void checkRangeFromTo(int from, int to, int theSize) {
@@ -60,7 +68,12 @@ public class FloatDescriptive extends Object {
 
     /**
      * Returns the correlation of two data sequences. That is
-     * <tt>covariance(data1,data2)/(standardDev1*standardDev2)</tt>.
+     * <code>covariance(data1,data2)/(standardDev1*standardDev2)</code>.
+     * @param data1
+     * @param standardDev2
+     * @param standardDev1
+     * @param data2
+     * @return 
      */
     public static float correlation(FloatArrayList data1, float standardDev1, FloatArrayList data2, float standardDev2) {
         return covariance(data1, data2) / (standardDev1 * standardDev2);
@@ -68,10 +81,13 @@ public class FloatDescriptive extends Object {
 
     /**
      * Returns the covariance of two data sequences, which is
-     * <tt>cov(x,y) = (1/(size()-1)) * Sum((x[i]-mean(x)) * (y[i]-mean(y)))</tt>
+     * <code>cov(x,y) = (1/(size()-1)) * Sum((x[i]-mean(x)) * (y[i]-mean(y)))</code>
      * . See the <A
      * HREF="http://www.cquest.utoronto.ca/geog/ggr270y/notes/not05efg.html">
      * math definition</A>.
+     * @param data1
+     * @param data2
+     * @return 
      */
     public static float covariance(FloatArrayList data1, FloatArrayList data2) {
         int size = data1.size();
@@ -113,6 +129,8 @@ public class FloatDescriptive extends Object {
 
     /**
      * Durbin-Watson computation.
+     * @param data
+     * @return 
      */
     public static float durbinWatson(FloatArrayList data) {
         int size = data.size();
@@ -135,20 +153,20 @@ public class FloatDescriptive extends Object {
     /**
      * Computes the frequency (number of occurances, count) of each distinct
      * value in the given sorted data. After this call returns both
-     * <tt>distinctValues</tt> and <tt>frequencies</tt> have a new size (which
+     * <code>distinctValues</code> and <code>frequencies</code> have a new size (which
      * is equal for both), which is the number of distinct values in the sorted
      * data.
      * <p>
-     * Distinct values are filled into <tt>distinctValues</tt>, starting at
+     * Distinct values are filled into <code>distinctValues</code>, starting at
      * index 0. The frequency of each distinct value is filled into
-     * <tt>frequencies</tt>, starting at index 0. As a result, the smallest
+     * <code>frequencies</code>, starting at index 0. As a result, the smallest
      * distinct value (and its frequency) can be found at index 0, the second
      * smallest distinct value (and its frequency) at index 1, ..., the largest
      * distinct value (and its frequency) at index
-     * <tt>distinctValues.size()-1</tt>.
+     * <code>distinctValues.size()-1</code>.
      * 
      * <b>Example:</b> <br>
-     * <tt>elements = (5,6,6,7,8,8) --> distinctValues = (5,6,7,8), frequencies = (1,2,1,2)</tt>
+     * <code>elements = (5,6,6,7,8,8) --> distinctValues = (5,6,7,8), frequencies = (1,2,1,2)</code>
      * 
      * @param sortedData
      *            the data; must be sorted ascending.
@@ -157,7 +175,7 @@ public class FloatDescriptive extends Object {
      *            size.
      * @param frequencies
      *            a list to be filled with the frequencies; can have any size;
-     *            set this parameter to <tt>null</tt> to ignore it.
+     *            set this parameter to <code>null</code> to ignore it.
      */
     public static void frequencies(FloatArrayList sortedData, FloatArrayList distinctValues, IntArrayList frequencies) {
         distinctValues.clear();
@@ -187,8 +205,11 @@ public class FloatDescriptive extends Object {
      * Returns the geometric mean of a data sequence. Note that for a geometric
      * mean to be meaningful, the minimum of the data sequence must not be less
      * or equal to zero. <br>
-     * The geometric mean is given by <tt>pow( Product( data[i] ), 1/size)</tt>
-     * which is equivalent to <tt>Math.exp( Sum( Log(data[i]) ) / size)</tt>.
+     * The geometric mean is given by <code>pow( Product( data[i] ), 1/size)</code>
+     * which is equivalent to <code>Math.exp( Sum( Log(data[i]) ) / size)</code>.
+     * @param size
+     * @param sumOfLogarithms
+     * @return 
      */
     public static float geometricMean(int size, float sumOfLogarithms) {
         return (float) Math.exp(sumOfLogarithms / size);
@@ -202,9 +223,11 @@ public class FloatDescriptive extends Object {
      * mean to be meaningful, the minimum of the data sequence must not be less
      * or equal to zero. <br>
      * The geometric mean is given by
-     * <tt>pow( Product( data[i] ), 1/data.size())</tt>. This method tries to
+     * <code>pow( Product( data[i] ), 1/data.size())</code>. This method tries to
      * avoid overflows at the expense of an equivalent but somewhat slow
-     * definition: <tt>geo = Math.exp( Sum( Log(data[i]) ) / data.size())</tt>.
+     * definition: <code>geo = Math.exp( Sum( Log(data[i]) ) / data.size())</code>.
+     * @param data
+     * @return 
      */
     public static float geometricMean(FloatArrayList data) {
         return geometricMean(data.size(), sumOfLogarithms(data, 0, data.size() - 1));
@@ -216,7 +239,8 @@ public class FloatDescriptive extends Object {
      * @param size
      *            the number of elements in the data sequence.
      * @param sumOfInversions
-     *            <tt>Sum( 1.0 / data[i])</tt>.
+     *            <code>Sum( 1.0 / data[i])</code>.
+     * @return 
      */
     public static float harmonicMean(int size, float sumOfInversions) {
         return size / sumOfInversions;
@@ -233,39 +257,39 @@ public class FloatDescriptive extends Object {
      * <p>
      * This method computes those updated values without needing to know the
      * already recorded elements. Returns the updated values filled into the
-     * <tt>inOut</tt> array.
+     * <code>inOut</code> array.
      * 
      * This is interesting for interactive online monitoring and/or applications
      * that cannot keep the entire huge data sequence in memory.
      * <p>
      * <br>
      * Definition of sumOfSquares:
-     * <tt>sumOfSquares(n) = Sum ( data[i] * data[i] )</tt>.
+     * <code>sumOfSquares(n) = Sum ( data[i] * data[i] )</code>.
      * 
      * 
      * @param data
      *            the additional elements to be incorporated into min, max, etc.
      * @param from
-     *            the index of the first element within <tt>data</tt> to
+     *            the index of the first element within <code>data</code> to
      *            consider.
      * @param to
-     *            the index of the last element within <tt>data</tt> to
+     *            the index of the last element within <code>data</code> to
      *            consider. The method incorporates elements
-     *            <tt>data[from], ..., data[to]</tt>.
+     *            <code>data[from], ..., data[to]</code>.
      * @param inOut
      *            the old values in the following format:
      *            <ul>
-     *            <li><tt>inOut[0]</tt> is the old minimum. <li><tt>inOut[1]
-     *            </tt> is the old maximum. <li><tt>inOut[2]</tt> is the old
-     *            sum. <li><tt>inOut[3]</tt> is the old sum of squares.
+     *            <li><code>inOut[0]</code> is the old minimum. <li><code>inOut[1]
+     *            </code> is the old maximum. <li><code>inOut[2]</code> is the old
+     *            sum. <li><code>inOut[3]</code> is the old sum of squares.
      *            </ul>
      *            If no data sequence elements have so far been recorded set the
      *            values as follows
      *            <ul>
-     *            <li><tt>inOut[0] = Float.POSITIVE_INFINITY</tt> as the old
-     *            minimum. <li><tt>inOut[1] = Float.NEGATIVE_INFINITY</tt> as
-     *            the old maximum. <li><tt>inOut[2] = 0.0</tt> as the old sum.
-     *            <li><tt>inOut[3] = 0.0</tt> as the old sum of squares.
+     *            <li><code>inOut[0] = Float.POSITIVE_INFINITY</code> as the old
+     *            minimum. <li><code>inOut[1] = Float.NEGATIVE_INFINITY</code> as
+     *            the old maximum. <li><code>inOut[2] = 0.0</code> as the old sum.
+     *            <li><code>inOut[3] = 0.0</code> as the old sum of squares.
      *            </ul>
      * 
      */
@@ -315,57 +339,59 @@ public class FloatDescriptive extends Object {
 
     /**
      * Incrementally maintains and updates various sums of powers of the form
-     * <tt>Sum(data[i]<sup>k</sup>)</tt>.
+     * <code>Sum(data[i]<sup>k</sup>)</code>.
      * 
      * Assume we have already recorded some data sequence elements
-     * <tt>data[i]</tt> and know the values of
-     * <tt>Sum(data[i]<sup>from</sup>), Sum(data[i]<sup>from+1</sup>), ..., Sum(data[i]<sup>to</sup>)</tt>
+     * <code>data[i]</code> and know the values of
+     * <code>Sum(data[i]<sup>from</sup>), Sum(data[i]<sup>from+1</sup>), ..., Sum(data[i]<sup>to</sup>)</code>
      * . Assume further, we are to record some more elements and to derive
      * updated values of these sums.
      * <p>
      * This method computes those updated values without needing to know the
      * already recorded elements. Returns the updated values filled into the
-     * <tt>sumOfPowers</tt> array. This is interesting for interactive online
+     * <code>sumOfPowers</code> array. This is interesting for interactive online
      * monitoring and/or applications that cannot keep the entire huge data
      * sequence in memory. For example, the incremental computation of moments
      * is based upon such sums of powers:
      * <p>
-     * The moment of <tt>k</tt>-th order with constant <tt>c</tt> of a data
+     * The moment of <code>k</code>-th order with constant <code>c</code> of a data
      * sequence, is given by
-     * <tt>Sum( (data[i]-c)<sup>k</sup> ) / data.size()</tt>. It can
+     * <code>Sum( (data[i]-c)<sup>k</sup> ) / data.size()</code>. It can
      * incrementally be computed by using the equivalent formula
      * <p>
-     * <tt>moment(k,c) = m(k,c) / data.size()</tt> where <br>
-     * <tt>m(k,c) = Sum( -1<sup>i</sup> * b(k,i) * c<sup>i</sup> * sumOfPowers(k-i))</tt>
-     * for <tt>i = 0 .. k</tt> and <br>
-     * <tt>b(k,i) = </tt>
+     * <code>moment(k,c) = m(k,c) / data.size()</code> where <br>
+     * <code>m(k,c) = Sum( -1<sup>i</sup> * b(k,i) * c<sup>i</sup> * sumOfPowers(k-i))</code>
+     * for <code>i = 0 .. k</code> and <br>
+     * <code>b(k,i) = </code>
      * {@link cern.jet.math.tfloat.FloatArithmetic#binomial(long,long)
      * binomial(k,i)} and <br>
-     * <tt>sumOfPowers(k) = Sum( data[i]<sup>k</sup> )</tt>.
+     * <code>sumOfPowers(k) = Sum( data[i]<sup>k</sup> )</code>.
      * <p>
      * 
      * @param data
      *            the additional elements to be incorporated into min, max, etc.
      * @param from
-     *            the index of the first element within <tt>data</tt> to
+     *            the index of the first element within <code>data</code> to
      *            consider.
      * @param to
-     *            the index of the last element within <tt>data</tt> to
+     *            the index of the last element within <code>data</code> to
      *            consider. The method incorporates elements
-     *            <tt>data[from], ..., data[to]</tt>.
+     *            <code>data[from], ..., data[to]</code>.
+     * @param fromSumIndex
      * 
      * @param sumOfPowers
      *            the old values of the sums in the following format:
      *            <ul>
-     *            <li><tt>sumOfPowers[0]</tt> is the old <tt>
-     *            Sum(data[i]<sup>fromSumIndex</sup>)</tt>. <li><tt>
-     *            sumOfPowers[1]</tt> is the old <tt>
-     *            Sum(data[i]<sup>fromSumIndex+1</sup>)</tt>. <li>... <li><tt>
-     *            sumOfPowers[toSumIndex-fromSumIndex]</tt> is the old <tt>
-     *            Sum(data[i]<sup>toSumIndex</sup>)</tt>.
+     *            <li><code>sumOfPowers[0]</code> is the old <code>
+     *            Sum(data[i]<sup>fromSumIndex</sup>)</code>. <li><code>
+     *            sumOfPowers[1]</code> is the old <code>
+     *            Sum(data[i]<sup>fromSumIndex+1</sup>)</code>. <li>... <li><code>
+     *            sumOfPowers[toSumIndex-fromSumIndex]</code> is the old <code>
+     *            Sum(data[i]<sup>toSumIndex</sup>)</code>.
      *            </ul>
      *            If no data sequence elements have so far been recorded set all
-     *            old values of the sums to <tt>0.0</tt>.
+     *            old values of the sums to <code>0.0</code>.
+     * @param toSumIndex
      * 
      * 
      */
@@ -470,38 +496,38 @@ public class FloatDescriptive extends Object {
      * <p>
      * This method computes those updated values without needing to know the
      * already recorded elements. Returns the updated values filled into the
-     * <tt>inOut</tt> array. This is interesting for interactive online
+     * <code>inOut</code> array. This is interesting for interactive online
      * monitoring and/or applications that cannot keep the entire huge data
      * sequence in memory.
      * <p>
      * <br>
-     * Definition of sum: <tt>sum = Sum ( data[i] * weights[i] )</tt>. <br>
+     * Definition of sum: <code>sum = Sum ( data[i] * weights[i] )</code>. <br>
      * Definition of sumOfSquares:
-     * <tt>sumOfSquares = Sum ( data[i] * data[i] * weights[i])</tt>.
+     * <code>sumOfSquares = Sum ( data[i] * data[i] * weights[i])</code>.
      * 
      * 
      * @param data
      *            the additional elements to be incorporated into min, max, etc.
      * @param weights
-     *            the weight of each element within <tt>data</tt>.
+     *            the weight of each element within <code>data</code>.
      * @param from
-     *            the index of the first element within <tt>data</tt> (and
-     *            <tt>weights</tt>) to consider.
+     *            the index of the first element within <code>data</code> (and
+     *            <code>weights</code>) to consider.
      * @param to
-     *            the index of the last element within <tt>data</tt> (and
-     *            <tt>weights</tt>) to consider. The method incorporates
-     *            elements <tt>data[from], ..., data[to]</tt>.
+     *            the index of the last element within <code>data</code> (and
+     *            <code>weights</code>) to consider. The method incorporates
+     *            elements <code>data[from], ..., data[to]</code>.
      * @param inOut
      *            the old values in the following format:
      *            <ul>
-     *            <li><tt>inOut[0]</tt> is the old sum. <li><tt>inOut[1]</tt> is
+     *            <li><code>inOut[0]</code> is the old sum. <li><code>inOut[1]</code> is
      *            the old sum of squares.
      *            </ul>
      *            If no data sequence elements have so far been recorded set the
      *            values as follows
      *            <ul>
-     *            <li><tt>inOut[0] = 0.0</tt> as the old sum. <li><tt>inOut[1] =
-     *            0.0</tt> as the old sum of squares.
+     *            <li><code>inOut[0] = 0.0</code> as the old sum. <li><code>inOut[1] =
+     *            0.0</code> as the old sum of squares.
      *            </ul>
      * 
      */
@@ -542,9 +568,10 @@ public class FloatDescriptive extends Object {
      * 
      * @param moment4
      *            the fourth central moment, which is
-     *            <tt>moment(data,4,mean)</tt>.
+     *            <code>moment(data,4,mean)</code>.
      * @param standardDeviation
      *            the standardDeviation.
+     * @return 
      */
     public static float kurtosis(float moment4, float standardDeviation) {
         return -3 + moment4 / (standardDeviation * standardDeviation * standardDeviation * standardDeviation);
@@ -552,7 +579,11 @@ public class FloatDescriptive extends Object {
 
     /**
      * Returns the kurtosis (aka excess) of a data sequence, which is
-     * <tt>-3 + moment(data,4,mean) / standardDeviation<sup>4</sup></tt>.
+     * <code>-3 + moment(data,4,mean) / standardDeviation<sup>4</sup></code>.
+     * @param data
+     * @param standardDeviation
+     * @param mean
+     * @return 
      */
     public static float kurtosis(FloatArrayList data, float mean, float standardDeviation) {
         return kurtosis(moment(data, 4, mean), standardDeviation);
@@ -560,7 +591,10 @@ public class FloatDescriptive extends Object {
 
     /**
      * Returns the lag-1 autocorrelation of a dataset; Note that this method has
-     * semantics different from <tt>autoCorrelation(..., 1)</tt>;
+     * semantics different from <code>autoCorrelation(..., 1)</code>;
+     * @param data
+     * @param mean
+     * @return 
      */
     public static float lag1(FloatArrayList data, float mean) {
         int size = data.size();
@@ -582,6 +616,8 @@ public class FloatDescriptive extends Object {
 
     /**
      * Returns the largest member of a data sequence.
+     * @param data
+     * @return 
      */
     public static float max(FloatArrayList data) {
         int size = data.size();
@@ -600,7 +636,9 @@ public class FloatDescriptive extends Object {
 
     /**
      * Returns the arithmetic mean of a data sequence; That is
-     * <tt>Sum( data[i] ) / data.size()</tt>.
+     * <code>Sum( data[i] ) / data.size()</code>.
+     * @param data
+     * @return 
      */
     public static float mean(FloatArrayList data) {
         return sum(data) / data.size();
@@ -608,7 +646,10 @@ public class FloatDescriptive extends Object {
 
     /**
      * Returns the mean deviation of a dataset. That is
-     * <tt>Sum (Math.abs(data[i]-mean)) / data.size())</tt>.
+     * <code>Sum (Math.abs(data[i]-mean)) / data.size())</code>.
+     * @param data
+     * @param mean
+     * @return 
      */
     public static float meanDeviation(FloatArrayList data, float mean) {
         float[] elements = data.elements();
@@ -624,6 +665,7 @@ public class FloatDescriptive extends Object {
      * 
      * @param sortedData
      *            the data sequence; <b>must be sorted ascending</b>.
+     * @return 
      */
     public static float median(FloatArrayList sortedData) {
         return quantile(sortedData, 0.5f);
@@ -642,6 +684,8 @@ public class FloatDescriptive extends Object {
 
     /**
      * Returns the smallest member of a data sequence.
+     * @param data
+     * @return 
      */
     public static float min(FloatArrayList data) {
         int size = data.size();
@@ -659,18 +703,21 @@ public class FloatDescriptive extends Object {
     }
 
     /**
-     * Returns the moment of <tt>k</tt>-th order with constant <tt>c</tt> of a
+     * Returns the moment of <code>k</code>-th order with constant <code>c</code> of a
      * data sequence, which is
-     * <tt>Sum( (data[i]-c)<sup>k</sup> ) / data.size()</tt>.
+     * <code>Sum( (data[i]-c)<sup>k</sup> ) / data.size()</code>.
      * 
+     * @param k
      * @param sumOfPowers
-     *            <tt>sumOfPowers[m] == Sum( data[i]<sup>m</sup>) )</tt> for
-     *            <tt>m = 0,1,..,k</tt> as returned by method
+     *            <code>sumOfPowers[m] == Sum( data[i]<sup>m</sup>) )</code> for
+     *            <code>m = 0,1,..,k</code> as returned by method
      *            {@link #incrementalUpdateSumsOfPowers(FloatArrayList,int,int,int,int,float[])}
      *            . In particular there must hold
-     *            <tt>sumOfPowers.length == k+1</tt>.
+     *            <code>sumOfPowers.length == k+1</code>.
+     * @param c
      * @param size
      *            the number of elements of the data sequence.
+     * @return 
      */
     public static float moment(int k, float c, int size, float[] sumOfPowers) {
         float sum = 0;
@@ -700,9 +747,13 @@ public class FloatDescriptive extends Object {
     }
 
     /**
-     * Returns the moment of <tt>k</tt>-th order with constant <tt>c</tt> of a
+     * Returns the moment of <code>k</code>-th order with constant <code>c</code> of a
      * data sequence, which is
-     * <tt>Sum( (data[i]-c)<sup>k</sup> ) / data.size()</tt>.
+     * <code>Sum( (data[i]-c)<sup>k</sup> ) / data.size()</code>.
+     * @param data
+     * @param c
+     * @param k
+     * @return 
      */
     public static float moment(FloatArrayList data, int k, float c) {
         return sumOfPowerDeviations(data, k, c) / data.size();
@@ -710,7 +761,7 @@ public class FloatDescriptive extends Object {
 
     /**
      * Returns the pooled mean of two data sequences. That is
-     * <tt>(size1 * mean1 + size2 * mean2) / (size1 + size2)</tt>.
+     * <code>(size1 * mean1 + size2 * mean2) / (size1 + size2)</code>.
      * 
      * @param size1
      *            the number of elements in data sequence 1.
@@ -720,6 +771,7 @@ public class FloatDescriptive extends Object {
      *            the number of elements in data sequence 2.
      * @param mean2
      *            the mean of data sequence 2.
+     * @return 
      */
     public static float pooledMean(int size1, float mean1, int size2, float mean2) {
         return (size1 * mean1 + size2 * mean2) / (size1 + size2);
@@ -727,7 +779,7 @@ public class FloatDescriptive extends Object {
 
     /**
      * Returns the pooled variance of two data sequences. That is
-     * <tt>(size1 * variance1 + size2 * variance2) / (size1 + size2)</tt>;
+     * <code>(size1 * variance1 + size2 * variance2) / (size1 + size2)</code>;
      * 
      * @param size1
      *            the number of elements in data sequence 1.
@@ -737,25 +789,31 @@ public class FloatDescriptive extends Object {
      *            the number of elements in data sequence 2.
      * @param variance2
      *            the variance of data sequence 2.
+     * @return 
      */
     public static float pooledVariance(int size1, float variance1, int size2, float variance2) {
         return (size1 * variance1 + size2 * variance2) / (size1 + size2);
     }
 
     /**
-     * Returns the product, which is <tt>Prod( data[i] )</tt>. In other words:
-     * <tt>data[0]*data[1]*...*data[data.size()-1]</tt>. This method uses the
+     * Returns the product, which is <code>Prod( data[i] )</code>. In other words:
+     * <code>data[0]*data[1]*...*data[data.size()-1]</code>. This method uses the
      * equivalent definition:
-     * <tt>prod = pow( exp( Sum( Log(x[i]) ) / size(), size())</tt>.
+     * <code>prod = pow( exp( Sum( Log(x[i]) ) / size(), size())</code>.
+     * @param size
+     * @param sumOfLogarithms
+     * @return 
      */
     public static float product(int size, float sumOfLogarithms) {
         return (float) Math.pow(Math.exp(sumOfLogarithms / size), size);
     }
 
     /**
-     * Returns the product of a data sequence, which is <tt>Prod( data[i] )</tt>
-     * . In other words: <tt>data[0]*data[1]*...*data[data.size()-1]</tt>. Note
+     * Returns the product of a data sequence, which is <code>Prod( data[i] )</code>
+     * . In other words: <code>data[0]*data[1]*...*data[data.size()-1]</code>. Note
      * that you may easily get numeric overflows.
+     * @param data
+     * @return 
      */
     public static float product(FloatArrayList data) {
         int size = data.size();
@@ -769,15 +827,16 @@ public class FloatDescriptive extends Object {
     }
 
     /**
-     * Returns the <tt>phi-</tt>quantile; that is, an element <tt>elem</tt> for
-     * which holds that <tt>phi</tt> percent of data elements are less than
-     * <tt>elem</tt>. The quantile need not necessarily be contained in the data
+     * Returns the <code>phi-</code>quantile; that is, an element <code>elem</code> for
+     * which holds that <code>phi</code> percent of data elements are less than
+     * <code>elem</code>. The quantile need not necessarily be contained in the data
      * sequence, it can be a linear interpolation.
      * 
      * @param sortedData
      *            the data sequence; <b>must be sorted ascending</b>.
      * @param phi
-     *            the percentage; must satisfy <tt>0 &lt;= phi &lt;= 1</tt>.
+     *            the percentage; must satisfy <code>0 &lt;= phi &lt;= 1</code>.
+     * @return 
      */
     public static float quantile(FloatArrayList sortedData, float phi) {
         float[] sortedElements = sortedData.elements();
@@ -802,15 +861,15 @@ public class FloatDescriptive extends Object {
 
     /**
      * Returns how many percent of the elements contained in the receiver are
-     * <tt>&lt;= element</tt>. Does linear interpolation if the element is not
+     * <code>&lt;= element</code>. Does linear interpolation if the element is not
      * contained but lies in between two contained elements.
      * 
      * @param sortedList
      *            the list to be searched (must be sorted ascending).
      * @param element
      *            the element to search for.
-     * @return the percentage <tt>phi</tt> of elements <tt>&lt;= element</tt> (
-     *         <tt>0.0 &lt;= phi &lt;= 1.0)</tt>.
+     * @return the percentage <code>phi</code> of elements <code>&lt;= element</code> (
+     *         <code>0.0 &lt;= phi &lt;= 1.0)</code>.
      */
     public static float quantileInverse(FloatArrayList sortedList, float element) {
         return rankInterpolated(sortedList, element) / sortedList.size();
@@ -825,7 +884,7 @@ public class FloatDescriptive extends Object {
      *            the data sequence; <b>must be sorted ascending</b>.
      * @param percentages
      *            the percentages for which quantiles are to be computed. Each
-     *            percentage must be in the interval <tt>[0.0,1.0]</tt>.
+     *            percentage must be in the interval <code>[0.0,1.0]</code>.
      * @return the quantiles.
      */
     public static FloatArrayList quantiles(FloatArrayList sortedData, FloatArrayList percentages) {
@@ -842,7 +901,7 @@ public class FloatDescriptive extends Object {
     /**
      * Returns the linearly interpolated number of elements in a list less or
      * equal to a given element. The rank is the number of elements <= element.
-     * Ranks are of the form <tt>{0, 1, 2,..., sortedList.size()}</tt>. If no
+     * Ranks are of the form <code>{0, 1, 2,..., sortedList.size()}</code>. If no
      * element is <= element, then the rank is zero. If the element lies in
      * between two contained elements, then linear interpolation is used and a
      * non integer value is returned.
@@ -877,16 +936,17 @@ public class FloatDescriptive extends Object {
 
     /**
      * Returns the RMS (Root-Mean-Square) of a data sequence. That is
-     * <tt>Math.sqrt(Sum( data[i]*data[i] ) / data.size())</tt>. The RMS of data
+     * <code>Math.sqrt(Sum( data[i]*data[i] ) / data.size())</code>. The RMS of data
      * sequence is the square-root of the mean of the squares of the elements in
      * the data sequence. It is a measure of the average "size" of the elements
      * of a data sequence.
      * 
      * @param sumOfSquares
-     *            <tt>sumOfSquares(data) == Sum( data[i]*data[i] )</tt> of the
+     *            <code>sumOfSquares(data) == Sum( data[i]*data[i] )</code> of the
      *            data sequence.
      * @param size
      *            the number of elements in the data sequence.
+     * @return 
      */
     public static float rms(int size, float sumOfSquares) {
         return (float) Math.sqrt(sumOfSquares / size);
@@ -903,9 +963,10 @@ public class FloatDescriptive extends Object {
      *            the number of elements of the data sequence.
      * @param moment4
      *            the fourth central moment, which is
-     *            <tt>moment(data,4,mean)</tt>.
+     *            <code>moment(data,4,mean)</code>.
      * @param sampleVariance
      *            the <b>sample variance</b>.
+     * @return 
      */
     public static float sampleKurtosis(int size, float moment4, float sampleVariance) {
         int n = size;
@@ -917,6 +978,10 @@ public class FloatDescriptive extends Object {
 
     /**
      * Returns the sample kurtosis (aka excess) of a data sequence.
+     * @param data
+     * @param sampleVariance
+     * @param mean
+     * @return 
      */
     public static float sampleKurtosis(FloatArrayList data, float mean, float sampleVariance) {
         return sampleKurtosis(data.size(), moment(data, 4, mean), sampleVariance);
@@ -931,6 +996,7 @@ public class FloatDescriptive extends Object {
      * 
      * @param size
      *            the number of elements of the data sequence.
+     * @return 
      */
     public static float sampleKurtosisStandardError(int size) {
         int n = size;
@@ -948,9 +1014,10 @@ public class FloatDescriptive extends Object {
      *            the number of elements of the data sequence.
      * @param moment3
      *            the third central moment, which is
-     *            <tt>moment(data,3,mean)</tt>.
+     *            <code>moment(data,3,mean)</code>.
      * @param sampleVariance
      *            the <b>sample variance</b>.
+     * @return 
      */
     public static float sampleSkew(int size, float moment3, float sampleVariance) {
         int n = size;
@@ -962,6 +1029,10 @@ public class FloatDescriptive extends Object {
 
     /**
      * Returns the sample skew of a data sequence.
+     * @param data
+     * @param sampleVariance
+     * @param mean
+     * @return 
      */
     public static float sampleSkew(FloatArrayList data, float mean, float sampleVariance) {
         return sampleSkew(data.size(), moment(data, 3, mean), sampleVariance);
@@ -976,6 +1047,7 @@ public class FloatDescriptive extends Object {
      * 
      * @param size
      *            the number of elements of the data sequence.
+     * @return 
      */
     public static float sampleSkewStandardError(int size) {
         int n = size;
@@ -993,6 +1065,7 @@ public class FloatDescriptive extends Object {
      *            the number of elements of the data sequence.
      * @param sampleVariance
      *            the <b>sample variance</b>.
+     * @return 
      */
     public static float sampleStandardDeviation(int size, float sampleVariance) {
         float s, Cn;
@@ -1013,15 +1086,16 @@ public class FloatDescriptive extends Object {
 
     /**
      * Returns the sample variance of a data sequence. That is
-     * <tt>(sumOfSquares - mean*sum) / (size - 1)</tt> with
-     * <tt>mean = sum/size</tt>.
+     * <code>(sumOfSquares - mean*sum) / (size - 1)</code> with
+     * <code>mean = sum/size</code>.
      * 
      * @param size
      *            the number of elements of the data sequence.
      * @param sum
-     *            <tt>== Sum( data[i] )</tt>.
+     *            <code>== Sum( data[i] )</code>.
      * @param sumOfSquares
-     *            <tt>== Sum( data[i]*data[i] )</tt>.
+     *            <code>== Sum( data[i]*data[i] )</code>.
+     * @return 
      */
     public static float sampleVariance(int size, float sum, float sumOfSquares) {
         float mean = sum / size;
@@ -1030,7 +1104,10 @@ public class FloatDescriptive extends Object {
 
     /**
      * Returns the sample variance of a data sequence. That is
-     * <tt>Sum ( (data[i]-mean)^2 ) / (data.size()-1)</tt>.
+     * <code>Sum ( (data[i]-mean)^2 ) / (data.size()-1)</code>.
+     * @param data
+     * @param mean
+     * @return 
      */
     public static float sampleVariance(FloatArrayList data, float mean) {
         float[] elements = data.elements();
@@ -1048,15 +1125,16 @@ public class FloatDescriptive extends Object {
     /**
      * Returns the sample weighted variance of a data sequence. That is
      * 
-     * <tt>(sumOfSquaredProducts  -  sumOfProducts * sumOfProducts / sumOfWeights) / (sumOfWeights - 1)</tt>
+     * <code>(sumOfSquaredProducts  -  sumOfProducts * sumOfProducts / sumOfWeights) / (sumOfWeights - 1)</code>
      * .
      * 
      * @param sumOfWeights
-     *            <tt>== Sum( weights[i] )</tt>.
+     *            <code>== Sum( weights[i] )</code>.
      * @param sumOfProducts
-     *            <tt>== Sum( data[i] * weights[i] )</tt>.
+     *            <code>== Sum( data[i] * weights[i] )</code>.
      * @param sumOfSquaredProducts
-     *            <tt>== Sum( data[i] * data[i] * weights[i] )</tt>.
+     *            <code>== Sum( data[i] * data[i] * weights[i] )</code>.
+     * @return 
      */
     public static float sampleWeightedVariance(float sumOfWeights, float sumOfProducts, float sumOfSquaredProducts) {
         return (sumOfSquaredProducts - sumOfProducts * sumOfProducts / sumOfWeights) / (sumOfWeights - 1);
@@ -1067,9 +1145,10 @@ public class FloatDescriptive extends Object {
      * 
      * @param moment3
      *            the third central moment, which is
-     *            <tt>moment(data,3,mean)</tt>.
+     *            <code>moment(data,3,mean)</code>.
      * @param standardDeviation
      *            the standardDeviation.
+     * @return 
      */
     public static float skew(float moment3, float standardDeviation) {
         return moment3 / (standardDeviation * standardDeviation * standardDeviation);
@@ -1077,7 +1156,11 @@ public class FloatDescriptive extends Object {
 
     /**
      * Returns the skew of a data sequence, which is
-     * <tt>moment(data,3,mean) / standardDeviation<sup>3</sup></tt>.
+     * <code>moment(data,3,mean) / standardDeviation<sup>3</sup></code>.
+     * @param data
+     * @param standardDeviation
+     * @param mean
+     * @return 
      */
     public static float skew(FloatArrayList data, float mean, float standardDeviation) {
         return skew(moment(data, 3, mean), standardDeviation);
@@ -1085,19 +1168,19 @@ public class FloatDescriptive extends Object {
 
     /**
      * Splits (partitions) a list into sublists such that each sublist contains
-     * the elements with a given range. <tt>splitters=(a,b,c,...,y,z)</tt>
-     * defines the ranges <tt>[-inf,a), [a,b), [b,c), ..., [y,z), [z,inf]</tt>.
+     * the elements with a given range. <code>splitters=(a,b,c,...,y,z)</code>
+     * defines the ranges <code>[-inf,a), [a,b), [b,c), ..., [y,z), [z,inf]</code>.
      * <p>
      * <b>Examples:</b><br>
      * <ul>
-     * <tt>data = (1,2,3,4,5,8,8,8,10,11)</tt>. <br>
-     * <tt>splitters=(2,8)</tt> yields 3 bins:
-     * <tt>(1), (2,3,4,5) (8,8,8,10,11)</tt>. <br>
-     * <tt>splitters=()</tt> yields 1 bin: <tt>(1,2,3,4,5,8,8,8,10,11)</tt>. <br>
-     * <tt>splitters=(-5)</tt> yields 2 bins:
-     * <tt>(), (1,2,3,4,5,8,8,8,10,11)</tt>. <br>
-     * <tt>splitters=(100)</tt> yields 2 bins:
-     * <tt>(1,2,3,4,5,8,8,8,10,11), ()</tt>.
+     * <code>data = (1,2,3,4,5,8,8,8,10,11)</code>. <br>
+     * <code>splitters=(2,8)</code> yields 3 bins:
+     * <code>(1), (2,3,4,5) (8,8,8,10,11)</code>. <br>
+     * <code>splitters=()</code> yields 1 bin: <code>(1,2,3,4,5,8,8,8,10,11)</code>. <br>
+     * <code>splitters=(-5)</code> yields 2 bins:
+     * <code>(), (1,2,3,4,5,8,8,8,10,11)</code>. <br>
+     * <code>splitters=(100)</code> yields 2 bins:
+     * <code>(1,2,3,4,5,8,8,8,10,11), ()</code>.
      * </ul>
      * 
      * @param sortedList
@@ -1106,7 +1189,7 @@ public class FloatDescriptive extends Object {
      *            the points at which the list shall be partitioned (must be
      *            sorted ascending).
      * @return the sublists (an array with
-     *         <tt>length == splitters.size() + 1</tt>. Each sublist is returned
+     *         <code>length == splitters.size() + 1</code>. Each sublist is returned
      *         sorted ascending.
      */
     public static FloatArrayList[] split(FloatArrayList sortedList, FloatArrayList splitters) {
@@ -1150,6 +1233,8 @@ public class FloatDescriptive extends Object {
 
     /**
      * Returns the standard deviation from a variance.
+     * @param variance
+     * @return 
      */
     public static float standardDeviation(float variance) {
         return (float) Math.sqrt(variance);
@@ -1157,12 +1242,13 @@ public class FloatDescriptive extends Object {
 
     /**
      * Returns the standard error of a data sequence. That is
-     * <tt>Math.sqrt(variance/size)</tt>.
+     * <code>Math.sqrt(variance/size)</code>.
      * 
      * @param size
      *            the number of elements in the data sequence.
      * @param variance
      *            the variance of the data sequence.
+     * @return 
      */
     public static float standardError(int size, float variance) {
         return (float) Math.sqrt(variance / size);
@@ -1170,8 +1256,11 @@ public class FloatDescriptive extends Object {
 
     /**
      * Modifies a data sequence to be standardized. Changes each element
-     * <tt>data[i]</tt> as follows:
-     * <tt>data[i] = (data[i]-mean)/standardDeviation</tt>.
+     * <code>data[i]</code> as follows:
+     * <code>data[i] = (data[i]-mean)/standardDeviation</code>.
+     * @param data
+     * @param standardDeviation
+     * @param mean
      */
     public static void standardize(FloatArrayList data, float mean, float standardDeviation) {
         float[] elements = data.elements();
@@ -1180,7 +1269,9 @@ public class FloatDescriptive extends Object {
     }
 
     /**
-     * Returns the sum of a data sequence. That is <tt>Sum( data[i] )</tt>.
+     * Returns the sum of a data sequence. That is <code>Sum( data[i] )</code>.
+     * @param data
+     * @return 
      */
     public static float sum(FloatArrayList data) {
         return sumOfPowerDeviations(data, 1, 0.0f);
@@ -1188,7 +1279,7 @@ public class FloatDescriptive extends Object {
 
     /**
      * Returns the sum of inversions of a data sequence, which is
-     * <tt>Sum( 1.0 / data[i])</tt>.
+     * <code>Sum( 1.0 / data[i])</code>.
      * 
      * @param data
      *            the data sequence.
@@ -1196,6 +1287,7 @@ public class FloatDescriptive extends Object {
      *            the index of the first data element (inclusive).
      * @param to
      *            the index of the last data element (inclusive).
+     * @return 
      */
     public static float sumOfInversions(FloatArrayList data, int from, int to) {
         return sumOfPowerDeviations(data, -1, 0.0f, from, to);
@@ -1203,7 +1295,7 @@ public class FloatDescriptive extends Object {
 
     /**
      * Returns the sum of logarithms of a data sequence, which is
-     * <tt>Sum( Log(data[i])</tt>.
+     * <code>Sum( Log(data[i])</code>.
      * 
      * @param data
      *            the data sequence.
@@ -1211,6 +1303,7 @@ public class FloatDescriptive extends Object {
      *            the index of the first data element (inclusive).
      * @param to
      *            the index of the last data element (inclusive).
+     * @return 
      */
     public static float sumOfLogarithms(FloatArrayList data, int from, int to) {
         float[] elements = data.elements();
@@ -1221,17 +1314,27 @@ public class FloatDescriptive extends Object {
     }
 
     /**
-     * Returns <tt>Sum( (data[i]-c)<sup>k</sup> )</tt>; optimized for common
-     * parameters like <tt>c == 0.0</tt> and/or <tt>k == -2 .. 4</tt>.
+     * Returns <code>Sum( (data[i]-c)<sup>k</sup> )</code>; optimized for common
+     * parameters like <code>c == 0.0</code> and/or <code>k == -2 .. 4</code>.
+     * @param data
+     * @param c
+     * @param k
+     * @return 
      */
     public static float sumOfPowerDeviations(FloatArrayList data, int k, float c) {
         return sumOfPowerDeviations(data, k, c, 0, data.size() - 1);
     }
 
     /**
-     * Returns <tt>Sum( (data[i]-c)<sup>k</sup> )</tt> for all
-     * <tt>i = from .. to</tt>; optimized for common parameters like
-     * <tt>c == 0.0</tt> and/or <tt>k == -2 .. 5</tt>.
+     * Returns <code>Sum( (data[i]-c)<sup>k</sup> )</code> for all
+     * <code>i = from .. to</code>; optimized for common parameters like
+     * <code>c == 0.0</code> and/or <code>k == -2 .. 5</code>.
+     * @param data
+     * @param to
+     * @param k
+     * @param from
+     * @param c
+     * @return 
      */
     public static float sumOfPowerDeviations(final FloatArrayList data, final int k, final float c, final int from,
             final int to) {
@@ -1329,7 +1432,10 @@ public class FloatDescriptive extends Object {
 
     /**
      * Returns the sum of powers of a data sequence, which is
-     * <tt>Sum ( data[i]<sup>k</sup> )</tt>.
+     * <code>Sum ( data[i]<sup>k</sup> )</code>.
+     * @param data
+     * @param k
+     * @return 
      */
     public static float sumOfPowers(FloatArrayList data, int k) {
         return sumOfPowerDeviations(data, k, 0);
@@ -1337,12 +1443,13 @@ public class FloatDescriptive extends Object {
 
     /**
      * Returns the sum of squared mean deviation of of a data sequence. That is
-     * <tt>variance * (size-1) == Sum( (data[i] - mean)^2 )</tt>.
+     * <code>variance * (size-1) == Sum( (data[i] - mean)^2 )</code>.
      * 
      * @param size
      *            the number of elements of the data sequence.
      * @param variance
      *            the variance of the data sequence.
+     * @return 
      */
     public static float sumOfSquaredDeviations(int size, float variance) {
         return variance * (size - 1);
@@ -1350,7 +1457,9 @@ public class FloatDescriptive extends Object {
 
     /**
      * Returns the sum of squares of a data sequence. That is
-     * <tt>Sum ( data[i]*data[i] )</tt>.
+     * <code>Sum ( data[i]*data[i] )</code>.
+     * @param data
+     * @return 
      */
     public static float sumOfSquares(FloatArrayList data) {
         return sumOfPowerDeviations(data, 2, 0.0f);
@@ -1367,6 +1476,7 @@ public class FloatDescriptive extends Object {
      *            the number of leading elements to trim.
      * @param right
      *            the number of trailing elements to trim.
+     * @return 
      */
     public static float trimmedMean(FloatArrayList sortedData, float mean, int left, int right) {
         int N = sortedData.size();
@@ -1386,6 +1496,8 @@ public class FloatDescriptive extends Object {
 
     /**
      * Returns the variance from a standard deviation.
+     * @param standardDeviation
+     * @return 
      */
     public static float variance(float standardDeviation) {
         return standardDeviation * standardDeviation;
@@ -1393,14 +1505,15 @@ public class FloatDescriptive extends Object {
 
     /**
      * Returns the variance of a data sequence. That is
-     * <tt>(sumOfSquares - mean*sum) / size</tt> with <tt>mean = sum/size</tt>.
+     * <code>(sumOfSquares - mean*sum) / size</code> with <code>mean = sum/size</code>.
      * 
      * @param size
      *            the number of elements of the data sequence.
      * @param sum
-     *            <tt>== Sum( data[i] )</tt>.
+     *            <code>== Sum( data[i] )</code>.
      * @param sumOfSquares
-     *            <tt>== Sum( data[i]*data[i] )</tt>.
+     *            <code>== Sum( data[i]*data[i] )</code>.
+     * @return 
      */
     public static float variance(int size, float sum, float sumOfSquares) {
         float mean = sum / size;
@@ -1409,7 +1522,10 @@ public class FloatDescriptive extends Object {
 
     /**
      * Returns the weighted mean of a data sequence. That is
-     * <tt> Sum (data[i] * weights[i]) / Sum ( weights[i] )</tt>.
+     * <code> Sum (data[i] * weights[i]) / Sum ( weights[i] )</code>.
+     * @param data
+     * @param weights
+     * @return 
      */
     public static float weightedMean(FloatArrayList data, FloatArrayList weights) {
         int size = data.size();
@@ -1431,13 +1547,14 @@ public class FloatDescriptive extends Object {
 
     /**
      * Returns the weighted RMS (Root-Mean-Square) of a data sequence. That is
-     * <tt>Sum( data[i] * data[i] * weights[i]) / Sum( data[i] * weights[i] )</tt>
-     * , or in other words <tt>sumOfProducts / sumOfSquaredProducts</tt>.
+     * <code>Sum( data[i] * data[i] * weights[i]) / Sum( data[i] * weights[i] )</code>
+     * , or in other words <code>sumOfProducts / sumOfSquaredProducts</code>.
      * 
      * @param sumOfProducts
-     *            <tt>== Sum( data[i] * weights[i] )</tt>.
+     *            <code>== Sum( data[i] * weights[i] )</code>.
      * @param sumOfSquaredProducts
-     *            <tt>== Sum( data[i] * data[i] * weights[i] )</tt>.
+     *            <code>== Sum( data[i] * data[i] * weights[i] )</code>.
+     * @return 
      */
     public static float weightedRMS(float sumOfProducts, float sumOfSquaredProducts) {
         return sumOfProducts / sumOfSquaredProducts;
@@ -1454,6 +1571,7 @@ public class FloatDescriptive extends Object {
      *            the number of leading elements to trim.
      * @param right
      *            the number of trailing elements to trim.
+     * @return 
      */
     public static float winsorizedMean(FloatArrayList sortedData, float mean, int left, int right) {
         int N = sortedData.size();

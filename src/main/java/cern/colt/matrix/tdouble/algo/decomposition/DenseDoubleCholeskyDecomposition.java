@@ -16,8 +16,8 @@ import cern.colt.matrix.tdouble.impl.DenseDoubleMatrix2D;
 import com.github.wendykierp.jplasma.tdouble.Dplasma;
 
 /**
- * For a symmetric, positive definite matrix <tt>A</tt>, the Cholesky
- * decomposition is a lower triangular matrix <tt>L</tt> so that <tt>A = L*L'</tt>; If
+ * For a symmetric, positive definite matrix <code>A</code>, the Cholesky
+ * decomposition is a lower triangular matrix <code>L</code> so that <code>A = L*L'</code>; If
  * the matrix is not symmetric positive definite, the IllegalArgumentException
  * is thrown.
  */
@@ -41,7 +41,7 @@ public class DenseDoubleCholeskyDecomposition implements java.io.Serializable {
      * @param A
      *            Square, symmetric positive definite matrix .
      * @throws IllegalArgumentException
-     *             if <tt>A</tt> is not square or is not a symmetric positive
+     *             if <code>A</code> is not square or is not a symmetric positive
      *             definite.
      */
     public DenseDoubleCholeskyDecomposition(DoubleMatrix2D A) {
@@ -66,9 +66,9 @@ public class DenseDoubleCholeskyDecomposition implements java.io.Serializable {
     }
 
     /**
-     * Returns the triangular factor, <tt>L</tt>.
+     * Returns the triangular factor, <code>L</code>.
      * 
-     * @return <tt>L</tt>
+     * @return <code>L</code>
      */
     public DoubleMatrix2D getL() {
         if (Lt != null) {
@@ -121,14 +121,14 @@ public class DenseDoubleCholeskyDecomposition implements java.io.Serializable {
     }
 
     /**
-     * Solves <tt>A*X = B</tt>(in-place). Upon return <tt>B</tt> is overridden
-     * with the result <tt>X</tt>.
+     * Solves <code>A*X = B</code>(in-place). Upon return <code>B</code> is overridden
+     * with the result <code>X</code>.
      * 
      * @param B
-     *            A Matrix with as many rows as <tt>A</tt> and any number of
+     *            A Matrix with as many rows as <code>A</code> and any number of
      *            columns.
      * @exception IllegalArgumentException
-     *                if <tt>B.rows() != A.rows()</tt>.
+     *                if <code>B.rows() != A.rows()</code>.
      */
     public void solve(DoubleMatrix2D B) {
         if (B.rows() != n) {
@@ -163,13 +163,13 @@ public class DenseDoubleCholeskyDecomposition implements java.io.Serializable {
     }
 
     /**
-     * Solves <tt>A*x = b</tt>(in-place). Upon return <tt>b</tt> is overridden
-     * with the result <tt>x</tt>.
+     * Solves <code>A*x = b</code>(in-place). Upon return <code>b</code> is overridden
+     * with the result <code>x</code>.
      * 
      * @param b
      *            A vector with of size A.rows();
      * @exception IllegalArgumentException
-     *                if <tt>b.size() != A.rows()</tt>.
+     *                if <code>b.size() != A.rows()</code>.
      */
     public void solve(DoubleMatrix1D b) {
         if (b.size() != n) {
@@ -203,6 +203,7 @@ public class DenseDoubleCholeskyDecomposition implements java.io.Serializable {
      *   trace         : 0
      * 
      * </pre>
+     * @return 
      */
 
     public String toString() {

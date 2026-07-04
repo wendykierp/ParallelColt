@@ -96,7 +96,7 @@ public class ObjectArrayList extends AbstractList {
      *            the index of the last element to be appended (inclusive).
      * @exception IndexOutOfBoundsException
      *                index is out of range (
-     *                <tt>other.size()&gt;0 && (from&lt;0 || from&gt;to || to&gt;=other.size())</tt>
+     *                <code>other.size()&gt;0 &amp;&amp; (from&lt;0 || from&gt;to || to&gt;=other.size())</code>
      *                ).
      */
     public void addAllOfFromTo(ObjectArrayList other, int from, int to) {
@@ -115,7 +115,7 @@ public class ObjectArrayList extends AbstractList {
      *            element to be inserted.
      * @exception IndexOutOfBoundsException
      *                index is out of range (
-     *                <tt>index &lt; 0 || index &gt; size()</tt>).
+     *                <code>index &lt; 0 || index &gt; size()</code>).
      */
     public void beforeInsert(int index, Object element) {
         // overridden for performance only.
@@ -144,11 +144,11 @@ public class ObjectArrayList extends AbstractList {
      *            the index of the last element to be inserted (inclusive).
      * @exception IndexOutOfBoundsException
      *                index is out of range (
-     *                <tt>other.size()&gt;0 && (from&lt;0 || from&gt;to || to&gt;=other.size())</tt>
+     *                <code>other.size()&gt;0 &amp;&amp; (from&lt;0 || from&gt;to || to&gt;=other.size())</code>
      *                ).
      * @exception IndexOutOfBoundsException
      *                index is out of range (
-     *                <tt>index &lt; 0 || index &gt; size()</tt>).
+     *                <code>index &lt; 0 || index &gt; size()</code>).
      */
     public void beforeInsertAllOfFromTo(int index, ObjectArrayList other, int from, int to) {
         int length = to - from + 1;
@@ -189,10 +189,10 @@ public class ObjectArrayList extends AbstractList {
      * @param key
      *            the value to be searched for.
      * @return index of the search key, if it is contained in the receiver;
-     *         otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The
+     *         otherwise, <code>(-(<i>insertion point</i>) - 1)</code>. The
      *         <i>insertion point</i> is defined as the the point at which the
      *         value would be inserted into the receiver: the index of the first
-     *         element greater than the key, or <tt>receiver.size()</tt>, if all
+     *         element greater than the key, or <code>receiver.size()</code>, if all
      *         elements in the receiver are less than the specified key. Note
      *         that this guarantees that the return value will be &gt;= 0 if and
      *         only if the key is found.
@@ -220,10 +220,10 @@ public class ObjectArrayList extends AbstractList {
      * @param to
      *            the rightmost search position, inclusive.
      * @return index of the search key, if it is contained in the receiver;
-     *         otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The
+     *         otherwise, <code>(-(<i>insertion point</i>) - 1)</code>. The
      *         <i>insertion point</i> is defined as the the point at which the
      *         value would be inserted into the receiver: the index of the first
-     *         element greater than the key, or <tt>receiver.size()</tt>, if all
+     *         element greater than the key, or <code>receiver.size()</code>, if all
      *         elements in the receiver are less than the specified key. Note
      *         that this guarantees that the return value will be &gt;= 0 if and
      *         only if the key is found.
@@ -254,8 +254,8 @@ public class ObjectArrayList extends AbstractList {
      * algorithm. The receiver must be sorted into ascending order according to
      * the specified comparator. All elements in the range must be <i>mutually
      * comparable</i> by the specified comparator (that is,
-     * <tt>c.compare(e1, e2)</tt> must not throw a <tt>ClassCastException</tt>
-     * for any elements <tt>e1</tt> and <tt>e2</tt> in the range).
+     * <code>c.compare(e1, e2)</code> must not throw a <code>ClassCastException</code>
+     * for any elements <code>e1</code> and <code>e2</code> in the range).
      * <p>
      * 
      * If the receiver is not sorted, the results are undefined: in particular,
@@ -276,10 +276,10 @@ public class ObjectArrayList extends AbstractList {
      *             if the receiver contains elements that are not <i>mutually
      *             comparable</i> using the specified comparator.
      * @return index of the search key, if it is contained in the receiver;
-     *         otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The
+     *         otherwise, <code>(-(<i>insertion point</i>) - 1)</code>. The
      *         <i>insertion point</i> is defined as the the point at which the
      *         value would be inserted into the receiver: the index of the first
-     *         element greater than the key, or <tt>receiver.size()</tt>, if all
+     *         element greater than the key, or <code>receiver.size()</code>, if all
      *         elements in the receiver are less than the specified key. Note
      *         that this guarantees that the return value will be &gt;= 0 if and
      *         only if the key is found.
@@ -316,6 +316,7 @@ public class ObjectArrayList extends AbstractList {
      *            element to search for.
      * @param testForEquality
      *            if true -> test for equality, otherwise for identity.
+     * @return 
      */
     public boolean contains(Object elem, boolean testForEquality) {
         return indexOfFromTo(elem, 0, size - 1, testForEquality) >= 0;
@@ -341,10 +342,10 @@ public class ObjectArrayList extends AbstractList {
      * element. Does nothing, if no such matching element is contained.
      * 
      * Tests elements for equality or identity as specified by
-     * <tt>testForEquality</tt>. When testing for equality, two elements
-     * <tt>e1</tt> and <tt>e2</tt> are <i>equal</i> if
-     * <tt>(e1==null ? e2==null :
-     * e1.equals(e2))</tt>.)
+     * <code>testForEquality</code>. When testing for equality, two elements
+     * <code>e1</code> and <code>e2</code> are <i>equal</i> if
+     * <code>(e1==null ? e2==null :
+     * e1.equals(e2))</code>.)
      * 
      * @param testForEquality
      *            if true -> tests for equality, otherwise for identity.
@@ -410,9 +411,9 @@ public class ObjectArrayList extends AbstractList {
      * lists have the same size, and all corresponding pairs of elements in the
      * two lists are equal. In other words, two lists are defined to be equal if
      * they contain the same elements in the same order. Two elements
-     * <tt>e1</tt> and <tt>e2</tt> are <i>equal</i> if
-     * <tt>(e1==null ? e2==null :
-     * e1.equals(e2))</tt>.)
+     * <code>e1</code> and <code>e2</code> are <i>equal</i> if
+     * <code>(e1==null ? e2==null :
+     * e1.equals(e2))</code>.)
      * 
      * @param otherObj
      *            the Object to be compared for equality with the receiver.
@@ -429,10 +430,10 @@ public class ObjectArrayList extends AbstractList {
      * lists have the same size, and all corresponding pairs of elements in the
      * two lists are the same. In other words, two lists are defined to be equal
      * if they contain the same elements in the same order. Tests elements for
-     * equality or identity as specified by <tt>testForEquality</tt>. When
-     * testing for equality, two elements <tt>e1</tt> and <tt>e2</tt> are
-     * <i>equal</i> if <tt>(e1==null ? e2==null :
-     * e1.equals(e2))</tt>.)
+     * equality or identity as specified by <code>testForEquality</code>. When
+     * testing for equality, two elements <code>e1</code> and <code>e2</code> are
+     * <i>equal</i> if <code>(e1==null ? e2==null :
+     * e1.equals(e2))</code>.)
      * 
      * @param otherObj
      *            the Object to be compared for equality with the receiver.
@@ -498,9 +499,9 @@ public class ObjectArrayList extends AbstractList {
      * 
      * @param procedure
      *            the procedure to be applied. Stops iteration if the procedure
-     *            returns <tt>false</tt>, otherwise continues.
-     * @return <tt>false</tt> if the procedure stopped before all elements where
-     *         iterated over, <tt>true</tt> otherwise.
+     *            returns <code>false</code>, otherwise continues.
+     * @return <code>false</code> if the procedure stopped before all elements where
+     *         iterated over, <code>true</code> otherwise.
      */
     public boolean forEach(ObjectProcedure procedure) {
         Object[] theElements = elements;
@@ -517,6 +518,7 @@ public class ObjectArrayList extends AbstractList {
      * 
      * @param index
      *            index of element to return.
+     * @return 
      * @exception IndexOutOfBoundsException
      *                index is out of range (index &lt; 0 || index &gt;=
      *                size()).
@@ -533,10 +535,11 @@ public class ObjectArrayList extends AbstractList {
      * parameters this method may return invalid elements without throwing any
      * exception! <b>You should only use this method when you are absolutely
      * sure that the index is within bounds.</b> Precondition (unchecked):
-     * <tt>index &gt;= 0 && index &lt; size()</tt>.
+     * <code>index &gt;= 0 &amp;&amp; index &lt; size()</code>.
      * 
      * @param index
      *            index of element to return.
+     * @return 
      */
     public Object getQuick(int index) {
         return elements[index];
@@ -548,6 +551,7 @@ public class ObjectArrayList extends AbstractList {
      * 
      * Tests for equality or identity as specified by testForEquality.
      * 
+     * @param element
      * @param testForEquality
      *            if <code>true</code> -> test for equality, otherwise for
      *            identity.
@@ -580,7 +584,7 @@ public class ObjectArrayList extends AbstractList {
      *         returns <code>-1</code> if the element is not found.
      * @exception IndexOutOfBoundsException
      *                index is out of range (
-     *                <tt>size()&gt;0 && (from&lt;0 || from&gt;to || to&gt;=size())</tt>
+     *                <code>size()&gt;0 &amp;&amp; (from&lt;0 || from&gt;to || to&gt;=size())</code>
      *                ).
      */
     public int indexOfFromTo(Object element, int from, int to, boolean testForEquality) {
@@ -609,21 +613,21 @@ public class ObjectArrayList extends AbstractList {
     /**
      * Determines whether the receiver is sorted ascending, according to the
      * <i>natural ordering</i> of its elements. All elements in this range must
-     * implement the <tt>Comparable</tt> interface. Furthermore, all elements in
+     * implement the <code>Comparable</code> interface. Furthermore, all elements in
      * this range must be <i>mutually comparable</i> (that is,
-     * <tt>e1.compareTo(e2)</tt> must not throw a <tt>ClassCastException</tt>
-     * for any elements <tt>e1</tt> and <tt>e2</tt> in the array).
+     * <code>e1.compareTo(e2)</code> must not throw a <code>ClassCastException</code>
+     * for any elements <code>e1</code> and <code>e2</code> in the array).
      * <p>
      * 
      * @param from
      *            the index of the first element (inclusive) to be sorted.
      * @param to
      *            the index of the last element (inclusive) to be sorted.
-     * @return <tt>true</tt> if the receiver is sorted ascending, <tt>false</tt>
+     * @return <code>true</code> if the receiver is sorted ascending, <code>false</code>
      *         otherwise.
      * @exception IndexOutOfBoundsException
      *                index is out of range (
-     *                <tt>size()&gt;0 && (from&lt;0 || from&gt;to || to&gt;=size())</tt>
+     *                <code>size()&gt;0 &amp;&amp; (from&lt;0 || from&gt;to || to&gt;=size())</code>
      *                ).
      */
     public boolean isSortedFromTo(int from, int to) {
@@ -677,7 +681,7 @@ public class ObjectArrayList extends AbstractList {
      *         returns <code>-1</code> if the element is not found.
      * @exception IndexOutOfBoundsException
      *                index is out of range (
-     *                <tt>size()&gt;0 && (from&lt;0 || from&gt;to || to&gt;=size())</tt>
+     *                <code>size()&gt;0 &amp;&amp; (from&lt;0 || from&gt;to || to&gt;=size())</code>
      *                ).
      */
     public int lastIndexOfFromTo(Object element, int from, int to, boolean testForEquality) {
@@ -706,10 +710,10 @@ public class ObjectArrayList extends AbstractList {
     /**
      * Sorts the specified range of the receiver into ascending order, according
      * to the <i>natural ordering</i> of its elements. All elements in this
-     * range must implement the <tt>Comparable</tt> interface. Furthermore, all
+     * range must implement the <code>Comparable</code> interface. Furthermore, all
      * elements in this range must be <i>mutually comparable</i> (that is,
-     * <tt>e1.compareTo(e2)</tt> must not throw a <tt>ClassCastException</tt>
-     * for any elements <tt>e1</tt> and <tt>e2</tt> in the array).
+     * <code>e1.compareTo(e2)</code> must not throw a <code>ClassCastException</code>
+     * for any elements <code>e1</code> and <code>e2</code> in the array).
      * <p>
      * 
      * This sort is guaranteed to be <i>stable</i>: equal elements will not be
@@ -724,7 +728,7 @@ public class ObjectArrayList extends AbstractList {
      * <p>
      * <b>You should never call this method unless you are sure that this
      * particular sorting algorithm is the right one for your data set.</b> It
-     * is generally better to call <tt>sort()</tt> or <tt>sortFromTo(...)</tt>
+     * is generally better to call <code>sort()</code> or <code>sortFromTo(...)</code>
      * instead, because those methods automatically choose the best sorting
      * algorithm.
      * 
@@ -734,7 +738,7 @@ public class ObjectArrayList extends AbstractList {
      *            the index of the last element (inclusive) to be sorted.
      * @exception IndexOutOfBoundsException
      *                index is out of range (
-     *                <tt>size()&gt;0 && (from&lt;0 || from&gt;to || to&gt;=size())</tt>
+     *                <code>size()&gt;0 &amp;&amp; (from&lt;0 || from&gt;to || to&gt;=size())</code>
      *                ).
      */
 
@@ -748,9 +752,9 @@ public class ObjectArrayList extends AbstractList {
     /**
      * Sorts the receiver according to the order induced by the specified
      * comparator. All elements in the range must be <i>mutually comparable</i>
-     * by the specified comparator (that is, <tt>c.compare(e1, e2)</tt> must not
-     * throw a <tt>ClassCastException</tt> for any elements <tt>e1</tt> and
-     * <tt>e2</tt> in the range).
+     * by the specified comparator (that is, <code>c.compare(e1, e2)</code> must not
+     * throw a <code>ClassCastException</code> for any elements <code>e1</code> and
+     * <code>e2</code> in the range).
      * <p>
      * 
      * This sort is guaranteed to be <i>stable</i>: equal elements will not be
@@ -772,13 +776,13 @@ public class ObjectArrayList extends AbstractList {
      *             if the array contains elements that are not <i>mutually
      *             comparable</i> using the specified comparator.
      * @throws IllegalArgumentException
-     *             if <tt>fromIndex &gt; toIndex</tt>
+     *             if <code>fromIndex &gt; toIndex</code>
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>fromIndex &lt; 0</tt> or
-     *             <tt>toIndex &gt; a.length</tt>
+     *             if <code>fromIndex &lt; 0</code> or
+     *             <code>toIndex &gt; a.length</code>
      * @exception IndexOutOfBoundsException
      *                index is out of range (
-     *                <tt>size()&gt;0 && (from&lt;0 || from&gt;to || to&gt;=size())</tt>
+     *                <code>size()&gt;0 &amp;&amp; (from&lt;0 || from&gt;to || to&gt;=size())</code>
      *                ).
      */
     public void mergeSortFromTo(int from, int to, java.util.Comparator c) {
@@ -799,7 +803,7 @@ public class ObjectArrayList extends AbstractList {
      * @return a new list
      * @exception IndexOutOfBoundsException
      *                index is out of range (
-     *                <tt>size()&gt;0 && (from&lt;0 || from&gt;to || to&gt;=size())</tt>
+     *                <code>size()&gt;0 &amp;&amp; (from&lt;0 || from&gt;to || to&gt;=size())</code>
      *                ).
      */
     public ObjectArrayList partFromTo(int from, int to) {
@@ -816,10 +820,10 @@ public class ObjectArrayList extends AbstractList {
     /**
      * Sorts the specified range of the receiver into ascending order, according
      * to the <i>natural ordering</i> of its elements. All elements in this
-     * range must implement the <tt>Comparable</tt> interface. Furthermore, all
+     * range must implement the <code>Comparable</code> interface. Furthermore, all
      * elements in this range must be <i>mutually comparable</i> (that is,
-     * <tt>e1.compareTo(e2)</tt> must not throw a <tt>ClassCastException</tt>
-     * for any elements <tt>e1</tt> and <tt>e2</tt> in the array).
+     * <code>e1.compareTo(e2)</code> must not throw a <code>ClassCastException</code>
+     * for any elements <code>e1</code> and <code>e2</code> in the array).
      * <p>
      * 
      * The sorting algorithm is a tuned quicksort, adapted from Jon L. Bentley
@@ -831,7 +835,7 @@ public class ObjectArrayList extends AbstractList {
      * <p>
      * <b>You should never call this method unless you are sure that this
      * particular sorting algorithm is the right one for your data set.</b> It
-     * is generally better to call <tt>sort()</tt> or <tt>sortFromTo(...)</tt>
+     * is generally better to call <code>sort()</code> or <code>sortFromTo(...)</code>
      * instead, because those methods automatically choose the best sorting
      * algorithm.
      * 
@@ -841,7 +845,7 @@ public class ObjectArrayList extends AbstractList {
      *            the index of the last element (inclusive) to be sorted.
      * @exception IndexOutOfBoundsException
      *                index is out of range (
-     *                <tt>size()&gt;0 && (from&lt;0 || from&gt;to || to&gt;=size())</tt>
+     *                <code>size()&gt;0 &amp;&amp; (from&lt;0 || from&gt;to || to&gt;=size())</code>
      *                ).
      */
 
@@ -855,9 +859,9 @@ public class ObjectArrayList extends AbstractList {
     /**
      * Sorts the receiver according to the order induced by the specified
      * comparator. All elements in the range must be <i>mutually comparable</i>
-     * by the specified comparator (that is, <tt>c.compare(e1, e2)</tt> must not
-     * throw a <tt>ClassCastException</tt> for any elements <tt>e1</tt> and
-     * <tt>e2</tt> in the range).
+     * by the specified comparator (that is, <code>c.compare(e1, e2)</code> must not
+     * throw a <code>ClassCastException</code> for any elements <code>e1</code> and
+     * <code>e2</code> in the range).
      * <p>
      * 
      * The sorting algorithm is a tuned quicksort, adapted from Jon L. Bentley
@@ -876,13 +880,13 @@ public class ObjectArrayList extends AbstractList {
      *             if the array contains elements that are not <i>mutually
      *             comparable</i> using the specified comparator.
      * @throws IllegalArgumentException
-     *             if <tt>fromIndex &gt; toIndex</tt>
+     *             if <code>fromIndex &gt; toIndex</code>
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>fromIndex &lt; 0</tt> or
-     *             <tt>toIndex &gt; a.length</tt>
+     *             if <code>fromIndex &lt; 0</code> or
+     *             <code>toIndex &gt; a.length</code>
      * @exception IndexOutOfBoundsException
      *                index is out of range (
-     *                <tt>size()&gt;0 && (from&lt;0 || from&gt;to || to&gt;=size())</tt>
+     *                <code>size()&gt;0 &amp;&amp; (from&lt;0 || from&gt;to || to&gt;=size())</code>
      *                ).
      */
     public void quickSortFromTo(int from, int to, java.util.Comparator c) {
@@ -925,7 +929,7 @@ public class ObjectArrayList extends AbstractList {
      * Removes from the receiver all elements whose index is between
      * <code>from</code>, inclusive and <code>to</code>, inclusive. Shifts any
      * succeeding elements to the left (reduces their index). This call shortens
-     * the list by <tt>(to - from + 1)</tt> elements.
+     * the list by <code>(to - from + 1)</code> elements.
      * 
      * @param from
      *            index of first element to be removed.
@@ -933,7 +937,7 @@ public class ObjectArrayList extends AbstractList {
      *            index of last element to be removed.
      * @exception IndexOutOfBoundsException
      *                index is out of range (
-     *                <tt>size()&gt;0 && (from&lt;0 || from&gt;to || to&gt;=size())</tt>
+     *                <code>size()&gt;0 &amp;&amp; (from&lt;0 || from&gt;to || to&gt;=size())</code>
      *                ).
      */
 
@@ -1069,7 +1073,7 @@ public class ObjectArrayList extends AbstractList {
      * Replaces the part of the receiver starting at <code>from</code>
      * (inclusive) with all the elements of the specified collection. Does not
      * alter the size of the receiver. Replaces exactly
-     * <tt>Math.max(0,Math.min(size()-from, other.size()))</tt> elements.
+     * <code>Math.max(0,Math.min(size()-from, other.size()))</code> elements.
      * 
      * @param from
      *            the index at which to copy the first element from the
@@ -1168,7 +1172,7 @@ public class ObjectArrayList extends AbstractList {
      * with invalid parameters this method may access invalid indexes without
      * throwing any exception! <b>You should only use this method when you are
      * absolutely sure that the index is within bounds.</b> Precondition
-     * (unchecked): <tt>index &gt;= 0 && index &lt; size()</tt>.
+     * (unchecked): <code>index &gt;= 0 &amp;&amp; index &lt; size()</code>.
      * 
      * @param index
      *            index of element to replace.
@@ -1182,7 +1186,7 @@ public class ObjectArrayList extends AbstractList {
     /**
      * Sets the size of the receiver without modifying it otherwise. This method
      * should not release or allocate new memory but simply set some instance
-     * variable like <tt>size</tt>.
+     * variable like <code>size</code>.
      * 
      * If your subclass overrides and delegates size changing methods to some
      * other object, you must make sure that those overriding methods not only
@@ -1190,6 +1194,7 @@ public class ObjectArrayList extends AbstractList {
      * public DatabaseList extends AbstractLongList { ... public void
      * removeFromTo(int from,int to) { myDatabase.removeFromTo(from,to);
      * this.setSizeRaw(size-(to-from+1)); } }
+     * @param newSize
      */
     public void setSizeRaw(int newSize) {
         size = newSize;
@@ -1205,7 +1210,7 @@ public class ObjectArrayList extends AbstractList {
      *            the index of the last element (inclusive) to be permuted.
      * @exception IndexOutOfBoundsException
      *                index is out of range (
-     *                <tt>size()&gt;0 && (from&lt;0 || from&gt;to || to&gt;=size())</tt>
+     *                <code>size()&gt;0 &amp;&amp; (from&lt;0 || from&gt;to || to&gt;=size())</code>
      *                ).
      */
 
@@ -1245,6 +1250,7 @@ public class ObjectArrayList extends AbstractList {
      * 
      * @param times
      *            the number of times the receiver shall be copied.
+     * @return 
      */
     public ObjectArrayList times(int times) {
         ObjectArrayList newList = new ObjectArrayList(times * size);
@@ -1273,7 +1279,7 @@ public class ObjectArrayList extends AbstractList {
      *            same runtime type is allocated for this purpose.
      * @return an array containing the elements of the receiver.
      * @exception ArrayStoreException
-     *                the runtime type of <tt>array</tt> is not a supertype of
+     *                the runtime type of <code>array</code> is not a supertype of
      *                the runtime type of every element in the receiver.
      */
     public Object[] toArray(Object array[]) {
@@ -1293,6 +1299,7 @@ public class ObjectArrayList extends AbstractList {
     /**
      * Returns a <code>java.util.ArrayList</code> containing all the elements in
      * the receiver.
+     * @return 
      */
 
     public java.util.ArrayList toList() {
@@ -1307,6 +1314,7 @@ public class ObjectArrayList extends AbstractList {
     /**
      * Returns a string representation of the receiver, containing the String
      * representation of each element.
+     * @return 
      */
 
     public String toString() {

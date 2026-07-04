@@ -99,6 +99,7 @@ public class DefaultDoubleIterationMonitor extends AbstractDoubleIterationMonito
 
     /**
      * Returns maximum number of iterations to permit
+     * @return 
      */
     public int getMaxIterations() {
         return this.maxIter;

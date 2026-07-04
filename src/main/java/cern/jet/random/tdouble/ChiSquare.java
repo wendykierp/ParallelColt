@@ -18,10 +18,10 @@ import cern.jet.stat.tdouble.Probability;
  * HREF="http://www.statsoft.com/textbook/glosc.html#Chi-square Distribution">
  * animated definition</A>. <dt>A special case of the Gamma distribution.
  * <p>
- * <tt>p(x) = (1/g(f/2)) * (x/2)^(f/2-1) * exp(-x/2)</tt> with <tt>g(a)</tt>
- * being the gamma function and <tt>f</tt> being the degrees of freedom.
+ * <code>p(x) = (1/g(f/2)) * (x/2)^(f/2-1) * exp(-x/2)</code> with <code>g(a)</code>
+ * being the gamma function and <code>f</code> being the degrees of freedom.
  * <p>
- * Valid parameter ranges: <tt>freedom &gt; 0</tt>.
+ * Valid parameter ranges: <code>freedom &gt; 0</code>.
  * <p>
  * Instance methods operate on a user supplied uniform random number generator;
  * they are unsynchronized.
@@ -33,7 +33,7 @@ import cern.jet.stat.tdouble.Probability;
  * <dt>High performance implementation. This is a port of <A HREF="http://wwwinfo.cern.ch/asd/lhc++/clhep/manual/RefGuide/Random/RandChiSquare.html"
  * >RandChiSquare</A> used in <A
  * HREF="http://wwwinfo.cern.ch/asd/lhc++/clhep">CLHEP 1.4.0</A> (C++). CLHEP's
- * implementation, in turn, is based on <tt>chru.c</tt> from the <A
+ * implementation, in turn, is based on <code>chru.c</code> from the <A
  * HREF="http://www.cis.tu-graz.ac.at/stat/stadl/random.html">C-RAND /
  * WIN-RAND</A> library. C-RAND's implementation, in turn, is based upon
  * <p>
@@ -62,8 +62,9 @@ public class ChiSquare extends AbstractContinousDoubleDistribution {
      * 
      * @param freedom
      *            degrees of freedom.
+     * @param randomGenerator
      * @throws IllegalArgumentException
-     *             if <tt>freedom &lt; 1.0</tt>.
+     *             if <code>freedom &lt; 1.0</code>.
      */
     public ChiSquare(double freedom, DoubleRandomEngine randomGenerator) {
         setRandomGenerator(randomGenerator);
@@ -72,6 +73,8 @@ public class ChiSquare extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns the cumulative distribution function.
+     * @param x
+     * @return 
      */
     public double cdf(double x) {
         return Probability.chiSquare(freedom, x);
@@ -79,6 +82,7 @@ public class ChiSquare extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a random number from the distribution.
+     * @return 
      */
 
     public double nextDouble() {
@@ -90,7 +94,8 @@ public class ChiSquare extends AbstractContinousDoubleDistribution {
      * state.
      * 
      * @param freedom
-     *            degrees of freedom. It should hold <tt>freedom &lt; 1.0</tt>.
+     *            degrees of freedom. It should hold <code>freedom &lt; 1.0</code>.
+     * @return 
      */
     public double nextDouble(double freedom) {
         /***********************************************************************
@@ -156,6 +161,8 @@ public class ChiSquare extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns the probability distribution function.
+     * @param x
+     * @return 
      */
     public double pdf(double x) {
         if (x <= 0.0)
@@ -170,7 +177,7 @@ public class ChiSquare extends AbstractContinousDoubleDistribution {
      * @param freedom
      *            degrees of freedom.
      * @throws IllegalArgumentException
-     *             if <tt>freedom &lt; 1.0</tt>.
+     *             if <code>freedom &lt; 1.0</code>.
      */
     public void setState(double freedom) {
         if (freedom < 1.0)
@@ -183,8 +190,9 @@ public class ChiSquare extends AbstractContinousDoubleDistribution {
      * 
      * @param freedom
      *            degrees of freedom.
+     * @return 
      * @throws IllegalArgumentException
-     *             if <tt>freedom &lt; 1.0</tt>.
+     *             if <code>freedom &lt; 1.0</code>.
      */
     public static double staticNextDouble(double freedom) {
         synchronized (shared) {
@@ -194,6 +202,7 @@ public class ChiSquare extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a String representation of the receiver.
+     * @return 
      */
 
     public String toString() {

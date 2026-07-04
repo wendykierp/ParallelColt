@@ -11,7 +11,7 @@ package cern.colt.buffer.tfloat;
 import cern.colt.list.tfloat.FloatArrayList;
 
 /**
- * Target of a streaming <tt>FloatBuffer2D</tt> into which data is flushed upon
+ * Target of a streaming <code>FloatBuffer2D</code> into which data is flushed upon
  * buffer overflow.
  * 
  * @author wolfgang.hoschek@cern.ch

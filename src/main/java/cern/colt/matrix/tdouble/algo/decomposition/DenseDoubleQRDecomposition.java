@@ -16,15 +16,15 @@ import cern.colt.matrix.tdouble.impl.DenseDoubleMatrix2D;
 import com.github.wendykierp.jplasma.tdouble.Dplasma;
 
 /**
- * For an <tt>m x n</tt> matrix <tt>A</tt> with <tt>m >= n</tt>, the QR
- * decomposition is an <tt>m x n</tt> orthogonal matrix <tt>Q</tt> and an
- * <tt>n x n</tt> upper triangular matrix <tt>R</tt> so that <tt>A = Q*R</tt>.
+ * For an <code>m x n</code> matrix <code>A</code> with <code>m >= n</code>, the QR
+ * decomposition is an <code>m x n</code> orthogonal matrix <code>Q</code> and an
+ * <code>n x n</code> upper triangular matrix <code>R</code> so that <code>A = Q*R</code>.
  * <P>
  * The QR decompostion always exists, even if the matrix does not have full
  * rank, so the constructor will never fail. The primary use of the QR
  * decomposition is in the least squares solution of nonsquare systems of
- * simultaneous linear equations. This will fail if <tt>isFullRank()</tt>
- * returns <tt>false</tt>.
+ * simultaneous linear equations. This will fail if <code>isFullRank()</code>
+ * returns <code>false</code>.
  * 
  * @author Piotr Wendykier (piotr.wendykier@gmail.com)
  */
@@ -63,7 +63,7 @@ public class DenseDoubleQRDecomposition implements java.io.Serializable {
      *            A rectangular matrix.
      * 
      * @throws IllegalArgumentException
-     *             if <tt>A.rows() < A.columns()</tt>.
+     *             if <code>A.rows() &lt; A.columns()</code>.
      */
 
     public DenseDoubleQRDecomposition(DoubleMatrix2D A) {
@@ -88,12 +88,12 @@ public class DenseDoubleQRDecomposition implements java.io.Serializable {
     }
 
     /**
-     * Generates and returns a copy of the orthogonal factor <tt>Q</tt>.
+     * Generates and returns a copy of the orthogonal factor <code>Q</code>.
      * 
      * @param economySize
      *            if true, then Q is m-by-n, otherwise, Q is m-by-m
      * 
-     * @return <tt>Q</tt>
+     * @return <code>Q</code>
      */
     public DoubleMatrix2D getQ(boolean economySize) {
         if (Q == null) {
@@ -126,12 +126,12 @@ public class DenseDoubleQRDecomposition implements java.io.Serializable {
     }
 
     /**
-     * Returns a copy of the upper triangular factor, <tt>R</tt>.
+     * Returns a copy of the upper triangular factor, <code>R</code>.
      * 
      * @param economySize
      *            if true, then R is n-by-n, otherwise, R is m-by-n
      * 
-     * @return <tt>R</tt>
+     * @return <code>R</code>
      */
     public DoubleMatrix2D getR(boolean economySize) {
         if (R == null) {
@@ -160,9 +160,9 @@ public class DenseDoubleQRDecomposition implements java.io.Serializable {
     }
 
     /**
-     * Returns whether the matrix <tt>A</tt> has full rank.
+     * Returns whether the matrix <code>A</code> has full rank.
      * 
-     * @return true if <tt>R</tt>, and hence <tt>A</tt>, has full rank.
+     * @return true if <code>R</code>, and hence <code>A</code>, has full rank.
      */
     public boolean hasFullRank() {
         for (int j = 0; j < n; j++) {
@@ -173,15 +173,15 @@ public class DenseDoubleQRDecomposition implements java.io.Serializable {
     }
 
     /**
-     * Least squares solution of <tt>A*x = b</tt> (in-place). Upon return
-     * <tt>b</tt> is overridden with the result <tt>x</tt>.
+     * Least squares solution of <code>A*x = b</code> (in-place). Upon return
+     * <code>b</code> is overridden with the result <code>x</code>.
      * 
      * @param b
      *            right-hand side.
      * @exception IllegalArgumentException
-     *                if <tt>b.size() != A.rows()</tt>.
+     *                if <code>b.size() != A.rows()</code>.
      * @exception IllegalArgumentException
-     *                if <tt>!this.hasFullRank()</tt> (<tt>A</tt> is rank
+     *                if <code>!this.hasFullRank()</code> (<code>A</code> is rank
      *                deficient).
      */
     public void solve(DoubleMatrix1D b) {
@@ -218,16 +218,16 @@ public class DenseDoubleQRDecomposition implements java.io.Serializable {
     }
 
     /**
-     * Least squares solution of <tt>A*X = B</tt>(in-place). Upon return
-     * <tt>B</tt> is overridden with the result <tt>X</tt>.
+     * Least squares solution of <code>A*X = B</code>(in-place). Upon return
+     * <code>B</code> is overridden with the result <code>X</code>.
      * 
      * @param B
-     *            A matrix with as many rows as <tt>A</tt> and any number of
+     *            A matrix with as many rows as <code>A</code> and any number of
      *            columns.
      * @exception IllegalArgumentException
-     *                if <tt>B.rows() != A.rows()</tt>.
+     *                if <code>B.rows() != A.rows()</code>.
      * @exception IllegalArgumentException
-     *                if <tt>!this.hasFullRank()</tt> (<tt>A</tt> is rank
+     *                if <code>!this.hasFullRank()</code> (<code>A</code> is rank
      *                deficient).
      */
     public void solve(DoubleMatrix2D B) {
@@ -281,6 +281,7 @@ public class DenseDoubleQRDecomposition implements java.io.Serializable {
      *   trace         : 0
      * 
      * </pre>
+     * @return 
      */
 
     public String toString() {

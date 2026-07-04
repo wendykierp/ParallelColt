@@ -14,13 +14,13 @@ public class FloatBinFunctions1D extends Object {
      * Little trick to allow for "aliasing", that is, renaming this class. Using
      * the aliasing you can instead write
      * <p>
-     * <tt>BinFunctions F = BinFunctions.functions; <br>
-    someAlgo(F.max);</tt>
+     * <code>BinFunctions F = BinFunctions.functions; <br>
+    someAlgo(F.max);</code>
      */
     public static final FloatBinFunctions1D functions = new FloatBinFunctions1D();
 
     /**
-     * Function that returns <tt>bin.max()</tt>.
+     * Function that returns <code>bin.max()</code>.
      */
     public static final FloatBinFunction1D max = new FloatBinFunction1D() {
         public final float apply(DynamicFloatBin1D bin) {
@@ -33,7 +33,7 @@ public class FloatBinFunctions1D extends Object {
     };
 
     /**
-     * Function that returns <tt>bin.mean()</tt>.
+     * Function that returns <code>bin.mean()</code>.
      */
     public static final FloatBinFunction1D mean = new FloatBinFunction1D() {
         public final float apply(DynamicFloatBin1D bin) {
@@ -46,7 +46,7 @@ public class FloatBinFunctions1D extends Object {
     };
 
     /**
-     * Function that returns <tt>bin.median()</tt>.
+     * Function that returns <code>bin.median()</code>.
      */
     public static final FloatBinFunction1D median = new FloatBinFunction1D() {
         public final float apply(DynamicFloatBin1D bin) {
@@ -59,7 +59,7 @@ public class FloatBinFunctions1D extends Object {
     };
 
     /**
-     * Function that returns <tt>bin.min()</tt>.
+     * Function that returns <code>bin.min()</code>.
      */
     public static final FloatBinFunction1D min = new FloatBinFunction1D() {
         public final float apply(DynamicFloatBin1D bin) {
@@ -72,7 +72,7 @@ public class FloatBinFunctions1D extends Object {
     };
 
     /**
-     * Function that returns <tt>bin.rms()</tt>.
+     * Function that returns <code>bin.rms()</code>.
      */
     public static final FloatBinFunction1D rms = new FloatBinFunction1D() {
         public final float apply(DynamicFloatBin1D bin) {
@@ -85,7 +85,7 @@ public class FloatBinFunctions1D extends Object {
     };
 
     /**
-     * Function that returns <tt>bin.size()</tt>.
+     * Function that returns <code>bin.size()</code>.
      */
     public static final FloatBinFunction1D size = new FloatBinFunction1D() {
         public final float apply(DynamicFloatBin1D bin) {
@@ -98,7 +98,7 @@ public class FloatBinFunctions1D extends Object {
     };
 
     /**
-     * Function that returns <tt>bin.standardDeviation()</tt>.
+     * Function that returns <code>bin.standardDeviation()</code>.
      */
     public static final FloatBinFunction1D stdDev = new FloatBinFunction1D() {
         public final float apply(DynamicFloatBin1D bin) {
@@ -111,7 +111,7 @@ public class FloatBinFunctions1D extends Object {
     };
 
     /**
-     * Function that returns <tt>bin.sum()</tt>.
+     * Function that returns <code>bin.sum()</code>.
      */
     public static final FloatBinFunction1D sum = new FloatBinFunction1D() {
         public final float apply(DynamicFloatBin1D bin) {
@@ -124,7 +124,7 @@ public class FloatBinFunctions1D extends Object {
     };
 
     /**
-     * Function that returns <tt>bin.sumOfLogarithms()</tt>.
+     * Function that returns <code>bin.sumOfLogarithms()</code>.
      */
     public static final FloatBinFunction1D sumLog = new FloatBinFunction1D() {
         public final float apply(DynamicFloatBin1D bin) {
@@ -137,7 +137,7 @@ public class FloatBinFunctions1D extends Object {
     };
 
     /**
-     * Function that returns <tt>bin.geometricMean()</tt>.
+     * Function that returns <code>bin.geometricMean()</code>.
      */
     public static final FloatBinFunction1D geometricMean = new FloatBinFunction1D() {
         public final float apply(DynamicFloatBin1D bin) {
@@ -157,11 +157,12 @@ public class FloatBinFunctions1D extends Object {
     }
 
     /**
-     * Function that returns <tt>bin.quantile(percentage)</tt>.
+     * Function that returns <code>bin.quantile(percentage)</code>.
      * 
      * @param percentage
-     *            the percentage of the quantile (<tt>0 <= percentage <= 1</tt>
+     *            the percentage of the quantile (<code>0 &lt;= percentage &lt;= 1</code>
      *            ).
+     * @return 
      */
     public static FloatBinFunction1D quantile(final float percentage) {
         return new FloatBinFunction1D() {

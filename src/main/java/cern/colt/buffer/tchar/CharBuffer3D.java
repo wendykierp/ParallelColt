@@ -12,7 +12,7 @@ import cern.colt.list.tchar.CharArrayList;
 
 /**
  * Fixed sized (non resizable) streaming buffer connected to a target
- * <tt>CharBuffer3DConsumer</tt> to which data is automatically flushed upon
+ * <code>CharBuffer3DConsumer</code> to which data is automatically flushed upon
  * buffer overflow.
  * 
  * @author wolfgang.hoschek@cern.ch

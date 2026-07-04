@@ -72,6 +72,7 @@ public class IterativeSolverDoubleNotConvergedException extends DoubleNotConverg
 
     /**
      * Returns final computed residual
+     * @return 
      */
     public double getResidual() {
         return r;
@@ -79,6 +80,7 @@ public class IterativeSolverDoubleNotConvergedException extends DoubleNotConverg
 
     /**
      * Gets the number of iterations used when this exception was thrown
+     * @return 
      */
     public int getIterations() {
         return iterations;

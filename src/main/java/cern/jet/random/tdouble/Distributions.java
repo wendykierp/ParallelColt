@@ -53,13 +53,14 @@ public class Distributions {
      * Returns the probability distribution function of the discrete geometric
      * distribution.
      * <p>
-     * <tt>p(k) = p * (1-p)^k</tt> for <tt> k &gt;= 0</tt>.
+     * <code>p(k) = p * (1-p)^k</code> for <code> k &gt;= 0</code>.
      * <p>
      * 
      * @param k
      *            the argument to the probability distribution function.
      * @param p
      *            the parameter of the probability distribution function.
+     * @return 
      */
     public static double geometricPdf(int k, double p) {
         if (k < 0)
@@ -71,7 +72,7 @@ public class Distributions {
      * Returns a random number from the Burr II, VII, VIII, X Distributions.
      * <p>
      * <b>Implementation:</b> Inversion method. This is a port of
-     * <tt>burr1.c</tt> from the <A
+     * <code>burr1.c</code> from the <A
      * HREF="http://www.cis.tu-graz.ac.at/stat/stadl/random.html">C-RAND /
      * WIN-RAND</A> library. C-RAND's implementation, in turn, is based upon
      * <p>
@@ -83,6 +84,8 @@ public class Distributions {
      *            must be &gt; 0.
      * @param nr
      *            the number of the burr distribution (e.g. 2,7,8,10).
+     * @param randomGenerator
+     * @return 
      */
     public static double nextBurr1(double r, int nr, DoubleRandomEngine randomGenerator) {
         /***********************************************************************
@@ -123,7 +126,7 @@ public class Distributions {
      * distributions.
      * <p>
      * <b>Implementation:</b> Inversion method. This is a port of
-     * <tt>burr2.c</tt> from the <A
+     * <code>burr2.c</code> from the <A
      * HREF="http://www.cis.tu-graz.ac.at/stat/stadl/random.html">C-RAND /
      * WIN-RAND</A> library. C-RAND's implementation, in turn, is based upon
      * <p>
@@ -137,6 +140,8 @@ public class Distributions {
      *            must be &gt; 0.
      * @param nr
      *            the number of the burr distribution (e.g. 3,4,5,6,9,12).
+     * @param randomGenerator
+     * @return 
      */
     public static double nextBurr2(double r, double k, int nr, DoubleRandomEngine randomGenerator) {
         /***********************************************************************
@@ -190,13 +195,14 @@ public class Distributions {
      * HREF="http://www.statsoft.com/textbook/glosc.html#Cauchy Distribution">
      * animated definition</A>.
      * <p>
-     * <tt>p(x) = 1/ (mean*pi * (1+(x/mean)^2))</tt>.
+     * <code>p(x) = 1/ (mean*pi * (1+(x/mean)^2))</code>.
      * <p>
-     * <b>Implementation:</b> This is a port of <tt>cin.c</tt> from the <A
+     * <b>Implementation:</b> This is a port of <code>cin.c</code> from the <A
      * HREF="http://www.cis.tu-graz.ac.at/stat/stadl/random.html">C-RAND /
      * WIN-RAND</A> library.
      * <p>
      * 
+     * @param randomGenerator
      * @return a number in the open unit interval <code>(0.0,1.0)</code>
      *         (excluding 0.0 and 1.0).
      */
@@ -207,6 +213,10 @@ public class Distributions {
     /**
      * Returns an erlang distributed random number with the given variance and
      * mean.
+     * @param variance
+     * @param randomGenerator
+     * @param mean
+     * @return 
      */
     public static double nextErlang(double variance, double mean, DoubleRandomEngine randomGenerator) {
         int k = (int) ((mean * mean) / variance + 0.5);
@@ -224,16 +234,18 @@ public class Distributions {
      * HREF="http://www.statsoft.com/textbook/glosf.html#Geometric
      * Distribution">Definition</A>.
      * <p>
-     * <tt>p(k) = p * (1-p)^k</tt> for <tt> k &gt;= 0</tt>.
+     * <code>p(k) = p * (1-p)^k</code> for <code> k &gt;= 0</code>.
      * <p>
-     * <b>Implementation:</b> Inversion method. This is a port of <tt>geo.c</tt>
+     * <b>Implementation:</b> Inversion method. This is a port of <code>geo.c</code>
      * from the <A
      * HREF="http://www.cis.tu-graz.ac.at/stat/stadl/random.html">C-RAND /
      * WIN-RAND</A> library.
      * 
      * @param p
-     *            must satisfy <tt>0 &lt; p &lt; 1</tt>.
+     *            must satisfy <code>0 &lt; p &lt; 1</code>.
      *            <p>
+     * @param randomGenerator
+     * @return 
      */
     public static int nextGeometric(double p, DoubleRandomEngine randomGenerator) {
         /***********************************************************************
@@ -260,13 +272,17 @@ public class Distributions {
      * Returns a lambda distributed random number with parameters l3 and l4.
      * <p>
      * <b>Implementation:</b> Inversion method. This is a port of
-     * <tt>lamin.c</tt> from the <A
+     * <code>lamin.c</code> from the <A
      * HREF="http://www.cis.tu-graz.ac.at/stat/stadl/random.html">C-RAND /
      * WIN-RAND</A> library. C-RAND's implementation, in turn, is based upon
      * <p>
      * J.S. Ramberg, B:W. Schmeiser (1974): An approximate method for generating
      * asymmetric variables, Communications ACM 17, 78-82.
      * <p>
+     * @param l3
+     * @param randomGenerator
+     * @param l4
+     * @return 
      */
     public static double nextLambda(double l3, double l4, DoubleRandomEngine randomGenerator) {
         double l_sign;
@@ -285,11 +301,12 @@ public class Distributions {
      * standard Laplace distribution L(0,1).
      * <p>
      * <b>Implementation:</b> Inversion method. This is a port of
-     * <tt>lapin.c</tt> from the <A
+     * <code>lapin.c</code> from the <A
      * HREF="http://www.cis.tu-graz.ac.at/stat/stadl/random.html">C-RAND /
      * WIN-RAND</A> library.
      * <p>
      * 
+     * @param randomGenerator
      * @return a number in the open unit interval <code>(0.0,1.0)</code>
      *         (excluding 0.0 and 1.0).
      */
@@ -306,9 +323,11 @@ public class Distributions {
      * Returns a random number from the standard Logistic distribution Log(0,1).
      * <p>
      * <b>Implementation:</b> Inversion method. This is a port of
-     * <tt>login.c</tt> from the <A
+     * <code>login.c</code> from the <A
      * HREF="http://www.cis.tu-graz.ac.at/stat/stadl/random.html">C-RAND /
      * WIN-RAND</A> library.
+     * @param randomGenerator
+     * @return 
      */
     public static double nextLogistic(DoubleRandomEngine randomGenerator) {
         double u = randomGenerator.raw();
@@ -323,6 +342,8 @@ public class Distributions {
      *            the exponent
      * @param cut
      *            the lower cutoff
+     * @param randomGenerator
+     * @return 
      */
     public static double nextPowLaw(double alpha, double cut, DoubleRandomEngine randomGenerator) {
         return cut * Math.pow(randomGenerator.raw(), 1.0 / (alpha + 1.0));
@@ -332,11 +353,13 @@ public class Distributions {
      * Returns a random number from the standard Triangular distribution in
      * (-1,1).
      * <p>
-     * <b>Implementation:</b> Inversion method. This is a port of <tt>tra.c</tt>
+     * <b>Implementation:</b> Inversion method. This is a port of <code>tra.c</code>
      * from the <A
      * HREF="http://www.cis.tu-graz.ac.at/stat/stadl/random.html">C-RAND /
      * WIN-RAND</A> library.
      * <p>
+     * @param randomGenerator
+     * @return 
      */
     public static double nextTriangular(DoubleRandomEngine randomGenerator) {
         /***********************************************************************
@@ -358,6 +381,10 @@ public class Distributions {
     /**
      * Returns a weibull distributed random number. Polar method. See
      * Simulation, Modelling & Analysis by Law & Kelton, pp259
+     * @param alpha
+     * @param randomGenerator
+     * @param beta
+     * @return 
      */
     public static double nextWeibull(double alpha, double beta, DoubleRandomEngine randomGenerator) {
         // Polar method.
@@ -374,8 +401,9 @@ public class Distributions {
      * 
      * @param z
      *            the skew of the distribution (must be &gt;1.0).
+     * @param randomGenerator
      * @return a zipfian distributed number in the closed interval
-     *         <tt>[1,Integer.MAX_VALUE]</tt>.
+     *         <code>[1,Integer.MAX_VALUE]</code>.
      */
     public static int nextZipfInt(double z, DoubleRandomEngine randomGenerator) {
         /*

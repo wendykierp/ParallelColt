@@ -13,7 +13,7 @@ import cern.colt.matrix.tint.IntMatrix2D;
 import cern.colt.matrix.tint.IntMatrix3D;
 
 /**
- * 2-d matrix holding <tt>int</tt> elements; a view wrapping another 3-d matrix
+ * 2-d matrix holding <code>int</code> elements; a view wrapping another 3-d matrix
  * and therefore delegating calls to it.
  * 
  * @author Piotr Wendykier (piotr.wendykier@gmail.com)

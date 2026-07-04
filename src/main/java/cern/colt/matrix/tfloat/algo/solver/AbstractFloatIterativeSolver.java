@@ -70,6 +70,9 @@ public abstract class AbstractFloatIterativeSolver implements FloatIterativeSolv
     /**
      * Checks sizes of input data for {@link #solve(Matrix, Vector, Vector)}.
      * Throws an exception if the sizes does not match.
+     * @param A
+     * @param x
+     * @param b
      */
     protected void checkSizes(FloatMatrix2D A, FloatMatrix1D b, FloatMatrix1D x) {
         if (A.rows() != A.columns())

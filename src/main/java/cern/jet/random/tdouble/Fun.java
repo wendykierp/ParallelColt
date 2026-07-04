@@ -12,7 +12,7 @@ package cern.jet.random.tdouble;
  * Contains various mathematical helper methods.
  * 
  * <b>Implementation:</b> High performance implementation. <dt>This is a port of
- * <tt>gen_fun.cpp</tt> from the <A
+ * <code>gen_fun.cpp</code> from the <A
  * HREF="http://www.cis.tu-graz.ac.at/stat/stadl/random.html">C-RAND /
  * WIN-RAND</A> library.
  * 
@@ -327,7 +327,7 @@ class Fun {
     }
 
     /**
-     * Returns <tt>n!</tt>.
+     * Returns <code>n!</code>.
      */
     public static long factorial(int n) {
         return cern.jet.math.tdouble.DoubleArithmetic.longFactorial(n);
@@ -351,7 +351,7 @@ class Fun {
     }
 
     /**
-     * Returns the gamma function <tt>gamma(x)</tt>.
+     * Returns the gamma function <code>gamma(x)</code>.
      */
     public static double gamma(double x) {
         x = logGamma(x);
@@ -360,7 +360,7 @@ class Fun {
     }
 
     /**
-     * Returns a quick approximation of <tt>log(gamma(x))</tt>.
+     * Returns a quick approximation of <code>log(gamma(x))</code>.
      */
     public static double logGamma(double x) {
         final double c0 = 9.1893853320467274e-01, c1 = 8.3333333333333333e-02, c2 = -2.7777777777777777e-03, c3 = 7.9365079365079365e-04, c4 = -5.9523809523809524e-04, c5 = 8.4175084175084175e-04, c6 = -1.9175269175269175e-03;

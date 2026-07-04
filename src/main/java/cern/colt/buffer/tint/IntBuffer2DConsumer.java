@@ -11,7 +11,7 @@ package cern.colt.buffer.tint;
 import cern.colt.list.tint.IntArrayList;
 
 /**
- * Target of a streaming <tt>IntBuffer2D</tt> into which data is flushed upon
+ * Target of a streaming <code>IntBuffer2D</code> into which data is flushed upon
  * buffer overflow.
  * 
  * @author wolfgang.hoschek@cern.ch

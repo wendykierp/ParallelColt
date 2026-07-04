@@ -12,24 +12,24 @@ package cern.jet.stat.tdouble.quantile;
  * Read-only equi-depth histogram for selectivity estimation. Assume you have
  * collected statistics over a data set, among them a one-dimensional equi-depth
  * histogram (quantiles). Then an applications or DBMS might want to estimate
- * the <i>selectivity</i> of some range query <tt>[from,to]</tt>, i.e. the
+ * the <i>selectivity</i> of some range query <code>[from,to]</code>, i.e. the
  * percentage of data set elements contained in the query range. This class does
  * not collect equi-depth histograms but only space efficiently stores already
  * produced histograms and provides operations for selectivity estimation. Uses
  * linear interpolation.
  * <p>
- * This class stores a list <tt>l</tt> of <tt>double</tt> values for which
+ * This class stores a list <code>l</code> of <code>double</code> values for which
  * holds:
- * <li>Let <tt>v</tt> be a list of values (sorted ascending) an equi-depth
+ * <li>Let <code>v</code> be a list of values (sorted ascending) an equi-depth
  * histogram has been computed over.</li>
- * <li>Let <tt>s=l.length</tt>.</li>
- * <li>Let <tt>p=(0, 1/s-1), 2/s-1,..., s-1/s-1=1.0)</tt> be a list of the
- * <tt>s</tt> percentages.</li>
+ * <li>Let <code>s=l.length</code>.</li>
+ * <li>Let <code>p=(0, 1/s-1), 2/s-1,..., s-1/s-1=1.0)</code> be a list of the
+ * <code>s</code> percentages.</li>
  * <li>Then for each
- * <tt>i=0..s-1: l[i] = e : v.contains(e) && v[0],..., v[p[i]*v.length] &lt;= e</tt>
+ * <code>i=0..s-1: l[i] = e : v.contains(e) &amp;&amp; v[0],..., v[p[i]*v.length] &lt;= e</code>
  * .</li>
- * <li>(In particular: <tt>l[0]=min(v)=v[0]</tt> and
- * <tt>l[s-1]=max(v)=v[s-1]</tt>.)</li>
+ * <li>(In particular: <code>l[0]=min(v)=v[0]</code> and
+ * <code>l[s-1]=max(v)=v[s-1]</code>.)</li>
  * 
  * @author wolfgang.hoschek@cern.ch
  * @version 1.0, 09/24/99
@@ -45,6 +45,7 @@ public class DoubleEquiDepthHistogram extends cern.colt.PersistentObject {
      * Constructs an equi-depth histogram with the given quantile elements.
      * Quantile elements must be sorted ascending and have the form specified in
      * the class documentation.
+     * @param quantileElements
      */
     public DoubleEquiDepthHistogram(double[] quantileElements) {
         this.binBoundaries = quantileElements;
@@ -56,6 +57,7 @@ public class DoubleEquiDepthHistogram extends cern.colt.PersistentObject {
      * 
      * @param element
      *            the element to search for.
+     * @return 
      * @throws java.lang.IllegalArgumentException
      *             if the element is not contained in any bin.
      */
@@ -80,6 +82,7 @@ public class DoubleEquiDepthHistogram extends cern.colt.PersistentObject {
     /**
      * Returns the number of bins. In other words, returns the number of
      * subdomains partitioning the entire value domain.
+     * @return 
      */
     public int bins() {
         return binBoundaries.length - 1;
@@ -88,8 +91,10 @@ public class DoubleEquiDepthHistogram extends cern.colt.PersistentObject {
     /**
      * Returns the end of the range associated with the given bin.
      * 
+     * @param binIndex
+     * @return 
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>binIndex &lt; 0 || binIndex &gt;= bins()</tt>.
+     *             if <code>binIndex &lt; 0 || binIndex &gt;= bins()</code>.
      */
     public double endOfBin(int binIndex) {
         return binBoundaries[binIndex + 1];
@@ -103,7 +108,7 @@ public class DoubleEquiDepthHistogram extends cern.colt.PersistentObject {
      *            the start point (exclusive).
      * @param to
      *            the end point (inclusive).
-     * @return a number in the closed interval <tt>[0.0,1.0]</tt>.
+     * @return a number in the closed interval <code>[0.0,1.0]</code>.
      */
     public double percentFromTo(double from, double to) {
         return phi(to) - phi(from);
@@ -111,11 +116,11 @@ public class DoubleEquiDepthHistogram extends cern.colt.PersistentObject {
 
     /**
      * Returns how many percent of the elements contained in the receiver are
-     * <tt>&lt;= element</tt>. Does linear interpolation.
+     * <code>&lt;= element</code>. Does linear interpolation.
      * 
      * @param element
      *            the element to search for.
-     * @return a number in the closed interval <tt>[0.0,1.0]</tt>.
+     * @return a number in the closed interval <code>[0.0,1.0]</code>.
      */
     public double phi(double element) {
         int size = binBoundaries.length;
@@ -140,6 +145,7 @@ public class DoubleEquiDepthHistogram extends cern.colt.PersistentObject {
     }
 
     /**
+     * @return 
      * @deprecated Deprecated. Returns the number of bin boundaries.
      */
     @Deprecated
@@ -150,8 +156,10 @@ public class DoubleEquiDepthHistogram extends cern.colt.PersistentObject {
     /**
      * Returns the start of the range associated with the given bin.
      * 
+     * @param binIndex
+     * @return 
      * @throws ArrayIndexOutOfBoundsException
-     *             if <tt>binIndex &lt; 0 || binIndex &gt;= bins()</tt>.
+     *             if <code>binIndex &lt; 0 || binIndex &gt;= bins()</code>.
      */
     public double startOfBin(int binIndex) {
         return binBoundaries[binIndex];
@@ -159,6 +167,7 @@ public class DoubleEquiDepthHistogram extends cern.colt.PersistentObject {
 
     /**
      * Not yet commented.
+     * @param element
      */
     public static void test(double element) {
         double[] quantileElements = { 50.0, 100.0, 200.0, 300.0, 1400.0, 1500.0, 1600.0, 1700.0, 1800.0, 1900.0, 2000.0 };

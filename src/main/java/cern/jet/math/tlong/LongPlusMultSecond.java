@@ -12,14 +12,14 @@ package cern.jet.math.tlong;
  * Only for performance tuning of compute longensive linear algebraic
  * computations. Constructs functions that return one of
  * <ul>
- * <li><tt>a + b*constant</tt>
- * <li><tt>a - b*constant</tt>
- * <li><tt>a + b/constant</tt>
- * <li><tt>a - b/constant</tt>
+ * <li><code>a + b*constant</code>
+ * <li><code>a - b*constant</code>
+ * <li><code>a + b/constant</code>
+ * <li><code>a - b/constant</code>
  * </ul>
- * <tt>a</tt> and <tt>b</tt> are variables, <tt>constant</tt> is fixed, but for
+ * <code>a</code> and <code>b</code> are variables, <code>constant</code> is fixed, but for
  * performance reasons publicly accessible. Longended to be passed to
- * <tt>matrix.assign(otherMatrix,function)</tt> methods.
+ * <code>matrix.assign(otherMatrix,function)</code> methods.
  */
 public final class LongPlusMultSecond implements cern.colt.function.tlong.LongLongFunction {
     /**
@@ -29,6 +29,7 @@ public final class LongPlusMultSecond implements cern.colt.function.tlong.LongLo
 
     /**
      * Insert the method's description here. Creation date: (8/10/99 19:12:09)
+     * @param multiplicator
      */
     protected LongPlusMultSecond(final long multiplicator) {
         this.multiplicator = multiplicator;
@@ -36,20 +37,26 @@ public final class LongPlusMultSecond implements cern.colt.function.tlong.LongLo
 
     /**
      * Returns the result of the function evaluation.
+     * @param a
+     * @param b
      */
     public final long apply(long a, long b) {
         return a + b * multiplicator;
     }
 
     /**
-     * <tt>a - b*constant</tt>.
+     * <code>a - b*constant</code>.
+     * @param constant
+     * @return 
      */
     public static LongPlusMultSecond minusMult(final long constant) {
         return new LongPlusMultSecond(-constant);
     }
 
     /**
-     * <tt>a + b*constant</tt>.
+     * <code>a + b*constant</code>.
+     * @param constant
+     * @return 
      */
     public static LongPlusMultSecond plusMult(final long constant) {
         return new LongPlusMultSecond(constant);

@@ -13,7 +13,7 @@ import cern.colt.matrix.tlong.LongMatrix2D;
 import cern.colt.matrix.tlong.LongMatrix3D;
 
 /**
- * 3-d matrix holding <tt>long</tt> elements; either a view wrapping another
+ * 3-d matrix holding <code>long</code> elements; either a view wrapping another
  * matrix or a matrix whose views are wrappers.
  * 
  * 

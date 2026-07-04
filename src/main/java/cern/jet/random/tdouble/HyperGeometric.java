@@ -15,14 +15,14 @@ import cern.jet.random.tdouble.engine.DoubleRandomEngine;
  * HyperGeometric distribution; See the <A
  * HREF="http://library.advanced.org/10030/6atpdvah.htm"> math definition</A>
  * 
- * The hypergeometric distribution with parameters <tt>N</tt>, <tt>n</tt> and
- * <tt>s</tt> is the probability distribution of the random variable X, whose
- * value is the number of successes in a sample of <tt>n</tt> items from a
- * population of size <tt>N</tt> that has <tt>s</tt> 'success' items and
- * <tt>N - s</tt> 'failure' items.
+ * The hypergeometric distribution with parameters <code>N</code>, <code>n</code> and
+ * <code>s</code> is the probability distribution of the random variable X, whose
+ * value is the number of successes in a sample of <code>n</code> items from a
+ * population of size <code>N</code> that has <code>s</code> 'success' items and
+ * <code>N - s</code> 'failure' items.
  * <p>
- * <tt>p(k) = C(s,k) * C(N-s,n-k) / C(N,n)</tt> where
- * <tt>C(a,b) = a! / (b! * (a-b)!)</tt>.
+ * <code>p(k) = C(s,k) * C(N-s,n-k) / C(N,n)</code> where
+ * <code>C(a,b) = a! / (b! * (a-b)!)</code>.
  * <p>
  * valid for N >= 2, s,n <= N.
  * <p>
@@ -33,7 +33,7 @@ import cern.jet.random.tdouble.engine.DoubleRandomEngine;
  * <p>
  * <b>Implementation:</b> High performance implementation. Patchwork
  * Rejection/Inversion method.
- * <dt>This is a port of <tt>hprsc.c</tt> from the <A
+ * <dt>This is a port of <code>hprsc.c</code> from the <A
  * HREF="http://www.cis.tu-graz.ac.at/stat/stadl/random.html">C-RAND /
  * WIN-RAND</A> library. C-RAND's implementation, in turn, is based upon
  * <p>
@@ -76,6 +76,10 @@ public class HyperGeometric extends AbstractDiscreteDistribution {
 
     /**
      * Constructs a HyperGeometric distribution.
+     * @param N
+     * @param randomGenerator
+     * @param s
+     * @param n
      */
     public HyperGeometric(int N, int s, int n, DoubleRandomEngine randomGenerator) {
         setRandomGenerator(randomGenerator);
@@ -89,6 +93,11 @@ public class HyperGeometric extends AbstractDiscreteDistribution {
 
     /**
      * Returns a random number from the distribution.
+     * @param N
+     * @param randomGenerator
+     * @param M
+     * @param n
+     * @return 
      */
     protected int hmdu(int N, int M, int n, DoubleRandomEngine randomGenerator) {
 
@@ -155,6 +164,11 @@ public class HyperGeometric extends AbstractDiscreteDistribution {
 
     /**
      * Returns a random number from the distribution.
+     * @param N
+     * @param randomGenerator
+     * @param M
+     * @param n
+     * @return 
      */
     protected int hprs(int N, int M, int n, DoubleRandomEngine randomGenerator) {
         int Dk, X, V;
@@ -312,6 +326,7 @@ public class HyperGeometric extends AbstractDiscreteDistribution {
 
     /**
      * Returns a random number from the distribution.
+     * @return 
      */
 
     public int nextInt() {
@@ -321,6 +336,10 @@ public class HyperGeometric extends AbstractDiscreteDistribution {
     /**
      * Returns a random number from the distribution; bypasses the internal
      * state.
+     * @param N
+     * @param n
+     * @param s
+     * @return 
      */
     public int nextInt(int N, int s, int n) {
         return nextInt(N, s, n, this.randomGenerator);
@@ -329,6 +348,11 @@ public class HyperGeometric extends AbstractDiscreteDistribution {
     /**
      * Returns a random number from the distribution; bypasses the internal
      * state.
+     * @param N
+     * @param randomGenerator
+     * @param M
+     * @param n
+     * @return 
      */
     protected int nextInt(int N, int M, int n, DoubleRandomEngine randomGenerator) {
         /***********************************************************************
@@ -383,6 +407,8 @@ public class HyperGeometric extends AbstractDiscreteDistribution {
 
     /**
      * Returns the probability distribution function.
+     * @param k
+     * @return 
      */
     public double pdf(int k) {
         return DoubleArithmetic.binomial(my_s, k) * DoubleArithmetic.binomial(my_N - my_s, my_n - k)
@@ -391,6 +417,9 @@ public class HyperGeometric extends AbstractDiscreteDistribution {
 
     /**
      * Sets the parameters.
+     * @param N
+     * @param n
+     * @param s
      */
     public void setState(int N, int s, int n) {
         this.my_N = N;
@@ -400,6 +429,10 @@ public class HyperGeometric extends AbstractDiscreteDistribution {
 
     /**
      * Returns a random number from the distribution.
+     * @param N
+     * @param n
+     * @param M
+     * @return 
      */
     public static double staticNextInt(int N, int M, int n) {
         synchronized (shared) {
@@ -409,6 +442,7 @@ public class HyperGeometric extends AbstractDiscreteDistribution {
 
     /**
      * Returns a String representation of the receiver.
+     * @return 
      */
 
     public String toString() {

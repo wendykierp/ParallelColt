@@ -18,24 +18,24 @@ import cern.colt.matrix.tobject.ObjectMatrix2D;
 import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
 
 /**
- * Dense 2-d matrix holding <tt>Object</tt> elements. First see the <a
+ * Dense 2-d matrix holding <code>Object</code> elements. First see the <a
  * href="package-summary.html">package summary</a> and javadoc <a
  * href="package-tree.html">tree view</a> to get the broad picture.
  * <p>
  * <b>Implementation:</b>
  * <p>
- * Internally holds one single contigous one-dimensional array, addressed in row
+ * Internally holds one single contiguous one-dimensional array, addressed in row
  * major. Note that this implementation is not synchronized.
  * <p>
  * <b>Memory requirements:</b>
  * <p>
- * <tt>memory [bytes] = 8*rows()*columns()</tt>. Thus, a 1000*1000 matrix uses 8
+ * <code>memory [bytes] = 8*rows()*columns()</code>. Thus, a 1000*1000 matrix uses 8
  * MB.
  * <p>
  * <b>Time complexity:</b>
  * <p>
- * <tt>O(1)</tt> (i.e. constant time) for the basic operations <tt>get</tt>,
- * <tt>getQuick</tt>, <tt>set</tt>, <tt>setQuick</tt> and <tt>size</tt>,
+ * <code>O(1)</code> (i.e. constant time) for the basic operations <code>get</code>,
+ * <code>getQuick</code>, <code>set</code>, <code>setQuick</code> and <code>size</code>,
  * <p>
  * Cells are internally addressed in row-major. Applications demanding utmost
  * speed can exploit this fact. Setting/getting values in a loop row-by-row is
@@ -76,18 +76,18 @@ public class DenseObjectMatrix2D extends ObjectMatrix2D {
     protected Object[] elements;
 
     /**
-     * Constructs a matrix with a copy of the given values. <tt>values</tt> is
-     * required to have the form <tt>values[row][column]</tt> and have exactly
+     * Constructs a matrix with a copy of the given values. <code>values</code> is
+     * required to have the form <code>values[row][column]</code> and have exactly
      * the same number of columns in every row.
      * <p>
-     * The values are copied. So subsequent changes in <tt>values</tt> are not
+     * The values are copied. So subsequent changes in <code>values</code> are not
      * reflected in the matrix, and vice-versa.
      * 
      * @param values
      *            The values to be filled into the new matrix.
      * @throws IllegalArgumentException
      *             if
-     *             <tt>for any 1 &lt;= row &lt; values.length: values[row].length != values[row-1].length</tt>
+     *             <code>for any 1 &lt;= row &lt; values.length: values[row].length != values[row-1].length</code>
      *             .
      */
     public DenseObjectMatrix2D(Object[][] values) {
@@ -97,7 +97,7 @@ public class DenseObjectMatrix2D extends ObjectMatrix2D {
 
     /**
      * Constructs a matrix with a given number of rows and columns. All entries
-     * are initially <tt>0</tt>.
+     * are initially <code>0</code>.
      * 
      * @param rows
      *            the number of rows the matrix shall have.
@@ -105,7 +105,7 @@ public class DenseObjectMatrix2D extends ObjectMatrix2D {
      *            the number of columns the matrix shall have.
      * @throws IllegalArgumentException
      *             if
-     *             <tt>rows<0 || columns<0 || (double)columns*rows > Integer.MAX_VALUE</tt>
+     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows > Integer.MAX_VALUE</code>
      *             .
      */
     public DenseObjectMatrix2D(int rows, int columns) {
@@ -128,15 +128,15 @@ public class DenseObjectMatrix2D extends ObjectMatrix2D {
      *            the position of the first element.
      * @param rowStride
      *            the number of elements between two rows, i.e.
-     *            <tt>index(i+1,j)-index(i,j)</tt>.
+     *            <code>index(i+1,j)-index(i,j)</code>.
      * @param columnStride
      *            the number of elements between two columns, i.e.
-     *            <tt>index(i,j+1)-index(i,j)</tt>.
+     *            <code>index(i,j+1)-index(i,j)</code>.
      * @param isView
      *            if true then a matrix view is constructed
      * @throws IllegalArgumentException
      *             if
-     *             <tt>rows<0 || columns<0 || (double)columns*rows > Integer.MAX_VALUE</tt>
+     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows > Integer.MAX_VALUE</code>
      *             or flip's are illegal.
      */
     protected DenseObjectMatrix2D(int rows, int columns, Object[] elements, int rowZero, int columnZero, int rowStride,
@@ -381,19 +381,19 @@ public class DenseObjectMatrix2D extends ObjectMatrix2D {
     }
 
     /**
-     * Sets all cells to the state specified by <tt>values</tt>. <tt>values</tt>
-     * is required to have the form <tt>values[row][column]</tt> and have
+     * Sets all cells to the state specified by <code>values</code>. <code>values</code>
+     * is required to have the form <code>values[row][column]</code> and have
      * exactly the same number of rows and columns as the receiver.
      * <p>
-     * The values are copied. So subsequent changes in <tt>values</tt> are not
+     * The values are copied. So subsequent changes in <code>values</code> are not
      * reflected in the matrix, and vice-versa.
      * 
      * @param values
      *            the values to be filled into the cells.
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      * @throws IllegalArgumentException
      *             if
-     *             <tt>values.length != rows() || for any 0 &lt;= row &lt; rows(): values[row].length != columns()</tt>
+     *             <code>values.length != rows() || for any 0 &lt;= row &lt; rows(): values[row].length != columns()</code>
      *             .
      */
     public ObjectMatrix2D assign(final Object[][] values) {
@@ -503,7 +503,7 @@ public class DenseObjectMatrix2D extends ObjectMatrix2D {
 
     /**
      * Assigns the result of a function to each cell;
-     * <tt>x[row,col] = function(x[row,col])</tt>.
+     * <code>x[row,col] = function(x[row,col])</code>.
      * <p>
      * <b>Example:</b>
      * 
@@ -526,7 +526,7 @@ public class DenseObjectMatrix2D extends ObjectMatrix2D {
      * 
      * @param function
      *            a function object taking as argument the current cell's value.
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      * @see cern.jet.math.tdouble.DoubleFunctions
      */
 
@@ -672,15 +672,15 @@ public class DenseObjectMatrix2D extends ObjectMatrix2D {
      * both matrices share the same cells (as is the case if they are views
      * derived from the same matrix) and intersect in an ambiguous way, then
      * replaces <i>as if</i> using an intermediate auxiliary deep copy of
-     * <tt>other</tt>.
+     * <code>other</code>.
      * 
      * @param source
      *            the source matrix to copy from (may be identical to the
      *            receiver).
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      * @throws IllegalArgumentException
      *             if
-     *             <tt>columns() != source.columns() || rows() != source.rows()</tt>
+     *             <code>columns() != source.columns() || rows() != source.rows()</code>
      */
 
     public ObjectMatrix2D assign(ObjectMatrix2D source) {
@@ -757,18 +757,18 @@ public class DenseObjectMatrix2D extends ObjectMatrix2D {
 
     /**
      * Assigns the result of a function to each cell;
-     * <tt>x[row,col] = function(x[row,col],y[row,col])</tt>.
+     * <code>x[row,col] = function(x[row,col],y[row,col])</code>.
      * 
      * @param y
      *            the secondary matrix to operate on.
      * @param function
      *            a function object taking as first argument the current cell's
-     *            value of <tt>this</tt>, and as second argument the current
-     *            cell's value of <tt>y</tt>,
-     * @return <tt>this</tt> (for convenience only).
+     *            value of <code>this</code>, and as second argument the current
+     *            cell's value of <code>y</code>,
+     * @return <code>this</code> (for convenience only).
      * @throws IllegalArgumentException
      *             if
-     *             <tt>columns() != other.columns() || rows() != other.rows()</tt>
+     *             <code>columns() != other.columns() || rows() != other.rows()</code>
      * @see cern.jet.math.tdouble.DoubleFunctions
      */
 
@@ -937,14 +937,14 @@ public class DenseObjectMatrix2D extends ObjectMatrix2D {
     }
 
     /**
-     * Returns the matrix cell value at coordinate <tt>[row,column]</tt>.
+     * Returns the matrix cell value at coordinate <code>[row,column]</code>.
      * 
      * <p>
      * Provided with invalid parameters this method may return invalid objects
      * without throwing any exception. <b>You should only use this method when
      * you are absolutely sure that the coordinate is within bounds.</b>
      * Precondition (unchecked):
-     * <tt>0 &lt;= column &lt; columns() && 0 &lt;= row &lt; rows()</tt>.
+     * <code>0 &lt;= column &lt; columns() &amp;&amp; 0 &lt;= row &lt; rows()</code>.
      * 
      * @param row
      *            the index of the row-coordinate.
@@ -962,14 +962,16 @@ public class DenseObjectMatrix2D extends ObjectMatrix2D {
     }
 
     /**
-     * Returns <tt>true</tt> if both matrices share common cells. More formally,
-     * returns <tt>true</tt> if <tt>other != null</tt> and at least one of the
+     * Returns <code>true</code> if both matrices share common cells. More formally,
+     * returns <code>true</code> if <code>other != null</code> and at least one of the
      * following conditions is met
      * <ul>
      * <li>the receiver is a view of the other matrix
      * <li>the other matrix is a view of the receiver
-     * <li><tt>this == other</tt>
+     * <li><code>this == other</code>
      * </ul>
+     * @param other
+     * @return 
      */
 
     protected boolean haveSharedCellsRaw(ObjectMatrix2D other) {
@@ -991,6 +993,7 @@ public class DenseObjectMatrix2D extends ObjectMatrix2D {
      *            the index of the row-coordinate.
      * @param column
      *            the index of the column-coordinate.
+     * @return 
      */
 
     public long index(int row, int column) {
@@ -1003,10 +1006,10 @@ public class DenseObjectMatrix2D extends ObjectMatrix2D {
      * Construct and returns a new empty matrix <i>of the same dynamic type</i>
      * as the receiver, having the specified number of rows and columns. For
      * example, if the receiver is an instance of type
-     * <tt>DenseObjectMatrix2D</tt> the new matrix must also be of type
-     * <tt>DenseObjectMatrix2D</tt>, if the receiver is an instance of type
-     * <tt>SparseObjectMatrix2D</tt> the new matrix must also be of type
-     * <tt>SparseObjectMatrix2D</tt>, etc. In general, the new matrix should
+     * <code>DenseObjectMatrix2D</code> the new matrix must also be of type
+     * <code>DenseObjectMatrix2D</code>, if the receiver is an instance of type
+     * <code>SparseObjectMatrix2D</code> the new matrix must also be of type
+     * <code>SparseObjectMatrix2D</code>, etc. In general, the new matrix should
      * have internal parametrization as similar as possible.
      * 
      * @param rows
@@ -1023,10 +1026,10 @@ public class DenseObjectMatrix2D extends ObjectMatrix2D {
     /**
      * Construct and returns a new 1-d matrix <i>of the corresponding dynamic
      * type</i>, entirelly independent of the receiver. For example, if the
-     * receiver is an instance of type <tt>DenseObjectMatrix2D</tt> the new
-     * matrix must be of type <tt>DenseObjectMatrix1D</tt>, if the receiver is
-     * an instance of type <tt>SparseObjectMatrix2D</tt> the new matrix must be
-     * of type <tt>SparseObjectMatrix1D</tt>, etc.
+     * receiver is an instance of type <code>DenseObjectMatrix2D</code> the new
+     * matrix must be of type <code>DenseObjectMatrix1D</code>, if the receiver is
+     * an instance of type <code>SparseObjectMatrix2D</code> the new matrix must be
+     * of type <code>SparseObjectMatrix1D</code>, etc.
      * 
      * @param size
      *            the number of cells the matrix shall have.
@@ -1040,10 +1043,10 @@ public class DenseObjectMatrix2D extends ObjectMatrix2D {
     /**
      * Construct and returns a new 1-d matrix <i>of the corresponding dynamic
      * type</i>, sharing the same cells. For example, if the receiver is an
-     * instance of type <tt>DenseObjectMatrix2D</tt> the new matrix must be of
-     * type <tt>DenseObjectMatrix1D</tt>, if the receiver is an instance of type
-     * <tt>SparseObjectMatrix2D</tt> the new matrix must be of type
-     * <tt>SparseObjectMatrix1D</tt>, etc.
+     * instance of type <code>DenseObjectMatrix2D</code> the new matrix must be of
+     * type <code>DenseObjectMatrix1D</code>, if the receiver is an instance of type
+     * <code>SparseObjectMatrix2D</code> the new matrix must be of type
+     * <code>SparseObjectMatrix1D</code>, etc.
      * 
      * @param size
      *            the number of cells the matrix shall have.
@@ -1051,7 +1054,7 @@ public class DenseObjectMatrix2D extends ObjectMatrix2D {
      *            the index of the first element.
      * @param stride
      *            the number of indexes between any two elements, i.e.
-     *            <tt>index(i+1)-index(i)</tt>.
+     *            <code>index(i+1)-index(i)</code>.
      * @return a new matrix of the corresponding dynamic type.
      */
 
@@ -1060,7 +1063,7 @@ public class DenseObjectMatrix2D extends ObjectMatrix2D {
     }
 
     /**
-     * Sets the matrix cell at coordinate <tt>[row,column]</tt> to the specified
+     * Sets the matrix cell at coordinate <code>[row,column]</code> to the specified
      * value.
      * 
      * <p>
@@ -1068,7 +1071,7 @@ public class DenseObjectMatrix2D extends ObjectMatrix2D {
      * without throwing any exception. <b>You should only use this method when
      * you are absolutely sure that the coordinate is within bounds.</b>
      * Precondition (unchecked):
-     * <tt>0 &lt;= column &lt; columns() && 0 &lt;= row &lt; rows()</tt>.
+     * <code>0 &lt;= column &lt; columns() &amp;&amp; 0 &lt;= row &lt; rows()</code>.
      * 
      * @param row
      *            the index of the row-coordinate.

@@ -13,13 +13,13 @@ import cern.colt.matrix.tint.IntMatrix2D;
 import cern.colt.matrix.tint.IntMatrix3D;
 
 /**
- * Selection view on dense 1-d matrices holding <tt>int</tt> elements. First see
+ * Selection view on dense 1-d matrices holding <code>int</code> elements. First see
  * the <a href="package-summary.html">package summary</a> and javadoc <a
  * href="package-tree.html">tree view</a> to get the broad picture.
  * <p>
  * <b>Implementation:</b>
  * <p>
- * Objects of this class are typically constructed via <tt>viewIndexes</tt>
+ * Objects of this class are typically constructed via <code>viewIndexes</code>
  * methods on some source matrix. The interface introduced in abstract super
  * classes defines everything a user can do. From a user point of view there is
  * nothing special about this class; it presents the same functionality with the
@@ -38,7 +38,7 @@ import cern.colt.matrix.tint.IntMatrix3D;
  * <p>
  * <b>Memory requirements:</b>
  * <p>
- * <tt>memory [bytes] = 4*indexes.length</tt>. Thus, an index view with 1000
+ * <code>memory [bytes] = 4*indexes.length</code>. Thus, an index view with 1000
  * indexes additionally uses 4 KB.
  * <p>
  * <b>Time complexity:</b>
@@ -95,7 +95,7 @@ class SelectedDenseIntMatrix1D extends IntMatrix1D {
      *            the index of the first element.
      * @param stride
      *            the number of indexes between any two elements, i.e.
-     *            <tt>index(i+1)-index(i)</tt>.
+     *            <code>index(i+1)-index(i)</code>.
      * @param offsets
      *            the offsets of the cells that shall be visible.
      * @param offset
@@ -114,13 +114,13 @@ class SelectedDenseIntMatrix1D extends IntMatrix1D {
     }
 
     /**
-     * Returns the matrix cell value at coordinate <tt>index</tt>.
+     * Returns the matrix cell value at coordinate <code>index</code>.
      * 
      * <p>
      * Provided with invalid parameters this method may return invalid objects
      * without throwing any exception. <b>You should only use this method when
      * you are absolutely sure that the coordinate is within bounds.</b>
-     * Precondition (unchecked): <tt>index&lt;0 || index&gt;=size()</tt>.
+     * Precondition (unchecked): <code>index&lt;0 || index&gt;=size()</code>.
      * 
      * @param index
      *            the index of the cell.
@@ -152,10 +152,10 @@ class SelectedDenseIntMatrix1D extends IntMatrix1D {
     /**
      * Construct and returns a new empty matrix <i>of the same dynamic type</i>
      * as the receiver, having the specified size. For example, if the receiver
-     * is an instance of type <tt>DenseIntMatrix1D</tt> the new matrix must also
-     * be of type <tt>DenseIntMatrix1D</tt>, if the receiver is an instance of
-     * type <tt>SparseIntMatrix1D</tt> the new matrix must also be of type
-     * <tt>SparseIntMatrix1D</tt>, etc. In general, the new matrix should have
+     * is an instance of type <code>DenseIntMatrix1D</code> the new matrix must also
+     * be of type <code>DenseIntMatrix1D</code>, if the receiver is an instance of
+     * type <code>SparseIntMatrix1D</code> the new matrix must also be of type
+     * <code>SparseIntMatrix1D</code>, etc. In general, the new matrix should have
      * internal parametrization as similar as possible.
      * 
      * @param size
@@ -170,10 +170,10 @@ class SelectedDenseIntMatrix1D extends IntMatrix1D {
     /**
      * Construct and returns a new 2-d matrix <i>of the corresponding dynamic
      * type</i>, entirelly independent of the receiver. For example, if the
-     * receiver is an instance of type <tt>DenseIntMatrix1D</tt> the new matrix
-     * must be of type <tt>DenseIntMatrix2D</tt>, if the receiver is an instance
-     * of type <tt>SparseIntMatrix1D</tt> the new matrix must be of type
-     * <tt>SparseIntMatrix2D</tt>, etc.
+     * receiver is an instance of type <code>DenseIntMatrix1D</code> the new matrix
+     * must be of type <code>DenseIntMatrix2D</code>, if the receiver is an instance
+     * of type <code>SparseIntMatrix1D</code> the new matrix must be of type
+     * <code>SparseIntMatrix2D</code>, etc.
      * 
      * @param rows
      *            the number of rows the matrix shall have.
@@ -195,13 +195,13 @@ class SelectedDenseIntMatrix1D extends IntMatrix1D {
     }
 
     /**
-     * Sets the matrix cell at coordinate <tt>index</tt> to the specified value.
+     * Sets the matrix cell at coordinate <code>index</code> to the specified value.
      * 
      * <p>
      * Provided with invalid parameters this method may access illegal indexes
      * without throwing any exception. <b>You should only use this method when
      * you are absolutely sure that the coordinate is within bounds.</b>
-     * Precondition (unchecked): <tt>index&lt;0 || index&gt;=size()</tt>.
+     * Precondition (unchecked): <code>index&lt;0 || index&gt;=size()</code>.
      * 
      * @param index
      *            the index of the cell.
@@ -231,7 +231,7 @@ class SelectedDenseIntMatrix1D extends IntMatrix1D {
     }
 
     /**
-     * Returns <tt>true</tt> if both matrices share at least one identical cell.
+     * Returns <code>true</code> if both matrices share at least one identical cell.
      */
 
     protected boolean haveSharedCellsRaw(IntMatrix1D other) {

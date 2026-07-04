@@ -13,8 +13,8 @@ import cern.jet.random.tfloat.engine.FloatRandomEngine;
 /**
  * Abstract base class for all random distributions.
  * 
- * A subclass of this class need to override method <tt>nextFloat()</tt> and, in
- * rare cases, also <tt>nextInt()</tt>.
+ * A subclass of this class need to override method <code>nextFloat()</code> and, in
+ * rare cases, also <code>nextInt()</code>.
  * <p>
  * Currently all subclasses use a uniform pseudo-random number generation engine
  * and transform its results to the target distribution. Thus, they expect such
@@ -83,18 +83,20 @@ public abstract class AbstractFloatDistribution extends cern.colt.PersistentObje
     }
 
     /**
-     * Equivalent to <tt>nextFloat()</tt>. This has the effect that
+     * Equivalent to <code>nextFloat()</code>. This has the effect that
      * distributions can now be used as function objects, returning a random
      * number upon function evaluation.
+     * @param dummy
      */
     public float apply(float dummy) {
         return nextFloat();
     }
 
     /**
-     * Equivalent to <tt>nextInt()</tt>. This has the effect that distributions
+     * Equivalent to <code>nextInt()</code>. This has the effect that distributions
      * can now be used as function objects, returning a random number upon
      * function evaluation.
+     * @param dummy
      */
     public int apply(int dummy) {
         return nextInt();
@@ -117,6 +119,7 @@ public abstract class AbstractFloatDistribution extends cern.colt.PersistentObje
 
     /**
      * Returns the used uniform random number generator;
+     * @return 
      */
     protected FloatRandomEngine getRandomGenerator() {
         return randomGenerator;
@@ -126,6 +129,7 @@ public abstract class AbstractFloatDistribution extends cern.colt.PersistentObje
      * Constructs and returns a new uniform random number generation engine
      * seeded with the current time. Currently this is
      * {@link cern.jet.random.tfloat.engine.FloatMersenneTwister}.
+     * @return 
      */
     public static FloatRandomEngine makeDefaultGenerator() {
         return cern.jet.random.tfloat.engine.FloatRandomEngine.makeDefault();
@@ -133,13 +137,15 @@ public abstract class AbstractFloatDistribution extends cern.colt.PersistentObje
 
     /**
      * Returns a random number from the distribution.
+     * @return 
      */
     public abstract float nextFloat();
 
     /**
      * Returns a random number from the distribution; returns
-     * <tt>(int) Math.round(nextFloat())</tt>. Override this method if
+     * <code>(int) Math.round(nextFloat())</code>. Override this method if
      * necessary.
+     * @return 
      */
     public int nextInt() {
         return Math.round(nextFloat());
@@ -147,6 +153,7 @@ public abstract class AbstractFloatDistribution extends cern.colt.PersistentObje
 
     /**
      * Sets the uniform random generator internally used.
+     * @param randomGenerator
      */
     protected void setRandomGenerator(FloatRandomEngine randomGenerator) {
         this.randomGenerator = randomGenerator;

@@ -29,6 +29,7 @@ public abstract class LongMatrix1DTest extends TestCase {
 
     /**
      * Constructor for LongMatrix1DTest
+     * @param arg0
      */
     public LongMatrix1DTest(String arg0) {
         super(arg0);

@@ -14,7 +14,7 @@ import cern.colt.matrix.tfcomplex.FComplexMatrix3D;
 import cern.colt.matrix.tfloat.FloatMatrix2D;
 
 /**
- * 2-d matrix holding <tt>complex</tt> elements; either a view wrapping another
+ * 2-d matrix holding <code>complex</code> elements; either a view wrapping another
  * 3-d matrix and therefore delegating calls to it.
  * 
  * @author Piotr Wendykier (piotr.wendykier@gmail.com)

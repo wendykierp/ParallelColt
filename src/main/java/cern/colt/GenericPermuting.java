@@ -16,13 +16,13 @@ package cern.colt;
  * the shiny one, etc. This class helps to do the job.
  * <p>
  * This class swaps elements around, in a way that avoids stumbling over its own
- * feet: Let <tt>before</tt> be the generic data before calling the reordering
- * method. Let <tt>after</tt> be the generic data after calling the reordering
- * method. Then there holds <tt>after[i] == before[indexes[i]]</tt>.
+ * feet: Let <code>before</code> be the generic data before calling the reordering
+ * method. Let <code>after</code> be the generic data after calling the reordering
+ * method. Then there holds <code>after[i] == before[indexes[i]]</code>.
  * <p>
  * Similar to {@link GenericSorting}, this class has no idea what kind of data
- * it is reordering. It can decide to swap the data at index <tt>a</tt> with the
- * data at index <tt>b</tt>. It calls a user provided {@link cern.colt.Swapper}
+ * it is reordering. It can decide to swap the data at index <code>a</code> with the
+ * data at index <code>b</code>. It calls a user provided {@link cern.colt.Swapper}
  * object that knows how to swap the data of these indexes.
  * <p>
  * For convenience, some non-generic variants are also provided. Further a
@@ -109,25 +109,25 @@ public class GenericPermuting extends Object {
     }
 
     /**
-     * Returns the <tt>p</tt>-th permutation of the sequence
-     * <tt>[0,1,...,N-1]</tt>. A small but smart and efficient routine, ported
+     * Returns the <code>p</code>-th permutation of the sequence
+     * <code>[0,1,...,N-1]</code>. A small but smart and efficient routine, ported
      * from <A HREF=
      * "http://www.hep.net/wwwmirrors/cernlib/CNASDOC/shortwrups_html3/node255.html"
      * > Cernlib</A>. The <A HREF=
      * "ftp://asisftp.cern.ch/cernlib/share/pro/src/mathlib/gen/v/permu.F">
-     * Fortran source</A>. A sequence of <tt>N</tt> distinct elements has
-     * <tt>N!</tt> permutations, which are enumerated in lexicographical order
-     * <tt>1 .. N!</tt>.
+     * Fortran source</A>. A sequence of <code>N</code> distinct elements has
+     * <code>N!</code> permutations, which are enumerated in lexicographical order
+     * <code>1 .. N!</code>.
      * <p>
      * This is, for example, useful for Monte-Carlo-tests where one might want
-     * to compute <tt>k</tt> distinct and random permutations of a sequence,
-     * obtaining <tt>p</tt> from {@link cern.jet.random.tdouble.sampling}
+     * to compute <code>k</code> distinct and random permutations of a sequence,
+     * obtaining <code>p</code> from {@link cern.jet.random.tdouble.sampling}
      * without replacement or a random engine like
      * {@link cern.jet.random.tdouble.engine.DoubleMersenneTwister}. <br>
-     * Note: When <tt>N!</tt> exceeds the 64-bit range (i.e. for <tt>N > 20</tt>
+     * Note: When <code>N!</code> exceeds the 64-bit range (i.e. for <code>N > 20</code>
      * ), this method has <i>different</i> behaviour: it makes a sequence
-     * <tt>[0,1,...,N-1]</tt> and randomizes it, seeded with parameter
-     * <tt>p</tt>.
+     * <code>[0,1,...,N-1]</code> and randomizes it, seeded with parameter
+     * <code>p</code>.
      * <p>
      * <b>Examples:</b>
      * 
@@ -160,9 +160,9 @@ public class GenericPermuting extends Object {
      *            computed.
      * @param N
      *            the length of the sequence to be generated.
-     * @return the <tt>p</tt>-th permutation.
+     * @return the <code>p</code>-th permutation.
      * @throws IllegalArgumentException
-     *             if <tt>p < 1 || N < 0 || p > N!</tt>.
+     *             if <code>p < 1 || N < 0 || p > N!</code>.
      */
     public static int[] permutation(long p, int N) {
         if (p < 1)
@@ -218,9 +218,11 @@ public class GenericPermuting extends Object {
     }
 
     /**
-     * A non-generic variant of reordering, specialized for <tt>int[]</tt>, same
+     * A non-generic variant of reordering, specialized for <code>int[]</code>, same
      * semantics. Quicker than generic reordering. Also for convenience (forget
      * about the Swapper object).
+     * @param list
+     * @param indexes
      */
     public static void permute(int[] list, int[] indexes) {
         int[] copy = list.clone();
@@ -229,8 +231,8 @@ public class GenericPermuting extends Object {
     }
 
     /**
-     * Deprecated. Generically reorders arbitrary shaped generic data <tt>g</tt>
-     * such that <tt>g[i] == g[indexes[i]]</tt>. (The generic data may be one
+     * Deprecated. Generically reorders arbitrary shaped generic data <code>g</code>
+     * such that <code>g[i] == g[indexes[i]]</code>. (The generic data may be one
      * array, a 2-d matrix, two linked lists or whatever). This class swaps
      * elements around, in a way that avoids stumbling over its own feet.
      * <p>
@@ -258,8 +260,8 @@ public class GenericPermuting extends Object {
      *            an object that knows how to swap two indexes a,b.
      * @param work
      *            the working storage, must satisfy
-     *            <tt>work.length >= indexes.length</tt>; set
-     *            <tt>work==null</tt> if you don't care about performance.
+     *            <code>work.length >= indexes.length</code>; set
+     *            <code>work==null</code> if you don't care about performance.
      */
     @Deprecated
     public static void permute(int[] indexes, cern.colt.Swapper swapper, int[] work) {
@@ -267,8 +269,8 @@ public class GenericPermuting extends Object {
     }
 
     /**
-     * Generically reorders arbitrary shaped generic data <tt>g</tt> such that
-     * <tt>g[i] == g[indexes[i]]</tt>. (The generic data may be one array, a 2-d
+     * Generically reorders arbitrary shaped generic data <code>g</code> such that
+     * <code>g[i] == g[indexes[i]]</code>. (The generic data may be one array, a 2-d
      * matrix, two linked lists or whatever). This class swaps elements around,
      * in a way that avoids stumbling over its own feet.
      * <p>
@@ -295,12 +297,12 @@ public class GenericPermuting extends Object {
      *            an object that knows how to swap two indexes a,b.
      * @param work1
      *            some working storage, must satisfy
-     *            <tt>work1.length >= indexes.length</tt>; set
-     *            <tt>work1==null</tt> if you don't care about performance.
+     *            <code>work1.length >= indexes.length</code>; set
+     *            <code>work1==null</code> if you don't care about performance.
      * @param work2
      *            some working storage, must satisfy
-     *            <tt>work2.length >= indexes.length</tt>; set
-     *            <tt>work2==null</tt> if you don't care about performance.
+     *            <code>work2.length >= indexes.length</code>; set
+     *            <code>work2==null</code> if you don't care about performance.
      */
     public static void permute(int[] indexes, cern.colt.Swapper swapper, int[] work1, int[] work2) {
         // "tracks" and "pos" keeps track of the current indexes of the elements
@@ -340,9 +342,11 @@ public class GenericPermuting extends Object {
     }
 
     /**
-     * A non-generic variant of reordering, specialized for <tt>Object[]</tt>,
+     * A non-generic variant of reordering, specialized for <code>Object[]</code>,
      * same semantics. Quicker than generic reordering. Also for convenience
      * (forget about the Swapper object).
+     * @param list
+     * @param indexes
      */
     public static void permute(Object[] list, int[] indexes) {
         Object[] copy = list.clone();

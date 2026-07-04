@@ -19,6 +19,7 @@ public interface DoubleIHistogram1D extends DoubleIHistogram {
      * 
      * @param index
      *            the bin number (0...N-1) or OVERFLOW or UNDERFLOW.
+     * @return 
      */
     public int binEntries(int index);
 
@@ -27,6 +28,7 @@ public interface DoubleIHistogram1D extends DoubleIHistogram {
      * 
      * @param index
      *            the bin number (0...N-1) or OVERFLOW or UNDERFLOW.
+     * @return 
      */
     public double binError(int index);
 
@@ -36,33 +38,51 @@ public interface DoubleIHistogram1D extends DoubleIHistogram {
      * 
      * @param index
      *            the bin number (0...N-1) or OVERFLOW or UNDERFLOW.
+     * @return 
      */
     public double binHeight(int index);
 
     /**
      * Fill histogram with weight 1.
+     * @param x
      */
     public void fill(double x);
 
     /**
      * Fill histogram with specified weight.
+     * @param x
+     * @param weight
      */
     public void fill(double x, double weight);
 
     /**
      * Fill histogram with specified data and weight 1.
+     * @param data
+     * @param columnStride
+     * @param rows
+     * @param rowStride
+     * @param columns
+     * @param zero
      */
     public void fill_2D(final double[] data, final int rows, final int columns, final int zero, final int rowStride,
             final int columnStride);
 
     /**
      * Fill histogram with specified data and weights.
+     * @param data
+     * @param columnStride
+     * @param weights
+     * @param rowStride
+     * @param rows
+     * @param zero
+     * @param columns
      */
     public void fill_2D(final double[] data, final double[] weights, final int rows, final int columns, final int zero,
             final int rowStride, final int columnStride);
 
     /**
      * Returns the mean of the whole histogram as calculated on filling-time.
+     * @return 
      */
     public double mean();
 
@@ -70,17 +90,19 @@ public interface DoubleIHistogram1D extends DoubleIHistogram {
      * Indexes of the in-range bins containing the smallest and largest
      * binHeight(), respectively.
      * 
-     * @return <tt>{minBin,maxBin}</tt>.
+     * @return <code>{minBin,maxBin}</code>.
      */
     public int[] minMaxBins();
 
     /**
      * Returns the rms of the whole histogram as calculated on filling-time.
+     * @return 
      */
     public double rms();
 
     /**
      * Returns the X Axis.
+     * @return 
      */
     public DoubleIAxis xAxis();
 }

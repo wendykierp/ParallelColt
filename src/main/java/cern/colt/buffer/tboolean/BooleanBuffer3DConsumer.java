@@ -11,7 +11,7 @@ package cern.colt.buffer.tboolean;
 import cern.colt.list.tboolean.BooleanArrayList;
 
 /**
- * Target of a streaming <tt>BooleanBuffer3D</tt> into which data is flushed
+ * Target of a streaming <code>BooleanBuffer3D</code> into which data is flushed
  * upon buffer overflow.
  * 
  * @author wolfgang.hoschek@cern.ch

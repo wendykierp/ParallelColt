@@ -12,7 +12,7 @@ import cern.colt.matrix.tobject.impl.DenseObjectMatrix2D;
 import cern.colt.matrix.tobject.impl.SparseObjectMatrix2D;
 
 /**
- * Factory for convenient construction of 2-d matrices holding <tt>Object</tt>
+ * Factory for convenient construction of 2-d matrices holding <code>Object</code>
  * cells. Also provides convenient methods to compose (concatenate) and
  * decompose (split) matrices from/to constituent blocks. </p>
  * <p>
@@ -21,13 +21,13 @@ import cern.colt.matrix.tobject.impl.SparseObjectMatrix2D;
  * <table border="0" cellspacing="0">
  * <tr align="left" valign="top">
  * <td><i>Construction</i></td>
- * <td>Use idioms like <tt>ObjectFactory2D.dense.make(4,4)</tt> to construct
- * dense matrices, <tt>ObjectFactory2D.sparse.make(4,4)</tt> to construct sparse
+ * <td>Use idioms like <code>ObjectFactory2D.dense.make(4,4)</code> to construct
+ * dense matrices, <code>ObjectFactory2D.sparse.make(4,4)</code> to construct sparse
  * matrices.</td>
  * </tr>
  * <tr align="left" valign="top">
  * <td><i> Construction with initial values </i></td>
- * <td>Use other <tt>make</tt> methods to construct matrices with given initial
+ * <td>Use other <code>make</code> methods to construct matrices with given initial
  * values.</td>
  * </tr>
  * <tr align="left" valign="top">
@@ -110,6 +110,9 @@ public class ObjectFactory2D extends cern.colt.PersistentObject {
      * 	 3 4 5 8 9
      * 
      * </pre>
+     * @param A
+     * @param B
+     * @return 
      */
     public ObjectMatrix2D appendColumns(ObjectMatrix2D A, ObjectMatrix2D B) {
         // force both to have maximal shared number of rows.
@@ -147,6 +150,9 @@ public class ObjectFactory2D extends cern.colt.PersistentObject {
      * 	 8 9
      * 
      * </pre>
+     * @param A
+     * @param B
+     * @return 
      */
     public ObjectMatrix2D appendRows(ObjectMatrix2D A, ObjectMatrix2D B) {
         // force both to have maximal shared number of columns.
@@ -169,6 +175,7 @@ public class ObjectFactory2D extends cern.colt.PersistentObject {
      * Checks whether the given array is rectangular, that is, whether all rows
      * have the same number of columns.
      * 
+     * @param array
      * @throws IllegalArgumentException
      *             if the array is not rectangular.
      */
@@ -188,6 +195,7 @@ public class ObjectFactory2D extends cern.colt.PersistentObject {
      * Checks whether the given array is rectangular, that is, whether all rows
      * have the same number of columns.
      * 
+     * @param array
      * @throws IllegalArgumentException
      *             if the array is not rectangular.
      */
@@ -207,16 +215,16 @@ public class ObjectFactory2D extends cern.colt.PersistentObject {
      * Constructs a block matrix made from the given parts. The inverse to
      * method {@link #decompose(ObjectMatrix2D[][], ObjectMatrix2D)}.
      * <p>
-     * All matrices of a given column within <tt>parts</tt> must have the same
-     * number of columns. All matrices of a given row within <tt>parts</tt> must
+     * All matrices of a given column within <code>parts</code> must have the same
+     * number of columns. All matrices of a given row within <code>parts</code> must
      * have the same number of rows. Otherwise an
-     * <tt>IllegalArgumentException</tt> is thrown. Note that <tt>null</tt>s
-     * within <tt>parts[row,col]</tt> are an exception to this rule: they are
+     * <code>IllegalArgumentException</code> is thrown. Note that <code>null</code>s
+     * within <code>parts[row,col]</code> are an exception to this rule: they are
      * ignored. Cells are copied. Example:
      * <table border="1" cellspacing="0">
      * <tr align="left" valign="top">
-     * <td><tt>Code</tt></td>
-     * <td><tt>Result</tt></td>
+     * <td><code>Code</code></td>
+     * <td><code>Result</code></td>
      * </tr>
      * <tr align="left" valign="top">
      * <td>
@@ -228,7 +236,7 @@ public class ObjectFactory2D extends cern.colt.PersistentObject {
      * </pre>
      * 
      * </td>
-     * <td><tt>8&nbsp;x&nbsp;9&nbsp;matrix<br>
+     * <td><code>8&nbsp;x&nbsp;9&nbsp;matrix<br>
      0&nbsp;0&nbsp;0&nbsp;0&nbsp;1&nbsp;1&nbsp;0&nbsp;0&nbsp;0<br>
      0&nbsp;0&nbsp;0&nbsp;0&nbsp;1&nbsp;1&nbsp;0&nbsp;0&nbsp;0<br>
      2&nbsp;2&nbsp;2&nbsp;2&nbsp;0&nbsp;0&nbsp;3&nbsp;3&nbsp;3<br>
@@ -236,7 +244,7 @@ public class ObjectFactory2D extends cern.colt.PersistentObject {
      2&nbsp;2&nbsp;2&nbsp;2&nbsp;0&nbsp;0&nbsp;3&nbsp;3&nbsp;3<br>
      2&nbsp;2&nbsp;2&nbsp;2&nbsp;0&nbsp;0&nbsp;3&nbsp;3&nbsp;3<br>
      0&nbsp;0&nbsp;0&nbsp;0&nbsp;4&nbsp;4&nbsp;0&nbsp;0&nbsp;0<br>
-     0&nbsp;0&nbsp;0&nbsp;0&nbsp;4&nbsp;4&nbsp;0&nbsp;0&nbsp;0</tt></td>
+     0&nbsp;0&nbsp;0&nbsp;0&nbsp;4&nbsp;4&nbsp;0&nbsp;0&nbsp;0</code></td>
      * </tr>
      * <tr align="left" valign="top">
      * <td>
@@ -248,7 +256,7 @@ public class ObjectFactory2D extends cern.colt.PersistentObject {
      * </pre>
      * 
      * </td>
-     * <td><tt>9&nbsp;x&nbsp;6&nbsp;matrix<br>
+     * <td><code>9&nbsp;x&nbsp;6&nbsp;matrix<br>
      1&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;0<br>
      0&nbsp;1&nbsp;0&nbsp;0&nbsp;0&nbsp;0<br>
      0&nbsp;0&nbsp;1&nbsp;0&nbsp;0&nbsp;0<br>
@@ -257,7 +265,7 @@ public class ObjectFactory2D extends cern.colt.PersistentObject {
      0&nbsp;0&nbsp;0&nbsp;1&nbsp;0&nbsp;0<br>
      0&nbsp;0&nbsp;1&nbsp;0&nbsp;0&nbsp;0<br>
      0&nbsp;1&nbsp;0&nbsp;0&nbsp;0&nbsp;0<br>
-     1&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;0 </tt></td>
+     1&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;0 </code></td>
      * </tr>
      * <tr align="left" valign="top">
      * <td>
@@ -272,11 +280,11 @@ public class ObjectFactory2D extends cern.colt.PersistentObject {
      * </pre>
      * 
      * </td>
-     * <td><tt>4&nbsp;x&nbsp;8&nbsp;matrix<br>
+     * <td><code>4&nbsp;x&nbsp;8&nbsp;matrix<br>
      1&nbsp;2&nbsp;0&nbsp;0&nbsp;1&nbsp;2&nbsp;0&nbsp;0<br>
      3&nbsp;4&nbsp;0&nbsp;0&nbsp;3&nbsp;4&nbsp;0&nbsp;0<br>
      0&nbsp;0&nbsp;1&nbsp;2&nbsp;0&nbsp;0&nbsp;3&nbsp;2<br>
-     0&nbsp;0&nbsp;3&nbsp;4&nbsp;0&nbsp;0&nbsp;1&nbsp;0 </tt></td>
+     0&nbsp;0&nbsp;3&nbsp;4&nbsp;0&nbsp;0&nbsp;1&nbsp;0 </code></td>
      * </tr>
      * <tr align="left" valign="top">
      * <td>
@@ -288,12 +296,14 @@ public class ObjectFactory2D extends cern.colt.PersistentObject {
      * </pre>
      * 
      * </td>
-     * <td><tt>IllegalArgumentException<br>
+     * <td><code>IllegalArgumentException<br>
      A[0,1].columns != A[2,1].columns<br>
-     (2 != 3)</tt></td>
+     (2 != 3)</code></td>
      * </tr>
      * </table>
      * 
+     * @param parts
+     * @return 
      * @throws IllegalArgumentException
      *             subject to the conditions outlined above.
      */
@@ -377,9 +387,11 @@ public class ObjectFactory2D extends cern.colt.PersistentObject {
      * 
      * </pre>
      * 
-     * (The direct sum has <tt>A.rows()+B.rows()</tt> rows and
-     * <tt>A.columns()+B.columns()</tt> columns). Cells are copied.
+     * (The direct sum has <code>A.rows()+B.rows()</code> rows and
+     * <code>A.columns()+B.columns()</code> columns). Cells are copied.
      * 
+     * @param A
+     * @param B
      * @return a new matrix which is the direct sum.
      */
     public ObjectMatrix2D composeDiagonal(ObjectMatrix2D A, ObjectMatrix2D B) {
@@ -405,6 +417,10 @@ public class ObjectFactory2D extends cern.colt.PersistentObject {
      * </pre>
      * 
      * from the given parts. Cells are copied.
+     * @param A
+     * @param C
+     * @param B
+     * @return 
      */
     public ObjectMatrix2D composeDiagonal(ObjectMatrix2D A, ObjectMatrix2D B, ObjectMatrix2D C) {
         ObjectMatrix2D diag = make(A.rows() + B.rows() + C.rows(), A.columns() + B.columns() + C.columns());
@@ -419,17 +435,17 @@ public class ObjectFactory2D extends cern.colt.PersistentObject {
      * matrix into the given parts. The inverse to method
      * {@link #compose(ObjectMatrix2D[][])}.
      * <p>
-     * All matrices of a given column within <tt>parts</tt> must have the same
-     * number of columns. All matrices of a given row within <tt>parts</tt> must
+     * All matrices of a given column within <code>parts</code> must have the same
+     * number of columns. All matrices of a given row within <code>parts</code> must
      * have the same number of rows. Otherwise an
-     * <tt>IllegalArgumentException</tt> is thrown. Note that <tt>null</tt>s
-     * within <tt>parts[row,col]</tt> are an exception to this rule: they are
+     * <code>IllegalArgumentException</code> is thrown. Note that <code>null</code>s
+     * within <code>parts[row,col]</code> are an exception to this rule: they are
      * ignored. Cells are copied. Example:
      * <table border="1" cellspacing="0">
      * <tr align="left" valign="top">
-     * <td><tt>Code</tt></td>
-     * <td><tt>matrix</tt></td>
-     * <td><tt>--&gt; parts </tt></td>
+     * <td><code>Code</code></td>
+     * <td><code>matrix</code></td>
+     * <td><code>--&gt; parts </code></td>
      * </tr>
      * <tr align="left" valign="top">
      * <td>
@@ -455,7 +471,7 @@ public class ObjectFactory2D extends cern.colt.PersistentObject {
      * </pre>
      * 
      * </td>
-     * <td><tt>8&nbsp;x&nbsp;9&nbsp;matrix<br>
+     * <td><code>8&nbsp;x&nbsp;9&nbsp;matrix<br>
      9&nbsp;9&nbsp;9&nbsp;9&nbsp;1&nbsp;1&nbsp;9&nbsp;9&nbsp;9<br>
      9&nbsp;9&nbsp;9&nbsp;9&nbsp;1&nbsp;1&nbsp;9&nbsp;9&nbsp;9<br>
      2&nbsp;2&nbsp;2&nbsp;2&nbsp;9&nbsp;9&nbsp;3&nbsp;3&nbsp;3<br>
@@ -463,36 +479,38 @@ public class ObjectFactory2D extends cern.colt.PersistentObject {
      2&nbsp;2&nbsp;2&nbsp;2&nbsp;9&nbsp;9&nbsp;3&nbsp;3&nbsp;3<br>
      2&nbsp;2&nbsp;2&nbsp;2&nbsp;9&nbsp;9&nbsp;3&nbsp;3&nbsp;3<br>
      9&nbsp;9&nbsp;9&nbsp;9&nbsp;4&nbsp;4&nbsp;9&nbsp;9&nbsp;9<br>
-     9&nbsp;9&nbsp;9&nbsp;9&nbsp;4&nbsp;4&nbsp;9&nbsp;9&nbsp;9</tt></td>
+     9&nbsp;9&nbsp;9&nbsp;9&nbsp;4&nbsp;4&nbsp;9&nbsp;9&nbsp;9</code></td>
      * <td>
      * <p>
-     * <tt>A = 2&nbsp;x&nbsp;2&nbsp;matrix<br>
+     * <code>A = 2&nbsp;x&nbsp;2&nbsp;matrix<br>
      1&nbsp;1<br>
-     1&nbsp;1</tt>
+     1&nbsp;1</code>
      * </p>
      * <p>
-     * <tt>B = 4&nbsp;x&nbsp;4&nbsp;matrix<br>
+     * <code>B = 4&nbsp;x&nbsp;4&nbsp;matrix<br>
      2&nbsp;2&nbsp;2&nbsp;2<br>
      2&nbsp;2&nbsp;2&nbsp;2<br>
      2&nbsp;2&nbsp;2&nbsp;2<br>
-     2&nbsp;2&nbsp;2&nbsp;2</tt>
+     2&nbsp;2&nbsp;2&nbsp;2</code>
      * </p>
      * <p>
-     * <tt>C = 4&nbsp;x&nbsp;3&nbsp;matrix<br>
+     * <code>C = 4&nbsp;x&nbsp;3&nbsp;matrix<br>
      3&nbsp;3&nbsp;3<br>
      3&nbsp;3&nbsp;3<br>
-     </tt><tt>3&nbsp;3&nbsp;3<br>
-     </tt><tt>3&nbsp;3&nbsp;3</tt>
+     </code><code>3&nbsp;3&nbsp;3<br>
+     </code><code>3&nbsp;3&nbsp;3</code>
      * </p>
      * <p>
-     * <tt>D = 2&nbsp;x&nbsp;2&nbsp;matrix<br>
+     * <code>D = 2&nbsp;x&nbsp;2&nbsp;matrix<br>
      4&nbsp;4<br>
-     4&nbsp;4</tt>
+     4&nbsp;4</code>
      * </p>
      * </td>
      * </tr>
      * </table>
      * 
+     * @param parts
+     * @param matrix
      * @throws IllegalArgumentException
      *             subject to the conditions outlined above.
      */
@@ -566,7 +584,7 @@ public class ObjectFactory2D extends cern.colt.PersistentObject {
 
     /**
      * Constructs a new diagonal matrix whose diagonal elements are the elements
-     * of <tt>vector</tt>. Cells values are copied. The new matrix is not a
+     * of <code>vector</code>. Cells values are copied. The new matrix is not a
      * view. Example:
      * 
      * <pre>
@@ -577,6 +595,7 @@ public class ObjectFactory2D extends cern.colt.PersistentObject {
      * 
      * </pre>
      * 
+     * @param vector
      * @return a new matrix.
      */
     public ObjectMatrix2D diagonal(ObjectMatrix1D vector) {
@@ -589,7 +608,7 @@ public class ObjectFactory2D extends cern.colt.PersistentObject {
     }
 
     /**
-     * Constructs a new vector consisting of the diagonal elements of <tt>A</tt>
+     * Constructs a new vector consisting of the diagonal elements of <code>A</code>
      * . Cells values are copied. The new vector is not a view. Example:
      * 
      * <pre>
@@ -614,18 +633,19 @@ public class ObjectFactory2D extends cern.colt.PersistentObject {
     }
 
     /**
-     * Constructs a matrix with the given cell values. <tt>values</tt> is
-     * required to have the form <tt>values[row][column]</tt> and have exactly
+     * Constructs a matrix with the given cell values. <code>values</code> is
+     * required to have the form <code>values[row][column]</code> and have exactly
      * the same number of columns in every row.
      * <p>
-     * The values are copied. So subsequent changes in <tt>values</tt> are not
+     * The values are copied. So subsequent changes in <code>values</code> are not
      * reflected in the matrix, and vice-versa.
      * 
      * @param values
      *            The values to be filled into the new matrix.
+     * @return 
      * @throws IllegalArgumentException
      *             if
-     *             <tt>for any 1 &lt;= row &lt; values.length: values[row].length != values[row-1].length</tt>
+     *             <code>for any 1 &lt;= row &lt; values.length: values[row].length != values[row-1].length</code>
      *             .
      */
     public ObjectMatrix2D make(Object[][] values) {
@@ -638,7 +658,7 @@ public class ObjectFactory2D extends cern.colt.PersistentObject {
     /**
      * Construct a matrix from a one-dimensional column-major packed array, ala
      * Fortran. Has the form
-     * <tt>matrix.get(row,column) == values[row + column*rows]</tt>. The values
+     * <code>matrix.get(row,column) == values[row + column*rows]</code>. The values
      * are copied.
      * 
      * @param values
@@ -646,8 +666,9 @@ public class ObjectFactory2D extends cern.colt.PersistentObject {
      *            Fortran).
      * @param rows
      *            the number of rows.
+     * @return 
      * @exception IllegalArgumentException
-     *                <tt>values.length</tt> must be a multiple of <tt>rows</tt>
+     *                <code>values.length</code> must be a multiple of <code>rows</code>
      *                .
      */
     public ObjectMatrix2D make(Object values[], int rows) {
@@ -667,6 +688,9 @@ public class ObjectFactory2D extends cern.colt.PersistentObject {
     /**
      * Constructs a matrix with the given shape, each cell initialized with
      * zero.
+     * @param rows
+     * @param columns
+     * @return 
      */
     public ObjectMatrix2D make(int rows, int columns) {
         if (this == sparse)
@@ -678,6 +702,10 @@ public class ObjectFactory2D extends cern.colt.PersistentObject {
     /**
      * Constructs a matrix with the given shape, each cell initialized with the
      * given value.
+     * @param rows
+     * @param initialValue
+     * @param columns
+     * @return 
      */
     public ObjectMatrix2D make(int rows, int columns, Object initialValue) {
         if (initialValue == null)
@@ -687,6 +715,8 @@ public class ObjectFactory2D extends cern.colt.PersistentObject {
 
     /**
      * Constructs a 1d matrix of the right dynamic type.
+     * @param size
+     * @return 
      */
     protected ObjectMatrix1D make1D(int size) {
         return make(0, 0).like1D(size);
@@ -706,6 +736,10 @@ public class ObjectFactory2D extends cern.colt.PersistentObject {
      * 	 2 3 2 3 2 3
      * 
      * </pre>
+     * @param A
+     * @param columnRepeat
+     * @param rowRepeat
+     * @return 
      */
     public ObjectMatrix2D repeat(ObjectMatrix2D A, int rowRepeat, int columnRepeat) {
         int r = A.rows();

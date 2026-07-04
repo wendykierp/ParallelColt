@@ -7,7 +7,7 @@
   Linear Algebra. Much functionality is concentrated in class {@link cern.colt.matrix.tdouble.algo.DenseDoubleAlgebra} and {@link cern.colt.matrix.tdouble.algo.SparseDoubleAlgebra}. 
   Five fundamental matrix decompositions, which consist of pairs or triples of 
   matrices, permutation vectors, and the like, produce results in five decomposition 
-  classes.&nbsp; These decompositions are accessed by the <tt>Algebra</tt> class 
+  classes.&nbsp; These decompositions are accessed by the <code>Algebra</code> class 
   to compute solutions of simultaneous linear equations, determinants, inverses 
   and other matrix functions.&nbsp; The five decompositions are </p>
 <ul>
@@ -26,19 +26,19 @@
   and <a
 href="http://www.nist.gov/">NIST</a>.</p>
 <h2>Design Issues</h2>
-<p> Jama matrices are of type <tt>Jama.Matrix</tt>, Colt matrices of type <tt>cern.colt.matrix.tdouble.DoubleMatrix1D</tt>, 
-  <tt>cern.colt.matrix.tdouble.DoubleMatrix2D</tt> and <tt>cern.colt.matrix.DoubleMatrix3D</tt>. 
-<p><tt>Jama.Matrix</tt> is not a general-purpose array class. It is designed for 
+<p> Jama matrices are of type <code>Jama.Matrix</code>, Colt matrices of type <code>cern.colt.matrix.tdouble.DoubleMatrix1D</code>, 
+  <code>cern.colt.matrix.tdouble.DoubleMatrix2D</code> and <code>cern.colt.matrix.DoubleMatrix3D</code>. 
+<p><code>Jama.Matrix</code> is not a general-purpose array class. It is designed for 
   a single special purpose: Linear algebra. Because of its limited scope, Jama 
-  can combine data structure and algorithms in a class <tt>Jama.Matrix</tt>. In 
+  can combine data structure and algorithms in a class <code>Jama.Matrix</code>. In 
   contrast, Colt matrices are general-purpose array classes. Since multi-dimensional 
   matrices (arrays) have many applications, of which only one is linear algebra, 
   Colt matrix packages are designed to avoid fat interfaces, yet allow to form 
   the basis on top of which a broad set of functionality and applications can 
   be defined (a similar spirit is used in STL and IBM <a href="http://math.nist.gov/javanumerics/array/"> 
   Array</a>). Thus, data structure and special-purpose algorithms are separated. 
-  Class <tt>Algebra</tt> works on <tt>DoubleMatrix2D </tt>and contains the operations 
-  of <tt>Jama.Matrix</tt>, but holds no data structure. Class <tt>DoubleMatrix2D</tt> 
+  Class <code>Algebra</code> works on <code>DoubleMatrix2D </code>and contains the operations 
+  of <code>Jama.Matrix</code>, but holds no data structure. Class <code>DoubleMatrix2D</code> 
   contains an efficient and flexible multi-dimensional array data structure, as 
   well as multi-purpose operations, but (almost) no linear algebraic operations. 
 <p>As a consequence a Colt user initially faces some additional complexity, but 
@@ -51,32 +51,32 @@ href="http://www.nist.gov/">NIST</a>.</p>
   functionality from many scientific and engineering domains is added. Also see 
   <a href="../package-summary.html#Algorithms">matrix algorithms</a>. 
 <h2> Functionality</h2>
-<p>All methods of <tt>Jama.Matrix</tt> are provided in <tt>Algebra</tt>, except 
+<p>All methods of <code>Jama.Matrix</code> are provided in <code>Algebra</code>, except 
   for some less important convenience methods. Colt matrices (similar to IBM Arrays) 
   are powerful and flexible data structures. Subrange, slice, dice, flip, selection 
   and sort views are available for Colt matrices, but not for Jama matrices. (They 
   are difficult to implement <i>efficiently</i> with Jama matrices, because they 
-  internally use <tt>double[][]</tt> arrays). 
+  internally use <code>double[][]</code> arrays). 
 <h2>Performance</h2>
 <p>No extensive performance studies have been carried out so far.<br>
-  Jama matrices weakly encapsulate a normal <tt>double[][]</tt> array. Dense Colt 
-  matrices strongly encapsulate a <tt>double[]</tt> array and use some arithmetic 
-  to address cells in 2-d. Addressing a cell is more expensive using <tt>double[][]</tt> 
-  arrays, due to bounds-checking, null pointer checks, non-contigous memory, and 
-  problems that compilers have to optimize such code. Using <tt>double[]</tt> 
+  Jama matrices weakly encapsulate a normal <code>double[][]</code> array. Dense Colt 
+  matrices strongly encapsulate a <code>double[]</code> array and use some arithmetic 
+  to address cells in 2-d. Addressing a cell is more expensive using <code>double[][]</code> 
+  arrays, due to bounds-checking, null pointer checks, non-contiguous memory, and 
+  problems that compilers have to optimize such code. Using <code>double[]</code> 
   arrays less bounds-checking, less null pointer checks, better cache locality 
   and better compiler optimizations can be seen, often eliminating bounds-checking 
   and null-pointer checks, paving the way for effective pipelining. See the publications 
   of IBM Watson's <a href="http://www.research.ibm.com/ninja/">Ninja project</a>.
 <p>To improve performance, matrix computations should use highly optimized kernels 
-  in innermost loops. These kernels are not part of class <tt>Algebra</tt>, but 
-  part of <tt>DoubleMatrix2D</tt> and <tt>DoubleMatrix1D</tt>. Otherwise they 
+  in innermost loops. These kernels are not part of class <code>Algebra</code>, but 
+  part of <code>DoubleMatrix2D</code> and <code>DoubleMatrix1D</code>. Otherwise they 
   couldn't be fully optimized. For example, with some arithmetic (not exposed 
   to a user), a loop over a 1-d or 2-d matrix can internally reduce cell adressing 
   overhead. Some of the most critical types of (innermost) loop operations have 
-  a corresponding optimized method in <tt>DoubleMatrix2D</tt> and <tt>DoubleMatrix1D</tt>. 
-  For example, dot products, multiplications, <tt>assign(function)</tt> transforms 
-  and <tt>aggregate</tt> methods are such internally specialized kernels. Feedback 
+  a corresponding optimized method in <code>DoubleMatrix2D</code> and <code>DoubleMatrix1D</code>. 
+  For example, dot products, multiplications, <code>assign(function)</code> transforms 
+  and <code>aggregate</code> methods are such internally specialized kernels. Feedback 
   may result in a few more optimized kernels. Thus, in the name of performance, 
   in a few cases, algorithms and data structure are not completely separeted.
 <p>Some internal optimizations have been introduced, in particular for multiplications, 

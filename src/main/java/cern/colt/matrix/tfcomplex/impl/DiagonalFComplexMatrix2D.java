@@ -18,7 +18,7 @@ import cern.jet.math.tfcomplex.FComplex;
 import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
 
 /**
- * Diagonal 2-d matrix holding <tt>complex</tt> elements. First see the <a
+ * Diagonal 2-d matrix holding <code>complex</code> elements. First see the <a
  * href="package-summary.html">package summary</a> and javadoc <a
  * href="package-tree.html">tree view</a> to get the broad picture.
  * <p>
@@ -45,12 +45,12 @@ public class DiagonalFComplexMatrix2D extends WrapperFComplexMatrix2D {
     protected int dindex;
 
     /**
-     * Constructs a matrix with a copy of the given values. <tt>values</tt> is
-     * required to have the form <tt>values[row][column]</tt> and have exactly
+     * Constructs a matrix with a copy of the given values. <code>values</code> is
+     * required to have the form <code>values[row][column]</code> and have exactly
      * the same number of columns in every row. Only the values on the main
      * diagonal, i.e. values[i][i] are used.
      * <p>
-     * The values are copied. So subsequent changes in <tt>values</tt> are not
+     * The values are copied. So subsequent changes in <code>values</code> are not
      * reflected in the matrix, and vice-versa.
      * 
      * @param values
@@ -60,7 +60,7 @@ public class DiagonalFComplexMatrix2D extends WrapperFComplexMatrix2D {
      * @throws IllegalArgumentException
      *             if
      * 
-     *             <tt>for any 1 &lt;= row &lt; values.length: values[row].length != values[row-1].length || index < -rows+1 || index > columns - 1</tt>
+     *             <code>for any 1 &lt;= row &lt; values.length: values[row].length != values[row-1].length || index &lt; -rows+1 || index > columns - 1</code>
      *             .
      */
     public DiagonalFComplexMatrix2D(float[][] values, int dindex) {
@@ -70,7 +70,7 @@ public class DiagonalFComplexMatrix2D extends WrapperFComplexMatrix2D {
 
     /**
      * Constructs a matrix with a given number of rows and columns. All entries
-     * are initially <tt>0</tt>.
+     * are initially <code>0</code>.
      * 
      * @param rows
      *            the number of rows the matrix shall have.
@@ -79,7 +79,7 @@ public class DiagonalFComplexMatrix2D extends WrapperFComplexMatrix2D {
      * @param dindex
      *            index of the diagonal.
      * @throws IllegalArgumentException
-     *             if <tt>size<0 (float)size > Integer.MAX_VALUE</tt>.
+     *             if <code>size &lt; 0 (float)size > Integer.MAX_VALUE</code>.
      */
     public DiagonalFComplexMatrix2D(int rows, int columns, int dindex) {
         super(null);

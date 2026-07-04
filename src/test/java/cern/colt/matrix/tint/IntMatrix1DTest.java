@@ -28,6 +28,7 @@ public abstract class IntMatrix1DTest extends TestCase {
 
     /**
      * Constructor for IntMatrix1DTest
+     * @param arg0
      */
     public IntMatrix1DTest(String arg0) {
         super(arg0);

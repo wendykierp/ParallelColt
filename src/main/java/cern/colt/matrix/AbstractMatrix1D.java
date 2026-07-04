@@ -30,7 +30,7 @@ public abstract class AbstractMatrix1D extends AbstractMatrix {
 
     /**
      * the number of indexes between any two elements, i.e.
-     * <tt>index(i+1) - index(i)</tt>.
+     * <code>index(i+1) - index(i)</code>.
      */
     protected int stride;
 
@@ -46,8 +46,7 @@ public abstract class AbstractMatrix1D extends AbstractMatrix {
      * non-virtual) internal 1-dimensional array. Default implementation.
      * Override, if necessary.
      * 
-     * @param rank
-     *            the absolute rank of the element.
+     * @param absRank
      * @return the position.
      */
     protected int _offset(int absRank) {
@@ -68,8 +67,9 @@ public abstract class AbstractMatrix1D extends AbstractMatrix {
     /**
      * Sanity check for operations requiring an index to be within bounds.
      * 
+     * @param index
      * @throws IndexOutOfBoundsException
-     *             if <tt>index < 0 || index >= size()</tt>.
+     *             if <code>index < 0 || index >= size()</code>.
      */
     protected void checkIndex(int index) {
         if (index < 0 || index >= size)
@@ -79,8 +79,9 @@ public abstract class AbstractMatrix1D extends AbstractMatrix {
     /**
      * Checks whether indexes are legal and throws an exception, if necessary.
      * 
+     * @param indexes
      * @throws IndexOutOfBoundsException
-     *             if <tt>! (0 <= indexes[i] < size())</tt> for any
+     *             if <code>! (0 <= indexes[i] < size())</code> for any
      *             i=0..indexes.length()-1.
      */
     protected void checkIndexes(int[] indexes) {
@@ -95,8 +96,10 @@ public abstract class AbstractMatrix1D extends AbstractMatrix {
      * Checks whether the receiver contains the given range and throws an
      * exception, if necessary.
      * 
+     * @param index
+     * @param width
      * @throws IndexOutOfBoundsException
-     *             if <tt>index<0 || index+width>size()</tt>.
+     *             if <code>index<0 || index+width>size()</code>.
      */
     protected void checkRange(int index, int width) {
         if (index < 0 || index + width > size)
@@ -106,8 +109,9 @@ public abstract class AbstractMatrix1D extends AbstractMatrix {
     /**
      * Sanity check for operations requiring two matrices with the same size.
      * 
+     * @param B
      * @throws IllegalArgumentException
-     *             if <tt>size() != B.size()</tt>.
+     *             if <code>size() != B.size()</code>.
      */
     public void checkSize(AbstractMatrix1D B) {
         if (size != B.size)
@@ -121,6 +125,7 @@ public abstract class AbstractMatrix1D extends AbstractMatrix {
      * 
      * @param rank
      *            the rank of the element.
+     * @return 
      */
     public long index(int rank) {
         return _offset(_rank(rank));
@@ -132,7 +137,7 @@ public abstract class AbstractMatrix1D extends AbstractMatrix {
      * @param size
      *            the number of cells the matrix shall have.
      * @throws IllegalArgumentException
-     *             if <tt>size<0</tt>.
+     *             if <code>size &lt; 0</code>.
      */
     protected void setUp(int size) {
         setUp(size, 0, 1);
@@ -147,9 +152,9 @@ public abstract class AbstractMatrix1D extends AbstractMatrix {
      *            the index of the first element.
      * @param stride
      *            the number of indexes between any two elements, i.e.
-     *            <tt>index(i+1)-index(i)</tt>.
+     *            <code>index(i+1)-index(i)</code>.
      * @throws IllegalArgumentException
-     *             if <tt>size<0</tt>.
+     *             if <code>size &lt; 0</code>.
      */
     protected void setUp(int size, int zero, int stride) {
         if (size < 0)
@@ -163,6 +168,7 @@ public abstract class AbstractMatrix1D extends AbstractMatrix {
 
     /**
      * Returns the number of cells.
+     * @return 
      */
 
     public long size() {
@@ -171,6 +177,7 @@ public abstract class AbstractMatrix1D extends AbstractMatrix {
 
     /**
      * Returns the stride.
+     * @return 
      */
     public int stride() {
         return stride;
@@ -179,10 +186,11 @@ public abstract class AbstractMatrix1D extends AbstractMatrix {
     /**
      * Returns the stride of the given dimension (axis, rank).
      * 
+     * @param dimension
      * @dimension the index of the dimension.
      * @return the stride in the given dimension.
      * @throws IllegalArgumentException
-     *             if <tt>dimension != 0</tt>.
+     *             if <code>dimension != 0</code>.
      */
     protected int stride(int dimension) {
         if (dimension != 0)
@@ -192,15 +200,17 @@ public abstract class AbstractMatrix1D extends AbstractMatrix {
 
     /**
      * Returns a string representation of the receiver's shape.
+     * @return 
      */
     public String toStringShort() {
         return AbstractFormatter.shape(this);
     }
 
     /**
-     * Self modifying version of viewFlip(). What used to be index <tt>0</tt> is
-     * now index <tt>size()-1</tt>, ..., what used to be index <tt>size()-1</tt>
-     * is now index <tt>0</tt>.
+     * Self modifying version of viewFlip(). What used to be index <code>0</code> is
+     * now index <code>size()-1</code>, ..., what used to be index <code>size()-1</code>
+     * is now index <code>0</code>.
+     * @return 
      */
     protected AbstractMatrix1D vFlip() {
         if (size > 0) {
@@ -214,8 +224,11 @@ public abstract class AbstractMatrix1D extends AbstractMatrix {
     /**
      * Self modifying version of viewPart().
      * 
+     * @param index
+     * @param width
+     * @return 
      * @throws IndexOutOfBoundsException
-     *             if <tt>index<0 || index+width>size()</tt>.
+     *             if <code>index<0 || index+width>size()</code>.
      */
     protected AbstractMatrix1D vPart(int index, int width) {
         checkRange(index, width);
@@ -228,8 +241,10 @@ public abstract class AbstractMatrix1D extends AbstractMatrix {
     /**
      * Self modifying version of viewStrides().
      * 
+     * @param stride
+     * @return 
      * @throws IndexOutOfBoundsException
-     *             if <tt>stride <= 0</tt>.
+     *             if <code>stride <= 0</code>.
      */
     protected AbstractMatrix1D vStrides(int stride) {
         if (stride <= 0)

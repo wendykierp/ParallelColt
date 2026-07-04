@@ -70,6 +70,9 @@ public abstract class AbstractDoubleIterativeSolver implements DoubleIterativeSo
     /**
      * Checks sizes of input data for {@link #solve(Matrix, Vector, Vector)}.
      * Throws an exception if the sizes does not match.
+     * @param A
+     * @param x
+     * @param b
      */
     protected void checkSizes(DoubleMatrix2D A, DoubleMatrix1D b, DoubleMatrix1D x) {
         if (A.rows() != A.columns())

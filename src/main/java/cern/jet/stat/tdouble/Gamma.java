@@ -42,6 +42,9 @@ public class Gamma extends cern.jet.math.tdouble.DoubleConstants {
      *                     -
      *                    | (a+b)
      * </pre>
+     * @param a
+     * @param b
+     * @return 
      */
     static public double beta(double a, double b) throws ArithmeticException {
         double y;
@@ -64,6 +67,8 @@ public class Gamma extends cern.jet.math.tdouble.DoubleConstants {
 
     /**
      * Returns the Gamma function of the argument.
+     * @param x
+     * @return 
      */
     static public double gamma(double x) throws ArithmeticException {
 
@@ -141,8 +146,8 @@ public class Gamma extends cern.jet.math.tdouble.DoubleConstants {
     }
 
     /**
-     * Returns the Incomplete Beta Function evaluated from zero to <tt>xx</tt>;
-     * formerly named <tt>ibeta</tt>.
+     * Returns the Incomplete Beta Function evaluated from zero to <code>xx</code>;
+     * formerly named <code>ibeta</code>.
      * 
      * @param aa
      *            the alpha parameter of the beta distribution.
@@ -150,6 +155,7 @@ public class Gamma extends cern.jet.math.tdouble.DoubleConstants {
      *            the beta parameter of the beta distribution.
      * @param xx
      *            the integration end point.
+     * @return 
      */
     public static double incompleteBeta(double aa, double bb, double xx) throws ArithmeticException {
         double a, b, t, x, xc, w, y;
@@ -243,7 +249,7 @@ public class Gamma extends cern.jet.math.tdouble.DoubleConstants {
 
     /**
      * Continued fraction expansion #1 for incomplete beta integral; formerly
-     * named <tt>incbcf</tt>.
+     * named <code>incbcf</code>.
      */
     static double incompleteBetaFraction1(double a, double b, double x) throws ArithmeticException {
         double xk, pk, pkm1, pkm2, qk, qkm1, qkm2;
@@ -324,7 +330,7 @@ public class Gamma extends cern.jet.math.tdouble.DoubleConstants {
 
     /**
      * Continued fraction expansion #2 for incomplete beta integral; formerly
-     * named <tt>incbd</tt>.
+     * named <code>incbd</code>.
      */
     static double incompleteBetaFraction2(double a, double b, double x) throws ArithmeticException {
         double xk, pk, pkm1, pkm2, qk, qkm1, qkm2;
@@ -406,12 +412,13 @@ public class Gamma extends cern.jet.math.tdouble.DoubleConstants {
     }
 
     /**
-     * Returns the Incomplete Gamma function; formerly named <tt>igamma</tt>.
+     * Returns the Incomplete Gamma function; formerly named <code>igamma</code>.
      * 
      * @param a
      *            the parameter of the gamma distribution.
      * @param x
      *            the integration end point.
+     * @return 
      */
     static public double incompleteGamma(double a, double x) throws ArithmeticException {
 
@@ -447,12 +454,13 @@ public class Gamma extends cern.jet.math.tdouble.DoubleConstants {
 
     /**
      * Returns the Complemented Incomplete Gamma function; formerly named
-     * <tt>igamc</tt>.
+     * <code>igamc</code>.
      * 
      * @param a
      *            the parameter of the gamma distribution.
      * @param x
      *            the integration start point.
+     * @return 
      */
     static public double incompleteGammaComplement(double a, double x) throws ArithmeticException {
         double ans, ax, c, yc, r, t, y, z;
@@ -511,7 +519,9 @@ public class Gamma extends cern.jet.math.tdouble.DoubleConstants {
 
     /**
      * Returns the natural logarithm of the gamma function; formerly named
-     * <tt>lgamma</tt>.
+     * <code>lgamma</code>.
+     * @param x
+     * @return 
      */
     public static double logGamma(double x) throws ArithmeticException {
         double p, q, w, z;
@@ -582,7 +592,7 @@ public class Gamma extends cern.jet.math.tdouble.DoubleConstants {
 
     /**
      * Power series for incomplete beta integral; formerly named
-     * <tt>pseries</tt>. Use when b*x is small and x not too close to 1.
+     * <code>pseries</code>. Use when b*x is small and x not too close to 1.
      */
     static double powerSeries(double a, double b, double x) throws ArithmeticException {
         double s, t, u, v, n, t1, z, ai;
@@ -621,7 +631,7 @@ public class Gamma extends cern.jet.math.tdouble.DoubleConstants {
 
     /**
      * Returns the Gamma function computed by Stirling's formula; formerly named
-     * <tt>stirf</tt>. The polynomial STIR is valid for 33 <= x <= 172.
+     * <code>stirf</code>. The polynomial STIR is valid for 33 <= x <= 172.
      */
     static double stirlingFormula(double x) throws ArithmeticException {
         double STIR[] = { 7.87311395793093628397E-4, -2.29549961613378126380E-4, -2.68132617805781232825E-3,

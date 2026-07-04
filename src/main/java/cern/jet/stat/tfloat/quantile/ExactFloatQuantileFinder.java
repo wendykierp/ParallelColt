@@ -11,8 +11,8 @@ package cern.jet.stat.tfloat.quantile;
 import cern.colt.list.tfloat.FloatArrayList;
 
 /**
- * Exact quantile finding algorithm for known and unknown <tt>N</tt> requiring
- * large main memory; computes quantiles over a sequence of <tt>float</tt>
+ * Exact quantile finding algorithm for known and unknown <code>N</code> requiring
+ * large main memory; computes quantiles over a sequence of <code>float</code>
  * elements. The folkore algorithm: Keeps all elements in main memory, sorts the
  * list, then picks the quantiles.
  * 
@@ -61,8 +61,8 @@ class ExactFloatQuantileFinder extends cern.colt.PersistentObject implements Flo
     }
 
     /**
-     * Adds the part of the specified list between indexes <tt>from</tt>
-     * (inclusive) and <tt>to</tt> (inclusive) to the receiver.
+     * Adds the part of the specified list between indexes <code>from</code>
+     * (inclusive) and <code>to</code> (inclusive) to the receiver.
      * 
      * @param values
      *            the list of which elements shall be added.
@@ -113,9 +113,9 @@ class ExactFloatQuantileFinder extends cern.colt.PersistentObject implements Flo
      * 
      * @param procedure
      *            the procedure to be applied. Stops iteration if the procedure
-     *            returns <tt>false</tt>, otherwise continues.
-     * @return <tt>false</tt> if the procedure stopped before all elements where
-     *         iterated over, <tt>true</tt> otherwise.
+     *            returns <code>false</code>, otherwise continues.
+     * @return <code>false</code> if the procedure stopped before all elements where
+     *         iterated over, <code>true</code> otherwise.
      */
     public boolean forEach(cern.colt.function.tfloat.FloatProcedure procedure) {
         float[] theElements = buffer.elements();
@@ -130,7 +130,7 @@ class ExactFloatQuantileFinder extends cern.colt.PersistentObject implements Flo
     /**
      * Returns the number of elements currently needed to store all contained
      * elements. This number usually differs from the results of method
-     * <tt>size()</tt>, according to the underlying datastructure.
+     * <code>size()</code>, according to the underlying datastructure.
      */
     public long memory() {
         return buffer.elements().length;
@@ -138,13 +138,13 @@ class ExactFloatQuantileFinder extends cern.colt.PersistentObject implements Flo
 
     /**
      * Returns how many percent of the elements contained in the receiver are
-     * <tt>&lt;= element</tt>. Does linear interpolation if the element is not
+     * <code>&lt;= element</code>. Does linear interpolation if the element is not
      * contained but lies in between two contained elements.
      * 
      * @param the
      *            element to search for.
-     * @return the percentage <tt>p</tt> of elements <tt>&lt;= element</tt> (
-     *         <tt>0.0 &lt;= p &lt;=1.0)</tt>.
+     * @return the percentage <code>p</code> of elements <code>&lt;= element</code> (
+     *         <code>0.0 &lt;= p &lt;=1.0)</code>.
      */
     public float phi(float element) {
         this.sort();
@@ -157,7 +157,7 @@ class ExactFloatQuantileFinder extends cern.colt.PersistentObject implements Flo
      * 
      * @param phis
      *            the quantiles for which elements are to be computed. Each phi
-     *            must be in the interval [0.0,1.0]. <tt>phis</tt> must be
+     *            must be in the interval [0.0,1.0]. <code>phis</code> must be
      *            sorted ascending.
      * @return the exact quantile elements.
      */
@@ -208,7 +208,7 @@ class ExactFloatQuantileFinder extends cern.colt.PersistentObject implements Flo
     /**
      * Returns the number of elements currently needed to store all contained
      * elements. This number usually differs from the results of method
-     * <tt>size()</tt>, according to the underlying datastructure.
+     * <code>size()</code>, according to the underlying datastructure.
      */
     public long totalMemory() {
         return memory();

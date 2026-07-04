@@ -155,13 +155,14 @@ public class Bessel extends DoubleConstants {
     /**
      * Returns the modified Bessel function of order 0 of the argument.
      * <p>
-     * The function is defined as <tt>i0(x) = j0( ix )</tt>.
+     * The function is defined as <code>i0(x) = j0( ix )</code>.
      * <p>
      * The range is partitioned into the two intervals [0,8] and (8, infinity).
      * Chebyshev polynomial expansions are employed in each interval.
      * 
      * @param x
      *            the value to compute the bessel function of.
+     * @return 
      */
     static public double i0(double x) throws ArithmeticException {
         double y;
@@ -179,11 +180,12 @@ public class Bessel extends DoubleConstants {
      * Returns the exponentially scaled modified Bessel function of order 0 of
      * the argument.
      * <p>
-     * The function is defined as <tt>i0e(x) = exp(-|x|) j0( ix )</tt>.
+     * The function is defined as <code>i0e(x) = exp(-|x|) j0( ix )</code>.
      * 
      * 
      * @param x
      *            the value to compute the bessel function of.
+     * @return 
      */
     static public double i0e(double x) throws ArithmeticException {
         double y;
@@ -201,13 +203,14 @@ public class Bessel extends DoubleConstants {
     /**
      * Returns the modified Bessel function of order 1 of the argument.
      * <p>
-     * The function is defined as <tt>i1(x) = -i j1( ix )</tt>.
+     * The function is defined as <code>i1(x) = -i j1( ix )</code>.
      * <p>
      * The range is partitioned into the two intervals [0,8] and (8, infinity).
      * Chebyshev polynomial expansions are employed in each interval.
      * 
      * @param x
      *            the value to compute the bessel function of.
+     * @return 
      */
     static public double i1(double x) throws ArithmeticException {
         double y, z;
@@ -228,10 +231,11 @@ public class Bessel extends DoubleConstants {
      * Returns the exponentially scaled modified Bessel function of order 1 of
      * the argument.
      * <p>
-     * The function is defined as <tt>i1(x) = -i exp(-|x|) j1( ix )</tt>.
+     * The function is defined as <code>i1(x) = -i exp(-|x|) j1( ix )</code>.
      * 
      * @param x
      *            the value to compute the bessel function of.
+     * @return 
      */
     static public double i1e(double x) throws ArithmeticException {
         double y, z;
@@ -253,6 +257,7 @@ public class Bessel extends DoubleConstants {
      * 
      * @param x
      *            the value to compute the bessel function of.
+     * @return 
      */
     static public double j0(double x) throws ArithmeticException {
         double ax;
@@ -285,6 +290,7 @@ public class Bessel extends DoubleConstants {
      * 
      * @param x
      *            the value to compute the bessel function of.
+     * @return 
      */
     static public double j1(double x) throws ArithmeticException {
         double ax;
@@ -316,13 +322,14 @@ public class Bessel extends DoubleConstants {
     }
 
     /**
-     * Returns the Bessel function of the first kind of order <tt>n</tt> of the
+     * Returns the Bessel function of the first kind of order <code>n</code> of the
      * argument.
      * 
      * @param n
      *            the order of the Bessel function.
      * @param x
      *            the value to compute the bessel function of.
+     * @return 
      */
     static public double jn(int n, double x) throws ArithmeticException {
         int j, m;
@@ -389,6 +396,7 @@ public class Bessel extends DoubleConstants {
      * 
      * @param x
      *            the value to compute the bessel function of.
+     * @return 
      */
     static public double k0(double x) throws ArithmeticException {
         double y, z;
@@ -412,6 +420,7 @@ public class Bessel extends DoubleConstants {
      * 
      * @param x
      *            the value to compute the bessel function of.
+     * @return 
      */
     static public double k0e(double x) throws ArithmeticException {
         double y;
@@ -437,6 +446,7 @@ public class Bessel extends DoubleConstants {
      * 
      * @param x
      *            the value to compute the bessel function of.
+     * @return 
      */
     static public double k1(double x) throws ArithmeticException {
         double y, z;
@@ -457,10 +467,11 @@ public class Bessel extends DoubleConstants {
      * Returns the exponentially scaled modified Bessel function of the third
      * kind of order 1 of the argument.
      * <p>
-     * <tt>k1e(x) = exp(x) * k1(x)</tt>.
+     * <code>k1e(x) = exp(x) * k1(x)</code>.
      * 
      * @param x
      *            the value to compute the bessel function of.
+     * @return 
      */
     static public double k1e(double x) throws ArithmeticException {
         double y;
@@ -478,7 +489,7 @@ public class Bessel extends DoubleConstants {
 
     /**
      * Returns the modified Bessel function of the third kind of order
-     * <tt>nn</tt> of the argument.
+     * <code>nn</code> of the argument.
      * <p>
      * The range is partitioned into the two intervals [0,9.55] and (9.55,
      * infinity). An ascending power series is used in the low range, and an
@@ -488,6 +499,7 @@ public class Bessel extends DoubleConstants {
      *            the order of the Bessel function.
      * @param x
      *            the value to compute the bessel function of.
+     * @return 
      */
     static public double kn(int nn, double x) throws ArithmeticException {
         /*
@@ -641,6 +653,7 @@ public class Bessel extends DoubleConstants {
      * 
      * @param x
      *            the value to compute the bessel function of.
+     * @return 
      */
     static public double y0(double x) throws ArithmeticException {
         if (x < 8.0) {
@@ -670,6 +683,7 @@ public class Bessel extends DoubleConstants {
      * 
      * @param x
      *            the value to compute the bessel function of.
+     * @return 
      */
     static public double y1(double x) throws ArithmeticException {
         if (x < 8.0) {
@@ -697,13 +711,14 @@ public class Bessel extends DoubleConstants {
     }
 
     /**
-     * Returns the Bessel function of the second kind of order <tt>n</tt> of the
+     * Returns the Bessel function of the second kind of order <code>n</code> of the
      * argument.
      * 
      * @param n
      *            the order of the Bessel function.
      * @param x
      *            the value to compute the bessel function of.
+     * @return 
      */
     static public double yn(int n, double x) throws ArithmeticException {
         double by, bym, byp, tox;

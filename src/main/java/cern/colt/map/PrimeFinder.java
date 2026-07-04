@@ -14,7 +14,7 @@ package cern.colt.map;
  * capacities.
  * 
  * <p>
- * Choosing a prime is <tt>O(log 300)</tt> (binary search in a list of 300
+ * Choosing a prime is <code>O(log 300)</code> (binary search in a list of 300
  * int's). Memory requirements: 1 KB static memory.
  * 
  * @author wolfgang.hoschek@cern.ch
@@ -23,7 +23,7 @@ package cern.colt.map;
 public class PrimeFinder extends Object {
     /**
      * The largest prime this class can generate; currently equal to
-     * <tt>Integer.MAX_VALUE</tt>.
+     * <code>Integer.MAX_VALUE</code>.
      */
     public static final int largestPrime = Integer.MAX_VALUE; // yes, it is
 
@@ -180,6 +180,7 @@ public class PrimeFinder extends Object {
     /**
      * Tests correctness. Try from=1000, to=10000 from=200, to=1000 from=16,
      * to=1000 from=1000, to=Integer.MAX_VALUE
+     * @param args
      */
     protected static void main(String args[]) {
         int from = Integer.parseInt(args[0]);
@@ -212,6 +213,8 @@ public class PrimeFinder extends Object {
 
     /**
      * Tests correctness.
+     * @param from
+     * @param to
      */
     protected static void statistics(int from, int to) {
         // check that primes contain no accidental errors

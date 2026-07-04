@@ -37,7 +37,7 @@ public class DoubleHistogram2D extends DoubleAbstractHistogram2D implements Doub
 
     /**
      * Creates a variable-width histogram. Example:
-     * <tt>xEdges = (0.2, 1.0, 5.0, 6.0), yEdges = (-5, 0, 7)</tt> yields 3*2
+     * <code>xEdges = (0.2, 1.0, 5.0, 6.0), yEdges = (-5, 0, 7)</code> yields 3*2
      * in-range bins.
      * 
      * @param title
@@ -49,7 +49,7 @@ public class DoubleHistogram2D extends DoubleAbstractHistogram2D implements Doub
      *            the bin boundaries the y-axis shall have; must be sorted
      *            ascending and must not contain multiple identical elements.
      * @throws IllegalArgumentException
-     *             if <tt>xEdges.length < 1 || yEdges.length < 1</tt>.
+     *             if <code>xEdges.length < 1 || yEdges.length < 1</code>.
      */
     public DoubleHistogram2D(String title, double[] xEdges, double[] yEdges) {
         this(title, new DoubleVariableAxis(xEdges), new DoubleVariableAxis(yEdges));
@@ -166,6 +166,10 @@ public class DoubleHistogram2D extends DoubleAbstractHistogram2D implements Doub
      * <b>Note 1</b>The slice is done between indexY1 and indexY2 INCLUSIVE
      * <b>Note 2</b>indexY1 and indexY2 may include the use of under and over
      * flow bins <b>Note 3</b>There is no note 3 (yet)
+     * @param title
+     * @param indexY2
+     * @param indexY1
+     * @return 
      */
 
     protected DoubleIHistogram1D internalSliceX(String title, int indexY1, int indexY2) {
@@ -202,6 +206,10 @@ public class DoubleHistogram2D extends DoubleAbstractHistogram2D implements Doub
      * <b>Note 1</b>The slice is done between indexX1 and indexX2 INCLUSIVE
      * <b>Note 2</b>indexX1 and indexX2 may include the use of under and over
      * flow bins <b>Note 3</b>There is no note 3 (yet)
+     * @param title
+     * @param indexX2
+     * @param indexX1
+     * @return 
      */
 
     protected DoubleIHistogram1D internalSliceY(String title, int indexX1, int indexX2) {

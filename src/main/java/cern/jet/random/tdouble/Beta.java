@@ -18,11 +18,11 @@ import cern.jet.stat.tdouble.Probability;
  * HREF="http://www.statsoft.com/textbook/glosb.html#Beta Distribution">
  * animated definition</A>.
  * <p>
- * <tt>p(x) = k * x^(alpha-1) * (1-x)^(beta-1)</tt> with
- * <tt>k = g(alpha+beta)/(g(alpha)*g(beta))</tt> and <tt>g(a)</tt> being the
+ * <code>p(x) = k * x^(alpha-1) * (1-x)^(beta-1)</code> with
+ * <code>k = g(alpha+beta)/(g(alpha)*g(beta))</code> and <code>g(a)</code> being the
  * gamma function.
  * <p>
- * Valid parameter ranges: <tt>alpha &gt; 0</tt> and <tt>beta &gt; 0</tt>.
+ * Valid parameter ranges: <code>alpha &gt; 0</code> and <code>beta &gt; 0</code>.
  * <p>
  * Instance methods operate on a user supplied uniform random number generator;
  * they are unsynchronized.
@@ -32,7 +32,7 @@ import cern.jet.stat.tdouble.Probability;
  * <b>Implementation:</b>
  * <dt>Method: Stratified Rejection/Patchwork Rejection. High performance
  * implementation.
- * <dt>This is a port of <tt>bsprc.c</tt> from the <A
+ * <dt>This is a port of <code>bsprc.c</code> from the <A
  * HREF="http://www.cis.tu-graz.ac.at/stat/stadl/random.html">C-RAND /
  * WIN-RAND</A> library. C-RAND's implementation, in turn, is based upon
  * <p>
@@ -83,6 +83,9 @@ public class Beta extends AbstractContinousDoubleDistribution {
 
     /**
      * Constructs a Beta distribution.
+     * @param alpha
+     * @param randomGenerator
+     * @param beta
      */
     public Beta(double alpha, double beta, DoubleRandomEngine randomGenerator) {
         setRandomGenerator(randomGenerator);
@@ -91,6 +94,10 @@ public class Beta extends AbstractContinousDoubleDistribution {
 
     /**
      * 
+     * @param a
+     * @param randomGenerator
+     * @param b
+     * @return 
      */
     protected double b00(double a, double b, DoubleRandomEngine randomGenerator) {
         double U, V, X, Z;
@@ -143,6 +150,10 @@ public class Beta extends AbstractContinousDoubleDistribution {
 
     /**
      * 
+     * @param a
+     * @param randomGenerator
+     * @param b
+     * @return 
      */
     protected double b01(double a, double b, DoubleRandomEngine randomGenerator) {
         double U, V, X, Z;
@@ -202,6 +213,10 @@ public class Beta extends AbstractContinousDoubleDistribution {
 
     /**
      * 
+     * @param p
+     * @param randomGenerator
+     * @param q
+     * @return 
      */
     protected double b1prs(double p, double q, DoubleRandomEngine randomGenerator) {
         double U, V, W, X, Y;
@@ -338,6 +353,8 @@ public class Beta extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns the cumulative distribution function.
+     * @param x
+     * @return 
      */
     public double cdf(double x) {
         return Probability.beta(alpha, beta, x);
@@ -349,6 +366,7 @@ public class Beta extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a random number from the distribution.
+     * @return 
      */
 
     public double nextDouble() {
@@ -357,6 +375,9 @@ public class Beta extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a beta distributed random number; bypasses the internal state.
+     * @param alpha
+     * @param beta
+     * @return 
      */
     public double nextDouble(double alpha, double beta) {
         /***********************************************************************
@@ -422,6 +443,8 @@ public class Beta extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns the cumulative distribution function.
+     * @param x
+     * @return 
      */
     public double pdf(double x) {
         if (x < 0 || x > 1)
@@ -431,6 +454,8 @@ public class Beta extends AbstractContinousDoubleDistribution {
 
     /**
      * Sets the parameters.
+     * @param alpha
+     * @param beta
      */
     public void setState(double alpha, double beta) {
         this.alpha = alpha;
@@ -440,6 +465,9 @@ public class Beta extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a random number from the distribution.
+     * @param alpha
+     * @param beta
+     * @return 
      */
     public static double staticNextDouble(double alpha, double beta) {
         synchronized (shared) {
@@ -449,6 +477,7 @@ public class Beta extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a String representation of the receiver.
+     * @return 
      */
 
     public String toString() {

@@ -4,14 +4,14 @@ package cern.jet.math.tfcomplex;
  * Only for performance tuning of compute intensive linear algebraic
  * computations. Constructs functions that return one of
  * <ul>
- * <li><tt>a + b*constant</tt>
- * <li><tt>a - b*constant</tt>
- * <li><tt>a + b/constant</tt>
- * <li><tt>a - b/constant</tt>
+ * <li><code>a + b*constant</code>
+ * <li><code>a - b*constant</code>
+ * <li><code>a + b/constant</code>
+ * <li><code>a - b/constant</code>
  * </ul>
- * <tt>a</tt> and <tt>b</tt> are variables, <tt>constant</tt> is fixed, but for
+ * <code>a</code> and <code>b</code> are variables, <code>constant</code> is fixed, but for
  * performance reasons publicly accessible. Intended to be passed to
- * <tt>matrix.assign(otherMatrix,function)</tt> methods.
+ * <code>matrix.assign(otherMatrix,function)</code> methods.
  */
 
 public class FComplexPlusMultSecond implements cern.colt.function.tfcomplex.FComplexFComplexFComplexFunction {
@@ -22,6 +22,7 @@ public class FComplexPlusMultSecond implements cern.colt.function.tfcomplex.FCom
 
     /**
      * Insert the method's description here. Creation date: (8/10/99 19:12:09)
+     * @param multiplicator
      */
     protected FComplexPlusMultSecond(final float[] multiplicator) {
         this.multiplicator = multiplicator;
@@ -29,6 +30,8 @@ public class FComplexPlusMultSecond implements cern.colt.function.tfcomplex.FCom
 
     /**
      * Returns the result of the function evaluation.
+     * @param a
+     * @param b
      */
     public final float[] apply(float[] a, float[] b) {
         float[] z = new float[2];
@@ -40,28 +43,36 @@ public class FComplexPlusMultSecond implements cern.colt.function.tfcomplex.FCom
     }
 
     /**
-     * <tt>a - b/constant</tt>.
+     * <code>a - b/constant</code>.
+     * @param constant
+     * @return 
      */
     public static FComplexPlusMultSecond minusDiv(final float[] constant) {
         return new FComplexPlusMultSecond(FComplex.neg(FComplex.inv(constant)));
     }
 
     /**
-     * <tt>a - b*constant</tt>.
+     * <code>a - b*constant</code>.
+     * @param constant
+     * @return 
      */
     public static FComplexPlusMultSecond minusMult(final float[] constant) {
         return new FComplexPlusMultSecond(FComplex.neg(constant));
     }
 
     /**
-     * <tt>a + b/constant</tt>.
+     * <code>a + b/constant</code>.
+     * @param constant
+     * @return 
      */
     public static FComplexPlusMultSecond plusDiv(final float[] constant) {
         return new FComplexPlusMultSecond(FComplex.inv(constant));
     }
 
     /**
-     * <tt>a + b*constant</tt>.
+     * <code>a + b*constant</code>.
+     * @param constant
+     * @return 
      */
     public static FComplexPlusMultSecond plusMult(final float[] constant) {
         return new FComplexPlusMultSecond(constant);

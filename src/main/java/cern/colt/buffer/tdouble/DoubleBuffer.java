@@ -12,7 +12,7 @@ import cern.colt.list.tdouble.DoubleArrayList;
 
 /**
  * Fixed sized (non resizable) streaming buffer connected to a target
- * <tt>DoubleBufferConsumer</tt> to which data is automatically flushed upon
+ * <code>DoubleBufferConsumer</code> to which data is automatically flushed upon
  * buffer overflow.
  * 
  * @author wolfgang.hoschek@cern.ch

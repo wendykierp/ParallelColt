@@ -7,13 +7,13 @@ import cern.jet.random.tdouble.engine.DoubleRandomEngine;
 import cern.jet.stat.tdouble.DoubleDescriptive;
 
 /**
- * 1-dimensional rebinnable bin holding <tt>double</tt> elements; Efficiently
+ * 1-dimensional rebinnable bin holding <code>double</code> elements; Efficiently
  * computes advanced statistics of data sequences. Technically speaking, a
  * multiset (or bag) with efficient statistics operations defined upon. First
  * see the <a href="package-summary.html">package summary</a> and javadoc <a
  * href="package-tree.html">tree view</a> to get the broad picture.
  * <p>
- * The data filled into a <tt>DynamicBin1D</tt> is internally preserved in the
+ * The data filled into a <code>DynamicBin1D</code> is internally preserved in the
  * bin. As a consequence this bin can compute more than only basic statistics.
  * On the other hand side, if you add huge amounts of elements, you may run out
  * of memory (each element takes 8 bytes). If this drawbacks matter, consider to
@@ -24,7 +24,7 @@ import cern.jet.stat.tdouble.DoubleDescriptive;
  * you can have one or more threads adding to the bin as well as one or more
  * threads reading and viewing the statistics of the bin <i>while it is
  * filled</i>. For high performance, add data in large chunks (buffers) via
- * method <tt>addAllOf</tt> rather than piecewise via method <tt>add</tt>.
+ * method <code>addAllOf</code> rather than piecewise via method <code>add</code>.
  * <p>
  * If your favourite statistics measure is not directly provided by this class,
  * check out {@link cern.jet.stat.tdouble.DoubleDescriptive} in combination with
@@ -108,8 +108,8 @@ public class DynamicDoubleBin1D extends QuantileDoubleBin1D {
     }
 
     /**
-     * Adds the part of the specified list between indexes <tt>from</tt>
-     * (inclusive) and <tt>to</tt> (inclusive) to the receiver.
+     * Adds the part of the specified list between indexes <code>from</code>
+     * (inclusive) and <code>to</code> (inclusive) to the receiver.
      * 
      * @param list
      *            the list of which elements shall be added.
@@ -119,7 +119,7 @@ public class DynamicDoubleBin1D extends QuantileDoubleBin1D {
      *            the index of the last element to be added (inclusive).
      * @throws IndexOutOfBoundsException
      *             if
-     *             <tt>list.size()&gt;0 && (from&lt;0 || from&gt;to || to&gt;=list.size())</tt>
+     *             <code>list.size()&gt;0 &amp;&amp; (from&lt;0 || from&gt;to || to&gt;=list.size())</code>
      *             .
      */
 
@@ -130,9 +130,9 @@ public class DynamicDoubleBin1D extends QuantileDoubleBin1D {
 
     /**
      * Applies a function to each element and aggregates the results. Returns a
-     * value <tt>v</tt> such that <tt>v==a(size())</tt> where
-     * <tt>a(i) == aggr( a(i-1), f(x(i)) )</tt> and terminators are
-     * <tt>a(1) == f(x(0)), a(0)==Double.NaN</tt>.
+     * value <code>v</code> such that <code>v==a(size())</code> where
+     * <code>a(i) == aggr( a(i-1), f(x(i)) )</code> and terminators are
+     * <code>a(1) == f(x(0)), a(0)==Double.NaN</code>.
      * <p>
      * <b>Example:</b>
      * 
@@ -214,7 +214,7 @@ public class DynamicDoubleBin1D extends QuantileDoubleBin1D {
 
     /**
      * Returns the correlation of two bins, which is
-     * <tt>corr(x,y) = covariance(x,y) / (stdDev(x)*stdDev(y))</tt> (Pearson's
+     * <code>corr(x,y) = covariance(x,y) / (stdDev(x)*stdDev(y))</code> (Pearson's
      * correlation coefficient). A correlation coefficient varies between -1
      * (for a perfect negative relationship) to +1 (for a perfect positive
      * relationship). See the <A
@@ -226,7 +226,7 @@ public class DynamicDoubleBin1D extends QuantileDoubleBin1D {
      *            the bin to compare with.
      * @return the correlation.
      * @throws IllegalArgumentException
-     *             if <tt>size() != other.size()</tt>.
+     *             if <code>size() != other.size()</code>.
      */
     public synchronized double correlation(DynamicDoubleBin1D other) {
         synchronized (other) {
@@ -236,7 +236,7 @@ public class DynamicDoubleBin1D extends QuantileDoubleBin1D {
 
     /**
      * Returns the covariance of two bins, which is
-     * <tt>cov(x,y) = (1/size()) * Sum((x[i]-mean(x)) * (y[i]-mean(y)))</tt>.
+     * <code>cov(x,y) = (1/size()) * Sum((x[i]-mean(x)) * (y[i]-mean(y)))</code>.
      * See the <A
      * HREF="http://www.cquest.utoronto.ca/geog/ggr270y/notes/not05efg.html">
      * math definition</A>.
@@ -245,7 +245,7 @@ public class DynamicDoubleBin1D extends QuantileDoubleBin1D {
      *            the bin to compare with.
      * @return the covariance.
      * @throws IllegalArgumentException
-     *             if <tt>size() != other.size()</tt>.
+     *             if <code>size() != other.size()</code>.
      */
     public synchronized double covariance(DynamicDoubleBin1D other) {
         synchronized (other) {
@@ -314,6 +314,7 @@ public class DynamicDoubleBin1D extends QuantileDoubleBin1D {
      * Definition of <i>Equality</i> for multisets: A,B are equal <=> A is a
      * superset of B and B is a superset of A. (Elements must occur the same
      * number of times, order is irrelevant.)
+     * @return 
      */
 
     public synchronized boolean equals(Object object) {
@@ -348,29 +349,29 @@ public class DynamicDoubleBin1D extends QuantileDoubleBin1D {
 
     /**
      * Computes the frequency (number of occurances, count) of each distinct
-     * element. After this call returns both <tt>distinctElements</tt> and
-     * <tt>frequencies</tt> have a new size (which is equal for both), which is
+     * element. After this call returns both <code>distinctElements</code> and
+     * <code>frequencies</code> have a new size (which is equal for both), which is
      * the number of distinct elements currently contained.
      * <p>
-     * Distinct elements are filled into <tt>distinctElements</tt>, starting at
+     * Distinct elements are filled into <code>distinctElements</code>, starting at
      * index 0. The frequency of each distinct element is filled into
-     * <tt>frequencies</tt>, starting at index 0. Further, both
-     * <tt>distinctElements</tt> and <tt>frequencies</tt> are sorted ascending
+     * <code>frequencies</code>, starting at index 0. Further, both
+     * <code>distinctElements</code> and <code>frequencies</code> are sorted ascending
      * by "element" (in sync, of course). As a result, the smallest distinct
      * element (and its frequency) can be found at index 0, the second smallest
      * distinct element (and its frequency) at index 1, ..., the largest
      * distinct element (and its frequency) at index
-     * <tt>distinctElements.size()-1</tt>.
+     * <code>distinctElements.size()-1</code>.
      * <p>
      * <b>Example:</b> <br>
-     * <tt>elements = (8,7,6,6,7) --> distinctElements = (6,7,8), frequencies = (2,2,1)</tt>
+     * <code>elements = (8,7,6,6,7) --> distinctElements = (6,7,8), frequencies = (2,2,1)</code>
      * 
      * @param distinctElements
      *            a list to be filled with the distinct elements; can have any
      *            size.
      * @param frequencies
      *            a list to be filled with the frequencies; can have any size;
-     *            set this parameter to <tt>null</tt> to ignore it.
+     *            set this parameter to <code>null</code> to ignore it.
      */
     public synchronized void frequencies(DoubleArrayList distinctElements, IntArrayList frequencies) {
         DoubleDescriptive.frequencies(sortedElements_unsafe(), distinctElements, frequencies);
@@ -382,7 +383,7 @@ public class DynamicDoubleBin1D extends QuantileDoubleBin1D {
      * its number of occurances.
      * <p>
      * <b>Example:</b> <br>
-     * <tt>elements = (8,7,6,6,7) --> map.keys = (8,6,7), map.values = (1,2,2)</tt>
+     * <code>elements = (8,7,6,6,7) --> map.keys = (8,6,7), map.values = (1,2,2)</code>
      * 
      * @return a map holding the frequency distribution.
      */
@@ -405,9 +406,10 @@ public class DynamicDoubleBin1D extends QuantileDoubleBin1D {
     }
 
     /**
-     * Returns <tt>Integer.MAX_VALUE</tt>, the maximum order <tt>k</tt> for
+     * Returns <code>Integer.MAX_VALUE</code>, the maximum order <code>k</code> for
      * which sums of powers are retrievable.
      * 
+     * @return 
      * @see #hasSumOfPowers(int)
      * @see #sumOfPowers(int)
      */
@@ -417,9 +419,10 @@ public class DynamicDoubleBin1D extends QuantileDoubleBin1D {
     }
 
     /**
-     * Returns <tt>Integer.MIN_VALUE</tt>, the minimum order <tt>k</tt> for
+     * Returns <code>Integer.MIN_VALUE</code>, the minimum order <code>k</code> for
      * which sums of powers are retrievable.
      * 
+     * @return 
      * @see #hasSumOfPowers(int)
      * @see #sumOfPowers(int)
      */
@@ -431,8 +434,6 @@ public class DynamicDoubleBin1D extends QuantileDoubleBin1D {
     /**
      * 
      * 
-     * @param element
-     *            element to be appended.
      */
     protected void invalidateAll() {
         this.isSorted = false;
@@ -446,11 +447,12 @@ public class DynamicDoubleBin1D extends QuantileDoubleBin1D {
     }
 
     /**
-     * Returns <tt>true</tt>. Returns whether a client can obtain all elements
+     * Returns <code>true</code>. Returns whether a client can obtain all elements
      * added to the receiver. In other words, tells whether the receiver
      * internally preserves all added elements. If the receiver is rebinnable,
-     * the elements can be obtained via <tt>elements()</tt> methods.
+     * the elements can be obtained via <code>elements()</code> methods.
      * 
+     * @return 
      */
 
     public synchronized boolean isRebinnable() {
@@ -459,6 +461,7 @@ public class DynamicDoubleBin1D extends QuantileDoubleBin1D {
 
     /**
      * Returns the maximum.
+     * @return 
      */
 
     public synchronized double max() {
@@ -469,6 +472,7 @@ public class DynamicDoubleBin1D extends QuantileDoubleBin1D {
 
     /**
      * Returns the minimum.
+     * @return 
      */
 
     public synchronized double min() {
@@ -478,8 +482,8 @@ public class DynamicDoubleBin1D extends QuantileDoubleBin1D {
     }
 
     /**
-     * Returns the moment of <tt>k</tt>-th order with value <tt>c</tt>, which is
-     * <tt>Sum( (x[i]-c)<sup>k</sup> ) / size()</tt>.
+     * Returns the moment of <code>k</code>-th order with value <code>c</code>, which is
+     * <code>Sum( (x[i]-c)<sup>k</sup> ) / size()</code>.
      * 
      * @param k
      *            the order; any number - can be less than zero, zero or greater
@@ -494,12 +498,12 @@ public class DynamicDoubleBin1D extends QuantileDoubleBin1D {
     }
 
     /**
-     * Returns the exact <tt>phi-</tt>quantile; that is, the smallest contained
-     * element <tt>elem</tt> for which holds that <tt>phi</tt> percent of
-     * elements are less than <tt>elem</tt>.
+     * Returns the exact <code>phi-</code>quantile; that is, the smallest contained
+     * element <code>elem</code> for which holds that <code>phi</code> percent of
+     * elements are less than <code>elem</code>.
      * 
      * @param phi
-     *            must satisfy <tt>0 &lt; phi &lt; 1</tt>.
+     *            must satisfy <code>0 &lt; phi &lt; 1</code>.
      */
 
     public synchronized double quantile(double phi) {
@@ -508,13 +512,13 @@ public class DynamicDoubleBin1D extends QuantileDoubleBin1D {
 
     /**
      * Returns exactly how many percent of the elements contained in the
-     * receiver are <tt>&lt;= element</tt>. Does linear interpolation if the
+     * receiver are <code>&lt;= element</code>. Does linear interpolation if the
      * element is not contained but lies in between two contained elements.
      * 
      * @param element
      *            the element to search for.
-     * @return the exact percentage <tt>phi</tt> of elements
-     *         <tt>&lt;= element</tt> (<tt>0.0 &lt;= phi &lt;= 1.0)</tt>.
+     * @return the exact percentage <code>phi</code> of elements
+     *         <code>&lt;= element</code> (<code>0.0 &lt;= phi &lt;= 1.0)</code>.
      */
 
     public synchronized double quantileInverse(double element) {
@@ -526,8 +530,8 @@ public class DynamicDoubleBin1D extends QuantileDoubleBin1D {
      * 
      * @param percentages
      *            the percentages for which quantiles are to be computed. Each
-     *            percentage must be in the interval <tt>(0.0,1.0]</tt>.
-     *            <tt>percentages</tt> must be sorted ascending.
+     *            percentage must be in the interval <code>(0.0,1.0]</code>.
+     *            <code>percentages</code> must be sorted ascending.
      * @return the exact quantiles.
      */
 
@@ -559,7 +563,7 @@ public class DynamicDoubleBin1D extends QuantileDoubleBin1D {
     }
 
     /**
-     * Uniformly samples (chooses) <tt>n</tt> random elements <i>with or without
+     * Uniformly samples (chooses) <code>n</code> random elements <i>with or without
      * replacement</i> from the contained elements and adds them to the given
      * buffer. If the buffer is connected to a bin, the effect is that the
      * chosen elements are added to the bin connected to the buffer. Also see
@@ -568,16 +572,16 @@ public class DynamicDoubleBin1D extends QuantileDoubleBin1D {
      * @param n
      *            the number of elements to choose.
      * @param withReplacement
-     *            <tt>true</tt> samples with replacement, otherwise samples
+     *            <code>true</code> samples with replacement, otherwise samples
      *            without replacement.
      * @param randomGenerator
-     *            a random number generator. Set this parameter to <tt>null</tt>
+     *            a random number generator. Set this parameter to <code>null</code>
      *            to use a default random number generator seeded with the
      *            current time.
      * @param buffer
      *            the buffer to which chosen elements will be added.
      * @throws IllegalArgumentException
-     *             if <tt>!withReplacement && n > size()</tt>.
+     *             if <code>!withReplacement &amp;&amp; n > size()</code>.
      * @see cern.jet.random.tdouble.sampling
      */
     public synchronized void sample(int n, boolean withReplacement, DoubleRandomEngine randomGenerator,
@@ -607,21 +611,21 @@ public class DynamicDoubleBin1D extends QuantileDoubleBin1D {
 
     /**
      * Generic bootstrap resampling. Quite optimized - Don't be afraid to try
-     * it. Executes <tt>resamples</tt> resampling steps. In each resampling step
+     * it. Executes <code>resamples</code> resampling steps. In each resampling step
      * does the following:
      * <ul>
-     * <li>Uniformly samples (chooses) <tt>size()</tt> random elements <i>with
-     * replacement</i> from <tt>this</tt> and fills them into an auxiliary bin
-     * <tt>b1</tt>.
-     * <li>Uniformly samples (chooses) <tt>other.size()</tt> random elements
-     * <i>with replacement</i> from <tt>other</tt> and fills them into another
-     * auxiliary bin <tt>b2</tt>.
-     * <li>Executes the comparison function <tt>function</tt> on both auxiliary
-     * bins (<tt>function.apply(b1,b2)</tt>) and adds the result of the function
-     * to an auxiliary bootstrap bin <tt>b3</tt>.
+     * <li>Uniformly samples (chooses) <code>size()</code> random elements <i>with
+     * replacement</i> from <code>this</code> and fills them into an auxiliary bin
+     * <code>b1</code>.
+     * <li>Uniformly samples (chooses) <code>other.size()</code> random elements
+     * <i>with replacement</i> from <code>other</code> and fills them into another
+     * auxiliary bin <code>b2</code>.
+     * <li>Executes the comparison function <code>function</code> on both auxiliary
+     * bins (<code>function.apply(b1,b2)</code>) and adds the result of the function
+     * to an auxiliary bootstrap bin <code>b3</code>.
      * </ul>
      * <p>
-     * Finally returns the auxiliary bootstrap bin <tt>b3</tt> from which the
+     * Finally returns the auxiliary bootstrap bin <code>b3</code> from which the
      * measure of interest can be read off.
      * </p>
      * <p>
@@ -648,24 +652,24 @@ public class DynamicDoubleBin1D extends QuantileDoubleBin1D {
      * is a robust replacement for the t-test and does not require assumptions
      * about the actual distribution of the data. The idea of bootstrapping is
      * quite simple: simulation. The only assumption required is that the two
-     * samples <tt>a</tt> and <tt>b</tt> are representative for the underlying
+     * samples <code>a</code> and <code>b</code> are representative for the underlying
      * distribution with respect to the statistic that is being tested - this
      * assumption is of course implicit in all statistical tests. We can now
      * generate lots of further samples that correspond to the two given ones,
      * by sampling <i>with replacement</i>. This process is called
      * <i>resampling</i>. A resample can (and usually will) have a different
      * mean than the original one and by drawing hundreds or thousands of such
-     * resamples <tt>a<sub>r</sub></tt> from <tt>a</tt> and
-     * <tt>b<sub>r</sub></tt> from <tt>b</tt> we can compute the so-called
+     * resamples <code>a<sub>r</sub></code> from <code>a</code> and
+     * <code>b<sub>r</sub></code> from <code>b</code> we can compute the so-called
      * bootstrap distribution of all the differences &quot;mean of
-     * <tt>a<sub>r</sub></tt> minus mean of <tt>b<sub>r</sub></tt>&quot;. That
+     * <code>a<sub>r</sub></code> minus mean of <code>b<sub>r</sub></code>&quot;. That
      * is, a bootstrap bin filled with the differences. Now we can compute, what
      * fraction of these differences is, say, greater than zero. Let's assume we
-     * have computed 1000 resamples of both <tt>a</tt> and <tt>b</tt> and found
-     * that only <tt>8</tt> of the differences were greater than zero. Then
-     * <tt>8/1000</tt> or <tt>0.008</tt> is the p-value (probability) for the
-     * hypothesis that the mean of the distribution underlying <tt>a</tt> is
-     * actually larger than the mean of the distribution underlying <tt>b</tt>.
+     * have computed 1000 resamples of both <code>a</code> and <code>b</code> and found
+     * that only <code>8</code> of the differences were greater than zero. Then
+     * <code>8/1000</code> or <code>0.008</code> is the p-value (probability) for the
+     * hypothesis that the mean of the distribution underlying <code>a</code> is
+     * actually larger than the mean of the distribution underlying <code>b</code>.
      * From this bootstrap test, we can clearly reject the hypothesis.
      * </p>
      * <p>
@@ -674,11 +678,11 @@ public class DynamicDoubleBin1D extends QuantileDoubleBin1D {
      * </p>
      * <p>
      * Instead of p-values we can also read arbitrary confidence intervals from
-     * the bootstrap bin. For example, <tt>90%</tt> of all bootstrap differences
-     * are left of the value <tt>-3.5</tt>, hence a left <tt>90%</tt> confidence
-     * interval for the difference would be <tt>(3.5,infinity)</tt>; in other
-     * words: the difference is <tt>3.5</tt> or larger with probability
-     * <tt>0.9</tt>.
+     * the bootstrap bin. For example, <code>90%</code> of all bootstrap differences
+     * are left of the value <code>-3.5</code>, hence a left <code>90%</code> confidence
+     * interval for the difference would be <code>(3.5,infinity)</code>; in other
+     * words: the difference is <code>3.5</code> or larger with probability
+     * <code>0.9</code>.
      * </p>
      * <p>
      * Sometimes we would like to compare not only means and medians, but also
@@ -751,14 +755,14 @@ public class DynamicDoubleBin1D extends QuantileDoubleBin1D {
      * @param resamples
      *            the number of times resampling shall be done.
      * @param randomGenerator
-     *            a random number generator. Set this parameter to <tt>null</tt>
+     *            a random number generator. Set this parameter to <code>null</code>
      *            to use a default random number generator seeded with the
      *            current time.
      * @param function
      *            a difference function comparing two samples; takes as first
-     *            argument a sample of <tt>this</tt> and as second argument a
-     *            sample of <tt>other</tt>.
-     * @return a bootstrap bin holding the results of <tt>function</tt> of each
+     *            argument a sample of <code>this</code> and as second argument a
+     *            sample of <code>other</code>.
+     * @return a bootstrap bin holding the results of <code>function</code> of each
      *         resampling step.
      * @see cern.colt.GenericPermuting#permutation(long,int)
      */
@@ -801,19 +805,20 @@ public class DynamicDoubleBin1D extends QuantileDoubleBin1D {
      * Determines whether the receivers internally preserved elements may be
      * reordered or not.
      * <ul>
-     * <li><tt>fixedOrder==false</tt> allows the order in which elements are
-     * returned by method <tt>elements()</tt> to be different from the order in
+     * <li><code>fixedOrder==false</code> allows the order in which elements are
+     * returned by method <code>elements()</code> to be different from the order in
      * which elements are added.
-     * <li><tt>fixedOrder==true</tt> guarantees that under all circumstances the
-     * order in which elements are returned by method <tt>elements()</tt> is
+     * <li><code>fixedOrder==true</code> guarantees that under all circumstances the
+     * order in which elements are returned by method <code>elements()</code> is
      * identical to the order in which elements are added. However, the latter
      * consumes twice as much memory if operations involving sorting are
      * requested. This option is usually only required if a 2-dimensional bin,
      * formed by two 1-dimensional bins, needs to be rebinnable.
      * </ul>
      * <p>
-     * Naturally, if <tt>fixedOrder</tt> is set to <tt>true</tt> you should not
+     * Naturally, if <code>fixedOrder</code> is set to <code>true</code> you should not
      * already have added elements to the receiver; it should be empty.
+     * @param fixedOrder
      */
     public void setFixedOrder(boolean fixedOrder) {
         // if (size() > 0) throw new RuntimeException("must be called before
@@ -910,7 +915,9 @@ public class DynamicDoubleBin1D extends QuantileDoubleBin1D {
 
     /**
      * Modifies the receiver to be standardized. Changes each element
-     * <tt>x[i]</tt> as follows: <tt>x[i] = (x[i]-mean)/standardDeviation</tt>.
+     * <code>x[i]</code> as follows: <code>x[i] = (x[i]-mean)/standardDeviation</code>.
+     * @param mean
+     * @param standardDeviation
      */
     public synchronized void standardize(double mean, double standardDeviation) {
         DoubleDescriptive.standardize(this.elements, mean, standardDeviation);
@@ -920,7 +927,8 @@ public class DynamicDoubleBin1D extends QuantileDoubleBin1D {
     }
 
     /**
-     * Returns the sum of all elements, which is <tt>Sum( x[i] )</tt>.
+     * Returns the sum of all elements, which is <code>Sum( x[i] )</code>.
+     * @return 
      */
 
     public synchronized double sum() {
@@ -930,7 +938,7 @@ public class DynamicDoubleBin1D extends QuantileDoubleBin1D {
     }
 
     /**
-     * Returns the sum of inversions, which is <tt>Sum( 1 / x[i] )</tt>.
+     * Returns the sum of inversions, which is <code>Sum( 1 / x[i] )</code>.
      */
 
     public synchronized double sumOfInversions() {
@@ -940,7 +948,7 @@ public class DynamicDoubleBin1D extends QuantileDoubleBin1D {
     }
 
     /**
-     * Returns the sum of logarithms, which is <tt>Sum( Log(x[i]) )</tt>.
+     * Returns the sum of logarithms, which is <code>Sum( Log(x[i]) )</code>.
      */
 
     public synchronized double sumOfLogarithms() {
@@ -950,8 +958,8 @@ public class DynamicDoubleBin1D extends QuantileDoubleBin1D {
     }
 
     /**
-     * Returns the <tt>k-th</tt> order sum of powers, which is
-     * <tt>Sum( x[i]<sup>k</sup> )</tt>.
+     * Returns the <code>k-th</code> order sum of powers, which is
+     * <code>Sum( x[i]<sup>k</sup> )</code>.
      * 
      * @param k
      *            the order of the powers.
@@ -967,7 +975,8 @@ public class DynamicDoubleBin1D extends QuantileDoubleBin1D {
     }
 
     /**
-     * Returns the sum of squares, which is <tt>Sum( x[i] * x[i] )</tt>.
+     * Returns the sum of squares, which is <code>Sum( x[i] * x[i] )</code>.
+     * @return 
      */
 
     public synchronized double sumOfSquares() {
@@ -978,6 +987,7 @@ public class DynamicDoubleBin1D extends QuantileDoubleBin1D {
 
     /**
      * Returns a String representation of the receiver.
+     * @return 
      */
 
     public synchronized String toString() {
@@ -995,14 +1005,14 @@ public class DynamicDoubleBin1D extends QuantileDoubleBin1D {
     }
 
     /**
-     * Removes the <tt>s</tt> smallest and <tt>l</tt> largest elements from the
-     * receiver. The receivers size will be reduced by <tt>s + l</tt> elements.
+     * Removes the <code>s</code> smallest and <code>l</code> largest elements from the
+     * receiver. The receivers size will be reduced by <code>s + l</code> elements.
      * 
      * @param s
-     *            the number of smallest elements to trim away (<tt>s >= 0</tt>
+     *            the number of smallest elements to trim away (<code>s >= 0</code>
      *            ).
      * @param l
-     *            the number of largest elements to trim away (<tt>l >= 0</tt>).
+     *            the number of largest elements to trim away (<code>l >= 0</code>).
      */
     public synchronized void trim(int s, int l) {
         DoubleArrayList elems = sortedElements();
@@ -1012,14 +1022,14 @@ public class DynamicDoubleBin1D extends QuantileDoubleBin1D {
 
     /**
      * Returns the trimmed mean. That is the mean of the data <i>if</i> the
-     * <tt>s</tt> smallest and <tt>l</tt> largest elements <i>would</i> be
+     * <code>s</code> smallest and <code>l</code> largest elements <i>would</i> be
      * removed from the receiver (they are not removed).
      * 
      * @param s
-     *            the number of smallest elements to trim away (<tt>s >= 0</tt>
+     *            the number of smallest elements to trim away (<code>s >= 0</code>
      *            ).
      * @param l
-     *            the number of largest elements to trim away (<tt>l >= 0</tt>).
+     *            the number of largest elements to trim away (<code>l >= 0</code>).
      * @return the trimmed mean.
      */
     public synchronized double trimmedMean(int s, int l) {
@@ -1091,8 +1101,6 @@ public class DynamicDoubleBin1D extends QuantileDoubleBin1D {
     /**
      * 
      * 
-     * @param element
-     *            element to be appended.
      */
     protected void validateAll() {
         this.isSorted = true;

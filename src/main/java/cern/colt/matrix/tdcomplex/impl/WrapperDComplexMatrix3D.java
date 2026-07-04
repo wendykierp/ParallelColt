@@ -18,7 +18,7 @@ import cern.colt.matrix.tdouble.impl.DenseLargeDoubleMatrix3D;
 import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
 
 /**
- * 3-d matrix holding <tt>complex</tt> elements; either a view wrapping another
+ * 3-d matrix holding <code>complex</code> elements; either a view wrapping another
  * matrix or a matrix whose views are wrappers.
  * 
  * 

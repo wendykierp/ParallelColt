@@ -13,7 +13,7 @@ import cern.jet.random.tdouble.engine.DoubleRandomEngine;
 /**
  * Hyperbolic distribution.
  * <p>
- * Valid parameter ranges: <tt>alpha &gt; 0</tt> and <tt>beta &gt; 0</tt>.
+ * Valid parameter ranges: <code>alpha &gt; 0</code> and <code>beta &gt; 0</code>.
  * <p>
  * Instance methods operate on a user supplied uniform random number generator;
  * they are unsynchronized.
@@ -22,7 +22,7 @@ import cern.jet.random.tdouble.engine.DoubleRandomEngine;
  * <p>
  * <b>Implementation:</b>
  * <dt>Method: Non-Universal Rejection. High performance implementation.
- * <dt>This is a port of <tt>hyplc.c</tt> from the <A
+ * <dt>This is a port of <code>hyplc.c</code> from the <A
  * HREF="http://www.cis.tu-graz.ac.at/stat/stadl/random.html">C-RAND /
  * WIN-RAND</A> library. C-RAND's implementation, in turn, is based upon
  * <p>
@@ -54,6 +54,9 @@ public class Hyperbolic extends AbstractContinousDoubleDistribution {
 
     /**
      * Constructs a Beta distribution.
+     * @param alpha
+     * @param randomGenerator
+     * @param beta
      */
     public Hyperbolic(double alpha, double beta, DoubleRandomEngine randomGenerator) {
         setRandomGenerator(randomGenerator);
@@ -62,6 +65,7 @@ public class Hyperbolic extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a random number from the distribution.
+     * @return 
      */
 
     public double nextDouble() {
@@ -71,6 +75,9 @@ public class Hyperbolic extends AbstractContinousDoubleDistribution {
     /**
      * Returns a hyperbolic distributed random number; bypasses the internal
      * state.
+     * @param alpha
+     * @param beta
+     * @return 
      */
     public double nextDouble(double alpha, double beta) {
         /***********************************************************************
@@ -150,6 +157,8 @@ public class Hyperbolic extends AbstractContinousDoubleDistribution {
 
     /**
      * Sets the parameters.
+     * @param alpha
+     * @param beta
      */
     public void setState(double alpha, double beta) {
         this.alpha = alpha;
@@ -158,6 +167,9 @@ public class Hyperbolic extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a random number from the distribution.
+     * @param alpha
+     * @param beta
+     * @return 
      */
     public static double staticNextDouble(double alpha, double beta) {
         synchronized (shared) {
@@ -167,6 +179,7 @@ public class Hyperbolic extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a String representation of the receiver.
+     * @return 
      */
 
     public String toString() {

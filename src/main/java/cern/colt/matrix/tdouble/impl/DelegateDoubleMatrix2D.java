@@ -13,7 +13,7 @@ import cern.colt.matrix.tdouble.DoubleMatrix2D;
 import cern.colt.matrix.tdouble.DoubleMatrix3D;
 
 /**
- * 2-d matrix holding <tt>double</tt> elements; a view wrapping another 3-d
+ * 2-d matrix holding <code>double</code> elements; a view wrapping another 3-d
  * matrix and therefore delegating calls to it.
  * 
  * @author Piotr Wendykier (piotr.wendykier@gmail.com)

@@ -19,7 +19,7 @@ import cern.colt.matrix.tfloat.FloatMatrix1D;
 import cern.colt.matrix.tfloat.FloatMatrix2D;
 
 /**
- * Sparse hashed 2-d matrix holding <tt>float</tt> elements. First see the <a
+ * Sparse hashed 2-d matrix holding <code>float</code> elements. First see the <a
  * href="package-summary.html">package summary</a> and javadoc <a
  * href="package-tree.html">tree view</a> to get the broad picture.
  * <p>
@@ -40,21 +40,21 @@ import cern.colt.matrix.tfloat.FloatMatrix2D;
  * manually be reclaimed by calling {@link #trimToSize()}.
  * </ul>
  * <p>
- * worst case: <tt>memory [bytes] = (1/minLoadFactor) * nonZeros * 13</tt>. <br>
- * best case: <tt>memory [bytes] = (1/maxLoadFactor) * nonZeros * 13</tt>. <br>
- * Where <tt>nonZeros = cardinality()</tt> is the number of non-zero cells.
+ * worst case: <code>memory [bytes] = (1/minLoadFactor) * nonZeros * 13</code>. <br>
+ * best case: <code>memory [bytes] = (1/maxLoadFactor) * nonZeros * 13</code>. <br>
+ * Where <code>nonZeros = cardinality()</code> is the number of non-zero cells.
  * Thus, a 1000 x 1000 matrix with minLoadFactor=0.25 and maxLoadFactor=0.5 and
  * 1000000 non-zero cells consumes between 25 MB and 50 MB. The same 1000 x 1000
  * matrix with 1000 non-zero cells consumes between 25 and 50 KB.
  * <p>
  * <b>Time complexity:</b>
  * <p>
- * This class offers <i>expected</i> time complexity <tt>O(1)</tt> (i.e.
- * constant time) for the basic operations <tt>get</tt>, <tt>getQuick</tt>,
- * <tt>set</tt>, <tt>setQuick</tt> and <tt>size</tt> assuming the hash function
+ * This class offers <i>expected</i> time complexity <code>O(1)</code> (i.e.
+ * constant time) for the basic operations <code>get</code>, <code>getQuick</code>,
+ * <code>set</code>, <code>setQuick</code> and <code>size</code> assuming the hash function
  * disperses the elements properly among the buckets. Otherwise, pathological
  * cases, although highly improbable, can occur, degrading performance to
- * <tt>O(N)</tt> in the worst case. As such this sparse class is expected to
+ * <code>O(N)</code> in the worst case. As such this sparse class is expected to
  * have no worse time complexity than its dense counterpart
  * {@link DenseFloatMatrix2D}. However, constant factors are considerably
  * larger.
@@ -100,18 +100,18 @@ public class SparseFloatMatrix2D extends FloatMatrix2D {
     protected AbstractLongFloatMap elements;
 
     /**
-     * Constructs a matrix with a copy of the given values. <tt>values</tt> is
-     * required to have the form <tt>values[row][column]</tt> and have exactly
+     * Constructs a matrix with a copy of the given values. <code>values</code> is
+     * required to have the form <code>values[row][column]</code> and have exactly
      * the same number of columns in every row.
      * <p>
-     * The values are copied. So subsequent changes in <tt>values</tt> are not
+     * The values are copied. So subsequent changes in <code>values</code> are not
      * reflected in the matrix, and vice-versa.
      * 
      * @param values
      *            The values to be filled into the new matrix.
      * @throws IllegalArgumentException
      *             if
-     *             <tt>for any 1 &lt;= row &lt; values.length: values[row].length != values[row-1].length</tt>
+     *             <code>for any 1 &lt;= row &lt; values.length: values[row].length != values[row-1].length</code>
      *             .
      */
     public SparseFloatMatrix2D(float[][] values) {
@@ -121,7 +121,7 @@ public class SparseFloatMatrix2D extends FloatMatrix2D {
 
     /**
      * Constructs a matrix with a given number of rows and columns and default
-     * memory usage. All entries are initially <tt>0</tt>.
+     * memory usage. All entries are initially <code>0</code>.
      * 
      * @param rows
      *            the number of rows the matrix shall have.
@@ -129,7 +129,7 @@ public class SparseFloatMatrix2D extends FloatMatrix2D {
      *            the number of columns the matrix shall have.
      * @throws IllegalArgumentException
      *             if
-     *             <tt>rows<0 || columns<0 || (double)columns*rows > Integer.MAX_VALUE</tt>
+     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows > Integer.MAX_VALUE</code>
      *             .
      */
     public SparseFloatMatrix2D(int rows, int columns) {
@@ -138,7 +138,7 @@ public class SparseFloatMatrix2D extends FloatMatrix2D {
 
     /**
      * Constructs a matrix with a given number of rows and columns using memory
-     * as specified. All entries are initially <tt>0</tt>. For details related
+     * as specified. All entries are initially <code>0</code>. For details related
      * to memory usage see {@link cern.colt.map.tfloat.OpenLongFloatHashMap}.
      * 
      * @param rows
@@ -147,7 +147,7 @@ public class SparseFloatMatrix2D extends FloatMatrix2D {
      *            the number of columns the matrix shall have.
      * @param initialCapacity
      *            the initial capacity of the hash map. If not known, set
-     *            <tt>initialCapacity=0</tt> or small.
+     *            <code>initialCapacity=0</code> or small.
      * @param minLoadFactor
      *            the minimum load factor of the hash map.
      * @param maxLoadFactor
@@ -155,11 +155,11 @@ public class SparseFloatMatrix2D extends FloatMatrix2D {
      * @throws IllegalArgumentException
      *             if
      * 
-     *             <tt>initialCapacity < 0 || (minLoadFactor < 0.0 || minLoadFactor >= 1.0) || (maxLoadFactor <= 0.0 || maxLoadFactor >= 1.0) || (minLoadFactor >= maxLoadFactor)</tt>
+     *             <code>initialCapacity < 0 || (minLoadFactor < 0.0 || minLoadFactor >= 1.0) || (maxLoadFactor <= 0.0 || maxLoadFactor >= 1.0) || (minLoadFactor >= maxLoadFactor)</code>
      *             .
      * @throws IllegalArgumentException
      *             if
-     *             <tt>rows<0 || columns<0 || (double)columns*rows > Integer.MAX_VALUE</tt>
+     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows > Integer.MAX_VALUE</code>
      *             .
      */
     public SparseFloatMatrix2D(int rows, int columns, int initialCapacity, float minLoadFactor, float maxLoadFactor) {
@@ -292,13 +292,13 @@ public class SparseFloatMatrix2D extends FloatMatrix2D {
      *            the position of the first element.
      * @param rowStride
      *            the number of elements between two rows, i.e.
-     *            <tt>index(i+1,j)-index(i,j)</tt>.
+     *            <code>index(i+1,j)-index(i,j)</code>.
      * @param columnStride
      *            the number of elements between two columns, i.e.
-     *            <tt>index(i,j+1)-index(i,j)</tt>.
+     *            <code>index(i,j+1)-index(i,j)</code>.
      * @throws IllegalArgumentException
      *             if
-     *             <tt>rows<0 || columns<0 || (double)columns*rows > Integer.MAX_VALUE</tt>
+     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows > Integer.MAX_VALUE</code>
      *             or flip's are illegal.
      */
     protected SparseFloatMatrix2D(int rows, int columns, AbstractLongFloatMap elements, int rowZero, int columnZero,
@@ -395,7 +395,7 @@ public class SparseFloatMatrix2D extends FloatMatrix2D {
 
     /**
      * Assigns the result of a function to each cell;
-     * <tt>x[row,col] = function(x[row,col],y[row,col])</tt>, where y is given
+     * <code>x[row,col] = function(x[row,col],y[row,col])</code>, where y is given
      * in the coordinate form with single numerical value.
      * 
      * @param rowIndexes
@@ -406,9 +406,9 @@ public class SparseFloatMatrix2D extends FloatMatrix2D {
      *            numerical value of y
      * @param function
      *            a function object taking as first argument the current cell's
-     *            value of <tt>this</tt>, and as second argument the current
-     *            cell's value of <tt>y</tt>,
-     * @return <tt>this</tt> (for convenience only).
+     *            value of <code>this</code>, and as second argument the current
+     *            cell's value of <code>y</code>,
+     * @return <code>this</code> (for convenience only).
      */
     public SparseFloatMatrix2D assign(final int[] rowIndexes, final int[] columnIndexes, final float value,
             final cern.colt.function.tfloat.FloatFloatFunction function) {
@@ -451,7 +451,7 @@ public class SparseFloatMatrix2D extends FloatMatrix2D {
 
     /**
      * Assigns the result of a function to each cell;
-     * <tt>x[row,col] = function(x[row,col],y[row,col])</tt>, where y is given
+     * <code>x[row,col] = function(x[row,col],y[row,col])</code>, where y is given
      * in the coordinate form.
      * 
      * @param rowIndexes
@@ -462,9 +462,9 @@ public class SparseFloatMatrix2D extends FloatMatrix2D {
      *            numerical values of y
      * @param function
      *            a function object taking as first argument the current cell's
-     *            value of <tt>this</tt>, and as second argument the current
-     *            cell's value of <tt>y</tt>,
-     * @return <tt>this</tt> (for convenience only).
+     *            value of <code>this</code>, and as second argument the current
+     *            cell's value of <code>y</code>,
+     * @return <code>this</code> (for convenience only).
      */
     public SparseFloatMatrix2D assign(final int[] rowIndexes, final int[] columnIndexes, final float[] values,
             final cern.colt.function.tfloat.FloatFloatFunction function) {

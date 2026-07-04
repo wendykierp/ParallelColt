@@ -21,12 +21,12 @@ import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
 
 /**
  * Abstract base class for 1-d matrices (aka <i>vectors</i>) holding
- * <tt>complex</tt> elements. A matrix has a number of cells (its <i>size</i>),
+ * <code>complex</code> elements. A matrix has a number of cells (its <i>size</i>),
  * which are assigned upon instance construction. Elements are accessed via zero
- * based indexes. Legal indexes are of the form <tt>[0..size()-1]</tt>. Any
+ * based indexes. Legal indexes are of the form <code>[0..size()-1]</code>. Any
  * attempt to access an element at a coordinate
- * <tt>index&lt;0 || index&gt;=size()</tt> will throw an
- * <tt>IndexOutOfBoundsException</tt>.
+ * <code>index&lt;0 || index&gt;=size()</code> will throw an
+ * <code>IndexOutOfBoundsException</code>.
  * 
  * @author Piotr Wendykier (piotr.wendykier@gmail.com)
  * 
@@ -106,7 +106,7 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
      *            a function transforming the current cell values.
      * @return the aggregated measure.
      * @throws IllegalArgumentException
-     *             if <tt>size() != other.size()</tt>.
+     *             if <code>size() != other.size()</code>.
      * @see cern.jet.math.tfcomplex.FComplexFunctions
      */
     public float[] aggregate(final FComplexMatrix1D other,
@@ -153,7 +153,7 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
      * 
      * @param f
      *            a function object taking as argument the current cell's value.
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      * @see cern.jet.math.tfcomplex.FComplexFunctions
      */
     public FComplexMatrix1D assign(final cern.colt.function.tfcomplex.FComplexFComplexFunction f) {
@@ -191,7 +191,7 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
      * 
      * @param f
      *            a function object.
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      * @see cern.jet.math.tfcomplex.FComplexFunctions
      */
     public FComplexMatrix1D assign(final cern.colt.function.tfcomplex.FComplexProcedure cond,
@@ -238,7 +238,7 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
      * 
      * @param value
      *            a value (re=value[0], im=value[1]).
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      * 
      */
     public FComplexMatrix1D assign(final cern.colt.function.tfcomplex.FComplexProcedure cond, final float[] value) {
@@ -282,7 +282,7 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
      * 
      * @param f
      *            a function object taking as argument the current cell's value.
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      * @see cern.jet.math.tfcomplex.FComplexFunctions
      */
     public FComplexMatrix1D assign(final cern.colt.function.tfcomplex.FComplexRealFunction f) {
@@ -317,14 +317,14 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
      * matrix. Both matrices must have the same size. If both matrices share the
      * same cells (as is the case if they are views derived from the same
      * matrix) and intersect in an ambiguous way, then replaces <i>as if</i>
-     * using an intermediate auxiliary deep copy of <tt>other</tt>.
+     * using an intermediate auxiliary deep copy of <code>other</code>.
      * 
      * @param other
      *            the source matrix to copy from (may be identical to the
      *            receiver).
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      * @throws IllegalArgumentException
-     *             if <tt>size() != other.size()</tt>.
+     *             if <code>size() != other.size()</code>.
      */
     public FComplexMatrix1D assign(FComplexMatrix1D other) {
         if (other == this)
@@ -368,11 +368,11 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
      *            the secondary matrix to operate on.
      * @param f
      *            a function object taking as first argument the current cell's
-     *            value of <tt>this</tt>, and as second argument the current
-     *            cell's value of <tt>y</tt>,
-     * @return <tt>this</tt> (for convenience only).
+     *            value of <code>this</code>, and as second argument the current
+     *            cell's value of <code>y</code>,
+     * @return <code>this</code> (for convenience only).
      * @throws IllegalArgumentException
-     *             if <tt>size() != y.size()</tt>.
+     *             if <code>size() != y.size()</code>.
      * @see cern.jet.math.tfcomplex.FComplexFunctions
      */
     public FComplexMatrix1D assign(final FComplexMatrix1D y,
@@ -405,14 +405,14 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
     }
 
     /**
-     * Sets all cells to the state specified by <tt>re</tt> and <tt>im</tt>.
+     * Sets all cells to the state specified by <code>re</code> and <code>im</code>.
      * 
      * @param re
      *            the real part of the value to be filled into the cells.
      * @param im
      *            the imaginary part of the value to be filled into the cells.
      * 
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      */
     public FComplexMatrix1D assign(final float re, final float im) {
         int size = (int) size();
@@ -443,19 +443,19 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
     }
 
     /**
-     * Sets all cells to the state specified by <tt>values</tt>. <tt>values</tt>
+     * Sets all cells to the state specified by <code>values</code>. <code>values</code>
      * is required to have the same number of cells as the receiver. Complex
      * data is represented by 2 float values in sequence: the real and imaginary
      * parts, i.e. input array must be of size 2*size().
      * <p>
-     * The values are copied. So subsequent changes in <tt>values</tt> are not
+     * The values are copied. So subsequent changes in <code>values</code> are not
      * reflected in the matrix, and vice-versa.
      * 
      * @param values
      *            the values to be filled into the cells.
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      * @throws IllegalArgumentException
-     *             if <tt>values.length != 2*size()</tt>.
+     *             if <code>values.length != 2*size()</code>.
      */
     public FComplexMatrix1D assign(final float[] values) {
         int size = (int) size();
@@ -494,9 +494,9 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
      * 
      * @param other
      *            the source matrix to copy from
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      * @throws IllegalArgumentException
-     *             if <tt>size() != other.size()</tt>.
+     *             if <code>size() != other.size()</code>.
      */
     public FComplexMatrix1D assignImaginary(final FloatMatrix1D other) {
         checkSize(other);
@@ -536,9 +536,9 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
      * 
      * @param other
      *            the source matrix to copy from
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      * @throws IllegalArgumentException
-     *             if <tt>size() != other.size()</tt>.
+     *             if <code>size() != other.size()</code>.
      */
     public FComplexMatrix1D assignReal(final FloatMatrix1D other) {
         checkSize(other);
@@ -646,8 +646,8 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
      * @param value
      *            the value to test against (re=value[0], im=value[1]).
      * 
-     * @return <tt>true</tt> if all cells are equal to the given value,
-     *         <tt>false</tt> otherwise.
+     * @return <code>true</code> if all cells are equal to the given value,
+     *         <code>false</code> otherwise.
      */
     public boolean equals(float[] value) {
         return cern.colt.matrix.tfcomplex.algo.FComplexProperty.DEFAULT.equals(this, value);
@@ -678,13 +678,13 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
     }
 
     /**
-     * Returns the matrix cell value at coordinate <tt>index</tt>.
+     * Returns the matrix cell value at coordinate <code>index</code>.
      * 
      * @param index
      *            the index of the cell.
      * @return the value of the specified cell.
      * @throws IndexOutOfBoundsException
-     *             if <tt>index&lt;0 || index&gt;=size()</tt>.
+     *             if <code>index&lt;0 || index&gt;=size()</code>.
      */
     public float[] get(int index) {
         int size = (int) size();
@@ -714,7 +714,7 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
      * non-zero values.
      * <p>
      * In general, fill order is <i>unspecified</i>. This implementation fills
-     * like: <tt>for (index = 0..size()-1)  do ... </tt>. However, subclasses
+     * like: <code>for (index = 0..size()-1)  do ... </code>. However, subclasses
      * are free to us any other order, even an order that may change over time
      * as cell values are changed. (Of course, result lists indexes are
      * guaranteed to correspond to the same cell).
@@ -739,13 +739,13 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
     }
 
     /**
-     * Returns the matrix cell value at coordinate <tt>index</tt>.
+     * Returns the matrix cell value at coordinate <code>index</code>.
      * 
      * <p>
      * Provided with invalid parameters this method may return invalid objects
      * without throwing any exception. <b>You should only use this method when
      * you are absolutely sure that the coordinate is within bounds.</b>
-     * Precondition (unchecked): <tt>index&lt;0 || index&gt;=size()</tt>.
+     * Precondition (unchecked): <code>index&lt;0 || index&gt;=size()</code>.
      * 
      * @param index
      *            the index of the cell.
@@ -763,8 +763,8 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
     /**
      * Construct and returns a new empty matrix <i>of the same dynamic type</i>
      * as the receiver, having the same size. For example, if the receiver is an
-     * instance of type <tt>DenseComplexMatrix1D</tt> the new matrix must also
-     * be of type <tt>DenseComplexMatrix1D</tt>. In general, the new matrix
+     * instance of type <code>DenseComplexMatrix1D</code> the new matrix must also
+     * be of type <code>DenseComplexMatrix1D</code>. In general, the new matrix
      * should have internal parametrization as similar as possible.
      * 
      * @return a new empty matrix of the same dynamic type.
@@ -777,8 +777,8 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
     /**
      * Construct and returns a new empty matrix <i>of the same dynamic type</i>
      * as the receiver, having the specified size. For example, if the receiver
-     * is an instance of type <tt>DenseFComplexMatrix1D</tt> the new matrix must
-     * also be of type <tt>DenseFComplexMatrix1D</tt>. In general, the new
+     * is an instance of type <code>DenseFComplexMatrix1D</code> the new matrix must
+     * also be of type <code>DenseFComplexMatrix1D</code>. In general, the new
      * matrix should have internal parametrization as similar as possible.
      * 
      * @param size
@@ -790,8 +790,8 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
     /**
      * Construct and returns a new 2-d matrix <i>of the corresponding dynamic
      * type</i>, entirely independent of the receiver. For example, if the
-     * receiver is an instance of type <tt>DenseFComplexMatrix1D</tt> the new
-     * matrix must be of type <tt>DenseFComplexMatrix2D</tt>.
+     * receiver is an instance of type <code>DenseFComplexMatrix1D</code> the new
+     * matrix must be of type <code>DenseFComplexMatrix2D</code>.
      * 
      * @param rows
      *            the number of rows the matrix shall have.
@@ -817,6 +817,7 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
      * Returns new FloatMatrix3D of size slices x rows x columns, whose elements
      * are taken column-wise from this matrix.
      * 
+     * @param slices
      * @param rows
      *            number of rows
      * @param columns
@@ -826,7 +827,7 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
     public abstract FComplexMatrix3D reshape(int slices, int rows, int columns);
 
     /**
-     * Sets the matrix cell at coordinate <tt>index</tt> to the specified value.
+     * Sets the matrix cell at coordinate <code>index</code> to the specified value.
      * 
      * @param index
      *            the index of the cell.
@@ -838,7 +839,7 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
      *            specified cell.
      * 
      * @throws IndexOutOfBoundsException
-     *             if <tt>index&lt;0 || index&gt;=size()</tt>.
+     *             if <code>index&lt;0 || index&gt;=size()</code>.
      */
     public void set(int index, float re, float im) {
         int size = (int) size();
@@ -848,7 +849,7 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
     }
 
     /**
-     * Sets the matrix cell at coordinate <tt>index</tt> to the specified value.
+     * Sets the matrix cell at coordinate <code>index</code> to the specified value.
      * 
      * @param index
      *            the index of the cell.
@@ -857,7 +858,7 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
      *            im=value[1]).
      * 
      * @throws IndexOutOfBoundsException
-     *             if <tt>index&lt;0 || index&gt;=size()</tt>.
+     *             if <code>index&lt;0 || index&gt;=size()</code>.
      */
     public void set(int index, float[] value) {
         int size = (int) size();
@@ -867,13 +868,13 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
     }
 
     /**
-     * Sets the matrix cell at coordinate <tt>index</tt> to the specified value.
+     * Sets the matrix cell at coordinate <code>index</code> to the specified value.
      * 
      * <p>
      * Provided with invalid parameters this method may access illegal indexes
      * without throwing any exception. <b>You should only use this method when
      * you are absolutely sure that the coordinate is within bounds.</b>
-     * Precondition (unchecked): <tt>index&lt;0 || index&gt;=size()</tt>.
+     * Precondition (unchecked): <code>index&lt;0 || index&gt;=size()</code>.
      * 
      * @param index
      *            the index of the cell.
@@ -887,13 +888,13 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
     public abstract void setQuick(int index, float re, float im);
 
     /**
-     * Sets the matrix cell at coordinate <tt>index</tt> to the specified value.
+     * Sets the matrix cell at coordinate <code>index</code> to the specified value.
      * 
      * <p>
      * Provided with invalid parameters this method may access illegal indexes
      * without throwing any exception. <b>You should only use this method when
      * you are absolutely sure that the coordinate is within bounds.</b>
-     * Precondition (unchecked): <tt>index&lt;0 || index&gt;=size()</tt>.
+     * Precondition (unchecked): <code>index&lt;0 || index&gt;=size()</code>.
      * 
      * @param index
      *            the index of the cell.
@@ -904,10 +905,11 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
     public abstract void setQuick(int index, float[] value);
 
     /**
-     * Swaps each element <tt>this[i]</tt> with <tt>other[i]</tt>.
+     * Swaps each element <code>this[i]</code> with <code>other[i]</code>.
      * 
+     * @param other
      * @throws IllegalArgumentException
-     *             if <tt>size() != other.size()</tt>.
+     *             if <code>size() != other.size()</code>.
      */
     public void swap(final FComplexMatrix1D other) {
         int size = (int) size();
@@ -944,14 +946,14 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
 
     /**
      * Constructs and returns a 1-dimensional array containing the cell values.
-     * The values are copied. So subsequent changes in <tt>values</tt> are not
+     * The values are copied. So subsequent changes in <code>values</code> are not
      * reflected in the matrix, and vice-versa. The returned array
-     * <tt>values</tt> has the form <br>
-     * <tt>for (int i = 0; i < size; i++) {
+     * <code>values</code> has the form <br>
+     * <code>for (int i = 0; i &lt; size; i++) {
      * 		  tmp = getQuick(i);
      * 		  values[2 * i] = tmp[0]; //real part
      * 		  values[2 * i + 1] = tmp[1]; //imaginary part
-     * 	   }</tt>
+     * 	   }</code>
      * 
      * @return an array filled with the values of the cells.
      */
@@ -964,17 +966,18 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
 
     /**
      * Fills the cell values into the specified 1-dimensional array. The values
-     * are copied. So subsequent changes in <tt>values</tt> are not reflected in
+     * are copied. So subsequent changes in <code>values</code> are not reflected in
      * the matrix, and vice-versa. After this call returns the array
-     * <tt>values</tt> has the form <br>
-     * <tt>for (int i = 0; i < size; i++) {
+     * <code>values</code> has the form <br>
+     * <code>for (int i = 0; i &lt; size; i++) {
      * 		  tmp = getQuick(i);
      * 		  values[2 * i] = tmp[0]; //real part
      * 		  values[2 * i + 1] = tmp[1]; //imaginary part
-     * 	   }</tt>
+     * 	   }</code>
      * 
+     * @param values
      * @throws IllegalArgumentException
-     *             if <tt>values.length < 2*size()</tt>.
+     *             if <code>values.length < 2*size()</code>.
      */
     public void toArray(final float[] values) {
         int size = (int) size();
@@ -1021,7 +1024,7 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
     }
 
     /**
-     * Returns a string representation using given <tt>format</tt>
+     * Returns a string representation using given <code>format</code>
      * 
      * @param format
      *            a format for java.lang.String.format().
@@ -1051,8 +1054,8 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
 
     /**
      * Constructs and returns a new <i>flip view</i>. What used to be index
-     * <tt>0</tt> is now index <tt>size()-1</tt>, ..., what used to be index
-     * <tt>size()-1</tt> is now index <tt>0</tt>. The returned view is backed by
+     * <code>0</code> is now index <code>size()-1</code>, ..., what used to be index
+     * <code>size()-1</code> is now index <code>0</code>. The returned view is backed by
      * this matrix, so changes in the returned view are reflected in this
      * matrix, and vice-versa.
      * 
@@ -1064,29 +1067,29 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
 
     /**
      * Constructs and returns a new <i>sub-range view</i> that is a
-     * <tt>width</tt> sub matrix starting at <tt>index</tt>.
+     * <code>width</code> sub matrix starting at <code>index</code>.
      * 
      * Operations on the returned view can only be applied to the restricted
      * range. Any attempt to access coordinates not contained in the view will
-     * throw an <tt>IndexOutOfBoundsException</tt>.
+     * throw an <code>IndexOutOfBoundsException</code>.
      * <p>
      * <b>Note that the view is really just a range restriction:</b> The
      * returned matrix is backed by this matrix, so changes in the returned
      * matrix are reflected in this matrix, and vice-versa.
      * <p>
-     * The view contains the cells from <tt>index..index+width-1</tt>. and has
-     * <tt>view.size() == width</tt>. A view's legal coordinates are again zero
+     * The view contains the cells from <code>index..index+width-1</code>. and has
+     * <code>view.size() == width</code>. A view's legal coordinates are again zero
      * based, as usual. In other words, legal coordinates of the view are
-     * <tt>0 .. view.size()-1==width-1</tt>. As usual, any attempt to access a
+     * <code>0 .. view.size()-1==width-1</code>. As usual, any attempt to access a
      * cell at other coordinates will throw an
-     * <tt>IndexOutOfBoundsException</tt>.
+     * <code>IndexOutOfBoundsException</code>.
      * 
      * @param index
      *            The index of the first cell.
      * @param width
      *            The width of the range.
      * @throws IndexOutOfBoundsException
-     *             if <tt>index<0 || width<0 || index+width>size()</tt>.
+     *             if <code>index<0 || width<0 || index+width>size()</code>.
      * @return the new view.
      * 
      */
@@ -1098,7 +1101,7 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
      * Constructs and returns a new <i>selection view</i> that is a matrix
      * holding the cells matching the given condition. Applies the condition to
      * each cell and takes only those cells where
-     * <tt>condition.apply(get(i))</tt> yields <tt>true</tt>.
+     * <code>condition.apply(get(i))</code> yields <code>true</code>.
      * 
      * The returned view is backed by this matrix, so changes in the returned
      * view are reflected in this matrix, and vice-versa.
@@ -1121,11 +1124,11 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
     /**
      * Constructs and returns a new <i>selection view</i> that is a matrix
      * holding the indicated cells. There holds
-     * <tt>view.size() == indexes.length</tt> and
-     * <tt>view.get(i) == this.get(indexes[i])</tt>. Indexes can occur multiple
+     * <code>view.size() == indexes.length</code> and
+     * <code>view.get(i) == this.get(indexes[i])</code>. Indexes can occur multiple
      * times and can be in arbitrary order.
      * 
-     * Note that modifying <tt>indexes</tt> after this call has returned has no
+     * Note that modifying <code>indexes</code> after this call has returned has no
      * effect on the view. The returned view is backed by this matrix, so
      * changes in the returned view are reflected in this matrix, and
      * vice-versa.
@@ -1133,11 +1136,11 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
      * @param indexes
      *            The indexes of the cells that shall be visible in the new
      *            view. To indicate that <i>all</i> cells shall be visible,
-     *            simply set this parameter to <tt>null</tt>.
+     *            simply set this parameter to <code>null</code>.
      * @return the new view.
      * @throws IndexOutOfBoundsException
-     *             if <tt>!(0 <= indexes[i] < size())</tt> for any
-     *             <tt>i=0..indexes.length()-1</tt>.
+     *             if <code>!(0 <= indexes[i] < size())</code> for any
+     *             <code>i=0..indexes.length()-1</code>.
      */
     public FComplexMatrix1D viewSelection(int[] indexes) {
         // check for "all"
@@ -1159,13 +1162,13 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
     /**
      * Constructs and returns a new <i>stride view</i> which is a sub matrix
      * consisting of every i-th cell. More specifically, the view has size
-     * <tt>this.size()/stride</tt> holding cells <tt>this.get(i*stride)</tt> for
-     * all <tt>i = 0..size()/stride - 1</tt>.
+     * <code>this.size()/stride</code> holding cells <code>this.get(i*stride)</code> for
+     * all <code>i = 0..size()/stride - 1</code>.
      * 
      * @param stride
      *            the step factor.
      * @throws IndexOutOfBoundsException
-     *             if <tt>stride <= 0</tt>.
+     *             if <code>stride <= 0</code>.
      * @return the new view.
      * 
      */
@@ -1175,7 +1178,7 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
 
     /**
      * Returns the dot product of two vectors x and y. Operates on cells at
-     * indexes <tt>0 .. Math.min(size(),y.size())</tt>.
+     * indexes <code>0 .. Math.min(size(),y.size())</code>.
      * 
      * @param y
      *            the second vector.
@@ -1188,7 +1191,7 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
 
     /**
      * Returns the dot product of two vectors x and y. Operates on cells at
-     * indexes <tt>from .. Min(size(),y.size(),from+length)-1</tt>.
+     * indexes <code>from .. Min(size(),y.size(),from+length)-1</code>.
      * 
      * @param y
      *            the second vector.
@@ -1196,7 +1199,7 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
      *            the first index to be considered.
      * @param length
      *            the number of cells to be considered.
-     * @return the sum of products; zero if <tt>from<0 || length<0</tt>.
+     * @return the sum of products; zero if <code>from &lt; 0 || length &lt; 0</code>.
      */
     public float[] zDotProduct(final FComplexMatrix1D y, final int from, int length) {
         int size = (int) size();
@@ -1266,8 +1269,10 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
      * 
      * @param y
      *            the second vector.
+     * @param from
      * @param nonZeroIndexes
-     *            the indexes of cells in <tt>y</tt>having a non-zero value.
+     *            the indexes of cells in <code>y</code>having a non-zero value.
+     * @param length
      * @return the sum of products.
      */
     public float[] zDotProduct(FComplexMatrix1D y, int from, int length, IntArrayList nonZeroIndexes) {
@@ -1381,19 +1386,20 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
     }
 
     /**
-     * Returns the content of this matrix if it is a wrapper; or <tt>this</tt>
+     * Returns the content of this matrix if it is a wrapper; or <code>this</code>
      * otherwise. Override this method in wrappers.
+     * @return 
      */
     protected FComplexMatrix1D getContent() {
         return this;
     }
 
     /**
-     * Returns <tt>true</tt> if both matrices share at least one identical cell.
+     * Returns <code>true</code> if both matrices share at least one identical cell.
      * 
      * @param other
      *            matrix
-     * @return <tt>true</tt> if both matrices share at least one identical cell
+     * @return <code>true</code> if both matrices share at least one identical cell
      */
     protected boolean haveSharedCells(FComplexMatrix1D other) {
         if (other == null)
@@ -1446,7 +1452,7 @@ public abstract class FComplexMatrix1D extends AbstractMatrix1D {
      * @param y
      *            the second vector.
      * @param nonZeroIndexes
-     *            the indexes of cells in <tt>y</tt>having a non-zero value.
+     *            the indexes of cells in <code>y</code>having a non-zero value.
      * @return the sum of products.
      */
     protected float[] zDotProduct(FComplexMatrix1D y, IntArrayList nonZeroIndexes) {

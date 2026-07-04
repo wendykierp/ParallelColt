@@ -12,7 +12,7 @@ import cern.colt.list.tdouble.DoubleArrayList;
 import cern.jet.stat.Buffer;
 
 /**
- * A buffer holding <tt>double</tt> elements; internally used for computing
+ * A buffer holding <code>double</code> elements; internally used for computing
  * approximate quantiles.
  */
 public class DoubleBuffer extends Buffer {
@@ -39,6 +39,7 @@ public class DoubleBuffer extends Buffer {
 
     /**
      * Adds a value to the receiver.
+     * @param value
      */
     public void add(double value) {
         if (!isAllocated)
@@ -49,6 +50,9 @@ public class DoubleBuffer extends Buffer {
 
     /**
      * Adds a value to the receiver.
+     * @param elements
+     * @param to
+     * @param from
      */
     public void addAllOfFromTo(DoubleArrayList elements, int from, int to) {
         if (!isAllocated)
@@ -88,6 +92,8 @@ public class DoubleBuffer extends Buffer {
 
     /**
      * Returns whether the specified element is contained in the receiver.
+     * @param element
+     * @return 
      */
     public boolean contains(double element) {
         this.sort();
@@ -96,6 +102,7 @@ public class DoubleBuffer extends Buffer {
 
     /**
      * Returns whether the receiver is empty.
+     * @return 
      */
 
     public boolean isEmpty() {
@@ -104,6 +111,7 @@ public class DoubleBuffer extends Buffer {
 
     /**
      * Returns whether the receiver is empty.
+     * @return 
      */
 
     public boolean isFull() {
@@ -113,7 +121,8 @@ public class DoubleBuffer extends Buffer {
     /**
      * Returns the number of elements currently needed to store all contained
      * elements. This number usually differs from the results of method
-     * <tt>size()</tt>, according to the underlying algorithm.
+     * <code>size()</code>, according to the underlying algorithm.
+     * @return 
      */
     public int memory() {
         return values.elements().length;
@@ -137,6 +146,7 @@ public class DoubleBuffer extends Buffer {
 
     /**
      * Returns the number of elements contained in the receiver.
+     * @return 
      */
 
     public int size() {
@@ -160,6 +170,7 @@ public class DoubleBuffer extends Buffer {
 
     /**
      * Returns a String representation of the receiver.
+     * @return 
      */
 
     public String toString() {

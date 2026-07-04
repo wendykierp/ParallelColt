@@ -12,12 +12,12 @@ package cern.jet.math.tdcomplex;
  * Only for performance tuning of compute intensive linear algebraic
  * computations. Constructs functions that return one of
  * <ul>
- * <li><tt>a * constant</tt>
- * <li><tt>a / constant</tt>
+ * <li><code>a * constant</code>
+ * <li><code>a / constant</code>
  * </ul>
- * <tt>a</tt> is variable, <tt>constant</tt> is fixed, but for performance
+ * <code>a</code> is variable, <code>constant</code> is fixed, but for performance
  * reasons publicly accessible. Intended to be passed to
- * <tt>matrix.assign(function)</tt> methods.
+ * <code>matrix.assign(function)</code> methods.
  */
 public final class DComplexMult implements cern.colt.function.tdcomplex.DComplexDComplexFunction {
     /**
@@ -31,6 +31,7 @@ public final class DComplexMult implements cern.colt.function.tdcomplex.DComplex
 
     /**
      * Returns the result of the function evaluation.
+     * @param a
      */
     public final double[] apply(double[] a) {
         double[] z = new double[2];
@@ -50,14 +51,18 @@ public final class DComplexMult implements cern.colt.function.tdcomplex.DComplex
     }
 
     /**
-     * <tt>a / constant</tt>.
+     * <code>a / constant</code>.
+     * @param constant
+     * @return 
      */
     public static DComplexMult div(final double[] constant) {
         return mult(DComplex.inv(constant));
     }
 
     /**
-     * <tt>a * constant</tt>.
+     * <code>a * constant</code>.
+     * @param constant
+     * @return 
      */
     public static DComplexMult mult(final double[] constant) {
         return new DComplexMult(constant);

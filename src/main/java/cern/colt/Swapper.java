@@ -20,6 +20,8 @@ package cern.colt;
 public interface Swapper {
     /**
      * Swaps the generic data g[a] with g[b].
+     * @param a
+     * @param b
      */
     public abstract void swap(int a, int b);
 }

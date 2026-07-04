@@ -14,9 +14,9 @@ import cern.colt.matrix.tfcomplex.impl.DenseFComplexMatrix1D;
 import cern.colt.matrix.tfcomplex.impl.SparseFComplexMatrix1D;
 
 /**
- * Factory for convenient construction of 1-d matrices holding <tt>complex</tt>
- * cells. Use idioms like <tt>ComplexFactory1D.dense.make(1000)</tt> to
- * construct dense matrices, <tt>ComplexFactory1D.sparse.make(1000)</tt> to
+ * Factory for convenient construction of 1-d matrices holding <code>complex</code>
+ * cells. Use idioms like <code>ComplexFactory1D.dense.make(1000)</code> to
+ * construct dense matrices, <code>ComplexFactory1D.sparse.make(1000)</code> to
  * construct sparse matrices.
  * 
  * If the factory is used frequently it might be useful to streamline the
@@ -58,7 +58,10 @@ public class FComplexFactory1D extends cern.colt.PersistentObject {
 
     /**
      * C = A||B; Constructs a new matrix which is the concatenation of two other
-     * matrices. Example: <tt>0 1</tt> append <tt>3 4</tt> --> <tt>0 1 3 4</tt>.
+     * matrices. Example: <code>0 1</code> append <code>3 4</code> --> <code>0 1 3 4</code>.
+     * @param A
+     * @param B
+     * @return 
      */
     public FComplexMatrix1D append(FComplexMatrix1D A, FComplexMatrix1D B) {
         // concatenate
@@ -70,11 +73,12 @@ public class FComplexFactory1D extends cern.colt.PersistentObject {
 
     /**
      * Constructs a matrix with the given cell values. The values are copied. So
-     * subsequent changes in <tt>values</tt> are not reflected in the matrix,
+     * subsequent changes in <code>values</code> are not reflected in the matrix,
      * and vice-versa.
      * 
      * @param values
      *            The values to be filled into the new matrix.
+     * @return 
      */
     public FComplexMatrix1D make(float[] values) {
         if (this == sparse)
@@ -86,6 +90,8 @@ public class FComplexFactory1D extends cern.colt.PersistentObject {
     /**
      * Constructs a matrix which is the concatenation of all given parts. Cells
      * are copied.
+     * @param parts
+     * @return 
      */
     public FComplexMatrix1D make(FComplexMatrix1D[] parts) {
         if (parts.length == 0)
@@ -108,6 +114,8 @@ public class FComplexFactory1D extends cern.colt.PersistentObject {
     /**
      * Constructs a matrix with the given shape, each cell initialized with
      * zero.
+     * @param size
+     * @return 
      */
     public FComplexMatrix1D make(int size) {
         if (this == sparse) {
@@ -120,6 +128,9 @@ public class FComplexFactory1D extends cern.colt.PersistentObject {
     /**
      * Constructs a matrix with the given shape, each cell initialized with the
      * given value.
+     * @param size
+     * @param initialValue
+     * @return 
      */
     public FComplexMatrix1D make(int size, float[] initialValue) {
         return make(size).assign(initialValue[0], initialValue[1]);
@@ -127,7 +138,7 @@ public class FComplexFactory1D extends cern.colt.PersistentObject {
 
     /**
      * Constructs a matrix from the values of the given list. The values are
-     * copied. So subsequent changes in <tt>values</tt> are not reflected in the
+     * copied. So subsequent changes in <code>values</code> are not reflected in the
      * matrix, and vice-versa.
      * 
      * @param values
@@ -143,8 +154,10 @@ public class FComplexFactory1D extends cern.colt.PersistentObject {
     }
 
     /**
-     * Constructs a matrix with uniformly distributed values in <tt>(0,1)</tt>
+     * Constructs a matrix with uniformly distributed values in <code>(0,1)</code>
      * (exclusive).
+     * @param size
+     * @return 
      */
     public FComplexMatrix1D random(int size) {
         return make(size).assign(cern.jet.math.tfcomplex.FComplexFunctions.random());
@@ -152,7 +165,10 @@ public class FComplexFactory1D extends cern.colt.PersistentObject {
 
     /**
      * C = A||A||..||A; Constructs a new matrix which is concatenated
-     * <tt>repeat</tt> times.
+     * <code>repeat</code> times.
+     * @param A
+     * @param repeat
+     * @return 
      */
     public FComplexMatrix1D repeat(FComplexMatrix1D A, int repeat) {
         int size = (int) A.size();
@@ -165,13 +181,17 @@ public class FComplexFactory1D extends cern.colt.PersistentObject {
 
     /**
      * Constructs a randomly sampled matrix with the given shape. Randomly picks
-     * exactly <tt>Math.round(size*nonZeroFraction)</tt> cells and initializes
-     * them to <tt>value</tt>, all the rest will be initialized to zero. Note
+     * exactly <code>Math.round(size*nonZeroFraction)</code> cells and initializes
+     * them to <code>value</code>, all the rest will be initialized to zero. Note
      * that this is not the same as setting each cell with probability
-     * <tt>nonZeroFraction</tt> to <tt>value</tt>.
+     * <code>nonZeroFraction</code> to <code>value</code>.
      * 
+     * @param size
+     * @param nonZeroFraction
+     * @param value
+     * @return 
      * @throws IllegalArgumentException
-     *             if <tt>nonZeroFraction < 0 || nonZeroFraction > 1</tt>.
+     *             if <code>nonZeroFraction < 0 || nonZeroFraction > 1</code>.
      * @see cern.jet.random.tfloat.sampling.FloatRandomSampler
      */
     public FComplexMatrix1D sample(int size, float[] value, float nonZeroFraction) {
@@ -202,7 +222,7 @@ public class FComplexFactory1D extends cern.colt.PersistentObject {
 
     /**
      * Constructs a list from the given matrix. The values are copied. So
-     * subsequent changes in <tt>values</tt> are not reflected in the list, and
+     * subsequent changes in <code>values</code> are not reflected in the list, and
      * vice-versa.
      * 
      * @param values

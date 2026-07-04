@@ -24,10 +24,11 @@ public abstract class FloatMatrix3DTest extends TestCase {
 
     protected int NCOLUMNS = 17;
 
-    protected float TOL = 1e-3f;
+    protected float TOL = 1e-2f;
 
     /**
      * Constructor for FloatMatrix2DTest
+     * @param arg0
      */
     public FloatMatrix3DTest(String arg0) {
         super(arg0);

@@ -17,7 +17,7 @@ import cern.colt.matrix.tdcomplex.DComplexMatrix3D;
 import cern.colt.matrix.tdouble.DoubleMatrix3D;
 
 /**
- * Selection view on sparse 3-d matrices holding <tt>complex</tt> elements. This
+ * Selection view on sparse 3-d matrices holding <code>complex</code> elements. This
  * implementation uses ConcurrentHashMap
  * 
  * @author Piotr Wendykier (piotr.wendykier@gmail.com)
@@ -98,13 +98,13 @@ class SelectedSparseDComplexMatrix3D extends DComplexMatrix3D {
     }
 
     /**
-     * Returns <tt>true</tt> if both matrices share common cells. More formally,
-     * returns <tt>true</tt> if <tt>other != null</tt> and at least one of the
+     * Returns <code>true</code> if both matrices share common cells. More formally,
+     * returns <code>true</code> if <code>other != null</code> and at least one of the
      * following conditions is met
      * <ul>
      * <li>the receiver is a view of the other matrix
      * <li>the other matrix is a view of the receiver
-     * <li><tt>this == other</tt>
+     * <li><code>this == other</code>
      * </ul>
      */
 

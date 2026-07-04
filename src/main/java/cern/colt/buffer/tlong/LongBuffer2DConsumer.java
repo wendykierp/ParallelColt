@@ -11,7 +11,7 @@ package cern.colt.buffer.tlong;
 import cern.colt.list.tlong.LongArrayList;
 
 /**
- * Target of a streaming <tt>LongBuffer2D</tt> into which data is flushed upon
+ * Target of a streaming <code>LongBuffer2D</code> into which data is flushed upon
  * buffer overflow.
  * 
  * @author wolfgang.hoschek@cern.ch

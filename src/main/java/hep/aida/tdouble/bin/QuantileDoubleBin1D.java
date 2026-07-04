@@ -6,7 +6,7 @@ import cern.jet.stat.tdouble.quantile.DoubleQuantileFinder;
 import cern.jet.stat.tdouble.quantile.DoubleQuantileFinderFactory;
 
 /**
- * 1-dimensional non-rebinnable bin holding <tt>double</tt> elements with
+ * 1-dimensional non-rebinnable bin holding <code>double</code> elements with
  * scalable quantile operations defined upon; Using little main memory, quickly
  * computes approximate quantiles over very large data sequences with and even
  * without a-priori knowledge of the number of elements to be filled;
@@ -48,29 +48,29 @@ import cern.jet.stat.tdouble.quantile.DoubleQuantileFinderFactory;
  * below.
  * <p>
  * <b>Main memory requirements:</b> Given in megabytes, assuming a single
- * element (<tt>double</tt>) takes 8 byte. The number of elements required is
- * then <tt>MB*1024*1024/8</tt>.
+ * element (<code>double</code>) takes 8 byte. The number of elements required is
+ * then <code>MB*1024*1024/8</code>.
  * <p>
  * <b>Parameters:</b>
  * <ul>
  * <li><i>epsilon</i> - the maximum allowed approximation error on quantiles; in
- * <tt>[0.0,1.0]</tt>. To get exact rather than approximate quantiles, set
- * <tt>epsilon=0.0</tt>;
+ * <code>[0.0,1.0]</code>. To get exact rather than approximate quantiles, set
+ * <code>epsilon=0.0</code>;
  * 
  * <li><i>delta</i> - the probability allowed that the approximation error fails
- * to be smaller than epsilon; in <tt>[0.0,1.0]</tt>. To avoid probabilistic
- * answers, set <tt>delta=0.0</tt>. For example, <tt>delta = 0.0001</tt> is
- * equivalent to a confidence of <tt>99.99%</tt>.
+ * to be smaller than epsilon; in <code>[0.0,1.0]</code>. To avoid probabilistic
+ * answers, set <code>delta=0.0</code>. For example, <code>delta = 0.0001</code> is
+ * equivalent to a confidence of <code>99.99%</code>.
  * 
  * <li><i>quantiles</i> - the number of quantiles to be computed; in
- * <tt>[0,Integer.MAX_VALUE]</tt>.
+ * <code>[0,Integer.MAX_VALUE]</code>.
  * 
  * <li><i>is N known?</i> - specifies whether the exact size of the dataset over
  * which quantiles are to be computed is known.
  * 
  * <li>N<sub>max</sub> - the exact dataset size, if known. Otherwise, an upper
  * limit on the dataset size. If no upper limit is known set to infinity (
- * <tt>Long.MAX_VALUE</tt>).
+ * <code>Long.MAX_VALUE</code>).
  * </ul>
  * N<sub>max</sub>=inf - we are sure that exactly (<i>known</i>) or less than
  * (<i>unknown</i>) infinity elements will be added. <br>
@@ -544,8 +544,8 @@ import cern.jet.stat.tdouble.quantile.DoubleQuantileFinderFactory;
  * sequence.
  * <p>
  * Imagine a large data sequence (residing on disk or being generated in memory
- * on the fly) and a main memory <i>block</i> of <tt>n=b*k</tt> elements (
- * <tt>b</tt> is the number of buffers, <tt>k</tt> is the number of elements per
+ * on the fly) and a main memory <i>block</i> of <code>n=b*k</code> elements (
+ * <code>b</code> is the number of buffers, <code>k</code> is the number of elements per
  * buffer). Fill elements from the data sequence into the block until it is full
  * or the data sequence is exhausted. When the block (or a subset of buffers) is
  * full and the data sequence is not exhausted, apply shrinking to lossily
@@ -555,12 +555,12 @@ import cern.jet.stat.tdouble.quantile.DoubleQuantileFinderFactory;
  * would be the original data sequence, we can determine quantiles in main
  * memory.
  * <p>
- * Now, the whole thing boils down to the question of: Can we choose <tt>b</tt>
- * and <tt>k</tt> (the number of buffers and the buffer size) such that
- * <tt>b*k</tt> is minimized, yet quantiles determined upon the block are
+ * Now, the whole thing boils down to the question of: Can we choose <code>b</code>
+ * and <code>k</code> (the number of buffers and the buffer size) such that
+ * <code>b*k</code> is minimized, yet quantiles determined upon the block are
  * <i>guaranteed</i> to be away from the true quantiles no more than some
- * <tt>epsilon</tt>? It turns out, we can. It also turns out that the required
- * main memory block size <tt>n=b*k</tt> is usually moderate (see the table
+ * <code>epsilon</code>? It turns out, we can. It also turns out that the required
+ * main memory block size <code>n=b*k</code> is usually moderate (see the table
  * above).
  * <p>
  * The theme can be combined with random sampling to further reduce main memory
@@ -681,8 +681,9 @@ public class QuantileDoubleBin1D extends MightyStaticDoubleBin1D {
 
     /**
      * Equivalent to
-     * <tt>new QuantileBin1D(false, Long.MAX_VALUE, epsilon, 0.001, 10000, new cern.jet.random.engine.DRand(new java.util.Date())</tt>
+     * <code>new QuantileBin1D(false, Long.MAX_VALUE, epsilon, 0.001, 10000, new cern.jet.random.engine.DRand(new java.util.Date())</code>
      * .
+     * @param epsilon
      */
     public QuantileDoubleBin1D(double epsilon) {
         this(false, Long.MAX_VALUE, epsilon, 0.001, 10000, new cern.jet.random.tdouble.engine.DRand(
@@ -691,8 +692,14 @@ public class QuantileDoubleBin1D extends MightyStaticDoubleBin1D {
 
     /**
      * Equivalent to
-     * <tt>new QuantileBin1D(known_N, N, epsilon, delta, quantiles, randomGenerator, false, false, 2)</tt>
+     * <code>new QuantileBin1D(known_N, N, epsilon, delta, quantiles, randomGenerator, false, false, 2)</code>
      * .
+     * @param known_N
+     * @param randomGenerator
+     * @param N
+     * @param quantiles
+     * @param epsilon
+     * @param delta
      */
     public QuantileDoubleBin1D(boolean known_N, long N, double epsilon, double delta, int quantiles,
             DoubleRandomEngine randomGenerator) {
@@ -711,7 +718,7 @@ public class QuantileDoubleBin1D extends MightyStaticDoubleBin1D {
      * memory requirements. For example, if elements are selected from a
      * database and filled into histograms, it is usually not known in advance
      * how many elements are being filled, but one may know that at most
-     * <tt>S</tt> elements, the number of elements in the database, are filled.
+     * <code>S</code> elements, the number of elements in the database, are filled.
      * A third type of application knowns nothing at all about the number of
      * elements to be filled; from zero to infinitely many elements may actually
      * be filled. This method efficiently supports all three types of
@@ -722,34 +729,34 @@ public class QuantileDoubleBin1D extends MightyStaticDoubleBin1D {
      *            are to be computed is known or not.
      *            <p>
      * @param N
-     *            if <tt>known_N==true</tt>, the number of elements over which
-     *            quantiles are to be computed. if <tt>known_N==false</tt>, the
+     *            if <code>known_N==true</code>, the number of elements over which
+     *            quantiles are to be computed. if <code>known_N==false</code>, the
      *            upper limit on the number of elements over which quantiles are
      *            to be computed. In other words, the maximum number of elements
      *            ever to be added. If such an upper limit is a-priori unknown,
-     *            then set <tt>N = Long.MAX_VALUE</tt>.
+     *            then set <code>N = Long.MAX_VALUE</code>.
      *            <p>
      * @param epsilon
      *            the approximation error which is guaranteed not to be exceeded
-     *            (e.g. <tt>0.001</tt>) (<tt>0 &lt;= epsilon &lt;= 1</tt>). To
+     *            (e.g. <code>0.001</code>) (<code>0 &lt;= epsilon &lt;= 1</code>). To
      *            get exact rather than approximate quantiles, set
-     *            <tt>epsilon=0.0</tt>;
+     *            <code>epsilon=0.0</code>;
      *            <p>
      * @param delta
      *            the allowed probability that the actual approximation error
-     *            exceeds <tt>epsilon</tt> (e.g. 0.0001) (0 &lt;= delta &lt;=
-     *            1). To avoid probabilistic answers, set <tt>delta=0.0</tt>.
-     *            For example, <tt>delta = 0.0001</tt> is equivalent to a
-     *            confidence of <tt>99.99%</tt>.
+     *            exceeds <code>epsilon</code> (e.g. 0.0001) (0 &lt;= delta &lt;=
+     *            1). To avoid probabilistic answers, set <code>delta=0.0</code>.
+     *            For example, <code>delta = 0.0001</code> is equivalent to a
+     *            confidence of <code>99.99%</code>.
      *            <p>
      * @param quantiles
-     *            the number of quantiles to be computed (e.g. <tt>100</tt>) (
-     *            <tt>quantiles &gt;= 1</tt>). If unknown in advance, set this
-     *            number large, e.g. <tt>quantiles &gt;= 10000</tt>.
+     *            the number of quantiles to be computed (e.g. <code>100</code>) (
+     *            <code>quantiles &gt;= 1</code>). If unknown in advance, set this
+     *            number large, e.g. <code>quantiles &gt;= 10000</code>.
      *            <p>
      * @param randomGenerator
      *            a uniform random number generator. Set this parameter to
-     *            <tt>null</tt> to use a default generator seeded with the
+     *            <code>null</code> to use a default generator seeded with the
      *            current time.
      *            <p>
      *            The next three parameters specify additional capabilities
@@ -759,25 +766,25 @@ public class QuantileDoubleBin1D extends MightyStaticDoubleBin1D {
      *            <p>
      * @param hasSumOfLogarithms
      *            Tells whether {@link #sumOfLogarithms()} can return meaningful
-     *            results. Set this parameter to <tt>false</tt> if measures of
+     *            results. Set this parameter to <code>false</code> if measures of
      *            sum of logarithms, geometric mean and product are not
      *            required.
      *            <p>
      * @param hasSumOfInversions
      *            Tells whether {@link #sumOfInversions()} can return meaningful
-     *            results. Set this parameter to <tt>false</tt> if measures of
+     *            results. Set this parameter to <code>false</code> if measures of
      *            sum of inversions, harmonic mean and sumOfPowers(-1) are not
      *            required.
      *            <p>
      * @param maxOrderForSumOfPowers
-     *            The maximum order <tt>k</tt> for which
+     *            The maximum order <code>k</code> for which
      *            {@link #sumOfPowers(int)} can return meaningful results. Set
      *            this parameter to at least 3 if the skew is required, to at
      *            least 4 if the kurtosis is required. In general, if moments
      *            are required set this parameter at least as large as the
      *            largest required moment. This method always substitutes
-     *            <tt>Math.max(2,maxOrderForSumOfPowers)</tt> for the parameter
-     *            passed in. Thus, <tt>sumOfPowers(0..2)</tt> always returns
+     *            <code>Math.max(2,maxOrderForSumOfPowers)</code> for the parameter
+     *            passed in. Thus, <code>sumOfPowers(0..2)</code> always returns
      *            meaningful results.
      */
     public QuantileDoubleBin1D(boolean known_N, long N, double epsilon, double delta, int quantiles,
@@ -790,8 +797,8 @@ public class QuantileDoubleBin1D extends MightyStaticDoubleBin1D {
     }
 
     /**
-     * Adds the part of the specified list between indexes <tt>from</tt>
-     * (inclusive) and <tt>to</tt> (inclusive) to the receiver.
+     * Adds the part of the specified list between indexes <code>from</code>
+     * (inclusive) and <code>to</code> (inclusive) to the receiver.
      * 
      * @param list
      *            the list of which elements shall be added.
@@ -801,7 +808,7 @@ public class QuantileDoubleBin1D extends MightyStaticDoubleBin1D {
      *            the index of the last element to be added (inclusive).
      * @throws IndexOutOfBoundsException
      *             if
-     *             <tt>list.size()&gt;0 && (from&lt;0 || from&gt;to || to&gt;=list.size())</tt>
+     *             <code>list.size()&gt;0 &amp;&amp; (from&lt;0 || from&gt;to || to&gt;=list.size())</code>
      *             .
      */
 
@@ -859,6 +866,7 @@ public class QuantileDoubleBin1D extends MightyStaticDoubleBin1D {
 
     /**
      * Returns the median.
+     * @return 
      */
     public double median() {
         return quantile(0.5);
@@ -869,7 +877,7 @@ public class QuantileDoubleBin1D extends MightyStaticDoubleBin1D {
      * 
      * @param phi
      *            the percentage for which the quantile is to be computed. phi
-     *            must be in the interval <tt>(0.0,1.0]</tt>.
+     *            must be in the interval <code>(0.0,1.0]</code>.
      * @return the phi quantile element.
      */
     public synchronized double quantile(double phi) {
@@ -878,13 +886,13 @@ public class QuantileDoubleBin1D extends MightyStaticDoubleBin1D {
 
     /**
      * Returns how many percent of the elements contained in the receiver are
-     * <tt>&lt;= element</tt>. Does linear interpolation if the element is not
+     * <code>&lt;= element</code>. Does linear interpolation if the element is not
      * contained but lies in between two contained elements.
      * 
      * @param element
      *            the element to search for.
-     * @return the percentage <tt>phi</tt> of elements <tt>&lt;= element</tt> (
-     *         <tt>0.0 &lt;= phi &lt;=1.0)</tt>.
+     * @return the percentage <code>phi</code> of elements <code>&lt;= element</code> (
+     *         <code>0.0 &lt;= phi &lt;=1.0)</code>.
      */
     public synchronized double quantileInverse(double element) {
         return finder.phi(element);
@@ -897,8 +905,8 @@ public class QuantileDoubleBin1D extends MightyStaticDoubleBin1D {
      * 
      * @param phis
      *            the percentages for which quantiles are to be computed. Each
-     *            percentage must be in the interval <tt>(0.0,1.0]</tt>.
-     *            <tt>percentages</tt> must be sorted ascending.
+     *            percentage must be in the interval <code>(0.0,1.0]</code>.
+     *            <code>percentages</code> must be sorted ascending.
      * @return the quantiles.
      */
     public synchronized DoubleArrayList quantiles(cern.colt.list.tdouble.DoubleArrayList phis) {
@@ -907,7 +915,7 @@ public class QuantileDoubleBin1D extends MightyStaticDoubleBin1D {
 
     /**
      * Returns how many elements are contained in the range
-     * <tt>[minElement,maxElement]</tt>. Does linear interpolation if one or
+     * <code>[minElement,maxElement]</code>. Does linear interpolation if one or
      * both of the parameter elements are not contained. Returns exact or
      * approximate results, depending on the parametrization of this class or
      * subclasses.
@@ -933,11 +941,11 @@ public class QuantileDoubleBin1D extends MightyStaticDoubleBin1D {
      * bin only, those multiple bins would have <i>approximately</i> the same
      * statistics measures as the one's returned by this method.
      * <p>
-     * The <tt>split(...)</tt> methods are particularly well suited for
+     * The <code>split(...)</code> methods are particularly well suited for
      * real-time interactive rebinning (the famous "scrolling slider" effect).
      * <p>
      * Passing equi-distant percentages like
-     * <tt>(0.0, 0.2, 0.4, 0.6, 0.8, 1.0)</tt> into this method will yield bins
+     * <code>(0.0, 0.2, 0.4, 0.6, 0.8, 1.0)</code> into this method will yield bins
      * of an <i>equi-depth histogram</i>, i.e. a histogram with bin boundaries
      * adjusted such that each bin contains the same number of elements, in this
      * case 20% each. Equi-depth histograms can be useful if, for example, not
@@ -949,24 +957,24 @@ public class QuantileDoubleBin1D extends MightyStaticDoubleBin1D {
      * <p>
      * <b>Implementation:</b>
      * <p>
-     * The receiver is divided into <tt>s = percentages.size()-1</tt> intervals
-     * (bins). For each interval <tt>I</tt>, its minimum and maximum elements
+     * The receiver is divided into <code>s = percentages.size()-1</code> intervals
+     * (bins). For each interval <code>I</code>, its minimum and maximum elements
      * are determined based upon quantile computation. Further, each interval
-     * <tt>I</tt> is split into <tt>k</tt> equi-percent-distant subintervals
+     * <code>I</code> is split into <code>k</code> equi-percent-distant subintervals
      * (sub-bins). In other words, an interval is split into subintervals such
      * that each subinterval contains the same number of elements.
      * <p>
-     * For each subinterval <tt>S</tt>, its minimum and maximum are determined,
+     * For each subinterval <code>S</code>, its minimum and maximum are determined,
      * again, based upon quantile computation. They yield an approximate
-     * arithmetic mean <tt>am = (min+max)/2</tt> of the subinterval. A
+     * arithmetic mean <code>am = (min+max)/2</code> of the subinterval. A
      * subinterval is treated as if it would contain only elements equal to the
-     * mean <tt>am</tt>. Thus, if the subinterval contains, say, <tt>n</tt>
-     * elements, it is assumed to consist of <tt>n</tt> mean elements
-     * <tt>(am,am,...,am)</tt>. A subinterval's sum of elements, sum of squared
+     * mean <code>am</code>. Thus, if the subinterval contains, say, <code>n</code>
+     * elements, it is assumed to consist of <code>n</code> mean elements
+     * <code>(am,am,...,am)</code>. A subinterval's sum of elements, sum of squared
      * elements, sum of inversions, etc. are then approximated using such a
      * sequence of mean elements.
      * <p>
-     * Finally, the statistics measures of an interval <tt>I</tt> are computed
+     * Finally, the statistics measures of an interval <code>I</code> are computed
      * by summing up (integrating) the measures of its subintervals.
      * <p>
      * <b>Accuracy</b>:
@@ -976,10 +984,10 @@ public class QuantileDoubleBin1D extends MightyStaticDoubleBin1D {
      * exact or approximate quantiles, depending on the parameters used upon
      * instance construction. Objects of subclasses may <i>always</i> compute
      * exact quantiles, as is the case for {@link DynamicDoubleBin1D}. Most
-     * importantly for this class <tt>QuantileBin1D</tt>, a reasonably small
+     * importantly for this class <code>QuantileBin1D</code>, a reasonably small
      * epsilon (e.g. 0.01, perhaps 0.001) should be used upon instance
-     * construction. The confidence parameter <tt>delta</tt> is less important,
-     * you may find <tt>delta=0.00001</tt> appropriate. <br>
+     * construction. The confidence parameter <code>delta</code> is less important,
+     * you may find <code>delta=0.00001</code> appropriate. <br>
      * The larger the resolution, the smaller the approximation error, up to
      * some limit. Integrating over only a few subintervals per interval will
      * yield very crude approximations. If the resolution is set to a reasonably
@@ -989,23 +997,23 @@ public class QuantileDoubleBin1D extends MightyStaticDoubleBin1D {
      * given approximation guarantees should upon instance construction be
      * specified, so as to satisfy
      * <p>
-     * <tt>quantiles > resolution * (percentages.size()-1)</tt>
+     * <code>quantiles > resolution * (percentages.size()-1)</code>
      * <p>
      * <p>
      * <b>Example:</b>
      * <p>
-     * <tt>resolution=2, percentList = (0.0, 0.1, 0.2, 0.5, 0.9, 1.0)</tt> means
+     * <code>resolution=2, percentList = (0.0, 0.1, 0.2, 0.5, 0.9, 1.0)</code> means
      * the receiver is to be split into 5 bins: <br>
      * <ul>
-     * <li>bin 0 ranges from <tt>[0%..10%)</tt> and holds the smallest 10% of
+     * <li>bin 0 ranges from <code>[0%..10%)</code> and holds the smallest 10% of
      * the sorted elements.
-     * <li>bin 1 ranges from <tt>[10%..20%)</tt> and holds the next smallest 10%
+     * <li>bin 1 ranges from <code>[10%..20%)</code> and holds the next smallest 10%
      * of the sorted elements.
-     * <li>bin 2 ranges from <tt>[20%..50%)</tt> and holds the next smallest 30%
+     * <li>bin 2 ranges from <code>[20%..50%)</code> and holds the next smallest 30%
      * of the sorted elements.
-     * <li>bin 3 ranges from <tt>[50%..90%)</tt> and holds the next smallest 40%
+     * <li>bin 3 ranges from <code>[50%..90%)</code> and holds the next smallest 40%
      * of the sorted elements.
-     * <li>bin 4 ranges from <tt>[90%..100%)</tt> and holds the largest 10% of
+     * <li>bin 4 ranges from <code>[90%..100%)</code> and holds the largest 10% of
      * the sorted elements.
      * </ul>
      * <p>
@@ -1014,50 +1022,50 @@ public class QuantileDoubleBin1D extends MightyStaticDoubleBin1D {
      * integrated measures over 2 subbins, each containing the same amount of
      * elements:
      * <ul>
-     * <li>bin 0 has a subbin ranging from <tt>[ 0%.. 5%)</tt> and a subbin
-     * ranging from <tt>[ 5%..10%)</tt>.
-     * <li>bin 1 has a subbin ranging from <tt>[10%..15%)</tt> and a subbin
-     * ranging from <tt>[15%..20%)</tt>.
-     * <li>bin 2 has a subbin ranging from <tt>[20%..35%)</tt> and a subbin
-     * ranging from <tt>[35%..50%)</tt>.
-     * <li>bin 3 has a subbin ranging from <tt>[50%..70%)</tt> and a subbin
-     * ranging from <tt>[70%..90%)</tt>.
-     * <li>bin 4 has a subbin ranging from <tt>[90%..95%)</tt> and a subbin
-     * ranging from <tt>[95%..100%)</tt>.
+     * <li>bin 0 has a subbin ranging from <code>[ 0%.. 5%)</code> and a subbin
+     * ranging from <code>[ 5%..10%)</code>.
+     * <li>bin 1 has a subbin ranging from <code>[10%..15%)</code> and a subbin
+     * ranging from <code>[15%..20%)</code>.
+     * <li>bin 2 has a subbin ranging from <code>[20%..35%)</code> and a subbin
+     * ranging from <code>[35%..50%)</code>.
+     * <li>bin 3 has a subbin ranging from <code>[50%..70%)</code> and a subbin
+     * ranging from <code>[70%..90%)</code>.
+     * <li>bin 4 has a subbin ranging from <code>[90%..95%)</code> and a subbin
+     * ranging from <code>[95%..100%)</code>.
      * </ul>
      * <p>
      * Lets concentrate on the subbins of bin 0.
      * <ul>
-     * <li>Assume the subbin <tt>A=[0%..5%)</tt> has a minimum of <tt>300</tt>
-     * and a maximum of <tt>350</tt> (0% of all elements are less than 300, 5%
+     * <li>Assume the subbin <code>A=[0%..5%)</code> has a minimum of <code>300</code>
+     * and a maximum of <code>350</code> (0% of all elements are less than 300, 5%
      * of all elements are less than 350).
-     * <li>Assume the subbin <tt>B=[5%..10%)</tt> has a minimum of <tt>350</tt>
-     * and a maximum of <tt>550</tt> (5% of all elements are less than 350, 10%
+     * <li>Assume the subbin <code>B=[5%..10%)</code> has a minimum of <code>350</code>
+     * and a maximum of <code>550</code> (5% of all elements are less than 350, 10%
      * of all elements are less than 550).
      * </ul>
      * <p>
-     * Assume the entire data set consists of <tt>N=100</tt> elements.
+     * Assume the entire data set consists of <code>N=100</code> elements.
      * <ul>
-     * <li>Then subbin A has an approximate mean of <tt>300+350 / 2 = 325</tt>,
-     * a size of <tt>N*(5%-0%) = 100*5% = 5</tt> elements, an approximate sum of
-     * <tt>325 * 100*5% = 1625</tt>, an approximate sum of squares of
-     * <tt>325<sup>2</sup> * 100*5% = 528125</tt>, an approximate sum of
-     * inversions of <tt>(1.0/325) * 100*5% = 0.015</tt>, etc.
+     * <li>Then subbin A has an approximate mean of <code>300+350 / 2 = 325</code>,
+     * a size of <code>N*(5%-0%) = 100*5% = 5</code> elements, an approximate sum of
+     * <code>325 * 100*5% = 1625</code>, an approximate sum of squares of
+     * <code>325<sup>2</sup> * 100*5% = 528125</code>, an approximate sum of
+     * inversions of <code>(1.0/325) * 100*5% = 0.015</code>, etc.
      * <li>Analogously, subbin B has an approximate mean of
-     * <tt>350+550 / 2 = 450</tt>, a size of <tt>N*(10%-5%) = 100*5% = 5</tt>
-     * elements, an approximate sum of <tt>450 * 100*5% = 2250</tt>, an
-     * approximate sum of squares of <tt>450<sup>2</sup> * 100*5% = 1012500</tt>
-     * , an approximate sum of inversions of <tt>(1.0/450) * 100*5% = 0.01</tt>,
+     * <code>350+550 / 2 = 450</code>, a size of <code>N*(10%-5%) = 100*5% = 5</code>
+     * elements, an approximate sum of <code>450 * 100*5% = 2250</code>, an
+     * approximate sum of squares of <code>450<sup>2</sup> * 100*5% = 1012500</code>
+     * , an approximate sum of inversions of <code>(1.0/450) * 100*5% = 0.01</code>,
      * etc.
      * </ul>
      * <p>
      * Finally, the statistics measures of bin 0 are computed by summing up
      * (integrating) the measures of its subintervals: Bin 0 has a size of
-     * <tt>N*(10%-0%)=10</tt> elements (we knew that already), sum of
-     * <tt>1625+2250=3875</tt>, sum of squares of
-     * <tt>528125+1012500=1540625</tt>, sum of inversions of
-     * <tt>0.015+0.01=0.025</tt>, etc. From these follow other measures such as
-     * <tt>mean=3875/10=387.5, rms = sqrt(1540625 / 10)=392.5</tt>, etc. The
+     * <code>N*(10%-0%)=10</code> elements (we knew that already), sum of
+     * <code>1625+2250=3875</code>, sum of squares of
+     * <code>528125+1012500=1540625</code>, sum of inversions of
+     * <code>0.015+0.01=0.025</code>, etc. From these follow other measures such as
+     * <code>mean=3875/10=387.5, rms = sqrt(1540625 / 10)=392.5</code>, etc. The
      * other bins are computes analogously.
      * 
      * @param percentages
@@ -1065,6 +1073,7 @@ public class QuantileDoubleBin1D extends MightyStaticDoubleBin1D {
      *            split.
      * @param k
      *            the desired number of subintervals per interval.
+     * @return 
      */
     public synchronized MightyStaticDoubleBin1D[] splitApproximately(DoubleArrayList percentages, int k) {
         /*
@@ -1207,6 +1216,7 @@ public class QuantileDoubleBin1D extends MightyStaticDoubleBin1D {
      *            an axis defining interval boundaries.
      * @param k
      *            the desired number of subintervals per interval.
+     * @return 
      */
     public synchronized MightyStaticDoubleBin1D[] splitApproximately(hep.aida.tdouble.DoubleIAxis axis, int k) {
         DoubleArrayList percentages = new DoubleArrayList(new hep.aida.tdouble.ref.DoubleConverter().edges(axis));
@@ -1221,6 +1231,7 @@ public class QuantileDoubleBin1D extends MightyStaticDoubleBin1D {
 
     /**
      * Returns a String representation of the receiver.
+     * @return 
      */
 
     public synchronized String toString() {

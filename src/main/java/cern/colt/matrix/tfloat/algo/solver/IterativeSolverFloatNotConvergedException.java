@@ -72,6 +72,7 @@ public class IterativeSolverFloatNotConvergedException extends FloatNotConverged
 
     /**
      * Returns final computed residual
+     * @return 
      */
     public float getResidual() {
         return r;
@@ -79,6 +80,7 @@ public class IterativeSolverFloatNotConvergedException extends FloatNotConverged
 
     /**
      * Gets the number of iterations used when this exception was thrown
+     * @return 
      */
     public int getIterations() {
         return iterations;

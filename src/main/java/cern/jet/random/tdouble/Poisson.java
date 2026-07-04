@@ -19,10 +19,10 @@ import cern.jet.stat.tdouble.Probability;
  * HREF="http://www.statsoft.com/textbook/glosp.html#Poisson Distribution">
  * animated definition</A>.
  * <p>
- * <tt>p(k) = (mean^k / k!) * exp(-mean)</tt> for <tt>k &gt;= 0</tt>.
+ * <code>p(k) = (mean^k / k!) * exp(-mean)</code> for <code>k &gt;= 0</code>.
  * <p>
- * Valid parameter ranges: <tt>mean &gt; 0</tt>. Note: if
- * <tt>mean &lt;= 0.0</tt> then always returns zero.
+ * Valid parameter ranges: <code>mean &gt; 0</code>. Note: if
+ * <code>mean &lt;= 0.0</code> then always returns zero.
  * <p>
  * Instance methods operate on a user supplied uniform random number generator;
  * they are unsynchronized.
@@ -31,7 +31,7 @@ import cern.jet.stat.tdouble.Probability;
  * <p>
  * <b>Implementation:</b> High performance implementation. Patchwork
  * Rejection/Inversion method.
- * <dt>This is a port of <tt>pprsc.c</tt> from the <A
+ * <dt>This is a port of <code>pprsc.c</code> from the <A
  * HREF="http://www.cis.tu-graz.ac.at/stat/stadl/random.html">C-RAND /
  * WIN-RAND</A> library. C-RAND's implementation, in turn, is based upon
  * <p>
@@ -101,6 +101,8 @@ public class Poisson extends AbstractDiscreteDistribution {
 
     /**
      * Constructs a poisson distribution. Example: mean=1.0.
+     * @param mean
+     * @param randomGenerator
      */
     public Poisson(double mean, DoubleRandomEngine randomGenerator) {
         setRandomGenerator(randomGenerator);
@@ -109,6 +111,8 @@ public class Poisson extends AbstractDiscreteDistribution {
 
     /**
      * Returns the cumulative distribution function.
+     * @param k
+     * @return 
      */
     public double cdf(int k) {
         return Probability.poisson(k, this.mean);
@@ -135,6 +139,7 @@ public class Poisson extends AbstractDiscreteDistribution {
 
     /**
      * Returns a random number from the distribution.
+     * @return 
      */
 
     public int nextInt() {
@@ -144,6 +149,8 @@ public class Poisson extends AbstractDiscreteDistribution {
     /**
      * Returns a random number from the distribution; bypasses the internal
      * state.
+     * @param theMean
+     * @return 
      */
     public int nextInt(double theMean) {
         /***********************************************************************
@@ -360,6 +367,8 @@ public class Poisson extends AbstractDiscreteDistribution {
 
     /**
      * Returns the probability distribution function.
+     * @param k
+     * @return 
      */
     public double pdf(int k) {
         return Math.exp(k * Math.log(this.mean) - DoubleArithmetic.logFactorial(k) - this.mean);
@@ -371,6 +380,7 @@ public class Poisson extends AbstractDiscreteDistribution {
 
     /**
      * Sets the mean.
+     * @param mean
      */
     public void setMean(double mean) {
         this.mean = mean;
@@ -378,6 +388,8 @@ public class Poisson extends AbstractDiscreteDistribution {
 
     /**
      * Returns a random number from the distribution with the given mean.
+     * @param mean
+     * @return 
      */
     public static int staticNextInt(double mean) {
         synchronized (shared) {
@@ -388,6 +400,7 @@ public class Poisson extends AbstractDiscreteDistribution {
 
     /**
      * Returns a String representation of the receiver.
+     * @return 
      */
 
     public String toString() {

@@ -38,10 +38,10 @@ DoubleMatrix1DComparator comp = new DoubleMatrix1DComparator() {
 sorted = cern.colt.matrix.tdouble.algo.Sorting.quickSort(matrix,comp);
 </pre>
 This is certainly not most efficient since row sums are recomputed many times 
-(<tt>2*rows*log(rows)</tt> times, on average), but will suffice as an example. 
-An efficient app will precompute the sums and use <tt>cern.colt.GenericSorting</tt> 
+(<code>2*rows*log(rows)</code> times, on average), but will suffice as an example. 
+An efficient app will precompute the sums and use <code>cern.colt.GenericSorting</code> 
 to sort the matrix. In general, if comparisons are expensive, precomputation boots 
-performance by a factor <tt>2*log(rows)</tt>. 
+performance by a factor <code>2*log(rows)</code>. 
 <p> Recently, 
   two methods that do exactly that were added to <a href="../doublealgo/DoubleSorting.html">cern.colt.matrix.tdouble.algo.DoubleSorting</a>. 
   One of them works by filling a row into a so-called "bin", which is a multi-set 

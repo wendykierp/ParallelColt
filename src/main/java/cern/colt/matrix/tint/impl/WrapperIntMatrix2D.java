@@ -16,7 +16,7 @@ import cern.colt.matrix.tint.IntMatrix2D;
 import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
 
 /**
- * 2-d matrix holding <tt>int</tt> elements; either a view wrapping another
+ * 2-d matrix holding <code>int</code> elements; either a view wrapping another
  * matrix or a matrix whose views are wrappers.
  * 
  * @author wolfgang.hoschek@cern.ch

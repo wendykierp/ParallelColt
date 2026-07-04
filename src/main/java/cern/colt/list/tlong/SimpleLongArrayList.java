@@ -94,10 +94,11 @@ public class SimpleLongArrayList extends AbstractLongList {
      * parameters this method may return invalid elements without throwing any
      * exception! <b>You should only use this method when you are absolutely
      * sure that the index is within bounds.</b> Precondition (unchecked):
-     * <tt>index &gt;= 0 && index &lt; size()</tt>.
+     * <code>index &gt;= 0 &amp;&amp; index &lt; size()</code>.
      * 
      * @param index
      *            index of element to return.
+     * @return 
      */
 
     protected long getQuick(int index) {
@@ -110,7 +111,7 @@ public class SimpleLongArrayList extends AbstractLongList {
      * with invalid parameters this method may access invalid indexes without
      * throwing any exception! <b>You should only use this method when you are
      * absolutely sure that the index is within bounds.</b> Precondition
-     * (unchecked): <tt>index &gt;= 0 && index &lt; size()</tt>.
+     * (unchecked): <code>index &gt;= 0 &amp;&amp; index &lt; size()</code>.
      * 
      * @param index
      *            index of element to replace.

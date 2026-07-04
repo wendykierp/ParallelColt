@@ -16,22 +16,22 @@ import cern.colt.matrix.tfloat.algo.DenseFloatAlgebra;
 import cern.colt.matrix.tfloat.algo.FloatProperty;
 
 /**
- * Eigenvalues and eigenvectors of a real matrix <tt>A</tt>.
+ * Eigenvalues and eigenvectors of a real matrix <code>A</code>.
  * <P>
- * If <tt>A</tt> is symmetric, then <tt>A = V*D*V'</tt> where the eigenvalue matrix
- * <tt>D</tt> is diagonal and the eigenvector matrix <tt>V</tt> is orthogonal.
- * I.e. <tt>A = V.mult(D.mult(transpose(V)))</tt> and
- * <tt>V.mult(transpose(V))</tt> equals the identity matrix.
+ * If <code>A</code> is symmetric, then <code>A = V*D*V'</code> where the eigenvalue matrix
+ * <code>D</code> is diagonal and the eigenvector matrix <code>V</code> is orthogonal.
+ * I.e. <code>A = V.mult(D.mult(transpose(V)))</code> and
+ * <code>V.mult(transpose(V))</code> equals the identity matrix.
  * 
  * <P>
- * If <tt>A</tt> is not symmetric, then the eigenvalue matrix <tt>D</tt> is
+ * If <code>A</code> is not symmetric, then the eigenvalue matrix <code>D</code> is
  * block diagonal with the real eigenvalues in 1-by-1 blocks and any complex
- * eigenvalues, <tt>lambda + i*mu</tt>, in 2-by-2 blocks,
- * <tt>[lambda, mu; -mu, lambda]</tt>. The columns of <tt>V</tt> represent the
- * eigenvectors in the sense that <tt>A*V = V*D</tt>, i.e.
- * <tt>A.mult(V) equals V.mult(D)</tt>. The matrix <tt>V</tt> may be badly
+ * eigenvalues, <code>lambda + i*mu</code>, in 2-by-2 blocks,
+ * <code>[lambda, mu; -mu, lambda]</code>. The columns of <code>V</code> represent the
+ * eigenvectors in the sense that <code>A*V = V*D</code>, i.e.
+ * <code>A.mult(V) equals V.mult(D)</code>. The matrix <code>V</code> may be badly
  * conditioned, or even singular, so the validity of the equation
- * <tt>A = V*D*inverse(V)</tt> depends upon <tt>Algebra.cond(V)</tt>.
+ * <code>A = V*D*inverse(V)</code> depends upon <code>Algebra.cond(V)</code>.
  */
 public class DenseFloatEigenvalueDecomposition implements java.io.Serializable {
     static final long serialVersionUID = 1020;
@@ -91,7 +91,7 @@ public class DenseFloatEigenvalueDecomposition implements java.io.Serializable {
      * @param A
      *            A square matrix.
      * @throws IllegalArgumentException
-     *             if <tt>A</tt> is not square.
+     *             if <code>A</code> is not square.
      */
     public DenseFloatEigenvalueDecomposition(FloatMatrix2D A) {
         FloatProperty.DEFAULT.checkSquare(A);
@@ -150,9 +150,9 @@ public class DenseFloatEigenvalueDecomposition implements java.io.Serializable {
     }
 
     /**
-     * Returns the block diagonal eigenvalue matrix, <tt>D</tt>.
+     * Returns the block diagonal eigenvalue matrix, <code>D</code>.
      * 
-     * @return <tt>D</tt>
+     * @return <code>D</code>
      */
     public FloatMatrix2D getD() {
         float[][] D = new float[n][n];
@@ -189,9 +189,9 @@ public class DenseFloatEigenvalueDecomposition implements java.io.Serializable {
     }
 
     /**
-     * Returns the eigenvector matrix, <tt>V</tt>
+     * Returns the eigenvector matrix, <code>V</code>
      * 
-     * @return <tt>V</tt>
+     * @return <code>V</code>
      */
     public FloatMatrix2D getV() {
         return FloatFactory2D.dense.make(V);
@@ -739,6 +739,7 @@ public class DenseFloatEigenvalueDecomposition implements java.io.Serializable {
      * 	 trace         : 0
      * 
      * </pre>
+     * @return 
      */
 
     public String toString() {

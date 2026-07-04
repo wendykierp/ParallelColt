@@ -12,7 +12,7 @@ import cern.colt.list.tboolean.BooleanArrayList;
 
 /**
  * Fixed sized (non resizable) streaming buffer connected to a target
- * <tt>BooleanBuffer3DConsumer</tt> to which data is automatically flushed upon
+ * <code>BooleanBuffer3DConsumer</code> to which data is automatically flushed upon
  * buffer overflow.
  * 
  * @author wolfgang.hoschek@cern.ch

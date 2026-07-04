@@ -18,7 +18,7 @@ import cern.colt.matrix.tfcomplex.FComplexMatrix2D;
 import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
 
 /**
- * Dense 2-d matrix holding <tt>complex</tt> elements.<br>
+ * Dense 2-d matrix holding <code>complex</code> elements.<br>
  * <b>Implementation:</b>
  * <p>
  * This data structure allows to store more than 2^31 elements. Internally holds

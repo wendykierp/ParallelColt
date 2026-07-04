@@ -18,18 +18,18 @@
   <tr> 
     <td width="19%">elementwise scaling</td>
     <td width="35%">assign(f) where f is one of {F.mult(a),F.div(a)}</td>
-    <td width="46%"><tt>x[i] = x[i] {*,/} a<br>
-      x[i,j] = x[i,j] {*,/} a</tt></td>
+    <td width="46%"><code>x[i] = x[i] {*,/} a<br>
+      x[i,j] = x[i,j] {*,/} a</code></td>
   </tr>
   <tr> 
     <td width="19%">elementwise scaling</td>
     <td width="35%">assign(y,f) where f is one of {F.plus,F.minus, F.mult,F.div, 
       F.plusMult(a),F.minusMult(a)}</td>
-    <td width="46%"><tt>x[i] = x[i] {+,-,*,/} y[i]<br>
+    <td width="46%"><code>x[i] = x[i] {+,-,*,/} y[i]<br>
       x[i] = x[i] {+,-} y[i] {*,/} a<br>
       <br>
-      </tt><tt>x[i,j] = x[i,j] {+,-,*,/} y[i,j]<br>
-      x[i,j] = x[i,j] {+,-} y[i,j] {*,/} a</tt></td>
+      </code><code>x[i,j] = x[i,j] {+,-,*,/} y[i,j]<br>
+      x[i,j] = x[i,j] {+,-} y[i,j] {*,/} a</code></td>
   </tr>
 </table>
 <p>Usually, assign operations are heavily optimized for function objects implementing 
@@ -66,8 +66,8 @@ x.assign(y, F.minusMult(1/a)); // x[i,j] = x[i,j] - y[i,j]/a
 <h2>Transformation over one matrix </h2>
 <p>To prepare with, let's construct a 1-d matrix: 
 <pre>double[] v1 = {0, 1, 2, 3}; <br>DoubleMatrix1D x = new DenseDoubleMatrix1D(v1); </pre>
-<p>Using a <tt>mult</tt> function object, we multiply the matrix with a scalar 
-  <tt>c</tt> 
+<p>Using a <code>mult</code> function object, we multiply the matrix with a scalar 
+  <code>c</code> 
 <pre>// x[i] = x[i] * c<br>double c = 2;<br>x.assign(cern.jet.math.Functions.mult(c));
 System.out.println(x);
 --&gt; 0 2 4 6</pre>
@@ -78,7 +78,7 @@ System.out.println(x);
    }
 ); 
 </pre>
-<p>Similarly, the <tt>sin</tt> function object is used to transform the matrix 
+<p>Similarly, the <code>sin</code> function object is used to transform the matrix 
   to hold in each cell the sine of the former corresponding cell value: 
 <pre>// set each cell to its sine<br>System.out.println(x.assign(cern.jet.math.Functions.sin));
 
@@ -97,14 +97,14 @@ System.out.println(x);
 DoubleMatrix1D x = new DenseDoubleMatrix1D(v1);
 DoubleMatrix1D y = new DenseDoubleMatrix1D(v2);
 </pre>
-<p><b><tt>x = x<sup>y</sup> &lt;==&gt; x[i] = x[i]<sup>y[i]</sup></tt></b> <b><tt> 
-  for all i</tt></b> 
-<p>A prefabricated <tt>pow</tt> function object is used to compute the power transformation:</p>
+<p><b><code>x = x<sup>y</sup> &lt;==&gt; x[i] = x[i]<sup>y[i]</sup></code></b> <b><code> 
+  for all i</code></b> 
+<p>A prefabricated <code>pow</code> function object is used to compute the power transformation:</p>
 <pre>// x[i] = Math.pow(x[i], y[i])
 System.out.println(x.assign(y, cern.jet.math.Functions.pow));
 --> 1 1 16 729
 </pre>
-<p>A prefabricated <tt>mult</tt> function does something similar:</p>
+<p>A prefabricated <code>mult</code> function does something similar:</p>
 <pre>// x[i] = x[i] * y[i]<br>System.out.println(x.assign(y, cern.jet.math.Functions.mult));
 --> 0 2 8 18
 </pre>

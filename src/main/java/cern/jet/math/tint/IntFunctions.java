@@ -29,13 +29,13 @@ public class IntFunctions extends Object {
      * Little trick to allow for "aliasing", that is, renaming this class.
      * Writing code like
      * <p>
-     * <tt>IntFunctions.chain(IntFunctions.plus,IntFunctions.mult(3),IntFunctions.chain(IntFunctions.square,IntFunctions.div(2)));</tt>
+     * <code>IntFunctions.chain(IntFunctions.plus,IntFunctions.mult(3),IntFunctions.chain(IntFunctions.square,IntFunctions.div(2)));</code>
      * <p>
      * is a bit awkward, to say the least. Using the aliasing you can instead
      * write
      * <p>
-     * <tt>IntFunctions F = IntFunctions.longFunctions; <br>
-    F.chain(F.plus,F.mult(3),F.chain(F.square,F.div(2)));</tt>
+     * <code>IntFunctions F = IntFunctions.longFunctions; <br>
+    F.chain(F.plus,F.mult(3),F.chain(F.square,F.div(2)));</code>
      * <p>
      */
     public static final IntFunctions intFunctions = new IntFunctions();
@@ -44,7 +44,7 @@ public class IntFunctions extends Object {
      * <H3>Unary functions</H3>
      **************************************************************************/
     /**
-     * Function that returns <tt>Math.abs(a) == (a < 0) ? -a : a</tt>.
+     * Function that returns <code>Math.abs(a) == (a < 0) ? -a : a</code>.
      */
     public static final IntFunction abs = new IntFunction() {
         public final int apply(int a) {
@@ -53,7 +53,7 @@ public class IntFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a--</tt>.
+     * Function that returns <code>a--</code>.
      */
     public static final IntFunction dec = new IntFunction() {
         public final int apply(int a) {
@@ -62,7 +62,7 @@ public class IntFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>(int) Arithmetic.factorial(a)</tt>.
+     * Function that returns <code>(int) Arithmetic.factorial(a)</code>.
      */
     public static final IntFunction factorial = new IntFunction() {
         public final int apply(int a) {
@@ -80,7 +80,7 @@ public class IntFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a++</tt>.
+     * Function that returns <code>a++</code>.
      */
     public static final IntFunction inc = new IntFunction() {
         public final int apply(int a) {
@@ -89,7 +89,7 @@ public class IntFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>-a</tt>.
+     * Function that returns <code>-a</code>.
      */
     public static final IntFunction neg = new IntFunction() {
         public final int apply(int a) {
@@ -98,7 +98,7 @@ public class IntFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>~a</tt>.
+     * Function that returns <code>~a</code>.
      */
     public static final IntFunction not = new IntFunction() {
         public final int apply(int a) {
@@ -107,7 +107,7 @@ public class IntFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a < 0 ? -1 : a > 0 ? 1 : 0</tt>.
+     * Function that returns <code>a < 0 ? -1 : a > 0 ? 1 : 0</code>.
      */
     public static final IntFunction sign = new IntFunction() {
         public final int apply(int a) {
@@ -116,7 +116,7 @@ public class IntFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a * a</tt>.
+     * Function that returns <code>a * a</code>.
      */
     public static final IntFunction square = new IntFunction() {
         public final int apply(int a) {
@@ -129,7 +129,7 @@ public class IntFunctions extends Object {
      **************************************************************************/
 
     /**
-     * Function that returns <tt>a & b</tt>.
+     * Function that returns <code>a & b</code>.
      */
     public static final IntIntFunction and = new IntIntFunction() {
         public final int apply(int a, int b) {
@@ -138,7 +138,7 @@ public class IntFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a < b ? -1 : a > b ? 1 : 0</tt>.
+     * Function that returns <code>a < b ? -1 : a > b ? 1 : 0</code>.
      */
     public static final IntIntFunction compare = new IntIntFunction() {
         public final int apply(int a, int b) {
@@ -147,7 +147,7 @@ public class IntFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a / b</tt>.
+     * Function that returns <code>a / b</code>.
      */
     public static final IntIntFunction div = new IntIntFunction() {
         public final int apply(int a, int b) {
@@ -156,7 +156,7 @@ public class IntFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>-(a / b)</tt>.
+     * Function that returns <code>-(a / b)</code>.
      */
     public static final IntIntFunction divNeg = new IntIntFunction() {
         public final int apply(int a, int b) {
@@ -165,7 +165,7 @@ public class IntFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a == b ? 1 : 0</tt>.
+     * Function that returns <code>a == b ? 1 : 0</code>.
      */
     public static final IntIntFunction equals = new IntIntFunction() {
         public final int apply(int a, int b) {
@@ -174,7 +174,7 @@ public class IntFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a == b</tt>.
+     * Function that returns <code>a == b</code>.
      */
     public static final IntIntProcedure isEqual = new IntIntProcedure() {
         public final boolean apply(int a, int b) {
@@ -183,7 +183,7 @@ public class IntFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a < b</tt>.
+     * Function that returns <code>a < b</code>.
      */
     public static final IntIntProcedure isLess = new IntIntProcedure() {
         public final boolean apply(int a, int b) {
@@ -192,7 +192,7 @@ public class IntFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a > b</tt>.
+     * Function that returns <code>a > b</code>.
      */
     public static final IntIntProcedure isGreater = new IntIntProcedure() {
         public final boolean apply(int a, int b) {
@@ -201,7 +201,7 @@ public class IntFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>Math.max(a,b)</tt>.
+     * Function that returns <code>Math.max(a,b)</code>.
      */
     public static final IntIntFunction max = new IntIntFunction() {
         public final int apply(int a, int b) {
@@ -210,7 +210,7 @@ public class IntFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>Math.min(a,b)</tt>.
+     * Function that returns <code>Math.min(a,b)</code>.
      */
     public static final IntIntFunction min = new IntIntFunction() {
         public final int apply(int a, int b) {
@@ -219,7 +219,7 @@ public class IntFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a - b</tt>.
+     * Function that returns <code>a - b</code>.
      */
     public static final IntIntFunction minus = new IntIntFunction() {
         public final int apply(int a, int b) {
@@ -228,7 +228,7 @@ public class IntFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a % b</tt>.
+     * Function that returns <code>a % b</code>.
      */
     public static final IntIntFunction mod = new IntIntFunction() {
         public final int apply(int a, int b) {
@@ -237,7 +237,7 @@ public class IntFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a * b</tt>.
+     * Function that returns <code>a * b</code>.
      */
     public static final IntIntFunction mult = new IntIntFunction() {
         public final int apply(int a, int b) {
@@ -246,7 +246,7 @@ public class IntFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>-(a * b)</tt>.
+     * Function that returns <code>-(a * b)</code>.
      */
     public static final IntIntFunction multNeg = new IntIntFunction() {
         public final int apply(int a, int b) {
@@ -255,7 +255,7 @@ public class IntFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a * b^2</tt>.
+     * Function that returns <code>a * b^2</code>.
      */
     public static final IntIntFunction multSquare = new IntIntFunction() {
         public final int apply(int a, int b) {
@@ -264,7 +264,7 @@ public class IntFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a | b</tt>.
+     * Function that returns <code>a | b</code>.
      */
     public static final IntIntFunction or = new IntIntFunction() {
         public final int apply(int a, int b) {
@@ -273,7 +273,7 @@ public class IntFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a + b</tt>.
+     * Function that returns <code>a + b</code>.
      */
     public static final IntIntFunction plus = new IntIntFunction() {
         public final int apply(int a, int b) {
@@ -282,7 +282,7 @@ public class IntFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>Math.abs(a) + Math.abs(b)</tt>.
+     * Function that returns <code>Math.abs(a) + Math.abs(b)</code>.
      */
     public static final IntIntFunction plusAbs = new IntIntFunction() {
         public final int apply(int a, int b) {
@@ -291,7 +291,7 @@ public class IntFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>(int) Math.pow(a,b)</tt>.
+     * Function that returns <code>(int) Math.pow(a,b)</code>.
      */
     public static final IntIntFunction pow = new IntIntFunction() {
         public final int apply(int a, int b) {
@@ -300,7 +300,7 @@ public class IntFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a << b</tt>.
+     * Function that returns <code>a << b</code>.
      */
     public static final IntIntFunction shiftLeft = new IntIntFunction() {
         public final int apply(int a, int b) {
@@ -309,7 +309,7 @@ public class IntFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a >> b</tt>.
+     * Function that returns <code>a >> b</code>.
      */
     public static final IntIntFunction shiftRightSigned = new IntIntFunction() {
         public final int apply(int a, int b) {
@@ -318,7 +318,7 @@ public class IntFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a >>> b</tt>.
+     * Function that returns <code>a >>> b</code>.
      */
     public static final IntIntFunction shiftRightUnsigned = new IntIntFunction() {
         public final int apply(int a, int b) {
@@ -327,7 +327,7 @@ public class IntFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a ^ b</tt>.
+     * Function that returns <code>a ^ b</code>.
      */
     public static final IntIntFunction xor = new IntIntFunction() {
         public final int apply(int a, int b) {
@@ -343,8 +343,10 @@ public class IntFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a & b</tt>. <tt>a</tt> is a
-     * variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a & b</code>. <code>a</code> is a
+     * variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static IntFunction and(final int b) {
         return new IntFunction() {
@@ -355,8 +357,11 @@ public class IntFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>(from<=a && a<=to) ? 1 : 0</tt>.
-     * <tt>a</tt> is a variable, <tt>from</tt> and <tt>to</tt> are fixed.
+     * Constructs a function that returns <code>(from<=a && a<=to) ? 1 : 0</code>.
+     * <code>a</code> is a variable, <code>from</code> and <code>to</code> are fixed.
+     * @param from
+     * @param to
+     * @return 
      */
     public static IntFunction between(final int from, final int to) {
         return new IntFunction() {
@@ -368,13 +373,14 @@ public class IntFunctions extends Object {
 
     /**
      * Constructs a unary function from a binary function with the first operand
-     * (argument) fixed to the given constant <tt>c</tt>. The second operand is
+     * (argument) fixed to the given constant <code>c</code>. The second operand is
      * variable (free).
      * 
      * @param function
      *            a binary function taking operands in the form
-     *            <tt>function.apply(c,var)</tt>.
-     * @return the unary function <tt>function(c,var)</tt>.
+     *            <code>function.apply(c,var)</code>.
+     * @param c
+     * @return the unary function <code>function(c,var)</code>.
      */
     public static IntFunction bindArg1(final IntIntFunction function, final int c) {
         return new IntFunction() {
@@ -386,13 +392,14 @@ public class IntFunctions extends Object {
 
     /**
      * Constructs a unary function from a binary function with the second
-     * operand (argument) fixed to the given constant <tt>c</tt>. The first
+     * operand (argument) fixed to the given constant <code>c</code>. The first
      * operand is variable (free).
      * 
      * @param function
      *            a binary function taking operands in the form
-     *            <tt>function.apply(var,c)</tt>.
-     * @return the unary function <tt>function(var,c)</tt>.
+     *            <code>function.apply(var,c)</code>.
+     * @param c
+     * @return the unary function <code>function(var,c)</code>.
      */
     public static IntFunction bindArg2(final IntIntFunction function, final int c) {
         return new IntFunction() {
@@ -403,13 +410,13 @@ public class IntFunctions extends Object {
     }
 
     /**
-     * Constructs the function <tt>g( h(a) )</tt>.
+     * Constructs the function <code>g( h(a) )</code>.
      * 
      * @param g
      *            a unary function.
      * @param h
      *            a unary function.
-     * @return the unary function <tt>g( h(a) )</tt>.
+     * @return the unary function <code>g( h(a) )</code>.
      */
     public static IntFunction chain(final IntFunction g, final IntFunction h) {
         return new IntFunction() {
@@ -420,13 +427,13 @@ public class IntFunctions extends Object {
     }
 
     /**
-     * Constructs the function <tt>g( h(a,b) )</tt>.
+     * Constructs the function <code>g( h(a,b) )</code>.
      * 
      * @param g
      *            a unary function.
      * @param h
      *            a binary function.
-     * @return the unary function <tt>g( h(a,b) )</tt>.
+     * @return the unary function <code>g( h(a,b) )</code>.
      */
     public static IntIntFunction chain(final IntFunction g, final IntIntFunction h) {
         return new IntIntFunction() {
@@ -437,7 +444,7 @@ public class IntFunctions extends Object {
     }
 
     /**
-     * Constructs the function <tt>f( g(a), h(b) )</tt>.
+     * Constructs the function <code>f( g(a), h(b) )</code>.
      * 
      * @param f
      *            a binary function.
@@ -445,7 +452,7 @@ public class IntFunctions extends Object {
      *            a unary function.
      * @param h
      *            a unary function.
-     * @return the binary function <tt>f( g(a), h(b) )</tt>.
+     * @return the binary function <code>f( g(a), h(b) )</code>.
      */
     public static IntIntFunction chain(final IntIntFunction f, final IntFunction g, final IntFunction h) {
         return new IntIntFunction() {
@@ -456,8 +463,10 @@ public class IntFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a < b ? -1 : a > b ? 1 : 0</tt>.
-     * <tt>a</tt> is a variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a < b ? -1 : a > b ? 1 : 0</code>.
+     * <code>a</code> is a variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static IntFunction compare(final int b) {
         return new IntFunction() {
@@ -468,7 +477,9 @@ public class IntFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns the constant <tt>c</tt>.
+     * Constructs a function that returns the constant <code>c</code>.
+     * @param c
+     * @return 
      */
     public static IntFunction constant(final int c) {
         return new IntFunction() {
@@ -479,8 +490,10 @@ public class IntFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a / b</tt>. <tt>a</tt> is a
-     * variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a / b</code>. <code>a</code> is a
+     * variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static IntFunction div(final int b) {
         return new IntFunction() {
@@ -491,8 +504,10 @@ public class IntFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a == b ? 1 : 0</tt>. <tt>a</tt> is
-     * a variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a == b ? 1 : 0</code>. <code>a</code> is
+     * a variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static IntFunction equals(final int b) {
         return new IntFunction() {
@@ -503,8 +518,11 @@ public class IntFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>from<=a && a<=to</tt>. <tt>a</tt>
-     * is a variable, <tt>from</tt> and <tt>to</tt> are fixed.
+     * Constructs a function that returns <code>from<=a && a<=to</code>. <code>a</code>
+     * is a variable, <code>from</code> and <code>to</code> are fixed.
+     * @param from
+     * @param to
+     * @return 
      */
     public static IntProcedure isBetween(final int from, final int to) {
         return new IntProcedure() {
@@ -515,8 +533,10 @@ public class IntFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a == b</tt>. <tt>a</tt> is a
-     * variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a == b</code>. <code>a</code> is a
+     * variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static IntProcedure isEqual(final int b) {
         return new IntProcedure() {
@@ -527,8 +547,10 @@ public class IntFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a > b</tt>. <tt>a</tt> is a
-     * variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a > b</code>. <code>a</code> is a
+     * variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static IntProcedure isGreater(final int b) {
         return new IntProcedure() {
@@ -539,8 +561,10 @@ public class IntFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a < b</tt>. <tt>a</tt> is a
-     * variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a < b</code>. <code>a</code> is a
+     * variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static IntProcedure isLess(final int b) {
         return new IntProcedure() {
@@ -551,8 +575,10 @@ public class IntFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>Math.max(a,b)</tt>. <tt>a</tt> is
-     * a variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>Math.max(a,b)</code>. <code>a</code> is
+     * a variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static IntFunction max(final int b) {
         return new IntFunction() {
@@ -563,8 +589,10 @@ public class IntFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>Math.min(a,b)</tt>. <tt>a</tt> is
-     * a variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>Math.min(a,b)</code>. <code>a</code> is
+     * a variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static IntFunction min(final int b) {
         return new IntFunction() {
@@ -575,8 +603,10 @@ public class IntFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a - b</tt>. <tt>a</tt> is a
-     * variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a - b</code>. <code>a</code> is a
+     * variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static IntFunction minus(final int b) {
         return new IntFunction() {
@@ -587,16 +617,20 @@ public class IntFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a - b*constant</tt>. <tt>a</tt>
-     * and <tt>b</tt> are variables, <tt>constant</tt> is fixed.
+     * Constructs a function that returns <code>a - b*constant</code>. <code>a</code>
+     * and <code>b</code> are variables, <code>constant</code> is fixed.
+     * @param constant
+     * @return 
      */
     public static IntIntFunction minusMult(final int constant) {
         return plusMultSecond(-constant);
     }
 
     /**
-     * Constructs a function that returns <tt>a % b</tt>. <tt>a</tt> is a
-     * variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a % b</code>. <code>a</code> is a
+     * variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static IntFunction mod(final int b) {
         return new IntFunction() {
@@ -607,8 +641,10 @@ public class IntFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a * b</tt>. <tt>a</tt> is a
-     * variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a * b</code>. <code>a</code> is a
+     * variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static IntFunction mult(final int b) {
         return new IntFunction() {
@@ -619,8 +655,10 @@ public class IntFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a | b</tt>. <tt>a</tt> is a
-     * variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a | b</code>. <code>a</code> is a
+     * variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static IntFunction or(final int b) {
         return new IntFunction() {
@@ -631,8 +669,10 @@ public class IntFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a + b</tt>. <tt>a</tt> is a
-     * variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a + b</code>. <code>a</code> is a
+     * variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static IntFunction plus(final int b) {
         return new IntFunction() {
@@ -643,7 +683,9 @@ public class IntFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>b*constant</tt>.
+     * Constructs a function that returns <code>b*constant</code>.
+     * @param constant
+     * @return 
      */
     public static IntIntFunction multSecond(final int constant) {
 
@@ -656,8 +698,10 @@ public class IntFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>(int) Math.pow(a,b)</tt>.
-     * <tt>a</tt> is a variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>(int) Math.pow(a,b)</code>.
+     * <code>a</code> is a variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static IntFunction pow(final int b) {
         return new IntFunction() {
@@ -668,16 +712,20 @@ public class IntFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a + b*constant</tt>. <tt>a</tt>
-     * and <tt>b</tt> are variables, <tt>constant</tt> is fixed.
+     * Constructs a function that returns <code>a + b*constant</code>. <code>a</code>
+     * and <code>b</code> are variables, <code>constant</code> is fixed.
+     * @param constant
+     * @return 
      */
     public static IntIntFunction plusMultSecond(final int constant) {
         return new IntPlusMultSecond(constant);
     }
 
     /**
-     * Constructs a function that returns <tt>a * constant + b</tt>. <tt>a</tt>
-     * and <tt>b</tt> are variables, <tt>constant</tt> is fixed.
+     * Constructs a function that returns <code>a * constant + b</code>. <code>a</code>
+     * and <code>b</code> are variables, <code>constant</code> is fixed.
+     * @param constant
+     * @return 
      */
     public static IntIntFunction plusMultFirst(final int constant) {
         return new IntPlusMultFirst(constant);
@@ -685,8 +733,8 @@ public class IntFunctions extends Object {
 
     /**
      * Constructs a function that returns a 32 bit uniformly distributed random
-     * number in the closed longerval <tt>[Int.MIN_VALUE,Int.MAX_VALUE]</tt>
-     * (including <tt>Int.MIN_VALUE</tt> and <tt>Int.MAX_VALUE</tt>). Currently
+     * number in the closed longerval <code>[Int.MIN_VALUE,Integer.MAX_VALUE]</code>
+     * (including <code>Int.MIN_VALUE</code> and <code>Integer.MAX_VALUE</code>). Currently
      * the engine is
      * {@link cern.jet.random.tdouble.engine.DoubleMersenneTwister} and is
      * seeded with the current time.
@@ -698,14 +746,17 @@ public class IntFunctions extends Object {
      * objects, because they implement the proper longerfaces. Thus, if you are
      * not happy with the default, just pass your favourite random generator to
      * function evaluating methods.
+     * @return 
      */
     public static IntFunction random() {
         return new cern.jet.random.tdouble.engine.DoubleMersenneTwister(new java.util.Date());
     }
 
     /**
-     * Constructs a function that returns <tt>a << b</tt>. <tt>a</tt> is a
-     * variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a << b</code>. <code>a</code> is a
+     * variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static IntFunction shiftLeft(final int b) {
         return new IntFunction() {
@@ -716,8 +767,10 @@ public class IntFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a >> b</tt>. <tt>a</tt> is a
-     * variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a >> b</code>. <code>a</code> is a
+     * variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static IntFunction shiftRightSigned(final int b) {
         return new IntFunction() {
@@ -728,8 +781,10 @@ public class IntFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a >>> b</tt>. <tt>a</tt> is a
-     * variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a >>> b</code>. <code>a</code> is a
+     * variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static IntFunction shiftRightUnsigned(final int b) {
         return new IntFunction() {
@@ -740,14 +795,14 @@ public class IntFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>function.apply(b,a)</tt>, i.e.
+     * Constructs a function that returns <code>function.apply(b,a)</code>, i.e.
      * applies the function with the first operand as second operand and the
      * second operand as first operand.
      * 
      * @param function
      *            a function taking operands in the form
-     *            <tt>function.apply(a,b)</tt>.
-     * @return the binary function <tt>function(b,a)</tt>.
+     *            <code>function.apply(a,b)</code>.
+     * @return the binary function <code>function(b,a)</code>.
      */
     public static IntIntFunction swapArgs(final IntIntFunction function) {
         return new IntIntFunction() {
@@ -758,8 +813,10 @@ public class IntFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a | b</tt>. <tt>a</tt> is a
-     * variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a | b</code>. <code>a</code> is a
+     * variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static IntFunction xor(final int b) {
         return new IntFunction() {

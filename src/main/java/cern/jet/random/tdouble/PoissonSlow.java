@@ -17,10 +17,10 @@ import cern.jet.random.tdouble.engine.DoubleRandomEngine;
  * HREF="http://www.statsoft.com/textbook/glosp.html#Poisson Distribution">
  * animated definition</A>.
  * <p>
- * <tt>p(k) = (mean^k / k!) * exp(-mean)</tt> for <tt>k &gt;= 0</tt>.
+ * <code>p(k) = (mean^k / k!) * exp(-mean)</code> for <code>k &gt;= 0</code>.
  * <p>
- * Valid parameter ranges: <tt>mean &gt; 0</tt>. Note: if
- * <tt>mean &lt;= 0.0</tt> then always returns zero.
+ * Valid parameter ranges: <code>mean &gt; 0</code>. Note: if
+ * <code>mean &lt;= 0.0</code> then always returns zero.
  * <p>
  * Instance methods operate on a user supplied uniform random number generator;
  * they are unsynchronized.
@@ -76,6 +76,8 @@ public class PoissonSlow extends AbstractDiscreteDistribution {
 
     /**
      * Constructs a poisson distribution. Example: mean=1.0.
+     * @param mean
+     * @param randomGenerator
      */
     public PoissonSlow(double mean, DoubleRandomEngine randomGenerator) {
         setRandomGenerator(randomGenerator);
@@ -86,6 +88,8 @@ public class PoissonSlow extends AbstractDiscreteDistribution {
      * Returns the value ln(Gamma(xx) for xx > 0. Full accuracy is obtained for
      * xx > 1. For 0 < xx < 1. the reflection formula (6.1.4) can be used first.
      * (Adapted from Numerical Recipes in C)
+     * @param xx
+     * @return 
      */
     public static double logGamma(double xx) {
         double x = xx - 1.0;
@@ -103,6 +107,7 @@ public class PoissonSlow extends AbstractDiscreteDistribution {
 
     /**
      * Returns a random number from the distribution.
+     * @return 
      */
 
     public int nextInt() {
@@ -156,6 +161,7 @@ public class PoissonSlow extends AbstractDiscreteDistribution {
 
     /**
      * Returns a random number from the distribution.
+     * @return 
      */
     protected int nextIntSlow() {
         final double bound = Math.exp(-mean);
@@ -172,6 +178,7 @@ public class PoissonSlow extends AbstractDiscreteDistribution {
 
     /**
      * Sets the mean.
+     * @param mean
      */
     public void setMean(double mean) {
         if (mean != this.mean) {
@@ -190,6 +197,8 @@ public class PoissonSlow extends AbstractDiscreteDistribution {
 
     /**
      * Returns a random number from the distribution with the given mean.
+     * @param mean
+     * @return 
      */
     public static int staticNextInt(double mean) {
         synchronized (shared) {
@@ -200,6 +209,7 @@ public class PoissonSlow extends AbstractDiscreteDistribution {
 
     /**
      * Returns a String representation of the receiver.
+     * @return 
      */
 
     public String toString() {

@@ -15,15 +15,15 @@ import cern.colt.matrix.tfloat.algo.FloatProperty;
 import cern.jet.math.tfloat.FloatFunctions;
 
 /**
- * For an <tt>m x n</tt> matrix <tt>A</tt> with <tt>m >= n</tt>, the QR
- * decomposition is an <tt>m x n</tt> orthogonal matrix <tt>Q</tt> and an
- * <tt>n x n</tt> upper triangular matrix <tt>R</tt> so that <tt>A = Q*R</tt>.
+ * For an <code>m x n</code> matrix <code>A</code> with <code>m >= n</code>, the QR
+ * decomposition is an <code>m x n</code> orthogonal matrix <code>Q</code> and an
+ * <code>n x n</code> upper triangular matrix <code>R</code> so that <code>A = Q*R</code>.
  * <P>
  * The QR decompostion always exists, even if the matrix does not have full
  * rank, so the constructor will never fail. The primary use of the QR
  * decomposition is in the least squares solution of nonsquare systems of
- * simultaneous linear equations. This will fail if <tt>isFullRank()</tt>
- * returns <tt>false</tt>.
+ * simultaneous linear equations. This will fail if <code>isFullRank()</code>
+ * returns <code>false</code>.
  */
 public class DenseFloatQRDecomposition implements java.io.Serializable {
     static final long serialVersionUID = 1020;
@@ -60,7 +60,7 @@ public class DenseFloatQRDecomposition implements java.io.Serializable {
      * @param A
      *            A rectangular matrix.
      * @throws IllegalArgumentException
-     *             if <tt>A.rows() < A.columns()</tt>.
+     *             if <code>A.rows() &lt; A.columns()</code>.
      */
 
     public DenseFloatQRDecomposition(FloatMatrix2D A) {
@@ -132,7 +132,7 @@ public class DenseFloatQRDecomposition implements java.io.Serializable {
     }
 
     /**
-     * Returns the Householder vectors <tt>H</tt>.
+     * Returns the Householder vectors <code>H</code>.
      * 
      * @return A lower trapezoidal matrix whose columns define the householder
      *         reflections.
@@ -142,9 +142,9 @@ public class DenseFloatQRDecomposition implements java.io.Serializable {
     }
 
     /**
-     * Generates and returns the (economy-sized) orthogonal factor <tt>Q</tt>.
+     * Generates and returns the (economy-sized) orthogonal factor <code>Q</code>.
      * 
-     * @return <tt>Q</tt>
+     * @return <code>Q</code>
      */
     public FloatMatrix2D getQ() {
         cern.jet.math.tfloat.FloatFunctions F = cern.jet.math.tfloat.FloatFunctions.functions;
@@ -166,9 +166,9 @@ public class DenseFloatQRDecomposition implements java.io.Serializable {
     }
 
     /**
-     * Returns the upper triangular factor, <tt>R</tt>.
+     * Returns the upper triangular factor, <code>R</code>.
      * 
-     * @return <tt>R</tt>
+     * @return <code>R</code>
      */
     public FloatMatrix2D getR() {
         FloatMatrix2D R = QR.like(n, n);
@@ -186,9 +186,9 @@ public class DenseFloatQRDecomposition implements java.io.Serializable {
     }
 
     /**
-     * Returns whether the matrix <tt>A</tt> has full rank.
+     * Returns whether the matrix <code>A</code> has full rank.
      * 
-     * @return true if <tt>R</tt>, and hence <tt>A</tt>, has full rank.
+     * @return true if <code>R</code>, and hence <code>A</code>, has full rank.
      */
     public boolean hasFullRank() {
         for (int j = 0; j < n; j++) {
@@ -199,15 +199,15 @@ public class DenseFloatQRDecomposition implements java.io.Serializable {
     }
 
     /**
-     * Least squares solution of <tt>A*x = b</tt>; <tt>returns x</tt>.
+     * Least squares solution of <code>A*x = b</code>; <code>returns x</code>.
      * 
      * @param b
      *            right-hand side.
-     * @return <tt>x</tt> that minimizes the two norm of <tt>Q*R*x - b</tt>.
+     * @return <code>x</code> that minimizes the two norm of <code>Q*R*x - b</code>.
      * @exception IllegalArgumentException
-     *                if <tt>b.size() != A.rows()</tt>.
+     *                if <code>b.size() != A.rows()</code>.
      * @exception IllegalArgumentException
-     *                if <tt>!this.hasFullRank()</tt> (<tt>A</tt> is rank
+     *                if <code>!this.hasFullRank()</code> (<code>A</code> is rank
      *                deficient).
      */
     public FloatMatrix1D solve(FloatMatrix1D b) {
@@ -245,16 +245,16 @@ public class DenseFloatQRDecomposition implements java.io.Serializable {
     }
 
     /**
-     * Least squares solution of <tt>A*X = B</tt>; <tt>returns X</tt>.
+     * Least squares solution of <code>A*X = B</code>; <code>returns X</code>.
      * 
      * @param B
-     *            A matrix with as many rows as <tt>A</tt> and any number of
+     *            A matrix with as many rows as <code>A</code> and any number of
      *            columns.
-     * @return <tt>X</tt> that minimizes the two norm of <tt>Q*R*X - B</tt>.
+     * @return <code>X</code> that minimizes the two norm of <code>Q*R*X - B</code>.
      * @exception IllegalArgumentException
-     *                if <tt>B.rows() != A.rows()</tt>.
+     *                if <code>B.rows() != A.rows()</code>.
      * @exception IllegalArgumentException
-     *                if <tt>!this.hasFullRank()</tt> (<tt>A</tt> is rank
+     *                if <code>!this.hasFullRank()</code> (<code>A</code> is rank
      *                deficient).
      */
     public FloatMatrix2D solve(FloatMatrix2D B) {
@@ -306,6 +306,7 @@ public class DenseFloatQRDecomposition implements java.io.Serializable {
      *   trace         : 0
      * 
      * </pre>
+     * @return 
      */
 
     public String toString() {

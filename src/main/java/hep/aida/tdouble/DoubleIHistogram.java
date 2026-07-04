@@ -25,29 +25,33 @@ public interface DoubleIHistogram extends java.io.Serializable {
     /**
      * Number of all entries in all (both in-range and under/overflow) bins in
      * the histogram.
+     * @return 
      */
     public int allEntries();
 
     /**
      * Returns 1 for one-dimensional histograms, 2 for two-dimensional
      * histograms, and so on.
+     * @return 
      */
     public int dimensions();
 
     /**
      * Number of in-range entries in the histogram.
+     * @return 
      */
     public int entries();
 
     /**
      * Number of equivalent entries.
      * 
-     * @return <tt>SUM[ weight ] ^ 2 / SUM[ weight^2 ]</tt>.
+     * @return <code>SUM[ weight ] ^ 2 / SUM[ weight^2 ]</code>.
      */
     public double equivalentBinEntries();
 
     /**
      * Number of under and overflow entries in the histogram.
+     * @return 
      */
     public int extraEntries();
 
@@ -59,21 +63,25 @@ public interface DoubleIHistogram extends java.io.Serializable {
     /**
      * Sum of all (both in-range and under/overflow) bin heights in the
      * histogram.
+     * @return 
      */
     public double sumAllBinHeights();
 
     /**
      * Sum of in-range bin heights in the histogram.
+     * @return 
      */
     public double sumBinHeights();
 
     /**
      * Sum of under/overflow bin heights in the histogram.
+     * @return 
      */
     public double sumExtraBinHeights();
 
     /**
      * Title of the histogram (will be set only in the constructor).
+     * @return 
      */
     public String title();
 }

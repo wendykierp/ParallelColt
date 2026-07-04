@@ -11,7 +11,7 @@ package cern.colt.buffer.tshort;
 import cern.colt.list.tshort.ShortArrayList;
 
 /**
- * Target of a streaming <tt>ShortBuffer</tt> into which data is flushed upon
+ * Target of a streaming <code>ShortBuffer</code> into which data is flushed upon
  * buffer overflow.
  * 
  * @author wolfgang.hoschek@cern.ch

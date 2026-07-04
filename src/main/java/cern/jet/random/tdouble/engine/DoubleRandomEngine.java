@@ -16,19 +16,19 @@ package cern.jet.random.tdouble.engine;
  * desired distribution. Thus, subclasses of this class are at the core of
  * computational statistics, simulations, Monte Carlo methods, etc.
  * <p>
- * Subclasses produce uniformly distributed <tt>int</tt>'s and <tt>long</tt>'s
- * in the closed intervals <tt>[Integer.MIN_VALUE,Integer.MAX_VALUE]</tt> and
- * <tt>[Long.MIN_VALUE,Long.MAX_VALUE]</tt>, respectively, as well as
- * <tt>float</tt>'s and <tt>double</tt>'s in the open unit intervals
- * <tt>(0.0f,1.0f)</tt> and <tt>(0.0,1.0)</tt>, respectively.
+ * Subclasses produce uniformly distributed <code>int</code>'s and <code>long</code>'s
+ * in the closed intervals <code>[Integer.MIN_VALUE,Integer.MAX_VALUE]</code> and
+ * <code>[Long.MIN_VALUE,Long.MAX_VALUE]</code>, respectively, as well as
+ * <code>float</code>'s and <code>double</code>'s in the open unit intervals
+ * <code>(0.0f,1.0f)</code> and <code>(0.0,1.0)</code>, respectively.
  * <p>
- * Subclasses need to override one single method only: <tt>nextInt()</tt>. All
+ * Subclasses need to override one single method only: <code>nextInt()</code>. All
  * other methods generating different data types or ranges are usually layered
- * upon <tt>nextInt()</tt>. <tt>long</tt>'s are formed by concatenating two 32
- * bit <tt>int</tt>'s. <tt>float</tt>'s are formed by dividing the interval
- * <tt>[0.0f,1.0f]</tt> into 2<sup>32</sup> sub intervals, then randomly
- * choosing one subinterval. <tt>double</tt>'s are formed by dividing the
- * interval <tt>[0.0,1.0]</tt> into 2<sup>64</sup> sub intervals, then randomly
+ * upon <code>nextInt()</code>. <code>long</code>'s are formed by concatenating two 32
+ * bit <code>int</code>'s. <code>float</code>'s are formed by dividing the interval
+ * <code>[0.0f,1.0f]</code> into 2<sup>32</sup> sub intervals, then randomly
+ * choosing one subinterval. <code>double</code>'s are formed by dividing the
+ * interval <code>[0.0,1.0]</code> into 2<sup>64</sup> sub intervals, then randomly
  * choosing one subinterval.
  * <p>
  * Note that this implementation is <b>not synchronized</b>.
@@ -58,27 +58,30 @@ public abstract class DoubleRandomEngine extends cern.colt.PersistentObject impl
     }
 
     /**
-     * Equivalent to <tt>raw()</tt>. This has the effect that random engines can
+     * Equivalent to <code>raw()</code>. This has the effect that random engines can
      * now be used as function objects, returning a random number upon function
      * evaluation.
+     * @param dummy
      */
     public double apply(double dummy) {
         return raw();
     }
 
     /**
-     * Equivalent to <tt>nextInt()</tt>. This has the effect that random engines
+     * Equivalent to <code>nextInt()</code>. This has the effect that random engines
      * can now be used as function objects, returning a random number upon
      * function evaluation.
+     * @param dummy
      */
     public int apply(int dummy) {
         return nextInt();
     }
 
     /**
-     * Equivalent to <tt>nextLong()</tt>. This has the effect that random
+     * Equivalent to <code>nextLong()</code>. This has the effect that random
      * engines can now be used as function objects, returning a random number
      * upon function evaluation.
+     * @param dummy
      */
     public long apply(long dummy) {
         return nextLong();
@@ -88,6 +91,7 @@ public abstract class DoubleRandomEngine extends cern.colt.PersistentObject impl
      * Constructs and returns a new uniform random number engine seeded with the
      * current time. Currently this is
      * {@link cern.jet.random.tdouble.engine.DoubleMersenneTwister}.
+     * @return 
      */
     public static DoubleRandomEngine makeDefault() {
         return new cern.jet.random.tdouble.engine.DoubleMersenneTwister((int) System.currentTimeMillis());
@@ -96,6 +100,7 @@ public abstract class DoubleRandomEngine extends cern.colt.PersistentObject impl
     /**
      * Returns a 64 bit uniformly distributed random number in the open unit
      * interval <code>(0.0,1.0)</code> (excluding 0.0 and 1.0).
+     * @return 
      */
     public double nextDouble() {
         double nextDouble;
@@ -127,6 +132,7 @@ public abstract class DoubleRandomEngine extends cern.colt.PersistentObject impl
     /**
      * Returns a 32 bit uniformly distributed random number in the open unit
      * interval <code>(0.0f,1.0f)</code> (excluding 0.0f and 1.0f).
+     * @return 
      */
     public float nextFloat() {
         // catch loss of precision of double --> float conversion
@@ -141,15 +147,17 @@ public abstract class DoubleRandomEngine extends cern.colt.PersistentObject impl
 
     /**
      * Returns a 32 bit uniformly distributed random number in the closed
-     * interval <tt>[Integer.MIN_VALUE,Integer.MAX_VALUE]</tt> (including
-     * <tt>Integer.MIN_VALUE</tt> and <tt>Integer.MAX_VALUE</tt>);
+     * interval <code>[Integer.MIN_VALUE,Integer.MAX_VALUE]</code> (including
+     * <code>Integer.MIN_VALUE</code> and <code>Integer.MAX_VALUE</code>);
+     * @return 
      */
     public abstract int nextInt();
 
     /**
      * Returns a 64 bit uniformly distributed random number in the closed
-     * interval <tt>[Long.MIN_VALUE,Long.MAX_VALUE]</tt> (including
-     * <tt>Long.MIN_VALUE</tt> and <tt>Long.MAX_VALUE</tt>).
+     * interval <code>[Long.MIN_VALUE,Long.MAX_VALUE]</code> (including
+     * <code>Long.MIN_VALUE</code> and <code>Long.MAX_VALUE</code>).
+     * @return 
      */
     public long nextLong() {
         // concatenate two 32-bit strings into one 64-bit string
@@ -159,6 +167,7 @@ public abstract class DoubleRandomEngine extends cern.colt.PersistentObject impl
     /**
      * Returns a 32 bit uniformly distributed random number in the open unit
      * interval <code>(0.0,1.0)</code> (excluding 0.0 and 1.0).
+     * @return 
      */
     public double raw() {
         int nextInt;

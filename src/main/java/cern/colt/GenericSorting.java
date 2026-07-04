@@ -23,9 +23,9 @@ import cern.colt.function.tint.IntComparator;
  * <p>
  * Assume we have three arrays X, Y and Z. We want to sort all three arrays by X
  * (or some arbitrary comparison function). For example, we have<br>
- * <tt>X=[3, 2, 1], Y=[3.0, 2.0, 1.0], Z=[6.0, 7.0, 8.0]</tt>. The output should
- * be <tt><br>
- X=[1, 2, 3], Y=[1.0, 2.0, 3.0], Z=[8.0, 7.0, 6.0]</tt>.
+ * <code>X=[3, 2, 1], Y=[3.0, 2.0, 1.0], Z=[6.0, 7.0, 8.0]</code>. The output should
+ * be <code><br>
+ X=[1, 2, 3], Y=[1.0, 2.0, 3.0], Z=[8.0, 7.0, 6.0]</code>.
  * </p>
  * <p>
  * How can we achive this? Here are several alternatives. We could ...
@@ -52,12 +52,12 @@ import cern.colt.function.tint.IntComparator;
  * swapping are delegated to user provided objects which know their data and can
  * do the job.
  * <p>
- * Lets call the generic data <tt>g</tt> (it may be one array, three linked
+ * Lets call the generic data <code>g</code> (it may be one array, three linked
  * lists or whatever). This class takes a user comparison function operating on
- * two indexes <tt>(a,b)</tt>, namely an {@link IntComparator}. The comparison
- * function determines whether <tt>g[a]</tt> is equal, less or greater than
- * <tt>g[b]</tt>. The sort, depending on its implementation, can decide to swap
- * the data at index <tt>a</tt> with the data at index <tt>b</tt>. It calls a
+ * two indexes <code>(a,b)</code>, namely an {@link IntComparator}. The comparison
+ * function determines whether <code>g[a]</code> is equal, less or greater than
+ * <code>g[b]</code>. The sort, depending on its implementation, can decide to swap
+ * the data at index <code>a</code> with the data at index <code>b</code>. It calls a
  * user provided {@link cern.colt.Swapper} object that knows how to swap the
  * data of these indexes.
  * <p>
@@ -120,9 +120,9 @@ import cern.colt.function.tint.IntComparator;
  * Assume again we have three arrays X, Y and Z. Now we want to sort all three
  * arrays, primarily by Y, secondarily by Z (if Y elements are equal). For
  * example, we have<br>
- * <tt>X=[6, 7, 8, 9], Y=[3.0, 2.0, 1.0, 3.0], Z=[5.0, 4.0, 4.0, 1.0]</tt>. The
- * output should be <tt><br>
- X=[8, 7, 9, 6], Y=[1.0, 2.0, 3.0, 3.0], Z=[4.0, 4.0, 1.0, 5.0]</tt>.
+ * <code>X=[6, 7, 8, 9], Y=[3.0, 2.0, 1.0, 3.0], Z=[5.0, 4.0, 4.0, 1.0]</code>. The
+ * output should be <code><br>
+ X=[8, 7, 9, 6], Y=[1.0, 2.0, 3.0, 3.0], Z=[4.0, 4.0, 1.0, 5.0]</code>.
  * </p>
  * <p>
  * Here is how to solve the problem. All code in the above example stays the
@@ -156,10 +156,10 @@ import cern.colt.function.tint.IntComparator;
  * Methods delegating to comparators cannot do this. They rely on the
  * comparator. Thus, if such boundary cases are an issue for the application at
  * hand, comparators explicitly need to implement -0.0 and NaN aware
- * comparisons. Remember: <tt>-0.0 < 0.0 == false</tt>,
- * <tt>(-0.0 == 0.0) == true</tt>, as well as
- * <tt>5.0 &lt; Double.NaN == false</tt>, <tt>5.0 &gt; Double.NaN == false</tt>.
- * Same for <tt>float</tt>.
+ * comparisons. Remember: <code>-0.0 < 0.0 == false</code>,
+ * <code>(-0.0 == 0.0) == true</code>, as well as
+ * <code>5.0 &lt; Double.NaN == false</code>, <code>5.0 &gt; Double.NaN == false</code>.
+ * Same for <code>float</code>.
  * <h4>Implementation</h4>
  * <p>
  * The quicksort is a derivative of the JDK 1.2 V1.26 algorithms (which are, in
@@ -297,8 +297,8 @@ public class GenericSorting extends Object {
      * Sorts the specified range of elements according to the order induced by
      * the specified comparator. All elements in the range must be <i>mutually
      * comparable</i> by the specified comparator (that is,
-     * <tt>c.compare(a, b)</tt> must not throw an exception for any indexes
-     * <tt>a</tt> and <tt>b</tt> in the range).
+     * <code>c.compare(a, b)</code> must not throw an exception for any indexes
+     * <code>a</code> and <code>b</code> in the range).
      * <p>
      * 
      * This sort is guaranteed to be <i>stable</i>: equal elements will not be
@@ -362,8 +362,8 @@ public class GenericSorting extends Object {
      * Sorts the specified range of elements according to the order induced by
      * the specified comparator. All elements in the range must be <i>mutually
      * comparable</i> by the specified comparator (that is,
-     * <tt>c.compare(a, b)</tt> must not throw an exception for any indexes
-     * <tt>a</tt> and <tt>b</tt> in the range).
+     * <code>c.compare(a, b)</code> must not throw an exception for any indexes
+     * <code>a</code> and <code>b</code> in the range).
      * <p>
      * 
      * The sorting algorithm is a tuned quicksort, adapted from Jon L. Bentley

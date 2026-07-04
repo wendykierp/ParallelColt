@@ -19,25 +19,25 @@ import cern.colt.matrix.tobject.ObjectMatrix3D;
 import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
 
 /**
- * Dense 3-d matrix holding <tt>Object</tt> elements. First see the <a
+ * Dense 3-d matrix holding <code>Object</code> elements. First see the <a
  * href="package-summary.html">package summary</a> and javadoc <a
  * href="package-tree.html">tree view</a> to get the broad picture.
  * <p>
  * <b>Implementation:</b>
  * <p>
- * Internally holds one single contigous one-dimensional array, addressed in (in
+ * Internally holds one single contiguous one-dimensional array, addressed in (in
  * decreasing order of significance): slice major, row major, column major. Note
  * that this implementation is not synchronized.
  * <p>
  * <b>Memory requirements:</b>
  * <p>
- * <tt>memory [bytes] = 8*slices()*rows()*columns()</tt>. Thus, a 100*100*100
+ * <code>memory [bytes] = 8*slices()*rows()*columns()</code>. Thus, a 100*100*100
  * matrix uses 8 MB.
  * <p>
  * <b>Time complexity:</b>
  * <p>
- * <tt>O(1)</tt> (i.e. constant time) for the basic operations <tt>get</tt>,
- * <tt>getQuick</tt>, <tt>set</tt>, <tt>setQuick</tt> and <tt>size</tt>,
+ * <code>O(1)</code> (i.e. constant time) for the basic operations <code>get</code>,
+ * <code>getQuick</code>, <code>set</code>, <code>setQuick</code> and <code>size</code>,
  * <p>
  * Applications demanding utmost speed can exploit knowledge about the internal
  * addressing. Setting/getting values in a loop slice-by-slice, row-by-row,
@@ -84,23 +84,23 @@ public class DenseObjectMatrix3D extends ObjectMatrix3D {
     protected Object[] elements;
 
     /**
-     * Constructs a matrix with a copy of the given values. <tt>values</tt> is
-     * required to have the form <tt>values[slice][row][column]</tt> and have
+     * Constructs a matrix with a copy of the given values. <code>values</code> is
+     * required to have the form <code>values[slice][row][column]</code> and have
      * exactly the same number of rows in in every slice and exactly the same
      * number of columns in in every row.
      * <p>
-     * The values are copied. So subsequent changes in <tt>values</tt> are not
+     * The values are copied. So subsequent changes in <code>values</code> are not
      * reflected in the matrix, and vice-versa.
      * 
      * @param values
      *            The values to be filled into the new matrix.
      * @throws IllegalArgumentException
      *             if
-     *             <tt>for any 1 &lt;= slice &lt; values.length: values[slice].length != values[slice-1].length</tt>
+     *             <code>for any 1 &lt;= slice &lt; values.length: values[slice].length != values[slice-1].length</code>
      *             .
      * @throws IllegalArgumentException
      *             if
-     *             <tt>for any 1 &lt;= row &lt; values[0].length: values[slice][row].length != values[slice][row-1].length</tt>
+     *             <code>for any 1 &lt;= row &lt; values[0].length: values[slice][row].length != values[slice][row-1].length</code>
      *             .
      */
     public DenseObjectMatrix3D(Object[][][] values) {
@@ -111,7 +111,7 @@ public class DenseObjectMatrix3D extends ObjectMatrix3D {
 
     /**
      * Constructs a matrix with a given number of slices, rows and columns. All
-     * entries are initially <tt>0</tt>.
+     * entries are initially <code>0</code>.
      * 
      * @param slices
      *            the number of slices the matrix shall have.
@@ -120,9 +120,9 @@ public class DenseObjectMatrix3D extends ObjectMatrix3D {
      * @param columns
      *            the number of columns the matrix shall have.
      * @throws IllegalArgumentException
-     *             if <tt>(Object)slices*columns*rows > Integer.MAX_VALUE</tt>.
+     *             if <code>(Object)slices*columns*rows > Integer.MAX_VALUE</code>.
      * @throws IllegalArgumentException
-     *             if <tt>slices<0 || rows<0 || columns<0</tt>.
+     *             if <code>slices &lt; 0 || rows &lt; 0 || columns &lt; 0</code>.
      */
     public DenseObjectMatrix3D(int slices, int rows, int columns) {
         setUp(slices, rows, columns);
@@ -148,19 +148,17 @@ public class DenseObjectMatrix3D extends ObjectMatrix3D {
      *            the position of the first element.
      * @param sliceStride
      *            the number of elements between two slices, i.e.
-     *            <tt>index(k+1,i,j)-index(k,i,j)</tt>.
+     *            <code>index(k+1,i,j)-index(k,i,j)</code>.
      * @param rowStride
      *            the number of elements between two rows, i.e.
-     *            <tt>index(k,i+1,j)-index(k,i,j)</tt>.
-     * @param columnnStride
-     *            the number of elements between two columns, i.e.
-     *            <tt>index(k,i,j+1)-index(k,i,j)</tt>.
+     *            <code>index(k,i+1,j)-index(k,i,j)</code>.
+     * @param columnStride
      * @param isView
      *            if true then a matrix view is constructed.
      * @throws IllegalArgumentException
-     *             if <tt>(Object)slices*columns*rows > Integer.MAX_VALUE</tt>.
+     *             if <code>(Object)slices*columns*rows > Integer.MAX_VALUE</code>.
      * @throws IllegalArgumentException
-     *             if <tt>slices<0 || rows<0 || columns<0</tt>.
+     *             if <code>slices &lt; 0 || rows &lt; 0 || columns &lt; 0</code>.
      */
     protected DenseObjectMatrix3D(int slices, int rows, int columns, Object[] elements, int sliceZero, int rowZero,
             int columnZero, int sliceStride, int rowStride, int columnStride, boolean isView) {
@@ -392,23 +390,23 @@ public class DenseObjectMatrix3D extends ObjectMatrix3D {
     }
 
     /**
-     * Sets all cells to the state specified by <tt>values</tt>. <tt>values</tt>
-     * is required to have the form <tt>values[slice][row][column]</tt> and have
+     * Sets all cells to the state specified by <code>values</code>. <code>values</code>
+     * is required to have the form <code>values[slice][row][column]</code> and have
      * exactly the same number of slices, rows and columns as the receiver.
      * <p>
-     * The values are copied. So subsequent changes in <tt>values</tt> are not
+     * The values are copied. So subsequent changes in <code>values</code> are not
      * reflected in the matrix, and vice-versa.
      * 
      * @param values
      *            the values to be filled into the cells.
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      * @throws IllegalArgumentException
      *             if
-     *             <tt>values.length != slices() || for any 0 &lt;= slice &lt; slices(): values[slice].length != rows()</tt>
+     *             <code>values.length != slices() || for any 0 &lt;= slice &lt; slices(): values[slice].length != rows()</code>
      *             .
      * @throws IllegalArgumentException
      *             if
-     *             <tt>for any 0 &lt;= column &lt; columns(): values[slice][row].length != columns()</tt>
+     *             <code>for any 0 &lt;= column &lt; columns(): values[slice][row].length != columns()</code>
      *             .
      */
 
@@ -747,15 +745,15 @@ public class DenseObjectMatrix3D extends ObjectMatrix3D {
      * columns. If both matrices share the same cells (as is the case if they
      * are views derived from the same matrix) and intersect in an ambiguous
      * way, then replaces <i>as if</i> using an intermediate auxiliary deep copy
-     * of <tt>other</tt>.
+     * of <code>other</code>.
      * 
      * @param source
      *            the source matrix to copy from (may be identical to the
      *            receiver).
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      * @throws IllegalArgumentException
      *             if
-     *             <tt>slices() != source.slices() || rows() != source.rows() || columns() != source.columns()</tt>
+     *             <code>slices() != source.slices() || rows() != source.rows() || columns() != source.columns()</code>
      */
 
     public ObjectMatrix3D assign(ObjectMatrix3D source) {
@@ -1006,14 +1004,14 @@ public class DenseObjectMatrix3D extends ObjectMatrix3D {
     }
 
     /**
-     * Returns the matrix cell value at coordinate <tt>[slice,row,column]</tt>.
+     * Returns the matrix cell value at coordinate <code>[slice,row,column]</code>.
      * 
      * <p>
      * Provided with invalid parameters this method may return invalid objects
      * without throwing any exception. <b>You should only use this method when
      * you are absolutely sure that the coordinate is within bounds.</b>
      * Precondition (unchecked):
-     * <tt>slice&lt;0 || slice&gt;=slices() || row&lt;0 || row&gt;=rows() || column&lt;0 || column&gt;=column()</tt>.
+     * <code>slice&lt;0 || slice&gt;=slices() || row&lt;0 || row&gt;=rows() || column&lt;0 || column&gt;=column()</code>.
      * 
      * @param slice
      *            the index of the slice-coordinate.
@@ -1036,14 +1034,16 @@ public class DenseObjectMatrix3D extends ObjectMatrix3D {
     }
 
     /**
-     * Returns <tt>true</tt> if both matrices share common cells. More formally,
-     * returns <tt>true</tt> if <tt>other != null</tt> and at least one of the
+     * Returns <code>true</code> if both matrices share common cells. More formally,
+     * returns <code>true</code> if <code>other != null</code> and at least one of the
      * following conditions is met
      * <ul>
      * <li>the receiver is a view of the other matrix
      * <li>the other matrix is a view of the receiver
-     * <li><tt>this == other</tt>
+     * <li><code>this == other</code>
      * </ul>
+     * @param other
+     * @return 
      */
 
     protected boolean haveSharedCellsRaw(ObjectMatrix3D other) {
@@ -1067,6 +1067,7 @@ public class DenseObjectMatrix3D extends ObjectMatrix3D {
      *            the index of the row-coordinate.
      * @param column
      *            the index of the third-coordinate.
+     * @return 
      */
 
     public long index(int slice, int row, int column) {
@@ -1080,10 +1081,10 @@ public class DenseObjectMatrix3D extends ObjectMatrix3D {
      * Construct and returns a new empty matrix <i>of the same dynamic type</i>
      * as the receiver, having the specified number of slices, rows and columns.
      * For example, if the receiver is an instance of type
-     * <tt>DenseObjectMatrix3D</tt> the new matrix must also be of type
-     * <tt>DenseObjectMatrix3D</tt>, if the receiver is an instance of type
-     * <tt>SparseObjectMatrix3D</tt> the new matrix must also be of type
-     * <tt>SparseObjectMatrix3D</tt>, etc. In general, the new matrix should
+     * <code>DenseObjectMatrix3D</code> the new matrix must also be of type
+     * <code>DenseObjectMatrix3D</code>, if the receiver is an instance of type
+     * <code>SparseObjectMatrix3D</code> the new matrix must also be of type
+     * <code>SparseObjectMatrix3D</code>, etc. In general, the new matrix should
      * have internal parametrization as similar as possible.
      * 
      * @param slices
@@ -1102,10 +1103,10 @@ public class DenseObjectMatrix3D extends ObjectMatrix3D {
     /**
      * Construct and returns a new 2-d matrix <i>of the corresponding dynamic
      * type</i>, sharing the same cells. For example, if the receiver is an
-     * instance of type <tt>DenseObjectMatrix3D</tt> the new matrix must also be
-     * of type <tt>DenseObjectMatrix2D</tt>, if the receiver is an instance of
-     * type <tt>SparseObjectMatrix3D</tt> the new matrix must also be of type
-     * <tt>SparseObjectMatrix2D</tt>, etc.
+     * instance of type <code>DenseObjectMatrix3D</code> the new matrix must also be
+     * of type <code>DenseObjectMatrix2D</code>, if the receiver is an instance of
+     * type <code>SparseObjectMatrix3D</code> the new matrix must also be of type
+     * <code>SparseObjectMatrix2D</code>, etc.
      * 
      * @param rows
      *            the number of rows the matrix shall have.
@@ -1117,10 +1118,10 @@ public class DenseObjectMatrix3D extends ObjectMatrix3D {
      *            the position of the first element.
      * @param rowStride
      *            the number of elements between two rows, i.e.
-     *            <tt>index(i+1,j)-index(i,j)</tt>.
+     *            <code>index(i+1,j)-index(i,j)</code>.
      * @param columnStride
      *            the number of elements between two columns, i.e.
-     *            <tt>index(i,j+1)-index(i,j)</tt>.
+     *            <code>index(i,j+1)-index(i,j)</code>.
      * @return a new matrix of the corresponding dynamic type.
      */
 
@@ -1129,7 +1130,7 @@ public class DenseObjectMatrix3D extends ObjectMatrix3D {
     }
 
     /**
-     * Sets the matrix cell at coordinate <tt>[slice,row,column]</tt> to the
+     * Sets the matrix cell at coordinate <code>[slice,row,column]</code> to the
      * specified value.
      * 
      * <p>
@@ -1137,7 +1138,7 @@ public class DenseObjectMatrix3D extends ObjectMatrix3D {
      * without throwing any exception. <b>You should only use this method when
      * you are absolutely sure that the coordinate is within bounds.</b>
      * Precondition (unchecked):
-     * <tt>slice&lt;0 || slice&gt;=slices() || row&lt;0 || row&gt;=rows() || column&lt;0 || column&gt;=column()</tt>.
+     * <code>slice&lt;0 || slice&gt;=slices() || row&lt;0 || row&gt;=rows() || column&lt;0 || column&gt;=column()</code>.
      * 
      * @param slice
      *            the index of the slice-coordinate.

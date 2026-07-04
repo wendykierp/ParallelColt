@@ -46,6 +46,7 @@ public abstract class Buffer extends cern.colt.PersistentObject {
 
     /**
      * Returns whether the receiver is already allocated.
+     * @return 
      */
     public boolean isAllocated() {
         return isAllocated;
@@ -53,16 +54,19 @@ public abstract class Buffer extends cern.colt.PersistentObject {
 
     /**
      * Returns whether the receiver is empty.
+     * @return 
      */
     public abstract boolean isEmpty();
 
     /**
      * Returns whether the receiver is empty.
+     * @return 
      */
     public abstract boolean isFull();
 
     /**
      * Returns whether the receiver is partial.
+     * @return 
      */
     public boolean isPartial() {
         return !(isEmpty() || isFull());
@@ -70,6 +74,7 @@ public abstract class Buffer extends cern.colt.PersistentObject {
 
     /**
      * Returns whether the receiver's level.
+     * @return 
      */
     public int level() {
         return level;
@@ -77,6 +82,7 @@ public abstract class Buffer extends cern.colt.PersistentObject {
 
     /**
      * Sets the receiver's level.
+     * @param level
      */
     public void level(int level) {
         this.level = level;
@@ -84,6 +90,7 @@ public abstract class Buffer extends cern.colt.PersistentObject {
 
     /**
      * Returns the number of elements contained in the receiver.
+     * @return 
      */
     public abstract int size();
 
@@ -94,6 +101,7 @@ public abstract class Buffer extends cern.colt.PersistentObject {
 
     /**
      * Returns whether the receiver's weight.
+     * @return 
      */
     public int weight() {
         return weight;
@@ -101,6 +109,7 @@ public abstract class Buffer extends cern.colt.PersistentObject {
 
     /**
      * Sets the receiver's weight.
+     * @param weight
      */
     public void weight(int weight) {
         this.weight = weight;

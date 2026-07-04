@@ -14,11 +14,11 @@ import cern.colt.matrix.tfloat.algo.FloatProperty;
 import cern.jet.math.tfloat.FloatFunctions;
 
 /**
- * For a symmetric, positive definite matrix <tt>A</tt>, the Cholesky
- * decomposition is a lower triangular matrix <tt>L</tt> so that <tt>A = L*L'</tt>; If
+ * For a symmetric, positive definite matrix <code>A</code>, the Cholesky
+ * decomposition is a lower triangular matrix <code>L</code> so that <code>A = L*L'</code>; If
  * the matrix is not symmetric or positive definite, the constructor returns a
  * partial decomposition and sets an internal flag that may be queried by the
- * <tt>isSymmetricPositiveDefinite()</tt> method.
+ * <code>isSymmetricPositiveDefinite()</code> method.
  */
 public class DenseFloatCholeskyDecomposition implements java.io.Serializable {
     static final long serialVersionUID = 1020;
@@ -55,7 +55,7 @@ public class DenseFloatCholeskyDecomposition implements java.io.Serializable {
      * @param A
      *            Square, symmetric matrix.
      * @throws IllegalArgumentException
-     *             if <tt>A</tt> is not square.
+     *             if <code>A</code> is not square.
      */
     public DenseFloatCholeskyDecomposition(FloatMatrix2D A) {
         FloatProperty.DEFAULT.checkSquare(A);
@@ -102,9 +102,9 @@ public class DenseFloatCholeskyDecomposition implements java.io.Serializable {
     }
 
     /**
-     * Returns the triangular factor, <tt>L</tt>.
+     * Returns the triangular factor, <code>L</code>.
      * 
-     * @return <tt>L</tt>
+     * @return <code>L</code>
      */
     public FloatMatrix2D getL() {
         return L;
@@ -115,9 +115,9 @@ public class DenseFloatCholeskyDecomposition implements java.io.Serializable {
     }
 
     /**
-     * Returns whether the matrix <tt>A</tt> is symmetric and positive definite.
+     * Returns whether the matrix <code>A</code> is symmetric and positive definite.
      * 
-     * @return true if <tt>A</tt> is symmetric and positive definite; false
+     * @return true if <code>A</code> is symmetric and positive definite; false
      *         otherwise
      */
     public boolean isSymmetricPositiveDefinite() {
@@ -125,16 +125,16 @@ public class DenseFloatCholeskyDecomposition implements java.io.Serializable {
     }
 
     /**
-     * Solves <tt>A*X = B</tt>; returns <tt>X</tt>.
+     * Solves <code>A*X = B</code>; returns <code>X</code>.
      * 
      * @param B
-     *            A Matrix with as many rows as <tt>A</tt> and any number of
+     *            A Matrix with as many rows as <code>A</code> and any number of
      *            columns.
-     * @return <tt>X</tt> so that <tt>L*L'*X = B</tt>.
+     * @return <code>X</code> so that <code>L*L'*X = B</code>.
      * @exception IllegalArgumentException
-     *                if <tt>B.rows() != A.rows()</tt>.
+     *                if <code>B.rows() != A.rows()</code>.
      * @exception IllegalArgumentException
-     *                if <tt>!isSymmetricPositiveDefinite()</tt>.
+     *                if <code>!isSymmetricPositiveDefinite()</code>.
      */
     public FloatMatrix2D solve(FloatMatrix2D B) {
         // Copy right hand side.
@@ -191,16 +191,16 @@ public class DenseFloatCholeskyDecomposition implements java.io.Serializable {
     }
 
     /**
-     * Solves <tt>A*X = B</tt>; returns <tt>X</tt>.
+     * Solves <code>A*X = B</code>; returns <code>X</code>.
      * 
      * @param B
-     *            A Matrix with as many rows as <tt>A</tt> and any number of
+     *            A Matrix with as many rows as <code>A</code> and any number of
      *            columns.
-     * @return <tt>X</tt> so that <tt>L*L'*X = B</tt>.
+     * @return <code>X</code> so that <code>L*L'*X = B</code>.
      * @exception IllegalArgumentException
-     *                if <tt>B.rows() != A.rows()</tt>.
+     *                if <code>B.rows() != A.rows()</code>.
      * @exception IllegalArgumentException
-     *                if <tt>!isSymmetricPositiveDefinite()</tt>.
+     *                if <code>!isSymmetricPositiveDefinite()</code>.
      */
     private FloatMatrix2D XXXsolveBuggy(FloatMatrix2D B) {
         cern.jet.math.tfloat.FloatFunctions F = cern.jet.math.tfloat.FloatFunctions.functions;
@@ -250,6 +250,7 @@ public class DenseFloatCholeskyDecomposition implements java.io.Serializable {
      * 	 trace         : 0
      * 
      * </pre>
+     * @return 
      */
 
     public String toString() {

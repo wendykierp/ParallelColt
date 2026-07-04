@@ -14,13 +14,13 @@ public class DoubleBinFunctions1D extends Object {
      * Little trick to allow for "aliasing", that is, renaming this class. Using
      * the aliasing you can instead write
      * <p>
-     * <tt>BinFunctions F = BinFunctions.functions; <br>
-    someAlgo(F.max);</tt>
+     * <code>BinFunctions F = BinFunctions.functions; <br>
+    someAlgo(F.max);</code>
      */
     public static final DoubleBinFunctions1D functions = new DoubleBinFunctions1D();
 
     /**
-     * Function that returns <tt>bin.max()</tt>.
+     * Function that returns <code>bin.max()</code>.
      */
     public static final DoubleBinFunction1D max = new DoubleBinFunction1D() {
         public final double apply(DynamicDoubleBin1D bin) {
@@ -33,7 +33,7 @@ public class DoubleBinFunctions1D extends Object {
     };
 
     /**
-     * Function that returns <tt>bin.mean()</tt>.
+     * Function that returns <code>bin.mean()</code>.
      */
     public static final DoubleBinFunction1D mean = new DoubleBinFunction1D() {
         public final double apply(DynamicDoubleBin1D bin) {
@@ -46,7 +46,7 @@ public class DoubleBinFunctions1D extends Object {
     };
 
     /**
-     * Function that returns <tt>bin.median()</tt>.
+     * Function that returns <code>bin.median()</code>.
      */
     public static final DoubleBinFunction1D median = new DoubleBinFunction1D() {
         public final double apply(DynamicDoubleBin1D bin) {
@@ -59,7 +59,7 @@ public class DoubleBinFunctions1D extends Object {
     };
 
     /**
-     * Function that returns <tt>bin.min()</tt>.
+     * Function that returns <code>bin.min()</code>.
      */
     public static final DoubleBinFunction1D min = new DoubleBinFunction1D() {
         public final double apply(DynamicDoubleBin1D bin) {
@@ -72,7 +72,7 @@ public class DoubleBinFunctions1D extends Object {
     };
 
     /**
-     * Function that returns <tt>bin.rms()</tt>.
+     * Function that returns <code>bin.rms()</code>.
      */
     public static final DoubleBinFunction1D rms = new DoubleBinFunction1D() {
         public final double apply(DynamicDoubleBin1D bin) {
@@ -85,7 +85,7 @@ public class DoubleBinFunctions1D extends Object {
     };
 
     /**
-     * Function that returns <tt>bin.size()</tt>.
+     * Function that returns <code>bin.size()</code>.
      */
     public static final DoubleBinFunction1D size = new DoubleBinFunction1D() {
         public final double apply(DynamicDoubleBin1D bin) {
@@ -98,7 +98,7 @@ public class DoubleBinFunctions1D extends Object {
     };
 
     /**
-     * Function that returns <tt>bin.standardDeviation()</tt>.
+     * Function that returns <code>bin.standardDeviation()</code>.
      */
     public static final DoubleBinFunction1D stdDev = new DoubleBinFunction1D() {
         public final double apply(DynamicDoubleBin1D bin) {
@@ -111,7 +111,7 @@ public class DoubleBinFunctions1D extends Object {
     };
 
     /**
-     * Function that returns <tt>bin.sum()</tt>.
+     * Function that returns <code>bin.sum()</code>.
      */
     public static final DoubleBinFunction1D sum = new DoubleBinFunction1D() {
         public final double apply(DynamicDoubleBin1D bin) {
@@ -124,7 +124,7 @@ public class DoubleBinFunctions1D extends Object {
     };
 
     /**
-     * Function that returns <tt>bin.sumOfLogarithms()</tt>.
+     * Function that returns <code>bin.sumOfLogarithms()</code>.
      */
     public static final DoubleBinFunction1D sumLog = new DoubleBinFunction1D() {
         public final double apply(DynamicDoubleBin1D bin) {
@@ -137,7 +137,7 @@ public class DoubleBinFunctions1D extends Object {
     };
 
     /**
-     * Function that returns <tt>bin.geometricMean()</tt>.
+     * Function that returns <code>bin.geometricMean()</code>.
      */
     public static final DoubleBinFunction1D geometricMean = new DoubleBinFunction1D() {
         public final double apply(DynamicDoubleBin1D bin) {
@@ -157,11 +157,12 @@ public class DoubleBinFunctions1D extends Object {
     }
 
     /**
-     * Function that returns <tt>bin.quantile(percentage)</tt>.
+     * Function that returns <code>bin.quantile(percentage)</code>.
      * 
      * @param percentage
-     *            the percentage of the quantile (<tt>0 <= percentage <= 1</tt>
+     *            the percentage of the quantile (<code>0 &lt;= percentage &lt;= 1</code>
      *            ).
+     * @return 
      */
     public static DoubleBinFunction1D quantile(final double percentage) {
         return new DoubleBinFunction1D() {

@@ -12,7 +12,7 @@ import cern.colt.list.tint.IntArrayList;
 
 /**
  * Fixed sized (non resizable) streaming buffer connected to a target
- * <tt>IntBuffer2DConsumer</tt> to which data is automatically flushed upon
+ * <code>IntBuffer2DConsumer</code> to which data is automatically flushed upon
  * buffer overflow.
  * 
  * @author wolfgang.hoschek@cern.ch

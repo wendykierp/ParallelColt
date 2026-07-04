@@ -12,7 +12,7 @@ import cern.colt.matrix.tobject.ObjectMatrix1D;
 import cern.colt.matrix.tobject.ObjectMatrix2D;
 
 /**
- * 1-d matrix holding <tt>Object</tt> elements; either a view wrapping another 2-d
+ * 1-d matrix holding <code>Object</code> elements; either a view wrapping another 2-d
  * matrix and therefore delegating calls to it.
  * 
  * @author Piotr Wendykier (piotr.wendykier@gmail.com)
@@ -43,13 +43,13 @@ class DelegateObjectMatrix1D extends WrapperObjectMatrix1D {
     }
 
     /**
-     * Returns the matrix cell value at coordinate <tt>index</tt>.
+     * Returns the matrix cell value at coordinate <code>index</code>.
      * 
      * <p>
      * Provided with invalid parameters this method may return invalid objects
      * without throwing any exception. <b>You should only use this method when
      * you are absolutely sure that the coordinate is within bounds.</b>
-     * Precondition (unchecked): <tt>index&lt;0 || index&gt;=size()</tt>.
+     * Precondition (unchecked): <code>index&lt;0 || index&gt;=size()</code>.
      * 
      * @param index
      *            the index of the cell.
@@ -63,10 +63,10 @@ class DelegateObjectMatrix1D extends WrapperObjectMatrix1D {
     /**
      * Construct and returns a new empty matrix <i>of the same dynamic type</i>
      * as the receiver, having the specified size. For example, if the receiver
-     * is an instance of type <tt>DenseObjectMatrix1D</tt> the new matrix must
-     * also be of type <tt>DenseObjectMatrix1D</tt>, if the receiver is an
-     * instance of type <tt>SparseObjectMatrix1D</tt> the new matrix must also be
-     * of type <tt>SparseObjectMatrix1D</tt>, etc. In general, the new matrix
+     * is an instance of type <code>DenseObjectMatrix1D</code> the new matrix must
+     * also be of type <code>DenseObjectMatrix1D</code>, if the receiver is an
+     * instance of type <code>SparseObjectMatrix1D</code> the new matrix must also be
+     * of type <code>SparseObjectMatrix1D</code>, etc. In general, the new matrix
      * should have internal parametrization as similar as possible.
      * 
      * @param size
@@ -81,10 +81,10 @@ class DelegateObjectMatrix1D extends WrapperObjectMatrix1D {
     /**
      * Construct and returns a new 2-d matrix <i>of the corresponding dynamic
      * type</i>, entirelly independent of the receiver. For example, if the
-     * receiver is an instance of type <tt>DenseObjectMatrix1D</tt> the new matrix
-     * must be of type <tt>DenseObjectMatrix2D</tt>, if the receiver is an
-     * instance of type <tt>SparseObjectMatrix1D</tt> the new matrix must be of
-     * type <tt>SparseObjectMatrix2D</tt>, etc.
+     * receiver is an instance of type <code>DenseObjectMatrix1D</code> the new matrix
+     * must be of type <code>DenseObjectMatrix2D</code>, if the receiver is an
+     * instance of type <code>SparseObjectMatrix1D</code> the new matrix must be of
+     * type <code>SparseObjectMatrix2D</code>, etc.
      * 
      * @param rows
      *            the number of rows the matrix shall have.
@@ -98,13 +98,13 @@ class DelegateObjectMatrix1D extends WrapperObjectMatrix1D {
     }
 
     /**
-     * Sets the matrix cell at coordinate <tt>index</tt> to the specified value.
+     * Sets the matrix cell at coordinate <code>index</code> to the specified value.
      * 
      * <p>
      * Provided with invalid parameters this method may access illegal indexes
      * without throwing any exception. <b>You should only use this method when
      * you are absolutely sure that the coordinate is within bounds.</b>
-     * Precondition (unchecked): <tt>index&lt;0 || index&gt;=size()</tt>.
+     * Precondition (unchecked): <code>index&lt;0 || index&gt;=size()</code>.
      * 
      * @param index
      *            the index of the cell.

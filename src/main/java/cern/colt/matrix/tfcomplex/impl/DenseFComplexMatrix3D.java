@@ -24,9 +24,9 @@ import cern.colt.matrix.tfloat.impl.DenseFloatMatrix3D;
 import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
 
 /**
- * Dense 3-d matrix holding <tt>complex</tt> elements.
+ * Dense 3-d matrix holding <code>complex</code> elements.
  * <p>
- * Internally holds one single contigous one-dimensional array, addressed in (in
+ * Internally holds one single contiguous one-dimensional array, addressed in (in
  * decreasing order of significance): slice major, row major, column major.
  * Complex data is represented by 2 float values in sequence, i.e. elements[idx]
  * constitute the real part and elements[idx+1] constitute the imaginary part,
@@ -78,24 +78,24 @@ public class DenseFComplexMatrix3D extends FComplexMatrix3D {
     protected float[] elements;
 
     /**
-     * Constructs a matrix with a copy of the given values. * <tt>values</tt> is
+     * Constructs a matrix with a copy of the given values. * <code>values</code> is
      * required to have the form
-     * <tt>re = values[slice][row][2*column], im = values[slice][row][2*column+1]</tt>
+     * <code>re = values[slice][row][2*column], im = values[slice][row][2*column+1]</code>
      * and have exactly the same number of rows in every slice and exactly the
      * same number of columns in in every row.
      * <p>
-     * The values are copied. So subsequent changes in <tt>values</tt> are not
+     * The values are copied. So subsequent changes in <code>values</code> are not
      * reflected in the matrix, and vice-versa.
      * 
      * @param values
      *            The values to be filled into the new matrix.
      * @throws IllegalArgumentException
      *             if
-     *             <tt>for any 1 &lt;= slice &lt; values.length: values[slice].length != values[slice-1].length</tt>
+     *             <code>for any 1 &lt;= slice &lt; values.length: values[slice].length != values[slice-1].length</code>
      *             .
      * @throws IllegalArgumentException
      *             if
-     *             <tt>for any 1 &lt;= row &lt; values[0].length: values[slice][row].length != values[slice][row-1].length</tt>
+     *             <code>for any 1 &lt;= row &lt; values[0].length: values[slice][row].length != values[slice][row-1].length</code>
      *             .
      */
     public DenseFComplexMatrix3D(float[][][] values) {
@@ -105,15 +105,15 @@ public class DenseFComplexMatrix3D extends FComplexMatrix3D {
     }
 
     /**
-     * Constructs a matrix with the same size as <tt>realPart</tt> matrix and
-     * fills the real part of this matrix with elements of <tt>realPart</tt>.
+     * Constructs a matrix with the same size as <code>realPart</code> matrix and
+     * fills the real part of this matrix with elements of <code>realPart</code>.
      * 
      * @param realPart
      *            a real matrix whose elements become a real part of this matrix
      * @throws IllegalArgumentException
-     *             if <tt>(float)slices*columns*rows > Integer.MAX_VALUE</tt>.
+     *             if <code>(float)slices*columns*rows > Integer.MAX_VALUE</code>.
      * @throws IllegalArgumentException
-     *             if <tt>slices<0 || rows<0 || columns<0</tt>.
+     *             if <code>slices &lt; 0 || rows &lt; 0 || columns &lt; 0</code>.
      */
     public DenseFComplexMatrix3D(FloatMatrix3D realPart) {
         this(realPart.slices(), realPart.rows(), realPart.columns());
@@ -122,7 +122,7 @@ public class DenseFComplexMatrix3D extends FComplexMatrix3D {
 
     /**
      * Constructs a matrix with a given number of slices, rows and columns. All
-     * entries are initially <tt>0</tt>.
+     * entries are initially <code>0</code>.
      * 
      * @param slices
      *            the number of slices the matrix shall have.
@@ -131,9 +131,9 @@ public class DenseFComplexMatrix3D extends FComplexMatrix3D {
      * @param columns
      *            the number of columns the matrix shall have.
      * @throws IllegalArgumentException
-     *             if <tt>(float)slices*columns*rows > Integer.MAX_VALUE</tt>.
+     *             if <code>(float)slices*columns*rows > Integer.MAX_VALUE</code>.
      * @throws IllegalArgumentException
-     *             if <tt>slices<0 || rows<0 || columns<0</tt>.
+     *             if <code>slices &lt; 0 || rows &lt; 0 || columns &lt; 0</code>.
      */
     public DenseFComplexMatrix3D(int slices, int rows, int columns) {
         setUp(slices, rows, columns, 0, 0, 0, rows * 2 * columns, 2 * columns, 2);
@@ -159,20 +159,20 @@ public class DenseFComplexMatrix3D extends FComplexMatrix3D {
      *            the position of the first element.
      * @param sliceStride
      *            the number of elements between two slices, i.e.
-     *            <tt>index(k+1,i,j)-index(k,i,j)</tt>.
+     *            <code>index(k+1,i,j)-index(k,i,j)</code>.
      * @param rowStride
      *            the number of elements between two rows, i.e.
-     *            <tt>index(k,i+1,j)-index(k,i,j)</tt>.
+     *            <code>index(k,i+1,j)-index(k,i,j)</code>.
      * @param columnStride
      *            the number of elements between two columns, i.e.
-     *            <tt>index(k,i,j+1)-index(k,i,j)</tt>.
+     *            <code>index(k,i,j+1)-index(k,i,j)</code>.
      * @param isNoView
      *            if false then the view is constructed
      * 
      * @throws IllegalArgumentException
-     *             if <tt>(float)slices*columns*rows > Integer.MAX_VALUE</tt>.
+     *             if <code>(float)slices*columns*rows > Integer.MAX_VALUE</code>.
      * @throws IllegalArgumentException
-     *             if <tt>slices<0 || rows<0 || columns<0</tt>.
+     *             if <code>slices &lt; 0 || rows &lt; 0 || columns &lt; 0</code>.
      */
     public DenseFComplexMatrix3D(int slices, int rows, int columns, float[] elements, int sliceZero, int rowZero,
             int columnZero, int sliceStride, int rowStride, int columnStride, boolean isNoView) {

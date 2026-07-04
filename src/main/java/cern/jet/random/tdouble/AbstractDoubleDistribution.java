@@ -13,8 +13,8 @@ import cern.jet.random.tdouble.engine.DoubleRandomEngine;
 /**
  * Abstract base class for all random distributions.
  * 
- * A subclass of this class need to override method <tt>nextDouble()</tt> and,
- * in rare cases, also <tt>nextInt()</tt>.
+ * A subclass of this class need to override method <code>nextDouble()</code> and,
+ * in rare cases, also <code>nextInt()</code>.
  * <p>
  * Currently all subclasses use a uniform pseudo-random number generation engine
  * and transform its results to the target distribution. Thus, they expect such
@@ -83,18 +83,20 @@ public abstract class AbstractDoubleDistribution extends cern.colt.PersistentObj
     }
 
     /**
-     * Equivalent to <tt>nextDouble()</tt>. This has the effect that
+     * Equivalent to <code>nextDouble()</code>. This has the effect that
      * distributions can now be used as function objects, returning a random
      * number upon function evaluation.
+     * @param dummy
      */
     public double apply(double dummy) {
         return nextDouble();
     }
 
     /**
-     * Equivalent to <tt>nextInt()</tt>. This has the effect that distributions
+     * Equivalent to <code>nextInt()</code>. This has the effect that distributions
      * can now be used as function objects, returning a random number upon
      * function evaluation.
+     * @param dummy
      */
     public int apply(int dummy) {
         return nextInt();
@@ -117,6 +119,7 @@ public abstract class AbstractDoubleDistribution extends cern.colt.PersistentObj
 
     /**
      * Returns the used uniform random number generator;
+     * @return 
      */
     protected DoubleRandomEngine getRandomGenerator() {
         return randomGenerator;
@@ -126,6 +129,7 @@ public abstract class AbstractDoubleDistribution extends cern.colt.PersistentObj
      * Constructs and returns a new uniform random number generation engine
      * seeded with the current time. Currently this is
      * {@link cern.jet.random.tdouble.engine.DoubleMersenneTwister}.
+     * @return 
      */
     public static DoubleRandomEngine makeDefaultGenerator() {
         return cern.jet.random.tdouble.engine.DoubleRandomEngine.makeDefault();
@@ -133,13 +137,15 @@ public abstract class AbstractDoubleDistribution extends cern.colt.PersistentObj
 
     /**
      * Returns a random number from the distribution.
+     * @return 
      */
     public abstract double nextDouble();
 
     /**
      * Returns a random number from the distribution; returns
-     * <tt>(int) Math.round(nextDouble())</tt>. Override this method if
+     * <code>(int) Math.round(nextDouble())</code>. Override this method if
      * necessary.
+     * @return 
      */
     public int nextInt() {
         return (int) Math.round(nextDouble());
@@ -147,6 +153,7 @@ public abstract class AbstractDoubleDistribution extends cern.colt.PersistentObj
 
     /**
      * Sets the uniform random generator internally used.
+     * @param randomGenerator
      */
     protected void setRandomGenerator(DoubleRandomEngine randomGenerator) {
         this.randomGenerator = randomGenerator;

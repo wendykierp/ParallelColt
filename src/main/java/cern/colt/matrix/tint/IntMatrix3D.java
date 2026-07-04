@@ -17,18 +17,18 @@ import cern.colt.matrix.AbstractMatrix3D;
 import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
 
 /**
- * Abstract base class for 3-d matrices holding <tt>int</tt> elements. First see
+ * Abstract base class for 3-d matrices holding <code>int</code> elements. First see
  * the <a href="package-summary.html">package summary</a> and javadoc <a
  * href="package-tree.html">tree view</a> to get the broad picture.
  * <p>
  * A matrix has a number of slices, rows and columns, which are assigned upon
  * instance construction - The matrix's size is then
- * <tt>slices()*rows()*columns()</tt>. Elements are accessed via
- * <tt>[slice,row,column]</tt> coordinates. Legal coordinates range from
- * <tt>[0,0,0]</tt> to <tt>[slices()-1,rows()-1,columns()-1]</tt>. Any attempt
+ * <code>slices()*rows()*columns()</code>. Elements are accessed via
+ * <code>[slice,row,column]</code> coordinates. Legal coordinates range from
+ * <code>[0,0,0]</code> to <code>[slices()-1,rows()-1,columns()-1]</code>. Any attempt
  * to access an element at a coordinate
- * <tt>slice&lt;0 || slice&gt;=slices() || row&lt;0 || row&gt;=rows() || column&lt;0 || column&gt;=column()</tt>
- * will throw an <tt>IndexOutOfBoundsException</tt>.
+ * <code>slice&lt;0 || slice&gt;=slices() || row&lt;0 || row&gt;=rows() || column&lt;0 || column&gt;=column()</code>
+ * will throw an <code>IndexOutOfBoundsException</code>.
  * <p>
  * <b>Note</b> that this implementation is not synchronized.
  * 
@@ -53,9 +53,9 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
 
     /**
      * Applies a function to each cell and aggregates the results. Returns a
-     * value <tt>v</tt> such that <tt>v==a(size())</tt> where
-     * <tt>a(i) == aggr( a(i-1), f(get(slice,row,column)) )</tt> and terminators
-     * are <tt>a(1) == f(get(0,0,0)), a(0)==Int.NaN</tt>.
+     * value <code>v</code> such that <code>v==a(size())</code> where
+     * <code>a(i) == aggr( a(i-1), f(get(slice,row,column)) )</code> and terminators
+     * are <code>a(1) == f(get(0,0,0)), a(0)==Int.NaN</code>.
      * <p>
      * <b>Example:</b>
      * 
@@ -272,11 +272,11 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
 
     /**
      * Applies a function to each corresponding cell of two matrices and
-     * aggregates the results. Returns a value <tt>v</tt> such that
-     * <tt>v==a(size())</tt> where
-     * <tt>a(i) == aggr( a(i-1), f(get(slice,row,column),other.get(slice,row,column)) )</tt>
+     * aggregates the results. Returns a value <code>v</code> such that
+     * <code>v==a(size())</code> where
+     * <code>a(i) == aggr( a(i-1), f(get(slice,row,column),other.get(slice,row,column)) )</code>
      * and terminators are
-     * <tt>a(1) == f(get(0,0,0),other.get(0,0,0)), a(0)==Int.NaN</tt>.
+     * <code>a(1) == f(get(0,0,0),other.get(0,0,0)), a(0)==Int.NaN</code>.
      * <p>
      * <b>Example:</b>
      * 
@@ -309,6 +309,7 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
      * For further examples, see the <a
      * href="package-summary.html#FunctionObjects">package doc</a>.
      * 
+     * @param other
      * @param aggr
      *            an aggregation function taking as first argument the current
      *            aggregation and as second argument the transformed current
@@ -318,7 +319,7 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
      * @return the aggregated measure.
      * @throws IllegalArgumentException
      *             if
-     *             <tt>slices() != other.slices() || rows() != other.rows() || columns() != other.columns()</tt>
+     *             <code>slices() != other.slices() || rows() != other.rows() || columns() != other.columns()</code>
      * @see cern.jet.math.tint.IntFunctions
      */
     public int aggregate(final IntMatrix3D other, final cern.colt.function.tint.IntIntFunction aggr,
@@ -369,7 +370,7 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
 
     /**
      * Assigns the result of a function to each cell;
-     * <tt>x[slice,row,col] = function(x[slice,row,col])</tt>.
+     * <code>x[slice,row,col] = function(x[slice,row,col])</code>.
      * <p>
      * <b>Example:</b>
      * 
@@ -392,7 +393,7 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
      * 
      * @param function
      *            a function object taking as argument the current cell's value.
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      * @see cern.jet.math.tint.IntFunctions
      */
     public IntMatrix3D assign(final cern.colt.function.tint.IntFunction function) {
@@ -432,11 +433,11 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
     }
 
     /**
-     * Sets all cells to the state specified by <tt>value</tt>.
+     * Sets all cells to the state specified by <code>value</code>.
      * 
      * @param value
      *            the value to be filled into the cells.
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      */
     public IntMatrix3D assign(final int value) {
         int nthreads = ConcurrencyUtils.getNumberOfThreads();
@@ -474,17 +475,17 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
     }
 
     /**
-     * Sets all cells to the state specified by <tt>values</tt>. <tt>values</tt>
-     * is required to have the form <tt>values[slice*row*column]</tt>.
+     * Sets all cells to the state specified by <code>values</code>. <code>values</code>
+     * is required to have the form <code>values[slice*row*column]</code>.
      * <p>
-     * The values are copied. So subsequent changes in <tt>values</tt> are not
+     * The values are copied. So subsequent changes in <code>values</code> are not
      * reflected in the matrix, and vice-versa.
      * 
      * @param values
      *            the values to be filled into the cells.
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      * @throws IllegalArgumentException
-     *             if <tt>values.length != slices()*rows()*columns()</tt>
+     *             if <code>values.length != slices()*rows()*columns()</code>
      */
     public IntMatrix3D assign(final int[] values) {
         if (values.length != slices * rows * columns)
@@ -527,23 +528,23 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
     }
 
     /**
-     * Sets all cells to the state specified by <tt>values</tt>. <tt>values</tt>
-     * is required to have the form <tt>values[slice][row][column]</tt> and have
+     * Sets all cells to the state specified by <code>values</code>. <code>values</code>
+     * is required to have the form <code>values[slice][row][column]</code> and have
      * exactly the same number of slices, rows and columns as the receiver.
      * <p>
-     * The values are copied. So subsequent changes in <tt>values</tt> are not
+     * The values are copied. So subsequent changes in <code>values</code> are not
      * reflected in the matrix, and vice-versa.
      * 
      * @param values
      *            the values to be filled into the cells.
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      * @throws IllegalArgumentException
      *             if
-     *             <tt>values.length != slices() || for any 0 &lt;= slice &lt; slices(): values[slice].length != rows()</tt>
+     *             <code>values.length != slices() || for any 0 &lt;= slice &lt; slices(): values[slice].length != rows()</code>
      *             .
      * @throws IllegalArgumentException
      *             if
-     *             <tt>for any 0 &lt;= column &lt; columns(): values[slice][row].length != columns()</tt>
+     *             <code>for any 0 &lt;= column &lt; columns(): values[slice][row].length != columns()</code>
      *             .
      */
     public IntMatrix3D assign(final int[][][] values) {
@@ -612,7 +613,7 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
      * 
      * @param f
      *            a function object.
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      * @see cern.jet.math.tint.IntFunctions
      */
     public IntMatrix3D assign(final cern.colt.function.tint.IntProcedure cond,
@@ -668,7 +669,7 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
      * 
      * @param value
      *            a value.
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      * 
      */
     public IntMatrix3D assign(final cern.colt.function.tint.IntProcedure cond, final int value) {
@@ -721,15 +722,15 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
      * columns. If both matrices share the same cells (as is the case if they
      * are views derived from the same matrix) and intersect in an ambiguous
      * way, then replaces <i>as if</i> using an intermediate auxiliary deep copy
-     * of <tt>other</tt>.
+     * of <code>other</code>.
      * 
      * @param other
      *            the source matrix to copy from (may be identical to the
      *            receiver).
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      * @throws IllegalArgumentException
      *             if
-     *             <tt>slices() != other.slices() || rows() != other.rows() || columns() != other.columns()</tt>
+     *             <code>slices() != other.slices() || rows() != other.rows() || columns() != other.columns()</code>
      */
     public IntMatrix3D assign(IntMatrix3D other) {
         if (other == this)
@@ -778,7 +779,7 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
 
     /**
      * Assigns the result of a function to each cell;
-     * <tt>x[row,col] = function(x[row,col],y[row,col])</tt>.
+     * <code>x[row,col] = function(x[row,col],y[row,col])</code>.
      * <p>
      * <b>Example:</b>
      * 
@@ -807,12 +808,12 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
      *            the secondary matrix to operate on.
      * @param function
      *            a function object taking as first argument the current cell's
-     *            value of <tt>this</tt>, and as second argument the current
-     *            cell's value of <tt>y</tt>,
-     * @return <tt>this</tt> (for convenience only).
+     *            value of <code>this</code>, and as second argument the current
+     *            cell's value of <code>y</code>,
+     * @return <code>this</code> (for convenience only).
      * @throws IllegalArgumentException
      *             if
-     *             <tt>slices() != other.slices() || rows() != other.rows() || columns() != other.columns()</tt>
+     *             <code>slices() != other.slices() || rows() != other.rows() || columns() != other.columns()</code>
      * @see cern.jet.math.tint.IntFunctions
      */
     public IntMatrix3D assign(final IntMatrix3D y, final cern.colt.function.tint.IntIntFunction function) {
@@ -860,18 +861,18 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
      *            the secondary matrix to operate on.
      * @param function
      *            a function object taking as first argument the current cell's
-     *            value of <tt>this</tt>, and as second argument the current
-     *            cell's value of <tt>y</tt>, *
+     *            value of <code>this</code>, and as second argument the current
+     *            cell's value of <code>y</code>, *
      * @param sliceList
      *            slice indexes.
      * @param rowList
      *            row indexes.
      * @param columnList
      *            column indexes.
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      * @throws IllegalArgumentException
      *             if
-     *             <tt>slices() != other.slices() || rows() != other.rows() || columns() != other.columns()</tt>
+     *             <code>slices() != other.slices() || rows() != other.rows() || columns() != other.columns()</code>
      * @see cern.jet.math.tint.IntFunctions
      */
     public IntMatrix3D assign(final IntMatrix3D y, final cern.colt.function.tint.IntIntFunction function,
@@ -995,8 +996,8 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
      * 
      * @param value
      *            the value to test against.
-     * @return <tt>true</tt> if all cells are equal to the given value,
-     *         <tt>false</tt> otherwise.
+     * @return <code>true</code> if all cells are equal to the given value,
+     *         <code>false</code> otherwise.
      */
     public boolean equals(int value) {
         return cern.colt.matrix.tint.algo.IntProperty.DEFAULT.equals(this, value);
@@ -1027,7 +1028,7 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
     }
 
     /**
-     * Returns the matrix cell value at coordinate <tt>[slice,row,column]</tt>.
+     * Returns the matrix cell value at coordinate <code>[slice,row,column]</code>.
      * 
      * @param slice
      *            the index of the slice-coordinate.
@@ -1038,7 +1039,7 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
      * @return the value of the specified cell.
      * @throws IndexOutOfBoundsException
      *             if
-     *             <tt>slice&lt;0 || slice&gt;=slices() || row&lt;0 || row&gt;=rows() || column&lt;0 || column&gt;=column()</tt>
+     *             <code>slice&lt;0 || slice&gt;=slices() || row&lt;0 || row&gt;=rows() || column&lt;0 || column&gt;=column()</code>
      *             .
      */
     public int get(int slice, int row, int column) {
@@ -1048,8 +1049,9 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
     }
 
     /**
-     * Returns the content of this matrix if it is a wrapper; or <tt>this</tt>
+     * Returns the content of this matrix if it is a wrapper; or <code>this</code>
      * otherwise. Override this method in wrappers.
+     * @return 
      */
     protected IntMatrix3D getContent() {
         return this;
@@ -1101,7 +1103,7 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
      * <p>
      * In general, fill order is <i>unspecified</i>. This implementation fill
      * like:
-     * <tt>for (slice = 0..slices-1) for (row = 0..rows-1) for (column = 0..colums-1) do ... </tt>
+     * <code>for (slice = 0..slices-1) for (row = 0..rows-1) for (column = 0..colums-1) do ... </code>
      * . However, subclasses are free to us any other order, even an order that
      * may change over time as cell values are changed. (Of course, result lists
      * indexes are guaranteed to correspond to the same cell). For an example,
@@ -1178,14 +1180,14 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
     }
 
     /**
-     * Returns the matrix cell value at coordinate <tt>[slice,row,column]</tt>.
+     * Returns the matrix cell value at coordinate <code>[slice,row,column]</code>.
      * 
      * <p>
      * Provided with invalid parameters this method may return invalid objects
      * without throwing any exception. <b>You should only use this method when
      * you are absolutely sure that the coordinate is within bounds.</b>
      * Precondition (unchecked):
-     * <tt>slice&lt;0 || slice&gt;=slices() || row&lt;0 || row&gt;=rows() || column&lt;0 || column&gt;=column()</tt>.
+     * <code>slice&lt;0 || slice&gt;=slices() || row&lt;0 || row&gt;=rows() || column&lt;0 || column&gt;=column()</code>.
      * 
      * @param slice
      *            the index of the slice-coordinate.
@@ -1198,7 +1200,9 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
     public abstract int getQuick(int slice, int row, int column);
 
     /**
-     * Returns <tt>true</tt> if both matrices share at least one identical cell.
+     * Returns <code>true</code> if both matrices share at least one identical cell.
+     * @param other
+     * @return 
      */
     protected boolean haveSharedCells(IntMatrix3D other) {
         if (other == null)
@@ -1209,7 +1213,9 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
     }
 
     /**
-     * Returns <tt>true</tt> if both matrices share at least one identical cell.
+     * Returns <code>true</code> if both matrices share at least one identical cell.
+     * @param other
+     * @return 
      */
     protected boolean haveSharedCellsRaw(IntMatrix3D other) {
         return false;
@@ -1218,10 +1224,10 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
     /**
      * Construct and returns a new empty matrix <i>of the same dynamic type</i>
      * as the receiver, having the same number of slices, rows and columns. For
-     * example, if the receiver is an instance of type <tt>DenseIntMatrix3D</tt>
-     * the new matrix must also be of type <tt>DenseIntMatrix3D</tt>, if the
-     * receiver is an instance of type <tt>SparseIntMatrix3D</tt> the new matrix
-     * must also be of type <tt>SparseIntMatrix3D</tt>, etc. In general, the new
+     * example, if the receiver is an instance of type <code>DenseIntMatrix3D</code>
+     * the new matrix must also be of type <code>DenseIntMatrix3D</code>, if the
+     * receiver is an instance of type <code>SparseIntMatrix3D</code> the new matrix
+     * must also be of type <code>SparseIntMatrix3D</code>, etc. In general, the new
      * matrix should have internal parametrization as similar as possible.
      * 
      * @return a new empty matrix of the same dynamic type.
@@ -1234,10 +1240,10 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
      * Construct and returns a new empty matrix <i>of the same dynamic type</i>
      * as the receiver, having the specified number of slices, rows and columns.
      * For example, if the receiver is an instance of type
-     * <tt>DenseIntMatrix3D</tt> the new matrix must also be of type
-     * <tt>DenseIntMatrix3D</tt>, if the receiver is an instance of type
-     * <tt>SparseIntMatrix3D</tt> the new matrix must also be of type
-     * <tt>SparseIntMatrix3D</tt>, etc. In general, the new matrix should have
+     * <code>DenseIntMatrix3D</code> the new matrix must also be of type
+     * <code>DenseIntMatrix3D</code>, if the receiver is an instance of type
+     * <code>SparseIntMatrix3D</code> the new matrix must also be of type
+     * <code>SparseIntMatrix3D</code>, etc. In general, the new matrix should have
      * internal parametrization as similar as possible.
      * 
      * @param slices
@@ -1253,10 +1259,10 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
     /**
      * Construct and returns a new 2-d matrix <i>of the corresponding dynamic
      * type</i>, sharing the same cells. For example, if the receiver is an
-     * instance of type <tt>DenseDoubleMatrix3D</tt> the new matrix must also be
-     * of type <tt>DenseDoubleMatrix2D</tt>, if the receiver is an instance of
-     * type <tt>SparseDoubleMatrix3D</tt> the new matrix must also be of type
-     * <tt>SparseDoubleMatrix2D</tt>, etc.
+     * instance of type <code>DenseDoubleMatrix3D</code> the new matrix must also be
+     * of type <code>DenseDoubleMatrix2D</code>, if the receiver is an instance of
+     * type <code>SparseDoubleMatrix3D</code> the new matrix must also be of type
+     * <code>SparseDoubleMatrix2D</code>, etc.
      * 
      * @param rows
      *            the number of rows the matrix shall have.
@@ -1269,10 +1275,10 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
     /**
      * Construct and returns a new 2-d matrix <i>of the corresponding dynamic
      * type</i>, sharing the same cells. For example, if the receiver is an
-     * instance of type <tt>DenseIntMatrix3D</tt> the new matrix must also be of
-     * type <tt>DenseIntMatrix2D</tt>, if the receiver is an instance of type
-     * <tt>SparseIntMatrix3D</tt> the new matrix must also be of type
-     * <tt>SparseIntMatrix2D</tt>, etc.
+     * instance of type <code>DenseIntMatrix3D</code> the new matrix must also be of
+     * type <code>DenseIntMatrix2D</code>, if the receiver is an instance of type
+     * <code>SparseIntMatrix3D</code> the new matrix must also be of type
+     * <code>SparseIntMatrix2D</code>, etc.
      * 
      * @param rows
      *            the number of rows the matrix shall have.
@@ -1284,10 +1290,10 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
      *            the position of the first element.
      * @param rowStride
      *            the number of elements between two rows, i.e.
-     *            <tt>index(i+1,j)-index(i,j)</tt>.
+     *            <code>index(i+1,j)-index(i,j)</code>.
      * @param columnStride
      *            the number of elements between two columns, i.e.
-     *            <tt>index(i,j+1)-index(i,j)</tt>.
+     *            <code>index(i,j+1)-index(i,j)</code>.
      * @return a new matrix of the corresponding dynamic type.
      */
     protected abstract IntMatrix2D like2D(int rows, int columns, int rowZero, int columnZero, int rowStride,
@@ -1472,7 +1478,7 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
     }
 
     /**
-     * Sets the matrix cell at coordinate <tt>[slice,row,column]</tt> to the
+     * Sets the matrix cell at coordinate <code>[slice,row,column]</code> to the
      * specified value.
      * 
      * @param slice
@@ -1485,7 +1491,7 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
      *            the value to be filled into the specified cell.
      * @throws IndexOutOfBoundsException
      *             if
-     *             <tt>row&lt;0 || row&gt;=rows() || slice&lt;0 || slice&gt;=slices() || column&lt;0 || column&gt;=column()</tt>
+     *             <code>row&lt;0 || row&gt;=rows() || slice&lt;0 || slice&gt;=slices() || column&lt;0 || column&gt;=column()</code>
      *             .
      */
     public void set(int slice, int row, int column, int value) {
@@ -1495,7 +1501,7 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
     }
 
     /**
-     * Sets the matrix cell at coordinate <tt>[slice,row,column]</tt> to the
+     * Sets the matrix cell at coordinate <code>[slice,row,column]</code> to the
      * specified value.
      * 
      * <p>
@@ -1503,7 +1509,7 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
      * without throwing any exception. <b>You should only use this method when
      * you are absolutely sure that the coordinate is within bounds.</b>
      * Precondition (unchecked):
-     * <tt>slice&lt;0 || slice&gt;=slices() || row&lt;0 || row&gt;=rows() || column&lt;0 || column&gt;=column()</tt>.
+     * <code>slice&lt;0 || slice&gt;=slices() || row&lt;0 || row&gt;=rows() || column&lt;0 || column&gt;=column()</code>.
      * 
      * @param slice
      *            the index of the slice-coordinate.
@@ -1518,11 +1524,11 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
 
     /**
      * Constructs and returns a 2-dimensional array containing the cell values.
-     * The returned array <tt>values</tt> has the form
-     * <tt>values[slice][row][column]</tt> and has the same number of slices,
+     * The returned array <code>values</code> has the form
+     * <code>values[slice][row][column]</code> and has the same number of slices,
      * rows and columns as the receiver.
      * <p>
-     * The values are copied. So subsequent changes in <tt>values</tt> are not
+     * The values are copied. So subsequent changes in <code>values</code> are not
      * reflected in the matrix, and vice-versa.
      * 
      * @return an array filled with the values of the cells.
@@ -1570,6 +1576,7 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
     /**
      * Returns a string representation using default formatting.
      * 
+     * @return 
      * @see cern.colt.matrix.tint.algo.IntFormatter
      */
 
@@ -1610,9 +1617,9 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
      * matrix, and vice-versa.
      * <p>
      * To obtain a slice view on subranges, construct a sub-ranging view (
-     * <tt>view().part(...)</tt>), then apply this method to the sub-range view.
+     * <code>view().part(...)</code>), then apply this method to the sub-range view.
      * To obtain 1-dimensional views, apply this method, then apply another
-     * slice view (methods <tt>viewColumn</tt>, <tt>viewRow</tt>) on the
+     * slice view (methods <code>viewColumn</code>, <code>viewRow</code>) on the
      * intermediate 2-dimensional view. To obtain 1-dimensional views on
      * subranges, apply both steps.
      * 
@@ -1620,7 +1627,7 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
      *            the index of the column to fix.
      * @return a new 2-dimensional slice view.
      * @throws IndexOutOfBoundsException
-     *             if <tt>column < 0 || column >= columns()</tt>.
+     *             if <code>column < 0 || column >= columns()</code>.
      * @see #viewSlice(int)
      * @see #viewRow(int)
      */
@@ -1640,8 +1647,8 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
 
     /**
      * Constructs and returns a new <i>flip view</i> aint the column axis. What
-     * used to be column <tt>0</tt> is now column <tt>columns()-1</tt>, ...,
-     * what used to be column <tt>columns()-1</tt> is now column <tt>0</tt>. The
+     * used to be column <code>0</code> is now column <code>columns()-1</code>, ...,
+     * what used to be column <code>columns()-1</code> is now column <code>0</code>. The
      * returned view is backed by this matrix, so changes in the returned view
      * are reflected in this matrix, and vice-versa.
      * 
@@ -1676,9 +1683,9 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
 
     /**
      * Constructs and returns a new <i>sub-range view</i> that is a
-     * <tt>depth x height x width</tt> sub matrix starting at
-     * <tt>[slice,row,column]</tt>; Equivalent to
-     * <tt>view().part(slice,row,column,depth,height,width)</tt>; Provided for
+     * <code>depth x height x width</code> sub matrix starting at
+     * <code>[slice,row,column]</code>; Equivalent to
+     * <code>view().part(slice,row,column,depth,height,width)</code>; Provided for
      * convenience only. The returned view is backed by this matrix, so changes
      * in the returned view are reflected in this matrix, and vice-versa.
      * 
@@ -1697,7 +1704,7 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
      * @throws IndexOutOfBoundsException
      *             if
      * 
-     *             <tt>slice<0 || depth<0 || slice+depth>slices() || row<0 || height<0 || row+height>rows() || column<0 || width<0 || column+width>columns()</tt>
+     *             <code>slice<0 || depth<0 || slice+depth>slices() || row<0 || height<0 || row+height>rows() || column<0 || width<0 || column+width>columns()</code>
      * @return the new view.
      * 
      */
@@ -1712,9 +1719,9 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
      * matrix, and vice-versa.
      * <p>
      * To obtain a slice view on subranges, construct a sub-ranging view (
-     * <tt>view().part(...)</tt>), then apply this method to the sub-range view.
+     * <code>view().part(...)</code>), then apply this method to the sub-range view.
      * To obtain 1-dimensional views, apply this method, then apply another
-     * slice view (methods <tt>viewColumn</tt>, <tt>viewRow</tt>) on the
+     * slice view (methods <code>viewColumn</code>, <code>viewRow</code>) on the
      * intermediate 2-dimensional view. To obtain 1-dimensional views on
      * subranges, apply both steps.
      * 
@@ -1722,7 +1729,7 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
      *            the index of the row to fix.
      * @return a new 2-dimensional slice view.
      * @throws IndexOutOfBoundsException
-     *             if <tt>row < 0 || row >= row()</tt>.
+     *             if <code>row < 0 || row >= row()</code>.
      * @see #viewSlice(int)
      * @see #viewColumn(int)
      */
@@ -1742,8 +1749,8 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
 
     /**
      * Constructs and returns a new <i>flip view</i> aint the row axis. What
-     * used to be row <tt>0</tt> is now row <tt>rows()-1</tt>, ..., what used to
-     * be row <tt>rows()-1</tt> is now row <tt>0</tt>. The returned view is
+     * used to be row <code>0</code> is now row <code>rows()-1</code>, ..., what used to
+     * be row <code>rows()-1</code> is now row <code>0</code>. The returned view is
      * backed by this matrix, so changes in the returned view are reflected in
      * this matrix, and vice-versa.
      * 
@@ -1759,7 +1766,7 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
      * Constructs and returns a new <i>selection view</i> that is a matrix
      * holding all <b>slices</b> matching the given condition. Applies the
      * condition to each slice and takes only those where
-     * <tt>condition.apply(viewSlice(i))</tt> yields <tt>true</tt>. To match
+     * <code>condition.apply(viewSlice(i))</code> yields <code>true</code>. To match
      * rows or columns, use a dice view.
      * <p>
      * <b>Example:</b> <br>
@@ -1798,9 +1805,9 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
      * Constructs and returns a new <i>selection view</i> that is a matrix
      * holding the indicated cells. There holds
      * 
-     * <tt>view.slices() == sliceIndexes.length, view.rows() == rowIndexes.length, view.columns() == columnIndexes.length</tt>
+     * <code>view.slices() == sliceIndexes.length, view.rows() == rowIndexes.length, view.columns() == columnIndexes.length</code>
      * and
-     * <tt>view.get(k,i,j) == this.get(sliceIndexes[k],rowIndexes[i],columnIndexes[j])</tt>
+     * <code>view.get(k,i,j) == this.get(sliceIndexes[k],rowIndexes[i],columnIndexes[j])</code>
      * . Indexes can occur multiple times and can be in arbitrary order. For an
      * example see {@link IntMatrix2D#viewSelection(int[],int[])}.
      * <p>
@@ -1812,25 +1819,25 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
      * @param sliceIndexes
      *            The slices of the cells that shall be visible in the new view.
      *            To indicate that <i>all</i> slices shall be visible, simply
-     *            set this parameter to <tt>null</tt>.
+     *            set this parameter to <code>null</code>.
      * @param rowIndexes
      *            The rows of the cells that shall be visible in the new view.
      *            To indicate that <i>all</i> rows shall be visible, simply set
-     *            this parameter to <tt>null</tt>.
+     *            this parameter to <code>null</code>.
      * @param columnIndexes
      *            The columns of the cells that shall be visible in the new
      *            view. To indicate that <i>all</i> columns shall be visible,
-     *            simply set this parameter to <tt>null</tt>.
+     *            simply set this parameter to <code>null</code>.
      * @return the new view.
      * @throws IndexOutOfBoundsException
-     *             if <tt>!(0 <= sliceIndexes[i] < slices())</tt> for any
-     *             <tt>i=0..sliceIndexes.length()-1</tt>.
+     *             if <code>!(0 <= sliceIndexes[i] < slices())</code> for any
+     *             <code>i=0..sliceIndexes.length()-1</code>.
      * @throws IndexOutOfBoundsException
-     *             if <tt>!(0 <= rowIndexes[i] < rows())</tt> for any
-     *             <tt>i=0..rowIndexes.length()-1</tt>.
+     *             if <code>!(0 <= rowIndexes[i] < rows())</code> for any
+     *             <code>i=0..rowIndexes.length()-1</code>.
      * @throws IndexOutOfBoundsException
-     *             if <tt>!(0 <= columnIndexes[i] < columns())</tt> for any
-     *             <tt>i=0..columnIndexes.length()-1</tt>.
+     *             if <code>!(0 <= columnIndexes[i] < columns())</code> for any
+     *             <code>i=0..columnIndexes.length()-1</code>.
      */
     public IntMatrix3D viewSelection(int[] sliceIndexes, int[] rowIndexes, int[] columnIndexes) {
         // check for "all"
@@ -1891,9 +1898,9 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
      * matrix, and vice-versa.
      * <p>
      * To obtain a slice view on subranges, construct a sub-ranging view (
-     * <tt>view().part(...)</tt>), then apply this method to the sub-range view.
+     * <code>view().part(...)</code>), then apply this method to the sub-range view.
      * To obtain 1-dimensional views, apply this method, then apply another
-     * slice view (methods <tt>viewColumn</tt>, <tt>viewRow</tt>) on the
+     * slice view (methods <code>viewColumn</code>, <code>viewRow</code>) on the
      * intermediate 2-dimensional view. To obtain 1-dimensional views on
      * subranges, apply both steps.
      * 
@@ -1901,7 +1908,7 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
      *            the index of the slice to fix.
      * @return a new 2-dimensional slice view.
      * @throws IndexOutOfBoundsException
-     *             if <tt>slice < 0 || slice >= slices()</tt>.
+     *             if <code>slice < 0 || slice >= slices()</code>.
      * @see #viewRow(int)
      * @see #viewColumn(int)
      */
@@ -1921,8 +1928,8 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
 
     /**
      * Constructs and returns a new <i>flip view</i> aint the slice axis. What
-     * used to be slice <tt>0</tt> is now slice <tt>slices()-1</tt>, ..., what
-     * used to be slice <tt>slices()-1</tt> is now slice <tt>0</tt>. The
+     * used to be slice <code>0</code> is now slice <code>slices()-1</code>, ..., what
+     * used to be slice <code>slices()-1</code> is now slice <code>0</code>. The
      * returned view is backed by this matrix, so changes in the returned view
      * are reflected in this matrix, and vice-versa.
      * 
@@ -1936,17 +1943,19 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
 
     /**
      * Sorts the matrix slices into ascending order, according to the <i>natural
-     * ordering</i> of the matrix values in the given <tt>[row,column]</tt>
+     * ordering</i> of the matrix values in the given <code>[row,column]</code>
      * position. This sort is guaranteed to be <i>stable</i>. For further
      * information, see
      * {@link cern.colt.matrix.tint.algo.IntSorting#sort(IntMatrix3D,int,int)}.
      * For more advanced sorting functionality, see
      * {@link cern.colt.matrix.tint.algo.IntSorting}.
      * 
+     * @param row
+     * @param column
      * @return a new sorted vector (matrix) view.
      * @throws IndexOutOfBoundsException
      *             if
-     *             <tt>row < 0 || row >= rows() || column < 0 || column >= columns()</tt>
+     *             <code>row $lt; 0 || row >= rows() || column $lt; 0 || column >= columns()</code>
      *             .
      */
     public IntMatrix3D viewSorted(int row, int column) {
@@ -1956,12 +1965,12 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
     /**
      * Constructs and returns a new <i>stride view</i> which is a sub matrix
      * consisting of every i-th cell. More specifically, the view has
-     * <tt>this.slices()/sliceStride</tt> slices and
-     * <tt>this.rows()/rowStride</tt> rows and
-     * <tt>this.columns()/columnStride</tt> columns holding cells
-     * <tt>this.get(k*sliceStride,i*rowStride,j*columnStride)</tt> for all
+     * <code>this.slices()/sliceStride</code> slices and
+     * <code>this.rows()/rowStride</code> rows and
+     * <code>this.columns()/columnStride</code> columns holding cells
+     * <code>this.get(k*sliceStride,i*rowStride,j*columnStride)</code> for all
      * 
-     * <tt>k = 0..slices()/sliceStride - 1, i = 0..rows()/rowStride - 1, j = 0..columns()/columnStride - 1</tt>
+     * <code>k = 0..slices()/sliceStride - 1, i = 0..rows()/rowStride - 1, j = 0..columns()/columnStride - 1</code>
      * . The returned view is backed by this matrix, so changes in the returned
      * view are reflected in this matrix, and vice-versa.
      * 
@@ -1973,7 +1982,7 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
      *            the column step factor.
      * @return a new view.
      * @throws IndexOutOfBoundsException
-     *             if <tt>sliceStride<=0 || rowStride<=0 || columnStride<=0</tt>
+     *             if <code>sliceStride $lt;=0 || rowStride $lt;=0 || columnStride $lt;=0</code>
      *             .
      */
     public IntMatrix3D viewStrides(int sliceStride, int rowStride, int columnStride) {
@@ -1981,7 +1990,7 @@ public abstract class IntMatrix3D extends AbstractMatrix3D {
     }
 
     /**
-     * Returns the sum of all cells; <tt>Sum( x[i,j,k] )</tt>.
+     * Returns the sum of all cells; <code>Sum( x[i,j,k] )</code>.
      * 
      * @return the sum.
      */

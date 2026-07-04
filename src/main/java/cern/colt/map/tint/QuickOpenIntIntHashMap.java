@@ -12,7 +12,7 @@ import cern.colt.map.HashFunctions;
 
 /**
  * Status: Experimental; Do not use for production yet. Hash map holding
- * (key,value) associations of type <tt>(int-->int)</tt>; Automatically grows
+ * (key,value) associations of type <code>(int-->int)</code>; Automatically grows
  * and shrinks as needed; Implemented using open addressing with double hashing.
  * First see the <a href="package-summary.html">package summary</a> and javadoc
  * <a href="package-tree.html">tree view</a> to get the broad picture.
@@ -67,7 +67,7 @@ public class QuickOpenIntIntHashMap extends OpenIntIntHashMap {
      * @throws IllegalArgumentException
      *             if
      * 
-     *             <tt>initialCapacity < 0 || (minLoadFactor < 0.0 || minLoadFactor >= 1.0) || (maxLoadFactor <= 0.0 || maxLoadFactor >= 1.0) || (minLoadFactor >= maxLoadFactor)</tt>
+     *             <code>initialCapacity < 0 || (minLoadFactor < 0.0 || minLoadFactor >= 1.0) || (maxLoadFactor <= 0.0 || maxLoadFactor >= 1.0) || (minLoadFactor >= maxLoadFactor)</code>
      *             .
      */
     public QuickOpenIntIntHashMap(int initialCapacity, double minLoadFactor, double maxLoadFactor) {
@@ -76,14 +76,14 @@ public class QuickOpenIntIntHashMap extends OpenIntIntHashMap {
 
     /**
      * Associates the given key with the given value. Replaces any old
-     * <tt>(key,someOtherValue)</tt> association, if existing.
+     * <code>(key,someOtherValue)</code> association, if existing.
      * 
      * @param key
      *            the key the value shall be associated with.
      * @param value
      *            the value to be associated.
-     * @return <tt>true</tt> if the receiver did not already contain such a key;
-     *         <tt>false</tt> if the receiver did already contain such a key -
+     * @return <code>true</code> if the receiver did not already contain such a key;
+     *         <code>false</code> if the receiver did already contain such a key -
      *         the new value has now replaced the formerly associated value.
      */
 
@@ -212,6 +212,7 @@ public class QuickOpenIntIntHashMap extends OpenIntIntHashMap {
      * larger capacity. This method is called automatically when the number of
      * keys in the receiver exceeds the high water mark or falls below the low
      * water mark.
+     * @param newCapacity
      */
 
     public void rehash(int newCapacity) {

@@ -43,6 +43,9 @@ public class FloatUniform extends AbstractContinousFloatDistribution {
      * Constructs a uniform distribution with the given minimum and maximum,
      * using a {@link cern.jet.random.tfloat.engine.FloatMersenneTwister} seeded
      * with the given seed.
+     * @param min
+     * @param seed
+     * @param max
      */
     public FloatUniform(float min, float max, int seed) {
         this(min, max, new cern.jet.random.tfloat.engine.FloatMersenneTwister(seed));
@@ -50,6 +53,9 @@ public class FloatUniform extends AbstractContinousFloatDistribution {
 
     /**
      * Constructs a uniform distribution with the given minimum and maximum.
+     * @param min
+     * @param randomGenerator
+     * @param max
      */
     public FloatUniform(float min, float max, FloatRandomEngine randomGenerator) {
         setRandomGenerator(randomGenerator);
@@ -57,8 +63,9 @@ public class FloatUniform extends AbstractContinousFloatDistribution {
     }
 
     /**
-     * Constructs a uniform distribution with <tt>min=0.0</tt> and
-     * <tt>max=1.0</tt>.
+     * Constructs a uniform distribution with <code>min=0.0</code> and
+     * <code>max=1.0</code>.
+     * @param randomGenerator
      */
     public FloatUniform(FloatRandomEngine randomGenerator) {
         this(0, 1, randomGenerator);
@@ -67,6 +74,8 @@ public class FloatUniform extends AbstractContinousFloatDistribution {
     /**
      * Returns the cumulative distribution function (assuming a continous
      * uniform distribution).
+     * @param x
+     * @return 
      */
     public float cdf(float x) {
         if (x <= min)
@@ -77,7 +86,8 @@ public class FloatUniform extends AbstractContinousFloatDistribution {
     }
 
     /**
-     * Returns a uniformly distributed random <tt>boolean</tt>.
+     * Returns a uniformly distributed random <code>boolean</code>.
+     * @return 
      */
     public boolean nextBoolean() {
         return randomGenerator.raw() > 0.5;
@@ -85,7 +95,8 @@ public class FloatUniform extends AbstractContinousFloatDistribution {
 
     /**
      * Returns a uniformly distributed random number in the open interval
-     * <tt>(min,max)</tt> (excluding <tt>min</tt> and <tt>max</tt>).
+     * <code>(min,max)</code> (excluding <code>min</code> and <code>max</code>).
+     * @return 
      */
 
     public float nextFloat() {
@@ -94,8 +105,11 @@ public class FloatUniform extends AbstractContinousFloatDistribution {
 
     /**
      * Returns a uniformly distributed random number in the open interval
-     * <tt>(from,to)</tt> (excluding <tt>from</tt> and <tt>to</tt>). Pre
-     * conditions: <tt>from &lt;= to</tt>.
+     * <code>(from,to)</code> (excluding <code>from</code> and <code>to</code>). Pre
+     * conditions: <code>from &lt;= to</code>.
+     * @param from
+     * @param to
+     * @return 
      */
     public float nextFloatFromTo(float from, float to) {
         return from + (to - from) * randomGenerator.raw();
@@ -103,7 +117,8 @@ public class FloatUniform extends AbstractContinousFloatDistribution {
 
     /**
      * Returns a uniformly distributed random number in the closed interval
-     * <tt>[min,max]</tt> (including <tt>min</tt> and <tt>max</tt>).
+     * <code>[min,max]</code> (including <code>min</code> and <code>max</code>).
+     * @return 
      */
 
     public int nextInt() {
@@ -112,8 +127,11 @@ public class FloatUniform extends AbstractContinousFloatDistribution {
 
     /**
      * Returns a uniformly distributed random number in the closed interval
-     * <tt>[from,to]</tt> (including <tt>from</tt> and <tt>to</tt>). Pre
-     * conditions: <tt>from &lt;= to</tt>.
+     * <code>[from,to]</code> (including <code>from</code> and <code>to</code>). Pre
+     * conditions: <code>from &lt;= to</code>.
+     * @param from
+     * @param to
+     * @return 
      */
     public int nextIntFromTo(int from, int to) {
         return (int) (from + (long) ((1L + to - from) * randomGenerator.raw()));
@@ -121,8 +139,11 @@ public class FloatUniform extends AbstractContinousFloatDistribution {
 
     /**
      * Returns a uniformly distributed random number in the closed interval
-     * <tt>[from,to]</tt> (including <tt>from</tt> and <tt>to</tt>). Pre
-     * conditions: <tt>from &lt;= to</tt>.
+     * <code>[from,to]</code> (including <code>from</code> and <code>to</code>). Pre
+     * conditions: <code>from &lt;= to</code>.
+     * @param from
+     * @param to
+     * @return 
      */
     public long nextLongFromTo(long from, long to) {
         /*
@@ -172,6 +193,8 @@ public class FloatUniform extends AbstractContinousFloatDistribution {
     /**
      * Returns the probability distribution function (assuming a continous
      * uniform distribution).
+     * @param x
+     * @return 
      */
     public float pdf(float x) {
         if (x <= min || x >= max)
@@ -181,6 +204,8 @@ public class FloatUniform extends AbstractContinousFloatDistribution {
 
     /**
      * Sets the internal state.
+     * @param min
+     * @param max
      */
     public void setState(float min, float max) {
         if (max < min) {
@@ -192,7 +217,8 @@ public class FloatUniform extends AbstractContinousFloatDistribution {
     }
 
     /**
-     * Returns a uniformly distributed random <tt>boolean</tt>.
+     * Returns a uniformly distributed random <code>boolean</code>.
+     * @return 
      */
     public static boolean staticNextBoolean() {
         synchronized (shared) {
@@ -202,7 +228,8 @@ public class FloatUniform extends AbstractContinousFloatDistribution {
 
     /**
      * Returns a uniformly distributed random number in the open interval
-     * <tt>(0,1)</tt> (excluding <tt>0</tt> and <tt>1</tt>).
+     * <code>(0,1)</code> (excluding <code>0</code> and <code>1</code>).
+     * @return 
      */
     public static float staticNextFloat() {
         synchronized (shared) {
@@ -212,8 +239,11 @@ public class FloatUniform extends AbstractContinousFloatDistribution {
 
     /**
      * Returns a uniformly distributed random number in the open interval
-     * <tt>(from,to)</tt> (excluding <tt>from</tt> and <tt>to</tt>). Pre
-     * conditions: <tt>from &lt;= to</tt>.
+     * <code>(from,to)</code> (excluding <code>from</code> and <code>to</code>). Pre
+     * conditions: <code>from &lt;= to</code>.
+     * @param from
+     * @param to
+     * @return 
      */
     public static float staticNextFloatFromTo(float from, float to) {
         synchronized (shared) {
@@ -223,8 +253,11 @@ public class FloatUniform extends AbstractContinousFloatDistribution {
 
     /**
      * Returns a uniformly distributed random number in the closed interval
-     * <tt>[from,to]</tt> (including <tt>from</tt> and <tt>to</tt>). Pre
-     * conditions: <tt>from &lt;= to</tt>.
+     * <code>[from,to]</code> (including <code>from</code> and <code>to</code>). Pre
+     * conditions: <code>from &lt;= to</code>.
+     * @param from
+     * @param to
+     * @return 
      */
     public static int staticNextIntFromTo(int from, int to) {
         synchronized (shared) {
@@ -234,8 +267,11 @@ public class FloatUniform extends AbstractContinousFloatDistribution {
 
     /**
      * Returns a uniformly distributed random number in the closed interval
-     * <tt>[from,to]</tt> (including <tt>from</tt> and <tt>to</tt>). Pre
-     * conditions: <tt>from &lt;= to</tt>.
+     * <code>[from,to]</code> (including <code>from</code> and <code>to</code>). Pre
+     * conditions: <code>from &lt;= to</code>.
+     * @param from
+     * @param to
+     * @return 
      */
     public static long staticNextLongFromTo(long from, long to) {
         synchronized (shared) {
@@ -258,6 +294,7 @@ public class FloatUniform extends AbstractContinousFloatDistribution {
 
     /**
      * Returns a String representation of the receiver.
+     * @return 
      */
 
     public String toString() {

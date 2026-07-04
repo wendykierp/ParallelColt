@@ -118,6 +118,8 @@ public class MatrixVectorReader extends BufferedReader {
      * Reads the matrix info for the Matrix Market exchange format. The line
      * must consist of exactly 5 space-separated entries, the first being
      * "%%MatrixMarket"
+     * @return 
+     * @throws java.io.IOException 
      */
     public MatrixInfo readMatrixInfo() throws IOException {
         String[] component = readTrimmedLine().split(" +");
@@ -175,6 +177,8 @@ public class MatrixVectorReader extends BufferedReader {
      * Reads the vector info for the Matrix Market exchange format. The line
      * must consist of exactly 4 space-separated entries, the first being
      * "%%MatrixMarket"
+     * @return 
+     * @throws java.io.IOException 
      */
     public VectorInfo readVectorInfo() throws IOException {
         String[] component = readTrimmedLine().split(" +");
@@ -234,6 +238,8 @@ public class MatrixVectorReader extends BufferedReader {
      * Reads all the comments (lines starting with '%'). Positions the reader at
      * the first non-comment line. Can only be called after reading the matrix
      * or vector info. The comments read does not include '%' or the newline
+     * @return 
+     * @throws java.io.IOException 
      */
     public String[] readComments() throws IOException {
         List<String> list = new LinkedList<String>();
@@ -252,6 +258,9 @@ public class MatrixVectorReader extends BufferedReader {
 
     /**
      * Reads in the size of a matrix. Skips initial comments
+     * @param info
+     * @return 
+     * @throws java.io.IOException 
      */
     public MatrixSize readMatrixSize(MatrixInfo info) throws IOException {
         // Always read the matrix size
@@ -268,6 +277,8 @@ public class MatrixVectorReader extends BufferedReader {
 
     /**
      * Reads in the size of an array matrix. Skips initial comments
+     * @return 
+     * @throws java.io.IOException 
      */
     public MatrixSize readArraySize() throws IOException {
         int numRows = getInt(), numColumns = getInt();
@@ -277,6 +288,8 @@ public class MatrixVectorReader extends BufferedReader {
 
     /**
      * Reads in the size of a coordinate matrix. Skips initial comments
+     * @return 
+     * @throws java.io.IOException 
      */
     public MatrixSize readCoordinateSize() throws IOException {
         int numRows = getInt(), numColumns = getInt(), numEntries = getInt();
@@ -286,6 +299,9 @@ public class MatrixVectorReader extends BufferedReader {
 
     /**
      * Reads in the size of a vector. Skips initial comments
+     * @param info
+     * @return 
+     * @throws java.io.IOException 
      */
     public VectorSize readVectorSize(VectorInfo info) throws IOException {
         // Always read the vector size
@@ -302,6 +318,8 @@ public class MatrixVectorReader extends BufferedReader {
 
     /**
      * Reads in the size of a dense vector. Skips initial comments
+     * @return 
+     * @throws java.io.IOException 
      */
     public VectorSize readVectorArraySize() throws IOException {
         int size = getInt();
@@ -311,6 +329,8 @@ public class MatrixVectorReader extends BufferedReader {
 
     /**
      * Reads in the size of a coordinate vector. Skips initial comments
+     * @return 
+     * @throws java.io.IOException 
      */
     public VectorSize readVectorCoordinateSize() throws IOException {
         int size = getInt(), numEntries = getInt();
@@ -320,6 +340,8 @@ public class MatrixVectorReader extends BufferedReader {
 
     /**
      * Reads the array data
+     * @param data
+     * @throws java.io.IOException
      */
     public void readArray(double[] data) throws IOException {
         int size = data.length;
@@ -329,6 +351,8 @@ public class MatrixVectorReader extends BufferedReader {
 
     /**
      * Reads the array data
+     * @param data
+     * @throws java.io.IOException
      */
     public void readArray(float[] data) throws IOException {
         int size = data.length;
@@ -338,6 +362,8 @@ public class MatrixVectorReader extends BufferedReader {
 
     /**
      * Reads the array data
+     * @param data
+     * @throws java.io.IOException
      */
     public void readArray(int[] data) throws IOException {
         int size = data.length;
@@ -347,6 +373,8 @@ public class MatrixVectorReader extends BufferedReader {
 
     /**
      * Reads the array data
+     * @param data
+     * @throws java.io.IOException
      */
     public void readArray(long[] data) throws IOException {
         int size = data.length;
@@ -357,6 +385,9 @@ public class MatrixVectorReader extends BufferedReader {
     /**
      * Reads the array data. The first array will contain real entries, while
      * the second contain imaginary entries
+     * @param dataR
+     * @param dataI
+     * @throws java.io.IOException
      */
     public void readArray(double[] dataR, double[] dataI) throws IOException {
         int size = dataR.length;
@@ -371,6 +402,9 @@ public class MatrixVectorReader extends BufferedReader {
     /**
      * Reads the array data. The first array will contain real entries, while
      * the second contain imaginary entries
+     * @param dataR
+     * @param dataI
+     * @throws java.io.IOException
      */
     public void readArray(float[] dataR, float[] dataI) throws IOException {
         int size = dataR.length;
@@ -384,6 +418,9 @@ public class MatrixVectorReader extends BufferedReader {
 
     /**
      * Reads a coordinate vector
+     * @param index
+     * @param data
+     * @throws java.io.IOException
      */
     public void readCoordinate(int[] index, double[] data) throws IOException {
         int size = index.length;
@@ -397,6 +434,9 @@ public class MatrixVectorReader extends BufferedReader {
 
     /**
      * Reads a coordinate vector
+     * @param index
+     * @param data
+     * @throws java.io.IOException
      */
     public void readCoordinate(int[] index, float[] data) throws IOException {
         int size = index.length;
@@ -410,6 +450,9 @@ public class MatrixVectorReader extends BufferedReader {
 
     /**
      * Reads a coordinate vector
+     * @param index
+     * @param data
+     * @throws java.io.IOException
      */
     public void readCoordinate(int[] index, int[] data) throws IOException {
         int size = index.length;
@@ -423,6 +466,9 @@ public class MatrixVectorReader extends BufferedReader {
 
     /**
      * Reads a coordinate vector
+     * @param index
+     * @param data
+     * @throws java.io.IOException
      */
     public void readCoordinate(int[] index, long[] data) throws IOException {
         int size = index.length;
@@ -437,6 +483,10 @@ public class MatrixVectorReader extends BufferedReader {
     /**
      * Reads a coordinate vector. First data array contains real entries, and
      * the second contains imaginary entries
+     * @param index
+     * @param dataI
+     * @param dataR
+     * @throws java.io.IOException
      */
     public void readCoordinate(int[] index, float[] dataR, float[] dataI) throws IOException {
         int size = index.length;
@@ -452,6 +502,10 @@ public class MatrixVectorReader extends BufferedReader {
     /**
      * Reads a coordinate vector. First data array contains real entries, and
      * the second contains imaginary entries
+     * @param index
+     * @param dataI
+     * @param dataR
+     * @throws java.io.IOException
      */
     public void readCoordinate(int[] index, double[] dataR, double[] dataI) throws IOException {
         int size = index.length;
@@ -466,6 +520,8 @@ public class MatrixVectorReader extends BufferedReader {
 
     /**
      * Reads a pattern vector
+     * @param index
+     * @throws java.io.IOException
      */
     public void readPattern(int[] index) throws IOException {
         int size = index.length;
@@ -475,6 +531,10 @@ public class MatrixVectorReader extends BufferedReader {
 
     /**
      * Reads a coordinate matrix
+     * @param row
+     * @param data
+     * @param column
+     * @throws java.io.IOException
      */
     public void readCoordinate(int[] row, int[] column, double[] data) throws IOException {
         int size = row.length;
@@ -489,6 +549,10 @@ public class MatrixVectorReader extends BufferedReader {
 
     /**
      * Reads a coordinate matrix
+     * @param row
+     * @param data
+     * @param column
+     * @throws java.io.IOException
      */
     public void readCoordinate(int[] row, int[] column, float[] data) throws IOException {
         int size = row.length;
@@ -503,6 +567,10 @@ public class MatrixVectorReader extends BufferedReader {
 
     /**
      * Reads a coordinate matrix
+     * @param row
+     * @param data
+     * @param column
+     * @throws java.io.IOException
      */
     public void readCoordinate(int[] row, int[] column, int[] data) throws IOException {
         int size = row.length;
@@ -517,6 +585,10 @@ public class MatrixVectorReader extends BufferedReader {
 
     /**
      * Reads a coordinate matrix
+     * @param row
+     * @param data
+     * @param column
+     * @throws java.io.IOException
      */
     public void readCoordinate(int[] row, int[] column, long[] data) throws IOException {
         int size = row.length;
@@ -531,6 +603,9 @@ public class MatrixVectorReader extends BufferedReader {
 
     /**
      * Reads a pattern matrix
+     * @param row
+     * @param column
+     * @throws java.io.IOException
      */
     public void readPattern(int[] row, int[] column) throws IOException {
         int size = row.length;
@@ -545,6 +620,11 @@ public class MatrixVectorReader extends BufferedReader {
     /**
      * Reads a coordinate matrix. First data array contains real entries, and
      * the second contains imaginary entries
+     * @param row
+     * @param dataI
+     * @param column
+     * @param dataR
+     * @throws java.io.IOException
      */
     public void readCoordinate(int[] row, int[] column, double[] dataR, double[] dataI) throws IOException {
         int size = row.length;
@@ -561,6 +641,11 @@ public class MatrixVectorReader extends BufferedReader {
     /**
      * Reads a coordinate matrix. First data array contains real entries, and
      * the second contains imaginary entries
+     * @param row
+     * @param dataI
+     * @param column
+     * @param dataR
+     * @throws java.io.IOException
      */
     public void readCoordinate(int[] row, int[] column, float[] dataR, float[] dataI) throws IOException {
         int size = row.length;

@@ -20,25 +20,25 @@ import cern.colt.matrix.tlong.LongMatrix3D;
 import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
 
 /**
- * Dense 3-d matrix holding <tt>int</tt> elements. First see the <a
+ * Dense 3-d matrix holding <code>int</code> elements. First see the <a
  * href="package-summary.html">package summary</a> and javadoc <a
  * href="package-tree.html">tree view</a> to get the broad picture.
  * <p>
  * <b>Implementation:</b>
  * <p>
- * Longernally holds one single contiguous one-dimensional array, addressed in
+ * Internally holds one single contiguous one-dimensional array, addressed in
  * (in decreasing order of significance): slice major, row major, column major.
  * Note that this implementation is not synchronized.
  * <p>
  * <b>Memory requirements:</b>
  * <p>
- * <tt>memory [bytes] = 8*slices()*rows()*columns()</tt>. Thus, a 100*100*100
+ * <code>memory [bytes] = 8*slices()*rows()*columns()</code>. Thus, a 100*100*100
  * matrix uses 8 MB.
  * <p>
  * <b>Time complexity:</b>
  * <p>
- * <tt>O(1)</tt> (i.e. constant time) for the basic operations <tt>get</tt>,
- * <tt>getQuick</tt>, <tt>set</tt>, <tt>setQuick</tt> and <tt>size</tt>,
+ * <code>O(1)</code> (i.e. constant time) for the basic operations <code>get</code>,
+ * <code>getQuick</code>, <code>set</code>, <code>setQuick</code> and <code>size</code>,
  * <p>
  * Applications demanding utmost speed can exploit knowledge about the internal
  * addressing. Setting/getting values in a loop slice-by-slice, row-by-row,
@@ -85,23 +85,23 @@ public class DenseLongMatrix3D extends LongMatrix3D {
     protected long[] elements;
 
     /**
-     * Constructs a matrix with a copy of the given values. <tt>values</tt> is
-     * required to have the form <tt>values[slice][row][column]</tt> and have
+     * Constructs a matrix with a copy of the given values. <code>values</code> is
+     * required to have the form <code>values[slice][row][column]</code> and have
      * exactly the same number of rows in in every slice and exactly the same
      * number of columns in in every row.
      * <p>
-     * The values are copied. So subsequent changes in <tt>values</tt> are not
+     * The values are copied. So subsequent changes in <code>values</code> are not
      * reflected in the matrix, and vice-versa.
      * 
      * @param values
      *            The values to be filled into the new matrix.
      * @throws IllegalArgumentException
      *             if
-     *             <tt>for any 1 &lt;= slice &lt; values.length: values[slice].length != values[slice-1].length</tt>
+     *             <code>for any 1 &lt;= slice &lt; values.length: values[slice].length != values[slice-1].length</code>
      *             .
      * @throws IllegalArgumentException
      *             if
-     *             <tt>for any 1 &lt;= row &lt; values[0].length: values[slice][row].length != values[slice][row-1].length</tt>
+     *             <code>for any 1 &lt;= row &lt; values[0].length: values[slice][row].length != values[slice][row-1].length</code>
      *             .
      */
     public DenseLongMatrix3D(long[][][] values) {
@@ -112,7 +112,7 @@ public class DenseLongMatrix3D extends LongMatrix3D {
 
     /**
      * Constructs a matrix with a given number of slices, rows and columns. All
-     * entries are initially <tt>0</tt>.
+     * entries are initially <code>0</code>.
      * 
      * @param slices
      *            the number of slices the matrix shall have.
@@ -121,9 +121,9 @@ public class DenseLongMatrix3D extends LongMatrix3D {
      * @param columns
      *            the number of columns the matrix shall have.
      * @throws IllegalArgumentException
-     *             if <tt>(int)slices*columns*rows > Long.MAX_VALUE</tt>.
+     *             if <code>(int)slices*columns*rows > Long.MAX_VALUE</code>.
      * @throws IllegalArgumentException
-     *             if <tt>slices<0 || rows<0 || columns<0</tt>.
+     *             if <code>slices &lt; 0 || rows &lt; 0 || columns &lt; 0</code>.
      */
     public DenseLongMatrix3D(int slices, int rows, int columns) {
         setUp(slices, rows, columns);
@@ -149,19 +149,19 @@ public class DenseLongMatrix3D extends LongMatrix3D {
      *            the position of the first element.
      * @param sliceStride
      *            the number of elements between two slices, i.e.
-     *            <tt>index(k+1,i,j)-index(k,i,j)</tt>.
+     *            <code>index(k+1,i,j)-index(k,i,j)</code>.
      * @param rowStride
      *            the number of elements between two rows, i.e.
-     *            <tt>index(k,i+1,j)-index(k,i,j)</tt>.
+     *            <code>index(k,i+1,j)-index(k,i,j)</code>.
      * @param columnStride
      *            the number of elements between two columns, i.e.
-     *            <tt>index(k,i,j+1)-index(k,i,j)</tt>.
+     *            <code>index(k,i,j+1)-index(k,i,j)</code>.
      * @param isView
      *            if true then a matrix view is constructed
      * @throws IllegalArgumentException
-     *             if <tt>(int)slices*columns*rows > Long.MAX_VALUE</tt>.
+     *             if <code>(int)slices*columns*rows > Long.MAX_VALUE</code>.
      * @throws IllegalArgumentException
-     *             if <tt>slices<0 || rows<0 || columns<0</tt>.
+     *             if <code>slices &lt; 0 || rows &lt; 0 || columns &lt; 0</code>.
      */
     public DenseLongMatrix3D(int slices, int rows, int columns, long[] elements, int sliceZero, int rowZero,
             int columnZero, int sliceStride, int rowStride, int columnStride, boolean isView) {

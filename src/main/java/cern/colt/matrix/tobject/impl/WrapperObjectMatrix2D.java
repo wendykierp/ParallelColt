@@ -17,7 +17,7 @@ import cern.colt.matrix.tobject.ObjectMatrix2D;
 import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
 
 /**
- * 2-d matrix holding <tt>Object</tt> elements; either a view wrapping another
+ * 2-d matrix holding <code>Object</code> elements; either a view wrapping another
  * matrix or a matrix whose views are wrappers.
  * 
  * @author wolfgang.hoschek@cern.ch

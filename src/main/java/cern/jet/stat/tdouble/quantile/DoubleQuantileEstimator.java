@@ -14,7 +14,7 @@ import cern.jet.stat.Utils;
 
 /**
  * The abstract base class for approximate quantile finders computing quantiles
- * over a sequence of <tt>double</tt> elements.
+ * over a sequence of <code>double</code> elements.
  */
 // abstract class ApproximateDoubleQuantileFinder extends Object implements
 // DoubleQuantileFinder {
@@ -72,8 +72,8 @@ abstract class DoubleQuantileEstimator extends cern.colt.PersistentObject implem
     }
 
     /**
-     * Adds the part of the specified list between indexes <tt>from</tt>
-     * (inclusive) and <tt>to</tt> (inclusive) to the receiver.
+     * Adds the part of the specified list between indexes <code>from</code>
+     * (inclusive) and <code>to</code> (inclusive) to the receiver.
      * 
      * @param values
      *            the list of which elements shall be added.
@@ -187,9 +187,9 @@ abstract class DoubleQuantileEstimator extends cern.colt.PersistentObject implem
      * 
      * @param procedure
      *            the procedure to be applied. Stops iteration if the procedure
-     *            returns <tt>false</tt>, otherwise continues.
-     * @return <tt>false</tt> if the procedure stopped before all elements where
-     *         iterated over, <tt>true</tt> otherwise.
+     *            returns <code>false</code>, otherwise continues.
+     * @return <code>false</code> if the procedure stopped before all elements where
+     *         iterated over, <code>true</code> otherwise.
      */
     public boolean forEach(cern.colt.function.tdouble.DoubleProcedure procedure) {
         return this.bufferSet.forEach(procedure);
@@ -198,7 +198,7 @@ abstract class DoubleQuantileEstimator extends cern.colt.PersistentObject implem
     /**
      * Returns the number of elements currently needed to store all contained
      * elements. This number usually differs from the results of method
-     * <tt>size()</tt>, according to the underlying datastructure.
+     * <code>size()</code>, according to the underlying datastructure.
      */
     public long memory() {
         return bufferSet.memory();
@@ -211,13 +211,13 @@ abstract class DoubleQuantileEstimator extends cern.colt.PersistentObject implem
 
     /**
      * Returns how many percent of the elements contained in the receiver are
-     * <tt>&lt;= element</tt>. Does linear interpolation if the element is not
+     * <code>&lt;= element</code>. Does linear interpolation if the element is not
      * contained but lies in between two contained elements.
      * 
      * @param the
      *            element to search for.
-     * @return the percentage <tt>p</tt> of elements <tt>&lt;= element</tt> (
-     *         <tt>0.0 &lt;= p &lt;=1.0)</tt>.
+     * @return the percentage <code>p</code> of elements <code>&lt;= element</code> (
+     *         <code>0.0 &lt;= p &lt;=1.0)</code>.
      */
     public double phi(double element) {
         return bufferSet.phi(element);
@@ -241,7 +241,7 @@ abstract class DoubleQuantileEstimator extends cern.colt.PersistentObject implem
      * 
      * @param phis
      *            the quantiles for which elements are to be computed. Each phi
-     *            must be in the interval [0.0,1.0]. <tt>phis</tt> must be
+     *            must be in the interval [0.0,1.0]. <code>phis</code> must be
      *            sorted ascending.
      * @return the approximate quantile elements.
      */
@@ -314,7 +314,7 @@ abstract class DoubleQuantileEstimator extends cern.colt.PersistentObject implem
     /**
      * Returns the number of elements currently needed to store all contained
      * elements. This number usually differs from the results of method
-     * <tt>size()</tt>, according to the underlying datastructure.
+     * <code>size()</code>, according to the underlying datastructure.
      */
     public long totalMemory() {
         return bufferSet.b() * bufferSet.k();

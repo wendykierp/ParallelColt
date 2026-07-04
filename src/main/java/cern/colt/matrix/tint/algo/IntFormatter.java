@@ -20,7 +20,7 @@ import cern.colt.matrix.tint.IntMatrix3D;
  * Flexible, well human readable matrix print formatting; By default decimal
  * point aligned. Currenly works on 1-d, 2-d and 3-d matrices. Note that in most
  * cases you will not need to get familiar with this class; just call
- * <tt>matrix.toString()</tt> and be happy with the default formatting. This
+ * <code>matrix.toString()</code> and be happy with the default formatting. This
  * class is for advanced requirements.
  * 
  * <p>
@@ -36,14 +36,14 @@ import cern.colt.matrix.tint.IntMatrix3D;
  * <td>
  * 
  * <p>
- * <tt>int[][] values = {<br>
+ * <code>int[][] values = {<br>
  {3, 0, -3.4, 0},<br>
  {5.1 ,0, +3.0123456789, 0}, <br>
  {16.37, 0.0, 2.5, 0}, <br>
  {-16.3, 0, -3.012345678E-4, -1},<br>
  {1236.3456789, 0, 7, -1.2}<br>
  };<br>
- matrix = new DenseIntMatrix2D(values);</tt>
+ matrix = new DenseIntMatrix2D(values);</code>
  * </p>
  * </td>
  * </tr>
@@ -53,109 +53,109 @@ import cern.colt.matrix.tint.IntMatrix3D;
  * </p>
  * <table border="1" cellspacing="0">
  * <tr align="center">
- * <td><tt>format</tt></td>
- * <td valign="top"><tt>Formatter.toString(matrix);</tt></td>
- * <td valign="top"><tt>Formatter.toSourceCode(matrix);</tt></td>
+ * <td><code>format</code></td>
+ * <td valign="top"><code>Formatter.toString(matrix);</code></td>
+ * <td valign="top"><code>Formatter.toSourceCode(matrix);</code></td>
  * </tr>
  * <tr>
- * <td><tt>%G </tt><br>
+ * <td><code>%G </code><br>
  * (default)</td>
- * <td align="left" valign="top"><tt>5&nbsp;x&nbsp;4&nbsp;matrix<br>
+ * <td align="left" valign="top"><code>5&nbsp;x&nbsp;4&nbsp;matrix<br>
  &nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;-3.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;<br>
  &nbsp;&nbsp;&nbsp;5.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;3.012346&nbsp;&nbsp;0&nbsp;&nbsp;<br>
  &nbsp;&nbsp;16.37&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;2.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;<br>
  &nbsp;-16.3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;-0.000301&nbsp;-1&nbsp;&nbsp;<br>
  1236.345679&nbsp;0&nbsp;&nbsp;7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-1.2 
- </tt></td>
- * <td align="left" valign="top"><tt>{<br>
+ </code></td>
+ * <td align="left" valign="top"><code>{<br>
  &nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;0,&nbsp;-3.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;&nbsp;0&nbsp;&nbsp;},<br>
  &nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;&nbsp;5.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;0,&nbsp;&nbsp;3.012346,&nbsp;&nbsp;0&nbsp;&nbsp;},<br>
  &nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;16.37&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;0,&nbsp;&nbsp;2.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;&nbsp;0&nbsp;&nbsp;},<br>
  &nbsp;&nbsp;&nbsp;{&nbsp;-16.3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;0,&nbsp;-0.000301,&nbsp;-1&nbsp;&nbsp;},<br>
  &nbsp;&nbsp;&nbsp;{1236.345679,&nbsp;0,&nbsp;&nbsp;7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;-1.2}<br>
- }; </tt></td>
+ }; </code></td>
  * </tr>
  * <tr>
- * <td><tt>%1.10G</tt></td>
- * <td align="left" valign="top"><tt>5&nbsp;x&nbsp;4&nbsp;matrix<br>
+ * <td><code>%1.10G</code></td>
+ * <td align="left" valign="top"><code>5&nbsp;x&nbsp;4&nbsp;matrix<br>
  &nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;-3.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;<br>
  &nbsp;&nbsp;&nbsp;5.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;3.0123456789&nbsp;&nbsp;0&nbsp;&nbsp;<br>
  &nbsp;&nbsp;16.37&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;2.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;<br>
  &nbsp;-16.3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;-0.0003012346&nbsp;-1&nbsp;&nbsp;<br>
  1236.3456789&nbsp;0&nbsp;&nbsp;7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-1.2 
- </tt></td>
- * <td align="left" valign="top"><tt>{<br>
+ </code></td>
+ * <td align="left" valign="top"><code>{<br>
  &nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;0,&nbsp;-3.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;&nbsp;0&nbsp;&nbsp;},<br>
  &nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;&nbsp;5.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;0,&nbsp;&nbsp;3.0123456789,&nbsp;&nbsp;0&nbsp;&nbsp;},<br>
  &nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;16.37&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;0,&nbsp;&nbsp;2.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;&nbsp;0&nbsp;&nbsp;},<br>
  &nbsp;&nbsp;&nbsp;{&nbsp;-16.3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;0,&nbsp;-0.0003012346,&nbsp;-1&nbsp;&nbsp;},<br>
  &nbsp;&nbsp;&nbsp;{1236.3456789,&nbsp;0,&nbsp;&nbsp;7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;-1.2}<br>
- }; </tt></td>
+ }; </code></td>
  * </tr>
  * <tr>
- * <td><tt>%f</tt></td>
- * <td align="left" valign="top"> <tt> 5&nbsp;x&nbsp;4&nbsp;matrix<br>
+ * <td><code>%f</code></td>
+ * <td align="left" valign="top"> <code> 5&nbsp;x&nbsp;4&nbsp;matrix<br>
  &nbsp;&nbsp;&nbsp;3.000000&nbsp;0.000000&nbsp;-3.400000&nbsp;&nbsp;0.000000<br>
  &nbsp;&nbsp;&nbsp;5.100000&nbsp;0.000000&nbsp;&nbsp;3.012346&nbsp;&nbsp;0.000000<br>
  &nbsp;&nbsp;16.370000&nbsp;0.000000&nbsp;&nbsp;2.500000&nbsp;&nbsp;0.000000<br>
  &nbsp;-16.300000&nbsp;0.000000&nbsp;-0.000301&nbsp;-1.000000<br>
- 1236.345679&nbsp;0.000000&nbsp;&nbsp;7.000000&nbsp;-1.200000 </tt></td>
- * <td align="left" valign="top"><tt> {<br>
+ 1236.345679&nbsp;0.000000&nbsp;&nbsp;7.000000&nbsp;-1.200000 </code></td>
+ * <td align="left" valign="top"><code> {<br>
  &nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;&nbsp;3.000000,&nbsp;0.000000,&nbsp;-3.400000,&nbsp;&nbsp;0.000000},<br>
  &nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;&nbsp;5.100000,&nbsp;0.000000,&nbsp;&nbsp;3.012346,&nbsp;&nbsp;0.000000},<br>
  &nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;16.370000,&nbsp;0.000000,&nbsp;&nbsp;2.500000,&nbsp;&nbsp;0.000000},<br>
  &nbsp;&nbsp;&nbsp;{&nbsp;-16.300000,&nbsp;0.000000,&nbsp;-0.000301,&nbsp;-1.000000},<br>
  &nbsp;&nbsp;&nbsp;{1236.345679,&nbsp;0.000000,&nbsp;&nbsp;7.000000,&nbsp;-1.200000}<br>
- }; </tt></td>
+ }; </code></td>
  * </tr>
  * <tr>
- * <td><tt>%1.2f</tt></td>
- * <td align="left" valign="top"><tt>5&nbsp;x&nbsp;4&nbsp;matrix<br>
+ * <td><code>%1.2f</code></td>
+ * <td align="left" valign="top"><code>5&nbsp;x&nbsp;4&nbsp;matrix<br>
  &nbsp;&nbsp;&nbsp;3.00&nbsp;0.00&nbsp;-3.40&nbsp;&nbsp;0.00<br>
  &nbsp;&nbsp;&nbsp;5.10&nbsp;0.00&nbsp;&nbsp;3.01&nbsp;&nbsp;0.00<br>
  &nbsp;&nbsp;16.37&nbsp;0.00&nbsp;&nbsp;2.50&nbsp;&nbsp;0.00<br>
  &nbsp;-16.30&nbsp;0.00&nbsp;-0.00&nbsp;-1.00<br>
- 1236.35&nbsp;0.00&nbsp;&nbsp;7.00&nbsp;-1.20 </tt></td>
- * <td align="left" valign="top"><tt>{<br>
+ 1236.35&nbsp;0.00&nbsp;&nbsp;7.00&nbsp;-1.20 </code></td>
+ * <td align="left" valign="top"><code>{<br>
  &nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;&nbsp;3.00,&nbsp;0.00,&nbsp;-3.40,&nbsp;&nbsp;0.00},<br>
  &nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;&nbsp;5.10,&nbsp;0.00,&nbsp;&nbsp;3.01,&nbsp;&nbsp;0.00},<br>
  &nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;16.37,&nbsp;0.00,&nbsp;&nbsp;2.50,&nbsp;&nbsp;0.00},<br>
  &nbsp;&nbsp;&nbsp;{&nbsp;-16.30,&nbsp;0.00,&nbsp;-0.00,&nbsp;-1.00},<br>
  &nbsp;&nbsp;&nbsp;{1236.35,&nbsp;0.00,&nbsp;&nbsp;7.00,&nbsp;-1.20}<br>
- }; </tt></td>
+ }; </code></td>
  * </tr>
  * <tr>
- * <td><tt>%0.2e</tt></td>
- * <td align="left" valign="top"><tt>5&nbsp;x&nbsp;4&nbsp;matrix<br>
+ * <td><code>%0.2e</code></td>
+ * <td align="left" valign="top"><code>5&nbsp;x&nbsp;4&nbsp;matrix<br>
  &nbsp;3.00e+000&nbsp;0.00e+000&nbsp;-3.40e+000&nbsp;&nbsp;0.00e+000<br>
  &nbsp;5.10e+000&nbsp;0.00e+000&nbsp;&nbsp;3.01e+000&nbsp;&nbsp;0.00e+000<br>
  &nbsp;1.64e+001&nbsp;0.00e+000&nbsp;&nbsp;2.50e+000&nbsp;&nbsp;0.00e+000<br>
  -1.63e+001&nbsp;0.00e+000&nbsp;-3.01e-004&nbsp;-1.00e+000<br>
- &nbsp;1.24e+003&nbsp;0.00e+000&nbsp;&nbsp;7.00e+000&nbsp;-1.20e+000 </tt></td>
- * <td align="left" valign="top"><tt>{<br>
+ &nbsp;1.24e+003&nbsp;0.00e+000&nbsp;&nbsp;7.00e+000&nbsp;-1.20e+000 </code></td>
+ * <td align="left" valign="top"><code>{<br>
  &nbsp;&nbsp;&nbsp;{&nbsp;3.00e+000,&nbsp;0.00e+000,&nbsp;-3.40e+000,&nbsp;&nbsp;0.00e+000},<br>
  &nbsp;&nbsp;&nbsp;{&nbsp;5.10e+000,&nbsp;0.00e+000,&nbsp;&nbsp;3.01e+000,&nbsp;&nbsp;0.00e+000},<br>
  &nbsp;&nbsp;&nbsp;{&nbsp;1.64e+001,&nbsp;0.00e+000,&nbsp;&nbsp;2.50e+000,&nbsp;&nbsp;0.00e+000},<br>
  &nbsp;&nbsp;&nbsp;{-1.63e+001,&nbsp;0.00e+000,&nbsp;-3.01e-004,&nbsp;-1.00e+000},<br>
  &nbsp;&nbsp;&nbsp;{&nbsp;1.24e+003,&nbsp;0.00e+000,&nbsp;&nbsp;7.00e+000,&nbsp;-1.20e+000}<br>
- }; </tt></td>
+ }; </code></td>
  * </tr>
  * <tr>
- * <td><tt>null</tt></td>
- * <td align="left" valign="top"><tt>5&nbsp;x&nbsp;4&nbsp;matrix <br>
+ * <td><code>null</code></td>
+ * <td align="left" valign="top"><code>5&nbsp;x&nbsp;4&nbsp;matrix <br>
  &nbsp;&nbsp;&nbsp;3.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.0&nbsp;-3.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.0<br>
  &nbsp;&nbsp;&nbsp;5.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.0&nbsp;&nbsp;3.0123456789&nbsp;&nbsp;&nbsp;&nbsp;0.0<br>
  &nbsp;&nbsp;16.37&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.0&nbsp;&nbsp;2.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.0<br>
  &nbsp;-16.3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.0&nbsp;-3.012345678E-4&nbsp;-1.0<br>
  1236.3456789&nbsp;0.0&nbsp;&nbsp;7.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-1.2 
- </tt> <tt> </tt></td>
- * <td align="left" valign="top"><tt> {<br>
+ </code> <code> </code></td>
+ * <td align="left" valign="top"><code> {<br>
  &nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;&nbsp;3.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;0.0,&nbsp;-3.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;&nbsp;0.0},<br>
  &nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;&nbsp;5.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;0.0,&nbsp;&nbsp;3.0123456789&nbsp;&nbsp;,&nbsp;&nbsp;0.0},<br>
  &nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;16.37&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;0.0,&nbsp;&nbsp;2.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;&nbsp;0.0},<br>
  &nbsp;&nbsp;&nbsp;{&nbsp;-16.3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;0.0,&nbsp;-3.012345678E-4,&nbsp;-1.0},<br>
  &nbsp;&nbsp;&nbsp;{1236.3456789,&nbsp;0.0,&nbsp;&nbsp;7.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;-1.2}<br>
- }; </tt></td>
+ }; </code></td>
  * </tr>
  * </table>
  * 
@@ -167,13 +167,13 @@ import cern.colt.matrix.tint.IntMatrix3D;
  * <tr>
  * <td nowrap>
  * <p>
- * <tt> int[][] values = {<br>
+ * <code> int[][] values = {<br>
  {5 ,10, 20, 40 },<br>
  { 7, 8 , 6 , 7 },<br>
  {12 ,10, 20, 19 },<br>
  { 3, 1 , 5 , 6 }<br>
  }; <br>
- </tt><tt>String title = "CPU performance over time [nops/sec]";<br>
+ </code><code>String title = "CPU performance over time [nops/sec]";<br>
  String columnAxisName = "Year";<br>
  String rowAxisName = "CPU"; <br>
  String[] columnNames = {"1996", "1997", "1998", "1999"};<br>
@@ -183,12 +183,12 @@ import cern.colt.matrix.tint.IntMatrix3D;
  String format = "%1.2G";<br>
  IntMatrix2D matrix = new DenseIntMatrix2D(values); <br>
  new Formatter(format).toTitleString(<br>
- &nbsp;&nbsp;&nbsp;matrix,rowNames,columnNames,rowAxisName,columnAxisName,title,aggr); </tt>
+ &nbsp;&nbsp;&nbsp;matrix,rowNames,columnNames,rowAxisName,columnAxisName,title,aggr); </code>
  * </p>
  * </td>
  * </tr>
  * <tr>
- * <td><tt>
+ * <td><code>
  CPU&nbsp;performance&nbsp;over&nbsp;time&nbsp;[nops/sec]<br>
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Year<br>
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;1996&nbsp;&nbsp;1997&nbsp;&nbsp;1998&nbsp;&nbsp;1999&nbsp;&nbsp;|&nbsp;Mean&nbsp;&nbsp;RMS&nbsp;&nbsp;&nbsp;25%&nbsp;Q.&nbsp;Median&nbsp;75%&nbsp;Q.&nbsp;StdDev&nbsp;Min&nbsp;Max<br>
@@ -206,14 +206,14 @@ import cern.colt.matrix.tint.IntMatrix3D;
  &nbsp;&nbsp;StdDev&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;3.86&nbsp;&nbsp;4.27&nbsp;&nbsp;8.38&nbsp;15.81&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
  &nbsp;&nbsp;Min&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
  &nbsp;&nbsp;Max&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;12&nbsp;&nbsp;&nbsp;&nbsp;10&nbsp;&nbsp;&nbsp;&nbsp;20&nbsp;&nbsp;&nbsp;&nbsp;19&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- </tt></td>
+ </code></td>
  * </tr>
  * <tr>
- * <td nowrap><tt> same as above, but now without aggregations<br>
- aggr=null; </tt></td>
+ * <td nowrap><code> same as above, but now without aggregations<br>
+ aggr=null; </code></td>
  * </tr>
  * <tr>
- * <td><tt> CPU&nbsp;performance&nbsp;over&nbsp;time&nbsp;[nops/sec]<br>
+ * <td><code> CPU&nbsp;performance&nbsp;over&nbsp;time&nbsp;[nops/sec]<br>
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Year<br>
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;1996&nbsp;1997&nbsp;1998&nbsp;1999<br>
  ---------------------------------<br>
@@ -221,20 +221,20 @@ import cern.colt.matrix.tint.IntMatrix3D;
  P&nbsp;Benzol&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;7&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;&nbsp;&nbsp;&nbsp;7&nbsp;&nbsp;<br>
  U&nbsp;Mercedes&nbsp;&nbsp;|&nbsp;12&nbsp;&nbsp;&nbsp;10&nbsp;&nbsp;&nbsp;20&nbsp;&nbsp;&nbsp;19&nbsp;&nbsp;<br>
  &nbsp;&nbsp;Sparcling&nbsp;|&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;&nbsp; 
- </tt></td>
+ </code></td>
  * </tr>
  * <tr>
  * <td nowrap>
  * <p>
- * <tt> same as above, but now without rows labeled<br>
+ * <code> same as above, but now without rows labeled<br>
  aggr=null;<br>
  rowNames=null;<br>
- rowAxisName=null; </tt>
+ rowAxisName=null; </code>
  * </p>
  * </td>
  * </tr>
  * <tr>
- * <td><tt>
+ * <td><code>
  CPU&nbsp;performance&nbsp;over&nbsp;time&nbsp;[nops/sec]<br>
  Year<br>
  1996&nbsp;1997&nbsp;1998&nbsp;1999<br>
@@ -243,15 +243,15 @@ import cern.colt.matrix.tint.IntMatrix3D;
  &nbsp;7&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;&nbsp;&nbsp;&nbsp;7&nbsp;&nbsp;<br>
  12&nbsp;&nbsp;&nbsp;10&nbsp;&nbsp;&nbsp;20&nbsp;&nbsp;&nbsp;19&nbsp;&nbsp;<br>
  &nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;&nbsp;
- </tt></td>
+ </code></td>
  * </tr>
  * </table>
  * 
  * <p>
  * A column can be broader than specified by the parameter
- * <tt>minColumnWidth</tt> (because a cell may not fit into that width) but a
- * column is never smaller than <tt>minColumnWidth</tt>. Normally one does not
- * need to specify <tt>minColumnWidth</tt> (default is <tt>1</tt>). This
+ * <code>minColumnWidth</code> (because a cell may not fit into that width) but a
+ * column is never smaller than <code>minColumnWidth</code>. Normally one does not
+ * need to specify <code>minColumnWidth</code> (default is <code>1</code>). This
  * parameter is only interesting when wanting to print two distinct matrices
  * such that both matrices have the same column width, for example, to make it
  * easier to see which column of matrix A corresponds to which column of matrix
@@ -269,7 +269,7 @@ import cern.colt.matrix.tint.IntMatrix3D;
  * </p>
  * <p>
  * Analyzes the entire matrix before producing output. Each cell is converted to
- * a String as indicated by the given C-like format string. If <tt>null</tt> is
+ * a String as indicated by the given C-like format string. If <code>null</code> is
  * passed as format string, {@link java.lang.Int#toString(int)} is used instead,
  * yielding full precision.
  * </p>
@@ -291,7 +291,7 @@ public class IntFormatter extends AbstractFormatter {
     private static final long serialVersionUID = 1L;
 
     /**
-     * Constructs and returns a matrix formatter with format <tt>"%G"</tt>.
+     * Constructs and returns a matrix formatter with format <code>"%G"</code>.
      */
     public IntFormatter() {
         this("%d");
@@ -310,6 +310,10 @@ public class IntFormatter extends AbstractFormatter {
 
     /**
      * Converts a given cell to a String; no alignment considered.
+     * @param matrix
+     * @param formatter
+     * @param index
+     * @return 
      */
     protected String form(IntMatrix1D matrix, int index, Former formatter) {
         return formatter.form(matrix.get(index));
@@ -317,6 +321,10 @@ public class IntFormatter extends AbstractFormatter {
 
     /**
      * Converts a given cell to a String; no alignment considered.
+     * @param matrix
+     * @param formatter
+     * @param index
+     * @return 
      */
 
     protected String form(AbstractMatrix1D matrix, int index, Former formatter) {
@@ -325,6 +333,8 @@ public class IntFormatter extends AbstractFormatter {
 
     /**
      * Returns a string representations of all cells; no alignment considered.
+     * @param matrix
+     * @return 
      */
     public String[][] format(IntMatrix2D matrix) {
         String[][] strings = new String[matrix.rows()][matrix.columns()];
@@ -335,6 +345,8 @@ public class IntFormatter extends AbstractFormatter {
 
     /**
      * Returns a string representations of all cells; no alignment considered.
+     * @param matrix
+     * @return 
      */
 
     protected String[][] format(AbstractMatrix2D matrix) {
@@ -343,6 +355,8 @@ public class IntFormatter extends AbstractFormatter {
 
     /**
      * Returns the index of the decimal point.
+     * @param s
+     * @return 
      */
     protected int indexOfDecimalPoint(String s) {
         int i = s.lastIndexOf('.');
@@ -357,6 +371,8 @@ public class IntFormatter extends AbstractFormatter {
 
     /**
      * Returns the number of characters before the decimal point.
+     * @param s
+     * @return 
      */
 
     protected int lead(String s) {
@@ -366,11 +382,12 @@ public class IntFormatter extends AbstractFormatter {
     }
 
     /**
-     * Returns a string <tt>s</tt> such that <tt>Object[] m = s</tt> is a legal
+     * Returns a string <code>s</code> such that <code>Object[] m = s</code> is a legal
      * Java statement.
      * 
      * @param matrix
      *            the matrix to format.
+     * @return 
      */
     public String toSourceCode(IntMatrix1D matrix) {
         IntFormatter copy = (IntFormatter) this.clone();
@@ -382,11 +399,12 @@ public class IntFormatter extends AbstractFormatter {
     }
 
     /**
-     * Returns a string <tt>s</tt> such that <tt>Object[] m = s</tt> is a legal
+     * Returns a string <code>s</code> such that <code>Object[] m = s</code> is a legal
      * Java statement.
      * 
      * @param matrix
      *            the matrix to format.
+     * @return 
      */
     public String toSourceCode(IntMatrix2D matrix) {
         IntFormatter copy = (IntFormatter) this.clone();
@@ -400,11 +418,12 @@ public class IntFormatter extends AbstractFormatter {
     }
 
     /**
-     * Returns a string <tt>s</tt> such that <tt>Object[] m = s</tt> is a legal
+     * Returns a string <code>s</code> such that <code>Object[] m = s</code> is a legal
      * Java statement.
      * 
      * @param matrix
      *            the matrix to format.
+     * @return 
      */
     public String toSourceCode(IntMatrix3D matrix) {
         IntFormatter copy = (IntFormatter) this.clone();
@@ -424,6 +443,7 @@ public class IntFormatter extends AbstractFormatter {
      * 
      * @param matrix
      *            the matrix to convert.
+     * @return 
      */
     public String toString(IntMatrix1D matrix) {
         IntMatrix2D easy = matrix.like2D(1, (int) matrix.size());
@@ -436,6 +456,7 @@ public class IntFormatter extends AbstractFormatter {
      * 
      * @param matrix
      *            the matrix to convert.
+     * @return 
      */
     public String toString(IntMatrix2D matrix) {
         return super.toString(matrix);
@@ -446,6 +467,7 @@ public class IntFormatter extends AbstractFormatter {
      * 
      * @param matrix
      *            the matrix to convert.
+     * @return 
      */
     public String toString(IntMatrix3D matrix) {
         StringBuffer buf = new StringBuffer();
@@ -467,6 +489,7 @@ public class IntFormatter extends AbstractFormatter {
      * 
      * @param matrix
      *            the matrix to convert.
+     * @return 
      */
 
     protected String toString(AbstractMatrix2D matrix) {
@@ -475,7 +498,7 @@ public class IntFormatter extends AbstractFormatter {
 
     /**
      * Returns a string representation of the given matrix with axis as well as
-     * rows and columns labeled. Pass <tt>null</tt> to one or more parameters to
+     * rows and columns labeled. Pass <code>null</code> to one or more parameters to
      * indicate that the corresponding decoration element shall not appear in
      * the string converted matrix.
      * 
@@ -509,7 +532,7 @@ public class IntFormatter extends AbstractFormatter {
 
     /**
      * Returns a string representation of the given matrix with axis as well as
-     * rows and columns labeled. Pass <tt>null</tt> to one or more parameters to
+     * rows and columns labeled. Pass <code>null</code> to one or more parameters to
      * indicate that the corresponding decoration element shall not appear in
      * the string converted matrix.
      * 

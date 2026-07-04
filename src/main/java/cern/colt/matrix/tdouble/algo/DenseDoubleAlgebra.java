@@ -53,9 +53,9 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
      * tolerance. Allows ommiting to construct an Algebra object time and again.
      * 
      * Note that this Algebra object is immutable. Any attempt to assign a new
-     * Property object to it (via method <tt>setProperty</tt>), or to alter the
+     * Property object to it (via method <code>setProperty</code>), or to alter the
      * tolerance of its property object (via
-     * <tt>property().setTolerance(...)</tt>) will throw an exception.
+     * <code>property().setTolerance(...)</code>) will throw an exception.
      */
     public static final DenseDoubleAlgebra DEFAULT;
 
@@ -64,9 +64,9 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
      * tolerance. Allows ommiting to construct an Algebra object time and again.
      * 
      * Note that this Algebra object is immutable. Any attempt to assign a new
-     * Property object to it (via method <tt>setProperty</tt>), or to alter the
+     * Property object to it (via method <code>setProperty</code>), or to alter the
      * tolerance of its property object (via
-     * <tt>property().setTolerance(...)</tt>) will throw an exception.
+     * <code>property().setTolerance(...)</code>) will throw an exception.
      */
     public static final DenseDoubleAlgebra ZERO;
 
@@ -87,7 +87,7 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
 
     /**
      * Constructs a new instance with an equality tolerance given by
-     * <tt>Property.DEFAULT.tolerance()</tt>.
+     * <code>Property.DEFAULT.tolerance()</code>.
      */
     public DenseDoubleAlgebra() {
         this(DoubleProperty.DEFAULT.tolerance());
@@ -105,6 +105,8 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
 
     /**
      * Constructs and returns the cholesky-decomposition of the given matrix.
+     * @param matrix
+     * @return 
      */
     public DenseDoubleCholeskyDecomposition chol(DoubleMatrix2D matrix) {
         return new DenseDoubleCholeskyDecomposition(matrix);
@@ -122,16 +124,19 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
     }
 
     /**
-     * Returns the condition of matrix <tt>A</tt>, which is the ratio of largest
+     * Returns the condition of matrix <code>A</code>, which is the ratio of largest
      * to smallest singular value.
+     * @param A
+     * @return 
      */
     public double cond(DoubleMatrix2D A) {
         return svd(A).cond();
     }
 
     /**
-     * Returns the determinant of matrix <tt>A</tt>.
+     * Returns the determinant of matrix <code>A</code>.
      * 
+     * @param A
      * @return the determinant.
      */
     public double det(DoubleMatrix2D A) {
@@ -140,6 +145,8 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
 
     /**
      * Constructs and returns the Eigenvalue-decomposition of the given matrix.
+     * @param matrix
+     * @return 
      */
     public DenseDoubleEigenvalueDecomposition eig(DoubleMatrix2D matrix) {
         return new DenseDoubleEigenvalueDecomposition(matrix);
@@ -147,6 +154,9 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
 
     /**
      * Returns sqrt(a^2 + b^2) without under/overflow.
+     * @param a
+     * @param b
+     * @return 
      */
     public static double hypot(double a, double b) {
         double r;
@@ -164,6 +174,7 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
 
     /**
      * Returns sqrt(a^2 + b^2) without under/overflow.
+     * @return 
      */
     public static cern.colt.function.tdouble.DoubleDoubleFunction hypotFunction() {
         return new cern.colt.function.tdouble.DoubleDoubleFunction() {
@@ -174,8 +185,9 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
     }
 
     /**
-     * Returns the inverse or pseudo-inverse of matrix <tt>A</tt>.
+     * Returns the inverse or pseudo-inverse of matrix <code>A</code>.
      * 
+     * @param A
      * @return a new independent matrix; inverse(matrix) if the matrix is
      *         square, pseudoinverse otherwise.
      */
@@ -197,6 +209,8 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
 
     /**
      * Constructs and returns the LU-decomposition of the given matrix.
+     * @param matrix
+     * @return 
      */
     public DenseDoubleLUDecomposition lu(DoubleMatrix2D matrix) {
         return new DenseDoubleLUDecomposition(matrix);
@@ -332,9 +346,9 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
     }
 
     /**
-     * Inner product of two vectors; <tt>Sum(x[i] * y[i])</tt>. Also known as
+     * Inner product of two vectors; <code>Sum(x[i] * y[i])</code>. Also known as
      * dot product. <br>
-     * Equivalent to <tt>x.zDotProduct(y)</tt>.
+     * Equivalent to <code>x.zDotProduct(y)</code>.
      * 
      * @param x
      *            the first source vector.
@@ -343,50 +357,50 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
      * @return the inner product.
      * 
      * @throws IllegalArgumentException
-     *             if <tt>x.size() != y.size()</tt>.
+     *             if <code>x.size() != y.size()</code>.
      */
     public double mult(DoubleMatrix1D x, DoubleMatrix1D y) {
         return x.zDotProduct(y);
     }
 
     /**
-     * Linear algebraic matrix-vector multiplication; <tt>z = A * y</tt>.
-     * <tt>z[i] = Sum(A[i,j] * y[j]), i=0..A.rows()-1, j=0..y.size()-1</tt>.
+     * Linear algebraic matrix-vector multiplication; <code>z = A * y</code>.
+     * <code>z[i] = Sum(A[i,j] * y[j]), i=0..A.rows()-1, j=0..y.size()-1</code>.
      * 
      * @param A
      *            the source matrix.
      * @param y
      *            the source vector.
-     * @return <tt>z</tt>; a new vector with <tt>z.size()==A.rows()</tt>.
+     * @return <code>z</code>; a new vector with <code>z.size()==A.rows()</code>.
      * 
      * @throws IllegalArgumentException
-     *             if <tt>A.columns() != y.size()</tt>.
+     *             if <code>A.columns() != y.size()</code>.
      */
     public DoubleMatrix1D mult(DoubleMatrix2D A, DoubleMatrix1D y) {
         return A.zMult(y, null);
     }
 
     /**
-     * Linear algebraic matrix-matrix multiplication; <tt>C = A x B</tt>.
-     * <tt>C[i,j] = Sum(A[i,k] * B[k,j]), k=0..n-1</tt>. <br>
-     * Matrix shapes: <tt>A(m x n), B(n x p), C(m x p)</tt>.
+     * Linear algebraic matrix-matrix multiplication; <code>C = A x B</code>.
+     * <code>C[i,j] = Sum(A[i,k] * B[k,j]), k=0..n-1</code>. <br>
+     * Matrix shapes: <code>A(m x n), B(n x p), C(m x p)</code>.
      * 
      * @param A
      *            the first source matrix.
      * @param B
      *            the second source matrix.
-     * @return <tt>C</tt>; a new matrix holding the results, with
-     *         <tt>C.rows()=A.rows(), C.columns()==B.columns()</tt>.
+     * @return <code>C</code>; a new matrix holding the results, with
+     *         <code>C.rows()=A.rows(), C.columns()==B.columns()</code>.
      * 
      * @throws IllegalArgumentException
-     *             if <tt>B.rows() != A.columns()</tt>.
+     *             if <code>B.rows() != A.columns()</code>.
      */
     public DoubleMatrix2D mult(DoubleMatrix2D A, DoubleMatrix2D B) {
         return A.zMult(B, null);
     }
 
     /**
-     * Outer product of two vectors; Sets <tt>A[i,j] = x[i] * y[j]</tt>.
+     * Outer product of two vectors; Sets <code>A[i,j] = x[i] * y[j]</code>.
      * 
      * @param x
      *            the first source vector.
@@ -394,11 +408,11 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
      *            the second source vector.
      * @param A
      *            the matrix to hold the results. Set this parameter to
-     *            <tt>null</tt> to indicate that a new result matrix shall be
+     *            <code>null</code> to indicate that a new result matrix shall be
      *            constructed.
      * @return A (for convenience only).
      * @throws IllegalArgumentException
-     *             if <tt>A.rows() != x.size() || A.columns() != y.size()</tt>.
+     *             if <code>A.rows() != x.size() || A.columns() != y.size()</code>.
      */
     public DoubleMatrix2D multOuter(final DoubleMatrix1D x, final DoubleMatrix1D y, DoubleMatrix2D A) {
         int rows = (int) x.size();
@@ -466,8 +480,10 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
     }
 
     /**
-     * Returns the one-norm of vector <tt>x</tt>, which is
-     * <tt>Sum(abs(x[i]))</tt>.
+     * Returns the one-norm of vector <code>x</code>, which is
+     * <code>Sum(abs(x[i]))</code>.
+     * @param x
+     * @return 
      */
     public double norm1(DoubleMatrix1D x) {
         if (x.size() == 0)
@@ -476,8 +492,10 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
     }
 
     /**
-     * Returns the one-norm of matrix <tt>A</tt>, which is the maximum absolute
+     * Returns the one-norm of matrix <code>A</code>, which is the maximum absolute
      * column sum.
+     * @param A
+     * @return 
      */
     public double norm1(DoubleMatrix2D A) {
         double max = 0;
@@ -488,8 +506,10 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
     }
 
     /**
-     * Returns the two-norm (aka <i>euclidean norm</i>) of vector <tt>x</tt>;
-     * equivalent to <tt>Sqrt(mult(x,x))</tt>.
+     * Returns the two-norm (aka <i>euclidean norm</i>) of vector <code>x</code>;
+     * equivalent to <code>Sqrt(mult(x,x))</code>.
+     * @param x
+     * @return 
      */
     public double norm2(DoubleMatrix1D x) {
         return Math.sqrt(x.zDotProduct(x));
@@ -497,7 +517,9 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
 
     /**
      * Returns the two-norm (aka <i>euclidean norm</i>) of vector
-     * <tt>X.vectorize()</tt>;
+     * <code>X.vectorize()</code>;
+     * @param X
+     * @return 
      */
     public double vectorNorm2(final DoubleMatrix2D X) {
         if (X.isView() == true || !(X instanceof DenseDoubleMatrix2D)) {
@@ -591,7 +613,9 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
 
     /**
      * Returns the two-norm (aka <i>euclidean norm</i>) of vector
-     * <tt>X.vectorize()</tt>;
+     * <code>X.vectorize()</code>;
+     * @param X
+     * @return 
      */
     public double vectorNorm2(final DoubleMatrix3D X) {
         if (X.isView() == true || !(X instanceof DenseDoubleMatrix3D)) {
@@ -721,16 +745,20 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
     }
 
     /**
-     * Returns the two-norm of matrix <tt>A</tt>, which is the maximum singular
+     * Returns the two-norm of matrix <code>A</code>, which is the maximum singular
      * value; obtained from SVD.
+     * @param A
+     * @return 
      */
     public double norm2(DoubleMatrix2D A) {
         return svd(A).norm2();
     }
 
     /**
-     * Returns the Frobenius norm of matrix <tt>A</tt>, which is
-     * <tt>Sqrt(Sum(A[i,j]<sup>2</sup>))</tt>.
+     * Returns the Frobenius norm of matrix <code>A</code>, which is
+     * <code>Sqrt(Sum(A[i,j]<sup>2</sup>))</code>.
+     * @param A
+     * @return 
      */
     public double normF(DoubleMatrix2D A) {
         if (A.size() == 0)
@@ -739,8 +767,10 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
     }
 
     /**
-     * Returns the Frobenius norm of matrix <tt>A</tt>, which is
-     * <tt>Sqrt(Sum(A[i]<sup>2</sup>))</tt>.
+     * Returns the Frobenius norm of matrix <code>A</code>, which is
+     * <code>Sqrt(Sum(A[i]<sup>2</sup>))</code>.
+     * @param A
+     * @return 
      */
     public double normF(DoubleMatrix1D A) {
         if (A.size() == 0)
@@ -749,8 +779,10 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
     }
 
     /**
-     * Returns the infinity norm of vector <tt>x</tt>, which is
-     * <tt>Max(abs(x[i]))</tt>.
+     * Returns the infinity norm of vector <code>x</code>, which is
+     * <code>Max(abs(x[i]))</code>.
+     * @param x
+     * @return 
      */
     public double normInfinity(DoubleMatrix1D x) {
         if (x.size() == 0)
@@ -759,8 +791,10 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
     }
 
     /**
-     * Returns the infinity norm of matrix <tt>A</tt>, which is the maximum
+     * Returns the infinity norm of matrix <code>A</code>, which is the maximum
      * absolute row sum.
+     * @param A
+     * @return 
      */
     public double normInfinity(DoubleMatrix2D A) {
         double max = 0;
@@ -771,9 +805,9 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
     }
 
     /**
-     * Modifies the given vector <tt>A</tt> such that it is permuted as
-     * specified; Useful for pivoting. Cell <tt>A[i]</tt> will go into cell
-     * <tt>A[indexes[i]]</tt>.
+     * Modifies the given vector <code>A</code> such that it is permuted as
+     * specified; Useful for pivoting. Cell <code>A[i]</code> will go into cell
+     * <code>A[indexes[i]]</code>.
      * <p>
      * <b>Example:</b>
      * 
@@ -794,15 +828,15 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
      *            the vector to permute.
      * @param indexes
      *            the permutation indexes, must satisfy
-     *            <tt>indexes.length==A.size() && indexes[i] >= 0 && indexes[i] < A.size()</tt>
+     *            <code>indexes.length==A.size() &amp;&amp; indexes[i] >= 0 &amp;&amp; indexes[i] &lt; A.size()</code>
      *            ;
      * @param work
      *            the working storage, must satisfy
-     *            <tt>work.length >= A.size()</tt>; set <tt>work==null</tt> if
+     *            <code>work.length >= A.size()</code>; set <code>work==null</code> if
      *            you don't care about performance.
-     * @return the modified <tt>A</tt> (for convenience only).
+     * @return the modified <code>A</code> (for convenience only).
      * @throws IndexOutOfBoundsException
-     *             if <tt>indexes.length != A.size()</tt>.
+     *             if <code>indexes.length != A.size()</code>.
      */
     public DoubleMatrix1D permute(DoubleMatrix1D A, int[] indexes, double[] work) {
         // check validity
@@ -822,13 +856,16 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
 
     /**
      * Constructs and returns a new row and column permuted <i>selection
-     * view</i> of matrix <tt>A</tt>; equivalent to
+     * view</i> of matrix <code>A</code>; equivalent to
      * {@link DoubleMatrix2D#viewSelection(int[],int[])}. The returned matrix is
      * backed by this matrix, so changes in the returned matrix are reflected in
      * this matrix, and vice-versa. Use idioms like
-     * <tt>result = permute(...).copy()</tt> to generate an independent sub
+     * <code>result = permute(...).copy()</code> to generate an independent sub
      * matrix.
      * 
+     * @param A
+     * @param columnIndexes
+     * @param rowIndexes
      * @return the new permuted selection view.
      */
     public DoubleMatrix2D permute(DoubleMatrix2D A, int[] rowIndexes, int[] columnIndexes) {
@@ -836,33 +873,33 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
     }
 
     /**
-     * Modifies the given matrix <tt>A</tt> such that it's columns are permuted
-     * as specified; Useful for pivoting. Column <tt>A[i]</tt> will go into
-     * column <tt>A[indexes[i]]</tt>. Equivalent to
-     * <tt>permuteRows(transpose(A), indexes, work)</tt>.
+     * Modifies the given matrix <code>A</code> such that it's columns are permuted
+     * as specified; Useful for pivoting. Column <code>A[i]</code> will go into
+     * column <code>A[indexes[i]]</code>. Equivalent to
+     * <code>permuteRows(transpose(A), indexes, work)</code>.
      * 
      * @param A
      *            the matrix to permute.
      * @param indexes
      *            the permutation indexes, must satisfy
-     *            <tt>indexes.length==A.columns() && indexes[i] >= 0 && indexes[i] < A.columns()</tt>
+     *            <code>indexes.length==A.columns() &amp;&amp; indexes[i] >= 0 &amp;&amp; indexes[i] &lt; A.columns()</code>
      *            ;
      * @param work
      *            the working storage, must satisfy
-     *            <tt>work.length >= A.columns()</tt>; set <tt>work==null</tt>
+     *            <code>work.length >= A.columns()</code>; set <code>work==null</code>
      *            if you don't care about performance.
-     * @return the modified <tt>A</tt> (for convenience only).
+     * @return the modified <code>A</code> (for convenience only).
      * @throws IndexOutOfBoundsException
-     *             if <tt>indexes.length != A.columns()</tt>.
+     *             if <code>indexes.length != A.columns()</code>.
      */
     public DoubleMatrix2D permuteColumns(DoubleMatrix2D A, int[] indexes, int[] work) {
         return permuteRows(A.viewDice(), indexes, work);
     }
 
     /**
-     * Modifies the given matrix <tt>A</tt> such that it's rows are permuted as
-     * specified; Useful for pivoting. Row <tt>A[i]</tt> will go into row
-     * <tt>A[indexes[i]]</tt>.
+     * Modifies the given matrix <code>A</code> such that it's rows are permuted as
+     * specified; Useful for pivoting. Row <code>A[i]</code> will go into row
+     * <code>A[indexes[i]]</code>.
      * <p>
      * <b>Example:</b>
      * 
@@ -883,15 +920,15 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
      *            the matrix to permute.
      * @param indexes
      *            the permutation indexes, must satisfy
-     *            <tt>indexes.length==A.rows() && indexes[i] >= 0 && indexes[i] < A.rows()</tt>
+     *            <code>indexes.length==A.rows() &amp;&amp; indexes[i] &gt;= 0 &amp;&amp; indexes[i] &lt; A.rows()</code>
      *            ;
      * @param work
      *            the working storage, must satisfy
-     *            <tt>work.length >= A.rows()</tt>; set <tt>work==null</tt> if
+     *            <code>work.length >= A.rows()</code>; set <code>work==null</code> if
      *            you don't care about performance.
-     * @return the modified <tt>A</tt> (for convenience only).
+     * @return the modified <code>A</code> (for convenience only).
      * @throws IndexOutOfBoundsException
-     *             if <tt>indexes.length != A.rows()</tt>.
+     *             if <code>indexes.length != A.rows()</code>.
      */
     public DoubleMatrix2D permuteRows(final DoubleMatrix2D A, int[] indexes, int[] work) {
         // check validity
@@ -919,11 +956,11 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
 
     /**
      * Linear algebraic matrix power;
-     * <tt>B = A<sup>k</sup> <==> B = A*A*...*A</tt>.
+     * <code>B = A<sup>k</sup> &lt;==&gt; B = A*A*...*A</code>.
      * <ul>
-     * <li><tt>p &gt;= 1: B = A*A*...*A</tt>.</li>
-     * <li><tt>p == 0: B = identity matrix</tt>.</li>
-     * <li><tt>p &lt;  0: B = pow(inverse(A),-p)</tt>.</li>
+     * <li><code>p &gt;= 1: B = A*A*...*A</code>.</li>
+     * <li><code>p == 0: B = identity matrix</code>.</li>
+     * <li><code>p &lt;  0: B = pow(inverse(A),-p)</code>.</li>
      * </ul>
      * Implementation: Based on logarithms of 2, memory usage minimized.
      * 
@@ -932,11 +969,11 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
      *            operation.
      * @param p
      *            the exponent, can be any number.
-     * @return <tt>B</tt>, a newly constructed result matrix;
-     *         storage-independent of <tt>A</tt>.
+     * @return <code>B</code>, a newly constructed result matrix;
+     *         storage-independent of <code>A</code>.
      * 
      * @throws IllegalArgumentException
-     *             if <tt>!property().isSquare(A)</tt>.
+     *             if <code>!property().isSquare(A)</code>.
      */
     public DoubleMatrix2D pow(DoubleMatrix2D A, int p) {
         // matrix multiplication based on log2 method: A*A*....*A is slow, ((A *
@@ -1016,14 +1053,18 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
 
     /**
      * Constructs and returns the QR-decomposition of the given matrix.
+     * @param matrix
+     * @return 
      */
     public DenseDoubleQRDecomposition qr(DoubleMatrix2D matrix) {
         return new DenseDoubleQRDecomposition(matrix);
     }
 
     /**
-     * Returns the effective numerical rank of matrix <tt>A</tt>, obtained from
+     * Returns the effective numerical rank of matrix <code>A</code>, obtained from
      * Singular Value Decomposition.
+     * @param A
+     * @return 
      */
     public int rank(DoubleMatrix2D A) {
         return svd(A).rank();
@@ -1035,10 +1076,10 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
      * @param property
      *            the Property object to be attached.
      * @throws UnsupportedOperationException
-     *             if <tt>this==DEFAULT && property!=this.property()</tt> - The
+     *             if <code>this==DEFAULT &amp;&amp; property!=this.property()</code> - The
      *             DEFAULT Algebra object is immutable.
      * @throws UnsupportedOperationException
-     *             if <tt>this==ZERO && property!=this.property()</tt> - The
+     *             if <code>this==ZERO &amp;&amp; property!=this.property()</code> - The
      *             ZERO Algebra object is immutable.
      * @see #property
      */
@@ -1095,6 +1136,8 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
     /**
      * Solves A*x = b.
      * 
+     * @param A
+     * @param b
      * @return x; a new independent matrix; solution if A is square, least
      *         squares solution otherwise.
      */
@@ -1111,6 +1154,8 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
     /**
      * Solves A*X = B.
      * 
+     * @param A
+     * @param B
      * @return X; a new independent matrix; solution if A is square, least
      *         squares solution otherwise.
      */
@@ -1127,6 +1172,8 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
     /**
      * Solves X*A = B, which is also A'*X' = B'.
      * 
+     * @param A
+     * @param B
      * @return X; a new independent matrix; solution if A is square, least
      *         squares solution otherwise.
      */
@@ -1137,7 +1184,7 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
     /**
      * Copies the columns of the indicated rows into a new sub matrix.
      * 
-     * <tt>sub[0..rowIndexes.length-1,0..columnTo-columnFrom] = A[rowIndexes(:),columnFrom..columnTo]</tt>
+     * <code>sub[0..rowIndexes.length-1,0..columnTo-columnFrom] = A[rowIndexes(:),columnFrom..columnTo]</code>
      * ; The returned matrix is <i>not backed</i> by this matrix, so changes in
      * the returned matrix are <i>not reflected</i> in this matrix, and
      * vice-versa.
@@ -1151,12 +1198,12 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
      * @param columnTo
      *            the index of the last column to copy (inclusive).
      * @return a new sub matrix; with
-     *         <tt>sub.rows()==rowIndexes.length; sub.columns()==columnTo-columnFrom+1</tt>
+     *         <code>sub.rows()==rowIndexes.length; sub.columns()==columnTo-columnFrom+1</code>
      *         .
      * @throws IndexOutOfBoundsException
      *             if
      * 
-     *             <tt>columnFrom<0 || columnTo-columnFrom+1<0 || columnTo+1>matrix.columns() || for any row=rowIndexes[i]: row < 0 || row >= matrix.rows()</tt>
+     *             <code>columnFrom &lt; 0 || columnTo-columnFrom+1 &lt; 0 || columnTo+1>matrix.columns() || for any row=rowIndexes[i]: row &lt; 0 || row >= matrix.rows()</code>
      *             .
      */
     public DoubleMatrix2D subMatrix(DoubleMatrix2D A, int[] rowIndexes, int columnFrom, int columnTo) {
@@ -1177,7 +1224,7 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
     /**
      * Copies the rows of the indicated columns into a new sub matrix.
      * 
-     * <tt>sub[0..rowTo-rowFrom,0..columnIndexes.length-1] = A[rowFrom..rowTo,columnIndexes(:)]</tt>
+     * <code>sub[0..rowTo-rowFrom,0..columnIndexes.length-1] = A[rowFrom..rowTo,columnIndexes(:)]</code>
      * ; The returned matrix is <i>not backed</i> by this matrix, so changes in
      * the returned matrix are <i>not reflected</i> in this matrix, and
      * vice-versa.
@@ -1191,12 +1238,12 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
      * @param columnIndexes
      *            the indexes of the columns to copy. May be unsorted.
      * @return a new sub matrix; with
-     *         <tt>sub.rows()==rowTo-rowFrom+1; sub.columns()==columnIndexes.length</tt>
+     *         <code>sub.rows()==rowTo-rowFrom+1; sub.columns()==columnIndexes.length</code>
      *         .
      * @throws IndexOutOfBoundsException
      *             if
      * 
-     *             <tt>rowFrom<0 || rowTo-rowFrom+1<0 || rowTo+1>matrix.rows() || for any col=columnIndexes[i]: col < 0 || col >= matrix.columns()</tt>
+     *             <code>rowFrom &lt; 0 || rowTo-rowFrom+1 &lt; 0 || rowTo+1>matrix.rows() || for any col=columnIndexes[i]: col &lt; 0 || col >= matrix.columns()</code>
      *             .
      */
     public DoubleMatrix2D subMatrix(DoubleMatrix2D A, int rowFrom, int rowTo, int[] columnIndexes) {
@@ -1218,10 +1265,10 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
 
     /**
      * Constructs and returns a new <i>sub-range view</i> which is the sub
-     * matrix <tt>A[fromRow..toRow,fromColumn..toColumn]</tt>. The returned
+     * matrix <code>A[fromRow..toRow,fromColumn..toColumn]</code>. The returned
      * matrix is backed by this matrix, so changes in the returned matrix are
      * reflected in this matrix, and vice-versa. Use idioms like
-     * <tt>result = subMatrix(...).copy()</tt> to generate an independent sub
+     * <code>result = subMatrix(...).copy()</code> to generate an independent sub
      * matrix.
      * 
      * @param A
@@ -1238,7 +1285,7 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
      * @throws IndexOutOfBoundsException
      *             if
      * 
-     *             <tt>fromColumn<0 || toColumn-fromColumn+1<0 || toColumn>=A.columns() || fromRow<0 || toRow-fromRow+1<0 || toRow>=A.rows()</tt>
+     *             <code>fromColumn &lt; 0 || toColumn-fromColumn+1 &lt; 0 || toColumn>=A.columns() || fromRow &lt; 0 || toRow-fromRow+1 &lt; 0 || toRow>=A.rows()</code>
      */
     public DoubleMatrix2D subMatrix(DoubleMatrix2D A, int fromRow, int toRow, int fromColumn, int toColumn) {
         return A.viewPart(fromRow, fromColumn, toRow - fromRow + 1, toColumn - fromColumn + 1);
@@ -1247,6 +1294,8 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
     /**
      * Constructs and returns the SingularValue-decomposition of the given
      * matrix.
+     * @param matrix
+     * @return 
      */
     public DenseDoubleSingularValueDecomposition svd(DoubleMatrix2D matrix) {
         return new DenseDoubleSingularValueDecomposition(matrix, true, true);
@@ -1267,6 +1316,8 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
      * 	 trace         : 0
      * 
      * </pre>
+     * @param matrix
+     * @return 
      */
     public String toString(DoubleMatrix2D matrix) {
         final cern.colt.list.tobject.ObjectArrayList names = new cern.colt.list.tobject.ObjectArrayList();
@@ -1372,7 +1423,7 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
     }
 
     /**
-     * Returns the results of <tt>toString(A)</tt> and additionally the results
+     * Returns the results of <code>toString(A)</code> and additionally the results
      * of all sorts of decompositions applied to the given matrix. Useful for
      * debugging or to quickly get the rough picture. For example,
      * 
@@ -1518,6 +1569,8 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
      * 	 0.631761  0.532513  0.563301
      * 
      * </pre>
+     * @param matrix
+     * @return 
      */
     public String toVerboseString(DoubleMatrix2D matrix) {
 
@@ -1579,8 +1632,10 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
     }
 
     /**
-     * Returns the sum of the diagonal elements of matrix <tt>A</tt>;
-     * <tt>Sum(A[i,i])</tt>.
+     * Returns the sum of the diagonal elements of matrix <code>A</code>;
+     * <code>Sum(A[i,i])</code>.
+     * @param A
+     * @return 
      */
     public double trace(DoubleMatrix2D A) {
         double sum = 0;
@@ -1592,11 +1647,11 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
 
     /**
      * Constructs and returns a new view which is the transposition of the given
-     * matrix <tt>A</tt>. Equivalent to {@link DoubleMatrix2D#viewDice
+     * matrix <code>A</code>. Equivalent to {@link DoubleMatrix2D#viewDice
      * A.viewDice()}. This is a zero-copy transposition, taking O(1), i.e.
      * constant time. The returned view is backed by this matrix, so changes in
      * the returned view are reflected in this matrix, and vice-versa. Use
-     * idioms like <tt>result = transpose(A).copy()</tt> to generate an
+     * idioms like <code>result = transpose(A).copy()</code> to generate an
      * independent matrix.
      * <p>
      * <b>Example:</b>
@@ -1617,6 +1672,7 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
      * </tr>
      * </table>
      * 
+     * @param A
      * @return a new transposed view.
      */
     public DoubleMatrix2D transpose(DoubleMatrix2D A) {
@@ -1626,7 +1682,8 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
     /**
      * Modifies the matrix to be a lower trapezoidal matrix.
      * 
-     * @return <tt>A</tt> (for convenience only).
+     * @param A
+     * @return <code>A</code> (for convenience only).
      * 
      */
     public DoubleMatrix2D trapezoidalLower(DoubleMatrix2D A) {
@@ -1643,13 +1700,13 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
 
     /**
      * Outer product of two vectors; Returns a matrix with
-     * <tt>A[i,j] = x[i] * y[j]</tt>.
+     * <code>A[i,j] = x[i] * y[j]</code>.
      * 
      * @param x
      *            the first source vector.
      * @param y
      *            the second source vector.
-     * @return the outer product </tt>A</tt>.
+     * @return the outer product </code>A</code>.
      */
     public DoubleMatrix2D xmultOuter(DoubleMatrix1D x, DoubleMatrix1D y) {
         DoubleMatrix2D A = x.like2D((int) x.size(), (int) y.size());
@@ -1659,7 +1716,7 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
 
     /**
      * Linear algebraic matrix power;
-     * <tt>B = A<sup>k</sup> <==> B = A*A*...*A</tt>.
+     * <code>B = A<sup>k</sup> &lt;==&gt; B = A*A*...*A</code>.
      * 
      * @param A
      *            the source matrix; must be square.
@@ -1668,7 +1725,7 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
      * @return a new result matrix.
      * 
      * @throws IllegalArgumentException
-     *             if <tt>!Testing.isSquare(A)</tt>.
+     *             if <code>!Testing.isSquare(A)</code>
      */
     public DoubleMatrix2D xpowSlow(DoubleMatrix2D A, int k) {
         // cern.colt.Timer timer = new cern.colt.Timer().start();

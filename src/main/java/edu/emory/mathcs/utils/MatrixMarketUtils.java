@@ -65,7 +65,7 @@ public class MatrixMarketUtils {
 
 	/**
 	 *
-	 * @param uri
+     * @param fileName
 	 * @return
 	 */
 	public static AbstractMatrix readMatrix(String fileName) {

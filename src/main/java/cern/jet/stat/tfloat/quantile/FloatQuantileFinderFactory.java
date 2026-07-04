@@ -14,7 +14,7 @@ import cern.jet.random.tfloat.engine.FloatRandomEngine;
 
 /**
  * Factory constructing exact and approximate quantile finders for both known
- * and unknown <tt>N</tt>. Also see {@link hep.aida.tfloat.bin.QuantileFloatBin1D},
+ * and unknown <code>N</code>. Also see {@link hep.aida.tfloat.bin.QuantileFloatBin1D},
  * demonstrating how this package can be used.
  * 
  * The approx. algorithms compute approximate quantiles of large data sequences
@@ -39,11 +39,11 @@ import cern.jet.random.tfloat.engine.FloatRandomEngine;
  * <dt>(All subject to an accuracy specified by the user.)
  * 
  * <p>
- * Use methods <tt>newXXX(...)</tt> to get new instances of one of the
+ * Use methods <code>newXXX(...)</code> to get new instances of one of the
  * following quantile finders.
  * 
  * <p>
- * <b>1. Exact quantile finding algorithm for known and unknown <tt>N</tt>
+ * <b>1. Exact quantile finding algorithm for known and unknown <code>N</code>
  * requiring large main memory.</b>
  * </p>
  * The folkore algorithm: Keeps all elements in main memory, sorts the list,
@@ -54,19 +54,19 @@ import cern.jet.random.tfloat.engine.FloatRandomEngine;
  * 
  * <p>
  * <p>
- * <b>2. Approximate quantile finding algorithm for known <tt>N</tt> requiring
+ * <b>2. Approximate quantile finding algorithm for known <code>N</code> requiring
  * only one pass and little main memory.</b>
  * </p>
  * 
  * <p>
  * Needs as input the following parameters:
  * <p>
- * <dt>1. <tt>N</tt> - the number of values of the data sequence over which
+ * <dt>1. <code>N</code> - the number of values of the data sequence over which
  * quantiles are to be determined.
- * <dt>2. <tt>quantiles</tt> - the number of quantiles to be computed. If
+ * <dt>2. <code>quantiles</code> - the number of quantiles to be computed. If
  * unknown in advance, set this number large, e.g.
- * <tt>quantiles &gt;= 10000</tt>.
- * <dt>3. <tt>epsilon</tt> - the allowed approximation error on quantiles.
+ * <code>quantiles &gt;= 10000</code>.
+ * <dt>3. <code>epsilon</code> - the allowed approximation error on quantiles.
  * The approximation guarantee of this algorithm is explicit.
  * 
  * <p>
@@ -75,8 +75,8 @@ import cern.jet.random.tfloat.engine.FloatRandomEngine;
  * approximation guarantees are explicit but probabilistic, i.e. they apply with
  * respect to a (user controlled) confidence parameter "delta".
  * 
- * <dt>4. <tt>delta</tt> - the probability allowed that the approximation
- * error fails to be smaller than epsilon. Set <tt>delta</tt> to zero for
+ * <dt>4. <code>delta</code> - the probability allowed that the approximation
+ * error fails to be smaller than epsilon. Set <code>delta</code> to zero for
  * explicit non probabilistic guarantees.
  * 
  * <p>
@@ -91,18 +91,18 @@ import cern.jet.random.tfloat.engine.FloatRandomEngine;
  * 
  * <p>
  * <p>
- * <b>3. Approximate quantile finding algorithm for unknown <tt>N</tt>
+ * <b>3. Approximate quantile finding algorithm for unknown <code>N</code>
  * requiring only one pass and little main memory.</b>
  * </p>
  * This algorithm requires at most two times the memory of a corresponding
- * approx. quantile finder knowing <tt>N</tt>.
+ * approx. quantile finder knowing <code>N</code>.
  * 
  * <p>
  * Needs as input the following parameters:
  * <p>
- * <dt>2. <tt>quantiles</tt> - the number of quantiles to be computed. If
- * unknown in advance, set this number large, e.g. <tt>quantiles &gt;= 1000</tt>.
- * <dt>2. <tt>epsilon</tt> - the allowed approximation error on quantiles.
+ * <dt>2. <code>quantiles</code> - the number of quantiles to be computed. If
+ * unknown in advance, set this number large, e.g. <code>quantiles &gt;= 1000</code>.
+ * <dt>2. <code>epsilon</code> - the allowed approximation error on quantiles.
  * The approximation guarantee of this algorithm is explicit.
  * 
  * <p>
@@ -111,8 +111,8 @@ import cern.jet.random.tfloat.engine.FloatRandomEngine;
  * approximation guarantees are explicit but probabilistic, i.e. they apply with
  * respect to a (user controlled) confidence parameter "delta".
  * 
- * <dt>3. <tt>delta</tt> - the probability allowed that the approximation
- * error fails to be smaller than epsilon. Set <tt>delta</tt> to zero for
+ * <dt>3. <code>delta</code> - the probability allowed that the approximation
+ * error fails to be smaller than epsilon. Set <code>delta</code> to zero for
  * explicit non probabilistic guarantees.
  * 
  * <p>
@@ -151,30 +151,30 @@ public class FloatQuantileFinderFactory extends Object {
      * 
      * Assumes that quantiles are to be computed over N values. The required
      * sampling rate is computed and stored in the first element of the provided
-     * <tt>returnSamplingRate</tt> array, which, therefore must be at least of
+     * <code>returnSamplingRate</code> array, which, therefore must be at least of
      * length 1.
      * 
      * @param N
      *            the number of values over which quantiles shall be computed
-     *            (e.g <tt>10^6</tt>).
+     *            (e.g <code>10^6</code>).
      * @param epsilon
      *            the approximation error which is guaranteed not to be exceeded
-     *            (e.g. <tt>0.001</tt>) (<tt>0 &lt;= epsilon &lt;= 1</tt>). To
-     *            get exact result, set <tt>epsilon=0.0</tt>;
+     *            (e.g. <code>0.001</code>) (<code>0 &lt;= epsilon &lt;= 1</code>). To
+     *            get exact result, set <code>epsilon=0.0</code>;
      * @param delta
      *            the probability that the approximation error is more than than
-     *            epsilon (e.g. <tt>0.0001</tt>) (<tt>0 &lt;= delta &lt;= 1</tt>
-     *            ). To avoid probabilistic answers, set <tt>delta=0.0</tt>.
+     *            epsilon (e.g. <code>0.0001</code>) (<code>0 &lt;= delta &lt;= 1</code>
+     *            ). To avoid probabilistic answers, set <code>delta=0.0</code>.
      * @param quantiles
-     *            the number of quantiles to be computed (e.g. <tt>100</tt>) (
-     *            <tt>quantiles &gt;= 1</tt>). If unknown in advance, set this
-     *            number large, e.g. <tt>quantiles &gt;= 10000</tt>.
+     *            the number of quantiles to be computed (e.g. <code>100</code>) (
+     *            <code>quantiles &gt;= 1</code>). If unknown in advance, set this
+     *            number large, e.g. <code>quantiles &gt;= 10000</code>.
      * @param returnSamplingRate
-     *            output parameter, a <tt>float[1]</tt> where the sampling rate
+     *            output parameter, a <code>float[1]</code> where the sampling rate
      *            is to be filled in.
-     * @return <tt>long[2]</tt> - <tt>long[0]</tt>=the number of buffers,
-     *         <tt>long[1]</tt>=the number of elements per buffer,
-     *         <tt>returnSamplingRate[0]</tt>=the required sampling rate.
+     * @return <code>long[2]</code> - <code>long[0]</code>=the number of buffers,
+     *         <code>long[1]</code>=the number of elements per buffer,
+     *         <code>returnSamplingRate[0]</code>=the required sampling rate.
      */
     public static long[] known_N_compute_B_and_K(long N, float epsilon, float delta, int quantiles,
             float[] returnSamplingRate) {
@@ -206,15 +206,15 @@ public class FloatQuantileFinderFactory extends Object {
      * no more than epsilon. Assumes that quantiles are to be computed over N
      * values.
      * 
-     * @return <tt>long[2]</tt> - <tt>long[0]</tt>=the number of buffers,
-     *         <tt>long[1]</tt>=the number of elements per buffer.
+     * @return <code>long[2]</code> - <code>long[0]</code>=the number of buffers,
+     *         <code>long[1]</code>=the number of elements per buffer.
      * @param N
      *            the anticipated number of values over which quantiles shall be
      *            determined.
      * @param epsilon
      *            the approximation error which is guaranteed not to be exceeded
-     *            (e.g. <tt>0.001</tt>) (<tt>0 &lt;= epsilon &lt;= 1</tt>). To
-     *            get exact result, set <tt>epsilon=0.0</tt>;
+     *            (e.g. <code>0.001</code>) (<code>0 &lt;= epsilon &lt;= 1</code>). To
+     *            get exact result, set <code>epsilon=0.0</code>;
      */
     protected static long[] known_N_compute_B_and_K_quick(long N, float epsilon) {
         final int maxBuffers = 50;
@@ -308,7 +308,7 @@ public class FloatQuantileFinderFactory extends Object {
      * quantiles can be determined with an approximation error no more than
      * epsilon with a certain probability. Assumes that quantiles are to be
      * computed over N values. The required sampling rate is computed and stored
-     * in the first element of the provided <tt>returnSamplingRate</tt> array,
+     * in the first element of the provided <code>returnSamplingRate</code> array,
      * which, therefore must be at least of length 1.
      * 
      * @param N
@@ -316,22 +316,20 @@ public class FloatQuantileFinderFactory extends Object {
      *            computed (e.g 10^6).
      * @param epsilon
      *            the approximation error which is guaranteed not to be exceeded
-     *            (e.g. <tt>0.001</tt>) (<tt>0 &lt;= epsilon &lt;= 1</tt>). To
-     *            get exact result, set <tt>epsilon=0.0</tt>;
+     *            (e.g. <code>0.001</code>) (<code>0 &lt;= epsilon &lt;= 1</code>). To
+     *            get exact result, set <code>epsilon=0.0</code>;
      * @param delta
      *            the probability that the approximation error is more than than
-     *            epsilon (e.g. <tt>0.0001</tt>) (<tt>0 &lt;= delta &lt;= 1</tt>
-     *            ). To avoid probabilistic answers, set <tt>delta=0.0</tt>.
+     *            epsilon (e.g. <code>0.0001</code>) (<code>0 &lt;= delta &lt;= 1</code>
+     *            ). To avoid probabilistic answers, set <code>delta=0.0</code>.
      * @param quantiles
-     *            the number of quantiles to be computed (e.g. <tt>100</tt>) (
-     *            <tt>quantiles &gt;= 1</tt>). If unknown in advance, set this
-     *            number large, e.g. <tt>quantiles &gt;= 10000</tt>.
-     * @param samplingRate
-     *            a <tt>float[1]</tt> where the sampling rate is to be filled
-     *            in.
-     * @return <tt>long[2]</tt> - <tt>long[0]</tt>=the number of buffers,
-     *         <tt>long[1]</tt>=the number of elements per buffer,
-     *         <tt>returnSamplingRate[0]</tt>=the required sampling rate.
+     *            the number of quantiles to be computed (e.g. <code>100</code>) (
+     *            <code>quantiles &gt;= 1</code>). If unknown in advance, set this
+     *            number large, e.g. <code>quantiles &gt;= 10000</code>.
+     * @param returnSamplingRate
+     * @return <code>long[2]</code> - <code>long[0]</code>=the number of buffers,
+     *         <code>long[1]</code>=the number of elements per buffer,
+     *         <code>returnSamplingRate[0]</code>=the required sampling rate.
      */
     protected static long[] known_N_compute_B_and_K_slow(long N, float epsilon, float delta, int quantiles,
             float[] returnSamplingRate) {
@@ -413,33 +411,33 @@ public class FloatQuantileFinderFactory extends Object {
      * will assist the factory in choosing quantile finders with minimal memory
      * requirements. For example if you select values from a database and fill
      * them into histograms, then you probably don't know how many values you
-     * will fill, but you probably do know that you will fill at most <tt>S</tt>
+     * will fill, but you probably do know that you will fill at most <code>S</code>
      * elements, the size of your database.
      * 
      * @param known_N
      *            specifies whether the number of elements over which quantiles
      *            are to be computed is known or not.
      * @param N
-     *            if <tt>known_N==true</tt>, the number of elements over which
-     *            quantiles are to be computed. if <tt>known_N==false</tt>, the
+     *            if <code>known_N==true</code>, the number of elements over which
+     *            quantiles are to be computed. if <code>known_N==false</code>, the
      *            upper limit on the number of elements over which quantiles are
      *            to be computed. If such an upper limit is a-priori unknown,
-     *            then set <tt>N = Long.MAX_VALUE</tt>.
+     *            then set <code>N = Long.MAX_VALUE</code>.
      * @param epsilon
      *            the approximation error which is guaranteed not to be exceeded
-     *            (e.g. <tt>0.001</tt>) (<tt>0 &lt;= epsilon &lt;= 1</tt>). To
-     *            get exact result, set <tt>epsilon=0.0</tt>;
+     *            (e.g. <code>0.001</code>) (<code>0 &lt;= epsilon &lt;= 1</code>). To
+     *            get exact result, set <code>epsilon=0.0</code>;
      * @param delta
      *            the probability that the approximation error is more than than
      *            epsilon (e.g. 0.0001) (0 &lt;= delta &lt;= 1). To avoid
-     *            probabilistic answers, set <tt>delta=0.0</tt>.
+     *            probabilistic answers, set <code>delta=0.0</code>.
      * @param quantiles
-     *            the number of quantiles to be computed (e.g. <tt>100</tt>) (
-     *            <tt>quantiles &gt;= 1</tt>). If unknown in advance, set this
-     *            number large, e.g. <tt>quantiles &gt;= 10000</tt>.
+     *            the number of quantiles to be computed (e.g. <code>100</code>) (
+     *            <code>quantiles &gt;= 1</code>). If unknown in advance, set this
+     *            number large, e.g. <code>quantiles &gt;= 10000</code>.
      * @param generator
      *            a uniform random number generator. Set this parameter to
-     *            <tt>null</tt> to use a default generator.
+     *            <code>null</code> to use a default generator.
      * @return the quantile finder minimizing memory requirements under the
      *         given constraints.
      */
@@ -518,9 +516,10 @@ public class FloatQuantileFinderFactory extends Object {
 
     /**
      * Convenience method that computes phi's for equi-depth histograms. This is
-     * simply a list of numbers with <tt>i / (float)quantiles</tt> for
-     * <tt>i={1,2,...,quantiles-1}</tt>.
+     * simply a list of numbers with <code>i / (float)quantiles</code> for
+     * <code>i={1,2,...,quantiles-1}</code>.
      * 
+     * @param quantiles
      * @return the equi-depth phi's
      */
     public static cern.colt.list.tfloat.FloatArrayList newEquiDepthPhis(int quantiles) {
@@ -537,20 +536,20 @@ public class FloatQuantileFinderFactory extends Object {
      * 
      * @param epsilon
      *            the approximation error which is guaranteed not to be exceeded
-     *            (e.g. <tt>0.001</tt>) (<tt>0 &lt;= epsilon &lt;= 1</tt>). To
-     *            get exact results, set <tt>epsilon=0.0</tt>;
+     *            (e.g. <code>0.001</code>) (<code>0 &lt;= epsilon &lt;= 1</code>). To
+     *            get exact results, set <code>epsilon=0.0</code>;
      * @param delta
      *            the probability that the approximation error is more than than
-     *            epsilon (e.g. <tt>0.0001</tt>) (<tt>0 &lt;= delta &lt;= 1</tt>
-     *            ). To get exact results, set <tt>delta=0.0</tt>.
+     *            epsilon (e.g. <code>0.0001</code>) (<code>0 &lt;= delta &lt;= 1</code>
+     *            ). To get exact results, set <code>delta=0.0</code>.
      * @param quantiles
-     *            the number of quantiles to be computed (e.g. <tt>100</tt>) (
-     *            <tt>quantiles &gt;= 1</tt>). If unknown in advance, set this
-     *            number large, e.g. <tt>quantiles &gt;= 10000</tt>.
-     * @return <tt>long[4]</tt> - <tt>long[0]</tt>=the number of buffers,
-     *         <tt>long[1]</tt>=the number of elements per buffer,
-     *         <tt>long[2]</tt>=the tree height where sampling shall start,
-     *         <tt>long[3]==1</tt> if precomputing is better, otherwise 0;
+     *            the number of quantiles to be computed (e.g. <code>100</code>) (
+     *            <code>quantiles &gt;= 1</code>). If unknown in advance, set this
+     *            number large, e.g. <code>quantiles &gt;= 10000</code>.
+     * @return <code>long[4]</code> - <code>long[0]</code>=the number of buffers,
+     *         <code>long[1]</code>=the number of elements per buffer,
+     *         <code>long[2]</code>=the tree height where sampling shall start,
+     *         <code>long[3]==1</code> if precomputing is better, otherwise 0;
      */
     public static long[] unknown_N_compute_B_and_K(float epsilon, float delta, int quantiles) {
         return unknown_N_compute_B_and_K_raw(epsilon, delta, quantiles);
@@ -583,20 +582,20 @@ public class FloatQuantileFinderFactory extends Object {
      * 
      * @param epsilon
      *            the approximation error which is guaranteed not to be exceeded
-     *            (e.g. <tt>0.001</tt>) (<tt>0 &lt;= epsilon &lt;= 1</tt>). To
-     *            get exact result, set <tt>epsilon=0.0</tt>;
+     *            (e.g. <code>0.001</code>) (<code>0 &lt;= epsilon &lt;= 1</code>). To
+     *            get exact result, set <code>epsilon=0.0</code>;
      * @param delta
      *            the probability that the approximation error is more than than
-     *            epsilon (e.g. <tt>0.0001</tt>) (<tt>0 &lt;= delta &lt;= 1</tt>
-     *            ). To get exact results, set <tt>delta=0.0</tt>.
+     *            epsilon (e.g. <code>0.0001</code>) (<code>0 &lt;= delta &lt;= 1</code>
+     *            ). To get exact results, set <code>delta=0.0</code>.
      * @param quantiles
-     *            the number of quantiles to be computed (e.g. <tt>100</tt>) (
-     *            <tt>quantiles &gt;= 1</tt>). If unknown in advance, set this
-     *            number large, e.g. <tt>quantiles &gt;= 10000</tt>.
-     * @return <tt>long[4]</tt> - <tt>long[0]</tt>=the number of buffers,
-     *         <tt>long[1]</tt>=the number of elements per buffer,
-     *         <tt>long[2]</tt>=the tree height where sampling shall start,
-     *         <tt>long[3]==1</tt> if precomputing is better, otherwise 0;
+     *            the number of quantiles to be computed (e.g. <code>100</code>) (
+     *            <code>quantiles &gt;= 1</code>). If unknown in advance, set this
+     *            number large, e.g. <code>quantiles &gt;= 10000</code>.
+     * @return <code>long[4]</code> - <code>long[0]</code>=the number of buffers,
+     *         <code>long[1]</code>=the number of elements per buffer,
+     *         <code>long[2]</code>=the tree height where sampling shall start,
+     *         <code>long[3]==1</code> if precomputing is better, otherwise 0;
      */
     protected static long[] unknown_N_compute_B_and_K_raw(float epsilon, float delta, int quantiles) {
         // delta can be set to zero, i.e., all quantiles should be approximate

@@ -18,6 +18,7 @@ public class ObjectListAdapter extends java.util.AbstractList implements java.ut
 
     /**
      * Constructs a list backed by the specified content list.
+     * @param content
      */
     public ObjectListAdapter(ObjectArrayList content) {
         this.content = content;
@@ -42,8 +43,8 @@ public class ObjectListAdapter extends java.util.AbstractList implements java.ut
      *             if some aspect of the specified element prevents it from
      *             being added to this list.
      * @throws IndexOutOfBoundsException
-     *             index is out of range (<tt>index &lt;
-     * 		  0 || index &gt; size()</tt>).
+     *             index is out of range (<code>index &lt;
+     * 		  0 || index &gt; size()</code>).
      */
 
     public void add(int index, Object element) {
@@ -60,7 +61,7 @@ public class ObjectListAdapter extends java.util.AbstractList implements java.ut
      * @return the element at the specified position in this list.
      * @throws IndexOutOfBoundsException
      *             if the given index is out of range (
-     *             <tt>index &lt; 0 || index &gt;= size()</tt>).
+     *             <code>index &lt; 0 || index &gt;= size()</code>).
      */
 
     public Object get(int index) {
@@ -79,7 +80,7 @@ public class ObjectListAdapter extends java.util.AbstractList implements java.ut
      * 
      * @throws IndexOutOfBoundsException
      *             if the specified index is out of range (
-     *             <tt>index &lt; 0 || index &gt;= size()</tt>).
+     *             <code>index &lt; 0 || index &gt;= size()</code>).
      */
 
     public Object remove(int index) {
@@ -109,7 +110,7 @@ public class ObjectListAdapter extends java.util.AbstractList implements java.ut
      * 
      * @throws IndexOutOfBoundsException
      *             if the specified index is out of range (
-     *             <tt>index &lt; 0 || index &gt;= size()</tt>).
+     *             <code>index &lt; 0 || index &gt;= size()</code>).
      */
 
     public Object set(int index, Object element) {

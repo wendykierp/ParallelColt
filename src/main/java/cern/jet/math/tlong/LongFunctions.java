@@ -29,13 +29,13 @@ public class LongFunctions extends Object {
      * Little trick to allow for "aliasing", that is, renaming this class.
      * Writing code like
      * <p>
-     * <tt>LongFunctions.chain(LongFunctions.plus,LongFunctions.mult(3),LongFunctions.chain(LongFunctions.square,LongFunctions.div(2)));</tt>
+     * <code>LongFunctions.chain(LongFunctions.plus,LongFunctions.mult(3),LongFunctions.chain(LongFunctions.square,LongFunctions.div(2)));</code>
      * <p>
      * is a bit awkward, to say the least. Using the aliasing you can instead
      * write
      * <p>
-     * <tt>LongFunctions F = LongFunctions.longFunctions; <br>
-    F.chain(F.plus,F.mult(3),F.chain(F.square,F.div(2)));</tt>
+     * <code>LongFunctions F = LongFunctions.longFunctions; <br>
+    F.chain(F.plus,F.mult(3),F.chain(F.square,F.div(2)));</code>
      * <p>
      */
     public static final LongFunctions longFunctions = new LongFunctions();
@@ -44,7 +44,7 @@ public class LongFunctions extends Object {
      * <H3>Unary functions</H3>
      **************************************************************************/
     /**
-     * Function that returns <tt>Math.abs(a) == (a < 0) ? -a : a</tt>.
+     * Function that returns <code>Math.abs(a) == (a < 0) ? -a : a</code>.
      */
     public static final LongFunction abs = new LongFunction() {
         public final long apply(long a) {
@@ -53,7 +53,7 @@ public class LongFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a--</tt>.
+     * Function that returns <code>a--</code>.
      */
     public static final LongFunction dec = new LongFunction() {
         public final long apply(long a) {
@@ -62,7 +62,7 @@ public class LongFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>(long) Arithmetic.factorial(a)</tt>.
+     * Function that returns <code>(long) Arithmetic.factorial(a)</code>.
      */
     public static final LongFunction factorial = new LongFunction() {
         public final long apply(long a) {
@@ -80,7 +80,7 @@ public class LongFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a++</tt>.
+     * Function that returns <code>a++</code>.
      */
     public static final LongFunction inc = new LongFunction() {
         public final long apply(long a) {
@@ -89,7 +89,7 @@ public class LongFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>-a</tt>.
+     * Function that returns <code>-a</code>.
      */
     public static final LongFunction neg = new LongFunction() {
         public final long apply(long a) {
@@ -98,7 +98,7 @@ public class LongFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>~a</tt>.
+     * Function that returns <code>~a</code>.
      */
     public static final LongFunction not = new LongFunction() {
         public final long apply(long a) {
@@ -107,7 +107,7 @@ public class LongFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a < 0 ? -1 : a > 0 ? 1 : 0</tt>.
+     * Function that returns <code>a < 0 ? -1 : a > 0 ? 1 : 0</code>.
      */
     public static final LongFunction sign = new LongFunction() {
         public final long apply(long a) {
@@ -116,7 +116,7 @@ public class LongFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a * a</tt>.
+     * Function that returns <code>a * a</code>.
      */
     public static final LongFunction square = new LongFunction() {
         public final long apply(long a) {
@@ -129,7 +129,7 @@ public class LongFunctions extends Object {
      **************************************************************************/
 
     /**
-     * Function that returns <tt>a & b</tt>.
+     * Function that returns <code>a & b</code>.
      */
     public static final LongLongFunction and = new LongLongFunction() {
         public final long apply(long a, long b) {
@@ -138,7 +138,7 @@ public class LongFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a < b ? -1 : a > b ? 1 : 0</tt>.
+     * Function that returns <code>a < b ? -1 : a > b ? 1 : 0</code>.
      */
     public static final LongLongFunction compare = new LongLongFunction() {
         public final long apply(long a, long b) {
@@ -147,7 +147,7 @@ public class LongFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a / b</tt>.
+     * Function that returns <code>a / b</code>.
      */
     public static final LongLongFunction div = new LongLongFunction() {
         public final long apply(long a, long b) {
@@ -156,7 +156,7 @@ public class LongFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>-(a / b)</tt>.
+     * Function that returns <code>-(a / b)</code>.
      */
     public static final LongLongFunction divNeg = new LongLongFunction() {
         public final long apply(long a, long b) {
@@ -165,7 +165,7 @@ public class LongFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a == b ? 1 : 0</tt>.
+     * Function that returns <code>a == b ? 1 : 0</code>.
      */
     public static final LongLongFunction equals = new LongLongFunction() {
         public final long apply(long a, long b) {
@@ -174,7 +174,7 @@ public class LongFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a == b</tt>.
+     * Function that returns <code>a == b</code>.
      */
     public static final LongLongProcedure isEqual = new LongLongProcedure() {
         public final boolean apply(long a, long b) {
@@ -183,7 +183,7 @@ public class LongFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a < b</tt>.
+     * Function that returns <code>a < b</code>.
      */
     public static final LongLongProcedure isLess = new LongLongProcedure() {
         public final boolean apply(long a, long b) {
@@ -192,7 +192,7 @@ public class LongFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a > b</tt>.
+     * Function that returns <code>a > b</code>.
      */
     public static final LongLongProcedure isGreater = new LongLongProcedure() {
         public final boolean apply(long a, long b) {
@@ -201,7 +201,7 @@ public class LongFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>Math.max(a,b)</tt>.
+     * Function that returns <code>Math.max(a,b)</code>.
      */
     public static final LongLongFunction max = new LongLongFunction() {
         public final long apply(long a, long b) {
@@ -210,7 +210,7 @@ public class LongFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>Math.min(a,b)</tt>.
+     * Function that returns <code>Math.min(a,b)</code>.
      */
     public static final LongLongFunction min = new LongLongFunction() {
         public final long apply(long a, long b) {
@@ -219,7 +219,7 @@ public class LongFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a - b</tt>.
+     * Function that returns <code>a - b</code>.
      */
     public static final LongLongFunction minus = new LongLongFunction() {
         public final long apply(long a, long b) {
@@ -228,7 +228,7 @@ public class LongFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a % b</tt>.
+     * Function that returns <code>a % b</code>.
      */
     public static final LongLongFunction mod = new LongLongFunction() {
         public final long apply(long a, long b) {
@@ -237,7 +237,7 @@ public class LongFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a * b</tt>.
+     * Function that returns <code>a * b</code>.
      */
     public static final LongLongFunction mult = new LongLongFunction() {
         public final long apply(long a, long b) {
@@ -246,7 +246,7 @@ public class LongFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>-(a * b)</tt>.
+     * Function that returns <code>-(a * b)</code>.
      */
     public static final LongLongFunction multNeg = new LongLongFunction() {
         public final long apply(long a, long b) {
@@ -255,7 +255,7 @@ public class LongFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a * b^2</tt>.
+     * Function that returns <code>a * b^2</code>.
      */
     public static final LongLongFunction multSquare = new LongLongFunction() {
         public final long apply(long a, long b) {
@@ -264,7 +264,7 @@ public class LongFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a | b</tt>.
+     * Function that returns <code>a | b</code>.
      */
     public static final LongLongFunction or = new LongLongFunction() {
         public final long apply(long a, long b) {
@@ -273,7 +273,7 @@ public class LongFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a + b</tt>.
+     * Function that returns <code>a + b</code>.
      */
     public static final LongLongFunction plus = new LongLongFunction() {
         public final long apply(long a, long b) {
@@ -282,7 +282,7 @@ public class LongFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>Math.abs(a) + Math.abs(b)</tt>.
+     * Function that returns <code>Math.abs(a) + Math.abs(b)</code>.
      */
     public static final LongLongFunction plusAbs = new LongLongFunction() {
         public final long apply(long a, long b) {
@@ -291,7 +291,7 @@ public class LongFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>(long) Math.pow(a,b)</tt>.
+     * Function that returns <code>(long) Math.pow(a,b)</code>.
      */
     public static final LongLongFunction pow = new LongLongFunction() {
         public final long apply(long a, long b) {
@@ -300,7 +300,7 @@ public class LongFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a << b</tt>.
+     * Function that returns <code>a << b</code>.
      */
     public static final LongLongFunction shiftLeft = new LongLongFunction() {
         public final long apply(long a, long b) {
@@ -309,7 +309,7 @@ public class LongFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a >> b</tt>.
+     * Function that returns <code>a >> b</code>.
      */
     public static final LongLongFunction shiftRightSigned = new LongLongFunction() {
         public final long apply(long a, long b) {
@@ -318,7 +318,7 @@ public class LongFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a >>> b</tt>.
+     * Function that returns <code>a >>> b</code>.
      */
     public static final LongLongFunction shiftRightUnsigned = new LongLongFunction() {
         public final long apply(long a, long b) {
@@ -327,7 +327,7 @@ public class LongFunctions extends Object {
     };
 
     /**
-     * Function that returns <tt>a ^ b</tt>.
+     * Function that returns <code>a ^ b</code>.
      */
     public static final LongLongFunction xor = new LongLongFunction() {
         public final long apply(long a, long b) {
@@ -343,8 +343,10 @@ public class LongFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a & b</tt>. <tt>a</tt> is a
-     * variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a & b</code>. <code>a</code> is a
+     * variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static LongFunction and(final long b) {
         return new LongFunction() {
@@ -355,8 +357,11 @@ public class LongFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>(from<=a && a<=to) ? 1 : 0</tt>.
-     * <tt>a</tt> is a variable, <tt>from</tt> and <tt>to</tt> are fixed.
+     * Constructs a function that returns <code>(from<=a && a<=to) ? 1 : 0</code>.
+     * <code>a</code> is a variable, <code>from</code> and <code>to</code> are fixed.
+     * @param from
+     * @param to
+     * @return 
      */
     public static LongFunction between(final long from, final long to) {
         return new LongFunction() {
@@ -368,13 +373,14 @@ public class LongFunctions extends Object {
 
     /**
      * Constructs a unary function from a binary function with the first operand
-     * (argument) fixed to the given constant <tt>c</tt>. The second operand is
+     * (argument) fixed to the given constant <code>c</code>. The second operand is
      * variable (free).
      * 
      * @param function
      *            a binary function taking operands in the form
-     *            <tt>function.apply(c,var)</tt>.
-     * @return the unary function <tt>function(c,var)</tt>.
+     *            <code>function.apply(c,var)</code>.
+     * @param c
+     * @return the unary function <code>function(c,var)</code>.
      */
     public static LongFunction bindArg1(final LongLongFunction function, final long c) {
         return new LongFunction() {
@@ -386,13 +392,14 @@ public class LongFunctions extends Object {
 
     /**
      * Constructs a unary function from a binary function with the second
-     * operand (argument) fixed to the given constant <tt>c</tt>. The first
+     * operand (argument) fixed to the given constant <code>c</code>. The first
      * operand is variable (free).
      * 
      * @param function
      *            a binary function taking operands in the form
-     *            <tt>function.apply(var,c)</tt>.
-     * @return the unary function <tt>function(var,c)</tt>.
+     *            <code>function.apply(var,c)</code>.
+     * @param c
+     * @return the unary function <code>function(var,c)</code>.
      */
     public static LongFunction bindArg2(final LongLongFunction function, final long c) {
         return new LongFunction() {
@@ -403,13 +410,13 @@ public class LongFunctions extends Object {
     }
 
     /**
-     * Constructs the function <tt>g( h(a) )</tt>.
+     * Constructs the function <code>g( h(a) )</code>.
      * 
      * @param g
      *            a unary function.
      * @param h
      *            a unary function.
-     * @return the unary function <tt>g( h(a) )</tt>.
+     * @return the unary function <code>g( h(a) )</code>.
      */
     public static LongFunction chain(final LongFunction g, final LongFunction h) {
         return new LongFunction() {
@@ -420,13 +427,13 @@ public class LongFunctions extends Object {
     }
 
     /**
-     * Constructs the function <tt>g( h(a,b) )</tt>.
+     * Constructs the function <code>g( h(a,b) )</code>.
      * 
      * @param g
      *            a unary function.
      * @param h
      *            a binary function.
-     * @return the unary function <tt>g( h(a,b) )</tt>.
+     * @return the unary function <code>g( h(a,b) )</code>.
      */
     public static LongLongFunction chain(final LongFunction g, final LongLongFunction h) {
         return new LongLongFunction() {
@@ -437,7 +444,7 @@ public class LongFunctions extends Object {
     }
 
     /**
-     * Constructs the function <tt>f( g(a), h(b) )</tt>.
+     * Constructs the function <code>f( g(a), h(b) )</code>.
      * 
      * @param f
      *            a binary function.
@@ -445,7 +452,7 @@ public class LongFunctions extends Object {
      *            a unary function.
      * @param h
      *            a unary function.
-     * @return the binary function <tt>f( g(a), h(b) )</tt>.
+     * @return the binary function <code>f( g(a), h(b) )</code>.
      */
     public static LongLongFunction chain(final LongLongFunction f, final LongFunction g, final LongFunction h) {
         return new LongLongFunction() {
@@ -456,8 +463,10 @@ public class LongFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a < b ? -1 : a > b ? 1 : 0</tt>.
-     * <tt>a</tt> is a variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a < b ? -1 : a > b ? 1 : 0</code>.
+     * <code>a</code> is a variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static LongFunction compare(final long b) {
         return new LongFunction() {
@@ -468,7 +477,9 @@ public class LongFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns the constant <tt>c</tt>.
+     * Constructs a function that returns the constant <code>c</code>.
+     * @param c
+     * @return 
      */
     public static LongFunction constant(final long c) {
         return new LongFunction() {
@@ -479,8 +490,10 @@ public class LongFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a / b</tt>. <tt>a</tt> is a
-     * variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a / b</code>. <code>a</code> is a
+     * variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static LongFunction div(final long b) {
         return new LongFunction() {
@@ -491,8 +504,10 @@ public class LongFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a == b ? 1 : 0</tt>. <tt>a</tt> is
-     * a variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a == b ? 1 : 0</code>. <code>a</code> is
+     * a variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static LongFunction equals(final long b) {
         return new LongFunction() {
@@ -503,8 +518,11 @@ public class LongFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>from<=a && a<=to</tt>. <tt>a</tt>
-     * is a variable, <tt>from</tt> and <tt>to</tt> are fixed.
+     * Constructs a function that returns <code>from<=a && a<=to</code>. <code>a</code>
+     * is a variable, <code>from</code> and <code>to</code> are fixed.
+     * @param from
+     * @param to
+     * @return 
      */
     public static LongProcedure isBetween(final long from, final long to) {
         return new LongProcedure() {
@@ -515,8 +533,10 @@ public class LongFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a == b</tt>. <tt>a</tt> is a
-     * variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a == b</code>. <code>a</code> is a
+     * variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static LongProcedure isEqual(final long b) {
         return new LongProcedure() {
@@ -527,8 +547,10 @@ public class LongFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a > b</tt>. <tt>a</tt> is a
-     * variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a > b</code>. <code>a</code> is a
+     * variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static LongProcedure isGreater(final long b) {
         return new LongProcedure() {
@@ -539,8 +561,10 @@ public class LongFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a < b</tt>. <tt>a</tt> is a
-     * variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a < b</code>. <code>a</code> is a
+     * variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static LongProcedure isLess(final long b) {
         return new LongProcedure() {
@@ -551,8 +575,10 @@ public class LongFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>Math.max(a,b)</tt>. <tt>a</tt> is
-     * a variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>Math.max(a,b)</code>. <code>a</code> is
+     * a variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static LongFunction max(final long b) {
         return new LongFunction() {
@@ -563,8 +589,10 @@ public class LongFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>Math.min(a,b)</tt>. <tt>a</tt> is
-     * a variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>Math.min(a,b)</code>. <code>a</code> is
+     * a variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static LongFunction min(final long b) {
         return new LongFunction() {
@@ -575,8 +603,10 @@ public class LongFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a - b</tt>. <tt>a</tt> is a
-     * variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a - b</code>. <code>a</code> is a
+     * variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static LongFunction minus(final long b) {
         return new LongFunction() {
@@ -587,16 +617,20 @@ public class LongFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a - b*constant</tt>. <tt>a</tt>
-     * and <tt>b</tt> are variables, <tt>constant</tt> is fixed.
+     * Constructs a function that returns <code>a - b*constant</code>. <code>a</code>
+     * and <code>b</code> are variables, <code>constant</code> is fixed.
+     * @param constant
+     * @return 
      */
     public static LongLongFunction minusMult(final long constant) {
         return plusMultSecond(-constant);
     }
 
     /**
-     * Constructs a function that returns <tt>a % b</tt>. <tt>a</tt> is a
-     * variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a % b</code>. <code>a</code> is a
+     * variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static LongFunction mod(final long b) {
         return new LongFunction() {
@@ -607,8 +641,10 @@ public class LongFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a * b</tt>. <tt>a</tt> is a
-     * variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a * b</code>. <code>a</code> is a
+     * variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static LongFunction mult(final long b) {
         return new LongFunction() {
@@ -619,8 +655,10 @@ public class LongFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a | b</tt>. <tt>a</tt> is a
-     * variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a | b</code>. <code>a</code> is a
+     * variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static LongFunction or(final long b) {
         return new LongFunction() {
@@ -631,8 +669,10 @@ public class LongFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a + b</tt>. <tt>a</tt> is a
-     * variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a + b</code>. <code>a</code> is a
+     * variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static LongFunction plus(final long b) {
         return new LongFunction() {
@@ -643,7 +683,9 @@ public class LongFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>b*constant</tt>.
+     * Constructs a function that returns <code>b*constant</code>.
+     * @param constant
+     * @return 
      */
     public static LongLongFunction multSecond(final long constant) {
 
@@ -656,8 +698,10 @@ public class LongFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>(long) Math.pow(a,b)</tt>.
-     * <tt>a</tt> is a variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>(long) Math.pow(a,b)</code>.
+     * <code>a</code> is a variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static LongFunction pow(final long b) {
         return new LongFunction() {
@@ -668,16 +712,20 @@ public class LongFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a + b*constant</tt>. <tt>a</tt>
-     * and <tt>b</tt> are variables, <tt>constant</tt> is fixed.
+     * Constructs a function that returns <code>a + b*constant</code>. <code>a</code>
+     * and <code>b</code> are variables, <code>constant</code> is fixed.
+     * @param constant
+     * @return 
      */
     public static LongLongFunction plusMultSecond(final long constant) {
         return new LongPlusMultSecond(constant);
     }
 
     /**
-     * Constructs a function that returns <tt>a * constant + b</tt>. <tt>a</tt>
-     * and <tt>b</tt> are variables, <tt>constant</tt> is fixed.
+     * Constructs a function that returns <code>a * constant + b</code>. <code>a</code>
+     * and <code>b</code> are variables, <code>constant</code> is fixed.
+     * @param constant
+     * @return 
      */
     public static LongLongFunction plusMultFirst(final long constant) {
         return new LongPlusMultFirst(constant);
@@ -685,8 +733,8 @@ public class LongFunctions extends Object {
 
     /**
      * Constructs a function that returns a 32 bit uniformly distributed random
-     * number in the closed longerval <tt>[Long.MIN_VALUE,Long.MAX_VALUE]</tt>
-     * (including <tt>Long.MIN_VALUE</tt> and <tt>Long.MAX_VALUE</tt>).
+     * number in the closed longerval <code>[Long.MIN_VALUE,Long.MAX_VALUE]</code>
+     * (including <code>Long.MIN_VALUE</code> and <code>Long.MAX_VALUE</code>).
      * Currently the engine is
      * {@link cern.jet.random.tdouble.engine.DoubleMersenneTwister} and is
      * seeded with the current time.
@@ -698,14 +746,17 @@ public class LongFunctions extends Object {
      * objects, because they implement the proper longerfaces. Thus, if you are
      * not happy with the default, just pass your favourite random generator to
      * function evaluating methods.
+     * @return 
      */
     public static LongFunction random() {
         return new cern.jet.random.tdouble.engine.DoubleMersenneTwister(new java.util.Date());
     }
 
     /**
-     * Constructs a function that returns <tt>a << b</tt>. <tt>a</tt> is a
-     * variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a << b</code>. <code>a</code> is a
+     * variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static LongFunction shiftLeft(final long b) {
         return new LongFunction() {
@@ -716,8 +767,10 @@ public class LongFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a >> b</tt>. <tt>a</tt> is a
-     * variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a >> b</code>. <code>a</code> is a
+     * variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static LongFunction shiftRightSigned(final long b) {
         return new LongFunction() {
@@ -728,8 +781,10 @@ public class LongFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a >>> b</tt>. <tt>a</tt> is a
-     * variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a >>> b</code>. <code>a</code> is a
+     * variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static LongFunction shiftRightUnsigned(final long b) {
         return new LongFunction() {
@@ -740,14 +795,14 @@ public class LongFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>function.apply(b,a)</tt>, i.e.
+     * Constructs a function that returns <code>function.apply(b,a)</code>, i.e.
      * applies the function with the first operand as second operand and the
      * second operand as first operand.
      * 
      * @param function
      *            a function taking operands in the form
-     *            <tt>function.apply(a,b)</tt>.
-     * @return the binary function <tt>function(b,a)</tt>.
+     *            <code>function.apply(a,b)</code>.
+     * @return the binary function <code>function(b,a)</code>.
      */
     public static LongLongFunction swapArgs(final LongLongFunction function) {
         return new LongLongFunction() {
@@ -758,8 +813,10 @@ public class LongFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <tt>a | b</tt>. <tt>a</tt> is a
-     * variable, <tt>b</tt> is fixed.
+     * Constructs a function that returns <code>a | b</code>. <code>a</code> is a
+     * variable, <code>b</code> is fixed.
+     * @param b
+     * @return 
      */
     public static LongFunction xor(final long b) {
         return new LongFunction() {

@@ -13,7 +13,7 @@ import cern.jet.random.tdouble.engine.DoubleRandomEngine;
 /**
  * Exponential Power distribution.
  * <p>
- * Valid parameter ranges: <tt>tau &gt;= 1</tt>.
+ * Valid parameter ranges: <code>tau &gt;= 1</code>.
  * <p>
  * Instance methods operate on a user supplied uniform random number generator;
  * they are unsynchronized.
@@ -22,7 +22,7 @@ import cern.jet.random.tdouble.engine.DoubleRandomEngine;
  * <p>
  * <b>Implementation:</b>
  * <dt>Method: Non-universal rejection method for logconcave densities.
- * <dt>This is a port of <tt>epd.c</tt> from the <A
+ * <dt>This is a port of <code>epd.c</code> from the <A
  * HREF="http://www.cis.tu-graz.ac.at/stat/stadl/random.html">C-RAND /
  * WIN-RAND</A> library. C-RAND's implementation, in turn, is based upon
  * <p>
@@ -50,8 +50,10 @@ public class ExponentialPower extends AbstractContinousDoubleDistribution {
     /**
      * Constructs an Exponential Power distribution. Example: tau=1.0.
      * 
+     * @param tau
+     * @param randomGenerator
      * @throws IllegalArgumentException
-     *             if <tt>tau &lt; 1.0</tt>.
+     *             if <code>tau &lt; 1.0</code>.
      */
     public ExponentialPower(double tau, DoubleRandomEngine randomGenerator) {
         setRandomGenerator(randomGenerator);
@@ -60,6 +62,7 @@ public class ExponentialPower extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a random number from the distribution.
+     * @return 
      */
 
     public double nextDouble() {
@@ -70,8 +73,10 @@ public class ExponentialPower extends AbstractContinousDoubleDistribution {
      * Returns a random number from the distribution; bypasses the internal
      * state.
      * 
+     * @param tau
+     * @return 
      * @throws IllegalArgumentException
-     *             if <tt>tau &lt; 1.0</tt>.
+     *             if <code>tau &lt; 1.0</code>.
      */
     public double nextDouble(double tau) {
         double u, u1, v, x, y;
@@ -112,8 +117,9 @@ public class ExponentialPower extends AbstractContinousDoubleDistribution {
     /**
      * Sets the distribution parameter.
      * 
+     * @param tau
      * @throws IllegalArgumentException
-     *             if <tt>tau &lt; 1.0</tt>.
+     *             if <code>tau &lt; 1.0</code>.
      */
     public void setState(double tau) {
         if (tau < 1.0)
@@ -124,8 +130,10 @@ public class ExponentialPower extends AbstractContinousDoubleDistribution {
     /**
      * Returns a random number from the distribution.
      * 
+     * @param tau
+     * @return 
      * @throws IllegalArgumentException
-     *             if <tt>tau &lt; 1.0</tt>.
+     *             if <code>tau &lt; 1.0</code>.
      */
     public static double staticNextDouble(double tau) {
         synchronized (shared) {
@@ -135,6 +143,7 @@ public class ExponentialPower extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a String representation of the receiver.
+     * @return 
      */
 
     public String toString() {

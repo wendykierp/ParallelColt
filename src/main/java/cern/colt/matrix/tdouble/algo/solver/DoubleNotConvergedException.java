@@ -78,6 +78,7 @@ public class DoubleNotConvergedException extends Exception {
 
     /**
      * Returns the reason for the exception
+     * @return 
      */
     public Reason getReason() {
         return reason;

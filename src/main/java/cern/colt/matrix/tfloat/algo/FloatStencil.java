@@ -15,8 +15,8 @@ import cern.colt.matrix.tfloat.FloatMatrix3DProcedure;
 
 /**
  * Stencil operations. For efficient finite difference operations. Applies a
- * function to a moving <tt>3 x 3</tt> or <tt>3 x 3 x 3</tt> window. Build on
- * top of <tt>matrix.zAssignXXXNeighbors(...)</tt>. You can specify how many
+ * function to a moving <code>3 x 3</code> or <code>3 x 3 x 3</code> window. Build on
+ * top of <code>matrix.zAssignXXXNeighbors(...)</code>. You can specify how many
  * iterations shall at most be done, a convergence condition when iteration
  * shall be terminated, and how many iterations shall pass between convergence
  * checks. Always does two iterations at a time for efficiency. These class is
@@ -35,7 +35,7 @@ public class FloatStencil extends Object {
 
     /**
      * 27 point stencil operation. Applies a function to a moving
-     * <tt>3 x 3 x 3</tt> window.
+     * <code>3 x 3 x 3</code> window.
      * 
      * @param A
      *            the matrix to operate on.
@@ -47,8 +47,8 @@ public class FloatStencil extends Object {
      *            are always done in one atomic step.
      * @param hasConverged
      *            Convergence condition; will return before maxIterations are
-     *            done when <tt>hasConverged.apply(A)==true</tt>. Set this
-     *            parameter to <tt>null</tt> to indicate that no convergence
+     *            done when <code>hasConverged.apply(A)==true</code>. Set this
+     *            parameter to <code>null</code> to indicate that no convergence
      *            checks shall be made.
      * @param convergenceIterations
      *            the number of iterations to pass between each convergence
@@ -78,7 +78,7 @@ public class FloatStencil extends Object {
     }
 
     /**
-     * 9 point stencil operation. Applies a function to a moving <tt>3 x 3</tt>
+     * 9 point stencil operation. Applies a function to a moving <code>3 x 3</code>
      * window.
      * 
      * @param A
@@ -91,8 +91,8 @@ public class FloatStencil extends Object {
      *            are always done in one atomic step.
      * @param hasConverged
      *            Convergence condition; will return before maxIterations are
-     *            done when <tt>hasConverged.apply(A)==true</tt>. Set this
-     *            parameter to <tt>null</tt> to indicate that no convergence
+     *            done when <code>hasConverged.apply(A)==true</code>. Set this
+     *            parameter to <code>null</code> to indicate that no convergence
      *            checks shall be made.
      * @param convergenceIterations
      *            the number of iterations to pass between each convergence

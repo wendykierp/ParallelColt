@@ -25,6 +25,7 @@ public class HashFunctions extends Object {
     /**
      * Returns a hashcode for the specified value.
      * 
+     * @param value
      * @return a hash code value for the specified value.
      */
     public static int hash(char value) {
@@ -34,6 +35,7 @@ public class HashFunctions extends Object {
     /**
      * Returns a hashcode for the specified value.
      * 
+     * @param value
      * @return a hash code value for the specified value.
      */
     public static int hash(double value) {
@@ -48,6 +50,7 @@ public class HashFunctions extends Object {
     /**
      * Returns a hashcode for the specified value.
      * 
+     * @param value
      * @return a hash code value for the specified value.
      */
     public static int hash(float value) {
@@ -59,6 +62,7 @@ public class HashFunctions extends Object {
     /**
      * Returns a hashcode for the specified value.
      * 
+     * @param value
      * @return a hash code value for the specified value.
      */
     public static int hash(int value) {
@@ -77,6 +81,7 @@ public class HashFunctions extends Object {
     /**
      * Returns a hashcode for the specified value.
      * 
+     * @param value
      * @return a hash code value for the specified value.
      */
     public static int hash(long value) {
@@ -93,6 +98,7 @@ public class HashFunctions extends Object {
     /**
      * Returns a hashcode for the specified object.
      * 
+     * @param object
      * @return a hash code value for the specified object.
      */
     public static int hash(Object object) {
@@ -102,6 +108,7 @@ public class HashFunctions extends Object {
     /**
      * Returns a hashcode for the specified value.
      * 
+     * @param value
      * @return a hash code value for the specified value.
      */
     public static int hash(short value) {
@@ -111,6 +118,7 @@ public class HashFunctions extends Object {
     /**
      * Returns a hashcode for the specified value.
      * 
+     * @param value
      * @return a hash code value for the specified value.
      */
     public static int hash(boolean value) {
@@ -120,6 +128,7 @@ public class HashFunctions extends Object {
     /**
      * Returns a hashcode for the specified value.
      * 
+     * @param value
      * @return a hash code value for the specified value.
      */
     public static int hash(byte value) {

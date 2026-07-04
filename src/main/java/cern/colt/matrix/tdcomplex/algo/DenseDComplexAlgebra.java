@@ -20,9 +20,9 @@ public class DenseDComplexAlgebra extends cern.colt.PersistentObject {
      * tolerance. Allows ommiting to construct an Algebra object time and again.
      * 
      * Note that this Algebra object is immutable. Any attempt to assign a new
-     * Property object to it (via method <tt>setProperty</tt>), or to alter the
+     * Property object to it (via method <code>setProperty</code>), or to alter the
      * tolerance of its property object (via
-     * <tt>property().setTolerance(...)</tt>) will throw an exception.
+     * <code>property().setTolerance(...)</code>) will throw an exception.
      */
     public static final DenseDComplexAlgebra DEFAULT;
 
@@ -31,9 +31,9 @@ public class DenseDComplexAlgebra extends cern.colt.PersistentObject {
      * tolerance. Allows ommiting to construct an Algebra object time and again.
      * 
      * Note that this Algebra object is immutable. Any attempt to assign a new
-     * Property object to it (via method <tt>setProperty</tt>), or to alter the
+     * Property object to it (via method <code>setProperty</code>), or to alter the
      * tolerance of its property object (via
-     * <tt>property().setTolerance(...)</tt>) will throw an exception.
+     * <code>property().setTolerance(...)</code>) will throw an exception.
      */
     public static final DenseDComplexAlgebra ZERO;
 
@@ -54,7 +54,7 @@ public class DenseDComplexAlgebra extends cern.colt.PersistentObject {
 
     /**
      * Constructs a new instance with an equality tolerance given by
-     * <tt>Property.DEFAULT.tolerance()</tt>.
+     * <code>Property.DEFAULT.tolerance()</code>.
      */
     public DenseDComplexAlgebra() {
         this(DComplexProperty.DEFAULT.tolerance());
@@ -76,10 +76,10 @@ public class DenseDComplexAlgebra extends cern.colt.PersistentObject {
      * @param property
      *            the Property object to be attached.
      * @throws UnsupportedOperationException
-     *             if <tt>this==DEFAULT && property!=this.property()</tt> - The
+     *             if <code>this==DEFAULT &amp;&amp; property!=this.property()</code> - The
      *             DEFAULT Algebra object is immutable.
      * @throws UnsupportedOperationException
-     *             if <tt>this==ZERO && property!=this.property()</tt> - The
+     *             if <code>this==ZERO &amp;&amp; property!=this.property()</code> - The
      *             ZERO Algebra object is immutable.
      * @see #property
      */
@@ -92,8 +92,10 @@ public class DenseDComplexAlgebra extends cern.colt.PersistentObject {
     }
 
     /**
-     * Returns the infinity norm of vector <tt>x</tt>, which is
-     * <tt>Max(abs(x[i]))</tt>.
+     * Returns the infinity norm of vector <code>x</code>, which is
+     * <code>Max(abs(x[i]))</code>.
+     * @param x
+     * @return 
      */
     public double normInfinity(DComplexMatrix1D x) {
         if (x.size() == 0)

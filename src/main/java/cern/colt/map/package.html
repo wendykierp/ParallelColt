@@ -1,7 +1,7 @@
 <HTML>
 <BODY>
 Automatically growing and shrinking maps holding objects or primitive 
-data types such as <tt>int</tt>, <tt>double</tt>, etc. Currently all maps are 
+data types such as <code>int</code>, <code>double</code>, etc. Currently all maps are 
 based upon hashing. 
 <h2><a name="Overview"></a>1. Overview</h2>
 <p>The map package offers flexible object oriented abstractions modelling automatically 
@@ -29,28 +29,28 @@ based upon hashing.
   Associations can quickly be set, removed and retrieved. They are stored in a 
   hashing structure based on the hash code of their keys, which is obtained by 
   using a hash function. </p>
-<p> A map can, for example, contain <tt>Name-->Location</tt> associations like 
-  <tt>{("Pete", "Geneva"), ("Steve", "Paris"), ("Robert", "New York")}</tt> used 
-  in address books or <tt>Index-->Value</tt> mappings like <tt>{(0, 100), (3, 
-  1000), (100000, 70)}</tt> representing sparse lists or matrices. For example 
+<p> A map can, for example, contain <code>Name-->Location</code> associations like 
+  <code>{("Pete", "Geneva"), ("Steve", "Paris"), ("Robert", "New York")}</code> used 
+  in address books or <code>Index-->Value</code> mappings like <code>{(0, 100), (3, 
+  1000), (100000, 70)}</code> representing sparse lists or matrices. For example 
   this could mean at index 0 we have a value of 100, at index 3 we have a value 
   of 1000, at index 1000000 we have a value of 70, and at all other indexes we 
   have a value of, say, zero. Another example is a map of IP addresses to domain 
   names (DNS). Maps can also be useful to represent<i> multi sets</i>, that is, 
   sets where elements can occur more than once. For multi sets one would have 
-  <tt>Value-->Frequency</tt> mappings like <tt>{(100, 1), (50, 1000), (101, 3))}</tt> 
+  <code>Value-->Frequency</code> mappings like <code>{(100, 1), (50, 1000), (101, 3))}</code> 
   meaning element 100 occurs 1 time, element 50 occurs 1000 times, element 101 
-  occurs 3 times. Further, maps can also manage <tt>ObjectIdentifier-->Object</tt> 
-  mappings like <tt>{(12, obj1), (7, obj2), (10000, obj3), (9, obj4)}</tt> used 
+  occurs 3 times. Further, maps can also manage <code>ObjectIdentifier-->Object</code> 
+  mappings like <code>{(12, obj1), (7, obj2), (10000, obj3), (9, obj4)}</code> used 
   in Object Databases. 
 <p> A map cannot contain two or more <i>equal</i> keys; a key can map to at most 
   one value. However, more than one key can map to identical values. For primitive 
-  data types "equality" of keys is defined as identity (operator <tt>==</tt>). 
-  For maps using <tt>Object</tt> keys, the meaning of "equality" can be specified 
+  data types "equality" of keys is defined as identity (operator <code>==</code>). 
+  For maps using <code>Object</code> keys, the meaning of "equality" can be specified 
   by the user upon instance construction. It can either be defined to be identity 
-  (operator <tt>==</tt>) or to be given by the method {@link java.lang.Object#equals(Object)}. 
-  Associations of kind <tt>(AnyType,Object)</tt> can be of the form <tt>(AnyKey,null) 
-  </tt>, i.e. values can be <tt>null</tt>. 
+  (operator <code>==</code>) or to be given by the method {@link java.lang.Object#equals(Object)}. 
+  Associations of kind <code>(AnyType,Object)</code> can be of the form <code>(AnyKey,null) 
+  </code>, i.e. values can be <code>null</code>. 
 <p> The classes of this package make no guarantees as to the order of the elements 
   returned by iterators; in particular, they do not guarantee that the order will 
   remain constant over time.
@@ -71,14 +71,14 @@ based upon hashing.
     dynamically linked collision lists. 
   <li><b>Open</b> uses extendible open addressing with double hashing. 
 </ul>
-<p>Class naming follows the schema <tt>&lt;Implementation&gt;&lt;KeyType&gt;&lt;ValueType&gt;HashMap</tt>. 
-  For example, a {@link cern.colt.map.tdouble.OpenIntDoubleHashMap} holds <tt>(int-->double)</tt> 
+<p>Class naming follows the schema <code>&lt;Implementation&gt;&lt;KeyType&gt;&lt;ValueType&gt;HashMap</code>. 
+  For example, a {@link cern.colt.map.tdouble.OpenIntDoubleHashMap} holds <code>(int-->double)</code> 
   associations and is implemented with open addressing. A {@link cern.colt.map.tobject.OpenIntObjectHashMap} 
-  holds <tt>(int-->Object)</tt> associations and is implemented with open addressing. 
+  holds <code>(int-->Object)</code> associations and is implemented with open addressing. 
 </p>
 <p>The classes for maps of a given (key,value) type are derived from a common 
-  abstract base class tagged <tt>Abstract&lt;KeyType&gt;&lt;ValueType&gt;</tt><tt>Map</tt>. 
-  For example, all maps operating on <tt>(int-->double)</tt> associations are 
+  abstract base class tagged <code>Abstract&lt;KeyType&gt;&lt;ValueType&gt;</code><code>Map</code>. 
+  For example, all maps operating on <code>(int-->double)</code> associations are 
   derived from {@link cern.colt.map.tdouble.AbstractIntDoubleMap}, which in turn is derived 
   from an abstract base class tying together all maps regardless of assocation 
   type, {@link cern.colt.map.AbstractMap}. The abstract base classes provide skeleton 
@@ -158,48 +158,48 @@ If your use case does not heavily operate on hash maps but uses them just becaus
 convenient functionality, you can safely skip this section.
 For those of you who care, read on.<p>
  
-There are three parameters that can be customized upon map construction: <tt>initialCapacity</tt>, <tt>minLoadFactor</tt> and <tt>maxLoadFactor</tt>.
+There are three parameters that can be customized upon map construction: <code>initialCapacity</code>, <code>minLoadFactor</code> and <code>maxLoadFactor</code>.
 The more memory one can afford, the faster a hash map.
 The hash map's capacity is the maximum number of associations that can be added without needing to allocate new internal memory.
 A larger capacity means faster adding, searching and removing. 
-The <tt>initialCapacity</tt> corresponds to the capacity used upon instance construction.
+The <code>initialCapacity</code> corresponds to the capacity used upon instance construction.
 <p>
-The <tt>loadFactor</tt> of a hash map measures the degree of "fullness". 
-It is given by the number of assocations (<tt>size()</tt>)
-divided by the hash map capacity <tt>(0.0 &lt;= loadFactor &lt;= 1.0)</tt>.
+The <code>loadFactor</code> of a hash map measures the degree of "fullness". 
+It is given by the number of assocations (<code>size()</code>)
+divided by the hash map capacity <code>(0.0 &lt;= loadFactor &lt;= 1.0)</code>.
 The more associations are added, the larger the loadFactor and the more hash map performance degrades.
-Therefore, when the loadFactor exceeds a customizable threshold (<tt>maxLoadFactor</tt>), the hash map is automatically grown.
+Therefore, when the loadFactor exceeds a customizable threshold (<code>maxLoadFactor</code>), the hash map is automatically grown.
 In such a way performance degradation can be avoided.
-Similarly, when the loadFactor falls below a customizable threshold (<tt>minLoadFactor</tt>), the hash map is automatically shrinked.
+Similarly, when the loadFactor falls below a customizable threshold (<code>minLoadFactor</code>), the hash map is automatically shrinked.
 In such a way excessive memory consumption can be avoided.
 Automatic resizing (both growing and shrinking) obeys the following invariant:
 <p>
-<tt>capacity * minLoadFactor <= size() <= capacity * maxLoadFactor</tt>
-<p> The term <tt>capacity * minLoadFactor</tt> is called the <i>low water mark</i>, 
-  <tt>capacity * maxLoadFactor</tt> is called the <i>high water mark</i>. In other 
+<code>capacity * minLoadFactor <= size() <= capacity * maxLoadFactor</code>
+<p> The term <code>capacity * minLoadFactor</code> is called the <i>low water mark</i>, 
+  <code>capacity * maxLoadFactor</code> is called the <i>high water mark</i>. In other 
   words, the number of associations may vary within the water mark constraints. 
   When it goes out of range, the map is automatically resized and memory consumption 
   changes proportionally. 
 <ul>
-<li>To tune for memory at the expense of performance, both increase <tt>minLoadFactor</tt> and <tt>maxLoadFactor</tt>.
-<li>To tune for performance at the expense of memory, both decrease <tt>minLoadFactor</tt> and <tt>maxLoadFactor</tt>.
-As as special case set <tt>minLoadFactor=0</tt> to avoid any automatic shrinking.
+<li>To tune for memory at the expense of performance, both increase <code>minLoadFactor</code> and <code>maxLoadFactor</code>.
+<li>To tune for performance at the expense of memory, both decrease <code>minLoadFactor</code> and <code>maxLoadFactor</code>.
+As as special case set <code>minLoadFactor=0</code> to avoid any automatic shrinking.
 </ul>
-Resizing large hash maps can be time consuming, <tt>O(size())</tt>, and should be avoided if possible (maintaining primes is not the reason). 
+Resizing large hash maps can be time consuming, <code>O(size())</code>, and should be avoided if possible (maintaining primes is not the reason). 
 Unnecessary growing operations can be avoided if the number of associations is known before they are added, or can be estimated.<p>
 In such a case good parameters are as follows:
 <p>
 <i>For chaining:</i>
-<br>Set the <tt>initialCapacity = 1.4*expectedSize</tt> or greater.
-<br>Set the <tt>maxLoadFactor = 0.8</tt> or greater.
+<br>Set the <code>initialCapacity = 1.4*expectedSize</code> or greater.
+<br>Set the <code>maxLoadFactor = 0.8</code> or greater.
 <p>
 <i>For open addressing:</i>
-<br>Set the <tt>initialCapacity = 2*expectedSize</tt> or greater. Alternatively call <tt>ensureCapacity(...)</tt>.
-<br>Set the <tt>maxLoadFactor = 0.5</tt>.
-<br>Never set <tt>maxLoadFactor &gt; 0.55</tt>; open addressing exponentially slows down beyond that point.
+<br>Set the <code>initialCapacity = 2*expectedSize</code> or greater. Alternatively call <code>ensureCapacity(...)</code>.
+<br>Set the <code>maxLoadFactor = 0.5</code>.
+<br>Never set <code>maxLoadFactor &gt; 0.55</code>; open addressing exponentially slows down beyond that point.
 <p>
 In this way the hash map will never need to grow and still stay fast.
-It is never a good idea to set <tt>maxLoadFactor &lt; 0.1</tt>, 
+It is never a good idea to set <code>maxLoadFactor &lt; 0.1</code>, 
 because the hash map would grow too often.
 If it is entirelly unknown how many associations the application will use,
 the default constructor should be used. The map will grow and shrink as needed.<p>
@@ -226,17 +226,17 @@ the default constructor should be used. The map will grow and shrink as needed.<
 <b>Performance:</b>
 <p>
 Time complexity: 
-<br>The classes offer <i>expected</i> time complexity <tt>O(1)</tt> (i.e. constant time) for the basic operations
-<tt>put</tt>, <tt>get</tt>, <tt>removeKey</tt>, <tt>containsKey</tt> and <tt>size</tt>,
+<br>The classes offer <i>expected</i> time complexity <code>O(1)</code> (i.e. constant time) for the basic operations
+<code>put</code>, <code>get</code>, <code>removeKey</code>, <code>containsKey</code> and <code>size</code>,
 assuming the hash function disperses the elements properly among the buckets.
-Otherwise, pathological cases, although highly improbable, can occur, degrading performance to <tt>O(N)</tt> in the worst case.
-Operations <tt>containsValue</tt> and <tt>keyOf</tt> are <tt>O(N)</tt>.
+Otherwise, pathological cases, although highly improbable, can occur, degrading performance to <code>O(N)</code> in the worst case.
+Operations <code>containsValue</code> and <code>keyOf</code> are <code>O(N)</code>.
 <p>
 Memory requirements for <i>open addressing</i>:
-<br>worst case: <tt>memory [bytes] = (1/minLoadFactor) * size() * (1 + sizeOf(key) + sizeOf(value))</tt>.
-<br>best  case: <tt>memory [bytes] = (1/maxLoadFactor) * size() * (1 + sizeOf(key) + sizeOf(value))</tt>.
-Where <tt>sizeOf(int) = 4</tt>, <tt>sizeOf(double) = 8</tt>, <tt>sizeOf(Object) = 4</tt>, etc.
-Thus, an <tt>OpenIntIntHashMap</tt> with minLoadFactor=0.25 and maxLoadFactor=0.5 and 1000000 associations uses between 17 MB and 34 MB.
+<br>worst case: <code>memory [bytes] = (1/minLoadFactor) * size() * (1 + sizeOf(key) + sizeOf(value))</code>.
+<br>best  case: <code>memory [bytes] = (1/maxLoadFactor) * size() * (1 + sizeOf(key) + sizeOf(value))</code>.
+Where <code>sizeOf(int) = 4</code>, <code>sizeOf(double) = 8</code>, <code>sizeOf(Object) = 4</code>, etc.
+Thus, an <code>OpenIntIntHashMap</code> with minLoadFactor=0.25 and maxLoadFactor=0.5 and 1000000 associations uses between 17 MB and 34 MB.
 The same map with 1000 associations uses between 17 and 34 KB.
 <p>
 

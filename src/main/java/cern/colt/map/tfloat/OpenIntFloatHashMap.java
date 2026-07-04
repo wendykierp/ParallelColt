@@ -17,7 +17,7 @@ import cern.colt.map.HashFunctions;
 import cern.colt.map.PrimeFinder;
 
 /**
- * Hash map holding (key,value) associations of type <tt>(int-->float)</tt>;
+ * Hash map holding (key,value) associations of type <code>(int-->float)</code>;
  * Automatically grows and shrinks as needed; Implemented using open addressing
  * with float hashing. First see the <a href="package-summary.html">package
  * summary</a> and javadoc <a href="package-tree.html">tree view</a> to get the
@@ -103,7 +103,7 @@ public class OpenIntFloatHashMap extends AbstractIntFloatMap {
      * @throws IllegalArgumentException
      *             if
      * 
-     *             <tt>initialCapacity < 0 || (minLoadFactor < 0.0 || minLoadFactor >= 1.0) || (maxLoadFactor <= 0.0 || maxLoadFactor >= 1.0) || (minLoadFactor >= maxLoadFactor)</tt>
+     *             <code>initialCapacity < 0 || (minLoadFactor < 0.0 || minLoadFactor >= 1.0) || (maxLoadFactor <= 0.0 || maxLoadFactor >= 1.0) || (minLoadFactor >= maxLoadFactor)</code>
      *             .
      */
     public OpenIntFloatHashMap(int initialCapacity, double minLoadFactor, double maxLoadFactor) {
@@ -112,7 +112,7 @@ public class OpenIntFloatHashMap extends AbstractIntFloatMap {
 
     /**
      * Assigns the result of a function to each value;
-     * <tt>v[i] = function(v[i])</tt>.
+     * <code>v[i] = function(v[i])</code>.
      * 
      * @param function
      *            a function object taking as argument the current association's
@@ -142,7 +142,7 @@ public class OpenIntFloatHashMap extends AbstractIntFloatMap {
     }
 
     /**
-     * Clears the receiver, then adds all (key,value) pairs of <tt>other</tt>
+     * Clears the receiver, then adds all (key,value) pairs of <code>other</code>
      * values to it.
      * 
      * @param other
@@ -169,7 +169,7 @@ public class OpenIntFloatHashMap extends AbstractIntFloatMap {
 
     /**
      * Removes all (key,value) associations from the receiver. Implicitly calls
-     * <tt>trimToSize()</tt>.
+     * <code>trimToSize()</code>.
      */
 
     public void clear() {
@@ -202,9 +202,10 @@ public class OpenIntFloatHashMap extends AbstractIntFloatMap {
     }
 
     /**
-     * Returns <tt>true</tt> if the receiver contains the specified key.
+     * Returns <code>true</code> if the receiver contains the specified key.
      * 
-     * @return <tt>true</tt> if the receiver contains the specified key.
+     * @param key
+     * @return <code>true</code> if the receiver contains the specified key.
      */
 
     public boolean containsKey(int key) {
@@ -212,9 +213,10 @@ public class OpenIntFloatHashMap extends AbstractIntFloatMap {
     }
 
     /**
-     * Returns <tt>true</tt> if the receiver contains the specified value.
+     * Returns <code>true</code> if the receiver contains the specified value.
      * 
-     * @return <tt>true</tt> if the receiver contains the specified value.
+     * @param value
+     * @return <code>true</code> if the receiver contains the specified value.
      */
 
     public boolean containsValue(float value) {
@@ -228,7 +230,7 @@ public class OpenIntFloatHashMap extends AbstractIntFloatMap {
      * the receiver.
      * <p>
      * This method never need be called; it is for performance tuning only.
-     * Calling this method before <tt>put()</tt>ing a large number of
+     * Calling this method before <code>put()</code>ing a large number of
      * associations boosts performance, because the receiver will grow only once
      * instead of potentially many times and hash collisions get less probable.
      * 
@@ -250,14 +252,14 @@ public class OpenIntFloatHashMap extends AbstractIntFloatMap {
      * expressed in terms of this method (most methods can) <i>must
      * guarantee</i> to use the <i>same</i> order defined by this method, even
      * if it is no particular order. This is necessary so that, for example,
-     * methods <tt>keys</tt> and <tt>values</tt> will yield association pairs,
+     * methods <code>keys</code> and <code>values</code> will yield association pairs,
      * not two uncorrelated lists.
      * 
      * @param procedure
      *            the procedure to be applied. Stops iteration if the procedure
-     *            returns <tt>false</tt>, otherwise continues.
-     * @return <tt>false</tt> if the procedure stopped before all keys where
-     *         iterated over, <tt>true</tt> otherwise.
+     *            returns <code>false</code>, otherwise continues.
+     * @return <code>false</code> if the procedure stopped before all keys where
+     *         iterated over, <code>true</code> otherwise.
      */
 
     public boolean forEachKey(IntProcedure procedure) {
@@ -276,9 +278,9 @@ public class OpenIntFloatHashMap extends AbstractIntFloatMap {
      * 
      * @param procedure
      *            the procedure to be applied. Stops iteration if the procedure
-     *            returns <tt>false</tt>, otherwise continues.
-     * @return <tt>false</tt> if the procedure stopped before all keys where
-     *         iterated over, <tt>true</tt> otherwise.
+     *            returns <code>false</code>, otherwise continues.
+     * @return <code>false</code> if the procedure stopped before all keys where
+     *         iterated over, <code>true</code> otherwise.
      */
 
     public boolean forEachPair(final IntFloatProcedure procedure) {
@@ -298,7 +300,7 @@ public class OpenIntFloatHashMap extends AbstractIntFloatMap {
      * 
      * @param key
      *            the key to be searched for.
-     * @return the value associated with the specified key; <tt>0</tt> if no
+     * @return the value associated with the specified key; <code>0</code> if no
      *         such key is present.
      */
 
@@ -427,8 +429,8 @@ public class OpenIntFloatHashMap extends AbstractIntFloatMap {
      * 
      * @param value
      *            the value to search for.
-     * @return the first key for which holds <tt>get(key) == value</tt>; returns
-     *         <tt>Integer.MIN_VALUE</tt> if no such key exists.
+     * @return the first key for which holds <code>get(key) == value</code>; returns
+     *         <code>Integer.MIN_VALUE</code> if no such key exists.
      */
 
     public int keyOf(float value) {
@@ -443,7 +445,7 @@ public class OpenIntFloatHashMap extends AbstractIntFloatMap {
     /**
      * Fills all keys contained in the receiver into the specified list. Fills
      * the list, starting at index 0. After this call returns the specified list
-     * has a new size that equals <tt>this.size()</tt>. Iteration order is
+     * has a new size that equals <code>this.size()</code>. Iteration order is
      * guaranteed to be <i>identical</i> to the order used by method
      * {@link #forEachKey(IntProcedure)}.
      * <p>
@@ -508,14 +510,14 @@ public class OpenIntFloatHashMap extends AbstractIntFloatMap {
 
     /**
      * Associates the given key with the given value. Replaces any old
-     * <tt>(key,someOtherValue)</tt> association, if existing.
+     * <code>(key,someOtherValue)</code> association, if existing.
      * 
      * @param key
      *            the key the value shall be associated with.
      * @param value
      *            the value to be associated.
-     * @return <tt>true</tt> if the receiver did not already contain such a key;
-     *         <tt>false</tt> if the receiver did already contain such a key -
+     * @return <code>true</code> if the receiver did not already contain such a key;
+     *         <code>false</code> if the receiver did already contain such a key -
      *         the new value has now replaced the formerly associated value.
      */
 
@@ -560,6 +562,7 @@ public class OpenIntFloatHashMap extends AbstractIntFloatMap {
      * larger capacity. This method is called automatically when the number of
      * keys in the receiver exceeds the high water mark or falls below the low
      * water mark.
+     * @param newCapacity
      */
     protected void rehash(int newCapacity) {
         int oldCapacity = table.length;
@@ -605,8 +608,8 @@ public class OpenIntFloatHashMap extends AbstractIntFloatMap {
      * 
      * @param key
      *            the key to be removed from the receiver.
-     * @return <tt>true</tt> if the receiver contained the specified key,
-     *         <tt>false</tt> otherwise.
+     * @return <code>true</code> if the receiver contained the specified key,
+     *         <code>false</code> otherwise.
      */
 
     public boolean removeKey(int key) {
@@ -648,7 +651,7 @@ public class OpenIntFloatHashMap extends AbstractIntFloatMap {
      * @throws IllegalArgumentException
      *             if
      * 
-     *             <tt>initialCapacity < 0 || (minLoadFactor < 0.0 || minLoadFactor >= 1.0) || (maxLoadFactor <= 0.0 || maxLoadFactor >= 1.0) || (minLoadFactor >= maxLoadFactor)</tt>
+     *             <code>initialCapacity < 0 || (minLoadFactor < 0.0 || minLoadFactor >= 1.0) || (maxLoadFactor <= 0.0 || maxLoadFactor >= 1.0) || (minLoadFactor >= maxLoadFactor)</code>
      *             .
      */
 
@@ -704,7 +707,7 @@ public class OpenIntFloatHashMap extends AbstractIntFloatMap {
     /**
      * Fills all values contained in the receiver into the specified list. Fills
      * the list, starting at index 0. After this call returns the specified list
-     * has a new size that equals <tt>this.size()</tt>. Iteration order is
+     * has a new size that equals <code>this.size()</code>. Iteration order is
      * guaranteed to be <i>identical</i> to the order used by method
      * {@link #forEachKey(IntProcedure)}.
      * <p>

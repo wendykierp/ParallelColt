@@ -43,6 +43,9 @@ public class DoubleUniform extends AbstractContinousDoubleDistribution {
      * Constructs a uniform distribution with the given minimum and maximum,
      * using a {@link cern.jet.random.tdouble.engine.DoubleMersenneTwister}
      * seeded with the given seed.
+     * @param min
+     * @param seed
+     * @param max
      */
     public DoubleUniform(double min, double max, int seed) {
         this(min, max, new cern.jet.random.tdouble.engine.DoubleMersenneTwister(seed));
@@ -50,6 +53,9 @@ public class DoubleUniform extends AbstractContinousDoubleDistribution {
 
     /**
      * Constructs a uniform distribution with the given minimum and maximum.
+     * @param min
+     * @param randomGenerator
+     * @param max
      */
     public DoubleUniform(double min, double max, DoubleRandomEngine randomGenerator) {
         setRandomGenerator(randomGenerator);
@@ -57,8 +63,9 @@ public class DoubleUniform extends AbstractContinousDoubleDistribution {
     }
 
     /**
-     * Constructs a uniform distribution with <tt>min=0.0</tt> and
-     * <tt>max=1.0</tt>.
+     * Constructs a uniform distribution with <code>min=0.0</code> and
+     * <code>max=1.0</code>.
+     * @param randomGenerator
      */
     public DoubleUniform(DoubleRandomEngine randomGenerator) {
         this(0, 1, randomGenerator);
@@ -67,6 +74,8 @@ public class DoubleUniform extends AbstractContinousDoubleDistribution {
     /**
      * Returns the cumulative distribution function (assuming a continous
      * uniform distribution).
+     * @param x
+     * @return 
      */
     public double cdf(double x) {
         if (x <= min)
@@ -77,7 +86,8 @@ public class DoubleUniform extends AbstractContinousDoubleDistribution {
     }
 
     /**
-     * Returns a uniformly distributed random <tt>boolean</tt>.
+     * Returns a uniformly distributed random <code>boolean</code>.
+     * @return 
      */
     public boolean nextBoolean() {
         return randomGenerator.raw() > 0.5;
@@ -85,7 +95,8 @@ public class DoubleUniform extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a uniformly distributed random number in the open interval
-     * <tt>(min,max)</tt> (excluding <tt>min</tt> and <tt>max</tt>).
+     * <code>(min,max)</code> (excluding <code>min</code> and <code>max</code>).
+     * @return 
      */
 
     public double nextDouble() {
@@ -94,8 +105,11 @@ public class DoubleUniform extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a uniformly distributed random number in the open interval
-     * <tt>(from,to)</tt> (excluding <tt>from</tt> and <tt>to</tt>). Pre
-     * conditions: <tt>from &lt;= to</tt>.
+     * <code>(from,to)</code> (excluding <code>from</code> and <code>to</code>). Pre
+     * conditions: <code>from &lt;= to</code>.
+     * @param from
+     * @param to
+     * @return 
      */
     public double nextDoubleFromTo(double from, double to) {
         return from + (to - from) * randomGenerator.raw();
@@ -103,8 +117,11 @@ public class DoubleUniform extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a uniformly distributed random number in the open interval
-     * <tt>(from,to)</tt> (excluding <tt>from</tt> and <tt>to</tt>). Pre
-     * conditions: <tt>from &lt;= to</tt>.
+     * <code>(from,to)</code> (excluding <code>from</code> and <code>to</code>). Pre
+     * conditions: <code>from &lt;= to</code>.
+     * @param from
+     * @param to
+     * @return 
      */
     public float nextFloatFromTo(float from, float to) {
         return (float) nextDoubleFromTo(from, to);
@@ -112,7 +129,8 @@ public class DoubleUniform extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a uniformly distributed random number in the closed interval
-     * <tt>[min,max]</tt> (including <tt>min</tt> and <tt>max</tt>).
+     * <code>[min,max]</code> (including <code>min</code> and <code>max</code>).
+     * @return 
      */
 
     public int nextInt() {
@@ -121,8 +139,11 @@ public class DoubleUniform extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a uniformly distributed random number in the closed interval
-     * <tt>[from,to]</tt> (including <tt>from</tt> and <tt>to</tt>). Pre
-     * conditions: <tt>from &lt;= to</tt>.
+     * <code>[from,to]</code> (including <code>from</code> and <code>to</code>). Pre
+     * conditions: <code>from &lt;= to</code>.
+     * @param from
+     * @param to
+     * @return 
      */
     public int nextIntFromTo(int from, int to) {
         return (int) (from + (long) ((1L + to - from) * randomGenerator.raw()));
@@ -130,8 +151,11 @@ public class DoubleUniform extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a uniformly distributed random number in the closed interval
-     * <tt>[from,to]</tt> (including <tt>from</tt> and <tt>to</tt>). Pre
-     * conditions: <tt>from &lt;= to</tt>.
+     * <code>[from,to]</code> (including <code>from</code> and <code>to</code>). Pre
+     * conditions: <code>from &lt;= to</code>.
+     * @param from
+     * @param to
+     * @return 
      */
     public long nextLongFromTo(long from, long to) {
         /*
@@ -181,6 +205,8 @@ public class DoubleUniform extends AbstractContinousDoubleDistribution {
     /**
      * Returns the probability distribution function (assuming a continous
      * uniform distribution).
+     * @param x
+     * @return 
      */
     public double pdf(double x) {
         if (x <= min || x >= max)
@@ -190,6 +216,8 @@ public class DoubleUniform extends AbstractContinousDoubleDistribution {
 
     /**
      * Sets the internal state.
+     * @param min
+     * @param max
      */
     public void setState(double min, double max) {
         if (max < min) {
@@ -201,7 +229,8 @@ public class DoubleUniform extends AbstractContinousDoubleDistribution {
     }
 
     /**
-     * Returns a uniformly distributed random <tt>boolean</tt>.
+     * Returns a uniformly distributed random <code>boolean</code>.
+     * @return 
      */
     public static boolean staticNextBoolean() {
         synchronized (shared) {
@@ -211,7 +240,8 @@ public class DoubleUniform extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a uniformly distributed random number in the open interval
-     * <tt>(0,1)</tt> (excluding <tt>0</tt> and <tt>1</tt>).
+     * <code>(0,1)</code> (excluding <code>0</code> and <code>1</code>).
+     * @return 
      */
     public static double staticNextDouble() {
         synchronized (shared) {
@@ -221,8 +251,11 @@ public class DoubleUniform extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a uniformly distributed random number in the open interval
-     * <tt>(from,to)</tt> (excluding <tt>from</tt> and <tt>to</tt>). Pre
-     * conditions: <tt>from &lt;= to</tt>.
+     * <code>(from,to)</code> (excluding <code>from</code> and <code>to</code>). Pre
+     * conditions: <code>from &lt;= to</code>.
+     * @param from
+     * @param to
+     * @return 
      */
     public static double staticNextDoubleFromTo(double from, double to) {
         synchronized (shared) {
@@ -232,8 +265,11 @@ public class DoubleUniform extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a uniformly distributed random number in the open interval
-     * <tt>(from,to)</tt> (excluding <tt>from</tt> and <tt>to</tt>). Pre
-     * conditions: <tt>from &lt;= to</tt>.
+     * <code>(from,to)</code> (excluding <code>from</code> and <code>to</code>). Pre
+     * conditions: <code>from &lt;= to</code>.
+     * @param from
+     * @param to
+     * @return 
      */
     public static float staticNextFloatFromTo(float from, float to) {
         synchronized (shared) {
@@ -243,8 +279,11 @@ public class DoubleUniform extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a uniformly distributed random number in the closed interval
-     * <tt>[from,to]</tt> (including <tt>from</tt> and <tt>to</tt>). Pre
-     * conditions: <tt>from &lt;= to</tt>.
+     * <code>[from,to]</code> (including <code>from</code> and <code>to</code>). Pre
+     * conditions: <code>from &lt;= to</code>.
+     * @param from
+     * @param to
+     * @return 
      */
     public static int staticNextIntFromTo(int from, int to) {
         synchronized (shared) {
@@ -254,8 +293,11 @@ public class DoubleUniform extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a uniformly distributed random number in the closed interval
-     * <tt>[from,to]</tt> (including <tt>from</tt> and <tt>to</tt>). Pre
-     * conditions: <tt>from &lt;= to</tt>.
+     * <code>[from,to]</code> (including <code>from</code> and <code>to</code>). Pre
+     * conditions: <code>from &lt;= to</code>.
+     * @param from
+     * @param to
+     * @return 
      */
     public static long staticNextLongFromTo(long from, long to) {
         synchronized (shared) {
@@ -278,6 +320,7 @@ public class DoubleUniform extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a String representation of the receiver.
+     * @return 
      */
 
     public String toString() {

@@ -11,7 +11,7 @@ package cern.colt.buffer.tbyte;
 import cern.colt.list.tbyte.ByteArrayList;
 
 /**
- * Target of a streaming <tt>ByteBuffer2D</tt> into which data is flushed upon
+ * Target of a streaming <code>ByteBuffer2D</code> into which data is flushed upon
  * buffer overflow.
  * 
  * @author wolfgang.hoschek@cern.ch

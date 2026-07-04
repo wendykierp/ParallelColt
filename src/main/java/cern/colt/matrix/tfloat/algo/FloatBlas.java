@@ -68,7 +68,7 @@ import cern.colt.matrix.tfloat.FloatMatrix2D;
 public interface FloatBlas {
     /**
      * Assigns the result of a function to each cell;
-     * <tt>x[row,col] = function(x[row,col])</tt>.
+     * <code>x[row,col] = function(x[row,col])</code>.
      * 
      * @param A
      *            the matrix to modify.
@@ -80,7 +80,7 @@ public interface FloatBlas {
 
     /**
      * Assigns the result of a function to each cell;
-     * <tt>x[row,col] = function(x[row,col],y[row,col])</tt>.
+     * <code>x[row,col] = function(x[row,col],y[row,col])</code>.
      * 
      * @param x
      *            the matrix to modify.
@@ -88,29 +88,30 @@ public interface FloatBlas {
      *            the secondary matrix to operate on.
      * @param function
      *            a function object taking as first argument the current cell's
-     *            value of <tt>this</tt>, and as second argument the current
-     *            cell's value of <tt>y</tt>,
+     *            value of <code>this</code>, and as second argument the current
+     *            cell's value of <code>y</code>,
      * @throws IllegalArgumentException
      *             if
-     *             <tt>x.columns() != y.columns() || x.rows() != y.rows()</tt>
+     *             <code>x.columns() != y.columns() || x.rows() != y.rows()</code>
      * @see cern.jet.math.tfloat.FloatFunctions
      */
     public void assign(FloatMatrix2D x, FloatMatrix2D y, cern.colt.function.tfloat.FloatFloatFunction function);
 
     /**
-     * Returns the sum of absolute values; <tt>|x[0]| + |x[1]| + ... </tt>. In
+     * Returns the sum of absolute values; <code>|x[0]| + |x[1]| + ... </code>. In
      * fact equivalent to
-     * <tt>x.aggregate(cern.jet.math.Functions.plus, cern.jet.math.Functions.abs)</tt>
+     * <code>x.aggregate(cern.jet.math.Functions.plus, cern.jet.math.Functions.abs)</code>
      * .
      * 
      * @param x
      *            the first vector.
+     * @return 
      */
     public float dasum(FloatMatrix1D x);
 
     /**
-     * Combined vector scaling; <tt>y = y + alpha*x</tt>. In fact equivalent to
-     * <tt>y.assign(x,cern.jet.math.Functions.plusMult(alpha))</tt>.
+     * Combined vector scaling; <code>y = y + alpha*x</code>. In fact equivalent to
+     * <code>y.assign(x,cern.jet.math.Functions.plusMult(alpha))</code>.
      * 
      * @param alpha
      *            a scale factor.
@@ -121,13 +122,13 @@ public interface FloatBlas {
      *            results are stored.
      * 
      * @throws IllegalArgumentException
-     *             <tt>x.size() != y.size()</tt>..
+     *             <code>x.size() != y.size()</code>..
      */
     public void daxpy(float alpha, FloatMatrix1D x, FloatMatrix1D y);
 
     /**
-     * Combined matrix scaling; <tt>B = B + alpha*A</tt>. In fact equivalent to
-     * <tt>B.assign(A,cern.jet.math.Functions.plusMult(alpha))</tt>.
+     * Combined matrix scaling; <code>B = B + alpha*A</code>. In fact equivalent to
+     * <code>B.assign(A,cern.jet.math.Functions.plusMult(alpha))</code>.
      * 
      * @param alpha
      *            a scale factor.
@@ -139,13 +140,13 @@ public interface FloatBlas {
      * 
      * @throws IllegalArgumentException
      *             if
-     *             <tt>A.columns() != B.columns() || A.rows() != B.rows()</tt>.
+     *             <code>A.columns() != B.columns() || A.rows() != B.rows()</code>.
      */
     public void daxpy(float alpha, FloatMatrix2D A, FloatMatrix2D B);
 
     /**
-     * Vector assignment (copying); <tt>y = x</tt>. In fact equivalent to
-     * <tt>y.assign(x)</tt>.
+     * Vector assignment (copying); <code>y = x</code>. In fact equivalent to
+     * <code>y.assign(x)</code>.
      * 
      * @param x
      *            the source vector.
@@ -153,13 +154,13 @@ public interface FloatBlas {
      *            the destination vector.
      * 
      * @throws IllegalArgumentException
-     *             <tt>x.size() != y.size()</tt>.
+     *             <code>x.size() != y.size()</code>.
      */
     public void dcopy(FloatMatrix1D x, FloatMatrix1D y);
 
     /**
-     * Matrix assignment (copying); <tt>B = A</tt>. In fact equivalent to
-     * <tt>B.assign(A)</tt>.
+     * Matrix assignment (copying); <code>B = A</code>. In fact equivalent to
+     * <code>B.assign(A)</code>.
      * 
      * @param A
      *            the source matrix.
@@ -168,13 +169,13 @@ public interface FloatBlas {
      * 
      * @throws IllegalArgumentException
      *             if
-     *             <tt>A.columns() != B.columns() || A.rows() != B.rows()</tt>.
+     *             <code>A.columns() != B.columns() || A.rows() != B.rows()</code>.
      */
     public void dcopy(FloatMatrix2D A, FloatMatrix2D B);
 
     /**
      * Returns the dot product of two vectors x and y, which is
-     * <tt>Sum(x[i]*y[i])</tt>. In fact equivalent to <tt>x.zDotProduct(y)</tt>.
+     * <code>Sum(x[i]*y[i])</code>. In fact equivalent to <code>x.zDotProduct(y)</code>.
      * 
      * @param x
      *            the first vector.
@@ -183,14 +184,14 @@ public interface FloatBlas {
      * @return the sum of products.
      * 
      * @throws IllegalArgumentException
-     *             if <tt>x.size() != y.size()</tt>.
+     *             if <code>x.size() != y.size()</code>.
      */
     public float ddot(FloatMatrix1D x, FloatMatrix1D y);
 
     /**
      * Generalized linear algebraic matrix-matrix multiply;
-     * <tt>C = alpha*A*B + beta*C</tt>. In fact equivalent to
-     * <tt>A.zMult(B,C,alpha,beta,transposeA,transposeB)</tt>. Note: Matrix
+     * <code>C = alpha*A*B + beta*C</code>. In fact equivalent to
+     * <code>A.zMult(B,C,alpha,beta,transposeA,transposeB)</code>. Note: Matrix
      * shape conformance is checked <i>after</i> potential transpositions.
      * 
      * @param transposeA
@@ -212,20 +213,20 @@ public interface FloatBlas {
      *            are stored.
      * 
      * @throws IllegalArgumentException
-     *             if <tt>B.rows() != A.columns()</tt>.
+     *             if <code>B.rows() != A.columns()</code>.
      * @throws IllegalArgumentException
      *             if
-     *             <tt>C.rows() != A.rows() || C.columns() != B.columns()</tt>.
+     *             <code>C.rows() != A.rows() || C.columns() != B.columns()</code>.
      * @throws IllegalArgumentException
-     *             if <tt>A == C || B == C</tt>.
+     *             if <code>A == C || B == C</code>.
      */
     public void dgemm(boolean transposeA, boolean transposeB, float alpha, FloatMatrix2D A, FloatMatrix2D B,
             float beta, FloatMatrix2D C);
 
     /**
      * Generalized linear algebraic matrix-vector multiply;
-     * <tt>y = alpha*A*x + beta*y</tt>. In fact equivalent to
-     * <tt>A.zMult(x,y,alpha,beta,transposeA)</tt>. Note: Matrix shape
+     * <code>y = alpha*A*x + beta*y</code>. In fact equivalent to
+     * <code>A.zMult(x,y,alpha,beta,transposeA)</code>. Note: Matrix shape
      * conformance is checked <i>after</i> potential transpositions.
      * 
      * @param transposeA
@@ -244,12 +245,12 @@ public interface FloatBlas {
      *            results are stored.
      * 
      * @throws IllegalArgumentException
-     *             <tt>A.columns() != x.size() || A.rows() != y.size())</tt>..
+     *             <code>A.columns() != x.size() || A.rows() != y.size())</code>..
      */
     public void dgemv(boolean transposeA, float alpha, FloatMatrix2D A, FloatMatrix1D x, float beta, FloatMatrix1D y);
 
     /**
-     * Performs a rank 1 update; <tt>A = A + alpha*x*y'</tt>. Example:
+     * Performs a rank 1 update; <code>A = A + alpha*x*y'</code>. Example:
      * 
      * <pre>
      * 	 A = { {6,5}, {7,6} }, x = {1,2}, y = {3,4}, alpha = 1 --&gt;
@@ -269,17 +270,18 @@ public interface FloatBlas {
     public void dger(float alpha, FloatMatrix1D x, FloatMatrix1D y, FloatMatrix2D A);
 
     /**
-     * Return the 2-norm; <tt>sqrt(x[0]^2 + x[1]^2 + ...)</tt>. In fact
-     * equivalent to <tt>(float)Math.sqrt(Algebra.DEFAULT.norm2(x))</tt>.
+     * Return the 2-norm; <code>sqrt(x[0]^2 + x[1]^2 + ...)</code>. In fact
+     * equivalent to <code>(float)Math.sqrt(Algebra.DEFAULT.norm2(x))</code>.
      * 
      * @param x
      *            the vector.
+     * @return 
      */
     public float dnrm2(FloatMatrix1D x);
 
     /**
      * Applies a givens plane rotation to (x,y);
-     * <tt>x = c*x + s*y; y = c*y - s*x</tt>.
+     * <code>x = c*x + s*y; y = c*y - s*x</code>.
      * 
      * @param x
      *            the first vector.
@@ -293,7 +295,7 @@ public interface FloatBlas {
     public void drot(FloatMatrix1D x, FloatMatrix1D y, float c, float s);
 
     /**
-     * Constructs a Givens plane rotation for <tt>(a,b)</tt>. Taken from the
+     * Constructs a Givens plane rotation for <code>(a,b)</code>. Taken from the
      * LINPACK translation from FORTRAN to Java, interface slightly modified. In
      * the LINPACK listing DROTG is attributed to Jack Dongarra
      * 
@@ -303,13 +305,13 @@ public interface FloatBlas {
      *            rotational elimination parameter b.
      * @param rotvec
      *            Must be at least of length 4. On output contains the values
-     *            <tt>{a,b,c,s}</tt>.
+     *            <code>{a,b,c,s}</code>.
      */
     public void drotg(float a, float b, float[] rotvec);
 
     /**
-     * Vector scaling; <tt>x = alpha*x</tt>. In fact equivalent to
-     * <tt>x.assign(cern.jet.math.Functions.mult(alpha))</tt>.
+     * Vector scaling; <code>x = alpha*x</code>. In fact equivalent to
+     * <code>x.assign(cern.jet.math.Functions.mult(alpha))</code>.
      * 
      * @param alpha
      *            a scale factor.
@@ -319,8 +321,8 @@ public interface FloatBlas {
     public void dscal(float alpha, FloatMatrix1D x);
 
     /**
-     * Matrix scaling; <tt>A = alpha*A</tt>. In fact equivalent to
-     * <tt>A.assign(cern.jet.math.Functions.mult(alpha))</tt>.
+     * Matrix scaling; <code>A = alpha*A</code>. In fact equivalent to
+     * <code>A.assign(cern.jet.math.Functions.mult(alpha))</code>.
      * 
      * @param alpha
      *            a scale factor.
@@ -330,8 +332,8 @@ public interface FloatBlas {
     public void dscal(float alpha, FloatMatrix2D A);
 
     /**
-     * Swaps the elements of two vectors; <tt>y <==> x</tt>. In fact equivalent
-     * to <tt>y.swap(x)</tt>.
+     * Swaps the elements of two vectors; <code>y <==> x</code>. In fact equivalent
+     * to <code>y.swap(x)</code>.
      * 
      * @param x
      *            the first vector.
@@ -339,12 +341,12 @@ public interface FloatBlas {
      *            the second vector.
      * 
      * @throws IllegalArgumentException
-     *             <tt>x.size() != y.size()</tt>.
+     *             <code>x.size() != y.size()</code>.
      */
     public void dswap(FloatMatrix1D x, FloatMatrix1D y);
 
     /**
-     * Swaps the elements of two matrices; <tt>B <==> A</tt>.
+     * Swaps the elements of two matrices; <code>B <==> A</code>.
      * 
      * @param x
      *            the first matrix.
@@ -353,12 +355,12 @@ public interface FloatBlas {
      * 
      * @throws IllegalArgumentException
      *             if
-     *             <tt>A.columns() != B.columns() || A.rows() != B.rows()</tt>.
+     *             <code>A.columns() != B.columns() || A.rows() != B.rows()</code>.
      */
     public void dswap(FloatMatrix2D x, FloatMatrix2D y);
 
     /**
-     * Symmetric matrix-vector multiplication; <tt>y = alpha*A*x + beta*y</tt>.
+     * Symmetric matrix-vector multiplication; <code>y = alpha*A*x + beta*y</code>.
      * Where alpha and beta are scalars, x and y are n element vectors and A is
      * an n by n symmetric matrix. A can be in upper or lower triangular format.
      * 
@@ -379,7 +381,7 @@ public interface FloatBlas {
             FloatMatrix1D y);
 
     /**
-     * Triangular matrix-vector multiplication; <tt>x = A*x</tt> or <tt>x = A'*x</tt>.
+     * Triangular matrix-vector multiplication; <code>x = A*x</code> or <code>x = A'*x</code>.
      * Where x is an n element vector and A is an n by n unit, or non-unit,
      * upper or lower triangular matrix.
      * 
@@ -401,7 +403,7 @@ public interface FloatBlas {
 
     /**
      * Returns the index of largest absolute value;
-     * <tt>i such that |x[i]| == max(|x[0]|,|x[1]|,...).</tt>.
+     * <code>i such that |x[i]| == max(|x[0]|,|x[1]|,...).</code>.
      * 
      * @param x
      *            the vector to search through.

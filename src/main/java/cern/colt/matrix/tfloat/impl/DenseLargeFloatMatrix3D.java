@@ -23,7 +23,7 @@ import org.jtransforms.fft.FloatFFT_3D;
 import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
 
 /**
- * Dense 3-d matrix holding <tt>float</tt> elements. First see the <a
+ * Dense 3-d matrix holding <code>float</code> elements. First see the <a
  * href="package-summary.html">package summary</a> and javadoc <a
  * href="package-tree.html">tree view</a> to get the broad picture.
  * <p>
@@ -35,8 +35,8 @@ import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
  * <p>
  * <b>Time complexity:</b>
  * <p>
- * <tt>O(1)</tt> (i.e. constant time) for the basic operations <tt>get</tt>,
- * <tt>getQuick</tt>, <tt>set</tt>, <tt>setQuick</tt> and <tt>size</tt>.
+ * <code>O(1)</code> (i.e. constant time) for the basic operations <code>get</code>,
+ * <code>getQuick</code>, <code>set</code>, <code>setQuick</code> and <code>size</code>.
  * 
  * @author Piotr Wendykier (piotr.wendykier@gmail.com)
  * 

@@ -11,7 +11,7 @@ package cern.colt.buffer.tobject;
 import cern.colt.list.tobject.ObjectArrayList;
 
 /**
- * Target of a streaming <tt>ObjectBuffer</tt> into which data is flushed upon
+ * Target of a streaming <code>ObjectBuffer</code> into which data is flushed upon
  * buffer overflow.
  * 
  * @author wolfgang.hoschek@cern.ch

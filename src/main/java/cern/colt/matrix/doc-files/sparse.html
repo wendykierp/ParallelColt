@@ -21,12 +21,12 @@
   one operand of the dot product &quot;changes slowly&quot;. Detecting sparsity 
   in the blocked &quot;slow changing&quot; operand and using a quick generic dot 
   product algorithm summing only non-zero cells can drastically improve performance 
-  without needing to resort to special storage formats. Imagine a 500 x 500 <tt>DenseDoubleMatrix2D</tt> 
-  or <tt>SparseDoubleMatrix2D</tt> which is in fact populated with only one (or 
+  without needing to resort to special storage formats. Imagine a 500 x 500 <code>DenseDoubleMatrix2D</code> 
+  or <code>SparseDoubleMatrix2D</code> which is in fact populated with only one (or 
   few) non-zero cells per row. The innermost loop of the cubic matrix multiply 
   is reduced from 500 steps to 1 step, resulting in an algorithm that in benchmarks 
   runs about 50 times quicker (up to 500 &quot;virtual&quot; Mflops on a now outdated 
-  processor Pentium 200Mhz, running NT, SunJDK1.2.2, java -classic, <tt>DenseDoubleMatrix2D</tt>. 
+  processor Pentium 200Mhz, running NT, SunJDK1.2.2, java -classic, <code>DenseDoubleMatrix2D</code>. 
   The theoretical speedup of 500 cannot be achieved). Because the performance 
   overhead of sparsity detection is negligible (some 5%), this is the way the 
   linear algebraic matrix-matrix and matrix-vector multiplications of this toolkit 

@@ -12,7 +12,7 @@ import cern.colt.matrix.tfcomplex.impl.DenseFComplexMatrix2D;
 import cern.colt.matrix.tfcomplex.impl.SparseFComplexMatrix2D;
 
 /**
- * Factory for convenient construction of 2-d matrices holding <tt>complex</tt>
+ * Factory for convenient construction of 2-d matrices holding <code>complex</code>
  * cells. Also provides convenient methods to compose (concatenate) and
  * decompose (split) matrices from/to constituent blocks. </p>
  * <p>
@@ -21,13 +21,13 @@ import cern.colt.matrix.tfcomplex.impl.SparseFComplexMatrix2D;
  * <table border="0" cellspacing="0">
  * <tr align="left" valign="top">
  * <td><i>Construction</i></td>
- * <td>Use idioms like <tt>ComplexFactory2D.dense.make(4,4)</tt> to construct
- * dense matrices, <tt>ComplexFactory2D.sparse.make(4,4)</tt> to construct
+ * <td>Use idioms like <code>ComplexFactory2D.dense.make(4,4)</code> to construct
+ * dense matrices, <code>ComplexFactory2D.sparse.make(4,4)</code> to construct
  * sparse matrices.</td>
  * </tr>
  * <tr align="left" valign="top">
  * <td><i> Construction with initial values </i></td>
- * <td>Use other <tt>make</tt> methods to construct matrices with given initial
+ * <td>Use other <code>make</code> methods to construct matrices with given initial
  * values.</td>
  * </tr>
  * <tr align="left" valign="top">
@@ -118,6 +118,9 @@ public class FComplexFactory2D extends cern.colt.PersistentObject {
      * 	 3 4 5 8 9
      * 
      * </pre>
+     * @param A
+     * @param B
+     * @return 
      */
     public FComplexMatrix2D appendColumns(FComplexMatrix2D A, FComplexMatrix2D B) {
         // force both to have maximal shared number of rows.
@@ -151,6 +154,9 @@ public class FComplexFactory2D extends cern.colt.PersistentObject {
      *   3 4 5 8
      * 
      * </pre>
+     * @param A
+     * @param b
+     * @return 
      */
     public FComplexMatrix2D appendColumn(FComplexMatrix2D A, FComplexMatrix1D b) {
         // force both to have maximal shared number of rows.
@@ -173,6 +179,9 @@ public class FComplexFactory2D extends cern.colt.PersistentObject {
      * C = A||B; Constructs a new matrix which is the row-wise concatenation of
      * two other matrices.
      * 
+     * @param A
+     * @param B
+     * @return 
      */
     public FComplexMatrix2D appendRows(FComplexMatrix2D A, FComplexMatrix2D B) {
         // force both to have maximal shared number of columns.
@@ -195,6 +204,9 @@ public class FComplexFactory2D extends cern.colt.PersistentObject {
      * C = A||b; Constructs a new matrix which is the row-wise concatenation of
      * two other matrices.
      * 
+     * @param A
+     * @param b
+     * @return 
      */
     public FComplexMatrix2D appendRow(FComplexMatrix2D A, FComplexMatrix1D b) {
         // force both to have maximal shared number of columns.
@@ -217,6 +229,7 @@ public class FComplexFactory2D extends cern.colt.PersistentObject {
      * Checks whether the given array is rectangular, that is, whether all rows
      * have the same number of columns.
      * 
+     * @param array
      * @throws IllegalArgumentException
      *             if the array is not rectangular.
      */
@@ -236,6 +249,7 @@ public class FComplexFactory2D extends cern.colt.PersistentObject {
      * Checks whether the given array is rectangular, that is, whether all rows
      * have the same number of columns.
      * 
+     * @param array
      * @throws IllegalArgumentException
      *             if the array is not rectangular.
      */
@@ -255,13 +269,15 @@ public class FComplexFactory2D extends cern.colt.PersistentObject {
      * Constructs a block matrix made from the given parts. The inverse to
      * method {@link #decompose(FComplexMatrix2D[][], FComplexMatrix2D)}.
      * <p>
-     * All matrices of a given column within <tt>parts</tt> must have the same
-     * number of columns. All matrices of a given row within <tt>parts</tt> must
+     * All matrices of a given column within <code>parts</code> must have the same
+     * number of columns. All matrices of a given row within <code>parts</code> must
      * have the same number of rows. Otherwise an
-     * <tt>IllegalArgumentException</tt> is thrown. Note that <tt>null</tt>s
-     * within <tt>parts[row,col]</tt> are an exception to this rule: they are
+     * <code>IllegalArgumentException</code> is thrown. Note that <code>null</code>s
+     * within <code>parts[row,col]</code> are an exception to this rule: they are
      * ignored. Cells are copied.
      * 
+     * @param parts
+     * @return 
      * @throws IllegalArgumentException
      *             subject to the conditions outlined above.
      */
@@ -345,9 +361,11 @@ public class FComplexFactory2D extends cern.colt.PersistentObject {
      * 
      * </pre>
      * 
-     * (The direct sum has <tt>A.rows()+B.rows()</tt> rows and
-     * <tt>A.columns()+B.columns()</tt> columns). Cells are copied.
+     * (The direct sum has <code>A.rows()+B.rows()</code> rows and
+     * <code>A.columns()+B.columns()</code> columns). Cells are copied.
      * 
+     * @param A
+     * @param B
      * @return a new matrix which is the direct sum.
      */
     public FComplexMatrix2D composeDiagonal(FComplexMatrix2D A, FComplexMatrix2D B) {
@@ -373,6 +391,10 @@ public class FComplexFactory2D extends cern.colt.PersistentObject {
      * </pre>
      * 
      * from the given parts. Cells are copied.
+     * @param A
+     * @param C
+     * @param B
+     * @return 
      */
     public FComplexMatrix2D composeDiagonal(FComplexMatrix2D A, FComplexMatrix2D B, FComplexMatrix2D C) {
         FComplexMatrix2D diag = make(A.rows() + B.rows() + C.rows(), A.columns() + B.columns() + C.columns());
@@ -386,6 +408,9 @@ public class FComplexFactory2D extends cern.colt.PersistentObject {
      * Constructs a bidiagonal block matrix from the given parts.
      * 
      * from the given parts. Cells are copied.
+     * @param A
+     * @param B
+     * @return 
      */
     public FComplexMatrix2D composeBidiagonal(FComplexMatrix2D A, FComplexMatrix2D B) {
         int ar = A.rows();
@@ -403,13 +428,15 @@ public class FComplexFactory2D extends cern.colt.PersistentObject {
      * matrix into the given parts. The inverse to method
      * {@link #compose(FComplexMatrix2D[][])}.
      * <p>
-     * All matrices of a given column within <tt>parts</tt> must have the same
-     * number of columns. All matrices of a given row within <tt>parts</tt> must
+     * All matrices of a given column within <code>parts</code> must have the same
+     * number of columns. All matrices of a given row within <code>parts</code> must
      * have the same number of rows. Otherwise an
-     * <tt>IllegalArgumentException</tt> is thrown. Note that <tt>null</tt>s
-     * within <tt>parts[row,col]</tt> are an exception to this rule: they are
+     * <code>IllegalArgumentException</code> is thrown. Note that <code>null</code>s
+     * within <code>parts[row,col]</code> are an exception to this rule: they are
      * ignored. Cells are copied.
      * 
+     * @param parts
+     * @param matrix
      * @throws IllegalArgumentException
      *             subject to the conditions outlined above.
      */
@@ -521,9 +548,10 @@ public class FComplexFactory2D extends cern.colt.PersistentObject {
 
     /**
      * Constructs a new diagonal matrix whose diagonal elements are the elements
-     * of <tt>vector</tt>. Cells values are copied. The new matrix is not a
+     * of <code>vector</code>. Cells values are copied. The new matrix is not a
      * view.
      * 
+     * @param vector
      * @return a new matrix.
      */
     public FComplexMatrix2D diagonal(FComplexMatrix1D vector) {
@@ -536,7 +564,7 @@ public class FComplexFactory2D extends cern.colt.PersistentObject {
     }
 
     /**
-     * Constructs a new vector consisting of the diagonal elements of <tt>A</tt>
+     * Constructs a new vector consisting of the diagonal elements of <code>A</code>
      * . Cells values are copied. The new vector is not a view.
      * 
      * @param A
@@ -555,6 +583,8 @@ public class FComplexFactory2D extends cern.colt.PersistentObject {
     /**
      * Constructs an identity matrix (having ones on the diagonal and zeros
      * elsewhere).
+     * @param rowsAndColumns
+     * @return 
      */
     public FComplexMatrix2D identity(int rowsAndColumns) {
         FComplexMatrix2D matrix = make(rowsAndColumns, rowsAndColumns);
@@ -566,18 +596,19 @@ public class FComplexFactory2D extends cern.colt.PersistentObject {
     }
 
     /**
-     * Constructs a matrix with the given cell values. <tt>values</tt> is
-     * required to have the form <tt>values[row][column]</tt> and have exactly
+     * Constructs a matrix with the given cell values. <code>values</code> is
+     * required to have the form <code>values[row][column]</code> and have exactly
      * the same number of columns in every row.
      * <p>
-     * The values are copied. So subsequent changes in <tt>values</tt> are not
+     * The values are copied. So subsequent changes in <code>values</code> are not
      * reflected in the matrix, and vice-versa.
      * 
      * @param values
      *            The values to be filled into the new matrix.
+     * @return 
      * @throws IllegalArgumentException
      *             if
-     *             <tt>for any 1 &lt;= row &lt; values.length: values[row].length != values[row-1].length</tt>
+     *             <code>for any 1 &lt;= row &lt; values.length: values[row].length != values[row-1].length</code>
      *             .
      */
     public FComplexMatrix2D make(float[][] values) {
@@ -591,6 +622,9 @@ public class FComplexFactory2D extends cern.colt.PersistentObject {
     /**
      * Constructs a matrix with the given shape, each cell initialized with
      * zero.
+     * @param rows
+     * @param columns
+     * @return 
      */
     public FComplexMatrix2D make(int rows, int columns) {
         if (this == sparse)
@@ -602,6 +636,10 @@ public class FComplexFactory2D extends cern.colt.PersistentObject {
     /**
      * Constructs a matrix with the given shape, each cell initialized with the
      * given value.
+     * @param rows
+     * @param initialValue
+     * @param columns
+     * @return 
      */
     public FComplexMatrix2D make(int rows, int columns, float[] initialValue) {
         if (initialValue[0] == 0 && initialValue[1] == 0)
@@ -611,14 +649,19 @@ public class FComplexFactory2D extends cern.colt.PersistentObject {
 
     /**
      * Constructs a 1d matrix of the right dynamic type.
+     * @param size
+     * @return 
      */
     protected FComplexMatrix1D make1D(int size) {
         return make(0, 0).like1D(size);
     }
 
     /**
-     * Constructs a matrix with uniformly distributed values in <tt>(0,1)</tt>
+     * Constructs a matrix with uniformly distributed values in <code>(0,1)</code>
      * (exclusive).
+     * @param rows
+     * @param columns
+     * @return 
      */
     public FComplexMatrix2D random(int rows, int columns) {
         return make(rows, columns).assign(cern.jet.math.tfcomplex.FComplexFunctions.random());
@@ -627,6 +670,10 @@ public class FComplexFactory2D extends cern.colt.PersistentObject {
     /**
      * C = A||A||..||A; Constructs a new matrix which is duplicated both along
      * the row and column dimension.
+     * @param A
+     * @param columnRepeat
+     * @param rowRepeat
+     * @return 
      */
     public FComplexMatrix2D repeat(FComplexMatrix2D A, int rowRepeat, int columnRepeat) {
         int r = A.rows();
@@ -642,14 +689,19 @@ public class FComplexFactory2D extends cern.colt.PersistentObject {
 
     /**
      * Constructs a randomly sampled matrix with the given shape. Randomly picks
-     * exactly <tt>Math.round(rows*columns*nonZeroFraction)</tt> cells and
-     * initializes them to <tt>value</tt>, all the rest will be initialized to
+     * exactly <code>Math.round(rows*columns*nonZeroFraction)</code> cells and
+     * initializes them to <code>value</code>, all the rest will be initialized to
      * zero. Note that this is not the same as setting each cell with
-     * probability <tt>nonZeroFraction</tt> to <tt>value</tt>. Note: The random
+     * probability <code>nonZeroFraction</code> to <code>value</code>. Note: The random
      * seed is a constant.
      * 
+     * @param rows
+     * @param nonZeroFraction
+     * @param columns
+     * @param value
+     * @return 
      * @throws IllegalArgumentException
-     *             if <tt>nonZeroFraction < 0 || nonZeroFraction > 1</tt>.
+     *             if <code>nonZeroFraction < 0 || nonZeroFraction > 1</code>.
      * @see cern.jet.random.tfloat.sampling.FloatRandomSampler
      */
     public FComplexMatrix2D sample(int rows, int columns, float[] value, float nonZeroFraction) {
@@ -660,14 +712,18 @@ public class FComplexFactory2D extends cern.colt.PersistentObject {
 
     /**
      * Modifies the given matrix to be a randomly sampled matrix. Randomly picks
-     * exactly <tt>Math.round(rows*columns*nonZeroFraction)</tt> cells and
-     * initializes them to <tt>value</tt>, all the rest will be initialized to
+     * exactly <code>Math.round(rows*columns*nonZeroFraction)</code> cells and
+     * initializes them to <code>value</code>, all the rest will be initialized to
      * zero. Note that this is not the same as setting each cell with
-     * probability <tt>nonZeroFraction</tt> to <tt>value</tt>. Note: The random
+     * probability <code>nonZeroFraction</code> to <code>value</code>. Note: The random
      * seed is a constant.
      * 
+     * @param matrix
+     * @param nonZeroFraction
+     * @param value
+     * @return 
      * @throws IllegalArgumentException
-     *             if <tt>nonZeroFraction < 0 || nonZeroFraction > 1</tt>.
+     *             if <code>nonZeroFraction < 0 || nonZeroFraction > 1</code>.
      * @see cern.jet.random.tfloat.sampling.FloatRandomSampler
      */
     public FComplexMatrix2D sample(FComplexMatrix2D matrix, float[] value, float nonZeroFraction) {

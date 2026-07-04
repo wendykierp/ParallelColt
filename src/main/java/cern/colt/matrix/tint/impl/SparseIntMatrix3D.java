@@ -15,7 +15,7 @@ import cern.colt.matrix.tint.IntMatrix2D;
 import cern.colt.matrix.tint.IntMatrix3D;
 
 /**
- * Sparse hashed 3-d matrix holding <tt>int</tt> elements. First see the <a
+ * Sparse hashed 3-d matrix holding <code>int</code> elements. First see the <a
  * href="package-summary.html">package summary</a> and javadoc <a
  * href="package-tree.html">tree view</a> to get the broad picture.
  * <p>
@@ -47,23 +47,23 @@ public class SparseIntMatrix3D extends IntMatrix3D {
     protected AbstractLongIntMap elements;
 
     /**
-     * Constructs a matrix with a copy of the given values. <tt>values</tt> is
-     * required to have the form <tt>values[slice][row][column]</tt> and have
+     * Constructs a matrix with a copy of the given values. <code>values</code> is
+     * required to have the form <code>values[slice][row][column]</code> and have
      * exactly the same number of rows in in every slice and exactly the same
      * number of columns in in every row.
      * <p>
-     * The values are copied. So subsequent changes in <tt>values</tt> are not
+     * The values are copied. So subsequent changes in <code>values</code> are not
      * reflected in the matrix, and vice-versa.
      * 
      * @param values
      *            The values to be filled into the new matrix.
      * @throws IllegalArgumentException
      *             if
-     *             <tt>for any 1 &lt;= slice &lt; values.length: values[slice].length != values[slice-1].length</tt>
+     *             <code>for any 1 &lt;= slice &lt; values.length: values[slice].length != values[slice-1].length</code>
      *             .
      * @throws IllegalArgumentException
      *             if
-     *             <tt>for any 1 &lt;= row &lt; values[0].length: values[slice][row].length != values[slice][row-1].length</tt>
+     *             <code>for any 1 &lt;= row &lt; values[0].length: values[slice][row].length != values[slice][row-1].length</code>
      *             .
      */
     public SparseIntMatrix3D(int[][][] values) {
@@ -74,7 +74,7 @@ public class SparseIntMatrix3D extends IntMatrix3D {
 
     /**
      * Constructs a matrix with a given number of slices, rows and columns and
-     * default memory usage. All entries are initially <tt>0</tt>.
+     * default memory usage. All entries are initially <code>0</code>.
      * 
      * @param slices
      *            the number of slices the matrix shall have.
@@ -83,9 +83,9 @@ public class SparseIntMatrix3D extends IntMatrix3D {
      * @param columns
      *            the number of columns the matrix shall have.
      * @throws IllegalArgumentException
-     *             if <tt>(int)slices*columns*rows > Integer.MAX_VALUE</tt>.
+     *             if <code>(int)slices*columns*rows > Integer.MAX_VALUE</code>.
      * @throws IllegalArgumentException
-     *             if <tt>slices<0 || rows<0 || columns<0</tt>.
+     *             if <code>slices &lt; 0 || rows &lt; 0 || columns &lt; 0</code>.
      */
     public SparseIntMatrix3D(int slices, int rows, int columns) {
         this(slices, rows, columns, slices * rows * (columns / 1000), 0.2, 0.5);
@@ -93,7 +93,7 @@ public class SparseIntMatrix3D extends IntMatrix3D {
 
     /**
      * Constructs a matrix with a given number of slices, rows and columns using
-     * memory as specified. All entries are initially <tt>0</tt>. For details
+     * memory as specified. All entries are initially <code>0</code>. For details
      * related to memory usage see
      * {@link cern.colt.map.tlong.OpenLongIntHashMap}.
      * 
@@ -105,7 +105,7 @@ public class SparseIntMatrix3D extends IntMatrix3D {
      *            the number of columns the matrix shall have.
      * @param initialCapacity
      *            the initial capacity of the hash map. If not known, set
-     *            <tt>initialCapacity=0</tt> or small.
+     *            <code>initialCapacity=0</code> or small.
      * @param minLoadFactor
      *            the minimum load factor of the hash map.
      * @param maxLoadFactor
@@ -113,12 +113,12 @@ public class SparseIntMatrix3D extends IntMatrix3D {
      * @throws IllegalArgumentException
      *             if
      * 
-     *             <tt>initialCapacity < 0 || (minLoadFactor < 0.0 || minLoadFactor >= 1.0) || (maxLoadFactor <= 0.0 || maxLoadFactor >= 1.0) || (minLoadFactor >= maxLoadFactor)</tt>
+     *             <code>initialCapacity < 0 || (minLoadFactor < 0.0 || minLoadFactor >= 1.0) || (maxLoadFactor <= 0.0 || maxLoadFactor >= 1.0) || (minLoadFactor >= maxLoadFactor)</code>
      *             .
      * @throws IllegalArgumentException
-     *             if <tt>(double)columns*rows > Integer.MAX_VALUE</tt>.
+     *             if <code>(double)columns*rows > Integer.MAX_VALUE</code>.
      * @throws IllegalArgumentException
-     *             if <tt>slices<0 || rows<0 || columns<0</tt>.
+     *             if <code>slices &lt; 0 || rows &lt; 0 || columns &lt; 0</code>.
      */
     public SparseIntMatrix3D(int slices, int rows, int columns, int initialCapacity, double minLoadFactor,
             double maxLoadFactor) {
@@ -150,17 +150,15 @@ public class SparseIntMatrix3D extends IntMatrix3D {
      *            the position of the first element.
      * @param sliceStride
      *            the number of elements between two slices, i.e.
-     *            <tt>index(k+1,i,j)-index(k,i,j)</tt>.
+     *            <code>index(k+1,i,j)-index(k,i,j)</code>.
      * @param rowStride
      *            the number of elements between two rows, i.e.
-     *            <tt>index(k,i+1,j)-index(k,i,j)</tt>.
-     * @param columnnStride
-     *            the number of elements between two columns, i.e.
-     *            <tt>index(k,i,j+1)-index(k,i,j)</tt>.
+     *            <code>index(k,i+1,j)-index(k,i,j)</code>.
+     * @param columnStride
      * @throws IllegalArgumentException
-     *             if <tt>(int)slices*columns*rows > Integer.MAX_VALUE</tt>.
+     *             if <code>(int)slices*columns*rows > Integer.MAX_VALUE</code>.
      * @throws IllegalArgumentException
-     *             if <tt>slices<0 || rows<0 || columns<0</tt>.
+     *             if <code>slices &lt; 0 || rows &lt; 0 || columns &lt; 0</code>.
      */
     protected SparseIntMatrix3D(int slices, int rows, int columns, AbstractLongIntMap elements, int sliceZero,
             int rowZero, int columnZero, int sliceStride, int rowStride, int columnStride) {

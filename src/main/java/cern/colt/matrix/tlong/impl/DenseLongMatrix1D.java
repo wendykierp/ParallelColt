@@ -20,23 +20,23 @@ import cern.colt.matrix.tlong.LongMatrix3D;
 import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
 
 /**
- * Dense 1-d matrix (aka <i>vector</i>) holding <tt>int</tt> elements. First see
+ * Dense 1-d matrix (aka <i>vector</i>) holding <code>int</code> elements. First see
  * the <a href="package-summary.html">package summary</a> and javadoc <a
  * href="package-tree.html">tree view</a> to get the broad picture.
  * <p>
  * <b>Implementation:</b>
  * <p>
- * Longernally holds one single contigous one-dimensional array. Note that this
+ * Internally holds one single contiguous one-dimensional array. Note that this
  * implementation is not synchronized.
  * <p>
  * <b>Memory requirements:</b>
  * <p>
- * <tt>memory [bytes] = 8*size()</tt>. Thus, a 1000000 matrix uses 8 MB.
+ * <code>memory [bytes] = 8*size()</code>. Thus, a 1000000 matrix uses 8 MB.
  * <p>
  * <b>Time complexity:</b>
  * <p>
- * <tt>O(1)</tt> (i.e. constant time) for the basic operations <tt>get</tt>,
- * <tt>getQuick</tt>, <tt>set</tt>, <tt>setQuick</tt> and <tt>size</tt>,
+ * <code>O(1)</code> (i.e. constant time) for the basic operations <code>get</code>,
+ * <code>getQuick</code>, <code>set</code>, <code>setQuick</code> and <code>size</code>,
  * <p>
  * 
  * @author wolfgang.hoschek@cern.ch
@@ -55,7 +55,7 @@ public class DenseLongMatrix1D extends LongMatrix1D {
 
     /**
      * Constructs a matrix with a copy of the given values. The values are
-     * copied. So subsequent changes in <tt>values</tt> are not reflected in the
+     * copied. So subsequent changes in <code>values</code> are not reflected in the
      * matrix, and vice-versa.
      * 
      * @param values
@@ -68,12 +68,12 @@ public class DenseLongMatrix1D extends LongMatrix1D {
 
     /**
      * Constructs a matrix with a given number of cells. All entries are
-     * initially <tt>0</tt>.
+     * initially <code>0</code>.
      * 
      * @param size
      *            the number of cells the matrix shall have.
      * @throws IllegalArgumentException
-     *             if <tt>size<0</tt>.
+     *             if <code>size &lt; 0</code>.
      */
     public DenseLongMatrix1D(int size) {
         setUp(size);
@@ -91,11 +91,11 @@ public class DenseLongMatrix1D extends LongMatrix1D {
      *            the index of the first element.
      * @param stride
      *            the number of indexes between any two elements, i.e.
-     *            <tt>index(i+1)-index(i)</tt>.
+     *            <code>index(i+1)-index(i)</code>.
      * @param isView
      *            if true then a matrix view is constructed
      * @throws IllegalArgumentException
-     *             if <tt>size<0</tt>.
+     *             if <code>size &lt; 0</code>.
      */
     public DenseLongMatrix1D(int size, long[] elements, int zero, int stride, boolean isView) {
         setUp(size, zero, stride);

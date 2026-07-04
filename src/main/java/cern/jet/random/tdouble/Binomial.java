@@ -19,7 +19,7 @@ import cern.jet.stat.tdouble.Probability;
  * HREF="http://www.statsoft.com/textbook/glosb.html#Binomial Distribution">
  * animated definition</A>.
  * <p>
- * <tt>p(x) = k * p^k * (1-p)^(n-k)</tt> with <tt>k = n! / (k! * (n-k)!)</tt>.
+ * <code>p(x) = k * p^k * (1-p)^(n-k)</code> with <code>k = n! / (k! * (n-k)!)</code>.
  * <p>
  * Instance methods operate on a user supplied uniform random number generator;
  * they are unsynchronized.
@@ -73,7 +73,7 @@ public class Binomial extends AbstractDiscreteDistribution {
      * @param randomGenerator
      *            a uniform random number generator.
      * @throws IllegalArgumentException
-     *             if <tt>n*Math.min(p,1-p) &lt;= 0.0</tt>
+     *             if <code>n*Math.min(p,1-p) &lt;= 0.0</code>
      */
     public Binomial(int n, double p, DoubleRandomEngine randomGenerator) {
         setRandomGenerator(randomGenerator);
@@ -82,6 +82,8 @@ public class Binomial extends AbstractDiscreteDistribution {
 
     /**
      * Returns the cumulative distribution function.
+     * @param k
+     * @return 
      */
     public double cdf(int k) {
         return Probability.binomial(k, n, p);
@@ -128,6 +130,9 @@ public class Binomial extends AbstractDiscreteDistribution {
      * StirlingCorrection() * ... Correction term of the Stirling *
      * approximation for log(k!) * (series in 1/k or table values * for small k)
      * with long int k * - randomGenerator ... (0,1)-Uniform engine * *
+     * @param n
+     * @param p
+     * @return 
      **************************************************************************/
     protected int generateBinomial(int n, double p) {
         final double C1_3 = 0.33333333333333333;
@@ -270,6 +275,7 @@ public class Binomial extends AbstractDiscreteDistribution {
 
     /**
      * Returns a random number from the distribution.
+     * @return 
      */
 
     public int nextInt() {
@@ -284,8 +290,9 @@ public class Binomial extends AbstractDiscreteDistribution {
      *            the number of trials
      * @param p
      *            the probability of success.
+     * @return 
      * @throws IllegalArgumentException
-     *             if <tt>n*Math.min(p,1-p) &lt;= 0.0</tt>
+     *             if <code>n*Math.min(p,1-p) &lt;= 0.0</code>
      */
     public int nextInt(int n, double p) {
         if (n * Math.min(p, 1 - p) <= 0.0)
@@ -295,6 +302,8 @@ public class Binomial extends AbstractDiscreteDistribution {
 
     /**
      * Returns the probability distribution function.
+     * @param k
+     * @return 
      */
     public double pdf(int k) {
         if (k < 0)
@@ -312,7 +321,7 @@ public class Binomial extends AbstractDiscreteDistribution {
      * @param p
      *            the probability of success.
      * @throws IllegalArgumentException
-     *             if <tt>n*Math.min(p,1-p) &lt;= 0.0</tt>
+     *             if <code>n*Math.min(p,1-p) &lt;= 0.0</code>
      */
     public void setNandP(int n, double p) {
         if (n * Math.min(p, 1 - p) <= 0.0)
@@ -333,8 +342,9 @@ public class Binomial extends AbstractDiscreteDistribution {
      *            the number of trials
      * @param p
      *            the probability of success.
+     * @return 
      * @throws IllegalArgumentException
-     *             if <tt>n*Math.min(p,1-p) &lt;= 0.0</tt>
+     *             if <code>n*Math.min(p,1-p) &lt;= 0.0</code>
      */
     public static int staticNextInt(int n, double p) {
         synchronized (shared) {
@@ -344,6 +354,7 @@ public class Binomial extends AbstractDiscreteDistribution {
 
     /**
      * Returns a String representation of the receiver.
+     * @return 
      */
 
     public String toString() {

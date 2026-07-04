@@ -12,7 +12,7 @@ import cern.colt.list.tlong.LongArrayList;
 
 /**
  * Fixed sized (non resizable) streaming buffer connected to a target
- * <tt>LongBufferConsumer</tt> to which data is automatically flushed upon
+ * <code>LongBufferConsumer</code> to which data is automatically flushed upon
  * buffer overflow.
  * 
  * @author wolfgang.hoschek@cern.ch

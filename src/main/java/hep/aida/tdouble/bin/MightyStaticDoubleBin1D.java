@@ -35,7 +35,7 @@ public class MightyStaticDoubleBin1D extends StaticDoubleBin1D {
 
     /**
      * Constructs and returns an empty bin with limited functionality but good
-     * performance; equivalent to <tt>MightyStaticBin1D(false,false,4)</tt>.
+     * performance; equivalent to <code>MightyStaticBin1D(false,false,4)</code>.
      */
     public MightyStaticDoubleBin1D() {
         this(false, false, 4);
@@ -46,25 +46,25 @@ public class MightyStaticDoubleBin1D extends StaticDoubleBin1D {
      * 
      * @param hasSumOfLogarithms
      *            Tells whether {@link #sumOfLogarithms()} can return meaningful
-     *            results. Set this parameter to <tt>false</tt> if measures of
+     *            results. Set this parameter to <code>false</code> if measures of
      *            sum of logarithms, geometric mean and product are not
      *            required.
      *            <p>
      * @param hasSumOfInversions
      *            Tells whether {@link #sumOfInversions()} can return meaningful
-     *            results. Set this parameter to <tt>false</tt> if measures of
+     *            results. Set this parameter to <code>false</code> if measures of
      *            sum of inversions, harmonic mean and sumOfPowers(-1) are not
      *            required.
      *            <p>
      * @param maxOrderForSumOfPowers
-     *            The maximum order <tt>k</tt> for which
+     *            The maximum order <code>k</code> for which
      *            {@link #sumOfPowers(int)} can return meaningful results. Set
      *            this parameter to at least 3 if the skew is required, to at
      *            least 4 if the kurtosis is required. In general, if moments
      *            are required set this parameter at least as large as the
      *            largest required moment. This method always substitutes
-     *            <tt>Math.max(2,maxOrderForSumOfPowers)</tt> for the parameter
-     *            passed in. Thus, <tt>sumOfPowers(0..2)</tt> always returns
+     *            <code>Math.max(2,maxOrderForSumOfPowers)</code> for the parameter
+     *            passed in. Thus, <code>sumOfPowers(0..2)</code> always returns
      *            meaningful results.
      * 
      * @see #hasSumOfPowers(int)
@@ -78,8 +78,8 @@ public class MightyStaticDoubleBin1D extends StaticDoubleBin1D {
     }
 
     /**
-     * Adds the part of the specified list between indexes <tt>from</tt>
-     * (inclusive) and <tt>to</tt> (inclusive) to the receiver.
+     * Adds the part of the specified list between indexes <code>from</code>
+     * (inclusive) and <code>to</code> (inclusive) to the receiver.
      * 
      * @param list
      *            the list of which elements shall be added.
@@ -89,7 +89,7 @@ public class MightyStaticDoubleBin1D extends StaticDoubleBin1D {
      *            the index of the last element to be added (inclusive).
      * @throws IndexOutOfBoundsException
      *             if
-     *             <tt>list.size()&gt;0 && (from&lt;0 || from&gt;to || to&gt;=list.size())</tt>
+     *             <code>list.size()&gt;0 &amp;&amp; (from&lt;0 || from&gt;to || to&gt;=list.size())</code>
      *             .
      */
 
@@ -169,25 +169,26 @@ public class MightyStaticDoubleBin1D extends StaticDoubleBin1D {
 
     /**
      * Returns the geometric mean, which is
-     * <tt>Product( x[i] )<sup>1.0/size()</sup></tt>.
+     * <code>Product( x[i] )<sup>1.0/size()</sup></code>.
      * 
      * This method tries to avoid overflows at the expense of an equivalent but
      * somewhat inefficient definition:
-     * <tt>geoMean = exp( Sum( Log(x[i]) ) / size())</tt>. Note that for a
+     * <code>geoMean = exp( Sum( Log(x[i]) ) / size())</code>. Note that for a
      * geometric mean to be meaningful, the minimum of the data sequence must
      * not be less or equal to zero.
      * 
-     * @return the geometric mean; <tt>Double.NaN</tt> if
-     *         <tt>!hasSumOfLogarithms()</tt>.
+     * @return the geometric mean; <code>Double.NaN</code> if
+     *         <code>!hasSumOfLogarithms()</code>.
      */
     public synchronized double geometricMean() {
         return DoubleDescriptive.geometricMean(size(), sumOfLogarithms());
     }
 
     /**
-     * Returns the maximum order <tt>k</tt> for which sums of powers are
+     * Returns the maximum order <code>k</code> for which sums of powers are
      * retrievable, as specified upon instance construction.
      * 
+     * @return 
      * @see #hasSumOfPowers(int)
      * @see #sumOfPowers(int)
      */
@@ -203,9 +204,10 @@ public class MightyStaticDoubleBin1D extends StaticDoubleBin1D {
     }
 
     /**
-     * Returns the minimum order <tt>k</tt> for which sums of powers are
+     * Returns the minimum order <code>k</code> for which sums of powers are
      * retrievable, as specified upon instance construction.
      * 
+     * @return 
      * @see #hasSumOfPowers(int)
      * @see #sumOfPowers(int)
      */
@@ -217,12 +219,12 @@ public class MightyStaticDoubleBin1D extends StaticDoubleBin1D {
     }
 
     /**
-     * Returns the harmonic mean, which is <tt>size() / Sum( 1/x[i] )</tt>.
-     * Remember: If the receiver contains at least one element of <tt>0.0</tt>,
-     * the harmonic mean is <tt>0.0</tt>.
+     * Returns the harmonic mean, which is <code>size() / Sum( 1/x[i] )</code>.
+     * Remember: If the receiver contains at least one element of <code>0.0</code>,
+     * the harmonic mean is <code>0.0</code>.
      * 
-     * @return the harmonic mean; <tt>Double.NaN</tt> if
-     *         <tt>!hasSumOfInversions()</tt>.
+     * @return the harmonic mean; <code>Double.NaN</code> if
+     *         <code>!hasSumOfInversions()</code>.
      * @see #hasSumOfInversions()
      */
     public synchronized double harmonicMean() {
@@ -230,10 +232,10 @@ public class MightyStaticDoubleBin1D extends StaticDoubleBin1D {
     }
 
     /**
-     * Returns whether <tt>sumOfInversions()</tt> can return meaningful results.
+     * Returns whether <code>sumOfInversions()</code> can return meaningful results.
      * 
-     * @return <tt>false</tt> if the bin was constructed with insufficient
-     *         parametrization, <tt>true</tt> otherwise. See the constructors
+     * @return <code>false</code> if the bin was constructed with insufficient
+     *         parametrization, <code>true</code> otherwise. See the constructors
      *         for proper parametrization.
      */
     public boolean hasSumOfInversions() {
@@ -241,10 +243,10 @@ public class MightyStaticDoubleBin1D extends StaticDoubleBin1D {
     }
 
     /**
-     * Tells whether <tt>sumOfLogarithms()</tt> can return meaningful results.
+     * Tells whether <code>sumOfLogarithms()</code> can return meaningful results.
      * 
-     * @return <tt>false</tt> if the bin was constructed with insufficient
-     *         parametrization, <tt>true</tt> otherwise. See the constructors
+     * @return <code>false</code> if the bin was constructed with insufficient
+     *         parametrization, <code>true</code> otherwise. See the constructors
      *         for proper parametrization.
      */
     public boolean hasSumOfLogarithms() {
@@ -252,18 +254,19 @@ public class MightyStaticDoubleBin1D extends StaticDoubleBin1D {
     }
 
     /**
-     * Tells whether <tt>sumOfPowers(k)</tt> can return meaningful results.
+     * Tells whether <code>sumOfPowers(k)</code> can return meaningful results.
      * Defined as
-     * <tt>hasSumOfPowers(k) <==> getMinOrderForSumOfPowers() <= k && k <= getMaxOrderForSumOfPowers()</tt>
-     * . A return value of <tt>true</tt> implies that
-     * <tt>hasSumOfPowers(k-1) .. hasSumOfPowers(0)</tt> will also return
-     * <tt>true</tt>. See the constructors for proper parametrization.
+     * <code>hasSumOfPowers(k) <==> getMinOrderForSumOfPowers() <= k &amp;&amp; k <= getMaxOrderForSumOfPowers()</code>
+     * . A return value of <code>true</code> implies that
+     * <code>hasSumOfPowers(k-1) .. hasSumOfPowers(0)</code> will also return
+     * <code>true</code>. See the constructors for proper parametrization.
      * <p>
-     * <b>Details</b>: <tt>hasSumOfPowers(0..2)</tt> will always yield
-     * <tt>true</tt>. <tt>hasSumOfPowers(-1) <==> hasSumOfInversions()</tt>.
+     * <b>Details</b>: <code>hasSumOfPowers(0..2)</code> will always yield
+     * <code>true</code>. <code>hasSumOfPowers(-1) <==> hasSumOfInversions()</code>.
      * 
-     * @return <tt>false</tt> if the bin was constructed with insufficient
-     *         parametrization, <tt>true</tt> otherwise.
+     * @param k
+     * @return <code>false</code> if the bin was constructed with insufficient
+     *         parametrization, <code>true</code> otherwise.
      * @see #getMinOrderForSumOfPowers()
      * @see #getMaxOrderForSumOfPowers()
      */
@@ -273,9 +276,9 @@ public class MightyStaticDoubleBin1D extends StaticDoubleBin1D {
 
     /**
      * Returns the kurtosis (aka excess), which is
-     * <tt>-3 + moment(4,mean()) / standardDeviation()<sup>4</sup></tt>.
+     * <code>-3 + moment(4,mean()) / standardDeviation()<sup>4</sup></code>.
      * 
-     * @return the kurtosis; <tt>Double.NaN</tt> if <tt>!hasSumOfPowers(4)</tt>.
+     * @return the kurtosis; <code>Double.NaN</code> if <code>!hasSumOfPowers(4)</code>.
      * @see #hasSumOfPowers(int)
      */
     public synchronized double kurtosis() {
@@ -283,16 +286,16 @@ public class MightyStaticDoubleBin1D extends StaticDoubleBin1D {
     }
 
     /**
-     * Returns the moment of <tt>k</tt>-th order with value <tt>c</tt>, which is
-     * <tt>Sum( (x[i]-c)<sup>k</sup> ) / size()</tt>.
+     * Returns the moment of <code>k</code>-th order with value <code>c</code>, which is
+     * <code>Sum( (x[i]-c)<sup>k</sup> ) / size()</code>.
      * 
      * @param k
      *            the order; must be greater than or equal to zero.
      * @param c
      *            any number.
      * @throws IllegalArgumentException
-     *             if <tt>k < 0</tt>.
-     * @return <tt>Double.NaN</tt> if <tt>!hasSumOfPower(k)</tt>.
+     *             if <code>k < 0</code>.
+     * @return <code>Double.NaN</code> if <code>!hasSumOfPower(k)</code>.
      */
     public synchronized double moment(int k, double c) {
         if (k < 0)
@@ -313,11 +316,11 @@ public class MightyStaticDoubleBin1D extends StaticDoubleBin1D {
     }
 
     /**
-     * Returns the product, which is <tt>Prod( x[i] )</tt>. In other words:
-     * <tt>x[0]*x[1]*...*x[size()-1]</tt>.
+     * Returns the product, which is <code>Prod( x[i] )</code>. In other words:
+     * <code>x[0]*x[1]*...*x[size()-1]</code>.
      * 
-     * @return the product; <tt>Double.NaN</tt> if
-     *         <tt>!hasSumOfLogarithms()</tt>.
+     * @return the product; <code>Double.NaN</code> if
+     *         <code>!hasSumOfLogarithms()</code>.
      * @see #hasSumOfLogarithms()
      */
     public double product() {
@@ -326,10 +329,11 @@ public class MightyStaticDoubleBin1D extends StaticDoubleBin1D {
 
     /**
      * Sets the range of orders in which sums of powers are to be computed. In
-     * other words, <tt>sumOfPower(k)</tt> will return <tt>Sum( x[i]^k )</tt> if
-     * <tt>min_k <= k <= max_k || 0 <= k <= 2</tt> and throw an exception
+     * other words, <code>sumOfPower(k)</code> will return <code>Sum( x[i]^k )</code> if
+     * <code>min_k <= k <= max_k || 0 <= k <= 2</code> and throw an exception
      * otherwise.
      * 
+     * @param max_k
      * @see #isLegalOrder(int)
      * @see #sumOfPowers(int)
      * @see #getRangeForSumOfPowers()
@@ -346,9 +350,9 @@ public class MightyStaticDoubleBin1D extends StaticDoubleBin1D {
 
     /**
      * Returns the skew, which is
-     * <tt>moment(3,mean()) / standardDeviation()<sup>3</sup></tt>.
+     * <code>moment(3,mean()) / standardDeviation()<sup>3</sup></code>.
      * 
-     * @return the skew; <tt>Double.NaN</tt> if <tt>!hasSumOfPowers(3)</tt>.
+     * @return the skew; <code>Double.NaN</code> if <code>!hasSumOfPowers(3)</code>.
      * @see #hasSumOfPowers(int)
      */
     public synchronized double skew() {
@@ -356,10 +360,10 @@ public class MightyStaticDoubleBin1D extends StaticDoubleBin1D {
     }
 
     /**
-     * Returns the sum of inversions, which is <tt>Sum( 1 / x[i] )</tt>.
+     * Returns the sum of inversions, which is <code>Sum( 1 / x[i] )</code>.
      * 
-     * @return the sum of inversions; <tt>Double.NaN</tt> if
-     *         <tt>!hasSumOfInversions()</tt>.
+     * @return the sum of inversions; <code>Double.NaN</code> if
+     *         <code>!hasSumOfInversions()</code>.
      * @see #hasSumOfInversions()
      */
     public double sumOfInversions() {
@@ -372,10 +376,10 @@ public class MightyStaticDoubleBin1D extends StaticDoubleBin1D {
     }
 
     /**
-     * Returns the sum of logarithms, which is <tt>Sum( Log(x[i]) )</tt>.
+     * Returns the sum of logarithms, which is <code>Sum( Log(x[i]) )</code>.
      * 
-     * @return the sum of logarithms; <tt>Double.NaN</tt> if
-     *         <tt>!hasSumOfLogarithms()</tt>.
+     * @return the sum of logarithms; <code>Double.NaN</code> if
+     *         <code>!hasSumOfLogarithms()</code>.
      * @see #hasSumOfLogarithms()
      */
     public synchronized double sumOfLogarithms() {
@@ -388,13 +392,13 @@ public class MightyStaticDoubleBin1D extends StaticDoubleBin1D {
     }
 
     /**
-     * Returns the <tt>k-th</tt> order sum of powers, which is
-     * <tt>Sum( x[i]<sup>k</sup> )</tt>.
+     * Returns the <code>k-th</code> order sum of powers, which is
+     * <code>Sum( x[i]<sup>k</sup> )</code>.
      * 
      * @param k
      *            the order of the powers.
-     * @return the sum of powers; <tt>Double.NaN</tt> if
-     *         <tt>!hasSumOfPowers(k)</tt>.
+     * @return the sum of powers; <code>Double.NaN</code> if
+     *         <code>!hasSumOfPowers(k)</code>.
      * @see #hasSumOfPowers(int)
      */
     public synchronized double sumOfPowers(int k) {
@@ -415,6 +419,7 @@ public class MightyStaticDoubleBin1D extends StaticDoubleBin1D {
 
     /**
      * Returns a String representation of the receiver.
+     * @return 
      */
 
     public synchronized String toString() {
@@ -454,8 +459,7 @@ public class MightyStaticDoubleBin1D extends StaticDoubleBin1D {
     }
 
     /**
-     * @throws IllegalOperationException
-     *             if <tt>! isLegalOrder(k)</tt>.
+     * @param k
      */
     protected void xcheckOrder(int k) {
         // if (! isLegalOrder(k)) return Double.NaN;
@@ -470,6 +474,8 @@ public class MightyStaticDoubleBin1D extends StaticDoubleBin1D {
      * of the same class or a subclass of this class and both have the same
      * size, minimum, maximum, sum, sumOfSquares, sumOfInversions and
      * sumOfLogarithms.
+     * @param object
+     * @return 
      */
     protected boolean xequals(Object object) {
         if (!(object instanceof MightyStaticDoubleBin1D))
@@ -480,14 +486,16 @@ public class MightyStaticDoubleBin1D extends StaticDoubleBin1D {
     }
 
     /**
-     * Tells whether <tt>sumOfPowers(fromK) .. sumOfPowers(toK)</tt> can return
+     * Tells whether <code>sumOfPowers(fromK) .. sumOfPowers(toK)</code> can return
      * meaningful results.
      * 
-     * @return <tt>false</tt> if the bin was constructed with insufficient
-     *         parametrization, <tt>true</tt> otherwise. See the constructors
+     * @param fromK
+     * @param toK
+     * @return <code>false</code> if the bin was constructed with insufficient
+     *         parametrization, <code>true</code> otherwise. See the constructors
      *         for proper parametrization.
      * @throws IllegalArgumentException
-     *             if <tt>fromK > toK</tt>.
+     *             if <code>fromK > toK</code>.
      */
     protected boolean xhasSumOfPowers(int fromK, int toK) {
         if (fromK > toK)
@@ -497,8 +505,10 @@ public class MightyStaticDoubleBin1D extends StaticDoubleBin1D {
 
     /**
      * Returns
-     * <tt>getMinOrderForSumOfPowers() <= k && k <= getMaxOrderForSumOfPowers()</tt>
+     * <code>getMinOrderForSumOfPowers() <= k &amp;&amp; k <= getMaxOrderForSumOfPowers()</code>
      * .
+     * @param k
+     * @return 
      */
     protected synchronized boolean xisLegalOrder(int k) {
         return getMinOrderForSumOfPowers() <= k && k <= getMaxOrderForSumOfPowers();

@@ -16,7 +16,7 @@ import cern.colt.matrix.tobject.ObjectMatrix3D;
 
 /**
  * Matrix quicksorts and mergesorts. Use idioms like
- * <tt>Sorting.quickSort.sort(...)</tt> and <tt>Sorting.mergeSort.sort(...)</tt>
+ * <code>Sorting.quickSort.sort(...)</code> and <code>Sorting.mergeSort.sort(...)</code>
  * .
  * <p>
  * This is another case demonstrating one primary goal of this library:
@@ -102,13 +102,13 @@ public class ObjectSorting extends cern.colt.PersistentObject {
      * <b>Example:</b>
      * <table border="1" cellspacing="0">
      * <tr nowrap>
-     * <td valign="top"><tt> 7, 1, 3, 1<br>
-     </tt></td>
+     * <td valign="top"><code> 7, 1, 3, 1<br>
+     </code></td>
      * <td valign="top">
      * <p>
-     * <tt> ==&gt; 1, 1, 3, 7<br>
+     * <code> ==&gt; 1, 1, 3, 7<br>
      The vector IS NOT SORTED.<br>
-     The new VIEW IS SORTED.</tt>
+     The new VIEW IS SORTED.</code>
      * </p>
      * </td>
      * </tr>
@@ -196,27 +196,27 @@ public class ObjectSorting extends cern.colt.PersistentObject {
      * <b>Example:</b>
      * <table border="1" cellspacing="0">
      * <tr nowrap>
-     * <td valign="top"><tt>4 x 2 matrix: <br>
+     * <td valign="top"><code>4 x 2 matrix: <br>
      7, 6<br>
      5, 4<br>
      3, 2<br>
      1, 0 <br>
-     </tt></td>
+     </code></td>
      * <td align="left" valign="top">
      * <p>
-     * <tt>column = 0;<br>
+     * <code>column = 0;<br>
      view = quickSort(matrix,column);<br>
-     System.out.println(view); </tt><tt><br>
-     ==> </tt>
+     System.out.println(view); </code><code><br>
+     ==> </code>
      * </p>
      * </td>
      * <td valign="top">
      * <p>
-     * <tt>4 x 2 matrix:<br>
+     * <code>4 x 2 matrix:<br>
      1, 0<br>
      3, 2<br>
      5, 4<br>
-     7, 6</tt><br>
+     7, 6</code><br>
      * The matrix IS NOT SORTED.<br>
      * The new VIEW IS SORTED.
      * </p>
@@ -231,7 +231,7 @@ public class ObjectSorting extends cern.colt.PersistentObject {
      * @return a new matrix view having rows sorted by the given column. <b>Note
      *         that the original matrix is left unaffected.</b>
      * @throws IndexOutOfBoundsException
-     *             if <tt>column < 0 || column >= matrix.columns()</tt>.
+     *             if <code>column < 0 || column >= matrix.columns()</code>.
      */
     public ObjectMatrix2D sort(ObjectMatrix2D matrix, int column) {
         if (column < 0 || column >= matrix.columns())
@@ -318,7 +318,7 @@ public class ObjectSorting extends cern.colt.PersistentObject {
 
     /**
      * Sorts the matrix slices into ascending order, according to the <i>natural
-     * ordering</i> of the matrix values in the given <tt>[row,column]</tt>
+     * ordering</i> of the matrix values in the given <code>[row,column]</code>
      * position. The returned view is backed by this matrix, so changes in the
      * returned view are reflected in this matrix, and vice-versa. To sort
      * ranges use sub-ranging views. To sort by other dimensions, use dice
@@ -326,12 +326,12 @@ public class ObjectSorting extends cern.colt.PersistentObject {
      * <p>
      * The algorithm compares two 2-d slices at a time, determinining whether
      * one is smaller, equal or larger than the other. Comparison is based on
-     * the cell <tt>[row,column]</tt> within a slice. Let <tt>A</tt> and
-     * <tt>B</tt> be two 2-d slices. Then we have the following rules
+     * the cell <code>[row,column]</code> within a slice. Let <code>A</code> and
+     * <code>B</code> be two 2-d slices. Then we have the following rules
      * <ul>
-     * <li><tt>A &lt;  B  iff A.get(row,column) &lt;  B.get(row,column)</tt>
-     * <li><tt>A == B iff A.get(row,column) == B.get(row,column)</tt>
-     * <li><tt>A &gt;  B  iff A.get(row,column) &gt;  B.get(row,column)</tt>
+     * <li><code>A &lt;  B  iff A.get(row,column) &lt;  B.get(row,column)</code>
+     * <li><code>A == B iff A.get(row,column) == B.get(row,column)</code>
+     * <li><code>A &gt;  B  iff A.get(row,column) &gt;  B.get(row,column)</code>
      * </ul>
      * 
      * @param matrix
@@ -341,11 +341,11 @@ public class ObjectSorting extends cern.colt.PersistentObject {
      * @param column
      *            the index of the column inducing the order.
      * @return a new matrix view having slices sorted by the values of the slice
-     *         view <tt>matrix.viewRow(row).viewColumn(column)</tt>. <b>Note
+     *         view <code>matrix.viewRow(row).viewColumn(column)</code>. <b>Note
      *         that the original matrix is left unaffected.</b>
      * @throws IndexOutOfBoundsException
      *             if
-     *             <tt>row < 0 || row >= matrix.rows() || column < 0 || column >= matrix.columns()</tt>
+     *             <code>row < 0 || row >= matrix.rows() || column < 0 || column >= matrix.columns()</code>
      *             .
      */
     public ObjectMatrix3D sort(ObjectMatrix3D matrix, int row, int column) {

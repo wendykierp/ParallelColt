@@ -15,7 +15,7 @@ import cern.colt.matrix.tfloat.FloatMatrix2D;
 import cern.colt.matrix.tfloat.FloatMatrix3D;
 
 /**
- * Sparse hashed 1-d matrix (aka <i>vector</i>) holding <tt>float</tt> elements.
+ * Sparse hashed 1-d matrix (aka <i>vector</i>) holding <code>float</code> elements.
  * First see the <a href="package-summary.html">package summary</a> and javadoc
  * <a href="package-tree.html">tree view</a> to get the broad picture.
  * <p>
@@ -36,21 +36,21 @@ import cern.colt.matrix.tfloat.FloatMatrix3D;
  * manually be reclaimed by calling {@link #trimToSize()}.
  * </ul>
  * <p>
- * worst case: <tt>memory [bytes] = (1/minLoadFactor) * nonZeros * 13</tt>. <br>
- * best case: <tt>memory [bytes] = (1/maxLoadFactor) * nonZeros * 13</tt>. <br>
- * Where <tt>nonZeros = cardinality()</tt> is the number of non-zero cells.
+ * worst case: <code>memory [bytes] = (1/minLoadFactor) * nonZeros * 13</code>. <br>
+ * best case: <code>memory [bytes] = (1/maxLoadFactor) * nonZeros * 13</code>. <br>
+ * Where <code>nonZeros = cardinality()</code> is the number of non-zero cells.
  * Thus, a 1000000 matrix with minLoadFactor=0.25 and maxLoadFactor=0.5 and
  * 1000000 non-zero cells consumes between 25 MB and 50 MB. The same 1000000
  * matrix with 1000 non-zero cells consumes between 25 and 50 KB.
  * <p>
  * <b>Time complexity:</b>
  * <p>
- * This class offers <i>expected</i> time complexity <tt>O(1)</tt> (i.e.
- * constant time) for the basic operations <tt>get</tt>, <tt>getQuick</tt>,
- * <tt>set</tt>, <tt>setQuick</tt> and <tt>size</tt> assuming the hash function
+ * This class offers <i>expected</i> time complexity <code>O(1)</code> (i.e.
+ * constant time) for the basic operations <code>get</code>, <code>getQuick</code>,
+ * <code>set</code>, <code>setQuick</code> and <code>size</code> assuming the hash function
  * disperses the elements properly among the buckets. Otherwise, pathological
  * cases, although highly improbable, can occur, degrading performance to
- * <tt>O(N)</tt> in the worst case. As such this sparse class is expected to
+ * <code>O(N)</code> in the worst case. As such this sparse class is expected to
  * have no worse time complexity than its dense counterpart
  * {@link DenseFloatMatrix1D}. However, constant factors are considerably
  * larger.
@@ -73,7 +73,7 @@ public class SparseFloatMatrix1D extends FloatMatrix1D {
 
     /**
      * Constructs a matrix with a copy of the given values. The values are
-     * copied. So subsequent changes in <tt>values</tt> are not reflected in the
+     * copied. So subsequent changes in <code>values</code> are not reflected in the
      * matrix, and vice-versa.
      * 
      * @param values
@@ -86,12 +86,12 @@ public class SparseFloatMatrix1D extends FloatMatrix1D {
 
     /**
      * Constructs a matrix with a given number of cells. All entries are
-     * initially <tt>0</tt>.
+     * initially <code>0</code>.
      * 
      * @param size
      *            the number of cells the matrix shall have.
      * @throws IllegalArgumentException
-     *             if <tt>size<0</tt>.
+     *             if <code>size &lt; 0</code>.
      */
     public SparseFloatMatrix1D(int size) {
         this(size, size / 1000, 0.2f, 0.5f);
@@ -99,14 +99,14 @@ public class SparseFloatMatrix1D extends FloatMatrix1D {
 
     /**
      * Constructs a matrix with a given number of parameters. All entries are
-     * initially <tt>0</tt>. For details related to memory usage see
+     * initially <code>0</code>. For details related to memory usage see
      * {@link cern.colt.map.tfloat.OpenIntFloatHashMap}.
      * 
      * @param size
      *            the number of cells the matrix shall have.
      * @param initialCapacity
      *            the initial capacity of the hash map. If not known, set
-     *            <tt>initialCapacity=0</tt> or small.
+     *            <code>initialCapacity=0</code> or small.
      * @param minLoadFactor
      *            the minimum load factor of the hash map.
      * @param maxLoadFactor
@@ -114,10 +114,10 @@ public class SparseFloatMatrix1D extends FloatMatrix1D {
      * @throws IllegalArgumentException
      *             if
      * 
-     *             <tt>initialCapacity < 0 || (minLoadFactor < 0.0 || minLoadFactor >= 1.0) || (maxLoadFactor <= 0.0 || maxLoadFactor >= 1.0) || (minLoadFactor >= maxLoadFactor)</tt>
+     *             <code>initialCapacity < 0 || (minLoadFactor < 0.0 || minLoadFactor >= 1.0) || (maxLoadFactor <= 0.0 || maxLoadFactor >= 1.0) || (minLoadFactor >= maxLoadFactor)</code>
      *             .
      * @throws IllegalArgumentException
-     *             if <tt>size<0</tt>.
+     *             if <code>size &lt; 0</code>.
      */
     public SparseFloatMatrix1D(int size, int initialCapacity, float minLoadFactor, float maxLoadFactor) {
         setUp(size);
@@ -135,9 +135,9 @@ public class SparseFloatMatrix1D extends FloatMatrix1D {
      *            the index of the first element.
      * @param stride
      *            the number of indexes between any two elements, i.e.
-     *            <tt>index(i+1)-index(i)</tt>.
+     *            <code>index(i+1)-index(i)</code>.
      * @throws IllegalArgumentException
-     *             if <tt>size<0</tt>.
+     *             if <code>size &lt; 0</code>.
      */
     protected SparseFloatMatrix1D(int size, AbstractLongFloatMap elements, int offset, int stride) {
         setUp(size, offset, stride);
@@ -146,11 +146,11 @@ public class SparseFloatMatrix1D extends FloatMatrix1D {
     }
 
     /**
-     * Sets all cells to the state specified by <tt>value</tt>.
+     * Sets all cells to the state specified by <code>value</code>.
      * 
      * @param value
      *            the value to be filled into the cells.
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      */
 
     public FloatMatrix1D assign(float value) {
@@ -190,7 +190,7 @@ public class SparseFloatMatrix1D extends FloatMatrix1D {
      * the receiver.
      * <p>
      * This method never need be called; it is for performance tuning only.
-     * Calling this method before tt>set()</tt>ing a large number of non-zero
+     * Calling this method before tt>set()</code>ing a large number of non-zero
      * values boosts performance, because the receiver will grow only once
      * instead of potentially many times and hash collisions get less probable.
      * 
@@ -203,13 +203,13 @@ public class SparseFloatMatrix1D extends FloatMatrix1D {
     }
 
     /**
-     * Returns the matrix cell value at coordinate <tt>index</tt>.
+     * Returns the matrix cell value at coordinate <code>index</code>.
      * 
      * <p>
      * Provided with invalid parameters this method may return invalid objects
      * without throwing any exception. <b>You should only use this method when
      * you are absolutely sure that the coordinate is within bounds.</b>
-     * Precondition (unchecked): <tt>index&lt;0 || index&gt;=size()</tt>.
+     * Precondition (unchecked): <code>index&lt;0 || index&gt;=size()</code>.
      * 
      * @param index
      *            the index of the cell.
@@ -230,6 +230,7 @@ public class SparseFloatMatrix1D extends FloatMatrix1D {
      * 
      * @param rank
      *            the rank of the element.
+     * @return 
      */
 
     public long index(int rank) {
@@ -241,10 +242,10 @@ public class SparseFloatMatrix1D extends FloatMatrix1D {
     /**
      * Construct and returns a new empty matrix <i>of the same dynamic type</i>
      * as the receiver, having the specified size. For example, if the receiver
-     * is an instance of type <tt>DenseFloatMatrix1D</tt> the new matrix must
-     * also be of type <tt>DenseFloatMatrix1D</tt>, if the receiver is an
-     * instance of type <tt>SparseFloatMatrix1D</tt> the new matrix must also be
-     * of type <tt>SparseFloatMatrix1D</tt>, etc. In general, the new matrix
+     * is an instance of type <code>DenseFloatMatrix1D</code> the new matrix must
+     * also be of type <code>DenseFloatMatrix1D</code>, if the receiver is an
+     * instance of type <code>SparseFloatMatrix1D</code> the new matrix must also be
+     * of type <code>SparseFloatMatrix1D</code>, etc. In general, the new matrix
      * should have internal parametrization as similar as possible.
      * 
      * @param size
@@ -259,10 +260,10 @@ public class SparseFloatMatrix1D extends FloatMatrix1D {
     /**
      * Construct and returns a new 2-d matrix <i>of the corresponding dynamic
      * type</i>, entirelly independent of the receiver. For example, if the
-     * receiver is an instance of type <tt>DenseFloatMatrix1D</tt> the new
-     * matrix must be of type <tt>DenseFloatMatrix2D</tt>, if the receiver is an
-     * instance of type <tt>SparseFloatMatrix1D</tt> the new matrix must be of
-     * type <tt>SparseFloatMatrix2D</tt>, etc.
+     * receiver is an instance of type <code>DenseFloatMatrix1D</code> the new
+     * matrix must be of type <code>DenseFloatMatrix2D</code>, if the receiver is an
+     * instance of type <code>SparseFloatMatrix1D</code> the new matrix must be of
+     * type <code>SparseFloatMatrix2D</code>, etc.
      * 
      * @param rows
      *            the number of rows the matrix shall have.
@@ -312,13 +313,13 @@ public class SparseFloatMatrix1D extends FloatMatrix1D {
     }
 
     /**
-     * Sets the matrix cell at coordinate <tt>index</tt> to the specified value.
+     * Sets the matrix cell at coordinate <code>index</code> to the specified value.
      * 
      * <p>
      * Provided with invalid parameters this method may access illegal indexes
      * without throwing any exception. <b>You should only use this method when
      * you are absolutely sure that the coordinate is within bounds.</b>
-     * Precondition (unchecked): <tt>index&lt;0 || index&gt;=size()</tt>.
+     * Precondition (unchecked): <code>index&lt;0 || index&gt;=size()</code>.
      * 
      * @param index
      *            the index of the cell.
@@ -354,7 +355,9 @@ public class SparseFloatMatrix1D extends FloatMatrix1D {
     }
 
     /**
-     * Returns <tt>true</tt> if both matrices share at least one identical cell.
+     * Returns <code>true</code> if both matrices share at least one identical cell.
+     * @param other
+     * @return 
      */
 
     protected boolean haveSharedCellsRaw(FloatMatrix1D other) {

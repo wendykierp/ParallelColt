@@ -21,7 +21,7 @@ import cern.jet.stat.tdouble.Probability;
  * are synchronized.
  * <p>
  * <b>Implementation:</b> High performance implementation. Compound method.
- * <dt>This is a port of <tt>nbp.c</tt> from the <A
+ * <dt>This is a port of <code>nbp.c</code> from the <A
  * HREF="http://www.cis.tu-graz.ac.at/stat/stadl/random.html">C-RAND /
  * WIN-RAND</A> library. C-RAND's implementation, in turn, is based upon
  * <p>
@@ -67,6 +67,8 @@ public class NegativeBinomial extends AbstractDiscreteDistribution {
 
     /**
      * Returns the cumulative distribution function.
+     * @param k
+     * @return 
      */
     public double cdf(int k) {
         return Probability.negativeBinomial(k, n, p);
@@ -93,6 +95,7 @@ public class NegativeBinomial extends AbstractDiscreteDistribution {
 
     /**
      * Returns a random number from the distribution.
+     * @return 
      */
 
     public int nextInt() {
@@ -102,6 +105,9 @@ public class NegativeBinomial extends AbstractDiscreteDistribution {
     /**
      * Returns a random number from the distribution; bypasses the internal
      * state.
+     * @param n
+     * @param p
+     * @return 
      */
     public int nextInt(int n, double p) {
         /***********************************************************************
@@ -128,6 +134,8 @@ public class NegativeBinomial extends AbstractDiscreteDistribution {
 
     /**
      * Returns the probability distribution function.
+     * @param k
+     * @return 
      */
     public double pdf(int k) {
         if (k > n)
@@ -156,6 +164,7 @@ public class NegativeBinomial extends AbstractDiscreteDistribution {
      *            the number of trials
      * @param p
      *            the probability of success.
+     * @return 
      */
     public static int staticNextInt(int n, double p) {
         synchronized (shared) {
@@ -165,6 +174,7 @@ public class NegativeBinomial extends AbstractDiscreteDistribution {
 
     /**
      * Returns a String representation of the receiver.
+     * @return 
      */
 
     public String toString() {

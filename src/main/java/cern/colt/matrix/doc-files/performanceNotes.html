@@ -18,10 +18,10 @@
   However, alternative sparse matrix representations are really only usable for 
   special purposes, because their get/set performance can be very bad. In contrast, 
   hash based sparse matrices are more generally applicable data structures. </p>
-<p> Here is a list describing which combinations are particularly optimized. (<tt>F</tt> 
+<p> Here is a list describing which combinations are particularly optimized. (<code>F</code> 
   is used as shortcut for <samp>cern.jet.math.Functions</samp>)</p>
 <h3>General Remarks</h3>
-Matrix-matrix and matrix-vector multiplication <tt>C = alpha*AxB + beta*C</tt> 
+Matrix-matrix and matrix-vector multiplication <code>C = alpha*AxB + beta*C</code> 
 : 
 <blockquote> 
   <p>For good performance B,C may have any type. For A={SparseDoubleMatrix2D,RCDoubleMatrix2D} 
@@ -58,8 +58,8 @@ well as sparse linear algebra. Efficient methods are:
     <td width="35%">set,setQuick</td>
     <td width="46%"> 
       <p>only fast if the matrix is really sparse and in a loop iterating upwards:<br>
-        <tt>for (int i=0; i&lt;rows; i++) { for (int j=0; j&lt;columns; j++) { 
-        setQuick(i,j,...) ... }}</tt></p>
+        <code>for (int i=0; i&lt;rows; i++) { for (int j=0; j&lt;columns; j++) { 
+        setQuick(i,j,...) ... }}</code></p>
     </td>
   </tr>
   <tr> 
@@ -70,14 +70,14 @@ well as sparse linear algebra. Efficient methods are:
   <tr> 
     <td width="19%">elementwise scaling</td>
     <td width="35%">assign(f) where f is one of {F.mult(a),F.div(a)}</td>
-    <td width="46%"><tt>x[i,j] = x[i,j] {*,/} a</tt></td>
+    <td width="46%"><code>x[i,j] = x[i,j] {*,/} a</code></td>
   </tr>
   <tr> 
     <td width="19%">elementwise scaling</td>
     <td width="35%">assign(y,f) where f is one of {F.plus,F.minus, F.mult,F.div, 
       F.plusMult(a),F.minusMult(a)}</td>
-    <td width="46%"><tt>x[i,j] = x[i,j] {+,-,*,/} y[i,j]<br>
-      x[i,j] = x[i,j] {+,-} y[i,j] {*,/} a</tt></td>
+    <td width="46%"><code>x[i,j] = x[i,j] {+,-,*,/} y[i,j]<br>
+      x[i,j] = x[i,j] {+,-} y[i,j] {*,/} a</code></td>
   </tr>
   <tr> 
     <td width="19%">copying</td>
@@ -130,14 +130,14 @@ sometimes slightly slower. Efficient methods are:
   <tr> 
     <td width="20%">elementwise scaling</td>
     <td width="35%">assign(f) where f is one of {F.mult(a),F.div(a)}</td>
-    <td width="45%"><tt>x[i,j] = x[i,j] {*,/} a</tt></td>
+    <td width="45%"><code>x[i,j] = x[i,j] {*,/} a</code></td>
   </tr>
   <tr> 
     <td width="20%">elementwise scaling</td>
     <td width="35%">assign(y,f) where f is one of {F.plus,F.minus, F.mult,F.div, 
       F.plusMult(a),F.minusMult(a)}</td>
-    <td width="45%"><tt>x[i,j] = x[i,j] {+,-,*,/} y[i,j]<br>
-      x[i,j] = x[i,j] {+,-} y[i,j] {*,/} a</tt></td>
+    <td width="45%"><code>x[i,j] = x[i,j] {+,-,*,/} y[i,j]<br>
+      x[i,j] = x[i,j] {+,-} y[i,j] {*,/} a</code></td>
   </tr>
   <tr> 
     <td width="20%">copying</td>

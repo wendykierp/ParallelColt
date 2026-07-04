@@ -89,6 +89,7 @@ public class MatrixSize {
 
     /**
      * Returns the number of rows in the matrix
+     * @return 
      */
     public int numRows() {
         return numRows;
@@ -96,6 +97,7 @@ public class MatrixSize {
 
     /**
      * Returns the number of columns in the matrix
+     * @return 
      */
     public int numColumns() {
         return numColumns;
@@ -103,6 +105,7 @@ public class MatrixSize {
 
     /**
      * Returns the number of entries stored
+     * @return 
      */
     public int numEntries() {
         return numEntries;
@@ -111,6 +114,7 @@ public class MatrixSize {
     /**
      * Returns <code>true</code> if the matrix is square, else
      * <code>false</code>
+     * @return 
      */
     public boolean isSquare() {
         return numRows == numColumns;

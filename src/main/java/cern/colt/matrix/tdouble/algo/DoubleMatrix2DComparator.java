@@ -13,15 +13,15 @@ import cern.colt.matrix.tdouble.DoubleMatrix2D;
 /**
  * A comparison function which imposes a <i>total ordering</i> on some
  * collection of elements. Comparators can be passed to a sort method (such as
- * <tt>cern.colt.matrix.doublealgo.Sorting.quickSort</tt>) to allow precise
+ * <code>cern.colt.matrix.doublealgo.Sorting.quickSort</code>) to allow precise
  * control over the sort order.
  * <p>
  * 
  * Note: It is generally a good idea for comparators to implement
- * <tt>java.io.Serializable</tt>, as they may be used as ordering methods in
+ * <code>java.io.Serializable</code>, as they may be used as ordering methods in
  * serializable data structures. In order for the data structure to serialize
  * successfully, the comparator (if provided) must implement
- * <tt>Serializable</tt>.
+ * <code>Serializable</code>.
  * <p>
  * 
  * @author wolfgang.hoschek@cern.ch
@@ -37,23 +37,25 @@ public interface DoubleMatrix2DComparator {
      * greater than the second.
      * <p>
      * 
-     * The implementor must ensure that <tt>sgn(compare(x, y)) ==
-     * -sgn(compare(y, x))</tt> for all <tt>x</tt> and <tt>y</tt>. (This implies
-     * that <tt>compare(x, y)</tt> must throw an exception if and only if
-     * <tt>compare(y, x)</tt> throws an exception.)
+     * The implementor must ensure that <code>sgn(compare(x, y)) ==
+     * -sgn(compare(y, x))</code> for all <code>x</code> and <code>y</code>. (This implies
+     * that <code>compare(x, y)</code> must throw an exception if and only if
+     * <code>compare(y, x)</code> throws an exception.)
      * <p>
      * 
      * The implementor must also ensure that the relation is transitive:
-     * <tt>((compare(x, y)&gt;0) &amp;&amp; (compare(y, z)&gt;0))</tt> implies
-     * <tt>compare(x, z)&gt;0</tt>.
+     * <code>((compare(x, y)&gt;0) &amp;&amp; (compare(y, z)&gt;0))</code> implies
+     * <code>compare(x, z)&gt;0</code>.
      * <p>
      * 
-     * Finally, the implementer must ensure that <tt>compare(x, y)==0</tt>
-     * implies that <tt>sgn(compare(x, z))==sgn(compare(y, z))</tt> for all
-     * <tt>z</tt>.
+     * Finally, the implementer must ensure that <code>compare(x, y)==0</code>
+     * implies that <code>sgn(compare(x, z))==sgn(compare(y, z))</code> for all
+     * <code>z</code>.
      * <p>
      * 
      * 
+     * @param o1
+     * @param o2
      * @return a negative integer, zero, or a positive integer as the first
      *         argument is less than, equal to, or greater than the second.
      */
@@ -63,16 +65,16 @@ public interface DoubleMatrix2DComparator {
      * 
      * Indicates whether some other object is &quot;equal to&quot; this
      * Comparator. This method must obey the general contract of
-     * <tt>Object.equals(Object)</tt>. Additionally, this method can return
-     * <tt>true</tt> <i>only</i> if the specified Object is also a comparator
+     * <code>Object.equals(Object)</code>. Additionally, this method can return
+     * <code>true</code> <i>only</i> if the specified Object is also a comparator
      * and it imposes the same ordering as this comparator. Thus,
-     * <code>comp1.equals(comp2)</code> implies that <tt>sgn(comp1.compare(o1,
-     * o2))==sgn(comp2.compare(o1, o2))</tt> for every element <tt>o1</tt> and
-     * <tt>o2</tt>.
+     * <code>comp1.equals(comp2)</code> implies that <code>sgn(comp1.compare(o1,
+     * o2))==sgn(comp2.compare(o1, o2))</code> for every element <code>o1</code> and
+     * <code>o2</code>.
      * <p>
      * 
      * Note that it is <i>always</i> safe <i>not</i> to override
-     * <tt>Object.equals(Object)</tt>. However, overriding this method may, in
+     * <code>Object.equals(Object)</code>. However, overriding this method may, in
      * some cases, improve performance by allowing programs to determine that
      * two distinct Comparators impose the same order.
      * 

@@ -13,9 +13,9 @@ import cern.colt.matrix.tlong.impl.SparseLongMatrix3D;
 import cern.jet.math.tlong.LongFunctions;
 
 /**
- * Factory for convenient construction of 3-d matrices holding <tt>int</tt>
- * cells. Use idioms like <tt>LongFactory3D.dense.make(4,4,4)</tt> to construct
- * dense matrices, <tt>LongFactory3D.sparse.make(4,4,4)</tt> to construct sparse
+ * Factory for convenient construction of 3-d matrices holding <code>int</code>
+ * cells. Use idioms like <code>LongFactory3D.dense.make(4,4,4)</code> to construct
+ * dense matrices, <code>LongFactory3D.sparse.make(4,4,4)</code> to construct sparse
  * matrices.
  * 
  * If the factory is used frequently it might be useful to streamline the
@@ -63,6 +63,10 @@ public class LongFactory3D extends cern.colt.PersistentObject {
     /**
      * Constructs a matrix with cells having ascending values. For debugging
      * purposes.
+     * @param slices
+     * @param columns
+     * @param rows
+     * @return 
      */
     public LongMatrix3D ascending(int slices, int rows, int columns) {
         cern.jet.math.tlong.LongFunctions F = cern.jet.math.tlong.LongFunctions.longFunctions;
@@ -73,6 +77,10 @@ public class LongFactory3D extends cern.colt.PersistentObject {
     /**
      * Constructs a matrix with cells having descending values. For debugging
      * purposes.
+     * @param slices
+     * @param columns
+     * @param rows
+     * @return 
      */
     public LongMatrix3D descending(int slices, int rows, int columns) {
         LongMatrix3D matrix = make(slices, rows, columns);
@@ -88,23 +96,23 @@ public class LongFactory3D extends cern.colt.PersistentObject {
     }
 
     /**
-     * Constructs a matrix with the given cell values. <tt>values</tt> is
-     * required to have the form <tt>values[slice][row][column]</tt> and have
+     * Constructs a matrix with the given cell values. <code>values</code> is
+     * required to have the form <code>values[slice][row][column]</code> and have
      * exactly the same number of slices, rows and columns as the receiver.
      * <p>
-     * The values are copied. So subsequent changes in <tt>values</tt> are not
+     * The values are copied. So subsequent changes in <code>values</code> are not
      * reflected in the matrix, and vice-versa.
      * 
      * @param values
      *            the values to be filled into the cells.
-     * @return <tt>this</tt> (for convenience only).
+     * @return <code>this</code> (for convenience only).
      * @throws IllegalArgumentException
      *             if
-     *             <tt>values.length != slices() || for any 0 &lt;= slice &lt; slices(): values[slice].length != rows()</tt>
+     *             <code>values.length != slices() || for any 0 &lt;= slice &lt; slices(): values[slice].length != rows()</code>
      *             .
      * @throws IllegalArgumentException
      *             if
-     *             <tt>for any 0 &lt;= column &lt; columns(): values[slice][row].length != columns()</tt>
+     *             <code>for any 0 &lt;= column &lt; columns(): values[slice][row].length != columns()</code>
      *             .
      */
     public LongMatrix3D make(long[][][] values) {
@@ -116,6 +124,10 @@ public class LongFactory3D extends cern.colt.PersistentObject {
     /**
      * Constructs a matrix with the given shape, each cell initialized with
      * zero.
+     * @param slices
+     * @param columns
+     * @param rows
+     * @return 
      */
     public LongMatrix3D make(int slices, int rows, int columns) {
         if (this == sparse)
@@ -126,14 +138,23 @@ public class LongFactory3D extends cern.colt.PersistentObject {
     /**
      * Constructs a matrix with the given shape, each cell initialized with the
      * given value.
+     * @param slices
+     * @param initialValue
+     * @param rows
+     * @param columns
+     * @return 
      */
     public LongMatrix3D make(int slices, int rows, int columns, long initialValue) {
         return make(slices, rows, columns).assign(initialValue);
     }
 
     /**
-     * Constructs a matrix with uniformly distributed values in <tt>(0,1)</tt>
+     * Constructs a matrix with uniformly distributed values in <code>(0,1)</code>
      * (exclusive).
+     * @param slices
+     * @param columns
+     * @param rows
+     * @return 
      */
     public LongMatrix3D random(int slices, int rows, int columns) {
         return make(slices, rows, columns).assign(cern.jet.math.tlong.LongFunctions.random());

@@ -13,7 +13,7 @@ import cern.jet.random.tdouble.engine.DoubleRandomEngine;
 /**
  * Von Mises distribution.
  * <p>
- * Valid parameter ranges: <tt>k &gt; 0</tt>.
+ * Valid parameter ranges: <code>k &gt; 0</code>.
  * <p>
  * Instance methods operate on a user supplied uniform random number generator;
  * they are unsynchronized.
@@ -22,7 +22,7 @@ import cern.jet.random.tdouble.engine.DoubleRandomEngine;
  * <p>
  * <b>Implementation:</b>
  * <dt>Method: Acceptance Rejection.
- * <dt>This is a port of <tt>mwc.c</tt> from the <A
+ * <dt>This is a port of <code>mwc.c</code> from the <A
  * HREF="http://www.cis.tu-graz.ac.at/stat/stadl/random.html">C-RAND /
  * WIN-RAND</A> library. C-RAND's implementation, in turn, is based upon
  * <p>
@@ -51,8 +51,10 @@ public class VonMises extends AbstractContinousDoubleDistribution {
     /**
      * Constructs a Von Mises distribution. Example: k=1.0.
      * 
+     * @param freedom
+     * @param randomGenerator
      * @throws IllegalArgumentException
-     *             if <tt>k &lt;= 0.0</tt>.
+     *             if <code>k &lt;= 0.0</code>.
      */
     public VonMises(double freedom, DoubleRandomEngine randomGenerator) {
         setRandomGenerator(randomGenerator);
@@ -61,6 +63,7 @@ public class VonMises extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a random number from the distribution.
+     * @return 
      */
 
     public double nextDouble() {
@@ -71,8 +74,10 @@ public class VonMises extends AbstractContinousDoubleDistribution {
      * Returns a random number from the distribution; bypasses the internal
      * state.
      * 
+     * @param k
+     * @return 
      * @throws IllegalArgumentException
-     *             if <tt>k &lt;= 0.0</tt>.
+     *             if <code>k &lt;= 0.0</code>.
      */
     public double nextDouble(double k) {
         /***********************************************************************
@@ -116,8 +121,9 @@ public class VonMises extends AbstractContinousDoubleDistribution {
     /**
      * Sets the distribution parameter.
      * 
+     * @param k
      * @throws IllegalArgumentException
-     *             if <tt>k &lt;= 0.0</tt>.
+     *             if <code>k &lt;= 0.0</code>.
      */
     public void setState(double k) {
         if (k <= 0.0)
@@ -128,8 +134,10 @@ public class VonMises extends AbstractContinousDoubleDistribution {
     /**
      * Returns a random number from the distribution.
      * 
+     * @param freedom
+     * @return 
      * @throws IllegalArgumentException
-     *             if <tt>k &lt;= 0.0</tt>.
+     *             if <code>k &lt;= 0.0</code>.
      */
     public static double staticNextDouble(double freedom) {
         synchronized (shared) {
@@ -139,6 +147,7 @@ public class VonMises extends AbstractContinousDoubleDistribution {
 
     /**
      * Returns a String representation of the receiver.
+     * @return 
      */
 
     public String toString() {
