@@ -85,12 +85,12 @@ public class Logarithmic extends AbstractContinousDoubleDistribution {
          * Logarithmic one. * To speed up the algorithm squeezes are used as
          * well as the * fact, that many of the random numbers are 1 or 2
          * (depending on * special circumstances). * On an IBM/PC 486 optimal
-         * performance is achieved, if for p<.97 * simple inversion is used and
+         * performance is achieved, if for p&lt;.97 * simple inversion is used and
          * otherwise the transformation. * On an IBM/PC 286 inversion should be
-         * restricted to p<.90. * *
+         * restricted to p&lt;.90. * *
          * ***************************************************************** *
          * FUNCTION: - lsk samples a random number from the * Logarithmic
-         * distribution with * parameter 0 < p < 1 . * REFERENCE: - A.W. Kemp
+         * distribution with * parameter 0 &lt; p &lt; 1 . * REFERENCE: - A.W. Kemp
          * (1981): Efficient generation of * logarithmically distributed
          * pseudo-random * variables, Appl. Statist. 30, 249-253. * SUBPROGRAMS:
          * - drand(seed) ... (0,1)-Uniform generator with * unsigned long

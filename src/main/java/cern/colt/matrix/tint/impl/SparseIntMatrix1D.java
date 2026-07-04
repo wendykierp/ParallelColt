@@ -113,7 +113,7 @@ public class SparseIntMatrix1D extends IntMatrix1D {
      * @throws IllegalArgumentException
      *             if
      * 
-     *             <code>initialCapacity < 0 || (minLoadFactor < 0.0 || minLoadFactor >= 1.0) || (maxLoadFactor <= 0.0 || maxLoadFactor >= 1.0) || (minLoadFactor >= maxLoadFactor)</code>
+     *             <code>initialCapacity &lt; 0 || (minLoadFactor &lt; 0.0 || minLoadFactor &gt;= 1.0) || (maxLoadFactor &lt;= 0.0 || maxLoadFactor &gt;= 1.0) || (minLoadFactor &gt;= maxLoadFactor)</code>
      *             .
      * @throws IllegalArgumentException
      *             if <code>size &lt; 0</code>.
@@ -189,7 +189,7 @@ public class SparseIntMatrix1D extends IntMatrix1D {
      * the receiver.
      * <p>
      * This method never need be called; it is for performance tuning only.
-     * Calling this method before tt>set()</code>ing a large number of non-zero
+     * Calling this method before tt&gt;set()</code>ing a large number of non-zero
      * values boosts performance, because the receiver will grow only once
      * instead of potentially many times and hash collisions get less probable.
      * 

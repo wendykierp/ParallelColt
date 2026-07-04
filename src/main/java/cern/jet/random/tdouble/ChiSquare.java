@@ -102,7 +102,7 @@ public class ChiSquare extends AbstractContinousDoubleDistribution {
          * * Chi Distribution - Ratio of Uniforms with shift * *
          * ***************************************************************** *
          * FUNCTION : - chru samples a random number from the Chi * distribution
-         * with parameter a > 1. * REFERENCE : - J.F. Monahan (1987): An
+         * with parameter a &gt; 1. * REFERENCE : - J.F. Monahan (1987): An
          * algorithm for * generating chi random variables, ACM Trans. * Math.
          * Software 13, 168-172. * SUBPROGRAM : - anEngine ... pointer to a
          * (0,1)-Uniform * engine * * Implemented by R. Kremer, 1990 *

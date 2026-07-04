@@ -383,10 +383,10 @@ public class Beta extends AbstractContinousDoubleDistribution {
         /***********************************************************************
          * * Beta Distribution - Stratified Rejection/Patchwork Rejection * *
          * ***************************************************************** For
-         * parameters a < 1 , b < 1 and a < 1 < b or b < 1 < a * the stratified
+         * parameters a &lt; 1 , b &lt; 1 and a &lt; 1 &lt; b or b &lt; 1 &lt; a * the stratified
          * rejection methods b00 and b01 of Sakasegawa are * used. Both
          * procedures employ suitable two-part power functions * from which
-         * samples can be obtained by inversion. * If a > 1 , b > 1 (unimodal
+         * samples can be obtained by inversion. * If a &gt; 1 , b &gt; 1 (unimodal
          * case) the patchwork rejection * method b1prs of Zechner/Stadlober is
          * utilized: * The area below the density function f(x) in its body is *
          * rearranged by certain point reflections. Within a large center *
@@ -398,15 +398,15 @@ public class Beta extends AbstractContinousDoubleDistribution {
          * variate is delivered. * *
          * ***************************************************************** *
          * FUNCTION : - bsprc samples a random variate from the beta *
-         * distribution with parameters a > 0, b > 0. * REFERENCES : - H.
+         * distribution with parameters a &gt; 0, b &gt; 0. * REFERENCES : - H.
          * Sakasegawa (1983): Stratified rejection and * squeeze method for
          * generating beta random * numbers, Ann. Inst. Statist. Math. 35 B, *
          * 291-302. * - H. Zechner, E. Stadlober (1993): Generating * beta
          * variates via patchwork rejection, * Computing 50, 1-18. * *
          * SUBPROGRAMS: - drand(seed) ... (0,1)-Uniform generator with *
          * unsigned long integer *seed. * - b00(seed,a,b) ... Beta generator for
-         * a<1, b<1 * - b01(seed,a,b) ... Beta generator for a<1<b or * b<1<a *
-         * - b1prs(seed,a,b) ... Beta generator for a>1, b>1 * with unsigned
+         * a&lt;1, b&lt;1 * - b01(seed,a,b) ... Beta generator for a&lt;1<b or * b<1<a *
+         * - b1prs(seed,a,b) ... Beta generator for a>1, b&gt;1 * with unsigned
          * long integer *seed, double a, b. * *
          **********************************************************************/
         double a = alpha;

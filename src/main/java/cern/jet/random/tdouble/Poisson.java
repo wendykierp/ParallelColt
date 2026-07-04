@@ -156,7 +156,7 @@ public class Poisson extends AbstractDiscreteDistribution {
         /***********************************************************************
          * * Poisson Distribution - Patchwork Rejection/Inversion * *
          * ***************************************************************** *
-         * For parameter my < 10 Tabulated Inversion is applied. * For my >= 10
+         * For parameter my &lt; 10 Tabulated Inversion is applied. * For my &gt;= 10
          * Patchwork Rejection is employed: * The area below the histogram
          * function f(x) is rearranged in * its body by certain point
          * reflections. Within a large center * interval variates are sampled

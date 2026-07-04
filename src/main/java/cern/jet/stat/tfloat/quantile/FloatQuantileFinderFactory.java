@@ -27,7 +27,7 @@ import cern.jet.random.tfloat.engine.FloatRandomEngine;
  * The approx. algorithms are primarily intended to help applications scale.
  * When faced with a large data sequences, traditional methods either need very
  * large memories or time consuming disk based sorting. In constrast, the
- * approx. algorithms can deal with > 10^10 values without disk based sorting.
+ * approx. algorithms can deal with &gt; 10^10 values without disk based sorting.
  * 
  * <p>
  * All classes can be seen from various angles, for example as

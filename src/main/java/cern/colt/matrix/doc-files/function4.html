@@ -19,7 +19,7 @@ sorted = matrix.viewDice().viewSorted(lastRow).viewDice();
 DoubleMatrix1DComparator comp = new DoubleMatrix1DComparator() {
 	public int compare(DoubleMatrix1D a, DoubleMatrix1D b) {
 		double as = a.zSum(); double bs = b.zSum();
-		return as < bs ? -1 : as == bs ? 0 : 1;
+		return as &lt; bs ? -1 : as == bs ? 0 : 1;
 	}
 };
 sorted = cern.colt.matrix.tdouble.algo.Sorting.quickSort(matrix,comp);
@@ -32,7 +32,7 @@ sorted = cern.colt.matrix.tdouble.algo.Sorting.quickSort(matrix,comp);
 DoubleMatrix1DComparator comp = new DoubleMatrix1DComparator() {
 	public int compare(DoubleMatrix1D a, DoubleMatrix1D b) {
 		double as = a.aggregate(cern.jet.math.Functions.plus,cern.jet.math.Functions.log); <br>		double bs = b.aggregate(cern.jet.math.Functions.plus,cern.jet.math.Functions.log);
-		return as < bs ? -1 : as == bs ? 0 : 1;
+		return as &lt; bs ? -1 : as == bs ? 0 : 1;
 	}
 };
 sorted = cern.colt.matrix.tdouble.algo.Sorting.quickSort(matrix,comp);

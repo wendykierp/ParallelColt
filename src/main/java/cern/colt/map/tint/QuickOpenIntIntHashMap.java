@@ -12,7 +12,7 @@ import cern.colt.map.HashFunctions;
 
 /**
  * Status: Experimental; Do not use for production yet. Hash map holding
- * (key,value) associations of type <code>(int-->int)</code>; Automatically grows
+ * (key,value) associations of type <code>(int--&gt;int)</code>; Automatically grows
  * and shrinks as needed; Implemented using open addressing with double hashing.
  * First see the <a href="package-summary.html">package summary</a> and javadoc
  * <a href="package-tree.html">tree view</a> to get the broad picture.
@@ -67,7 +67,7 @@ public class QuickOpenIntIntHashMap extends OpenIntIntHashMap {
      * @throws IllegalArgumentException
      *             if
      * 
-     *             <code>initialCapacity < 0 || (minLoadFactor < 0.0 || minLoadFactor >= 1.0) || (maxLoadFactor <= 0.0 || maxLoadFactor >= 1.0) || (minLoadFactor >= maxLoadFactor)</code>
+     *             <code>initialCapacity &lt; 0 || (minLoadFactor &lt; 0.0 || minLoadFactor &gt;= 1.0) || (maxLoadFactor &lt;= 0.0 || maxLoadFactor &gt;= 1.0) || (minLoadFactor &gt;= maxLoadFactor)</code>
      *             .
      */
     public QuickOpenIntIntHashMap(int initialCapacity, double minLoadFactor, double maxLoadFactor) {

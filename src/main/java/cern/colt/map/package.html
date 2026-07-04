@@ -71,13 +71,13 @@ based upon hashing.
     dynamically linked collision lists. 
   <li><b>Open</b> uses extendible open addressing with double hashing. 
 </ul>
-<p>Class naming follows the schema <code>&lt;Implementation&gt;&lt;KeyType&gt;&lt;ValueType&gt;HashMap</code>. 
+<p>Class naming follows the schema <code><Implementation><KeyType><ValueType>HashMap</code>. 
   For example, a {@link cern.colt.map.tdouble.OpenIntDoubleHashMap} holds <code>(int-->double)</code> 
   associations and is implemented with open addressing. A {@link cern.colt.map.tobject.OpenIntObjectHashMap} 
   holds <code>(int-->Object)</code> associations and is implemented with open addressing. 
 </p>
 <p>The classes for maps of a given (key,value) type are derived from a common 
-  abstract base class tagged <code>Abstract&lt;KeyType&gt;&lt;ValueType&gt;</code><code>Map</code>. 
+  abstract base class tagged <code>Abstract<KeyType><ValueType></code><code>Map</code>. 
   For example, all maps operating on <code>(int-->double)</code> associations are 
   derived from {@link cern.colt.map.tdouble.AbstractIntDoubleMap}, which in turn is derived 
   from an abstract base class tying together all maps regardless of assocation 
@@ -174,10 +174,10 @@ Similarly, when the loadFactor falls below a customizable threshold (<code>minLo
 In such a way excessive memory consumption can be avoided.
 Automatic resizing (both growing and shrinking) obeys the following invariant:
 <p>
-<code>capacity * minLoadFactor <= size() <= capacity * maxLoadFactor</code>
-<p> The term <code>capacity * minLoadFactor</code> is called the <i>low water mark</i>, 
-  <code>capacity * maxLoadFactor</code> is called the <i>high water mark</i>. In other 
-  words, the number of associations may vary within the water mark constraints. 
+<code>capacity * minLoadFactor &lt;= size() &lt;= capacity * maxLoadFactor</code>
+ <p> The term <code>capacity * minLoadFactor</code> is called the <i>low water mark</i>,
+   <code>capacity * maxLoadFactor</code> is called the <i>high water mark</i>. In other
+  words, the number of associations may vary within the water mark constraints.
   When it goes out of range, the map is automatically resized and memory consumption 
   changes proportionally. 
 <ul>
@@ -196,7 +196,7 @@ In such a case good parameters are as follows:
 <i>For open addressing:</i>
 <br>Set the <code>initialCapacity = 2*expectedSize</code> or greater. Alternatively call <code>ensureCapacity(...)</code>.
 <br>Set the <code>maxLoadFactor = 0.5</code>.
-<br>Never set <code>maxLoadFactor &gt; 0.55</code>; open addressing exponentially slows down beyond that point.
+<br>Never set <code>maxLoadFactor > 0.55</code>; open addressing exponentially slows down beyond that point.
 <p>
 In this way the hash map will never need to grow and still stay fast.
 It is never a good idea to set <code>maxLoadFactor &lt; 0.1</code>, 

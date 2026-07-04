@@ -40,7 +40,7 @@ class FloatQuantileCalc extends Object {
 
     /**
      * Returns the smallest <code>long &gt;= value</code>. <dt>Examples:
-     * <code>1.0 -> 1, 1.2 -> 2, 1.9 -> 2</code>. This method is safer than
+     * <code>1.0 -&gt; 1, 1.2 -&gt; 2, 1.9 -&gt; 2</code>. This method is safer than
      * using (long) Math.ceil(value), because of possible rounding error.
      */
     public static long ceiling(float value) {

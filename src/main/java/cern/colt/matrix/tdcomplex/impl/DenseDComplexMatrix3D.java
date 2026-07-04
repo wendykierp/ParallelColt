@@ -111,7 +111,7 @@ public class DenseDComplexMatrix3D extends DComplexMatrix3D {
      * @param realPart
      *            a real matrix whose elements become a real part of this matrix
      * @throws IllegalArgumentException
-     *             if <code>(double)slices*columns*rows > Integer.MAX_VALUE</code>.
+     *             if <code>(double)slices*columns*rows &gt; Integer.MAX_VALUE</code>.
      * @throws IllegalArgumentException
      *             if <code>slices &lt; 0 || rows &lt; 0 || columns &lt; 0</code>.
      */
@@ -131,7 +131,7 @@ public class DenseDComplexMatrix3D extends DComplexMatrix3D {
      * @param columns
      *            the number of columns the matrix shall have.
      * @throws IllegalArgumentException
-     *             if <code>(double)slices*columns*rows > Integer.MAX_VALUE</code>.
+     *             if <code>(double)slices*columns*rows &gt; Integer.MAX_VALUE</code>.
      * @throws IllegalArgumentException
      *             if <code>slices &lt; 0 || rows &lt; 0 || columns &lt; 0</code>.
      */

@@ -287,7 +287,7 @@ public class DoubleSorting extends cern.colt.PersistentObject {
      * descending, use flip views ...
      * <p>
      * <b>Example:</b> Each aggregate is the sum of a row
-     * <table border="1" * cellspacing="0">
+     * <table border="1" cellspacing="0">
      * <tr nowrap>
      * <td valign="top"><code>4 x 2 matrix: <br>
      1, 1<br>
@@ -300,7 +300,7 @@ public class DoubleSorting extends cern.colt.PersistentObject {
      9<br>
      3<br>
      8<br>
-     ==></code></td>
+     ==&gt;</code></td>
      * <td valign="top">
      * <p>
      * <code>4 x 2 matrix:<br>
@@ -419,7 +419,7 @@ public class DoubleSorting extends cern.colt.PersistentObject {
      * <code>column = 0;<br>
      view = quickSort(matrix,column);<br>
      System.out.println(view); </code><code><br>
-     ==> </code>
+     ==&gt; </code>
      * </p>
      * </td>
      * <td valign="top">
@@ -443,7 +443,7 @@ public class DoubleSorting extends cern.colt.PersistentObject {
      * @return a new matrix view having rows sorted by the given column. <b>Note
      *         that the original matrix is left unaffected.</b>
      * @throws IndexOutOfBoundsException
-     *             if <code>column < 0 || column >= matrix.columns()</code>.
+     *             if <code>column &lt; 0 || column &gt;= matrix.columns()</code>.
      */
     public DoubleMatrix2D sort(DoubleMatrix2D matrix, int column) {
         if (column < 0 || column >= matrix.columns())
@@ -545,7 +545,7 @@ public class DoubleSorting extends cern.colt.PersistentObject {
      * descending, use flip views ...
      * <p>
      * <b>Example:</b> Each aggregate is the sum of a row
-     * <table border="1" * cellspacing="0">
+     * <table border="1" cellspacing="0">
      * <tr nowrap>
      * <td valign="top"><code>4 x 2 matrix: <br>
      1, 1<br>
@@ -555,7 +555,7 @@ public class DoubleSorting extends cern.colt.PersistentObject {
      </code></td>
      * <td align="left" valign="top"> <code>aggregates=<br>
      hep.aida.bin.BinFunctions1D.sum<br>
-     ==></code></td>
+     ==&gt;</code></td>
      * <td valign="top">
      * <p>
      * <code>4 x 2 matrix:<br>
@@ -647,7 +647,7 @@ public class DoubleSorting extends cern.colt.PersistentObject {
      *         that the original matrix is left unaffected.</b>
      * @throws IndexOutOfBoundsException
      *             if
-     *             <code>row < 0 || row >= matrix.rows() || column < 0 || column >= matrix.columns()</code>
+     *             <code>row &lt; 0 || row &gt;= matrix.rows() || column &lt; 0 || column &gt;= matrix.columns()</code>
      *             .
      */
     public DoubleMatrix3D sort(DoubleMatrix3D matrix, int row, int column) {

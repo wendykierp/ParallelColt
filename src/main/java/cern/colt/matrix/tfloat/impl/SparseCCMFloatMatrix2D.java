@@ -24,7 +24,7 @@ public class SparseCCMFloatMatrix2D extends WrapperFloatMatrix2D {
      *            the number of columns the matrix shall have.
      * @throws IllegalArgumentException
      *             if
-     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows > Integer.MAX_VALUE</code>
+     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows &gt; Integer.MAX_VALUE</code>
      *             .
      */
     public SparseCCMFloatMatrix2D(int rows, int columns) {

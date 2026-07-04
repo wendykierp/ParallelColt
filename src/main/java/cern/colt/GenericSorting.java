@@ -156,7 +156,7 @@ import cern.colt.function.tint.IntComparator;
  * Methods delegating to comparators cannot do this. They rely on the
  * comparator. Thus, if such boundary cases are an issue for the application at
  * hand, comparators explicitly need to implement -0.0 and NaN aware
- * comparisons. Remember: <code>-0.0 < 0.0 == false</code>,
+ * comparisons. Remember: <code>-0.0 &lt; 0.0 == false</code>,
  * <code>(-0.0 == 0.0) == true</code>, as well as
  * <code>5.0 &lt; Double.NaN == false</code>, <code>5.0 &gt; Double.NaN == false</code>.
  * Same for <code>float</code>.

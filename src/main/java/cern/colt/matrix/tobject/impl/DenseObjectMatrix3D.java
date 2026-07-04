@@ -120,7 +120,7 @@ public class DenseObjectMatrix3D extends ObjectMatrix3D {
      * @param columns
      *            the number of columns the matrix shall have.
      * @throws IllegalArgumentException
-     *             if <code>(Object)slices*columns*rows > Integer.MAX_VALUE</code>.
+     *             if <code>(Object)slices*columns*rows &gt; Integer.MAX_VALUE</code>.
      * @throws IllegalArgumentException
      *             if <code>slices &lt; 0 || rows &lt; 0 || columns &lt; 0</code>.
      */
@@ -156,7 +156,7 @@ public class DenseObjectMatrix3D extends ObjectMatrix3D {
      * @param isView
      *            if true then a matrix view is constructed.
      * @throws IllegalArgumentException
-     *             if <code>(Object)slices*columns*rows > Integer.MAX_VALUE</code>.
+     *             if <code>(Object)slices*columns*rows &gt; Integer.MAX_VALUE</code>.
      * @throws IllegalArgumentException
      *             if <code>slices &lt; 0 || rows &lt; 0 || columns &lt; 0</code>.
      */

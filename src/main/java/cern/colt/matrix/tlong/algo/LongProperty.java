@@ -182,7 +182,7 @@ public class LongProperty extends cern.colt.PersistentObject {
     /**
      * Returns whether all cells of the given matrix <code>A</code> are equal to the
      * given value. The result is <code>true</code> if and only if
-     * <code>A != null</code> and <code>! (Math.abs(value - A[i]) > tolerance())</code>
+     * <code>A != null</code> and <code>! (Math.abs(value - A[i]) &gt; tolerance())</code>
      * holds for all coordinates.
      * 
      * @param A
@@ -243,7 +243,7 @@ public class LongProperty extends cern.colt.PersistentObject {
      * Returns whether both given matrices <code>A</code> and <code>B</code> are equal.
      * The result is <code>true</code> if <code>A==B</code>. Otherwise, the result is
      * <code>true</code> if and only if both arguments are <code>!= null</code>, have
-     * the same size and <code>! (Math.abs(A[i] - B[i]) > tolerance())</code> holds
+     * the same size and <code>! (Math.abs(A[i] - B[i]) &gt; tolerance())</code> holds
      * for all indexes.
      * 
      * @param A
@@ -309,7 +309,7 @@ public class LongProperty extends cern.colt.PersistentObject {
      * Returns whether all cells of the given matrix <code>A</code> are equal to the
      * given value. The result is <code>true</code> if and only if
      * <code>A != null</code> and
-     * <code>! (Math.abs(value - A[row,col]) > tolerance())</code> holds for all
+     * <code>! (Math.abs(value - A[row,col]) &gt; tolerance())</code> holds for all
      * coordinates.
      * 
      * @param A
@@ -376,7 +376,7 @@ public class LongProperty extends cern.colt.PersistentObject {
      * The result is <code>true</code> if <code>A==B</code>. Otherwise, the result is
      * <code>true</code> if and only if both arguments are <code>!= null</code>, have
      * the same number of columns and rows and
-     * <code>! (Math.abs(A[row,col] - B[row,col]) > tolerance())</code> holds for
+     * <code>! (Math.abs(A[row,col] - B[row,col]) &gt; tolerance())</code> holds for
      * all coordinates.
      * 
      * @param A
@@ -446,7 +446,7 @@ public class LongProperty extends cern.colt.PersistentObject {
      * Returns whether all cells of the given matrix <code>A</code> are equal to the
      * given value. The result is <code>true</code> if and only if
      * <code>A != null</code> and
-     * <code>! (Math.abs(value - A[slice,row,col]) > tolerance())</code> holds for
+     * <code>! (Math.abs(value - A[slice,row,col]) &gt; tolerance())</code> holds for
      * all coordinates.
      * 
      * @param A
@@ -523,7 +523,7 @@ public class LongProperty extends cern.colt.PersistentObject {
      * The result is <code>true</code> if <code>A==B</code>. Otherwise, the result is
      * <code>true</code> if and only if both arguments are <code>!= null</code>, have
      * the same number of columns, rows and slices, and
-     * <code>! (Math.abs(A[slice,row,col] - B[slice,row,col]) > tolerance())</code>
+     * <code>! (Math.abs(A[slice,row,col] - B[slice,row,col]) &gt; tolerance())</code>
      * holds for all coordinates.
      * 
      * @param A
@@ -932,7 +932,7 @@ public class LongProperty extends cern.colt.PersistentObject {
 
     /**
      * A matrix <code>A</code> is <i>tridiagonal</i> if <code>A[i,j]==0</code> whenever
-     * <code>Math.abs(i-j) > 1</code>. Matrix may but need not be square.
+     * <code>Math.abs(i-j) &gt; 1</code>. Matrix may but need not be square.
      * @param A
      * @return 
      */

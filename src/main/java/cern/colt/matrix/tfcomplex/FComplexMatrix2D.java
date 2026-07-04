@@ -1286,7 +1286,7 @@ public abstract class FComplexMatrix2D extends AbstractMatrix2D {
      *            the column to fix.
      * @return a new slice view.
      * @throws IndexOutOfBoundsException
-     *             if <code>column < 0 || column >= columns()</code>.
+     *             if <code>column &lt; 0 || column &gt;= columns()</code>.
      * @see #viewRow(int)
      */
     public FComplexMatrix1D viewColumn(int column) {
@@ -1313,7 +1313,7 @@ public abstract class FComplexMatrix2D extends AbstractMatrix2D {
 
     /**
      * Constructs and returns a new <i>dice (transposition) view</i>; Swaps
-     * axes; example: 3 x 4 matrix --> 4 x 3 matrix. The view has both
+     * axes; example: 3 x 4 matrix --&gt; 4 x 3 matrix. The view has both
      * dimensions exchanged; what used to be columns become rows, what used to
      * be rows become columns. This is a zero-copy transposition, taking O(1),
      * i.e. constant time. The returned view is backed by this matrix, so
@@ -1359,7 +1359,7 @@ public abstract class FComplexMatrix2D extends AbstractMatrix2D {
      *            The width of the box.
      * @throws IndexOutOfBoundsException
      *             if
-     *             <code>column<0 || width<0 || column+width>columns() || row<0 || height<0 || row+height>rows()</code>
+     *             <code>column&lt;0 || width&lt;0 || column+width&gt;columns() || row&lt;0 || height&lt;0 || row+height&gt;rows()</code>
      * @return the new view.
      * 
      */
@@ -1378,7 +1378,7 @@ public abstract class FComplexMatrix2D extends AbstractMatrix2D {
      *            the row to fix.
      * @return a new slice view.
      * @throws IndexOutOfBoundsException
-     *             if <code>row < 0 || row >= rows()</code>.
+     *             if <code>row &lt; 0 || row &gt;= rows()</code>.
      * @see #viewColumn(int)
      */
     public FComplexMatrix1D viewRow(int row) {
@@ -1449,10 +1449,10 @@ public abstract class FComplexMatrix2D extends AbstractMatrix2D {
      *            simply set this parameter to <code>null</code>.
      * @return the new view.
      * @throws IndexOutOfBoundsException
-     *             if <code>!(0 <= rowIndexes[i] < rows())</code> for any
+     *             if <code>!(0 &lt;= rowIndexes[i] &lt; rows())</code> for any
      *             <code>i=0..rowIndexes.length()-1</code>.
      * @throws IndexOutOfBoundsException
-     *             if <code>!(0 <= columnIndexes[i] < columns())</code> for any
+     *             if <code>!(0 &lt;= columnIndexes[i] &lt; columns())</code> for any
      *             <code>i=0..columnIndexes.length()-1</code>.
      */
     public FComplexMatrix2D viewSelection(int[] rowIndexes, int[] columnIndexes) {
@@ -1497,7 +1497,7 @@ public abstract class FComplexMatrix2D extends AbstractMatrix2D {
      *            the column step factor.
      * @return a new view.
      * @throws IndexOutOfBoundsException
-     *             if <code>rowStride<=0 || columnStride<=0</code>.
+     *             if <code>rowStride&lt;=0 || columnStride&lt;=0</code>.
      */
     public FComplexMatrix2D viewStrides(int rowStride, int columnStride) {
         return (FComplexMatrix2D) (view().vStrides(rowStride, columnStride));
@@ -1537,7 +1537,7 @@ public abstract class FComplexMatrix2D extends AbstractMatrix2D {
      * @return z (for convenience only).
      * 
      * @throws IllegalArgumentException
-     *             if <code>A.columns() != y.size() || A.rows() > z.size())</code>.
+     *             if <code>A.columns() != y.size() || A.rows() &gt; z.size())</code>.
      */
     public FComplexMatrix1D zMult(final FComplexMatrix1D y, FComplexMatrix1D z, final float[] alpha,
             final float[] beta, boolean transposeA) {

@@ -95,7 +95,7 @@ public class SparseCCDComplexMatrix2D extends WrapperDComplexMatrix2D {
      * @param columns
      *            the number of columns the matrix shall have.
      * @throws IllegalArgumentException
-     *             if <code>rows<0 || columns<0</code> .
+     *             if <code>rows&lt;0 || columns&lt;0</code> .
      */
     public SparseCCDComplexMatrix2D(int rows, int columns) {
         this(rows, columns, (int) Math.min(10l * rows, Integer.MAX_VALUE));
@@ -112,7 +112,7 @@ public class SparseCCDComplexMatrix2D extends WrapperDComplexMatrix2D {
      * @param nzmax
      *            maximum number of nonzero elements
      * @throws IllegalArgumentException
-     *             if <code>rows<0 || columns<0</code> .
+     *             if <code>rows&lt;0 || columns&lt;0</code> .
      */
     public SparseCCDComplexMatrix2D(int rows, int columns, int nzmax) {
         super(null);

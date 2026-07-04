@@ -79,7 +79,7 @@ class UnknownFloatQuantileEstimator extends FloatQuantileEstimator {
      *            the tree height at which sampling shall start.
      * @param precomputeEpsilon
      *            the epsilon for which quantiles shall be precomputed; set this
-     *            value <=0.0 if nothing shall be precomputed.
+     *            value &lt;=0.0 if nothing shall be precomputed.
      * @param generator
      *            a uniform random number generator.
      */

@@ -58,7 +58,7 @@ public class DComplexFactory1D extends cern.colt.PersistentObject {
 
     /**
      * C = A||B; Constructs a new matrix which is the concatenation of two other
-     * matrices. Example: <code>0 1</code> append <code>3 4</code> --> <code>0 1 3 4</code>.
+     * matrices. Example: <code>0 1</code> append <code>3 4</code> --&gt; <code>0 1 3 4</code>.
      * @param A
      * @param B
      * @return 

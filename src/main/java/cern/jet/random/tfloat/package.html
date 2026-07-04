@@ -23,7 +23,7 @@ cern.jet.random.AbstractDistribution dist = new cern.jet.random.Gamma(alpha,lamb
 // collect random numbers and print statistics
 int size = 100000;
 cern.colt.list.tdouble.DoubleArrayList numbers = new cern.colt.list.tdouble.DoubleArrayList(size);
-for (int i=0; i < size; i++) numbers.add(dist.nextDouble());
+for (int i=0; i &lt; size; i++) numbers.add(dist.nextDouble());
 
 hep.aida.bin.DynamicBin1D bin = new hep.aida.bin.DynamicBin1D();
 bin.addAllOf(numbers);
@@ -67,7 +67,7 @@ Moment(5,mean()): 14.413483695698101
 Moment(6,mean()): 77.72119325586715
 25%, 50%, 75% Quantiles: 4.122365795016783, 4.897730017566362, 5.763097174551738
 quantileInverse(median): 0.500005
-Distinct elements & frequencies not printed (too many).
+Distinct elements &amp; frequencies not printed (too many).
 </pre>
 </td>
 </table>

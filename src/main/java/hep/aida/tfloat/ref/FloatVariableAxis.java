@@ -31,7 +31,7 @@ public class FloatVariableAxis implements FloatIAxis {
      *            the bin boundaries the partition shall have; must be sorted
      *            ascending and must not contain multiple identical elements.
      * @throws IllegalArgumentException
-     *             if <code>edges.length < 1</code>.
+     *             if <code>edges.length &lt; 1</code>.
      */
     public FloatVariableAxis(float[] edges) {
         if (edges.length < 1)

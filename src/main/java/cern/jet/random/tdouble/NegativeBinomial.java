@@ -115,14 +115,14 @@ public class NegativeBinomial extends AbstractDiscreteDistribution {
          * ***************************************************************** *
          * FUNCTION: - nbp samples a random number from the Negative * Binomial
          * distribution with parameters r (no. of * failures given) and p
-         * (probability of success) * valid for r > 0, 0 < p < 1. * If G from
+         * (probability of success) * valid for r &gt; 0, 0 &lt; p &lt; 1. * If G from
          * Gamma(r) then K from Poiss(pG/(1-p)) * is NB(r,p)--distributed. *
          * REFERENCE: - J.H. Ahrens, U. Dieter (1974): Computer methods * for
          * sampling from gamma, beta, Poisson and * binomial distributions,
          * Computing 12, 223--246. * SUBPROGRAMS: - drand(seed) ...
          * (0,1)-Uniform generator with * unsigned long integer *seed * -
-         * Gamma(seed,a) ... Gamma generator for a > 0 * unsigned long *seed,
-         * double a * - Poisson(seed,a) ...Poisson generator for a > 0 *
+         * Gamma(seed,a) ... Gamma generator for a &gt; 0 * unsigned long *seed,
+         * double a * - Poisson(seed,a) ...Poisson generator for a &gt; 0 *
          * unsigned long *seed, double a. * *
          **********************************************************************/
 

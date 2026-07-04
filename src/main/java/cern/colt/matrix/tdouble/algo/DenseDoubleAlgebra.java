@@ -828,11 +828,11 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
      *            the vector to permute.
      * @param indexes
      *            the permutation indexes, must satisfy
-     *            <code>indexes.length==A.size() &amp;&amp; indexes[i] >= 0 &amp;&amp; indexes[i] &lt; A.size()</code>
+     *            <code>indexes.length==A.size() &amp;&amp; indexes[i] &gt;= 0 &amp;&amp; indexes[i] &lt; A.size()</code>
      *            ;
      * @param work
      *            the working storage, must satisfy
-     *            <code>work.length >= A.size()</code>; set <code>work==null</code> if
+     *            <code>work.length &gt;= A.size()</code>; set <code>work==null</code> if
      *            you don't care about performance.
      * @return the modified <code>A</code> (for convenience only).
      * @throws IndexOutOfBoundsException
@@ -882,11 +882,11 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
      *            the matrix to permute.
      * @param indexes
      *            the permutation indexes, must satisfy
-     *            <code>indexes.length==A.columns() &amp;&amp; indexes[i] >= 0 &amp;&amp; indexes[i] &lt; A.columns()</code>
+     *            <code>indexes.length==A.columns() &amp;&amp; indexes[i] &gt;= 0 &amp;&amp; indexes[i] &lt; A.columns()</code>
      *            ;
      * @param work
      *            the working storage, must satisfy
-     *            <code>work.length >= A.columns()</code>; set <code>work==null</code>
+     *            <code>work.length &gt;= A.columns()</code>; set <code>work==null</code>
      *            if you don't care about performance.
      * @return the modified <code>A</code> (for convenience only).
      * @throws IndexOutOfBoundsException
@@ -924,7 +924,7 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
      *            ;
      * @param work
      *            the working storage, must satisfy
-     *            <code>work.length >= A.rows()</code>; set <code>work==null</code> if
+     *            <code>work.length &gt;= A.rows()</code>; set <code>work==null</code> if
      *            you don't care about performance.
      * @return the modified <code>A</code> (for convenience only).
      * @throws IndexOutOfBoundsException
@@ -1203,7 +1203,7 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
      * @throws IndexOutOfBoundsException
      *             if
      * 
-     *             <code>columnFrom &lt; 0 || columnTo-columnFrom+1 &lt; 0 || columnTo+1>matrix.columns() || for any row=rowIndexes[i]: row &lt; 0 || row >= matrix.rows()</code>
+     *             <code>columnFrom &lt; 0 || columnTo-columnFrom+1 &lt; 0 || columnTo+1&gt;matrix.columns() || for any row=rowIndexes[i]: row &lt; 0 || row &gt;= matrix.rows()</code>
      *             .
      */
     public DoubleMatrix2D subMatrix(DoubleMatrix2D A, int[] rowIndexes, int columnFrom, int columnTo) {
@@ -1243,7 +1243,7 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
      * @throws IndexOutOfBoundsException
      *             if
      * 
-     *             <code>rowFrom &lt; 0 || rowTo-rowFrom+1 &lt; 0 || rowTo+1>matrix.rows() || for any col=columnIndexes[i]: col &lt; 0 || col >= matrix.columns()</code>
+     *             <code>rowFrom &lt; 0 || rowTo-rowFrom+1 &lt; 0 || rowTo+1&gt;matrix.rows() || for any col=columnIndexes[i]: col &lt; 0 || col &gt;= matrix.columns()</code>
      *             .
      */
     public DoubleMatrix2D subMatrix(DoubleMatrix2D A, int rowFrom, int rowTo, int[] columnIndexes) {
@@ -1285,7 +1285,7 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
      * @throws IndexOutOfBoundsException
      *             if
      * 
-     *             <code>fromColumn &lt; 0 || toColumn-fromColumn+1 &lt; 0 || toColumn>=A.columns() || fromRow &lt; 0 || toRow-fromRow+1 &lt; 0 || toRow>=A.rows()</code>
+     *             <code>fromColumn &lt; 0 || toColumn-fromColumn+1 &lt; 0 || toColumn&gt;=A.columns() || fromRow &lt; 0 || toRow-fromRow+1 &lt; 0 || toRow&gt;=A.rows()</code>
      */
     public DoubleMatrix2D subMatrix(DoubleMatrix2D A, int fromRow, int toRow, int fromColumn, int toColumn) {
         return A.viewPart(fromRow, fromColumn, toRow - fromRow + 1, toColumn - fromColumn + 1);
@@ -1660,12 +1660,12 @@ public class DenseDoubleAlgebra extends cern.colt.PersistentObject {
      * <td valign="top">2 x 3 matrix: <br>
      * 1, 2, 3<br>
      * 4, 5, 6</td>
-     * <td>transpose ==></td>
+     * <td>transpose ==&gt;</td>
      * <td valign="top">3 x 2 matrix:<br>
      * 1, 4 <br>
      * 2, 5 <br>
      * 3, 6</td>
-     * <td>transpose ==></td>
+     * <td>transpose ==&gt;</td>
      * <td valign="top">2 x 3 matrix: <br>
      * 1, 2, 3<br>
      * 4, 5, 6</td>

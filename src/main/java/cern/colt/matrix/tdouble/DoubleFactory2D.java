@@ -1046,7 +1046,7 @@ public class DoubleFactory2D extends cern.colt.PersistentObject {
      * @param value
      * @return 
      * @throws IllegalArgumentException
-     *             if <code>nonZeroFraction < 0 || nonZeroFraction > 1</code>.
+     *             if <code>nonZeroFraction &lt; 0 || nonZeroFraction &gt; 1</code>.
      * @see cern.jet.random.tdouble.sampling.DoubleRandomSampler
      */
     public DoubleMatrix2D sample(DoubleMatrix2D matrix, double value, double nonZeroFraction) {
@@ -1094,7 +1094,7 @@ public class DoubleFactory2D extends cern.colt.PersistentObject {
      * @param value
      * @return 
      * @throws IllegalArgumentException
-     *             if <code>nonZeroFraction < 0 || nonZeroFraction > 1</code>.
+     *             if <code>nonZeroFraction &lt; 0 || nonZeroFraction &gt; 1</code>.
      * @see cern.jet.random.tdouble.sampling.DoubleRandomSampler
      */
     public DoubleMatrix2D sample(int rows, int columns, double value, double nonZeroFraction) {

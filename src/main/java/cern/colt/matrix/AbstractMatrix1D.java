@@ -69,7 +69,7 @@ public abstract class AbstractMatrix1D extends AbstractMatrix {
      * 
      * @param index
      * @throws IndexOutOfBoundsException
-     *             if <code>index < 0 || index >= size()</code>.
+     *             if <code>index &lt; 0 || index &gt;= size()</code>.
      */
     protected void checkIndex(int index) {
         if (index < 0 || index >= size)
@@ -81,7 +81,7 @@ public abstract class AbstractMatrix1D extends AbstractMatrix {
      * 
      * @param indexes
      * @throws IndexOutOfBoundsException
-     *             if <code>! (0 <= indexes[i] < size())</code> for any
+     *             if <code>! (0 &lt;= indexes[i] &lt; size())</code> for any
      *             i=0..indexes.length()-1.
      */
     protected void checkIndexes(int[] indexes) {
@@ -99,7 +99,7 @@ public abstract class AbstractMatrix1D extends AbstractMatrix {
      * @param index
      * @param width
      * @throws IndexOutOfBoundsException
-     *             if <code>index<0 || index+width>size()</code>.
+     *             if <code>index&lt;0 || index+width&gt;size()</code>.
      */
     protected void checkRange(int index, int width) {
         if (index < 0 || index + width > size)
@@ -228,7 +228,7 @@ public abstract class AbstractMatrix1D extends AbstractMatrix {
      * @param width
      * @return 
      * @throws IndexOutOfBoundsException
-     *             if <code>index<0 || index+width>size()</code>.
+     *             if <code>index&lt;0 || index+width&gt;size()</code>.
      */
     protected AbstractMatrix1D vPart(int index, int width) {
         checkRange(index, width);
@@ -244,7 +244,7 @@ public abstract class AbstractMatrix1D extends AbstractMatrix {
      * @param stride
      * @return 
      * @throws IndexOutOfBoundsException
-     *             if <code>stride <= 0</code>.
+     *             if <code>stride &lt;= 0</code>.
      */
     protected AbstractMatrix1D vStrides(int stride) {
         if (stride <= 0)

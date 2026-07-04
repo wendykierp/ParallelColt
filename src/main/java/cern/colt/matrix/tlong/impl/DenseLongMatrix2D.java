@@ -107,7 +107,7 @@ public class DenseLongMatrix2D extends LongMatrix2D {
      *            the number of columns the matrix shall have.
      * @throws IllegalArgumentException
      *             if
-     *             <code>rows &lt; 0 || columns &lt; 0 || (int)columns*rows > Integer.MAX_VALUE</code>
+     *             <code>rows &lt; 0 || columns &lt; 0 || (int)columns*rows &gt; Integer.MAX_VALUE</code>
      *             .
      */
     public DenseLongMatrix2D(int rows, int columns) {
@@ -138,7 +138,7 @@ public class DenseLongMatrix2D extends LongMatrix2D {
      *            if true then a matrix view is constructed
      * @throws IllegalArgumentException
      *             if
-     *             <code>rows &lt; 0 || columns &lt; 0 || (int)columns*rows > Integer.MAX_VALUE</code>
+     *             <code>rows &lt; 0 || columns &lt; 0 || (int)columns*rows &gt; Integer.MAX_VALUE</code>
      *             or flip's are illegal.
      */
     public DenseLongMatrix2D(int rows, int columns, long[] elements, int rowZero, int columnZero, int rowStride,

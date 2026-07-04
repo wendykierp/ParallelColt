@@ -105,7 +105,7 @@ public class DenseObjectMatrix2D extends ObjectMatrix2D {
      *            the number of columns the matrix shall have.
      * @throws IllegalArgumentException
      *             if
-     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows > Integer.MAX_VALUE</code>
+     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows &gt; Integer.MAX_VALUE</code>
      *             .
      */
     public DenseObjectMatrix2D(int rows, int columns) {
@@ -136,7 +136,7 @@ public class DenseObjectMatrix2D extends ObjectMatrix2D {
      *            if true then a matrix view is constructed
      * @throws IllegalArgumentException
      *             if
-     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows > Integer.MAX_VALUE</code>
+     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows &gt; Integer.MAX_VALUE</code>
      *             or flip's are illegal.
      */
     protected DenseObjectMatrix2D(int rows, int columns, Object[] elements, int rowZero, int columnZero, int rowStride,

@@ -64,7 +64,7 @@ public class SparseFComplexMatrix2D extends FComplexMatrix2D {
      *            the number of columns the matrix shall have.
      * @throws IllegalArgumentException
      *             if
-     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows > Integer.MAX_VALUE</code>
+     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows &gt; Integer.MAX_VALUE</code>
      *             .
      */
     public SparseFComplexMatrix2D(int rows, int columns) {
@@ -93,7 +93,7 @@ public class SparseFComplexMatrix2D extends FComplexMatrix2D {
      *            <code>index(i,j+1)-index(i,j)</code>.
      * @throws IllegalArgumentException
      *             if
-     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows > Integer.MAX_VALUE</code>
+     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows &gt; Integer.MAX_VALUE</code>
      *             or flip's are illegal.
      */
     protected SparseFComplexMatrix2D(int rows, int columns, ConcurrentHashMap<Long, float[]> elements, int rowZero,

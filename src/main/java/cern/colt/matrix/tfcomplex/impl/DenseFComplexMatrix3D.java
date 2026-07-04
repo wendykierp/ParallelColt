@@ -111,7 +111,7 @@ public class DenseFComplexMatrix3D extends FComplexMatrix3D {
      * @param realPart
      *            a real matrix whose elements become a real part of this matrix
      * @throws IllegalArgumentException
-     *             if <code>(float)slices*columns*rows > Integer.MAX_VALUE</code>.
+     *             if <code>(float)slices*columns*rows &gt; Integer.MAX_VALUE</code>.
      * @throws IllegalArgumentException
      *             if <code>slices &lt; 0 || rows &lt; 0 || columns &lt; 0</code>.
      */
@@ -131,7 +131,7 @@ public class DenseFComplexMatrix3D extends FComplexMatrix3D {
      * @param columns
      *            the number of columns the matrix shall have.
      * @throws IllegalArgumentException
-     *             if <code>(float)slices*columns*rows > Integer.MAX_VALUE</code>.
+     *             if <code>(float)slices*columns*rows &gt; Integer.MAX_VALUE</code>.
      * @throws IllegalArgumentException
      *             if <code>slices &lt; 0 || rows &lt; 0 || columns &lt; 0</code>.
      */
@@ -170,7 +170,7 @@ public class DenseFComplexMatrix3D extends FComplexMatrix3D {
      *            if false then the view is constructed
      * 
      * @throws IllegalArgumentException
-     *             if <code>(float)slices*columns*rows > Integer.MAX_VALUE</code>.
+     *             if <code>(float)slices*columns*rows &gt; Integer.MAX_VALUE</code>.
      * @throws IllegalArgumentException
      *             if <code>slices &lt; 0 || rows &lt; 0 || columns &lt; 0</code>.
      */

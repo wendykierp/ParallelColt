@@ -256,13 +256,13 @@ public class MightyStaticDoubleBin1D extends StaticDoubleBin1D {
     /**
      * Tells whether <code>sumOfPowers(k)</code> can return meaningful results.
      * Defined as
-     * <code>hasSumOfPowers(k) <==> getMinOrderForSumOfPowers() <= k &amp;&amp; k <= getMaxOrderForSumOfPowers()</code>
+     * <code>hasSumOfPowers(k) &lt;==&gt; getMinOrderForSumOfPowers() &lt;= k &amp;&amp; k &lt;= getMaxOrderForSumOfPowers()</code>
      * . A return value of <code>true</code> implies that
      * <code>hasSumOfPowers(k-1) .. hasSumOfPowers(0)</code> will also return
      * <code>true</code>. See the constructors for proper parametrization.
      * <p>
      * <b>Details</b>: <code>hasSumOfPowers(0..2)</code> will always yield
-     * <code>true</code>. <code>hasSumOfPowers(-1) <==> hasSumOfInversions()</code>.
+     * <code>true</code>. <code>hasSumOfPowers(-1) &lt;==&gt; hasSumOfInversions()</code>.
      * 
      * @param k
      * @return <code>false</code> if the bin was constructed with insufficient
@@ -294,7 +294,7 @@ public class MightyStaticDoubleBin1D extends StaticDoubleBin1D {
      * @param c
      *            any number.
      * @throws IllegalArgumentException
-     *             if <code>k < 0</code>.
+     *             if <code>k &lt; 0</code>.
      * @return <code>Double.NaN</code> if <code>!hasSumOfPower(k)</code>.
      */
     public synchronized double moment(int k, double c) {
@@ -330,7 +330,7 @@ public class MightyStaticDoubleBin1D extends StaticDoubleBin1D {
     /**
      * Sets the range of orders in which sums of powers are to be computed. In
      * other words, <code>sumOfPower(k)</code> will return <code>Sum( x[i]^k )</code> if
-     * <code>min_k <= k <= max_k || 0 <= k <= 2</code> and throw an exception
+     * <code>min_k &lt;= k &lt;= max_k || 0 &lt;= k &lt;= 2</code> and throw an exception
      * otherwise.
      * 
      * @param max_k
@@ -495,7 +495,7 @@ public class MightyStaticDoubleBin1D extends StaticDoubleBin1D {
      *         parametrization, <code>true</code> otherwise. See the constructors
      *         for proper parametrization.
      * @throws IllegalArgumentException
-     *             if <code>fromK > toK</code>.
+     *             if <code>fromK &gt; toK</code>.
      */
     protected boolean xhasSumOfPowers(int fromK, int toK) {
         if (fromK > toK)
@@ -505,7 +505,7 @@ public class MightyStaticDoubleBin1D extends StaticDoubleBin1D {
 
     /**
      * Returns
-     * <code>getMinOrderForSumOfPowers() <= k &amp;&amp; k <= getMaxOrderForSumOfPowers()</code>
+     * <code>getMinOrderForSumOfPowers() &lt;= k &amp;&amp; k &lt;= getMaxOrderForSumOfPowers()</code>
      * .
      * @param k
      * @return 

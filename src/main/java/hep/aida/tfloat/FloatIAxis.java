@@ -57,8 +57,8 @@ public interface FloatIAxis extends java.io.Serializable {
     public float binWidth(int index);
 
     /**
-     * Converts a coordinate on the axis to a bin number. If the coordinate is <
-     * lowerEdge returns UNDERFLOW, and if the coordinate is >= upperEdge
+     * Converts a coordinate on the axis to a bin number. If the coordinate is &lt;
+     * lowerEdge returns UNDERFLOW, and if the coordinate is &gt;= upperEdge
      * returns OVERFLOW.
      * @param coord
      * @return 

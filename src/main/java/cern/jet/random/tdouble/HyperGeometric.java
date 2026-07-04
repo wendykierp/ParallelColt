@@ -24,7 +24,7 @@ import cern.jet.random.tdouble.engine.DoubleRandomEngine;
  * <code>p(k) = C(s,k) * C(N-s,n-k) / C(N,n)</code> where
  * <code>C(a,b) = a! / (b! * (a-b)!)</code>.
  * <p>
- * valid for N >= 2, s,n <= N.
+ * valid for N &gt;= 2, s,n &lt;= N.
  * <p>
  * Instance methods operate on a user supplied uniform random number generator;
  * they are unsynchronized.
@@ -358,13 +358,13 @@ public class HyperGeometric extends AbstractDiscreteDistribution {
         /***********************************************************************
          * * Hypergeometric Distribution - Patchwork Rejection/Inversion * *
          * ***************************************************************** *
-         * The basic algorithms work for parameters 1 <= n <= M <= N/2. *
+         * The basic algorithms work for parameters 1 &lt;= n &lt;= M &lt;= N/2. *
          * Otherwise parameters are re-defined in the set-up step and the *
          * random number K is adapted before delivering. * For l =
-         * m-max(0,n-N+M) < 10 Inversion method hmdu is applied: * The random
+         * m-max(0,n-N+M) &lt; 10 Inversion method hmdu is applied: * The random
          * numbers are generated via modal down-up search, * starting at the
          * mode m. The cumulative probabilities * are avoided by using the
-         * technique of chop-down. * For l >= 10 the Patchwork Rejection method
+         * technique of chop-down. * For l &gt;= 10 the Patchwork Rejection method
          * hprs is employed: * The area below the histogram function f(x) in its
          * * body is rearranged by certain point reflections. Within a * large
          * center interval variates are sampled efficiently by * rejection from
@@ -374,14 +374,14 @@ public class HyperGeometric extends AbstractDiscreteDistribution {
          * ***************************************************************** *
          * FUNCTION : - hprsc samples a random number from the * Hypergeometric
          * distribution with parameters * N (number of red and black balls), M
-         * (number * of red balls) and n (number of trials) * valid for N >= 2,
-         * M,n <= N. * REFERENCE : - H. Zechner (1994): Efficient sampling from
+         * (number * of red balls) and n (number of trials) * valid for N &gt;= 2,
+         * M,n &lt;= N. * REFERENCE : - H. Zechner (1994): Efficient sampling from
          * * continuous and discrete unimodal distributions, * Doctoral
          * Dissertation, 156 pp., Technical * University Graz, Austria. *
          * SUBPROGRAMS: - flogfak(k) ... log(k!) with long integer k * -
          * drand(seed) ... (0,1)-Uniform generator with * unsigned long integer
-         * *seed. * - hmdu(seed,N,M,n) ... Hypergeometric generator * for l<10 *
-         * - hprs(seed,N,M,n) ... Hypergeometric generator * for l>=10 with
+         * *seed. * - hmdu(seed,N,M,n) ... Hypergeometric generator * for l&lt;10 *
+         * - hprs(seed,N,M,n) ... Hypergeometric generator * for l&gt;=10 with
          * unsigned long integer *seed, * long integer N , M , n. * *
          **********************************************************************/
         int Nhalf, n_le_Nhalf, M_le_Nhalf, K;

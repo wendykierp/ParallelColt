@@ -19,7 +19,7 @@ public class Bessel extends DoubleConstants {
     /**
      * Chebyshev coefficients for exp(-x) I0(x) in the interval [0,8].
      * 
-     * lim(x->0){ exp(-x) I0(x) } = 1.
+     * lim(x-&gt;0){ exp(-x) I0(x) } = 1.
      */
     protected static final double[] A_i0 = { -4.41534164647933937950E-18, 3.33079451882223809783E-17,
             -2.43127984654795469359E-16, 1.71539128555513303061E-15, -1.16853328779934516808E-14,
@@ -37,7 +37,7 @@ public class Bessel extends DoubleConstants {
      * Chebyshev coefficients for exp(-x) sqrt(x) I0(x) in the inverted interval
      * [8,infinity].
      * 
-     * lim(x->inf){ exp(-x) sqrt(x) I0(x) } = 1/sqrt(2pi).
+     * lim(x-&gt;inf){ exp(-x) sqrt(x) I0(x) } = 1/sqrt(2pi).
      */
     protected static final double[] B_i0 = { -7.23318048787475395456E-18, -4.83050448594418207126E-18,
             4.46562142029675999901E-17, 3.46122286769746109310E-17, -2.82762398051658348494E-16,
@@ -55,7 +55,7 @@ public class Bessel extends DoubleConstants {
     /**
      * Chebyshev coefficients for exp(-x) I1(x) / x in the interval [0,8].
      * 
-     * lim(x->0){ exp(-x) I1(x) / x } = 1/2.
+     * lim(x-&gt;0){ exp(-x) I1(x) / x } = 1/2.
      */
     protected static final double[] A_i1 = { 2.77791411276104639959E-18, -2.11142121435816608115E-17,
             1.55363195773620046921E-16, -1.10559694773538630805E-15, 7.60068429473540693410E-15,

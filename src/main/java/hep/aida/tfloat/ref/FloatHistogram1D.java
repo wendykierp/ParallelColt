@@ -48,7 +48,7 @@ public class FloatHistogram1D extends FloatAbstractHistogram1D implements FloatI
      *            the bin boundaries the axis shall have; must be sorted
      *            ascending and must not contain multiple identical elements.
      * @throws IllegalArgumentException
-     *             if <code>edges.length < 1</code>.
+     *             if <code>edges.length &lt; 1</code>.
      */
     public FloatHistogram1D(String title, float[] edges) {
         this(title, new FloatVariableAxis(edges));

@@ -917,7 +917,7 @@ public abstract class ObjectMatrix2D extends AbstractMatrix2D {
      * @param otherObj
      *            the Object to be compared for equality with the receiver.
      * @param testForEquality
-     *            if true -> tests for equality, otherwise for identity.
+     *            if true -&gt; tests for equality, otherwise for identity.
      * @return true if the specified Object is equal to the receiver.
      */
     public boolean equals(Object otherObj, boolean testForEquality) { // delta
@@ -1331,7 +1331,7 @@ public abstract class ObjectMatrix2D extends AbstractMatrix2D {
      * <td valign="top">2 x 3 matrix: <br>
      * 1, 2, 3<br>
      * 4, 5, 6</td>
-     * <td>viewColumn(0) ==></td>
+     * <td>viewColumn(0) ==&gt;</td>
      * <td valign="top">Matrix1D of size 2:<br>
      * 1, 4</td>
      * </tr>
@@ -1341,7 +1341,7 @@ public abstract class ObjectMatrix2D extends AbstractMatrix2D {
      *            the column to fix.
      * @return a new slice view.
      * @throws IndexOutOfBoundsException
-     *             if <code>column < 0 || column >= columns()</code>.
+     *             if <code>column &lt; 0 || column &gt;= columns()</code>.
      * @see #viewRow(int)
      */
     public ObjectMatrix1D viewColumn(int column) {
@@ -1365,11 +1365,11 @@ public abstract class ObjectMatrix2D extends AbstractMatrix2D {
      * <td valign="top">2 x 3 matrix: <br>
      * 1, 2, 3<br>
      * 4, 5, 6</td>
-     * <td>columnFlip ==></td>
+     * <td>columnFlip ==&gt;</td>
      * <td valign="top">2 x 3 matrix:<br>
      * 3, 2, 1 <br>
      * 6, 5, 4</td>
-     * <td>columnFlip ==></td>
+     * <td>columnFlip ==&gt;</td>
      * <td valign="top">2 x 3 matrix: <br>
      * 1, 2, 3<br>
      * 4, 5, 6</td>
@@ -1385,7 +1385,7 @@ public abstract class ObjectMatrix2D extends AbstractMatrix2D {
 
     /**
      * Constructs and returns a new <i>dice (transposition) view</i>; Swaps
-     * axes; example: 3 x 4 matrix --> 4 x 3 matrix. The view has both
+     * axes; example: 3 x 4 matrix --&gt; 4 x 3 matrix. The view has both
      * dimensions exchanged; what used to be columns become rows, what used to
      * be rows become columns. In other words:
      * <code>view.get(row,column)==this.get(column,row)</code>. This is a zero-copy
@@ -1401,12 +1401,12 @@ public abstract class ObjectMatrix2D extends AbstractMatrix2D {
      * <td valign="top">2 x 3 matrix: <br>
      * 1, 2, 3<br>
      * 4, 5, 6</td>
-     * <td>transpose ==></td>
+     * <td>transpose ==&gt;</td>
      * <td valign="top">3 x 2 matrix:<br>
      * 1, 4 <br>
      * 2, 5 <br>
      * 3, 6</td>
-     * <td>transpose ==></td>
+     * <td>transpose ==&gt;</td>
      * <td valign="top">2 x 3 matrix: <br>
      * 1, 2, 3<br>
      * 4, 5, 6</td>
@@ -1451,7 +1451,7 @@ public abstract class ObjectMatrix2D extends AbstractMatrix2D {
      *            The width of the box.
      * @throws IndexOutOfBoundsException
      *             if
-     *             <code>column<0 || width<0 || column+width>columns() || row<0 || height<0 || row+height>rows()</code>
+     *             <code>column&lt;0 || width&lt;0 || column+width&gt;columns() || row&lt;0 || height&lt;0 || row+height&gt;rows()</code>
      * @return the new view.
      * 
      */
@@ -1472,7 +1472,7 @@ public abstract class ObjectMatrix2D extends AbstractMatrix2D {
      * <td valign="top">2 x 3 matrix: <br>
      * 1, 2, 3<br>
      * 4, 5, 6</td>
-     * <td>viewRow(0) ==></td>
+     * <td>viewRow(0) ==&gt;</td>
      * <td valign="top">Matrix1D of size 3:<br>
      * 1, 2, 3</td>
      * </tr>
@@ -1482,7 +1482,7 @@ public abstract class ObjectMatrix2D extends AbstractMatrix2D {
      *            the row to fix.
      * @return a new slice view.
      * @throws IndexOutOfBoundsException
-     *             if <code>row < 0 || row >= rows()</code>.
+     *             if <code>row &lt; 0 || row &gt;= rows()</code>.
      * @see #viewColumn(int)
      */
     public ObjectMatrix1D viewRow(int row) {
@@ -1506,11 +1506,11 @@ public abstract class ObjectMatrix2D extends AbstractMatrix2D {
      * <td valign="top">2 x 3 matrix: <br>
      * 1, 2, 3<br>
      * 4, 5, 6</td>
-     * <td>rowFlip ==></td>
+     * <td>rowFlip ==&gt;</td>
      * <td valign="top">2 x 3 matrix:<br>
      * 4, 5, 6 <br>
      * 1, 2, 3</td>
-     * <td>rowFlip ==></td>
+     * <td>rowFlip ==&gt;</td>
      * <td valign="top">2 x 3 matrix: <br>
      * 1, 2, 3<br>
      * 4, 5, 6</td>
@@ -1564,10 +1564,10 @@ public abstract class ObjectMatrix2D extends AbstractMatrix2D {
      *            simply set this parameter to <code>null</code>.
      * @return the new view.
      * @throws IndexOutOfBoundsException
-     *             if <code>!(0 <= rowIndexes[i] < rows())</code> for any
+     *             if <code>!(0 &lt;= rowIndexes[i] &lt; rows())</code> for any
      *             <code>i=0..rowIndexes.length()-1</code>.
      * @throws IndexOutOfBoundsException
-     *             if <code>!(0 <= columnIndexes[i] < columns())</code> for any
+     *             if <code>!(0 &lt;= columnIndexes[i] &lt; columns())</code> for any
      *             <code>i=0..columnIndexes.length()-1</code>.
      */
     public ObjectMatrix2D viewSelection(int[] rowIndexes, int[] columnIndexes) {
@@ -1668,7 +1668,7 @@ public abstract class ObjectMatrix2D extends AbstractMatrix2D {
      * @param column
      * @return a new sorted vector (matrix) view.
      * @throws IndexOutOfBoundsException
-     *             if <code>column < 0 || column >= columns()</code>.
+     *             if <code>column &lt; 0 || column &gt;= columns()</code>.
      */
     public ObjectMatrix2D viewSorted(int column) {
         return cern.colt.matrix.tobject.algo.ObjectSorting.mergeSort.sort(this, column);
@@ -1690,7 +1690,7 @@ public abstract class ObjectMatrix2D extends AbstractMatrix2D {
      *            the column step factor.
      * @return a new view.
      * @throws IndexOutOfBoundsException
-     *             if <code>rowStride<=0 || columnStride<=0</code>.
+     *             if <code>rowStride&lt;=0 || columnStride&lt;=0</code>.
      */
     public ObjectMatrix2D viewStrides(int rowStride, int columnStride) {
         return (ObjectMatrix2D) (view().vStrides(rowStride, columnStride));

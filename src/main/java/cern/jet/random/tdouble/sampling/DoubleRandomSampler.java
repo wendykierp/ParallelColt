@@ -48,7 +48,7 @@ import cern.jet.random.tdouble.engine.DoubleRandomEngine;
  * <p>
  * <b>Performance:</b> Space requirements are zero. Running time is
  * <code>O(n)</code> on average, <code>O(N)</code> in the worst case.
- * <h2 * align=center>Performance (200Mhz Pentium Pro, JDK 1.2, NT)</h2>
+ * <h2 align=center>Performance (200Mhz Pentium Pro, JDK 1.2, NT)</h2>
  * <center>
  * <table border="1">
  * <tr>

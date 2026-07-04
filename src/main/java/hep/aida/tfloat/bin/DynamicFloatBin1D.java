@@ -311,7 +311,7 @@ public class DynamicFloatBin1D extends QuantileFloatBin1D {
      * size, minimum, maximum, sum and sumOfSquares and have the same elements,
      * order being irrelevant (multiset equality).
      * <p>
-     * Definition of <i>Equality</i> for multisets: A,B are equal <=> A is a
+     * Definition of <i>Equality</i> for multisets: A,B are equal &lt;=&gt; A is a
      * superset of B and B is a superset of A. (Elements must occur the same
      * number of times, order is irrelevant.)
      * @return 
@@ -364,7 +364,7 @@ public class DynamicFloatBin1D extends QuantileFloatBin1D {
      * <code>distinctElements.size()-1</code>.
      * <p>
      * <b>Example:</b> <br>
-     * <code>elements = (8,7,6,6,7) --> distinctElements = (6,7,8), frequencies = (2,2,1)</code>
+     * <code>elements = (8,7,6,6,7) --&gt; distinctElements = (6,7,8), frequencies = (2,2,1)</code>
      * 
      * @param distinctElements
      *            a list to be filled with the distinct elements; can have any
@@ -383,7 +383,7 @@ public class DynamicFloatBin1D extends QuantileFloatBin1D {
      * its number of occurances.
      * <p>
      * <b>Example:</b> <br>
-     * <code>elements = (8,7,6,6,7) --> map.keys = (8,6,7), map.values = (1,2,2)</code>
+     * <code>elements = (8,7,6,6,7) --&gt; map.keys = (8,6,7), map.values = (1,2,2)</code>
      * 
      * @return a map holding the frequency distribution.
      */
@@ -581,7 +581,7 @@ public class DynamicFloatBin1D extends QuantileFloatBin1D {
      * @param buffer
      *            the buffer to which chosen elements will be added.
      * @throws IllegalArgumentException
-     *             if <code>!withReplacement &amp;&amp; n > size()</code>.
+     *             if <code>!withReplacement &amp;&amp; n &gt; size()</code>.
      * @see cern.jet.random.tfloat.sampling
      */
     public synchronized void sample(int n, boolean withReplacement, FloatRandomEngine randomGenerator,
@@ -1009,10 +1009,10 @@ public class DynamicFloatBin1D extends QuantileFloatBin1D {
      * receiver. The receivers size will be reduced by <code>s + l</code> elements.
      * 
      * @param s
-     *            the number of smallest elements to trim away (<code>s >= 0</code>
+     *            the number of smallest elements to trim away (<code>s &gt;= 0</code>
      *            ).
      * @param l
-     *            the number of largest elements to trim away (<code>l >= 0</code>).
+     *            the number of largest elements to trim away (<code>l &gt;= 0</code>).
      */
     public synchronized void trim(int s, int l) {
         FloatArrayList elems = sortedElements();
@@ -1026,10 +1026,10 @@ public class DynamicFloatBin1D extends QuantileFloatBin1D {
      * removed from the receiver (they are not removed).
      * 
      * @param s
-     *            the number of smallest elements to trim away (<code>s >= 0</code>
+     *            the number of smallest elements to trim away (<code>s &gt;= 0</code>
      *            ).
      * @param l
-     *            the number of largest elements to trim away (<code>l >= 0</code>).
+     *            the number of largest elements to trim away (<code>l &gt;= 0</code>).
      * @return the trimmed mean.
      */
     public synchronized float trimmedMean(int s, int l) {

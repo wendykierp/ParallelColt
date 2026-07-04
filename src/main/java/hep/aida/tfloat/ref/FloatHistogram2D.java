@@ -49,7 +49,7 @@ public class FloatHistogram2D extends FloatAbstractHistogram2D implements FloatI
      *            the bin boundaries the y-axis shall have; must be sorted
      *            ascending and must not contain multiple identical elements.
      * @throws IllegalArgumentException
-     *             if <code>xEdges.length < 1 || yEdges.length < 1</code>.
+     *             if <code>xEdges.length &lt; 1 || yEdges.length &lt; 1</code>.
      */
     public FloatHistogram2D(String title, float[] xEdges, float[] yEdges) {
         this(title, new FloatVariableAxis(xEdges), new FloatVariableAxis(yEdges));

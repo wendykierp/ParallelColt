@@ -526,7 +526,7 @@ public abstract class ObjectMatrix1D extends AbstractMatrix1D {
      * @param otherObj
      *            the Object to be compared for equality with the receiver.
      * @param testForEquality
-     *            if true -> tests for equality, otherwise for identity.
+     *            if true -&gt; tests for equality, otherwise for identity.
      * @return true if the specified Object is equal to the receiver.
      */
     public boolean equals(Object otherObj, boolean testForEquality) { // delta
@@ -937,7 +937,7 @@ public abstract class ObjectMatrix1D extends AbstractMatrix1D {
      * @param width
      *            The width of the range.
      * @throws IndexOutOfBoundsException
-     *             if <code>index<0 || width<0 || index+width>size()</code>.
+     *             if <code>index&lt;0 || width&lt;0 || index+width&gt;size()</code>.
      * @return the new view.
      * 
      */
@@ -973,7 +973,7 @@ public abstract class ObjectMatrix1D extends AbstractMatrix1D {
      *            simply set this parameter to <code>null</code>.
      * @return the new view.
      * @throws IndexOutOfBoundsException
-     *             if <code>!(0 <= indexes[i] < size())</code> for any
+     *             if <code>!(0 &lt;= indexes[i] &lt; size())</code> for any
      *             <code>i=0..indexes.length()-1</code>.
      */
     public ObjectMatrix1D viewSelection(int[] indexes) {
@@ -1064,7 +1064,7 @@ public abstract class ObjectMatrix1D extends AbstractMatrix1D {
      * @param stride
      *            the step factor.
      * @throws IndexOutOfBoundsException
-     *             if <code>stride <= 0</code>.
+     *             if <code>stride &lt;= 0</code>.
      * @return the new view.
      * 
      */

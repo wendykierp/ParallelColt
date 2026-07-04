@@ -93,8 +93,7 @@ import cern.jet.stat.tdouble.quantile.DoubleQuantileFinderFactory;
  * <tr align="center" valign="middle">
  * <td width="7%" nowrap rowspan="2" bgcolor="#FF9966"><font
  * color="#000000">#quantiles</font></td>
- * <td width="6%" nowrap rowspan="2" bgcolor="#FF9966"><div
- * align="center"></div> <div align="center"></div> <div align="center"><font
+ * <td width="6%" nowrap rowspan="2" bgcolor="#FF9966"><div align="center"></div> <div align="center"></div> <div align="center"><font
  * color="#000000">epsilon</font></div></td>
  * <td width="6%" nowrap rowspan="2" bgcolor="#FF9966"><font
  * color="#000000">delta</font></td>
@@ -143,8 +142,7 @@ import cern.jet.stat.tdouble.quantile.DoubleQuantileFinderFactory;
  * color="#000000">N<sub>max</sub>=10<sup>8</sup></font></td>
  * </tr>
  * <tr align="center" valign="middle">
- * <td nowrap bgcolor="#C0C0C0" columnspan="3"><font color="#000000"></font> <div
- * align="center"></div> <font color="#000000"></font></td>
+ * <td nowrap bgcolor="#C0C0C0" columnspan="3"><font color="#000000"></font> <div align="center"></div> <font color="#000000"></font></td>
  * <td nowrap columnspan="4">&nbsp;</td>
  * <td nowrap columnspan="4">&nbsp;</td>
  * </tr>
@@ -581,7 +579,7 @@ import cern.jet.stat.tdouble.quantile.DoubleQuantileFinderFactory;
  * hasSumOfLogarithms()=false, hasSumOfInversions()=false,
  * getMaxOrderForSumOfPowers()=2<br>
  * </div> <center>
- * <table border cellpadding="6" cellspacing="0" align="center" * width="623">
+ * <table border cellpadding="6" cellspacing="0" align="center" width="623">
  * <tr valign="middle">
  * <td align="center" height="50" columnspan="9" bgcolor="#33CC66" nowrap><font
  * size="5">Performance</font></td>
@@ -997,7 +995,7 @@ public class QuantileDoubleBin1D extends MightyStaticDoubleBin1D {
      * given approximation guarantees should upon instance construction be
      * specified, so as to satisfy
      * <p>
-     * <code>quantiles > resolution * (percentages.size()-1)</code>
+     * <code>quantiles &gt; resolution * (percentages.size()-1)</code>
      * <p>
      * <p>
      * <b>Example:</b>

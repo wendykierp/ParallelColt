@@ -121,7 +121,7 @@ public class DenseLongMatrix3D extends LongMatrix3D {
      * @param columns
      *            the number of columns the matrix shall have.
      * @throws IllegalArgumentException
-     *             if <code>(int)slices*columns*rows > Long.MAX_VALUE</code>.
+     *             if <code>(int)slices*columns*rows &gt; Long.MAX_VALUE</code>.
      * @throws IllegalArgumentException
      *             if <code>slices &lt; 0 || rows &lt; 0 || columns &lt; 0</code>.
      */
@@ -159,7 +159,7 @@ public class DenseLongMatrix3D extends LongMatrix3D {
      * @param isView
      *            if true then a matrix view is constructed
      * @throws IllegalArgumentException
-     *             if <code>(int)slices*columns*rows > Long.MAX_VALUE</code>.
+     *             if <code>(int)slices*columns*rows &gt; Long.MAX_VALUE</code>.
      * @throws IllegalArgumentException
      *             if <code>slices &lt; 0 || rows &lt; 0 || columns &lt; 0</code>.
      */

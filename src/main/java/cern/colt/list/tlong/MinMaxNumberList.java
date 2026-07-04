@@ -33,9 +33,9 @@ import cern.colt.matrix.tbit.QuickBitVector;
  * <code>set()</code>, <code>size()</code> and <code>clear()</code> are <code>O(1)</code>, i.e.
  * run in constant time.
  * <dt>200Mhz Pentium Pro, JDK 1.2, NT:
- * <dt><code>10^6</code> calls to <code>getQuick()</code> --> <code>0.5</code> seconds. (50
+ * <dt><code>10^6</code> calls to <code>getQuick()</code> --&gt; <code>0.5</code> seconds. (50
  * times slower than reading from a primitive array of the appropriate type.)
- * <dt><code>10^6</code> calls to <code>setQuick()</code> --> <code>0.8</code> seconds. (15
+ * <dt><code>10^6</code> calls to <code>setQuick()</code> --&gt; <code>0.8</code> seconds. (15
  * times slower than writing to a primitive array of the appropriate type.)
  * <p>
  * This class can, for example, be useful when making large lists of numbers

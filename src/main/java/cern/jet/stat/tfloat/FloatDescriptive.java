@@ -166,7 +166,7 @@ public class FloatDescriptive extends Object {
      * <code>distinctValues.size()-1</code>.
      * 
      * <b>Example:</b> <br>
-     * <code>elements = (5,6,6,7,8,8) --> distinctValues = (5,6,7,8), frequencies = (1,2,1,2)</code>
+     * <code>elements = (5,6,6,7,8,8) --&gt; distinctValues = (5,6,7,8), frequencies = (1,2,1,2)</code>
      * 
      * @param sortedData
      *            the data; must be sorted ascending.
@@ -900,9 +900,9 @@ public class FloatDescriptive extends Object {
 
     /**
      * Returns the linearly interpolated number of elements in a list less or
-     * equal to a given element. The rank is the number of elements <= element.
+     * equal to a given element. The rank is the number of elements &lt;= element.
      * Ranks are of the form <code>{0, 1, 2,..., sortedList.size()}</code>. If no
-     * element is <= element, then the rank is zero. If the element lies in
+     * element is &lt;= element, then the rank is zero. If the element lies in
      * between two contained elements, then linear interpolation is used and a
      * non integer value is returned.
      * 

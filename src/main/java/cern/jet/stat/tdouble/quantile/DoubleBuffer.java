@@ -130,8 +130,8 @@ public class DoubleBuffer extends Buffer {
 
     /**
      * Returns the rank of a given element within the sorted sequence of the
-     * receiver. A rank is the number of elements <= element. Ranks are of the
-     * form {1,2,...size()}. If no element is <= element, then the rank is zero.
+     * receiver. A rank is the number of elements &lt;= element. Ranks are of the
+     * form {1,2,...size()}. If no element is &lt;= element, then the rank is zero.
      * If the element lies in between two contained elements, then uses linear
      * interpolation.
      * 

@@ -59,7 +59,7 @@ public class DiagonalFloatMatrix2D extends WrapperFloatMatrix2D {
      * @throws IllegalArgumentException
      *             if
      * 
-     *             <code>for any 1 &lt;= row &lt; values.length: values[row].length != values[row-1].length || index &lt; -rows+1 || index > columns - 1</code>
+     *             <code>for any 1 &lt;= row &lt; values.length: values[row].length != values[row-1].length || index &lt; -rows+1 || index &gt; columns - 1</code>
      *             .
      */
     public DiagonalFloatMatrix2D(float[][] values, int dindex) {
@@ -78,7 +78,7 @@ public class DiagonalFloatMatrix2D extends WrapperFloatMatrix2D {
      * @param dindex
      *            index of the diagonal.
      * @throws IllegalArgumentException
-     *             if <code>size &lt; 0 (float)size > Integer.MAX_VALUE</code>.
+     *             if <code>size &lt; 0 (float)size &gt; Integer.MAX_VALUE</code>.
      */
     public DiagonalFloatMatrix2D(int rows, int columns, int dindex) {
         super(null);

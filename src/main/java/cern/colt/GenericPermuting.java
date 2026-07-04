@@ -124,7 +124,7 @@ public class GenericPermuting extends Object {
      * obtaining <code>p</code> from {@link cern.jet.random.tdouble.sampling}
      * without replacement or a random engine like
      * {@link cern.jet.random.tdouble.engine.DoubleMersenneTwister}. <br>
-     * Note: When <code>N!</code> exceeds the 64-bit range (i.e. for <code>N > 20</code>
+     * Note: When <code>N!</code> exceeds the 64-bit range (i.e. for <code>N &gt; 20</code>
      * ), this method has <i>different</i> behaviour: it makes a sequence
      * <code>[0,1,...,N-1]</code> and randomizes it, seeded with parameter
      * <code>p</code>.
@@ -162,7 +162,7 @@ public class GenericPermuting extends Object {
      *            the length of the sequence to be generated.
      * @return the <code>p</code>-th permutation.
      * @throws IllegalArgumentException
-     *             if <code>p < 1 || N < 0 || p > N!</code>.
+     *             if <code>p &lt; 1 || N &lt; 0 || p &gt; N!</code>.
      */
     public static int[] permutation(long p, int N) {
         if (p < 1)
@@ -260,7 +260,7 @@ public class GenericPermuting extends Object {
      *            an object that knows how to swap two indexes a,b.
      * @param work
      *            the working storage, must satisfy
-     *            <code>work.length >= indexes.length</code>; set
+     *            <code>work.length &gt;= indexes.length</code>; set
      *            <code>work==null</code> if you don't care about performance.
      */
     @Deprecated
@@ -297,11 +297,11 @@ public class GenericPermuting extends Object {
      *            an object that knows how to swap two indexes a,b.
      * @param work1
      *            some working storage, must satisfy
-     *            <code>work1.length >= indexes.length</code>; set
+     *            <code>work1.length &gt;= indexes.length</code>; set
      *            <code>work1==null</code> if you don't care about performance.
      * @param work2
      *            some working storage, must satisfy
-     *            <code>work2.length >= indexes.length</code>; set
+     *            <code>work2.length &gt;= indexes.length</code>; set
      *            <code>work2==null</code> if you don't care about performance.
      */
     public static void permute(int[] indexes, cern.colt.Swapper swapper, int[] work1, int[] work2) {

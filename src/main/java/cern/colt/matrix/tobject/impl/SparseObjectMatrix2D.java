@@ -121,7 +121,7 @@ public class SparseObjectMatrix2D extends ObjectMatrix2D {
      *            the number of columns the matrix shall have.
      * @throws IllegalArgumentException
      *             if
-     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows > Integer.MAX_VALUE</code>
+     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows &gt; Integer.MAX_VALUE</code>
      *             .
      */
     public SparseObjectMatrix2D(int rows, int columns) {
@@ -148,11 +148,11 @@ public class SparseObjectMatrix2D extends ObjectMatrix2D {
      * @throws IllegalArgumentException
      *             if
      * 
-     *             <code>initialCapacity < 0 || (minLoadFactor < 0.0 || minLoadFactor >= 1.0) || (maxLoadFactor <= 0.0 || maxLoadFactor >= 1.0) || (minLoadFactor >= maxLoadFactor)</code>
+     *             <code>initialCapacity &lt; 0 || (minLoadFactor &lt; 0.0 || minLoadFactor &gt;= 1.0) || (maxLoadFactor &lt;= 0.0 || maxLoadFactor &gt;= 1.0) || (minLoadFactor &gt;= maxLoadFactor)</code>
      *             .
      * @throws IllegalArgumentException
      *             if
-     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows > Integer.MAX_VALUE</code>
+     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows &gt; Integer.MAX_VALUE</code>
      *             .
      */
     public SparseObjectMatrix2D(int rows, int columns, int initialCapacity, double minLoadFactor, double maxLoadFactor) {
@@ -181,7 +181,7 @@ public class SparseObjectMatrix2D extends ObjectMatrix2D {
      *            <code>index(i,j+1)-index(i,j)</code>.
      * @throws IllegalArgumentException
      *             if
-     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows > Integer.MAX_VALUE</code>
+     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows &gt; Integer.MAX_VALUE</code>
      *             or flip's are illegal.
      */
     protected SparseObjectMatrix2D(int rows, int columns, AbstractLongObjectMap elements, int rowZero, int columnZero,
@@ -220,7 +220,7 @@ public class SparseObjectMatrix2D extends ObjectMatrix2D {
      * the receiver.
      * <p>
      * This method never need be called; it is for performance tuning only.
-     * Calling this method before tt>set()</code>ing a large number of non-zero
+     * Calling this method before tt&gt;set()</code>ing a large number of non-zero
      * values boosts performance, because the receiver will grow only once
      * instead of potentially many times and hash collisions get less probable.
      * 

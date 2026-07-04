@@ -24,7 +24,7 @@ import cern.colt.matrix.tfloat.impl.DiagonalFloatMatrix2D;
  * <code>A = U*S*V'</code>.
  * <P>
  * The singular values, <code>sigma[k] = S[k][k]</code>, are ordered so that
- * <code>sigma[0] >= sigma[1] >= ... >= sigma[min(m-1,n-1)]</code>.
+ * <code>sigma[0] &gt;= sigma[1] &gt;= ... &gt;= sigma[min(m-1,n-1)]</code>.
  * <P>
  * 
  * This implementation uses the divide-and-conquer algorithm (dgesdd) from
@@ -221,7 +221,7 @@ public class DenseFloatSingularValueDecomposition {
      * 
      * @return 0: successful exit<br>
      *         &lt; 0: if INFO = -i, the i-th argument had an illegal value<br>
-     *         > 0: process did not converge.
+     *         &gt; 0: process did not converge.
      */
     public org.netlib.util.intW getInfo() {
         return info;

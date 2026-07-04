@@ -14,7 +14,7 @@ double[] v1 = {0, 1, 2, 3};
 DoubleMatrix1D matrix = new DenseDoubleMatrix1D(v1);
 // 0 1 2 3 
 
-// view all cells for which holds: lower <= value <= upper
+// view all cells for which holds: lower &lt;= value &lt;= upper
 final double lower = 0.2;
 final double upper = 2.5
 matrix.viewSelection(F.isBetween(lower, upper)); 
@@ -37,8 +37,8 @@ matrix.viewSelection(
 );
 // --> 0 2
 
-// sum of all cells for which holds: lower <= value <= upper
-double sum = matrix.viewSelection(F.isBetween(lower, upper)).zSum(); 
+// sum of all cells for which holds: lower &lt;= value &lt;= upper
+double sum = matrix.viewSelection(F.isBetween(lower, upper)).zSum();
 // --> 3
 <br>// equivalent: 
 double sum = matrix.viewSelection(F.isBetween(lower, upper)).aggregate(F.plus,F.identity); 
@@ -46,19 +46,19 @@ double sum = matrix.viewSelection(F.isBetween(lower, upper)).aggregate(F.plus,F.
 <hr>
 <h2>Conditions on 2-d matrices </h2>
 <pre>
-// view all rows which have a value < threshold in the first column (representing "age")
+// view all rows which have a value &lt; threshold in the first column (representing "age")
 final double threshold = 16;
 matrix.viewSelection( 
 	new DoubleMatrix1DProcedure() {
-		public final boolean apply(DoubleMatrix1D m) { return m.get(0) < threshold; }
+		public final boolean apply(DoubleMatrix1D m) { return m.get(0) &lt; threshold; }
 	}
 );
 
-// view all rows with RMS < threshold.<br>// the RMS (Root-Mean-Square) is a measure of the average "size" of the elements of a data sequence.
+// view all rows with RMS &lt; threshold.<br>// the RMS (Root-Mean-Square) is a measure of the average "size" of the elements of a data sequence.
 final double threshold = 0.5;
 matrix.viewSelection( 
 	new DoubleMatrix1DProcedure() {
-		public final boolean apply(DoubleMatrix1D m) { return Math.sqrt(m.aggregate(F.plus,F.square) / m.size()) < threshold; }
+		public final boolean apply(DoubleMatrix1D m) { return Math.sqrt(m.aggregate(F.plus,F.square) / m.size()) &lt; threshold; }
 	}
 );
 </pre>

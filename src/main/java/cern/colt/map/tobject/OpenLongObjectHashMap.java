@@ -17,7 +17,7 @@ import cern.colt.map.HashFunctions;
 import cern.colt.map.PrimeFinder;
 
 /**
- * Hash map holding (key,value) associations of type <code>(long-->Object)</code>;
+ * Hash map holding (key,value) associations of type <code>(long--&gt;Object)</code>;
  * Automatically grows and shrinks as needed; Implemented using open addressing
  * with double hashing. First see the <a href="package-summary.html">package
  * summary</a> and javadoc <a href="package-tree.html">tree view</a> to get the
@@ -102,7 +102,7 @@ public class OpenLongObjectHashMap extends AbstractLongObjectMap {
      * @throws IllegalArgumentException
      *             if
      * 
-     *             <code>initialCapacity < 0 || (minLoadFactor < 0.0 || minLoadFactor >= 1.0) || (maxLoadFactor <= 0.0 || maxLoadFactor >= 1.0) || (minLoadFactor >= maxLoadFactor)</code>
+     *             <code>initialCapacity &lt; 0 || (minLoadFactor &lt; 0.0 || minLoadFactor &gt;= 1.0) || (maxLoadFactor &lt;= 0.0 || maxLoadFactor &gt;= 1.0) || (minLoadFactor &gt;= maxLoadFactor)</code>
      *             .
      */
     public OpenLongObjectHashMap(int initialCapacity, double minLoadFactor, double maxLoadFactor) {
@@ -252,9 +252,9 @@ public class OpenLongObjectHashMap extends AbstractLongObjectMap {
      *            the key to be added to the receiver.
      * @return the index where the key would need to be inserted, if it is not
      *         already contained. Returns -index-1 if the key is already
-     *         contained at slot index. Therefore, if the returned index < 0,
+     *         contained at slot index. Therefore, if the returned index &lt; 0,
      *         then it is already contained at slot -index-1. If the returned
-     *         index >= 0, then it is NOT already contained and should be
+     *         index &gt;= 0, then it is NOT already contained and should be
      *         inserted at slot index.
      */
     protected int indexOfInsertion(long key) {
@@ -562,7 +562,7 @@ public class OpenLongObjectHashMap extends AbstractLongObjectMap {
      * @throws IllegalArgumentException
      *             if
      * 
-     *             <code>initialCapacity < 0 || (minLoadFactor < 0.0 || minLoadFactor >= 1.0) || (maxLoadFactor <= 0.0 || maxLoadFactor >= 1.0) || (minLoadFactor >= maxLoadFactor)</code>
+     *             <code>initialCapacity &lt; 0 || (minLoadFactor &lt; 0.0 || minLoadFactor &gt;= 1.0) || (maxLoadFactor &lt;= 0.0 || maxLoadFactor &gt;= 1.0) || (minLoadFactor &gt;= maxLoadFactor)</code>
      *             .
      */
 

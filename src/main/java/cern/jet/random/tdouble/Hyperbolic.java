@@ -84,7 +84,7 @@ public class Hyperbolic extends AbstractContinousDoubleDistribution {
          * * Hyperbolic Distribution - Non-Universal Rejection * *
          * ***************************************************************** *
          * FUNCTION : - hyplc.c samples a random number from the * hyperbolic
-         * distribution with shape parameter a * and b valid for a>0 and |b|<a
+         * distribution with shape parameter a * and b valid for a&gt;0 and |b|&lt;a
          * using the * non-universal rejection method for log-concave *
          * densities. * REFERENCE : - L. Devroye (1986): Non-Uniform Random
          * Variate * Generation, Springer Verlag, New York. * SUBPROGRAM : -

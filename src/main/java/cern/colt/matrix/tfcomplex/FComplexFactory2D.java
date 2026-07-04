@@ -701,7 +701,7 @@ public class FComplexFactory2D extends cern.colt.PersistentObject {
      * @param value
      * @return 
      * @throws IllegalArgumentException
-     *             if <code>nonZeroFraction < 0 || nonZeroFraction > 1</code>.
+     *             if <code>nonZeroFraction &lt; 0 || nonZeroFraction &gt; 1</code>.
      * @see cern.jet.random.tfloat.sampling.FloatRandomSampler
      */
     public FComplexMatrix2D sample(int rows, int columns, float[] value, float nonZeroFraction) {
@@ -723,7 +723,7 @@ public class FComplexFactory2D extends cern.colt.PersistentObject {
      * @param value
      * @return 
      * @throws IllegalArgumentException
-     *             if <code>nonZeroFraction < 0 || nonZeroFraction > 1</code>.
+     *             if <code>nonZeroFraction &lt; 0 || nonZeroFraction &gt; 1</code>.
      * @see cern.jet.random.tfloat.sampling.FloatRandomSampler
      */
     public FComplexMatrix2D sample(FComplexMatrix2D matrix, float[] value, float nonZeroFraction) {

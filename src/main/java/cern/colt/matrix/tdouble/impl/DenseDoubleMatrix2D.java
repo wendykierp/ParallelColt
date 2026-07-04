@@ -114,7 +114,7 @@ public class DenseDoubleMatrix2D extends DoubleMatrix2D {
      *            the number of columns the matrix shall have.
      * @throws IllegalArgumentException
      *             if
-     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows > Integer.MAX_VALUE</code>
+     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows &gt; Integer.MAX_VALUE</code>
      *             .
      */
     public DenseDoubleMatrix2D(int rows, int columns) {
@@ -145,7 +145,7 @@ public class DenseDoubleMatrix2D extends DoubleMatrix2D {
      *            if true then a matrix view is constructed
      * @throws IllegalArgumentException
      *             if
-     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows > Integer.MAX_VALUE</code>
+     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows &gt; Integer.MAX_VALUE</code>
      *             or flip's are illegal.
      */
     public DenseDoubleMatrix2D(int rows, int columns, double[] elements, int rowZero, int columnZero, int rowStride,

@@ -332,7 +332,7 @@ public interface FloatBlas {
     public void dscal(float alpha, FloatMatrix2D A);
 
     /**
-     * Swaps the elements of two vectors; <code>y <==> x</code>. In fact equivalent
+     * Swaps the elements of two vectors; <code>y &lt;==&gt; x</code>. In fact equivalent
      * to <code>y.swap(x)</code>.
      * 
      * @param x
@@ -346,7 +346,7 @@ public interface FloatBlas {
     public void dswap(FloatMatrix1D x, FloatMatrix1D y);
 
     /**
-     * Swaps the elements of two matrices; <code>B <==> A</code>.
+     * Swaps the elements of two matrices; <code>B &lt;==&gt; A</code>.
      * 
      * @param x
      *            the first matrix.
@@ -391,7 +391,7 @@ public interface FloatBlas {
      *            set this flag to indicate that the multiplication shall be
      *            performed on A'.
      * @param isUnitTriangular
-     *            true --> A is assumed to be unit triangular; false --> A is
+     *            true --&gt; A is assumed to be unit triangular; false --&gt; A is
      *            not assumed to be unit triangular
      * @param A
      *            the source matrix.

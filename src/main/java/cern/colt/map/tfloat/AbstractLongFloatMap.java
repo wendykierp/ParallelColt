@@ -19,7 +19,7 @@ import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
 
 /**
  * Abstract base class for hash maps holding (key,value) associations of type
- * <code>(int-->float)</code>. First see the <a href="package-summary.html">package
+ * <code>(int--&gt;float)</code>. First see the <a href="package-summary.html">package
  * summary</a> and javadoc <a href="package-tree.html">tree view</a> to get the
  * broad picture.
  * <p>
@@ -299,7 +299,7 @@ public abstract class AbstractLongFloatMap extends AbstractMap {
      * smaller key comes first.
      * <p>
      * <b>Example:</b> <br>
-     * <code>keys = (8,7,6), values = (1,2,2) --> keyList = (8,6,7)</code>
+     * <code>keys = (8,7,6), values = (1,2,2) --&gt; keyList = (8,6,7)</code>
      * 
      * @param keyList
      *            the list to be filled, can have any size.
@@ -356,7 +356,7 @@ public abstract class AbstractLongFloatMap extends AbstractMap {
      * <code>this.size()</code>.
      * <p>
      * <b>Example:</b> <br>
-     * <code>keys = (8,7,6), values = (1,2,2) --> keyList = (6,7,8), valueList = (2,2,1)</code>
+     * <code>keys = (8,7,6), values = (1,2,2) --&gt; keyList = (6,7,8), valueList = (2,2,1)</code>
      * 
      * @param keyList
      *            the list to be filled with keys, can have any size.
@@ -403,7 +403,7 @@ public abstract class AbstractLongFloatMap extends AbstractMap {
      * smaller key comes first.
      * <p>
      * <b>Example:</b> <br>
-     * <code>keys = (8,7,6), values = (1,2,2) --> keyList = (8,6,7), valueList = (1,2,2)</code>
+     * <code>keys = (8,7,6), values = (1,2,2) --&gt; keyList = (8,6,7), valueList = (1,2,2)</code>
      * 
      * @param keyList
      *            the list to be filled with keys, can have any size.

@@ -120,7 +120,7 @@ public class DenseIntMatrix3D extends IntMatrix3D {
      * @param columns
      *            the number of columns the matrix shall have.
      * @throws IllegalArgumentException
-     *             if <code>(int)slices*columns*rows > Integer.MAX_VALUE</code>.
+     *             if <code>(int)slices*columns*rows &gt; Integer.MAX_VALUE</code>.
      * @throws IllegalArgumentException
      *             if <code>slices &lt; 0 || rows &lt; 0 || columns &lt; 0</code>.
      */
@@ -158,7 +158,7 @@ public class DenseIntMatrix3D extends IntMatrix3D {
      * @param isView
      *            if true then a matrix view is constructed
      * @throws IllegalArgumentException
-     *             if <code>(int)slices*columns*rows > Integer.MAX_VALUE</code>.
+     *             if <code>(int)slices*columns*rows &gt; Integer.MAX_VALUE</code>.
      * @throws IllegalArgumentException
      *             if <code>slices &lt; 0 || rows &lt; 0 || columns &lt; 0</code>.
      */

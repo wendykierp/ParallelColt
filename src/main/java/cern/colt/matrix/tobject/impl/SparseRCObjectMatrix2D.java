@@ -94,7 +94,7 @@ public class SparseRCObjectMatrix2D extends WrapperObjectMatrix2D {
      *            the number of columns the matrix shall have.
      * @throws IllegalArgumentException
      *             if
-     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows > Integer.MAX_VALUE</code>
+     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows &gt; Integer.MAX_VALUE</code>
      *             .
      */
     public SparseRCObjectMatrix2D(int rows, int columns) {
@@ -113,7 +113,7 @@ public class SparseRCObjectMatrix2D extends WrapperObjectMatrix2D {
      *            maximum number of nonzero elements
      * @throws IllegalArgumentException
      *             if
-     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows > Integer.MAX_VALUE</code>
+     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows &gt; Integer.MAX_VALUE</code>
      *             .
      */
     public SparseRCObjectMatrix2D(int rows, int columns, int nzmax) {

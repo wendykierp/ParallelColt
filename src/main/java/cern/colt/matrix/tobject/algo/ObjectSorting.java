@@ -207,7 +207,7 @@ public class ObjectSorting extends cern.colt.PersistentObject {
      * <code>column = 0;<br>
      view = quickSort(matrix,column);<br>
      System.out.println(view); </code><code><br>
-     ==> </code>
+     ==&gt; </code>
      * </p>
      * </td>
      * <td valign="top">
@@ -231,7 +231,7 @@ public class ObjectSorting extends cern.colt.PersistentObject {
      * @return a new matrix view having rows sorted by the given column. <b>Note
      *         that the original matrix is left unaffected.</b>
      * @throws IndexOutOfBoundsException
-     *             if <code>column < 0 || column >= matrix.columns()</code>.
+     *             if <code>column &lt; 0 || column &gt;= matrix.columns()</code>.
      */
     public ObjectMatrix2D sort(ObjectMatrix2D matrix, int column) {
         if (column < 0 || column >= matrix.columns())
@@ -345,7 +345,7 @@ public class ObjectSorting extends cern.colt.PersistentObject {
      *         that the original matrix is left unaffected.</b>
      * @throws IndexOutOfBoundsException
      *             if
-     *             <code>row < 0 || row >= matrix.rows() || column < 0 || column >= matrix.columns()</code>
+     *             <code>row &lt; 0 || row &gt;= matrix.rows() || column &lt; 0 || column &gt;= matrix.columns()</code>
      *             .
      */
     public ObjectMatrix3D sort(ObjectMatrix3D matrix, int row, int column) {

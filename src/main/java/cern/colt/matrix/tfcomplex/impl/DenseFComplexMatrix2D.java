@@ -103,7 +103,7 @@ public class DenseFComplexMatrix2D extends FComplexMatrix2D {
      *            a real matrix whose elements become a real part of this matrix
      * @throws IllegalArgumentException
      *             if
-     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows > Integer.MAX_VALUE</code>
+     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows &gt; Integer.MAX_VALUE</code>
      *             .
      */
     public DenseFComplexMatrix2D(FloatMatrix2D realPart) {
@@ -121,7 +121,7 @@ public class DenseFComplexMatrix2D extends FComplexMatrix2D {
      *            the number of columns the matrix shall have.
      * @throws IllegalArgumentException
      *             if
-     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows > Integer.MAX_VALUE</code>
+     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows &gt; Integer.MAX_VALUE</code>
      *             .
      */
     public DenseFComplexMatrix2D(int rows, int columns) {
@@ -153,7 +153,7 @@ public class DenseFComplexMatrix2D extends FComplexMatrix2D {
      * 
      * @throws IllegalArgumentException
      *             if
-     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows > Integer.MAX_VALUE</code>
+     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows &gt; Integer.MAX_VALUE</code>
      *             or flip's are illegal.
      */
     public DenseFComplexMatrix2D(int rows, int columns, float[] elements, int rowZero, int columnZero, int rowStride,

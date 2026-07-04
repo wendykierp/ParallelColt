@@ -769,7 +769,7 @@ public class DoubleStatistic extends Object {
      * @return the sampling view.
      * @throws IllegalArgumentException
      *             if
-     *             <code>! (0 <= rowFraction <= 1 && 0 <= columnFraction <= 1)</code>
+     *             <code>! (0 &lt;= rowFraction &lt;= 1 &amp;&amp; 0 &lt;= columnFraction &lt;= 1)</code>
      *             .
      * @see cern.jet.random.tdouble.sampling.DoubleRandomSampler
      */
@@ -866,7 +866,7 @@ public class DoubleStatistic extends Object {
      * @return the sampling view.
      * @throws IllegalArgumentException
      *             if
-     *             <code>! (0 <= rowFraction <= 1 && 0 <= columnFraction <= 1)</code>
+     *             <code>! (0 &lt;= rowFraction &lt;= 1 &amp;&amp; 0 &lt;= columnFraction &lt;= 1)</code>
      *             .
      * @see cern.jet.random.tdouble.sampling.DoubleRandomSampler
      */
@@ -940,7 +940,7 @@ public class DoubleStatistic extends Object {
      * @return the sampling view.
      * @throws IllegalArgumentException
      *             if
-     *             <code>! (0 <= sliceFraction <= 1 && 0 <= rowFraction <= 1 && 0 <= columnFraction <= 1)</code>
+     *             <code>! (0 &lt;= sliceFraction &lt;= 1 &amp;&amp; 0 &lt;= rowFraction &lt;= 1 &amp;&amp; 0 &lt;= columnFraction &lt;= 1)</code>
      *             .
      * @see cern.jet.random.tdouble.sampling.DoubleRandomSampler
      */

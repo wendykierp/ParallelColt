@@ -1368,7 +1368,7 @@ public abstract class DComplexMatrix2D extends AbstractMatrix2D {
 
     /**
      * Constructs and returns a new <i>dice (transposition) view</i>; Swaps
-     * axes; example: 3 x 4 matrix --> 4 x 3 matrix. The view has both
+     * axes; example: 3 x 4 matrix --&gt; 4 x 3 matrix. The view has both
      * dimensions exchanged; what used to be columns become rows, what used to
      * be rows become columns. This is a zero-copy transposition, taking O(1),
      * i.e. constant time. The returned view is backed by this matrix, so
@@ -1592,7 +1592,7 @@ public abstract class DComplexMatrix2D extends AbstractMatrix2D {
      * @return z (for convenience only).
      * 
      * @throws IllegalArgumentException
-     *             if <code>A.columns() != y.size() || A.rows() > z.size())</code>.
+     *             if <code>A.columns() != y.size() || A.rows() &gt; z.size())</code>.
      */
     public DComplexMatrix1D zMult(final DComplexMatrix1D y, DComplexMatrix1D z, final double[] alpha,
             final double[] beta, boolean transposeA) {

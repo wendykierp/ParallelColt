@@ -18,7 +18,7 @@ import com.github.wendykierp.csparsej.tdcomplex.DZcs_common.DZcsn;
 import com.github.wendykierp.csparsej.tdcomplex.DZcs_common.DZcss;
 
 /**
- * For an <code>m x n</code> matrix <code>A</code> with <code>m >= n</code>, the QR
+ * For an <code>m x n</code> matrix <code>A</code> with <code>m &gt;= n</code>, the QR
  * decomposition is an <code>m x n</code> orthogonal matrix <code>Q</code> and an
  * <code>n x n</code> upper triangular matrix <code>R</code> so that <code>A = Q*R</code>.
  * <P>
@@ -39,7 +39,7 @@ public class SparseDComplexQRDecomposition {
 
     /**
      * Constructs and returns a new QR decomposition object; computed by
-     * Householder reflections; If m < n then then the QR of A' is computed. The
+     * Householder reflections; If m &lt; n then then the QR of A' is computed. The
      * decomposed matrices can be retrieved via instance methods of the returned
      * decomposition object.
      *
@@ -173,7 +173,7 @@ public class SparseDComplexQRDecomposition {
 
     /**
      * Solve a least-squares problem (min ||Ax-b||_2, where A is m-by-n with m
-     * >= n) or underdetermined system (Ax=b, where m < n). Upon return
+     * &gt;= n) or underdetermined system (Ax=b, where m &lt; n). Upon return
      * <code>b</code> is overridden with the result <code>x</code>.
      *
      * @param b

@@ -48,7 +48,7 @@ public class DoubleHistogram1D extends DoubleAbstractHistogram1D implements Doub
      *            the bin boundaries the axis shall have; must be sorted
      *            ascending and must not contain multiple identical elements.
      * @throws IllegalArgumentException
-     *             if <code>edges.length < 1</code>.
+     *             if <code>edges.length &lt; 1</code>.
      */
     public DoubleHistogram1D(String title, double[] edges) {
         this(title, new DoubleVariableAxis(edges));

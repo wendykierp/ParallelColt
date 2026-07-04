@@ -631,7 +631,7 @@ public class Gamma extends cern.jet.math.tdouble.DoubleConstants {
 
     /**
      * Returns the Gamma function computed by Stirling's formula; formerly named
-     * <code>stirf</code>. The polynomial STIR is valid for 33 <= x <= 172.
+     * <code>stirf</code>. The polynomial STIR is valid for 33 &lt;= x &lt;= 172.
      */
     static double stirlingFormula(double x) throws ArithmeticException {
         double STIR[] = { 7.87311395793093628397E-4, -2.29549961613378126380E-4, -2.68132617805781232825E-3,

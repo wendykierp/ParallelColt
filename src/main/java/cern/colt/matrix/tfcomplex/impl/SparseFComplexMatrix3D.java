@@ -71,7 +71,7 @@ public class SparseFComplexMatrix3D extends FComplexMatrix3D {
      * @param columns
      *            the number of columns the matrix shall have.
      * @throws IllegalArgumentException
-     *             if <code>(float)slices*columns*rows > Integer.MAX_VALUE</code>.
+     *             if <code>(float)slices*columns*rows &gt; Integer.MAX_VALUE</code>.
      * @throws IllegalArgumentException
      *             if <code>slices &lt; 0 || rows &lt; 0 || columns &lt; 0</code>.
      */
@@ -105,7 +105,7 @@ public class SparseFComplexMatrix3D extends FComplexMatrix3D {
      *            <code>index(k,i+1,j)-index(k,i,j)</code>.
      * @param columnStride
      * @throws IllegalArgumentException
-     *             if <code>(float)slices*columns*rows > Integer.MAX_VALUE</code>.
+     *             if <code>(float)slices*columns*rows &gt; Integer.MAX_VALUE</code>.
      * @throws IllegalArgumentException
      *             if <code>slices &lt; 0 || rows &lt; 0 || columns &lt; 0</code>.
      */

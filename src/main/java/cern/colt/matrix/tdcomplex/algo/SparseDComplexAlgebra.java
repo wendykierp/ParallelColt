@@ -208,10 +208,10 @@ public class SparseDComplexAlgebra {
      * @param property
      *            the Property object to be attached.
      * @throws UnsupportedOperationException
-     *             if <code>this==DEFAULT && property!=this.property()</code> - The
+     *             if <code>this==DEFAULT &amp;&amp; property!=this.property()</code> - The
      *             DEFAULT Algebra object is immutable.
      * @throws UnsupportedOperationException
-     *             if <code>this==ZERO && property!=this.property()</code> - The
+     *             if <code>this==ZERO &amp;&amp; property!=this.property()</code> - The
      *             ZERO Algebra object is immutable.
      * @see #property
      */
@@ -231,8 +231,8 @@ public class SparseDComplexAlgebra {
      * @param b
      *            right hand side
      * @return x; a new independent matrix; solution if A is square, least
-     *         squares solution if A.rows() > A.columns(), underdetermined
-     *         system solution if A.rows() < A.columns().
+     *         squares solution if A.rows() &gt; A.columns(), underdetermined
+     *         system solution if A.rows() &lt; A.columns().
      */
     public DComplexMatrix1D solve(DComplexMatrix2D A, DComplexMatrix1D b) {
         DComplexMatrix1D x = new DenseDComplexMatrix1D(Math.max(A.rows(), A.columns()));

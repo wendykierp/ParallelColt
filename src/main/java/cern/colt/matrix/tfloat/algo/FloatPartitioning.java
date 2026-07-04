@@ -77,7 +77,7 @@ public class FloatPartitioning extends Object {
      c = 0; <br>
      d = splitters.length-1;<br>
      partition(matrix,rowIndexes,rowFrom,rowTo,column,splitters,c,d,splitIndexes);<br>
-     ==><br>
+     ==&gt;<br>
      splitIndexes == {0, 2, 3}<br>
      rowIndexes == {7, 6, 5, 4, 0, 1, 2, 3}</code>
      * </p>
@@ -127,7 +127,7 @@ public class FloatPartitioning extends Object {
      *            delimiting intervals. Upon return
      *            <code>splitIndexes[splitFrom..splitTo]</code> will be set
      *            accordingly. Therefore, must satisfy
-     *            <code>splitIndexes.length >= splitters.length</code>.
+     *            <code>splitIndexes.length &gt;= splitters.length</code>.
      */
     public static void partition(FloatMatrix2D matrix, int[] rowIndexes, int rowFrom, int rowTo, int column,
             final float[] splitters, int splitFrom, int splitTo, int[] splitIndexes) {
@@ -217,7 +217,7 @@ public class FloatPartitioning extends Object {
      * <td align="left" valign="top"> <code>column = 0;<br>
      splitters = {5,10,12}<br>
      partition(matrix,column,splitters,splitIndexes);<br>
-     ==><br>
+     ==&gt;<br>
      splitIndexes == {0, 2, 3}</code>
      * </p>
      * </td> <td valign="top">The matrix IS NOT REORDERED.<br>
@@ -245,7 +245,7 @@ public class FloatPartitioning extends Object {
      * @param splitIndexes
      *            a list into which this method fills the indexes of rows
      *            delimiting intervals. Therefore, must satisfy
-     *            <code>splitIndexes.length >= splitters.length</code>.
+     *            <code>splitIndexes.length &gt;= splitters.length</code>.
      * 
      * @return a new matrix view having rows partitioned by the given column and
      *         splitters.

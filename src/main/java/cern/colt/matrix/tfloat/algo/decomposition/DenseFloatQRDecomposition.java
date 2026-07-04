@@ -15,7 +15,7 @@ import cern.colt.matrix.tfloat.algo.FloatProperty;
 import cern.jet.math.tfloat.FloatFunctions;
 
 /**
- * For an <code>m x n</code> matrix <code>A</code> with <code>m >= n</code>, the QR
+ * For an <code>m x n</code> matrix <code>A</code> with <code>m &gt;= n</code>, the QR
  * decomposition is an <code>m x n</code> orthogonal matrix <code>Q</code> and an
  * <code>n x n</code> upper triangular matrix <code>R</code> so that <code>A = Q*R</code>.
  * <P>

@@ -209,10 +209,10 @@ public class SparseDoubleAlgebra {
      * @param property
      *            the Property object to be attached.
      * @throws UnsupportedOperationException
-     *             if <code>this==DEFAULT && property!=this.property()</code> - The
+     *             if <code>this==DEFAULT &amp;&amp; property!=this.property()</code> - The
      *             DEFAULT Algebra object is immutable.
      * @throws UnsupportedOperationException
-     *             if <code>this==ZERO && property!=this.property()</code> - The
+     *             if <code>this==ZERO &amp;&amp; property!=this.property()</code> - The
      *             ZERO Algebra object is immutable.
      * @see #property
      */
@@ -232,8 +232,8 @@ public class SparseDoubleAlgebra {
      * @param b
      *            right hand side
      * @return x; a new independent matrix; solution if A is square, least
-     *         squares solution if A.rows() > A.columns(), underdetermined
-     *         system solution if A.rows() < A.columns().
+     *         squares solution if A.rows() &gt; A.columns(), underdetermined
+     *         system solution if A.rows() &lt; A.columns().
      */
     public DoubleMatrix1D solve(DoubleMatrix2D A, DoubleMatrix1D b) {
         DoubleMatrix1D x = new DenseDoubleMatrix1D(Math.max(A.rows(), A.columns()));

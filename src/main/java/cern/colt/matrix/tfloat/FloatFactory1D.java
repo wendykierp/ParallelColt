@@ -59,7 +59,7 @@ public class FloatFactory1D extends cern.colt.PersistentObject {
 
     /**
      * C = A||B; Constructs a new matrix which is the concatenation of two other
-     * matrices. Example: <code>0 1</code> append <code>3 4</code> --> <code>0 1 3 4</code>.
+     * matrices. Example: <code>0 1</code> append <code>3 4</code> --&gt; <code>0 1 3 4</code>.
      * @param A
      * @param B
      * @return 
@@ -222,7 +222,7 @@ public class FloatFactory1D extends cern.colt.PersistentObject {
      * @param value
      * @return 
      * @throws IllegalArgumentException
-     *             if <code>nonZeroFraction < 0 || nonZeroFraction > 1</code>.
+     *             if <code>nonZeroFraction &lt; 0 || nonZeroFraction &gt; 1</code>.
      * @see cern.jet.random.tfloat.sampling.FloatRandomSampler
      */
     public FloatMatrix1D sample(int size, float value, float nonZeroFraction) {

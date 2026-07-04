@@ -43,9 +43,9 @@ package cern.colt.matrix.tbit;
  * for two bitvectors A,B (both much larger than processor cache), the following
  * results are obtained.
  * <ul>
- * <li><code>A.and(B)</code> i.e. A = A &amp; B --> runs at about 35 MB/sec
+ * <li><code>A.and(B)</code> i.e. A = A &amp; B --&gt; runs at about 35 MB/sec
  * <li><code>A.cardinality()</code>, i.e. determining the selectivity, the number of
- * bits in state "true" --> runs at about 80 MB/sec
+ * bits in state "true" --&gt; runs at about 80 MB/sec
  * <li>Similar performance for
  * <code>or, xor, andNot, not, copy, replace, partFromTo, indexOf, clear</code> etc.
  * </ul>
@@ -550,7 +550,7 @@ public class BitVector extends cern.colt.PersistentObject {
      * @return the specified bits as long value.
      * @throws IndexOutOfBoundsException
      *             if
-     *             <code>from&lt;0 || from&gt;=size() || to&lt;0 || to&gt;=size() || to-from+1&lt;0 || to-from+1>&gt;64</code>
+     *             <code>from&lt;0 || from&gt;=size() || to&lt;0 || to&gt;=size() || to-from+1&lt;0 || to-from+1&gt;&gt;64</code>
      */
     public long getLongFromTo(int from, int to) {
         int width = to - from + 1;
@@ -628,7 +628,7 @@ public class BitVector extends cern.colt.PersistentObject {
      * <p>
      * Optimized for speed. Preliminary performance (200Mhz Pentium Pro, JDK
      * 1.2, NT): size=10^6, from=0, to=size-1, receiver contains matching state
-     * in the very end --> 0.002 seconds elapsed time.
+     * in the very end --&gt; 0.002 seconds elapsed time.
      * 
      * @param state
      *            state to search for.
@@ -800,7 +800,7 @@ public class BitVector extends cern.colt.PersistentObject {
      * auxiliary copy of the receiver.
      * <p>
      * Optimized for speed. Preliminary performance (200Mhz Pentium Pro, JDK
-     * 1.2, NT): replace 10^6 ill aligned bits --> 0.02 seconds elapsed time.
+     * 1.2, NT): replace 10^6 ill aligned bits --&gt; 0.02 seconds elapsed time.
      * 
      * @param from
      *            the start index within the receiver, inclusive.
@@ -866,7 +866,7 @@ public class BitVector extends cern.colt.PersistentObject {
      * .
      * <p>
      * Optimized for speed. Preliminary performance (200Mhz Pentium Pro, JDK
-     * 1.2, NT): replace 10^6 ill aligned bits --> 0.002 seconds elapsed time.
+     * 1.2, NT): replace 10^6 ill aligned bits --&gt; 0.002 seconds elapsed time.
      * 
      * @param from
      *            the start index, inclusive.

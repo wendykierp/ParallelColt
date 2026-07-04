@@ -85,8 +85,8 @@ public class PoissonSlow extends AbstractDiscreteDistribution {
     }
 
     /**
-     * Returns the value ln(Gamma(xx) for xx > 0. Full accuracy is obtained for
-     * xx > 1. For 0 < xx < 1. the reflection formula (6.1.4) can be used first.
+     * Returns the value ln(Gamma(xx) for xx &gt; 0. Full accuracy is obtained for
+     * xx &gt; 1. For 0 &lt; xx &lt; 1. the reflection formula (6.1.4) can be used first.
      * (Adapted from Numerical Recipes in C)
      * @param xx
      * @return 

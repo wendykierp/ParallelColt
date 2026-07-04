@@ -1026,7 +1026,7 @@ public class IntFactory2D extends cern.colt.PersistentObject {
      * @param value
      * @return 
      * @throws IllegalArgumentException
-     *             if <code>nonZeroFraction < 0 || nonZeroFraction > 1</code>.
+     *             if <code>nonZeroFraction &lt; 0 || nonZeroFraction &gt; 1</code>.
      * @see cern.jet.random.tdouble.sampling.DoubleRandomSamplingAssistant
      */
     public IntMatrix2D sample(int rows, int columns, int value, int nonZeroFraction) {
@@ -1048,7 +1048,7 @@ public class IntFactory2D extends cern.colt.PersistentObject {
      * @param value
      * @return 
      * @throws IllegalArgumentException
-     *             if <code>nonZeroFraction < 0 || nonZeroFraction > 1</code>.
+     *             if <code>nonZeroFraction &lt; 0 || nonZeroFraction &gt; 1</code>.
      * @see cern.jet.random.tdouble.sampling.DoubleRandomSamplingAssistant
      */
     public IntMatrix2D sample(IntMatrix2D matrix, int value, int nonZeroFraction) {

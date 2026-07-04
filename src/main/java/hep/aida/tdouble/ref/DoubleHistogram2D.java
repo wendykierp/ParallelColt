@@ -49,7 +49,7 @@ public class DoubleHistogram2D extends DoubleAbstractHistogram2D implements Doub
      *            the bin boundaries the y-axis shall have; must be sorted
      *            ascending and must not contain multiple identical elements.
      * @throws IllegalArgumentException
-     *             if <code>xEdges.length < 1 || yEdges.length < 1</code>.
+     *             if <code>xEdges.length &lt; 1 || yEdges.length &lt; 1</code>.
      */
     public DoubleHistogram2D(String title, double[] xEdges, double[] yEdges) {
         this(title, new DoubleVariableAxis(xEdges), new DoubleVariableAxis(yEdges));

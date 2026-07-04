@@ -190,7 +190,7 @@ public class WrapperObjectMatrix1D extends ObjectMatrix1D {
      * @param width
      *            The width of the range.
      * @throws IndexOutOfBoundsException
-     *             if <code>index<0 || width<0 || index+width>size()</code>.
+     *             if <code>index&lt;0 || width&lt;0 || index+width&gt;size()</code>.
      * @return the new view.
      * 
      */
@@ -251,7 +251,7 @@ public class WrapperObjectMatrix1D extends ObjectMatrix1D {
      *            simply set this parameter to <code>null</code>.
      * @return the new view.
      * @throws IndexOutOfBoundsException
-     *             if <code>!(0 <= indexes[i] < size())</code> for any
+     *             if <code>!(0 &lt;= indexes[i] &lt; size())</code> for any
      *             <code>i=0..indexes.length()-1</code>.
      */
 
@@ -313,7 +313,7 @@ public class WrapperObjectMatrix1D extends ObjectMatrix1D {
      * @param _stride
      *            the step factor.
      * @throws IndexOutOfBoundsException
-     *             if <code>stride <= 0</code>.
+     *             if <code>stride &lt;= 0</code>.
      * @return the new view.
      * 
      */

@@ -44,7 +44,7 @@ public class LongFunctions extends Object {
      * <H3>Unary functions</H3>
      **************************************************************************/
     /**
-     * Function that returns <code>Math.abs(a) == (a < 0) ? -a : a</code>.
+     * Function that returns <code>Math.abs(a) == (a &lt; 0) ? -a : a</code>.
      */
     public static final LongFunction abs = new LongFunction() {
         public final long apply(long a) {
@@ -107,7 +107,7 @@ public class LongFunctions extends Object {
     };
 
     /**
-     * Function that returns <code>a < 0 ? -1 : a > 0 ? 1 : 0</code>.
+     * Function that returns <code>a &lt; 0 ? -1 : a &gt; 0 ? 1 : 0</code>.
      */
     public static final LongFunction sign = new LongFunction() {
         public final long apply(long a) {
@@ -129,7 +129,7 @@ public class LongFunctions extends Object {
      **************************************************************************/
 
     /**
-     * Function that returns <code>a & b</code>.
+     * Function that returns <code>a &amp; b</code>.
      */
     public static final LongLongFunction and = new LongLongFunction() {
         public final long apply(long a, long b) {
@@ -138,7 +138,7 @@ public class LongFunctions extends Object {
     };
 
     /**
-     * Function that returns <code>a < b ? -1 : a > b ? 1 : 0</code>.
+     * Function that returns <code>a &lt; b ? -1 : a &gt; b ? 1 : 0</code>.
      */
     public static final LongLongFunction compare = new LongLongFunction() {
         public final long apply(long a, long b) {
@@ -183,7 +183,7 @@ public class LongFunctions extends Object {
     };
 
     /**
-     * Function that returns <code>a < b</code>.
+     * Function that returns <code>a &lt; b</code>.
      */
     public static final LongLongProcedure isLess = new LongLongProcedure() {
         public final boolean apply(long a, long b) {
@@ -192,7 +192,7 @@ public class LongFunctions extends Object {
     };
 
     /**
-     * Function that returns <code>a > b</code>.
+     * Function that returns <code>a &gt; b</code>.
      */
     public static final LongLongProcedure isGreater = new LongLongProcedure() {
         public final boolean apply(long a, long b) {
@@ -300,7 +300,7 @@ public class LongFunctions extends Object {
     };
 
     /**
-     * Function that returns <code>a << b</code>.
+     * Function that returns <code>a &lt;&lt; b</code>.
      */
     public static final LongLongFunction shiftLeft = new LongLongFunction() {
         public final long apply(long a, long b) {
@@ -309,7 +309,7 @@ public class LongFunctions extends Object {
     };
 
     /**
-     * Function that returns <code>a >> b</code>.
+     * Function that returns <code>a &gt;&gt; b</code>.
      */
     public static final LongLongFunction shiftRightSigned = new LongLongFunction() {
         public final long apply(long a, long b) {
@@ -318,7 +318,7 @@ public class LongFunctions extends Object {
     };
 
     /**
-     * Function that returns <code>a >>> b</code>.
+     * Function that returns <code>a &gt;&gt;&gt; b</code>.
      */
     public static final LongLongFunction shiftRightUnsigned = new LongLongFunction() {
         public final long apply(long a, long b) {
@@ -343,7 +343,7 @@ public class LongFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <code>a & b</code>. <code>a</code> is a
+     * Constructs a function that returns <code>a &amp; b</code>. <code>a</code> is a
      * variable, <code>b</code> is fixed.
      * @param b
      * @return 
@@ -357,7 +357,7 @@ public class LongFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <code>(from<=a && a<=to) ? 1 : 0</code>.
+     * Constructs a function that returns <code>(from&lt;=a &amp;&amp; a&lt;=to) ? 1 : 0</code>.
      * <code>a</code> is a variable, <code>from</code> and <code>to</code> are fixed.
      * @param from
      * @param to
@@ -463,7 +463,7 @@ public class LongFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <code>a < b ? -1 : a > b ? 1 : 0</code>.
+     * Constructs a function that returns <code>a &lt; b ? -1 : a &gt; b ? 1 : 0</code>.
      * <code>a</code> is a variable, <code>b</code> is fixed.
      * @param b
      * @return 
@@ -518,7 +518,7 @@ public class LongFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <code>from<=a && a<=to</code>. <code>a</code>
+     * Constructs a function that returns <code>from&lt;=a &amp;&amp; a&lt;=to</code>. <code>a</code>
      * is a variable, <code>from</code> and <code>to</code> are fixed.
      * @param from
      * @param to
@@ -547,7 +547,7 @@ public class LongFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <code>a > b</code>. <code>a</code> is a
+     * Constructs a function that returns <code>a &gt; b</code>. <code>a</code> is a
      * variable, <code>b</code> is fixed.
      * @param b
      * @return 
@@ -561,7 +561,7 @@ public class LongFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <code>a < b</code>. <code>a</code> is a
+     * Constructs a function that returns <code>a &lt; b</code>. <code>a</code> is a
      * variable, <code>b</code> is fixed.
      * @param b
      * @return 
@@ -753,7 +753,7 @@ public class LongFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <code>a << b</code>. <code>a</code> is a
+     * Constructs a function that returns <code>a &lt;&lt; b</code>. <code>a</code> is a
      * variable, <code>b</code> is fixed.
      * @param b
      * @return 
@@ -767,7 +767,7 @@ public class LongFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <code>a >> b</code>. <code>a</code> is a
+     * Constructs a function that returns <code>a &gt;&gt; b</code>. <code>a</code> is a
      * variable, <code>b</code> is fixed.
      * @param b
      * @return 
@@ -781,7 +781,7 @@ public class LongFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <code>a >>> b</code>. <code>a</code> is a
+     * Constructs a function that returns <code>a &gt;&gt;&gt; b</code>. <code>a</code> is a
      * variable, <code>b</code> is fixed.
      * @param b
      * @return 

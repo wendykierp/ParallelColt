@@ -84,7 +84,7 @@ public class VonMises extends AbstractContinousDoubleDistribution {
          * * Von Mises Distribution - Acceptance Rejection * *
          * ***************************************************************** *
          * FUNCTION : - mwc samples a random number from the von Mises *
-         * distribution ( -Pi <= x <= Pi) with parameter * k > 0 via rejection
+         * distribution ( -Pi &lt;= x &lt;= Pi) with parameter * k &gt; 0 via rejection
          * from the wrapped Cauchy * distibution. * REFERENCE: - D.J. Best, N.I.
          * Fisher (1979): Efficient * simulation of the von Mises distribution,
          * * Appl. Statist. 28, 152-157. * SUBPROGRAM: - drand(seed) ...

@@ -99,7 +99,7 @@ public abstract class AbstractMatrix2D extends AbstractMatrix {
      * @param height
      * @throws IndexOutOfBoundsException
      *             if
-     *             <code>column<0 || width<0 || column+width>columns() || row<0 || height<0 || row+height>rows()</code>
+     *             <code>column&lt;0 || width&lt;0 || column+width&gt;columns() || row&lt;0 || height&lt;0 || row+height&gt;rows()</code>
      */
     protected void checkBox(int row, int column, int height, int width) {
         if (column < 0 || width < 0 || column + width > columns || row < 0 || height < 0 || row + height > rows)
@@ -112,7 +112,7 @@ public abstract class AbstractMatrix2D extends AbstractMatrix {
      * 
      * @param column
      * @throws IndexOutOfBoundsException
-     *             if <code>column < 0 || column >= columns()</code>.
+     *             if <code>column &lt; 0 || column &gt;= columns()</code>.
      */
     protected void checkColumn(int column) {
         if (column < 0 || column >= columns)
@@ -124,7 +124,7 @@ public abstract class AbstractMatrix2D extends AbstractMatrix {
      * 
      * @param indexes
      * @throws IndexOutOfBoundsException
-     *             if <code>! (0 <= indexes[i] < columns())</code> for any
+     *             if <code>! (0 &lt;= indexes[i] &lt; columns())</code> for any
      *             i=0..indexes.length()-1.
      */
     protected void checkColumnIndexes(int[] indexes) {
@@ -140,7 +140,7 @@ public abstract class AbstractMatrix2D extends AbstractMatrix {
      * 
      * @param row
      * @throws IndexOutOfBoundsException
-     *             if <code>row < 0 || row >= rows()</code>.
+     *             if <code>row &lt; 0 || row &gt;= rows()</code>.
      */
     protected void checkRow(int row) {
         if (row < 0 || row >= rows)
@@ -152,7 +152,7 @@ public abstract class AbstractMatrix2D extends AbstractMatrix {
      * 
      * @param indexes
      * @throws IndexOutOfBoundsException
-     *             if <code>! (0 <= indexes[i] < rows())</code> for any
+     *             if <code>! (0 &lt;= indexes[i] &lt; rows())</code> for any
      *             i=0..indexes.length()-1.
      */
     protected void checkRowIndexes(int[] indexes) {
@@ -249,7 +249,7 @@ public abstract class AbstractMatrix2D extends AbstractMatrix {
      *            the number of columns the matrix shall have.
      * @throws IllegalArgumentException
      *             if
-     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows > Integer.MAX_VALUE</code>
+     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows &gt; Integer.MAX_VALUE</code>
      *             .
      */
     protected void setUp(int rows, int columns) {
@@ -276,7 +276,7 @@ public abstract class AbstractMatrix2D extends AbstractMatrix {
      *            <code>index(i,j+1)-index(i,j)</code>.
      * @throws IllegalArgumentException
      *             if
-     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows > Integer.MAX_VALUE</code>
+     *             <code>rows &lt; 0 || columns &lt; 0 || (double)columns*rows &gt; Integer.MAX_VALUE</code>
      *             or flip's are illegal.
      */
     protected void setUp(int rows, int columns, int rowZero, int columnZero, int rowStride, int columnStride) {
@@ -359,7 +359,7 @@ public abstract class AbstractMatrix2D extends AbstractMatrix {
      * @return 
      * @throws IndexOutOfBoundsException
      *             if
-     *             <code>column<0 || width<0 || column+width>columns() || row<0 || height<0 || row+height>rows()</code>
+     *             <code>column&lt;0 || width&lt;0 || column+width&gt;columns() || row&lt;0 || height&lt;0 || row+height&gt;rows()</code>
      */
     protected AbstractMatrix2D vPart(int row, int column, int height, int width) {
         checkBox(row, column, height, width);
@@ -391,7 +391,7 @@ public abstract class AbstractMatrix2D extends AbstractMatrix {
      * @param columnStride
      * @return 
      * @throws IndexOutOfBoundsException
-     *             if <code>rowStride<=0 || columnStride<=0</code>.
+     *             if <code>rowStride&lt;=0 || columnStride&lt;=0</code>.
      */
     protected AbstractMatrix2D vStrides(int rowStride, int columnStride) {
         if (rowStride <= 0 || columnStride <= 0)

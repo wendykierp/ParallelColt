@@ -12,7 +12,7 @@ import cern.colt.matrix.tfloat.FloatMatrix1D;
 import cern.colt.matrix.tfloat.FloatMatrix2D;
 
 /**
- * For an <code>m x n</code> matrix <code>A</code> with <code>m >= n</code>, the LU
+ * For an <code>m x n</code> matrix <code>A</code> with <code>m &gt;= n</code>, the LU
  * decomposition is an <code>m x n</code> unit lower triangular matrix <code>L</code>,
  * an <code>n x n</code> upper triangular matrix <code>U</code>, and a permutation
  * vector <code>piv</code> of length <code>m</code> so that <code>A(piv,:) = L*U</code>; If

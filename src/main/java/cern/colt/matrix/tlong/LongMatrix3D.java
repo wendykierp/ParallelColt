@@ -1683,7 +1683,7 @@ public abstract class LongMatrix3D extends AbstractMatrix3D {
      *            the index of the column to fix.
      * @return a new 2-dimensional slice view.
      * @throws IndexOutOfBoundsException
-     *             if <code>column < 0 || column >= columns()</code>.
+     *             if <code>column &lt; 0 || column &gt;= columns()</code>.
      * @see #viewSlice(int)
      * @see #viewRow(int)
      */
@@ -1718,7 +1718,7 @@ public abstract class LongMatrix3D extends AbstractMatrix3D {
 
     /**
      * Constructs and returns a new <i>dice view</i>; Swaps dimensions (axes);
-     * Example: 3 x 4 x 5 matrix --> 4 x 3 x 5 matrix. The view has dimensions
+     * Example: 3 x 4 x 5 matrix --&gt; 4 x 3 x 5 matrix. The view has dimensions
      * exchanged; what used to be one axis is now another, in all desired
      * permutations. The returned view is backed by this matrix, so changes in
      * the returned view are reflected in this matrix, and vice-versa.
@@ -1760,7 +1760,7 @@ public abstract class LongMatrix3D extends AbstractMatrix3D {
      * @throws IndexOutOfBoundsException
      *             if
      * 
-     *             <code>slice<0 || depth<0 || slice+depth>slices() || row<0 || height<0 || row+height>rows() || column<0 || width<0 || column+width>columns()</code>
+     *             <code>slice&lt;0 || depth&lt;0 || slice+depth&gt;slices() || row&lt;0 || height&lt;0 || row+height&gt;rows() || column&lt;0 || width&lt;0 || column+width&gt;columns()</code>
      * @return the new view.
      * 
      */
@@ -1785,7 +1785,7 @@ public abstract class LongMatrix3D extends AbstractMatrix3D {
      *            the index of the row to fix.
      * @return a new 2-dimensional slice view.
      * @throws IndexOutOfBoundsException
-     *             if <code>row < 0 || row >= row()</code>.
+     *             if <code>row &lt; 0 || row &gt;= row()</code>.
      * @see #viewSlice(int)
      * @see #viewColumn(int)
      */
@@ -1886,13 +1886,13 @@ public abstract class LongMatrix3D extends AbstractMatrix3D {
      *            simply set this parameter to <code>null</code>.
      * @return the new view.
      * @throws IndexOutOfBoundsException
-     *             if <code>!(0 <= sliceIndexes[i] < slices())</code> for any
+     *             if <code>!(0 &lt;= sliceIndexes[i] &lt; slices())</code> for any
      *             <code>i=0..sliceIndexes.length()-1</code>.
      * @throws IndexOutOfBoundsException
-     *             if <code>!(0 <= rowIndexes[i] < rows())</code> for any
+     *             if <code>!(0 &lt;= rowIndexes[i] &lt; rows())</code> for any
      *             <code>i=0..rowIndexes.length()-1</code>.
      * @throws IndexOutOfBoundsException
-     *             if <code>!(0 <= columnIndexes[i] < columns())</code> for any
+     *             if <code>!(0 &lt;= columnIndexes[i] &lt; columns())</code> for any
      *             <code>i=0..columnIndexes.length()-1</code>.
      */
     public LongMatrix3D viewSelection(int[] sliceIndexes, int[] rowIndexes, int[] columnIndexes) {
@@ -1964,7 +1964,7 @@ public abstract class LongMatrix3D extends AbstractMatrix3D {
      *            the index of the slice to fix.
      * @return a new 2-dimensional slice view.
      * @throws IndexOutOfBoundsException
-     *             if <code>slice < 0 || slice >= slices()</code>.
+     *             if <code>slice &lt; 0 || slice &gt;= slices()</code>.
      * @see #viewRow(int)
      * @see #viewColumn(int)
      */
@@ -2011,7 +2011,7 @@ public abstract class LongMatrix3D extends AbstractMatrix3D {
      * @return a new sorted vector (matrix) view.
      * @throws IndexOutOfBoundsException
      *             if
-     *             <code>row $lt; 0 || row >= rows() || column $lt; 0 || column >= columns()</code>
+     *             <code>row $lt; 0 || row &gt;= rows() || column $lt; 0 || column &gt;= columns()</code>
      *             .
      */
     public LongMatrix3D viewSorted(int row, int column) {

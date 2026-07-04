@@ -37,7 +37,7 @@ import cern.colt.matrix.tfloat.algo.FloatProperty;
  * If a matrix shall not be overriden, use <code>matrix.copy()</code> and hand the
  * the copy to methods.
  * <p>
- * For an <code>m x n</code> matrix <code>A</code> with <code>m >= n</code>, the LU
+ * For an <code>m x n</code> matrix <code>A</code> with <code>m &gt;= n</code>, the LU
  * decomposition is an <code>m x n</code> unit lower triangular matrix <code>L</code>,
  * an <code>n x n</code> upper triangular matrix <code>U</code>, and a permutation
  * vector <code>piv</code> of length <code>m</code> so that <code>A(piv,:) = L*U</code>; If
@@ -216,7 +216,7 @@ public class DenseFloatLUDecompositionQuick implements java.io.Serializable {
      * {@link #decompose(FloatMatrix2D)}.
      * 
      * @param semiBandwidth
-     *            == 1 --> A is diagonal, == 2 --> A is tridiagonal.
+     *            == 1 --&gt; A is diagonal, == 2 --&gt; A is tridiagonal.
      * @param A
      *            any matrix.
      */
@@ -374,7 +374,7 @@ public class DenseFloatLUDecompositionQuick implements java.io.Serializable {
      * 9, 9, 9, 9, 9<br>
      * 9, 9, 9, 9, 9</td>
      * <td align="center">triang.Upper<br>
-     * ==></td>
+     * ==&gt;</td>
      * <td valign="top">3 x 5 matrix:<br>
      * 9, 9, 9, 9, 9<br>
      * 0, 9, 9, 9, 9<br>
@@ -388,7 +388,7 @@ public class DenseFloatLUDecompositionQuick implements java.io.Serializable {
      * 9, 9, 9<br>
      * 9, 9, 9</td>
      * <td align="center">triang.Upper<br>
-     * ==></td>
+     * ==&gt;</td>
      * <td valign="top">5 x 3 matrix:<br>
      * 9, 9, 9<br>
      * 0, 9, 9<br>
@@ -402,7 +402,7 @@ public class DenseFloatLUDecompositionQuick implements java.io.Serializable {
      * 9, 9, 9, 9, 9<br>
      * 9, 9, 9, 9, 9</td>
      * <td align="center">triang.Lower<br>
-     * ==></td>
+     * ==&gt;</td>
      * <td valign="top">3 x 5 matrix:<br>
      * 1, 0, 0, 0, 0<br>
      * 9, 1, 0, 0, 0<br>
@@ -416,7 +416,7 @@ public class DenseFloatLUDecompositionQuick implements java.io.Serializable {
      * 9, 9, 9<br>
      * 9, 9, 9</td>
      * <td align="center">triang.Lower<br>
-     * ==></td>
+     * ==&gt;</td>
      * <td valign="top">5 x 3 matrix:<br>
      * 1, 0, 0<br>
      * 9, 1, 0<br>

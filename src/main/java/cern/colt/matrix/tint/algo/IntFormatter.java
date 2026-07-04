@@ -269,9 +269,9 @@ import cern.colt.matrix.tint.IntMatrix3D;
  * </p>
  * <p>
  * Analyzes the entire matrix before producing output. Each cell is converted to
- * a String as indicated by the given C-like format string. If <code>null</code> is
- * passed as format string, {@link java.lang.Int#toString(int)} is used instead,
- * yielding full precision.
+  * a String as indicated by the given C-like format string. If <code>null</code> is
+  * passed as format string, {@link java.lang.Integer#toString(int)} is used instead,
+  * yielding full precision.
  * </p>
  * <p>
  * Next, leading and trailing whitespaces are removed. For each column the

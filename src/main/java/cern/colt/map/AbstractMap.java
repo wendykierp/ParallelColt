@@ -35,7 +35,7 @@ public abstract class AbstractMap extends cern.colt.PersistentObject {
 
     /**
      * The table capacity c=table.length always satisfies the invariant
-     * <code>c * minLoadFactor <= s <= c * maxLoadFactor</code>, where s=size() is
+     * <code>c * minLoadFactor &lt;= s &lt;= c * maxLoadFactor</code>, where s=size() is
      * the number of associations currently contained. The term "c *
      * minLoadFactor" is called the "lowWaterMark", "c * maxLoadFactor" is
      * called the "highWaterMark". In other words, the table capacity (and
@@ -73,7 +73,7 @@ public abstract class AbstractMap extends cern.colt.PersistentObject {
     /**
      * Chooses a new prime table capacity optimized for growing that
      * (approximately) satisfies the invariant
-     * <code>c * minLoadFactor <= size <= c * maxLoadFactor</code> and has at least
+     * <code>c * minLoadFactor &lt;= size &lt;= c * maxLoadFactor</code> and has at least
      * one FREE slot for the given size.
      * @param size
      * @param maxLoad
@@ -116,7 +116,7 @@ public abstract class AbstractMap extends cern.colt.PersistentObject {
     /**
      * Chooses a new prime table capacity neither favoring shrinking nor
      * growing, that (approximately) satisfies the invariant
-     * <code>c * minLoadFactor <= size <= c * maxLoadFactor</code> and has at least
+     * <code>c * minLoadFactor &lt;= size &lt;= c * maxLoadFactor</code> and has at least
      * one FREE slot for the given size.
      * @param size
      * @param maxLoad
@@ -130,7 +130,7 @@ public abstract class AbstractMap extends cern.colt.PersistentObject {
     /**
      * Chooses a new prime table capacity optimized for shrinking that
      * (approximately) satisfies the invariant
-     * <code>c * minLoadFactor <= size <= c * maxLoadFactor</code> and has at least
+     * <code>c * minLoadFactor &lt;= size &lt;= c * maxLoadFactor</code> and has at least
      * one FREE slot for the given size.
      * @param size
      * @param maxLoad
@@ -202,7 +202,7 @@ public abstract class AbstractMap extends cern.colt.PersistentObject {
      * @throws IllegalArgumentException
      *             if
      * 
-     *             <code>initialCapacity < 0 || (minLoadFactor < 0.0 || minLoadFactor >= 1.0) || (maxLoadFactor <= 0.0 || maxLoadFactor >= 1.0) || (minLoadFactor >= maxLoadFactor)</code>
+     *             <code>initialCapacity &lt; 0 || (minLoadFactor &lt; 0.0 || minLoadFactor &gt;= 1.0) || (maxLoadFactor &lt;= 0.0 || maxLoadFactor &gt;= 1.0) || (minLoadFactor &gt;= maxLoadFactor)</code>
      *             .
      */
     protected void setUp(int initialCapacity, double minLoadFactor, double maxLoadFactor) {

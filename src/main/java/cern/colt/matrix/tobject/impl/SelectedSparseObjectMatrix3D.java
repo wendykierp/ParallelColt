@@ -340,7 +340,7 @@ class SelectedSparseObjectMatrix3D extends ObjectMatrix3D {
      * @param columns
      *            the number of columns the matrix shall have.
      * @throws IllegalArgumentException
-     *             if <code>(Object)rows*slices > Integer.MAX_VALUE</code>.
+     *             if <code>(Object)rows*slices &gt; Integer.MAX_VALUE</code>.
      */
 
     protected void setUp(int slices, int rows, int columns) {
@@ -391,7 +391,7 @@ class SelectedSparseObjectMatrix3D extends ObjectMatrix3D {
      *            the index of the column to fix.
      * @return a new 2-dimensional slice view.
      * @throws IndexOutOfBoundsException
-     *             if <code>column < 0 || column >= columns()</code>.
+     *             if <code>column &lt; 0 || column &gt;= columns()</code>.
      * @see #viewSlice(int)
      * @see #viewRow(int)
      */
@@ -433,7 +433,7 @@ class SelectedSparseObjectMatrix3D extends ObjectMatrix3D {
      *            the index of the row to fix.
      * @return a new 2-dimensional slice view.
      * @throws IndexOutOfBoundsException
-     *             if <code>row < 0 || row >= row()</code>.
+     *             if <code>row &lt; 0 || row &gt;= row()</code>.
      * @see #viewSlice(int)
      * @see #viewColumn(int)
      */
@@ -491,7 +491,7 @@ class SelectedSparseObjectMatrix3D extends ObjectMatrix3D {
      *            the index of the slice to fix.
      * @return a new 2-dimensional slice view.
      * @throws IndexOutOfBoundsException
-     *             if <code>slice < 0 || slice >= slices()</code>.
+     *             if <code>slice &lt; 0 || slice &gt;= slices()</code>.
      * @see #viewRow(int)
      * @see #viewColumn(int)
      */

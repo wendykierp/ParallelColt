@@ -92,7 +92,7 @@ public class Distributions {
          * * Burr II, VII, VIII, X Distributions - Inversion * *
          * ***************************************************************** *
          * FUNCTION : - burr1 samples a random number from one of the * Burr II,
-         * VII, VIII, X distributions with * parameter r > 0 , where the no. of
+         * VII, VIII, X distributions with * parameter r &gt; 0 , where the no. of
          * the * distribution is indicated by a pointer * variable. * REFERENCE
          * : - L. Devroye (1986): Non-Uniform Random Variate * Generation,
          * Springer Verlag, New York. * SUBPROGRAM : - drand(seed) ...
@@ -148,7 +148,7 @@ public class Distributions {
          * * Burr III, IV, V, VI, IX, XII Distribution - Inversion * *
          * ***************************************************************** *
          * FUNCTION : - burr2 samples a random number from one of the * Burr
-         * III, IV, V, VI, IX, XII distributions with * parameters r > 0 and k >
+         * III, IV, V, VI, IX, XII distributions with * parameters r &gt; 0 and k &gt;
          * 0, where the no. of * the distribution is indicated by a pointer *
          * variable. * REFERENCE : - L. Devroye (1986): Non-Uniform Random
          * Variate * Generation, Springer Verlag, New York. * SUBPROGRAM : -
@@ -261,7 +261,7 @@ public class Distributions {
          * where x is from Exp(t) with * parameter t=-log(1-p). * *
          * ***************************************************************** *
          * FUNCTION: - geo samples a random number from the Geometric *
-         * distribution with parameter 0<p<1. * SUBPROGRAMS: - drand(seed) ...
+         * distribution with parameter 0&lt;p&lt;1. * SUBPROGRAMS: - drand(seed) ...
          * (0,1)-Uniform generator with * unsigned long integer *seed. * *
          **********************************************************************/
         double u = randomGenerator.raw();
@@ -380,7 +380,7 @@ public class Distributions {
 
     /**
      * Returns a weibull distributed random number. Polar method. See
-     * Simulation, Modelling & Analysis by Law & Kelton, pp259
+     * Simulation, Modelling &amp; Analysis by Law &amp; Kelton, pp259
      * @param alpha
      * @param randomGenerator
      * @param beta

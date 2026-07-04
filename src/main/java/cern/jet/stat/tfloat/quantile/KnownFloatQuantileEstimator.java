@@ -80,7 +80,7 @@ class KnownFloatQuantileEstimator extends FloatQuantileEstimator {
      *            the total number of elements over which quantiles are to be
      *            computed.
      * @param samplingRate
-     *            1.0 --> all elements are consumed. 10.0 --> Consumes one
+     *            1.0 --&gt; all elements are consumed. 10.0 --&gt; Consumes one
      *            random element from successive blocks of 10 elements each.
      *            Etc.
      * @param generator

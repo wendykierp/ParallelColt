@@ -170,7 +170,7 @@ public class DoubleArithmetic extends DoubleConstants {
 
     /**
      * Returns the smallest <code>long &gt;= value</code>. <dt>Examples:
-     * <code>1.0 -> 1, 1.2 -> 2, 1.9 -> 2</code>. This method is safer than
+     * <code>1.0 -&gt; 1, 1.2 -&gt; 2, 1.9 -&gt; 2</code>. This method is safer than
      * using (long) Math.ceil(value), because of possible rounding error.
      * @param value
      * @return 
@@ -195,12 +195,12 @@ public class DoubleArithmetic extends DoubleConstants {
      * last in the array. Note N is the number of coefficients, not the order.
      * <p>
      * If coefficients are for the interval a to b, x must have been transformed
-     * to x -> 2(2x - b - a)/(b-a) before entering the routine. This maps x from
+     * to x -&gt; 2(2x - b - a)/(b-a) before entering the routine. This maps x from
      * (a, b) to (-1, 1), over which the Chebyshev polynomials are defined.
      * <p>
      * If the coefficients are for the inverted interval, in which (a, b) is
-     * mapped to (1/b, 1/a), the transformation required is x -> 2(2ab/x - b -
-     * a)/(b-a). If b is infinity, this becomes x -> 4a/x - 1.
+     * mapped to (1/b, 1/a), the transformation required is x -&gt; 2(2ab/x - b -
+     * a)/(b-a). If b is infinity, this becomes x -&gt; 4a/x - 1.
      * <p>
      * SPEED:
      * <p>
@@ -320,8 +320,8 @@ public class DoubleArithmetic extends DoubleConstants {
 
     /**
      * Returns the largest <code>long &lt;= value</code>. <dt>Examples: <code>
-     * 1.0 -> 1, 1.2 -> 1, 1.9 -> 1 <dt>
-     * 2.0 -> 2, 2.2 -> 2, 2.9 -> 2 </code> <dt>This method is safer than using
+     * 1.0 -&gt; 1, 1.2 -&gt; 1, 1.9 -&gt; 1 <dt>
+     * 2.0 -&gt; 2, 2.2 -&gt; 2, 2.9 -&gt; 2 </code> <dt>This method is safer than using
      * (long) Math.floor(value), because of possible rounding error.
      * @param value
      * @return 
@@ -362,7 +362,7 @@ public class DoubleArithmetic extends DoubleConstants {
 
     /**
      * Returns <code>log(k!)</code>. Tries to avoid overflows. For <code>k &lt; 30</code>
-     * simply looks up a table in O(1). For <code>k>=30</code> uses stirlings
+     * simply looks up a table in O(1). For <code>k&gt;=30</code> uses stirlings
      * approximation.
      * 
      * @param k
@@ -389,7 +389,7 @@ public class DoubleArithmetic extends DoubleConstants {
      * Instantly returns the factorial <code>k!</code>.
      * 
      * @param k
-     *            must hold <code>k &gt;= 0 && k &lt; 21</code>.
+     *            must hold <code>k &gt;= 0 &amp;&amp; k &lt; 21</code>.
      * @return 
      */
     static public long longFactorial(int k) throws IllegalArgumentException {

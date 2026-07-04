@@ -70,7 +70,7 @@ x.assign(y, F.minusMult(1/a)); // x[i,j] = x[i,j] - y[i,j]/a
   <code>c</code> 
 <pre>// x[i] = x[i] * c<br>double c = 2;<br>x.assign(cern.jet.math.Functions.mult(c));
 System.out.println(x);
---&gt; 0 2 4 6</pre>
+--> 0 2 4 6</pre>
 <p>It would be equivalent but more clumsy to write 
 <pre>x.assign( 
    new DoubleFunction() {
@@ -82,12 +82,12 @@ System.out.println(x);
   to hold in each cell the sine of the former corresponding cell value: 
 <pre>// set each cell to its sine<br>System.out.println(x.assign(cern.jet.math.Functions.sin));
 
-// set each cell to random state uniform in (0,1)<br>x.assign(cern.jet.math.Functions.random()));<br>--&gt; 0.002489 0.793068 0.620307 0.35774 
-<br>// set each cell to random state uniform in (0,1)<br>System.out.println(x.assign(cern.jet.math.Functions.random()));<br>--&gt; 0.002489 0.793068 0.620307 0.35774 
-<br>// set each cell to random state uniform in (-0.5, 0.5)<br>int seed = 12345;<br>System.out.println(x.assign(new cern.jet.random.Uniform(-0.5, 0.5, seed)));<br>--&gt; 0.31733 0.499061 0.010354 -0.368467 
+// set each cell to random state uniform in (0,1)<br>x.assign(cern.jet.math.Functions.random()));<br>--> 0.002489 0.793068 0.620307 0.35774 
+<br>// set each cell to random state uniform in (0,1)<br>System.out.println(x.assign(cern.jet.math.Functions.random()));<br>--> 0.002489 0.793068 0.620307 0.35774 
+<br>// set each cell to random state uniform in (-0.5, 0.5)<br>int seed = 12345;<br>System.out.println(x.assign(new cern.jet.random.Uniform(-0.5, 0.5, seed)));<br>--> 0.31733 0.499061 0.010354 -0.368467 
 
 // set each cell to random state from Poisson distribution with mean=2<br>System.out.println(x.assign(new cern.jet.random.Poisson(2, cern.jet.random.Poisson.makeDefaultGenerator()))); 
---&gt; 9 6 2 2
+--> 9 6 2 2
 </pre>
 <hr>
 <h2>Transformation over two matrices</h2>
@@ -97,7 +97,7 @@ System.out.println(x);
 DoubleMatrix1D x = new DenseDoubleMatrix1D(v1);
 DoubleMatrix1D y = new DenseDoubleMatrix1D(v2);
 </pre>
-<p><b><code>x = x<sup>y</sup> &lt;==&gt; x[i] = x[i]<sup>y[i]</sup></code></b> <b><code> 
+<p><b><code>x = x<sup>y</sup> &lt;==> x[i] = x[i]<sup>y[i]</sup></code></b> <b><code> 
   for all i</code></b> 
 <p>A prefabricated <code>pow</code> function object is used to compute the power transformation:</p>
 <pre>// x[i] = Math.pow(x[i], y[i])

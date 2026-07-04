@@ -130,7 +130,7 @@ import cern.colt.function.tdouble.DoubleProcedure;
  * <code>F.chain(F.abs,F.chain(F.plus,F.sin,F.chain(F.square,F.cos)))</code>) the
  * penalty is zero, for trivial functions (e.g. <code>F.plus</code>) the penalty is
  * often acceptable. <center>
- * <table border cellpadding="3" cellspacing="0" * align="center">
+  * <table border cellpadding="3" cellspacing="0" align="center">
  * <tr valign="middle" bgcolor="#33CC66" nowrap align="center">
  * <td nowrap columnspan="7"><font size="+2">Iteration Performance [million
  * function evaluations per second]</font><br>
@@ -399,7 +399,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <code>a < 0 ? -1 : a > 0 ? 1 : 0</code>.
+     * Function that returns <code>a &lt; 0 ? -1 : a &gt; 0 ? 1 : 0</code>.
      */
     public static final DoubleFunction sign = new DoubleFunction() {
         public final double apply(double a) {
@@ -498,7 +498,7 @@ public class DoubleFunctions extends Object {
      */
 
     /**
-     * Function that returns <code>a < b ? -1 : a > b ? 1 : 0</code>.
+     * Function that returns <code>a &lt; b ? -1 : a &gt; b ? 1 : 0</code>.
      */
     public static final DoubleDoubleFunction compare = new DoubleDoubleFunction() {
         public final double apply(double a, double b) {
@@ -534,7 +534,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <code>a > b ? 1 : 0</code>.
+     * Function that returns <code>a &gt; b ? 1 : 0</code>.
      */
     public static final DoubleDoubleFunction greater = new DoubleDoubleFunction() {
         public final double apply(double a, double b) {
@@ -561,7 +561,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <code>a < b</code>.
+     * Function that returns <code>a &lt; b</code>.
      */
     public static final DoubleDoubleProcedure isLess = new DoubleDoubleProcedure() {
         public final boolean apply(double a, double b) {
@@ -570,7 +570,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <code>a > b</code>.
+     * Function that returns <code>a &gt; b</code>.
      */
     public static final DoubleDoubleProcedure isGreater = new DoubleDoubleProcedure() {
         public final boolean apply(double a, double b) {
@@ -579,7 +579,7 @@ public class DoubleFunctions extends Object {
     };
 
     /**
-     * Function that returns <code>a < b ? 1 : 0</code>.
+     * Function that returns <code>a &lt; b ? 1 : 0</code>.
      */
     public static final DoubleDoubleFunction less = new DoubleDoubleFunction() {
         public final double apply(double a, double b) {
@@ -696,7 +696,7 @@ public class DoubleFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <code>(from<=a && a<=to) ? 1 : 0</code>.
+     * Constructs a function that returns <code>(from&lt;=a &amp;&amp; a&lt;=to) ? 1 : 0</code>.
      * <code>a</code> is a variable, <code>from</code> and <code>to</code> are fixed.
      * @param from
      * @param to
@@ -803,7 +803,7 @@ public class DoubleFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <code>a < b ? -1 : a > b ? 1 : 0</code>.
+     * Constructs a function that returns <code>a &lt; b ? -1 : a &gt; b ? 1 : 0</code>.
      * <code>a</code> is a variable, <code>b</code> is fixed.
      * @param b
      * @return 
@@ -964,7 +964,7 @@ public class DoubleFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <code>a > b ? 1 : 0</code>. <code>a</code> is
+     * Constructs a function that returns <code>a &gt; b ? 1 : 0</code>. <code>a</code> is
      * a variable, <code>b</code> is fixed.
      * @param b
      * @return 
@@ -992,7 +992,7 @@ public class DoubleFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <code>from<=a && a<=to</code>. <code>a</code>
+     * Constructs a function that returns <code>from&lt;=a &amp;&amp; a&lt;=to</code>. <code>a</code>
      * is a variable, <code>from</code> and <code>to</code> are fixed.
      * @param from
      * @param to
@@ -1021,7 +1021,7 @@ public class DoubleFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <code>a > b</code>. <code>a</code> is a
+     * Constructs a function that returns <code>a &gt; b</code>. <code>a</code> is a
      * variable, <code>b</code> is fixed.
      * @param b
      * @return 
@@ -1035,7 +1035,7 @@ public class DoubleFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <code>a < b</code>. <code>a</code> is a
+     * Constructs a function that returns <code>a &lt; b</code>. <code>a</code> is a
      * variable, <code>b</code> is fixed.
      * @param b
      * @return 
@@ -1049,7 +1049,7 @@ public class DoubleFunctions extends Object {
     }
 
     /**
-     * Constructs a function that returns <code>a < b ? 1 : 0</code>. <code>a</code> is
+     * Constructs a function that returns <code>a &lt; b ? 1 : 0</code>. <code>a</code> is
      * a variable, <code>b</code> is fixed.
      * @param b
      * @return 

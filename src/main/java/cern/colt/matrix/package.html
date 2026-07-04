@@ -363,7 +363,7 @@ Note that d-dimensional and <code>int</code> based matrices are not yet provided
       <p><code>int row = 2, column = 0;<br>
         </code><code>matrix.set(row,column, 7);<br>
         System.out.println(matrix.get(row,column));<br>
-        // --&gt; 7</code></p>
+        // --> 7</code></p>
     </td>
     <td nowrap><code>3 x 4 matrix <br>
       0 0 0 0 <br>
@@ -378,8 +378,8 @@ Note that d-dimensional and <code>int</code> based matrices are not yet provided
     <td> <code> 
       <pre>
 double sum = 0;
-for (int row=rows; --row &gt;= 0; ) {
-   for (int column=columns; --column &gt;= 0; ) {
+for (int row=rows; --row >= 0; ) {
+   for (int column=columns; --column >= 0; ) {
       sum += matrix.get(row,column); // bounds check
       //sum += matrix.getQuick(row,column); // no bounds check
    }
@@ -605,12 +605,12 @@ System.out.println(sum);
 <h4>Class Naming / Inheritance</h4>
 <p>Have a look at the javadoc <a href="package-tree.html">tree view</a> to get 
   the broad picture. The classes for matrices of a given rank are derived from 
-  a common abstract base class named <code>&lt;ValueType&gt;Matrix&lt;Rank&gt;D</code>, 
+  a common abstract base class named <code><ValueType>Matrix<Rank>D</code>, 
   which is in many ways equivalent to an &quot;interface&quot;. <b>99% of the 
   time you will operate on these abstract classes only</b>. For example, all 2-dimensional 
   matrices operating on <code>double</code> values are derived from {@link cern.colt.matrix.tdouble.DoubleMatrix2D}. 
   This is the interface to operate on.</p>
-<p>Class naming for concrete instantiable classes follows the schema <code>&lt;Property&gt;&lt;ValueType&gt;Matrix&lt;Rank&gt;D</code>. 
+<p>Class naming for concrete instantiable classes follows the schema <code><Property><ValueType>Matrix<Rank>D</code>. 
   For example, we have a {@link cern.colt.matrix.tdouble.impl.DenseDoubleMatrix2D}, a 
   {@link cern.colt.matrix.tdouble.impl.SparseDoubleMatrix2D}, and so on. All concrete instantiable classes are separated into an extra package, 
   {@link cern.colt.matrix.tdouble.impl}, to clearly distinguish between interfaces and 

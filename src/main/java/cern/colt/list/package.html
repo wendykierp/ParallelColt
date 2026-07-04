@@ -53,12 +53,12 @@ Resizable lists holding objects or primitive data types such as <code>int</code>
   independent of the original. So changes in the copy are not reflected in the 
   original, and vice-versa. 
 <h2>3. Organization of this package</h2>
-<p>Class naming follows the schema <code>&lt;ElementType&gt;&lt;ImplementationTechnique&gt;List</code>. 
+<p>Class naming follows the schema <code><ElementType><ImplementationTechnique>List</code>. 
   For example, we have a {@link cern.colt.list.tdouble.DoubleArrayList}, which is a list 
   holding <code>double</code> elements implemented with <code>double</code>[] arrays. 
 </p>
 <p>The classes for lists of a given value type are derived from a common abstract 
-  base class tagged <code>Abstract&lt;ElementType&gt;</code><code>List</code>. For example, 
+  base class tagged <code>Abstract<ElementType></code><code>List</code>. For example, 
   all lists operating on <code>double</code> elements are derived from {@link cern.colt.list.tdouble.AbstractDoubleList}, 
   which in turn is derived from an abstract base class tying together all lists 
   regardless of value type, {@link cern.colt.list.AbstractList}, which finally 
@@ -87,8 +87,8 @@ System.out.println(sum);
 <p> For efficiency, all classes provide back doors to enable getting/setting the 
   backing array directly. In this way, the high level operations of these classes 
   can be used where appropriate, and one can switch to <code>[]</code>-array index 
-  notations where necessary. The key methods for this are <code>public &lt;ElementType&gt;[] 
-  elements()</code> and <code>public void elements(&lt;ElementType&gt;[])</code>. The 
+  notations where necessary. The key methods for this are <code>public <ElementType>[] 
+  elements()</code> and <code>public void elements(<ElementType>[])</code>. The 
   former trustingly returns the array it internally keeps to store the elements. 
   Holding this array in hand, we can use the <code>[]</code>-array operator to 
   perform iteration over large lists without needing to copy the array or paying 

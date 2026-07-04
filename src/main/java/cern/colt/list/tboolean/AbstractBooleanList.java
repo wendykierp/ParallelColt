@@ -854,7 +854,7 @@ public abstract class AbstractBooleanList extends AbstractList {
     }
 
     /**
-     * Transforms a boolean value to an integer (false --> 0, true --> 1)
+     * Transforms a boolean value to an integer (false --&gt; 0, true --&gt; 1)
      * @param value
      * @return 
      */

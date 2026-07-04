@@ -315,7 +315,7 @@ public class ObjectArrayList extends AbstractList {
      * @param elem
      *            element to search for.
      * @param testForEquality
-     *            if true -> test for equality, otherwise for identity.
+     *            if true -&gt; test for equality, otherwise for identity.
      * @return 
      */
     public boolean contains(Object elem, boolean testForEquality) {
@@ -348,7 +348,7 @@ public class ObjectArrayList extends AbstractList {
      * e1.equals(e2))</code>.)
      * 
      * @param testForEquality
-     *            if true -> tests for equality, otherwise for identity.
+     *            if true -&gt; tests for equality, otherwise for identity.
      * @param element
      *            the element to be deleted.
      */
@@ -438,7 +438,7 @@ public class ObjectArrayList extends AbstractList {
      * @param otherObj
      *            the Object to be compared for equality with the receiver.
      * @param testForEquality
-     *            if true -> tests for equality, otherwise for identity.
+     *            if true -&gt; tests for equality, otherwise for identity.
      * @return true if the specified Object is equal to the receiver.
      */
     public boolean equals(Object otherObj, boolean testForEquality) { // delta
@@ -553,7 +553,7 @@ public class ObjectArrayList extends AbstractList {
      * 
      * @param element
      * @param testForEquality
-     *            if <code>true</code> -> test for equality, otherwise for
+     *            if <code>true</code> -&gt; test for equality, otherwise for
      *            identity.
      * @return the index of the first occurrence of the element in the receiver;
      *         returns <code>-1</code> if the element is not found.
@@ -578,7 +578,7 @@ public class ObjectArrayList extends AbstractList {
      * @param to
      *            the rightmost search position, inclusive.
      * @param testForEquality
-     *            if </code>true</code> -> test for equality, otherwise for
+     *            if </code>true</code> -&gt; test for equality, otherwise for
      *            identity.
      * @return the index of the first occurrence of the element in the receiver;
      *         returns <code>-1</code> if the element is not found.
@@ -652,7 +652,7 @@ public class ObjectArrayList extends AbstractList {
      * @param element
      *            the element to be searched for.
      * @param testForEquality
-     *            if <code>true</code> -> test for equality, otherwise for
+     *            if <code>true</code> -&gt; test for equality, otherwise for
      *            identity.
      * @return the index of the last occurrence of the element in the receiver;
      *         returns <code>-1</code> if the element is not found.
@@ -675,7 +675,7 @@ public class ObjectArrayList extends AbstractList {
      * @param to
      *            the rightmost search position, inclusive.
      * @param testForEquality
-     *            if <code>true</code> -> test for equality, otherwise for
+     *            if <code>true</code> -&gt; test for equality, otherwise for
      *            identity.
      * @return the index of the last occurrence of the element in the receiver;
      *         returns <code>-1</code> if the element is not found.
@@ -904,7 +904,7 @@ public class ObjectArrayList extends AbstractList {
      * @param other
      *            the other list.
      * @param testForEquality
-     *            if <code>true</code> -> test for equality, otherwise for
+     *            if <code>true</code> -&gt; test for equality, otherwise for
      *            identity.
      * @return <code>true</code> if the receiver changed as a result of the
      *         call.
@@ -1103,7 +1103,7 @@ public class ObjectArrayList extends AbstractList {
      * @param other
      *            the other list to test against.
      * @param testForEquality
-     *            if <code>true</code> -> test for equality, otherwise for
+     *            if <code>true</code> -&gt; test for equality, otherwise for
      *            identity.
      * @return <code>true</code> if the receiver changed as a result of the
      *         call.

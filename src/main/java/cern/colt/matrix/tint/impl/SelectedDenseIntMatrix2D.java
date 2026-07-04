@@ -270,7 +270,7 @@ class SelectedDenseIntMatrix2D extends IntMatrix2D {
      * <td valign="top">2 x 3 matrix: <br>
      * 1, 2, 3<br>
      * 4, 5, 6</td>
-     * <td>viewColumn(0) ==></td>
+     * <td>viewColumn(0) ==&gt;</td>
      * <td valign="top">Matrix1D of size 2:<br>
      * 1, 4</td>
      * </tr>
@@ -280,7 +280,7 @@ class SelectedDenseIntMatrix2D extends IntMatrix2D {
      *            column to fix.
      * @return a new slice view.
      * @throws IllegalArgumentException
-     *             if <code>column < 0 || column >= columns()</code>.
+     *             if <code>column &lt; 0 || column &gt;= columns()</code>.
      * @see #viewRow(int)
      */
 
@@ -307,7 +307,7 @@ class SelectedDenseIntMatrix2D extends IntMatrix2D {
      * <td valign="top">2 x 3 matrix: <br>
      * 1, 2, 3<br>
      * 4, 5, 6</td>
-     * <td>viewRow(0) ==></td>
+     * <td>viewRow(0) ==&gt;</td>
      * <td valign="top">Matrix1D of size 3:<br>
      * 1, 2, 3</td>
      * </tr>
@@ -317,7 +317,7 @@ class SelectedDenseIntMatrix2D extends IntMatrix2D {
      *            row to fix.
      * @return a new slice view.
      * @throws IndexOutOfBoundsException
-     *             if <code>row < 0 || row >= rows()</code>.
+     *             if <code>row &lt; 0 || row &gt;= rows()</code>.
      * @see #viewColumn(int)
      */
 
@@ -413,7 +413,7 @@ class SelectedDenseIntMatrix2D extends IntMatrix2D {
      * @param columns
      *            the number of columns the matrix shall have.
      * @throws IllegalArgumentException
-     *             if <code>(double)columns*rows > Integer.MAX_VALUE</code>.
+     *             if <code>(double)columns*rows &gt; Integer.MAX_VALUE</code>.
      */
 
     protected void setUp(int rows, int columns) {

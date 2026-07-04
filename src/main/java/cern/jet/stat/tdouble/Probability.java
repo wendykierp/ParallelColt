@@ -284,7 +284,7 @@ public class Probability extends cern.jet.math.tdouble.DoubleConstants {
      * </pre>
      * 
      * <b>Implementation:</b> For
-     * <code>0 <= |x| < 1, erf(x) = x * P4(x**2)/Q5(x**2)</code>; otherwise
+     * <code>0 &lt;= |x| &lt; 1, erf(x) = x * P4(x**2)/Q5(x**2)</code>; otherwise
      * <code>erf(x) = 1 - erfc(x)</code>.
      * <p>
      * Code adapted from the <A
@@ -623,10 +623,10 @@ public class Probability extends cern.jet.math.tdouble.DoubleConstants {
      * to <code>x</code>) is equal to the argument <code>y</code> (assumes mean is zero,
      * variance is one); formerly named <code>ndtri</code>.
      * <p>
-     * For small arguments <code>0 < y < exp(-2)</code>, the program computes
+     * For small arguments <code>0 &lt; y &lt; exp(-2)</code>, the program computes
      * <code>z = sqrt( -2.0 * log(y) )</code>; then the approximation is
      * <code>x = z - log(z)/z  - (1/z) P(1/z) / Q(1/z)</code>. There are two
-     * rational functions P/Q, one for <code>0 < y < exp(-32)</code> and the other
+     * rational functions P/Q, one for <code>0 &lt; y &lt; exp(-32)</code> and the other
      * for <code>y</code> up to <code>exp(-2)</code>. For larger arguments,
      * <code>w = y - 0.5</code>, and
      * <code>x/sqrt(2pi) = w + w**3 R(w**2)/S(w**2))</code>.

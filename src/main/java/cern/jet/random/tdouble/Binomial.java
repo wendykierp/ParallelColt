@@ -108,23 +108,23 @@ public class Binomial extends AbstractDiscreteDistribution {
      * ***************************************************************** *
      * Acceptance Rejection method combined with Inversion for * generating
      * Binomial random numbers with parameters * n (number of trials) and p
-     * (probability of success). * For min(n*p,n*(1-p)) < 10 the Inversion
+     * (probability of success). * For min(n*p,n*(1-p)) &lt; 10 the Inversion
      * method is applied: * The random numbers are generated via sequential
      * search, * starting at the lowest index k=0. The cumulative probabilities
      * * are avoided by using the technique of chop-down. * For min(n*p,n*(1-p))
-     * >= 10 Acceptance Rejection is used: * The algorithm is based on a
+     * &gt;= 10 Acceptance Rejection is used: * The algorithm is based on a
      * hat-function which is uniform in * the centre region and exponential in
      * the tails. * A triangular immediate acceptance region in the centre
      * speeds * up the generation of binomial variates. * If candidate k is near
      * the mode, f(k) is computed recursively * starting at the mode m. * The
      * acceptance test by Stirling's formula is modified * according to W.
      * Hoermann (1992): The generation of binomial * random variates, to appear
-     * in J. Statist. Comput. Simul. * If p < .5 the algorithm is applied to
+     * in J. Statist. Comput. Simul. * If p &lt; .5 the algorithm is applied to
      * parameters n, p. * Otherwise p is replaced by 1-p, and k is replaced by n
      * - k. * *
      * ***************************************************************** *
      * FUNCTION: - samples a random number from the binomial * distribution with
-     * parameters n and p and is * valid for n*min(p,1-p) > 0. * REFERENCE: - V.
+     * parameters n and p and is * valid for n*min(p,1-p) &gt; 0. * REFERENCE: - V.
      * Kachitvichyanukul, B.W. Schmeiser (1988): * Binomial random variate
      * generation, * Communications of the ACM 31, 216-222. * SUBPROGRAMS: -
      * StirlingCorrection() * ... Correction term of the Stirling *

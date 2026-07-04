@@ -19,8 +19,8 @@ import cern.jet.random.tdouble.engine.DoubleRandomEngine;
  * 2 elements), and the input is 5*2=10 elements long, then picks 5 random
  * elements from the 10 elements such that one element is randomly picked from
  * the first block, one element from the second block, ..., one element from the
- * last block. weight == 1.0 --> all elements are picked (sampled). weight ==
- * 10.0 --> Picks one random element from successive blocks of 10 elements each.
+ * last block. weight == 1.0 --&gt; all elements are picked (sampled). weight ==
+ * 10.0 --&gt; Picks one random element from successive blocks of 10 elements each.
  * Etc. The subsequence is guaranteed to be <i>stable</i>, i.e. elements never
  * change position relative to each other.
  * 
@@ -59,8 +59,8 @@ public class WeightedDoubleRandomSampler extends cern.colt.PersistentObject {
      * <code>weight</code> input elements each. For example, if weight==2, and the
      * input is 5*2=10 elements long, then chooses 5 random elements from the 10
      * elements such that one is chosen from the first block, one from the
-     * second, ..., one from the last block. weight == 1.0 --> all elements are
-     * consumed (sampled). 10.0 --> Consumes one random element from successive
+     * second, ..., one from the last block. weight == 1.0 --&gt; all elements are
+     * consumed (sampled). 10.0 --&gt; Consumes one random element from successive
      * blocks of 10 elements each. Etc.
      * 
      * @param weight

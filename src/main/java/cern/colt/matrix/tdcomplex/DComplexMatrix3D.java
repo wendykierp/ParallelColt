@@ -1281,7 +1281,7 @@ public abstract class DComplexMatrix3D extends AbstractMatrix3D {
 
     /**
      * Constructs and returns a new <i>dice view</i>; Swaps dimensions (axes);
-     * Example: 3 x 4 x 5 matrix --> 4 x 3 x 5 matrix. The view has dimensions
+     * Example: 3 x 4 x 5 matrix --&gt; 4 x 3 x 5 matrix. The view has dimensions
      * exchanged; what used to be one axis is now another, in all desired
      * permutations. The returned view is backed by this matrix, so changes in
      * the returned view are reflected in this matrix, and vice-versa.

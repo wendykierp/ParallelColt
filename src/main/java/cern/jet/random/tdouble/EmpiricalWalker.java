@@ -256,7 +256,7 @@ public class EmpiricalWalker extends AbstractDiscreteDistribution {
      * Sets the distribution parameters. The <code>pdf</code> must satisfy all of
      * the following conditions
      * <ul>
-     * <li><code>pdf != null && pdf.length &gt; 0</code>
+     * <li><code>pdf != null &amp;&amp; pdf.length &gt; 0</code>
      * <li><code>0.0 &lt;= pdf[i] : 0 &lt; =i &lt;= pdf.length-1</code>
      * <li><code>0.0 &lt; Sum(pdf[i]) : 0 &lt;=i &lt;= pdf.length-1</code>
      * </ul>

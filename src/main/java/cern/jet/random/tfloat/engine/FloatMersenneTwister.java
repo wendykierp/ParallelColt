@@ -84,9 +84,8 @@ import java.util.Date;
  * <code>k &lt;= 623</code> (except for the zero vector, which appears one time
  * less). If one looks at only the first <code>n &lt;= 16</code> bits of each
  * number, then the property holds for even larger <code>k</code>, as shown in the
- * following table (taken from the publication cited above): <div
- * align="center">
- * <table width="75%" border="1" cellspacing="0" * cellpadding="0">
+ * following table (taken from the publication cited above): <div align="center">
+ * <table width="75%" border="1" cellspacing="0" cellpadding="0">
  * <tr>
  * <td width="2%"><div align="center">n</div></td>
  * <td width="6%"><div align="center">1</div></td>

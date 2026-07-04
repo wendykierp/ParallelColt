@@ -410,7 +410,7 @@ public class Partitioning extends Object {
      *            delimiting intervals. Upon return
      *            <code>splitIndexes[splitFrom..splitTo]</code> will be set
      *            accordingly. Therefore, must satisfy
-     *            <code>splitIndexes.length > splitTo</code>.
+     *            <code>splitIndexes.length &gt; splitTo</code>.
      * 
      * @param comp
      *            the comparator comparing a splitter with an element of the
@@ -702,7 +702,7 @@ public class Partitioning extends Object {
      * <li>All values <code>list[0..2]</code> fall into <code>[-infinity,5)</code>.
      * <li>All values <code>list[3..6]</code> fall into <code>[5,10)</code>.
      * <li>All values <code>list[7..6]</code> fall into <code>[10,30)</code>, i.e. no
-     * elements, since <code>7>6</code>.
+     * elements, since <code>7&gt;6</code>.
      * <li>All values <code>list[7 .. 7=list.length-1]</code> fall into
      * <code>[30,infinity]</code>.
      * <li>In general, all values
@@ -719,7 +719,7 @@ public class Partitioning extends Object {
      * <p>
      * More formally, this method guarantees that upon return
      * <code>for all j = splitFrom .. splitTo</code> there holds: <br>
-     * <code>for all i = splitIndexes[j-1]+1 .. splitIndexes[j]: splitters[j-1] <= list[i] < splitters[j]</code>.
+     * <code>for all i = splitIndexes[j-1]+1 .. splitIndexes[j]: splitters[j-1] &lt;= list[i] &lt; splitters[j]</code>.
      * <p>
      * <b>Performance:</b>
      * <p>
@@ -771,7 +771,7 @@ public class Partitioning extends Object {
      *            delimiting intervals. Upon return
      *            <code>splitIndexes[splitFrom..splitTo]</code> will be set
      *            accordingly. Therefore, must satisfy
-     *            <code>splitIndexes.length > splitTo</code>.
+     *            <code>splitIndexes.length &gt; splitTo</code>.
      *            <p>
      *            Tip: Normally you will have
      *            <code>splitIndexes.length == splitters.length</code> as well as
@@ -926,9 +926,9 @@ public class Partitioning extends Object {
      * <p>
      * More formally, this method guarantees that upon return there holds:
      * <ul>
-     * <li>for all <code>i = from .. returnValue: list[i] < splitter</code> and
+     * <li>for all <code>i = from .. returnValue: list[i] &lt; splitter</code> and
      * <li>for all
-     * <code>i = returnValue+1 .. list.length-1: !(list[i] < splitter)</code>.
+     * <code>i = returnValue+1 .. list.length-1: !(list[i] &lt; splitter)</code>.
      * </ul>
      * <p>
      * <b>Performance:</b>

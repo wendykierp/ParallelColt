@@ -42,11 +42,11 @@ System.out.println(matrix.aggregate(F.min,F.identity));
 System.out.println(matrix.aggregate(F.max,F.chain(F.div(2),F.sqrt)));
 // --> 0.8660254037844386
 
-// Number of all cells with 0 <= value <= 2
+// Number of all cells with 0 &lt;= value &lt;= 2
 System.out.println(matrix.aggregate(F.plus,F.between(0,2)));
 // --> 3
 
-// Number of all cells with 0.8 <= Log2(value) <= 1.2
+// Number of all cells with 0.8 &lt;= Log2(value) &lt;= 1.2
 System.out.println(matrix.aggregate(F.plus,F.chain(F.between(0.8,1.2),F.log2)));
 // --> 1
 

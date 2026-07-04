@@ -59,7 +59,7 @@ public class DiagonalObjectMatrix2D extends WrapperObjectMatrix2D {
      * @throws IllegalArgumentException
      *             if
      * 
-     *             <code>for any 1 &lt;= row &lt; values.length: values[row].length != values[row-1].length || index &lt; -rows+1 || index > columns - 1</code>
+     *             <code>for any 1 &lt;= row &lt; values.length: values[row].length != values[row-1].length || index &lt; -rows+1 || index &gt; columns - 1</code>
      *             .
      */
     public DiagonalObjectMatrix2D(Object[][] values, int dindex) {
@@ -78,7 +78,7 @@ public class DiagonalObjectMatrix2D extends WrapperObjectMatrix2D {
      * @param dindex
      *            index of the diagonal.
      * @throws IllegalArgumentException
-     *             if <code>size &lt; 0 (Object)size > Integer.MAX_VALUE</code>.
+     *             if <code>size &lt; 0 (Object)size &gt; Integer.MAX_VALUE</code>.
      */
     public DiagonalObjectMatrix2D(int rows, int columns, int dindex) {
         super(null);

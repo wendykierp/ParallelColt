@@ -52,7 +52,7 @@ public class QuickBitVector extends Object {
      * rest set to 0. In other words, returns a bit mask having 0,1,2,3,...,64
      * bits set. If <code>to-from+1==0</code> then returns zero (<code>0L</code>).
      * Precondition (not checked):
-     * <code>to-from+1 &gt;= 0 && to-from+1 &lt;= 64</code>.
+     * <code>to-from+1 &gt;= 0 &amp;&amp; to-from+1 &lt;= 64</code>.
      * 
      * @param from
      *            index of start bit (inclusive)
@@ -225,7 +225,7 @@ public class QuickBitVector extends Object {
 
     /**
      * Initializes a table with numbers having 1,2,3,...,64 bits set. pows[i]
-     * has bits [0..i-1] set. pows[64] == -1L == ~0L == has all 64 bits set -->
+     * has bits [0..i-1] set. pows[64] == -1L == ~0L == has all 64 bits set --&gt;
      * correct. to speedup calculations in subsequent methods.
      */
     private static long[] precomputePows() {
