@@ -32,7 +32,7 @@ import org.jtransforms.dct.FloatDCT_2D;
 import org.jtransforms.dht.FloatDHT_2D;
 import org.jtransforms.dst.FloatDST_2D;
 import org.jtransforms.fft.FloatFFT_2D;
-import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
+import edu.emory.mathcs.utils.ConcurrencyUtils;
 
 /**
  * Dense 2-d matrix holding <code>float</code> elements. First see the <a

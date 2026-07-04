@@ -16,7 +16,7 @@ import cern.colt.list.tint.IntArrayList;
 import cern.colt.matrix.tfcomplex.FComplexMatrix1D;
 import cern.colt.matrix.tfcomplex.FComplexMatrix2D;
 import cern.jet.math.tfcomplex.FComplex;
-import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
+import edu.emory.mathcs.utils.ConcurrencyUtils;
 
 /**
  * Sparse column-compressed 2-d matrix holding <code>complex</code> elements. First

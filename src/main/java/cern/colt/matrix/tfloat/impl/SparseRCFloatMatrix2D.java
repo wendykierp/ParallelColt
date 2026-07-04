@@ -16,7 +16,7 @@ import cern.colt.list.tint.IntArrayList;
 import cern.colt.matrix.tfloat.FloatMatrix1D;
 import cern.colt.matrix.tfloat.FloatMatrix2D;
 import cern.jet.math.tfloat.FloatFunctions;
-import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
+import edu.emory.mathcs.utils.ConcurrencyUtils;
 
 /**
  * Sparse row-compressed 2-d matrix holding <code>float</code> elements. First see

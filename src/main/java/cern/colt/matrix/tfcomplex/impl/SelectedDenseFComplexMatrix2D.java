@@ -15,7 +15,7 @@ import cern.colt.matrix.tfcomplex.FComplexMatrix1D;
 import cern.colt.matrix.tfcomplex.FComplexMatrix2D;
 import cern.colt.matrix.tfloat.FloatMatrix2D;
 import cern.colt.matrix.tfloat.impl.DenseFloatMatrix2D;
-import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
+import edu.emory.mathcs.utils.ConcurrencyUtils;
 
 /**
  * Selection view on dense 2-d matrices holding <code>complex</code> elements.

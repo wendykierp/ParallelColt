@@ -16,7 +16,7 @@ import cern.colt.list.tlong.LongArrayList;
 import cern.colt.matrix.tlong.LongMatrix1D;
 import cern.colt.matrix.tlong.LongMatrix2D;
 import cern.jet.math.tlong.LongFunctions;
-import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
+import edu.emory.mathcs.utils.ConcurrencyUtils;
 
 /**
  * Sparse row-compressed 2-d matrix holding <code>long</code> elements. First see

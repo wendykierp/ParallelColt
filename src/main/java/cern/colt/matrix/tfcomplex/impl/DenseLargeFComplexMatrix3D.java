@@ -14,7 +14,7 @@ import org.jtransforms.fft.FloatFFT_2D;
 import org.jtransforms.fft.FloatFFT_3D;
 
 import cern.colt.matrix.tfcomplex.FComplexMatrix3D;
-import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
+import edu.emory.mathcs.utils.ConcurrencyUtils;
 
 /**
  * Dense 3-d matrix holding <code>complex</code> elements.<br>

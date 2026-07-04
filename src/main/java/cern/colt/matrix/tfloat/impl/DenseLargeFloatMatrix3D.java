@@ -20,7 +20,7 @@ import org.jtransforms.dst.FloatDST_2D;
 import org.jtransforms.dst.FloatDST_3D;
 import org.jtransforms.fft.FloatFFT_2D;
 import org.jtransforms.fft.FloatFFT_3D;
-import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
+import edu.emory.mathcs.utils.ConcurrencyUtils;
 
 /**
  * Dense 3-d matrix holding <code>float</code> elements. First see the <a

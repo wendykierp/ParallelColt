@@ -22,7 +22,7 @@ import org.jtransforms.fft.DoubleFFT_2D;
 import cern.colt.matrix.tdcomplex.impl.DenseLargeDComplexMatrix2D;
 import cern.colt.matrix.tdouble.DoubleMatrix1D;
 import cern.colt.matrix.tdouble.DoubleMatrix2D;
-import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
+import edu.emory.mathcs.utils.ConcurrencyUtils;
 
 /**
  * Dense 2-d matrix holding <code>double</code> elements. First see the <a

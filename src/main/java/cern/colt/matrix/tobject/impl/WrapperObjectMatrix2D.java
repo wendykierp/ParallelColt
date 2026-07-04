@@ -14,7 +14,7 @@ import cern.colt.list.tint.IntArrayList;
 import cern.colt.list.tobject.ObjectArrayList;
 import cern.colt.matrix.tobject.ObjectMatrix1D;
 import cern.colt.matrix.tobject.ObjectMatrix2D;
-import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
+import edu.emory.mathcs.utils.ConcurrencyUtils;
 
 /**
  * 2-d matrix holding <code>Object</code> elements; either a view wrapping another

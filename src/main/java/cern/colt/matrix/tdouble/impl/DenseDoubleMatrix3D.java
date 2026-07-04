@@ -23,7 +23,7 @@ import cern.colt.matrix.tdcomplex.impl.DenseDComplexMatrix3D;
 import cern.colt.matrix.tdouble.DoubleMatrix1D;
 import cern.colt.matrix.tdouble.DoubleMatrix2D;
 import cern.colt.matrix.tdouble.DoubleMatrix3D;
-import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
+import edu.emory.mathcs.utils.ConcurrencyUtils;
 
 /**
  * Dense 3-d matrix holding <code>double</code> elements. First see the <a

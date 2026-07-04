@@ -15,7 +15,7 @@ import cern.colt.list.tint.IntArrayList;
 import cern.colt.matrix.tint.IntMatrix1D;
 import cern.colt.matrix.tint.IntMatrix2D;
 import cern.jet.math.tint.IntFunctions;
-import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
+import edu.emory.mathcs.utils.ConcurrencyUtils;
 
 /**
  * Sparse row-compressed 2-d matrix holding <code>int</code> elements. First see the

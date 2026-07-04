@@ -23,7 +23,7 @@ import cern.colt.matrix.tfloat.FloatMatrix1D;
 import cern.colt.matrix.tfloat.impl.DenseFloatMatrix1D;
 import cern.jet.math.tfcomplex.FComplex;
 import cern.jet.math.tfcomplex.FComplexFunctions;
-import edu.emory.mathcs.utils.pc.ConcurrencyUtils;
+import edu.emory.mathcs.utils.ConcurrencyUtils;
 
 /**
  * Dense 1-d matrix (aka <i>vector</i>) holding <code>complex</code> elements.

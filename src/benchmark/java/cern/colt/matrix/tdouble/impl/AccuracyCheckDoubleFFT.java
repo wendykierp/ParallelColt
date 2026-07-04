@@ -3,7 +3,7 @@ package cern.colt.matrix.tdouble.impl;
 import java.util.Random;
 
 import cern.colt.matrix.tdcomplex.impl.DenseDComplexMatrix1D;
-import edu.emory.mathcs.utils.pc.IOUtils;
+import edu.emory.mathcs.utils.IOUtils;
 
 /**
  * Accuracy check of double precision FFT's
