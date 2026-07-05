@@ -51,6 +51,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <github.global.server>github</github.global.server>
         <project.scm.id>github</project.scm.id>
+        <javac.target>17</javac.target>
         <skipTests>false</skipTests>    
         <gpg.skip>true</gpg.skip>      
     </properties>
@@ -86,7 +87,7 @@
                     <header>&lt;b&gt;Parallel Colt ${project.version}&lt;/b&gt;</header>
                     <bottom>&lt;font size=-1 &gt;Jump to the &lt;a target=_top href=${project.url} &gt;Parallel Colt Homepage&lt;/a&gt;</bottom>
                     <failOnError>false</failOnError>
-                    <source>17</source>
+                    <source>${javac.target}</source>
                     <doclint>none</doclint>
                 </configuration>
                 <executions>
@@ -104,7 +105,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.15.0</version>
                 <configuration>
-                    <release>17</release>
+                    <release>${javac.target}</release>
                     <compilerArgument>-XDignore.symbol.file</compilerArgument>
                     <debug>true</debug>
                 </configuration>
@@ -115,6 +116,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.5.6</version>
                 <configuration>
+                    <argLine>--add-modules=jdk.incubator.vector</argLine>
                     <excludes>
                         <exclude>cern/colt/matrix/tdouble/algo/solver/DoubleCGAMGTest.java</exclude>
                         <exclude>cern/colt/matrix/tdouble/algo/solver/DoubleCGSAMGTest.java</exclude>
